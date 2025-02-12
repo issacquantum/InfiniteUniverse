@@ -1,5 +1,0 @@
-{
-  "routes": [
-    { "src": "/assets/Sitemusic/(.*)", "dest": "/assets/Sitemusic/$1" }
-  ]
-}
