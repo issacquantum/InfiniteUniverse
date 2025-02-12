@@ -41,11 +41,25 @@ playPauseButton.addEventListener("click", function () {
 // 🎵 Automatically Play Next Song When Current Song Ends
 audio.addEventListener("ended", function () {
     console.log('Song ended, moving to next');
-    currentSongIndex = (currentSongIndex + 1) % songs.length; // Move to next song, loop to start if last song
+    currentSongIndex = (currentSongIndex + 1) % songs.length; // Move to next song
     audio.src = songs[currentSongIndex]; // Update the source of audio to the next song
     songNameDisplay.textContent = songNames[currentSongIndex]; // Update the song name display
-    audio.play(); // Auto-play next song
+    
+    // Create a new audio element to play the next song
+    const newAudio = new Audio(songs[currentSongIndex]);  // Create new audio object
+    newAudio.volume = 1.0; // Ensure the volume is set
+    newAudio.play()  // Play the next song
+        .then(() => {
+            console.log('Next song started');
+        })
+        .catch(err => {
+            console.error('Error playing next song:', err);
+        });
+    
+    // Reassign the audio element to the newAudio object
+    audio = newAudio;  // Update the audio object to the new one
 });
+
 
 // 🎛 Audio Volume & Initial Setup (important for sound)
 audio.volume = 1.0; // Set the volume to 100% to ensure sound plays
