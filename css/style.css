@@ -244,7 +244,6 @@ header {
 #cvIcon:hover {
     transform: scale(1.1);
 }
-
 /* 📌 PDF Viewer Overlay */
 #cvOverlay {
     position: fixed;
@@ -297,7 +296,9 @@ header {
         width: 100%;
         height: 100%;
         overflow-y: auto;
+        transform: scale(1.3); /* Forces zoom to fill the screen */
     }
 }
+
 
 
