@@ -78,11 +78,11 @@ header {
 }
 
 .about h2 {
-    color: #dea0ff;
+    color: #e409ce;
 }
 
 .about p {
-    color: #b25ec8;
+    color: #bc5ec8;
     margin-bottom: 20px;
 }
 
@@ -228,3 +228,9 @@ header {
         bottom: 10px;     /* Ensure it doesn't get too close to the bottom */
     }
 }
+.vibrant-violet {
+    color: #9b59b6;  /* Vibrant intense violet color */
+    font-weight: bold;  /* Make the text bold */
+    font-size: 20px;  /* Adjust the font size if necessary */
+}
+
