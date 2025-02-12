@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function updateSongName() {
         console.log("Updating song name:", songs[currentSongIndex].title);
         songNameTop.textContent = songs[currentSongIndex].title;
-        
+
         // Apply glow effect
         songNameTop.classList.add("glow");
         songNameTop.style.opacity = "1";
