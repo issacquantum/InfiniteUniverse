@@ -76,3 +76,13 @@ document.getElementById("cvOverlay").addEventListener("click", function (event) 
         this.classList.remove("show");
     }
 });
+// 📌 Fix Mobile PDF Display & Scrolling
+document.getElementById("cvIcon").addEventListener("click", function () {
+    setTimeout(() => {
+        let frame = document.getElementById("cvFrame");
+        frame.style.height = "100vh"; // Force full height
+        frame.style.overflow = "auto"; // Ensure scrolling works
+        frame.contentWindow.document.body.style.zoom = "100%"; // Reset zoom if needed
+    }, 500);
+});
+
