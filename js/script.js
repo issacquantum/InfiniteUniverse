@@ -6,11 +6,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 🎵 Correct Order of Rachmaninoff Pieces
     const songs = [
-    { file: "assets/sitemusic/Prelude in C-sharp minor, Op. 3, No. 2.mp3", title: "Prelude in C-sharp minor, Op. 3, No. 2" },
-    { file: "assets/sitemusic/Moment Musical No. 4 in D Major, Op. 16.mp3", title: "Moment Musical No. 4 in D Major, Op. 16" },
-    { file: "assets/sitemusic/Élégie in E-flat minor, Op. 3 No. 1.mp3", title: "Élégie in E-flat minor, Op. 3 No. 1" },
-    { file: "assets/sitemusic/Rhapsody on a Theme of Paganini, Op. 43.mp3", title: "Rhapsody on a Theme of Paganini, Op. 43" }
+    { file: "https://infinite-universe.vercel.app/assets/Sitemusic/Prelude in C-sharp minor, Op. 3, No. 2.mp3", title: "Prelude in C-sharp minor, Op. 3, No. 2" },
+    { file: "https://infinite-universe.vercel.app/assets/Sitemusic/Moment Musical No. 4 in D Major, Op. 16.mp3", title: "Moment Musical No. 4 in D Major, Op. 16" },
+    { file: "https://infinite-universe.vercel.app/assets/Sitemusic/Élégie in E-flat minor, Op. 3 No. 1.mp3", title: "Élégie in E-flat minor, Op. 3 No. 1" },
+    { file: "https://infinite-universe.vercel.app/assets/Sitemusic/Rhapsody on a Theme of Paganini, Op. 43.mp3", title: "Rhapsody on a Theme of Paganini, Op. 43" }
 ];
+
 
 
 
