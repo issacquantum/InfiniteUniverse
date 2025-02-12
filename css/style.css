@@ -44,6 +44,7 @@ header {
     text-shadow: 0px 0px 15px #9400D3, 0px 0px 25px #8A2BE2, 0px 0px 35px #6A0DAD;
     color: #dea0ff;
     font-size: 1.8rem;
+    margin-left: 15mm; /* Moves the name exactly 5mm to the right */
 }
 
 .site-name:hover {
@@ -148,4 +149,67 @@ header {
     .site-name { font-size: 1.2rem; }
     .profile img { width: 100px; height: 100px; }
     .social-logo { width: 30px; }
+}
+/* 🎵 Music Player - Fix Position Inside Footer */
+.music-control {
+    position: absolute;
+    bottom: 10px;
+    right: 20px; /* Aligns to the right side of the footer */
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Adds spacing between song name & button */
+}
+
+/* 🎵 Fix Footer to Contain Music Controls */
+.footer {
+    position: relative; /* Allows absolute positioning inside */
+    display: flex;
+    justify-content: space-between; /* Pushes content apart */
+    align-items: center;
+    padding: 10px 20px;
+}
+
+/* 🎵 Song Name Styling */
+#song-name {
+    font-size: 14px;
+    font-weight: bold;
+    color: #ff1493; /* Fluorescent pink */
+    text-shadow: 0 0 12px #ff1493, 0 0 18px #ff69b4, 0 0 24px #ff85c1;
+    transition: text-shadow 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* 🔥 Glowing effect applies only when playing */
+.glow {
+    text-shadow: 0 0 20px #ff1493, 0 0 30px #ff69b4, 0 0 40px #ff85c1;
+}
+
+/* ⏸ Remove glow when paused */
+.no-glow {
+    text-shadow: none;
+}
+
+/* 🎵 Play/Pause Button Styling */
+#playPauseButton {
+    width: 35px;
+    height: auto;
+    cursor: pointer;
+    filter: invert(35%) sepia(80%) saturate(500%) hue-rotate(250deg) brightness(110%) contrast(120%);
+    transition: transform 0.2s ease-in-out;
+}
+
+/* 📱 Responsive Fix for Mobile */
+@media only screen and (max-width: 768px) {
+    .music-control {
+        bottom: 15px;
+        right: 10px;
+        flex-direction: row-reverse; /* Keep button aligned properly */
+    }
+
+    #song-name {
+        font-size: 12px;
+    }
+
+    #playPauseButton {
+        width: 30px;
+    }
 }
