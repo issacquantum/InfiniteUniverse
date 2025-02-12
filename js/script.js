@@ -84,6 +84,11 @@ document.getElementById("cvOverlay").addEventListener("click", function (event) 
         this.classList.remove("show");
     }
 });
+// 📌 Disable CV Icon Click on Mobile
+if (window.innerWidth <= 768) {
+    document.getElementById("cvIcon").style.pointerEvents = "none"; // Disables clicks
+    document.getElementById("cvIcon").style.opacity = "0.5"; // Makes it look disabled
+}
 
 
 
