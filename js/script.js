@@ -64,3 +64,15 @@ audio.addEventListener("ended", function () {
 // 🎛 Audio Volume & Initial Setup (important for sound)
 audio.volume = 1.0; // Set the volume to 100% to ensure sound plays
 audio.load(); // Ensure the audio is loaded initially
+
+// 📌 Open PDF Viewer When Clicking CV Icon
+document.getElementById("cvIcon").addEventListener("click", function () {
+    document.getElementById("cvOverlay").classList.add("show");
+});
+
+// 📌 Close PDF Viewer When Clicking Outside
+document.getElementById("cvOverlay").addEventListener("click", function (event) {
+    if (event.target === this) {
+        this.classList.remove("show");
+    }
+});
