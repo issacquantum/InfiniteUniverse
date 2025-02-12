@@ -288,4 +288,16 @@ header {
     opacity: 1;
     transform: translateY(0);
 }
+/* 📌 Fix PDF Viewer for Mobile */
+@media screen and (max-width: 768px) {
+    #cvViewer {
+        width: 95%; /* Make it take up more space on mobile */
+        height: 95vh; /* Ensure full screen height */
+    }
+    #cvFrame {
+        width: 100%;
+        height: 100%;
+        overflow: auto; /* Allow scrolling inside the PDF */
+    }
+}
 
