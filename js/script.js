@@ -65,24 +65,18 @@ audio.addEventListener("ended", function () {
 audio.volume = 1.0; // Set the volume to 100% to ensure sound plays
 audio.load(); // Ensure the audio is loaded initially
 
-// 📌 Open PDF Viewer When Clicking CV Icon
+// 📌 Open PDF in Fullscreen Mode
 document.getElementById("cvIcon").addEventListener("click", function () {
-    document.getElementById("cvOverlay").classList.add("show");
+    let overlay = document.getElementById("cvOverlay");
+    overlay.classList.add("show"); // Show overlay
 });
 
-// 📌 Close PDF Viewer When Clicking Outside
+// 📌 Close PDF Overlay When Clicking Outside
 document.getElementById("cvOverlay").addEventListener("click", function (event) {
     if (event.target === this) {
         this.classList.remove("show");
     }
 });
-// 📌 Fix Mobile PDF Display & Scrolling
-document.getElementById("cvIcon").addEventListener("click", function () {
-    setTimeout(() => {
-        let frame = document.getElementById("cvFrame");
-        frame.style.height = "100vh"; // Force full height
-        frame.style.overflow = "auto"; // Ensure scrolling works
-        frame.contentWindow.document.body.style.zoom = "100%"; // Reset zoom if needed
-    }, 500);
-});
+
+
 
