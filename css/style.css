@@ -213,3 +213,18 @@ header {
         width: 30px;
     }
 }
+/* For mobile devices and small screens (e.g., 768px and below) */
+@media (max-width: 768px) {
+    /* Hide the song name on mobile */
+    #song-name {
+        display: none;  /* Song name is hidden on mobile */
+    }
+
+    /* Resize and move the play/pause button to the right */
+    #playPauseButton {
+        width: 40px;      /* Make the button a bit smaller */
+        height: 40px;     /* Make the button a bit smaller */
+        right: 10px;      /* Move the button to the right to avoid overlap */
+        bottom: 10px;     /* Ensure it doesn't get too close to the bottom */
+    }
+}
