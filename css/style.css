@@ -233,4 +233,59 @@ header {
     font-weight: bold;  /* Make the text bold */
     font-size: 20px;  /* Adjust the font size if necessary */
 }
+/* 📌 CV Icon in Navigation Bar */
+#cvIcon {
+    width: 30px;
+    height: auto;
+    cursor: pointer;
+    margin-left: 10px; /* Adjust spacing from Atom logo */
+    transition: transform 0.2s ease-in-out;
+}
+#cvIcon:hover {
+    transform: scale(1.1);
+}
+
+/* 📌 PDF Viewer Overlay */
+#cvOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* 📌 PDF Viewer Box */
+#cvViewer {
+    width: 90%;
+    max-width: 900px;
+    height: 90%;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    transform: translateY(-50px);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* 📌 PDF Frame */
+#cvFrame {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* 📌 Overlay Animation */
+#cvOverlay.show {
+    display: flex;
+}
+#cvOverlay.show #cvViewer {
+    opacity: 1;
+    transform: translateY(0);
+}
 
