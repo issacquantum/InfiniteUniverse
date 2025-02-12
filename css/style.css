@@ -1,21 +1,20 @@
 /* General Page Styling */
 body {
     font-family: 'Dancing Script', cursive !important;
-    letter-spacing: 0.5px !important; /* Ensures letters are separate */
+    letter-spacing: 0.5px !important;
     margin: 0;
     padding: 0;
-    background-color: #21142f !important; /* Forces violet background */
+    background-color: #21142f !important;
     color: #6f0da8;
     
-    /* 🔥 Parallax Background */
+    /* Parallax Background */
     background-image: url("../assets/hexlineweave5.svg") !important;
     background-size: cover !important;
-    background-attachment: fixed !important;  /* Enables Parallax Effect */
+    background-attachment: fixed !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
     background-blend-mode: soft-light !important;
-
-
+}
 
 /* NAVIGATION BAR */
 header {
@@ -40,18 +39,12 @@ header {
     justify-content: center;
 }
 
-/* ✨ Make Navigation Bar Name Static & Apply a Fluorescent Violet Glow */
+/* Navigation Bar Name Styling */
 .site-name {
-    position: static !important; /* Keeps it from moving */
-    text-shadow: 
-        0px 0px 15px #9400D3, /* Intense fluorescent violet */
-        0px 0px 25px #8A2BE2, /* Deeper violet */
-        0px 0px 35px #6A0DAD; /* Darker violet glow */
-    color: #dea0ff; /* Bright violet */
-    font-size: 1.8rem; /* Keep original size */
-    transition: none !important; /* Stops unwanted movement */
+    text-shadow: 0px 0px 15px #9400D3, 0px 0px 25px #8A2BE2, 0px 0px 35px #6A0DAD;
+    color: #dea0ff;
+    font-size: 1.8rem;
 }
-
 
 .site-name:hover {
     text-shadow: 0 0 12px #ff69b4, 0 0 18px #c71585, 0 0 24px #9400d3;
@@ -61,33 +54,6 @@ header {
     width: 30px;
     height: auto;
     margin-left: 10px;
-    filter: invert(35%) sepia(80%) saturate(500%) hue-rotate(250deg) brightness(110%) contrast(120%);
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-nav ul li {
-    display: inline;
-}
-
-nav ul li a {
-    font-family: 'Dancing Script', cursive;
-    font-size: 1rem;
-    color: #a30a7a; /* Regular pink */
-    text-decoration: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    transition: all 0.3s ease-in-out;
-}
-
-nav ul li a:hover {
-    color: #ee80bb;
-    text-shadow: 0 0 8px #ff1493, 0 0 12px #d02090, 0 0 16px #800080;
-    transform: scale(1.1);
 }
 
 /* PROFILE SECTION */
@@ -103,38 +69,20 @@ nav ul li a:hover {
     margin-bottom: 20px;
 }
 
-/* INTERESTS SECTION */
-.interests {
-    text-align: center;
-    margin: 50px 0;
-}
-
-.interests .links a {
-    color: #a90c6f;
-    padding: 8px;
-    text-decoration: none;
-    transition: text-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
-}
-
-.interests .links a:hover {
-    color: #ff1493; /* Fluorescent pink */
-    text-shadow: 0 0 12px #ff1493, 0 0 18px #ff69b4, 0 0 24px #ff85c1;
-}
-
-
 /* ABOUT ME SECTION */
 .about {
     text-align: center;
     padding: 20px;
-    background-color: #rgba;
     margin: 40px 0;
 }
+
 .about h2 {
-    color: rgba; /* Pink color for About Me title */
+    color: #dea0ff;
 }
+
 .about p {
-    color: #b25ec8; /* Pink color for all text inside About Me section */
-    margin-bottom: 20px; /* Optional: Adds space between paragraphs */
+    color: #b25ec8;
+    margin-bottom: 20px;
 }
 
 /* CONTACT SECTION */
@@ -144,12 +92,12 @@ nav ul li a:hover {
 }
 
 .contact p a {
-    color: #FF1493; /* Dark fluorescent pink color for the email link */
-    text-decoration: none; /* Remove the underline */
+    color: #FF1493;
+    text-decoration: none;
 }
 
 .contact p a:hover {
-    color: #bf00ff; /* Fluorescent violet */
+    color: #bf00ff;
     text-shadow: 0 0 10px #bf00ff, 0 0 15px #9a00e6, 0 0 20px #6f00b8;
     text-decoration: underline;
 }
@@ -158,836 +106,46 @@ nav ul li a:hover {
     margin: 0 15px;
 }
 
-/* SOCIAL MEDIA ICONS ROTATION */
+/* SOCIAL MEDIA ICONS ROTATION & FLUORESCENT VIOLET */
 .social-logo {
     width: 40px;
     height: auto;
-    filter: invert(35%) sepia(80%) saturate(500%) hue-rotate(250deg) brightness(110%) contrast(120%);
-    transition: filter 0.3s ease-in-out, box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
-    animation: rotateIcon 5s linear infinite; /* Rotation animation */
+    transition: filter 0.3s ease-in-out, transform 0.3s ease-in-out;
+    animation: rotateIcon 5s linear infinite;
+    filter: drop-shadow(0 0 12px #bf00ff) drop-shadow(0 0 18px #9a00e6) drop-shadow(0 0 25px #6f00b8);
 }
 
-/* Rotation keyframe */
 @keyframes rotateIcon {
-    from {
-        transform: rotate(0deg); /* Start from 0 degrees */
-    }
-    to {
-        transform: rotate(360deg); /* Rotate to 360 degrees */
-    }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
-/* Hover effect to make icons glow and scale up */
 .social-logo:hover {
-    transform: scale(1.1); /* Slightly increase size on hover */
-    filter: drop-shadow(0 0 10px #ff1493); /* Add glow effect on hover */
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 15px #bf00ff) drop-shadow(0 0 20px #9a00e6) drop-shadow(0 0 30px #6f00b8);
 }
 
-
-/* ZOOM IN/OUT SUPPORT */
-html {
-    font-size: 16px; /* Base size */
-}
-.section-title {
-    transition: text-shadow 0.3s ease-in-out;
-}
-
-.section-title {
-    transition: text-shadow 0.3s ease-in-out;
-}
-
-.section-title:hover {
-    text-shadow: 0 0 12px #bf00ff, 0 0 18px #9a00e6, 0 0 24px #6f00b8;
-}
-
-email-label {
-    display: inline-block; /* Ensures it behaves like a text element */
-    transition: text-shadow 0.3s ease-in-out;
-}
-
-.email-label:hover {
-    text-shadow: 0 0 12px #ff1493, 0 0 18px #ff69b4, 0 0 24px #ff85c1;
-}
-.nav-animation {
-    display: inline-block !important;
-    width: 30px !important;
-    height: 30px !important;
-    background: url("../assets/violetplanet.jpg") no-repeat center center !important;
-    background-size: cover !important;
-    border-radius: 50% !important;
-    margin-right: 10px !important;
-    animation: rotatePlanet 5s linear infinite !important;
-}
-
-/* Rotation Animation */
-@keyframes rotatePlanet {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-/* 🔥 Even More Dramatic Floating Effect for Section Titles */
-.section-title {
-    display: inline-block !important;
-    color: #dea0ff !important; /* Keeps the title color */
-    transition: text-shadow 0.3s ease-in-out, transform 2s ease-in-out !important;
-    animation: floatTitle 2.5s ease-in-out infinite alternate !important;
-}
-
-/* 🔥 Stronger Floating Animation */
-@keyframes floatTitle {
-    0% {
-        transform: translateY(0px);
-    }
-    100% {
-        transform: translateY(15px); /* Moves the title even more noticeably */
-    }
-}
-/* 🔥 Define Floating & Rotating Animations for Social Icons */
-@keyframes cosmicFloat {
-    0% {
-        transform: translateY(0px);
-    }
-    100% {
-        transform: translateY(10px);
-    }
-}
-
-@keyframes cosmicRotate {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-/* 🔥 Apply Pulsing Effect Only */
-.site-name {
-    animation: pulseGlow 3s ease-in-out infinite;
-}
-/* 🔥 Cosmic Floating & Rotating Social Media Icons */
-.social-logo {
-    width: 40px;
-    height: auto;
-    filter: invert(35%) sepia(80%) saturate(500%) hue-rotate(250deg) brightness(110%) contrast(120%);
-    transition: filter 0.3s ease-in-out, box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
-    animation: cosmicFloat 3s ease-in-out infinite alternate, cosmicRotate 6s linear infinite;
-
-}
-
-/* 🔥 Warping Effect for Section Titles */
-.section-title {
-    display: inline-block;
-    transition: text-shadow 0.3s ease-in-out, transform 2s ease-in-out;
-    animation: warpEffect 5s infinite ease-in-out alternate; /* Warping effect */
-}
-/* 🔥 Copyright Section - Centered & Styled */
-.copyright {
-    text-align: center; /* Centers the text */
-    color: #FF1493; /* Fluorescent pink */
-    font-size: 0.9rem; /* Keeps it elegant */
-    margin-top: 20px; /* Adds spacing from above */
-    padding-bottom: 10px; /* Prevents it from touching the bottom */
-}
-
-/* 🔥 Ensure It Stays at the Bottom */
+/* FOOTER */
 .footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.3); /* Slight dark background (optional) */
-    padding: 5px 0;
-}
-/* 🔥 Keep the entire music control section stable & centered */
-.music-control {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px; /* Keeps spacing even */
-    position: fixed;
-    bottom: 20px;
-    right: 60px; /* Moves everything slightly left to avoid window overlap */
-    z-index: 1000;
+    text-align: center;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.3);
 }
 
-/* 🎵 Song Name Styling (Fluorescent Pink with an Intense Fluorescent Violet Glow) */
-.song-name {
-    font-size: 14px;
-    font-weight: bold;
-    color: #ff1493; /* Fluorescent pink */
-    text-shadow: 
-        0px 0px 25px #BF00FF, /* Intense fluorescent violet */
-        0px 0px 35px #9A00E6,
-        0px 0px 45px #6F00B8;
-    display: inline-block;
-    white-space: nowrap; /* Prevents text from wrapping */
-    overflow: hidden;
-    text-overflow: ellipsis; /* Adds "..." if the name is too long */
-    opacity: 1 !important; /* Ensures it's always visible */
-    transition: none !important; /* DISABLES any animation effects */
+.copyright {
+    color: #FF1493;
+    font-size: 0.9rem;
 }
 
-
-/* 🔥 Apply Smooth Glow Effect (No Size Changes) */
-.music-control img:hover {
-    animation: softGlow 1.5s infinite alternate;
-    cursor: pointer;
-}
-
-
-.music-control img {
-    width: 100%;
-    height: auto;
-    filter: drop-shadow(0 0 8px #ff69b4); /* Glowing effect */
-    transition: filter 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
-
-.music-control:hover {
-    transform: scale(1.1);
-}
-
-.music-control:active {
-    transform: scale(0.9);
-}
-/* 🎵 Top Left Music Control (Navigation Bar) */
-.music-nav {
-    position: absolute;
-    left: 20px; /* Align it to the left */
-    top: 50%;
-    transform: translateY(-50%);
-    width: 35px; 
-    height: auto;
-    cursor: pointer;
-    filter: drop-shadow(0 0 8px #bf00ff); /* Fluorescent violet glow */
-    transition: filter 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
-
-.music-nav:hover {
-    transform: scale(1.1);
-    filter: drop-shadow(0 0 12px #9400d3); /* Stronger violet glow */
-}
-
-.music-nav:active {
-    transform: scale(0.9);
-}
-strong {
-    font-weight: bold !important;
-    color: inherit; /* Ensures it doesn't change color */
-}
-strong {
-    font-weight: 900 !important;
-    font-family: 'Great Vibes', cursive, sans-serif !important;
-    color: #bf5fff !important; /* Clear violet */
-    text-shadow: 0px 0px 10px rgba(255, 105, 180, 1), 0px 0px 20px rgba(255, 182, 193, 0.9); /* Very fluorescent pink glow */
-}
-/* 🔥 Top Left Song Name (Fluorescent Pink, Next to Play Button) */
-.song-top {
-    position: absolute;
-    top: 50%;
-    left: 60px; /* Adjust for perfect spacing */
-    transform: translateY(-50%);
-    color: #ff1493; /* Fluorescent pink */
-    font-size: 14px;
-    text-shadow: 0 0 10px #ff1493, 0 0 20px #ff69b4, 0 0 30px #ff85c1; /* Soft pink glow */
-}
-
-/* 🔥 Bottom Right Song Name (Fluorescent Violet, Left of Icons) */
-.song-bottom {
-    font-size: 14px;
-    color: #9400d3; /* Intense fluorescent violet */
-    text-shadow: 0 0 10px #9400d3, 0 0 20px #9400d3, 0 0 30px #9400d3; /* Soft violet glow */
-    margin-right: 10px; /* Space between song name and music buttons */
-}
-
-
-/* Top Left - To the right of the music control icon */
-#songNameTop {
-    position: absolute;
-    top: 50%;
-    left: 60px; /* Adjust this value to your liking */
-    transform: translateY(-50%);
-    opacity: 0; /* Initially hidden */
-}
-
-/* Bottom Right - To the left of the music control icon */
-#songNameBottom {
-    position: fixed;
-    bottom: 20px;
-    right: 80px; /* Adjust this value to your liking */
-    opacity: 0; /* Initially hidden */
-}
-
-/* Glowing effect when the song is playing */
-.glow {
-    text-shadow: 0 0 10px #9400d3, 0 0 20px #9400d3, 0 0 30px #9400d3; /* Fluorescent violet glow */
-    opacity: 1;
-}
-
-/* Music Control Icon (Positioning) */
-.music-control img {
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-}
-
-/* Ensuring song names are visible when music is playing */
-#songNameTop.glow,
-#songNameBottom.glow {
-    opacity: 1;
-}
-
-/* General styling for the song name */
-.song-name {
-    font-size: 14px; /* Small letters */
-    color: #ff1493;  /* Initial pink color */
-    margin-left: 10px; /* Space between the icon and name */
-    display: inline-block;
-    transition: all 0.3s ease-in-out;
-}
-
-/* Top Left - To the right of the music control icon */
-#songNameTop {
-    position: absolute;
-    top: 50%;
-    left: 60px; /* Adjust this value to your liking */
-    transform: translateY(-50%);
-    opacity: 0; /* Initially hidden */
-}
-
-/* Bottom Right - To the left of the music control icon */
-#songNameBottom {
-    position: fixed;
-    bottom: 20px;
-    right: 80px; /* Adjust this value to your liking */
-    opacity: 0; /* Initially hidden */
-}
-
-/* Glowing effect when the song is playing */
-.glow {
-    animation: pulseGlow 2s ease-in-out infinite;
-    opacity: 1;
-}
-
-/* Music Control Icon (Positioning) */
-.music-control img {
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-}
-
-/* Ensuring song names are visible when music is playing */
-#songNameTop.glow,
-#songNameBottom.glow {
-    opacity: 1;
-}
-
-
-.music-control {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px; /* Keeps spacing even */
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-}
-
-/* Style for buttons */
-.music-control img {
-    width: 30px;
-    height: auto;
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out;
-}
-
-/* Glowing and pulsing effect */
-.music-control img:hover {
-    filter: drop-shadow(0px 0px 10px rgb(209, 130, 238)) drop-shadow(0px 0px 20px pink);
-    animation: pulseGlow 1.5s infinite alternate;
-}
-
-
-
-/* 🛑 Position Name on the Right Side, Centered (Static & Glowing) */
-.site-name {
-    position: absolute !important; /* Keeps it locked in place */
-    top: 27% !important; /* Aligns vertically in the navbar */
-    right: 200px !important; /* Moves it to the right side */
-    transform: translateY(-50%) !important; /* Centers it vertically */
-    text-shadow: 
-        0px 0px 15px #9400D3, /* Fluorescent violet glow */
-        0px 0px 25px #8A2BE2, 
-        0px 0px 35px #6A0DAD;
-    color: #dea0ff; /* Bright violet */
-    font-size: 1.8rem; /* Keeps original size */
-    transition: none !important; /* Stops movement */
-    animation: none !important; /* Disables unwanted animations */
-}
-
-/* 🛑 Stop Hover or Click Movement */
-.site-name:hover,
-.site-name:active {
-    transform: translateY(-50%) !important; /* Ensures it stays locked */
-    animation: none !important;
-    transition: none !important;
-}
-/* Apply intense fluorescent violet glow to song names */
-.song-name, 
-#songNameTop, 
-#songNameBottom {
-    
-    text-shadow: 
-        0px 0px 15px #d300be, /* Intense fluorescent violet glow */
-        0px 0px 25px #d300be, /* Deeper violet glow */
-        0px 0px 35px #d300be; /* Darker violet glow */
-    opacity: 1 !important; /* Ensure visibility */
-    transition: none !important; /* Disable unwanted transitions */
-}
-
-/* Intense fluorescent pink glowing effect when hovering over song names */
-.song-name:hover, 
-#songNameTop:hover, 
-#songNameBottom:hover {
-    color: #8006b0; /* Very fluorescent pink color when hovered */
-    text-shadow: 
-        0px 0px 30px #ff1493, /* Extremely intense fluorescent pink glow */
-        0px 0px 40px #ff69b4, 
-        0px 0px 50px #ff85c1, /* Strong pink shades for glow */
-        0px 0px 60px #ff1493; /* Add extra intense pink glow */
-    transition: text-shadow 0.3s ease-in-out, color 0.3s ease-in-out; /* Smooth transition on hover */
-}
-/* Add rotation effect to social media icons */
-.social-logo {
-    width: 40px;
-    height: auto;
-    transition: transform 0.3s ease-in-out;
-    animation: rotateIcon 5s linear infinite; /* Rotation animation */
-}
-
-/* Rotation keyframe */
-@keyframes rotateIcon {
-    from {
-        transform: rotate(0deg); /* Start from 0 degrees */
-    }
-    to {
-        transform: rotate(360deg); /* Rotate to 360 degrees */
-    }
-}
-
-/* Optional: Hover effect to make icons glow and scale up while rotating */
-.social-logo:hover {
-    transform: scale(1.1); /* Slightly increases size on hover */
-    filter: drop-shadow(0 0 10px #ff1493); /* Add glow effect on hover */
-}
-/* Make the play button larger for better touch responsiveness on mobile */
-.music-nav {
-    width: 50px;  /* Larger size for better touchability */
-    height: 50px; /* Larger size for better touchability */
-    cursor: pointer;
-}
-/* Ensure the play button is properly placed in both portrait and landscape modes */
+/* RESPONSIVENESS */
 @media only screen and (max-width: 768px) {
-    /* Adjust position of the play button for better touchability on mobile portrait */
-    .music-nav {
-        width: 50px;  /* Keep larger size for better touch */
-        height: 50px; /* Keep larger size for better touch */
-        bottom: 20px;  /* Ensure it stays at the bottom */
-        right: 20px; /* Adjust placement to avoid overlap */
-    }
+    .profile img { width: 120px; height: 120px; }
+    .site-name { font-size: 1.5rem; text-align: center; }
+    .social-logo { width: 35px; }
 }
 
-/* Additional tweaks for even smaller screen sizes (portrait mode on very small devices) */
 @media only screen and (max-width: 480px) {
-    .music-nav {
-        bottom: 15px; /* Adjust the button lower if needed for small screens */
-        right: 15px; /* Fine-tune right positioning */
-    }
+    .site-name { font-size: 1.2rem; }
+    .profile img { width: 100px; height: 100px; }
+    .social-logo { width: 30px; }
 }
-    /* Make the layout responsive for mobile phones and tablets */
-
-/* Default styling for larger screens (desktops) */
-body {
-    font-size: 1rem;
-    /* Ensure no issues with scaling on desktop */
-}
-
-/* For devices with a width of 768px or smaller (Portrait mode) */
-@media only screen and (max-width: 768px) {
-    /* Site Name */
-    .site-name {
-        font-size: 1.5rem;  /* Make the site name smaller for mobile */
-        text-align: center; /* Center-align the site name */
-    }
-
-    /* Navigation bar for mobile */
-    nav ul {
-        flex-direction: column;  /* Stack the navigation links vertically */
-        gap: 15px;  /* Space out the navigation links */
-    }
-
-    /* Profile Section */
-    .profile img {
-        width: 120px;  /* Make the profile image smaller */
-        height: 120px; /* Keep it a circle */
-    }
-
-    /* Adjust Play Button for mobile devices */
-    .music-nav {
-        width: 60px;  /* Larger play button for easy touch */
-        height: 60px; /* Keep it large for touchable area */
-        bottom: 20px;  /* Keep button at the bottom */
-        right: 20px;   /* Position it at the right */
-    }
-
-    /* Content Sections */
-    .interests, .about, .contact {
-        padding: 15px;  /* Add padding around the content */
-    }
-
-    /* Make footer text smaller on mobile */
-    .copyright {
-        font-size: 0.8rem; /* Reduce font size */
-        padding-bottom: 15px;
-    }
-
-    /* Ensure icons in the navigation bar stay aligned and properly sized */
-    .logo, .social-logo {
-        width: 40px;
-        height: auto;
-    }
-}
-
-/* For very small screens (e.g., iPhone 5, etc.) with a width of 480px or smaller */
-@media only screen and (max-width: 480px) {
-    /* Further reduce site name size */
-    .site-name {
-        font-size: 1.2rem;  /* Smaller site name */
-    }
-
-    /* Stack elements vertically on very small screens */
-    .nav-container {
-        flex-direction: column;
-        align-items: center;  /* Center the navigation */
-    }
-
-    /* Adjust profile image size */
-    .profile img {
-        width: 100px; /* Smaller profile picture */
-        height: 100px;
-    }
-
-    /* Reduce margin and padding for very small screens */
-    .profile, .interests, .about, .contact {
-        margin: 10px 0;  /* Reduce spacing between sections */
-        padding: 10px;   /* Reduce padding */
-    }
-
-    /* Ensure the play button is not too big */
-    .music-nav {
-        width: 50px;  /* Slightly smaller button on very small screens */
-        height: 50px;
-        bottom: 10px; /* Adjust bottom placement */
-        right: 10px;  /* Adjust right placement */
-    }
-
-    /* Ensure icons are not too large */
-    .social-logo {
-        width: 30px;
-        height: auto;
-        margin: 5px;
-    }
-
-    /* Adjust navigation bar items for very small screens */
-    nav ul li a {
-        font-size: 1rem;
-        padding: 10px 15px;  /* Increase padding for better touch area */
-    }
-}
-
-/* Make sure images and other elements are responsive */
-img, .logo, .social-logo {
-    max-width: 100%; /* Ensure images do not overflow */
-    height: auto;
-}
-
-/* Ensuring buttons are touch-friendly */
-button, .music-nav img {
-    touch-action: manipulation; /* Improve tap interactions on mobile */
-    -webkit-tap-highlight-color: transparent; /* Remove tap highlight color */
-}
-/* For devices with a width of 768px or smaller (Portrait mode) */
-@media only screen and (max-width: 768px) {
-    body {
-        font-size: 1rem;
-        padding: 0 15px; /* Add padding to prevent content from touching the sides */
-    }
-
-    .site-name {
-        font-size: 1.5rem;
-        text-align: center;
-        margin: 10px 0;
-    }
-
-    .nav-container {
-        flex-direction: column; /* Stack navigation vertically on small screens */
-        align-items: center;
-    }
-
-    .nav-container ul {
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .profile img {
-        width: 120px;  /* Resize profile image */
-        height: 120px;
-    }
-
-    .music-nav {
-        width: 60px;
-        height: 60px;
-        bottom: 20px;
-        right: 20px;
-    }
-
-    .footer {
-        font-size: 0.8rem;
-        text-align: center;
-    }
-
-    .social-logo {
-        width: 40px;
-        height: auto;
-    }
-
-    .interests, .about, .contact {
-        padding: 10px;
-        text-align: center;
-    }
-
-    .copyright {
-        font-size: 0.8rem;
-        padding-bottom: 15px;
-    }
-}
-
-/* For smaller screens like iPhone 5 and below (width 480px or smaller) */
-@media only screen and (max-width: 480px) {
-    body {
-        padding: 0 10px;
-    }
-
-    .site-name {
-        font-size: 1.2rem; /* Smaller site name */
-    }
-
-    .profile img {
-        width: 100px;
-        height: 100px;
-    }
-
-    .music-nav {
-        width: 50px;  /* Even smaller button */
-        height: 50px;
-        bottom: 10px;
-        right: 10px;
-    }
-
-    .social-logo {
-        width: 30px;
-        height: auto;
-    }
-
-    .nav-container ul {
-        gap: 5px;
-    }
-
-    .interests, .about, .contact {
-        padding: 8px;
-    }
-
-    .footer {
-        font-size: 0.7rem;
-    }
-}
-/* For devices with a width of 768px or smaller (Portrait mode) */
-@media only screen and (max-width: 768px) {
-    /* Stack the navigation items vertically */
-    nav ul {
-        flex-direction: column;  /* Stack the navigation links vertically */
-        align-items: center;  /* Ensure the items are centered */
-        gap: 10px;  /* Add space between the items */
-    }
-
-    /* Make navigation links bigger and easier to tap on small screens */
-    nav ul li a {
-        font-size: 1.2rem;  /* Increase font size for better readability */
-        padding: 15px 25px;  /* Increase padding for easy touch */
-        width: 100%;  /* Make links full-width */
-        text-align: center;  /* Center align the text */
-    }
-
-    /* Ensure the navigation bar takes up full width and is not too narrow */
-    .nav-container {
-        width: 100%;
-    }
-}
-
-/* For smaller screens (iPhone 5 and below, width 480px or smaller) */
-@media only screen and (max-width: 480px) {
-    nav ul li a {
-        font-size: 1.1rem;  /* Slightly smaller font for very small screens */
-        padding: 10px 20px;  /* Adjust padding for small screens */
-    }
-
-    /* Adjust the navigation items for a compact layout */
-    nav ul {
-        gap: 5px;  /* Reduce gap between items */
-    }
-}
-/* For devices with a width of 768px or smaller (Portrait mode) */
-@media only screen and (max-width: 768px) {
-    /* Make the navigation bar smaller on mobile */
-    header {
-        padding: 5px 0;  /* Reduce padding for a smaller bar */
-    }
-
-    /* Remove the navigation links (Home, About, Contact) for mobile */
-    nav ul {
-        display: none;  /* Hide the list */
-    }
-
-    /* Move the site name ("Issac Tabares") to the right on mobile */
-    .site-name {
-        position: static !important; /* Keep it in the flow */
-        font-size: 1.5rem; /* Adjust size for mobile */
-        text-align: right; /* Align site name to the right */
-        padding-right: 20px; /* Add space for better placement */
-    }
-
-    /* Ensure the play button stays on the left side for mobile */
-    .music-nav {
-        position: absolute;
-        left: 20px; /* Keep it on the left side */
-        bottom: 20px;
-        width: 50px;
-        height: 50px;
-    }
-}
-
-/* For very small screens (e.g., iPhone 5, etc.) with a width of 480px or smaller */
-@media only screen and (max-width: 480px) {
-    .site-name {
-        font-size: 1.2rem; /* Reduce size further for very small screens */
-    }
-
-    .music-nav {
-        width: 50px;  /* Slightly smaller button */
-        height: 50px;
-        bottom: 10px; /* Adjust bottom placement */
-        left: 10px; /* Adjust left positioning */
-    }
-    
-    /* Hide navigation items completely on very small screens */
-    nav ul {
-        display: none;  /* Make sure it's hidden for very small screens */
-    }
-}
-/* Ensure the layout handles different orientations better */
-@media only screen and (max-width: 768px) and (orientation: landscape) {
-    /* Adjust navigation for landscape mode */
-    header {
-        display: flex;
-        justify-content: flex-start; /* Align items to the left */
-        padding: 15px 20px;  /* Add more space to avoid crowding */
-    }
-
-    .nav-container {
-        width: auto; /* Allow the navigation bar to take more space */
-        justify-content: flex-start; /* Align it to the left */
-    }
-
-    .site-name {
-        font-size: 1.5rem;
-        margin-right: 20px; /* Add spacing between the site name and the nav links */
-    }
-
-    nav ul {
-        flex-direction: row;  /* Make the links align horizontally */
-        gap: 20px;  /* Space between the links */
-    }
-
-    nav ul li {
-        display: inline-block;
-    }
-
-    nav ul li a {
-        font-size: 1rem;  /* Adjust font size for readability */
-        padding: 10px 20px;  /* Ensure links are clickable */
-    }
-}
-
-/* For very small devices (iPhone in portrait mode) */
-@media only screen and (max-width: 480px) {
-    header {
-        display: flex;
-        justify-content: space-between; /* Space out the navigation bar */
-        padding: 10px 15px;  /* Adjust padding for mobile */
-    }
-
-    .site-name {
-        font-size: 1.3rem; /* Reduce site name size for mobile */
-    }
-
-    nav ul {
-        flex-direction: column;  /* Stack the navigation links vertically */
-        gap: 10px;  /* Add spacing between the links */
-        align-items: center;  /* Center the navigation items */
-        padding: 0;
-        margin: 0;
-    }
-
-    nav ul li {
-        display: block;  /* Stack each link block vertically */
-    }
-
-    nav ul li a {
-        font-size: 1rem;
-        padding: 10px 20px;  /* Increase padding for touch-friendly areas */
-    }
-}
-
-/* For very large screens (desktops) or when orientation is wide */
-@media only screen and (min-width: 1024px) {
-    header {
-        padding: 10px 40px;  /* Add more padding for large screens */
-    }
-
-    .site-name {
-        font-size: 2rem;
-    }
-
-    nav ul {
-        flex-direction: row;  /* Horizontal navigation links */
-        gap: 30px;  /* Spacing between the links */
-    }
-}
-
-
-
-
-
-
-
-
-
-
