@@ -854,6 +854,54 @@ button, .music-nav img {
         gap: 5px;  /* Reduce gap between items */
     }
 }
+/* For devices with a width of 768px or smaller (Portrait mode) */
+@media only screen and (max-width: 768px) {
+    /* Make the navigation bar smaller on mobile */
+    header {
+        padding: 5px 0;  /* Reduce padding for a smaller bar */
+    }
+
+    /* Remove the navigation links (Home, About, Contact) for mobile */
+    nav ul {
+        display: none;  /* Hide the list */
+    }
+
+    /* Move the site name ("Issac Tabares") to the right on mobile */
+    .site-name {
+        position: static !important; /* Keep it in the flow */
+        font-size: 1.5rem; /* Adjust size for mobile */
+        text-align: right; /* Align site name to the right */
+        padding-right: 20px; /* Add space for better placement */
+    }
+
+    /* Ensure the play button stays on the left side for mobile */
+    .music-nav {
+        position: absolute;
+        left: 20px; /* Keep it on the left side */
+        bottom: 20px;
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* For very small screens (e.g., iPhone 5, etc.) with a width of 480px or smaller */
+@media only screen and (max-width: 480px) {
+    .site-name {
+        font-size: 1.2rem; /* Reduce size further for very small screens */
+    }
+
+    .music-nav {
+        width: 50px;  /* Slightly smaller button */
+        height: 50px;
+        bottom: 10px; /* Adjust bottom placement */
+        left: 10px; /* Adjust left positioning */
+    }
+    
+    /* Hide navigation items completely on very small screens */
+    nav ul {
+        display: none;  /* Make sure it's hidden for very small screens */
+    }
+}
 
 
 
