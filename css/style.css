@@ -721,6 +721,104 @@ button, .music-nav img {
     touch-action: manipulation; /* Improve tap interactions on mobile */
     -webkit-tap-highlight-color: transparent; /* Remove tap highlight color */
 }
+/* For devices with a width of 768px or smaller (Portrait mode) */
+@media only screen and (max-width: 768px) {
+    body {
+        font-size: 1rem;
+        padding: 0 15px; /* Add padding to prevent content from touching the sides */
+    }
+
+    .site-name {
+        font-size: 1.5rem;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .nav-container {
+        flex-direction: column; /* Stack navigation vertically on small screens */
+        align-items: center;
+    }
+
+    .nav-container ul {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .profile img {
+        width: 120px;  /* Resize profile image */
+        height: 120px;
+    }
+
+    .music-nav {
+        width: 60px;
+        height: 60px;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .footer {
+        font-size: 0.8rem;
+        text-align: center;
+    }
+
+    .social-logo {
+        width: 40px;
+        height: auto;
+    }
+
+    .interests, .about, .contact {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .copyright {
+        font-size: 0.8rem;
+        padding-bottom: 15px;
+    }
+}
+
+/* For smaller screens like iPhone 5 and below (width 480px or smaller) */
+@media only screen and (max-width: 480px) {
+    body {
+        padding: 0 10px;
+    }
+
+    .site-name {
+        font-size: 1.2rem; /* Smaller site name */
+    }
+
+    .profile img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .music-nav {
+        width: 50px;  /* Even smaller button */
+        height: 50px;
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .social-logo {
+        width: 30px;
+        height: auto;
+    }
+
+    .nav-container ul {
+        gap: 5px;
+    }
+
+    .interests, .about, .contact {
+        padding: 8px;
+    }
+
+    .footer {
+        font-size: 0.7rem;
+    }
+}
 
 
 
