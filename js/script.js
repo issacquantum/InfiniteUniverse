@@ -68,7 +68,14 @@ audio.load(); // Ensure the audio is loaded initially
 // 📌 Open PDF in Fullscreen Mode
 document.getElementById("cvIcon").addEventListener("click", function () {
     let overlay = document.getElementById("cvOverlay");
+    let frame = document.getElementById("cvFrame");
+
     overlay.classList.add("show"); // Show overlay
+    frame.src = "assets/ProfessionalResume.pdf"; // Reload PDF to ensure full load
+    frame.style.height = "100vh"; // Force height fix
+    setTimeout(() => {
+        frame.focus(); // Ensure PDF interaction
+    }, 500);
 });
 
 // 📌 Close PDF Overlay When Clicking Outside
@@ -77,6 +84,7 @@ document.getElementById("cvOverlay").addEventListener("click", function (event) 
         this.classList.remove("show");
     }
 });
+
 
 
 
