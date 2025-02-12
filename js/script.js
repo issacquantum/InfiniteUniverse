@@ -12,9 +12,6 @@ document.addEventListener("DOMContentLoaded", function () {
     { file: "https://infinite-universe.vercel.app/assets/Sitemusic/Rhapsody on a Theme of Paganini, Op. 43.mp3", title: "Rhapsody on a Theme of Paganini, Op. 43" }
 ];
 
-
-
-
     let currentSongIndex = 0;
     let audio = new Audio(songs[currentSongIndex].file);
     let isPlaying = false;
@@ -67,4 +64,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 🎵 Attach Event Listener for Play/Pause Button
     musicButtonTop.addEventListener("click", toggleMusic);
+    musicButtonTop.addEventListener("touchstart", toggleMusic);  // Add touch support for mobile devices
 });
