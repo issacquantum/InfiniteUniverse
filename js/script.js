@@ -6,11 +6,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 🎵 Correct Order of Rachmaninoff Pieces
     const songs = [
-    { file: "https://docs.google.com/uc?export=download&id=1VtOazM0bmq1bvIQKC-kF1jGqCXNlLx-S", title: "Prelude in C-sharp minor, Op. 3, No. 2" },
-    { file: "https://docs.google.com/uc?export=download&id=1xEL6qU1GyuMLbLBeHDBUm3FtEXewxIcB", title: "Moment Musical No. 4 in D Major, Op. 16" },
-    { file: "https://docs.google.com/uc?export=download&id=1tOZ1nqviwTmQmygFilV2NYnfdxT_k3NK", title: "Élégie in E-flat minor, Op. 3 No. 1" },
-    { file: "https://docs.google.com/uc?export=download&id=1-kUGxhHipBrEsy5t73nnOzvaD3aKcVUK", title: "Rhapsody on a Theme of Paganini, Op. 43" }
+    { file: "assets/sitemusic/Prelude in C-sharp minor, Op. 3, No. 2.mp3", title: "Prelude in C-sharp minor, Op. 3, No. 2" },
+    { file: "assets/sitemusic/Moment Musical No. 4 in D Major, Op. 16.mp3", title: "Moment Musical No. 4 in D Major, Op. 16" },
+    { file: "assets/sitemusic/Élégie in E-flat minor, Op. 3 No. 1.mp3", title: "Élégie in E-flat minor, Op. 3 No. 1" },
+    { file: "assets/sitemusic/Rhapsody on a Theme of Paganini, Op. 43.mp3", title: "Rhapsody on a Theme of Paganini, Op. 43" }
 ];
+
 
 
     let currentSongIndex = 0;
