@@ -1,395 +1,95 @@
-/* General Page Styling */
-body {
-    font-family: 'Dancing Script', cursive !important;
-    letter-spacing: 0.5px !important;
-    margin: 0;
-    padding: 0;
-    background-color: #21142f !important;
-    color: #6f0da8;
-    
-    /* Parallax Background */
-    background-image: url("../assets/hexlineweave5.svg") !important;
-    background-size: cover !important;
-    background-attachment: fixed !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    background-blend-mode: soft-light !important;
-}
+// 🎵 Music Player Configuration
+const songs = [
+    "assets/Sitemusic/Prelude in C-sharp minor, Op. 3, No. 2.mp3",
+    "assets/Sitemusic/Moment Musical No. 4 in D Major, Op. 16.mp3",
+    "assets/Sitemusic/Élégie in E-flat minor, Op. 3 No. 1.mp3",
+    "assets/Sitemusic/Rhapsody on a Theme of Paganini, Op. 43.mp3"
+];
 
-/* NAVIGATION BAR */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: url("../assets/hexline-weavepink.svg") repeat, rgba(18, 0, 36, 0.9);
-    background-size: cover;
-    background-blend-mode: overlay;
-    padding: 10px 0;
-    display: flex;
-    justify-content: center;
-    z-index: 100;
-}
+const songNames = [
+    "Prelude in C-sharp minor, Op. 3, No. 2",
+    "Moment Musical No. 4 in D Major, Op. 16",
+    "Élégie in E-flat minor, Op. 3 No. 1",
+    "Rhapsody on a Theme of Paganini, Op. 43"
+];
 
-.nav-container {
-    width: 90%;
-    max-width: 1200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+let currentSongIndex = 0;
+let audio = new Audio(songs[currentSongIndex]); // Load the first song
+const playPauseButton = document.getElementById("playPauseButton");
+const songNameDisplay = document.getElementById("song-name");
 
-/* Navigation Bar Name Styling */
-.site-name {
-    text-shadow: 0px 0px 15px #9400D3, 0px 0px 25px #8A2BE2, 0px 0px 35px #6A0DAD;
-    color: #dea0ff;
-    font-size: 1.8rem;
-    margin-left: 15mm; /* Moves the name exactly 5mm to the right */
-}
-
-.site-name:hover {
-    text-shadow: 0 0 12px #ff69b4, 0 0 18px #c71585, 0 0 24px #9400d3;
-}
-
-.logo {
-    width: 30px;
-    height: auto;
-    margin-left: 10px;
-}
-
-/* PROFILE SECTION */
-.profile {
-    text-align: center;
-    margin-top: 100px;
-}
-
-.profile img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-bottom: 20px;
-}
-
-/* ABOUT ME SECTION */
-.about {
-    text-align: center;
-    padding: 20px;
-    margin: 40px 0;
-}
-
-.about h2 {
-    color: #e409ce;
-}
-
-.about p {
-    color: #bc5ec8;
-    margin-bottom: 20px;
-}
-/* 🌌 Static Glowing Particles Styling */
-.particle {
-    position: fixed; /* Fixed position across the viewport */
-    border-radius: 50%;
-    background-color: #9b59b6; /* Default color for the particles (violet) */
-    opacity: 0;
-    animation: fade 6s infinite alternate; /* Fading in and out animation */
-    filter: drop-shadow(0 0 12px #9308ca) drop-shadow(0 0 20px #8A2BE2) drop-shadow(0 0 30px #d300cf); /* Glow effect */
-    z-index: -1; /* Ensure they appear behind content */
-}
-
-/* 🌌 Animation for fading particles in and out */
-@keyframes fade {
-    0% {
-        opacity: 0;
+// 🎛 Toggle Play/Pause Button
+playPauseButton.addEventListener("click", function () {
+    if (audio.paused) {
+        audio.play();
+        playPauseButton.src = "assets/pause-icon.svg"; // Switch to pause icon
+        songNameDisplay.classList.add("glow"); // Apply glowing effect to song name
+    } else {
+        audio.pause();
+        playPauseButton.src = "assets/play-icon.svg"; // Switch to play icon
+        songNameDisplay.classList.remove("glow"); // Remove glowing effect
     }
-    50% {
-        opacity: 0.8;
+});
+
+// 🎵 Automatically Play Next Song When Current Song Ends
+audio.addEventListener("ended", function () {
+    currentSongIndex = (currentSongIndex + 1) % songs.length; // Move to next song
+    audio.src = songs[currentSongIndex]; // Load next song
+    songNameDisplay.textContent = songNames[currentSongIndex]; // Update song name
+    audio.play(); // Auto-play next song
+});
+
+// 🎛 Ensure Volume is at 100%
+audio.volume = 1.0;
+
+// 📌 Open PDF in Fullscreen Mode (Computer Only)
+document.getElementById("cvIcon").addEventListener("click", function () {
+    let overlay = document.getElementById("cvOverlay");
+    let frame = document.getElementById("cvFrame");
+
+    overlay.classList.add("show"); // Show overlay
+    frame.src = "assets/ProfessionalResume.pdf"; // Reload PDF to ensure full load
+    frame.style.height = "100vh"; // Ensure full height
+
+    setTimeout(() => {
+        frame.focus(); // Ensure PDF interaction
+    }, 500);
+});
+
+// 📌 Close PDF Overlay When Clicking Outside
+document.getElementById("cvOverlay").addEventListener("click", function (event) {
+    if (event.target === this) {
+        this.classList.remove("show");
     }
-    100% {
-        opacity: 0;
+});
+
+// Static Glowing Particles for the Entire Site
+const numParticles = 150; // Increased number of particles for more intensity
+
+// Function to create and add particles to the page
+function createParticles() {
+    for (let i = 0; i < numParticles; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        // Randomly set the size and position of each particle
+        const size = Math.random() * 5 + 3; // Smaller particle size range (from 3px to 8px)
+        const xPosition = Math.random() * 100 + "%"; // Random x position
+        const yPosition = Math.random() * 100 + "%"; // Random y position
+        const delay = Math.random() * 10 + "s"; // Random delay for fade in/out
+
+        // Set the CSS properties of the particle
+        particle.style.width = size + "px";
+        particle.style.height = size + "px";
+        particle.style.left = xPosition;
+        particle.style.top = yPosition;
+        particle.style.animationDelay = delay;
+
+        // Append the particle to the body (make sure it's across the entire site)
+        document.body.appendChild(particle);
     }
 }
 
-/* 🌌 Ensure particles do not overlap the text */
-body {
-    position: relative; /* Ensure body content stays in place above particles */
-}
-
-/* Particle hover effects for glowing particles */
-.particle:hover {
-    filter: drop-shadow(0 0 12px #f0a3d1) drop-shadow(0 0 20px #ff8ac9); /* Optional: Glow effect on hover */
-}
-
-
-/* CONTACT SECTION */
-.contact {
-    text-align: center;
-    margin: 50px 0;
-}
-
-.contact p a {
-    color: #FF1493;
-    text-decoration: none;
-}
-
-.contact p a:hover {
-    color: #bf00ff;
-    text-shadow: 0 0 10px #bf00ff, 0 0 15px #9a00e6, 0 0 20px #6f00b8;
-    text-decoration: underline;
-}
-
-.social-links a {
-    margin: 0 15px;
-}
-
-/* SOCIAL MEDIA ICONS ROTATION & FLUORESCENT VIOLET */
-.social-logo {
-    width: 40px;
-    height: auto;
-    transition: filter 0.3s ease-in-out, transform 0.3s ease-in-out;
-    animation: rotateIcon 5s linear infinite;
-    filter: drop-shadow(0 0 12px #bf00ff) drop-shadow(0 0 18px #9a00e6) drop-shadow(0 0 25px #6f00b8);
-}
-
-@keyframes rotateIcon {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-.social-logo:hover {
-    transform: scale(1.1);
-    filter: drop-shadow(0 0 15px #bf00ff) drop-shadow(0 0 20px #9a00e6) drop-shadow(0 0 30px #6f00b8);
-}
-
-/* FOOTER */
-.footer {
-    text-align: center;
-    padding: 10px;
-    background: rgba(0, 0, 0, 0.3);
-}
-
-.copyright {
-    color: #FF1493;
-    font-size: 0.9rem;
-}
-
-/* RESPONSIVENESS */
-@media only screen and (max-width: 768px) {
-    .profile img { width: 120px; height: 120px; }
-    .site-name { font-size: 1.5rem; text-align: center; }
-    .social-logo { width: 35px; }
-}
-
-@media only screen and (max-width: 480px) {
-    .site-name { font-size: 1.2rem; }
-    .profile img { width: 100px; height: 100px; }
-    .social-logo { width: 30px; }
-}
-/* 🎵 Music Player - Fix Position Inside Footer */
-.music-control {
-    position: absolute;
-    bottom: 10px;
-    right: 20px; /* Aligns to the right side of the footer */
-    display: flex;
-    align-items: center;
-    gap: 15px; /* Adds spacing between song name & button */
-}
-
-/* 🎵 Fix Footer to Contain Music Controls */
-.footer {
-    position: relative; /* Allows absolute positioning inside */
-    display: flex;
-    justify-content: space-between; /* Pushes content apart */
-    align-items: center;
-    padding: 10px 20px;
-}
-
-/* 🎵 Song Name Styling */
-#song-name {
-    font-size: 14px;
-    font-weight: bold;
-    color: #ff1493; /* Fluorescent pink */
-    text-shadow: 0 0 12px #ff1493, 0 0 18px #ff69b4, 0 0 24px #ff85c1;
-    transition: text-shadow 0.3s ease-in-out, opacity 0.3s ease-in-out;
-}
-
-/* 🔥 Glowing effect applies only when playing */
-.glow {
-    text-shadow: 0 0 20px #ff1493, 0 0 30px #ff69b4, 0 0 40px #ff85c1;
-}
-
-/* ⏸ Remove glow when paused */
-.no-glow {
-    text-shadow: none;
-}
-
-/* 🎵 Play/Pause Button Styling */
-#playPauseButton {
-    width: 35px;
-    height: auto;
-    cursor: pointer;
-    filter: invert(35%) sepia(80%) saturate(500%) hue-rotate(250deg) brightness(110%) contrast(120%);
-    transition: transform 0.2s ease-in-out;
-}
-
-/* 📱 Responsive Fix for Mobile */
-@media only screen and (max-width: 768px) {
-    .music-control {
-        bottom: 15px;
-        right: 10px;
-        flex-direction: row-reverse; /* Keep button aligned properly */
-    }
-
-    #song-name {
-        font-size: 12px;
-    }
-
-    #playPauseButton {
-        width: 30px;
-    }
-}
-/* For mobile devices and small screens (e.g., 768px and below) */
-@media (max-width: 768px) {
-    /* Hide the song name on mobile */
-    #song-name {
-        display: none;  /* Song name is hidden on mobile */
-    }
-
-    /* Resize and move the play/pause button to the right */
-    #playPauseButton {
-        width: 40px;      /* Make the button a bit smaller */
-        height: 40px;     /* Make the button a bit smaller */
-        right: 10px;      /* Move the button to the right to avoid overlap */
-        bottom: 10px;     /* Ensure it doesn't get too close to the bottom */
-    }
-}
-.vibrant-violet {
-    color: #9b59b6;  /* Vibrant intense violet color */
-    font-weight: bold;  /* Make the text bold */
-    font-size: 20px;  /* Adjust the font size if necessary */
-}
-/* 📌 CV Icon in Navigation Bar */
-#cvIcon {
-    width: 30px;
-    height: auto;
-    cursor: pointer;
-    margin-left: 10px; /* Adjust spacing from Atom logo */
-    transition: transform 0.2s ease-in-out;
-}
-#cvIcon:hover {
-    transform: scale(1.1);
-}
-/* 📌 PDF Viewer Overlay */
-#cvOverlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-}
-
-/* 📌 PDF Viewer Box */
-#cvViewer {
-    width: 90vw;
-    max-width: 900px;
-    height: 90vh;
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* 📌 Ensure iframe takes up full space */
-#cvFrame {
-    width: 100%;
-    height: 100%;
-    border: none;
-    overflow-y: auto;
-}
-
-/* 📌 Overlay Animation */
-#cvOverlay.show {
-    display: flex;
-}
-
-/* 📌 Fix PDF Display on Mobile */
-@media screen and (max-width: 768px) {
-    #cvViewer {
-        width: 100vw;
-        height: 100vh;
-        border-radius: 0;
-    }
-    #cvFrame {
-        width: 100%;
-        height: 100%;
-        overflow-y: auto;
-        transform: scale(1.3); /* Forces zoom to fill the screen */
-    }
-}
-/* 📌 FORCE HIDE CV ICON ON MOBILE */
-@media screen and (max-width: 768px) {
-    #cvIcon {
-        display: none !important; /* NO EXCEPTIONS, GET THE FUCK OUT */
-        pointer-events: none !important; /* Prevents any clicking */
-    }
-/* 💜 Fluorescent Pink Color for Atom Logo */
-#atomLogo {
-    width: 30px; /* Keep the original size */
-    height: auto;
-    filter: brightness(0) saturate(100%) invert(24%) sepia(97%) saturate(7500%) hue-rotate(315deg) brightness(110%) contrast(120%);
-    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
-}
-
-/* 🔥 Intense Fluorescent Violet Glow Effect for Atom Logo */
-#atomLogo.glow {
-    filter: brightness(0) saturate(100%) invert(24%) sepia(97%) saturate(7500%) hue-rotate(315deg) brightness(110%) contrast(120%) 
-    drop-shadow(0 0 12px #9400D3) drop-shadow(0 0 20px #8A2BE2) drop-shadow(0 0 30px #6A0DAD);
-}
-
-/* 🎇 Enhance Glow Effect When Hovered */
-#atomLogo:hover {
-    transform: scale(1.1);
-    filter: brightness(0) saturate(100%) invert(24%) sepia(97%) saturate(7500%) hue-rotate(315deg) brightness(110%) contrast(120%)
-    drop-shadow(0 0 18px #7e0cf1) drop-shadow(0 0 25px #9304a6) drop-shadow(0 0 35px #9400d3);
-}
-/* 🌌 Static Glowing Particles Styling */
-.particle {
-    position: absolute;
-    border-radius: 50%;
-    background-color: #9b59b6; /* Default color for the particles (violet) */
-    opacity: 0;
-    animation: fade 6s infinite alternate; /* Fading in and out animation */
-    filter: drop-shadow(0 0 12px #9308ca) drop-shadow(0 0 20px #8A2BE2) drop-shadow(0 0 30px #d300cf); /* Glow effect */
-}
-
-@keyframes fade {
-    0% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 0.8;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
-/* 🌌 Ensure particles do not overlap the text */
-body {
-    z-index: 1; /* Ensure content (text) is above the particles */
-}
-
-.particle {
-    z-index: -1; /* Put the particles below the content */
-}
-
-
-
+// Call the function to create the particles
+createParticles();
 
