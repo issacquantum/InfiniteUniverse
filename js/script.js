@@ -66,3 +66,26 @@ document.addEventListener("DOMContentLoaded", function () {
     musicButtonTop.addEventListener("click", toggleMusic);
     musicButtonTop.addEventListener("touchstart", toggleMusic);  // Add touch support for mobile devices
 });
+document.addEventListener("DOMContentLoaded", function () {
+    const musicButtonTop = document.getElementById("musicNavButton");
+
+    // Function to ensure the play button size and position are optimized based on mobile orientation
+    function adjustButtonPosition() {
+        if (window.innerWidth <= 768) { // Check for smaller screens
+            // Ensure the button stays at the bottom and isn't overlapped
+            musicButtonTop.style.bottom = "20px";
+            musicButtonTop.style.right = "20px";
+        } else {
+            // Reset to original position for larger screens (optional, based on design)
+            musicButtonTop.style.bottom = "50px";
+            musicButtonTop.style.right = "50px";
+        }
+    }
+
+    // Adjust button position when the window is resized (for changing orientations)
+    window.addEventListener('resize', adjustButtonPosition);
+
+    // Call the function initially to ensure the button is correctly placed on page load
+    adjustButtonPosition();
+});
+
