@@ -819,7 +819,41 @@ button, .music-nav img {
         font-size: 0.7rem;
     }
 }
+/* For devices with a width of 768px or smaller (Portrait mode) */
+@media only screen and (max-width: 768px) {
+    /* Stack the navigation items vertically */
+    nav ul {
+        flex-direction: column;  /* Stack the navigation links vertically */
+        align-items: center;  /* Ensure the items are centered */
+        gap: 10px;  /* Add space between the items */
+    }
 
+    /* Make navigation links bigger and easier to tap on small screens */
+    nav ul li a {
+        font-size: 1.2rem;  /* Increase font size for better readability */
+        padding: 15px 25px;  /* Increase padding for easy touch */
+        width: 100%;  /* Make links full-width */
+        text-align: center;  /* Center align the text */
+    }
+
+    /* Ensure the navigation bar takes up full width and is not too narrow */
+    .nav-container {
+        width: 100%;
+    }
+}
+
+/* For smaller screens (iPhone 5 and below, width 480px or smaller) */
+@media only screen and (max-width: 480px) {
+    nav ul li a {
+        font-size: 1.1rem;  /* Slightly smaller font for very small screens */
+        padding: 10px 20px;  /* Adjust padding for small screens */
+    }
+
+    /* Adjust the navigation items for a compact layout */
+    nav ul {
+        gap: 5px;  /* Reduce gap between items */
+    }
+}
 
 
 
