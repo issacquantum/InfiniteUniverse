@@ -85,6 +85,40 @@ header {
     color: #bc5ec8;
     margin-bottom: 20px;
 }
+/* 🌌 Static Glowing Particles Styling */
+.particle {
+    position: fixed; /* Fixed position across the viewport */
+    border-radius: 50%;
+    background-color: #9b59b6; /* Default color for the particles (violet) */
+    opacity: 0;
+    animation: fade 6s infinite alternate; /* Fading in and out animation */
+    filter: drop-shadow(0 0 12px #9308ca) drop-shadow(0 0 20px #8A2BE2) drop-shadow(0 0 30px #d300cf); /* Glow effect */
+    z-index: -1; /* Ensure they appear behind content */
+}
+
+/* 🌌 Animation for fading particles in and out */
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* 🌌 Ensure particles do not overlap the text */
+body {
+    position: relative; /* Ensure body content stays in place above particles */
+}
+
+/* Particle hover effects for glowing particles */
+.particle:hover {
+    filter: drop-shadow(0 0 12px #f0a3d1) drop-shadow(0 0 20px #ff8ac9); /* Optional: Glow effect on hover */
+}
+
 
 /* CONTACT SECTION */
 .contact {
@@ -305,7 +339,57 @@ header {
         display: none !important; /* NO EXCEPTIONS, GET THE FUCK OUT */
         pointer-events: none !important; /* Prevents any clicking */
     }
+/* 💜 Fluorescent Pink Color for Atom Logo */
+#atomLogo {
+    width: 30px; /* Keep the original size */
+    height: auto;
+    filter: brightness(0) saturate(100%) invert(24%) sepia(97%) saturate(7500%) hue-rotate(315deg) brightness(110%) contrast(120%);
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
+
+/* 🔥 Intense Fluorescent Violet Glow Effect for Atom Logo */
+#atomLogo.glow {
+    filter: brightness(0) saturate(100%) invert(24%) sepia(97%) saturate(7500%) hue-rotate(315deg) brightness(110%) contrast(120%) 
+    drop-shadow(0 0 12px #9400D3) drop-shadow(0 0 20px #8A2BE2) drop-shadow(0 0 30px #6A0DAD);
+}
+
+/* 🎇 Enhance Glow Effect When Hovered */
+#atomLogo:hover {
+    transform: scale(1.1);
+    filter: brightness(0) saturate(100%) invert(24%) sepia(97%) saturate(7500%) hue-rotate(315deg) brightness(110%) contrast(120%)
+    drop-shadow(0 0 18px #7e0cf1) drop-shadow(0 0 25px #9304a6) drop-shadow(0 0 35px #9400d3);
+}
+/* 🌌 Static Glowing Particles Styling */
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background-color: #9b59b6; /* Default color for the particles (violet) */
+    opacity: 0;
+    animation: fade 6s infinite alternate; /* Fading in and out animation */
+    filter: drop-shadow(0 0 12px #9308ca) drop-shadow(0 0 20px #8A2BE2) drop-shadow(0 0 30px #d300cf); /* Glow effect */
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* 🌌 Ensure particles do not overlap the text */
+body {
+    z-index: 1; /* Ensure content (text) is above the particles */
+}
+
+.particle {
+    z-index: -1; /* Put the particles below the content */
+}
+
 
 
 
