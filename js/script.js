@@ -89,6 +89,13 @@ if (window.innerWidth <= 768) {
     document.getElementById("cvIcon").style.pointerEvents = "none"; // Disables clicks
     document.getElementById("cvIcon").style.opacity = "0.5"; // Makes it look disabled
 }
+// 📌 Double Kill: Remove CV Icon on Mobile
+if (window.innerWidth <= 768) {
+    let cvIcon = document.getElementById("cvIcon");
+    if (cvIcon) {
+        cvIcon.style.display = "none"; // Forces it to be hidden
+    }
+}
 
 
 
