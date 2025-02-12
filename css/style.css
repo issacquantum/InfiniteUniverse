@@ -591,6 +591,24 @@ strong {
     height: 50px; /* Larger size for better touchability */
     cursor: pointer;
 }
+/* Ensure the play button is properly placed in both portrait and landscape modes */
+@media only screen and (max-width: 768px) {
+    /* Adjust position of the play button for better touchability on mobile portrait */
+    .music-nav {
+        width: 50px;  /* Keep larger size for better touch */
+        height: 50px; /* Keep larger size for better touch */
+        bottom: 20px;  /* Ensure it stays at the bottom */
+        right: 20px; /* Adjust placement to avoid overlap */
+    }
+}
+
+/* Additional tweaks for even smaller screen sizes (portrait mode on very small devices) */
+@media only screen and (max-width: 480px) {
+    .music-nav {
+        bottom: 15px; /* Adjust the button lower if needed for small screens */
+        right: 15px; /* Fine-tune right positioning */
+    }
+}
 
 
 
