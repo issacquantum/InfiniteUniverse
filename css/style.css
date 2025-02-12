@@ -585,6 +585,12 @@ strong {
     transform: scale(1.1); /* Slightly increases size on hover */
     filter: drop-shadow(0 0 10px #ff1493); /* Add glow effect on hover */
 }
+/* Make the play button larger for better touch responsiveness on mobile */
+.music-nav {
+    width: 50px;  /* Larger size for better touchability */
+    height: 50px; /* Larger size for better touchability */
+    cursor: pointer;
+}
 
 
 
