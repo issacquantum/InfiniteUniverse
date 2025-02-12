@@ -299,6 +299,13 @@ header {
         transform: scale(1.3); /* Forces zoom to fill the screen */
     }
 }
+/* 📌 FORCE HIDE CV ICON ON MOBILE */
+@media screen and (max-width: 768px) {
+    #cvIcon {
+        display: none !important; /* NO EXCEPTIONS, GET THE FUCK OUT */
+        pointer-events: none !important; /* Prevents any clicking */
+    }
+}
 
 
 
