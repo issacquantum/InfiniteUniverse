@@ -302,5 +302,18 @@ header {
         overflow: hidden;
     }
 }
-
+/* 📌 Force PDF to Be Fully Visible on Mobile */
+@media screen and (max-width: 768px) {
+    #cvViewer {
+        width: 95vw;
+        height: 95vh;
+        display: flex;
+        flex-direction: column;
+    }
+    #cvFrame {
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+    }
+}
 
