@@ -609,6 +609,119 @@ strong {
         right: 15px; /* Fine-tune right positioning */
     }
 }
+    /* Make the layout responsive for mobile phones and tablets */
+
+/* Default styling for larger screens (desktops) */
+body {
+    font-size: 1rem;
+    /* Ensure no issues with scaling on desktop */
+}
+
+/* For devices with a width of 768px or smaller (Portrait mode) */
+@media only screen and (max-width: 768px) {
+    /* Site Name */
+    .site-name {
+        font-size: 1.5rem;  /* Make the site name smaller for mobile */
+        text-align: center; /* Center-align the site name */
+    }
+
+    /* Navigation bar for mobile */
+    nav ul {
+        flex-direction: column;  /* Stack the navigation links vertically */
+        gap: 15px;  /* Space out the navigation links */
+    }
+
+    /* Profile Section */
+    .profile img {
+        width: 120px;  /* Make the profile image smaller */
+        height: 120px; /* Keep it a circle */
+    }
+
+    /* Adjust Play Button for mobile devices */
+    .music-nav {
+        width: 60px;  /* Larger play button for easy touch */
+        height: 60px; /* Keep it large for touchable area */
+        bottom: 20px;  /* Keep button at the bottom */
+        right: 20px;   /* Position it at the right */
+    }
+
+    /* Content Sections */
+    .interests, .about, .contact {
+        padding: 15px;  /* Add padding around the content */
+    }
+
+    /* Make footer text smaller on mobile */
+    .copyright {
+        font-size: 0.8rem; /* Reduce font size */
+        padding-bottom: 15px;
+    }
+
+    /* Ensure icons in the navigation bar stay aligned and properly sized */
+    .logo, .social-logo {
+        width: 40px;
+        height: auto;
+    }
+}
+
+/* For very small screens (e.g., iPhone 5, etc.) with a width of 480px or smaller */
+@media only screen and (max-width: 480px) {
+    /* Further reduce site name size */
+    .site-name {
+        font-size: 1.2rem;  /* Smaller site name */
+    }
+
+    /* Stack elements vertically on very small screens */
+    .nav-container {
+        flex-direction: column;
+        align-items: center;  /* Center the navigation */
+    }
+
+    /* Adjust profile image size */
+    .profile img {
+        width: 100px; /* Smaller profile picture */
+        height: 100px;
+    }
+
+    /* Reduce margin and padding for very small screens */
+    .profile, .interests, .about, .contact {
+        margin: 10px 0;  /* Reduce spacing between sections */
+        padding: 10px;   /* Reduce padding */
+    }
+
+    /* Ensure the play button is not too big */
+    .music-nav {
+        width: 50px;  /* Slightly smaller button on very small screens */
+        height: 50px;
+        bottom: 10px; /* Adjust bottom placement */
+        right: 10px;  /* Adjust right placement */
+    }
+
+    /* Ensure icons are not too large */
+    .social-logo {
+        width: 30px;
+        height: auto;
+        margin: 5px;
+    }
+
+    /* Adjust navigation bar items for very small screens */
+    nav ul li a {
+        font-size: 1rem;
+        padding: 10px 15px;  /* Increase padding for better touch area */
+    }
+}
+
+/* Make sure images and other elements are responsive */
+img, .logo, .social-logo {
+    max-width: 100%; /* Ensure images do not overflow */
+    height: auto;
+}
+
+/* Ensuring buttons are touch-friendly */
+button, .music-nav img {
+    touch-action: manipulation; /* Improve tap interactions on mobile */
+    -webkit-tap-highlight-color: transparent; /* Remove tap highlight color */
+}
+
 
 
 
