@@ -288,32 +288,24 @@ header {
     opacity: 1;
     transform: translateY(0);
 }
-/* 📌 Fix PDF Scrolling & Full View on Mobile */
+/* 📌 Force PDF to Take Full Screen on Mobile */
 @media screen and (max-width: 768px) {
     #cvViewer {
-        width: 95%;
-        height: 95vh; /* Take up full screen */
+        width: 100vw; /* Full width of the screen */
+        height: 100vh; /* Full height of the screen */
         display: flex;
-        flex-direction: column;
-    }
-    #cvFrame {
-        width: 100%;
-        height: 100vh; /* Ensure entire PDF loads */
+        align-items: center;
+        justify-content: center;
+        background: white; /* Ensures proper visibility */
         overflow: hidden;
-    }
-}
-/* 📌 Force PDF to Be Fully Visible on Mobile */
-@media screen and (max-width: 768px) {
-    #cvViewer {
-        width: 95vw;
-        height: 95vh;
-        display: flex;
-        flex-direction: column;
     }
     #cvFrame {
         width: 100%;
         height: 100%;
-        overflow: auto;
+        border: none;
+        overflow-y: scroll; /* Force scrolling */
     }
+}
+
 }
 
