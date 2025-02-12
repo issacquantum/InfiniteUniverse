@@ -902,7 +902,85 @@ button, .music-nav img {
         display: none;  /* Make sure it's hidden for very small screens */
     }
 }
+/* Ensure the layout handles different orientations better */
+@media only screen and (max-width: 768px) and (orientation: landscape) {
+    /* Adjust navigation for landscape mode */
+    header {
+        display: flex;
+        justify-content: flex-start; /* Align items to the left */
+        padding: 15px 20px;  /* Add more space to avoid crowding */
+    }
 
+    .nav-container {
+        width: auto; /* Allow the navigation bar to take more space */
+        justify-content: flex-start; /* Align it to the left */
+    }
+
+    .site-name {
+        font-size: 1.5rem;
+        margin-right: 20px; /* Add spacing between the site name and the nav links */
+    }
+
+    nav ul {
+        flex-direction: row;  /* Make the links align horizontally */
+        gap: 20px;  /* Space between the links */
+    }
+
+    nav ul li {
+        display: inline-block;
+    }
+
+    nav ul li a {
+        font-size: 1rem;  /* Adjust font size for readability */
+        padding: 10px 20px;  /* Ensure links are clickable */
+    }
+}
+
+/* For very small devices (iPhone in portrait mode) */
+@media only screen and (max-width: 480px) {
+    header {
+        display: flex;
+        justify-content: space-between; /* Space out the navigation bar */
+        padding: 10px 15px;  /* Adjust padding for mobile */
+    }
+
+    .site-name {
+        font-size: 1.3rem; /* Reduce site name size for mobile */
+    }
+
+    nav ul {
+        flex-direction: column;  /* Stack the navigation links vertically */
+        gap: 10px;  /* Add spacing between the links */
+        align-items: center;  /* Center the navigation items */
+        padding: 0;
+        margin: 0;
+    }
+
+    nav ul li {
+        display: block;  /* Stack each link block vertically */
+    }
+
+    nav ul li a {
+        font-size: 1rem;
+        padding: 10px 20px;  /* Increase padding for touch-friendly areas */
+    }
+}
+
+/* For very large screens (desktops) or when orientation is wide */
+@media only screen and (min-width: 1024px) {
+    header {
+        padding: 10px 40px;  /* Add more padding for large screens */
+    }
+
+    .site-name {
+        font-size: 2rem;
+    }
+
+    nav ul {
+        flex-direction: row;  /* Horizontal navigation links */
+        gap: 30px;  /* Spacing between the links */
+    }
+}
 
 
 
