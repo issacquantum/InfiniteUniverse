@@ -76,9 +76,8 @@ header {
     margin: 40px 0;
 }
 .about h2 {
-    color: #ff33cc; /* Lighter vibrant violet for mobile */
+    color: #e409ce; /* Restore original color */
 }
-
 /* Apply lighter tones for mobile readability */
 @media only screen and (max-width: 768px) {
     .about p {
