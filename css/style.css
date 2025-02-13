@@ -373,5 +373,12 @@ header {
     from { transform: translateY(0px); }
     to { transform: translateY(-20px); }
 }
+@supports (-webkit-touch-callout: none) {
+    body {
+        overflow-x: visible !important;
+        overscroll-behavior: contain !important;
+    }
+}
+
 
 
