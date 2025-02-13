@@ -75,14 +75,15 @@ header {
     padding: 20px;
     margin: 40px 0;
 }
-
 .about h2 {
-    color: #e409ce;
+    color: #ff33cc; /* Lighter vibrant violet for mobile */
 }
 
-.about p {
-    color: #bc5ec8;
-    margin-bottom: 20px;
+/* Apply lighter tones for mobile readability */
+@media only screen and (max-width: 768px) {
+    .about p {
+        color: #e673d9; /* Lighter fluorescent tone for mobile */
+    }
 }
 /* CONTACT SECTION */
 .contact {
