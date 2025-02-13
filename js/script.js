@@ -1,9 +1,9 @@
-// 🎵 Music Player Configuration (Fixed Issues)
+// 🎵 Music Player Configuration (Updated Paths)
 const songs = [
-    "assets/Sitemusic/Prelude_Csharp_Op3_No2.mp3",
-    "assets/Sitemusic/Moment_Musical_No4_Op16.mp3",
-    "assets/Sitemusic/Elegie_Op3_No1.mp3",
-    "assets/Sitemusic/Rhapsody_Paganini_Op43.mp3"
+    "assets/Prelude_Csharp_Op3_No2.mp3",
+    "assets/Moment_Musical_No4_Op16.mp3",
+    "assets/Elegie_Op3_No1.mp3",
+    "assets/Rhapsody_Paganini_Op43.mp3"
 ];
 
 const songNames = [
@@ -47,26 +47,3 @@ audio.addEventListener("ended", function () {
 
 // 🔊 Ensure Volume is 100%
 audio.volume = 1.0;
-
-// 🌌 Generate Glowing Particles
-document.addEventListener("DOMContentLoaded", function () {
-    const particleContainer = document.getElementById("particles-container");
-
-    if (!particleContainer) {
-        console.error("❌ `particles-container` not found in the HTML.");
-        return;
-    }
-
-    for (let i = 0; i < 80; i++) {
-        let particle = document.createElement("div");
-        particle.classList.add("particle");
-
-        // Randomize position
-        particle.style.left = `${Math.random() * 100}vw`;
-        particle.style.top = `${Math.random() * 100}vh`;
-        particle.style.width = `${Math.random() * 4 + 2}px`;  // Smaller particle size
-        particle.style.height = particle.style.width;
-
-        particleContainer.appendChild(particle);
-    }
-});
