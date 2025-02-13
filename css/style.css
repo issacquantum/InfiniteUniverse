@@ -390,6 +390,30 @@ header {
         overscroll-behavior: contain !important;
     }
 }
+/* 🔥 Fix PC Font Color */
+body {
+    color: #bc5ec8 !important; /* Restoring original violet-pink for desktop */
+}
+
+/* 📱 Lighter Tone for Mobile Readability */
+@media only screen and (max-width: 768px) {
+    body {
+        color: #ff99ff !important; /* Lighter fluorescent pink for mobile */
+    }
+}
+
+/* 🟣 Ensure Section Titles Are Clear */
+.about h2, .section-title {
+    color: #e409ce !important; /* Restore correct color */
+}
+
+/* 📱 Adjust Titles for Mobile */
+@media only screen and (max-width: 768px) {
+    .about h2, .section-title {
+        color: #ff99ff !important; /* Even lighter for readability */
+    }
+}
+
 
 
 
