@@ -35,7 +35,7 @@ playPauseButton.addEventListener("click", function () {
     }
 });
 
-// 🎵 Auto Play Next Song When Current One Ends (Fixed)
+// 🎵 Auto Play Next Song When Current One Ends
 audio.addEventListener("ended", function () {
     currentSongIndex = (currentSongIndex + 1) % songs.length;
     audio.src = songs[currentSongIndex];
