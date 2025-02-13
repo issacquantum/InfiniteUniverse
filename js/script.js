@@ -42,53 +42,37 @@ audio.addEventListener("ended", function () {
 // 🎛 Ensure Volume is at 100%
 audio.volume = 1.0;
 
-// 📌 Open PDF in Fullscreen Mode (Computer Only)
-document.getElementById("cvIcon").addEventListener("click", function () {
-    let overlay = document.getElementById("cvOverlay");
-    let frame = document.getElementById("cvFrame");
-
-    overlay.classList.add("show"); // Show overlay
-    frame.src = "assets/ProfessionalResume.pdf"; // Reload PDF to ensure full load
-    frame.style.height = "100vh"; // Ensure full height
-
-    setTimeout(() => {
-        frame.focus(); // Ensure PDF interaction
-    }, 500);
-});
-
-// 📌 Close PDF Overlay When Clicking Outside
-document.getElementById("cvOverlay").addEventListener("click", function (event) {
-    if (event.target === this) {
-        this.classList.remove("show");
-    }
-});
-
-// Static Glowing Particles for the Entire Site
-const numParticles = 150; // Increased number of particles for more intensity
-
-// Function to create and add particles to the page
+// 🌌 Create Glowing Particles
 function createParticles() {
+    const numParticles = 50; // Number of particles to generate
+
     for (let i = 0; i < numParticles; i++) {
-        const particle = document.createElement('div');
-        particle.classList.add('particle');
-        
-        // Randomly set the size and position of each particle
-        const size = Math.random() * 5 + 3; // Smaller particle size range (from 3px to 8px)
-        const xPosition = Math.random() * 100 + "%"; // Random x position
-        const yPosition = Math.random() * 100 + "%"; // Random y position
-        const delay = Math.random() * 10 + "s"; // Random delay for fade in/out
+        const particle = document.createElement("div");
+        particle.classList.add("particle");
 
-        // Set the CSS properties of the particle
-        particle.style.width = size + "px";
-        particle.style.height = size + "px";
-        particle.style.left = xPosition;
-        particle.style.top = yPosition;
-        particle.style.animationDelay = delay;
+        // Random size between 3px and 7px
+        const size = Math.random() * 5 + 3;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
 
-        // Append the particle to the body (make sure it's across the entire site)
-        document.body.appendChild(particle);
+        // Random position
+        particle.style.left = `${Math.random() * 100}vw`;
+        particle.style.top = `${Math.random() * 100}vh`;
+
+        // Random animation delay
+        particle.style.animationDelay = `${Math.random() * 6}s`;
+
+        document.body.appendChild(particle); // Adds particles to the site
     }
 }
 
-// Call the function to create the particles
-createParticles();
+// Run the function when the page loads
+document.addEventListener("DOMContentLoaded", createParticles);
+
+
+
+
+
+
+
+
