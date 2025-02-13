@@ -82,7 +82,7 @@ header {
 /* Apply lighter tones for mobile readability */
 @media only screen and (max-width: 768px) {
     .about p {
-        color: #e673d9; /* Lighter fluorescent tone for mobile */
+        color: #ff99ff; /* Even lighter for mobile */
     }
 }
 /* CONTACT SECTION */
