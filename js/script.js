@@ -1,9 +1,9 @@
-// 🎵 Music Player Configuration
+// 🎵 Music Player Configuration (Updated Filenames)
 const songs = [
-    "assets/Sitemusic/Prelude in C-sharp minor, Op. 3, No. 2.mp3",
-    "assets/Sitemusic/Moment Musical No. 4 in D Major, Op. 16.mp3",
-    "assets/Sitemusic/Élégie in E-flat minor, Op. 3 No. 1.mp3",
-    "assets/Sitemusic/Rhapsody on a Theme of Paganini, Op. 43.mp3"
+    "assets/Sitemusic/Prelude_Csharp_Op3_No2.mp3",
+    "assets/Sitemusic/Moment_Musical_No4_Op16.mp3",
+    "assets/Sitemusic/Elegie_Op3_No1.mp3",
+    "assets/Sitemusic/Rhapsody_Paganini_Op43.mp3"
 ];
 
 const songNames = [
@@ -41,6 +41,7 @@ audio.addEventListener("ended", function () {
 
 // 🎛 Ensure Volume is at 100%
 audio.volume = 1.0;
+
 
 // 🌌 Generate Glowing Particles Across the Entire Site
 document.addEventListener("DOMContentLoaded", function () {
