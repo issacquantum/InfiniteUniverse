@@ -1,4 +1,4 @@
-// 🎵 Music Player Configuration (Updated Filenames)
+// 🎵 Music Player Configuration (Fixed Issues)
 const songs = [
     "assets/Sitemusic/Prelude_Csharp_Op3_No2.mp3",
     "assets/Sitemusic/Moment_Musical_No4_Op16.mp3",
@@ -15,35 +15,40 @@ const songNames = [
 
 let currentSongIndex = 0;
 let audio = new Audio(songs[currentSongIndex]);
+
 const playPauseButton = document.getElementById("playPauseButton");
 const songNameDisplay = document.getElementById("song-name");
 
-// 🎛 Toggle Play/Pause Button
+// 📝 Ensure song name is displayed at start
+songNameDisplay.textContent = songNames[currentSongIndex];
+
+// 🎛 Play/Pause Button Toggle
 playPauseButton.addEventListener("click", function () {
     if (audio.paused) {
         audio.play();
         playPauseButton.src = "assets/pause-icon.svg"; // Switch to pause icon
-        songNameDisplay.classList.add("glow"); // Apply glowing effect to song name
+        songNameDisplay.classList.add("glow");
     } else {
         audio.pause();
         playPauseButton.src = "assets/play-icon.svg"; // Switch to play icon
-        songNameDisplay.classList.remove("glow"); // Remove glowing effect
+        songNameDisplay.classList.remove("glow");
     }
 });
 
-// 🎵 Automatically Play Next Song When Current Song Ends
+// 🎵 Auto Play Next Song When Current One Ends (Fixed)
 audio.addEventListener("ended", function () {
     currentSongIndex = (currentSongIndex + 1) % songs.length;
     audio.src = songs[currentSongIndex];
     songNameDisplay.textContent = songNames[currentSongIndex];
+
+    audio.load(); // 🔄 Reload audio to apply new source
     audio.play();
 });
 
-// 🎛 Ensure Volume is at 100%
+// 🔊 Ensure Volume is 100%
 audio.volume = 1.0;
 
-
-// 🌌 Generate Glowing Particles Across the Entire Site
+// 🌌 Generate Glowing Particles
 document.addEventListener("DOMContentLoaded", function () {
     const particleContainer = document.getElementById("particles-container");
 
@@ -52,17 +57,16 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-    for (let i = 0; i < 80; i++) { // Adjust particle count
+    for (let i = 0; i < 80; i++) {
         let particle = document.createElement("div");
         particle.classList.add("particle");
 
         // Randomize position
         particle.style.left = `${Math.random() * 100}vw`;
         particle.style.top = `${Math.random() * 100}vh`;
-        particle.style.width = `${Math.random() * 8 + 4}px`;  // Random size (4px - 12px)
+        particle.style.width = `${Math.random() * 4 + 2}px`;  // Smaller particle size
         particle.style.height = particle.style.width;
 
-        // Append to container
         particleContainer.appendChild(particle);
     }
 });
