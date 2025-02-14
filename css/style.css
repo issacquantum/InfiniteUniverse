@@ -262,9 +262,6 @@ header {
     filter: drop-shadow(0 0 18px #ff69b4) 
             drop-shadow(0 0 25px #ff1493) 
             drop-shadow(0 0 35px #ff1493);
-            filter: drop-shadow(0 0 15px #9400D3) 
-            drop-shadow(0 0 25px #8A2BE2) 
-            drop-shadow(0 0 35px #6A0DAD);
 }
 /* 💜 Apply Fluorescent Pink Color to Atom Logo (While Keeping Glow) */
 #atomLogo {
