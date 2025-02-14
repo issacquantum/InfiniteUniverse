@@ -10,7 +10,7 @@ body {
     /* Parallax Background */
  background-image: url("../assets/hexlineweave5.svg") !important;
 background-size: cover !important;
-background-attachment: fixed !important;
+background-attachment: scroll !important;
 background-position: center !important;
 background-repeat: no-repeat !important;
 background-blend-mode: soft-light !important;
