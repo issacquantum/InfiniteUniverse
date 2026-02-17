@@ -1,31 +1,29 @@
 /* General Page Styling */
 body {
-    font-family: 'Dancing Script', cursive !important;
-    letter-spacing: 0.5px !important;
+    font-family: 'Dancing Script', cursive;
+    letter-spacing: 0.5px;
     margin: 0;
     padding: 0;
-    background-color: #21142f !important;
+    background-color: #21142f;
     color: #6f0da8;
     
     /* Parallax Background */
- background-image: url("../assets/hexlineweave5.svg") !important;
-background-size: cover !important;
-background-attachment: scroll !important;
-background-position: center !important;
-background-repeat: no-repeat !important;
-background-blend-mode: soft-light !important;
-}
-
-@supports (-webkit-overflow-scrolling: touch) {
-    body {
-        background-attachment: scroll !important; /* Fixes iOS scrolling issue */
-    }
+    background-image: url("../assets/hexlineweave5.svg") !important;
+    background-size: cover !important;
+    background-attachment: fixed !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-blend-mode: soft-light !important;
+    /* FOR MOBILE ZOOM: Prevent browser from trying to auto-adjust text size */
+    -webkit-text-size-adjust: 100%; /* For Webkit browsers (iOS Safari, Chrome Android) */
+    text-size-adjust: 100%; /* Standard */
+    /* NEW: Prevent horizontal overflow on the body itself */
+    overflow-x: hidden; 
 }
 /* NAVIGATION BAR */
 header {
     position: fixed;
     top: 0;
-    left: 0;
     width: 100%;
     background: url("../assets/hexline-weavepink.svg") repeat, rgba(18, 0, 36, 0.9);
     background-size: cover;
@@ -34,47 +32,45 @@ header {
     display: flex;
     justify-content: center;
     z-index: 100;
-}
 
+     /* NEW: Ensure header always takes at least a minimum width, even when zoomed */
+     min-width: 320px; /* Common minimum mobile width, helps prevent squishing */
+}
 .nav-container {
     width: 90%;
     max-width: 1200px;
     display: flex;
     align-items: center;
     justify-content: center;
+    /* Allow items to wrap when space is tight (especially on mobile zoom) */
+    flex-wrap: wrap; 
+    
+    /* NEW: Add padding to sides to prevent content from touching edges */
+    padding: 0 5px; 
 }
 
 /* Navigation Bar Name Styling */
-.site-name {
-    text-shadow: 0px 0px 15px #9400D3, 0px 0px 25px #8A2BE2, 0px 0px 35px #6A0DAD;
-    color: #dea0ff;
-    font-size: 1.8rem;
-    margin-left: 15mm; /* Moves the name exactly 5mm to the right */
+.site-name { 
+    font-size: 1.5rem; 
+    text-align: center; 
+    /* ADDITION for mobile zoom: Helps prevent text overflow and layout breaks when zoomed. */
+    white-space: nowrap;
+    min-width: fit-content;
 }
-
 .site-name:hover {
     text-shadow: 0 0 12px #ff69b4, 0 0 18px #c71585, 0 0 24px #9400d3;
 }
-
-.logo {
-    width: 30px;
-    height: auto;
-    margin-left: 10px;
-}
-
 /* PROFILE SECTION */
 .profile {
     text-align: center;
-    margin-top: 100px;
+    margin-top:120px;
+     /* NEW: Add horizontal padding to prevent image from touching edges */
+     padding: 0 10px;
 }
-
-.profile img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-bottom: 20px;
+.profile h2.vibrant-violet {
+    margin-bottom: 0px; 
+    margin-top: 0px;
 }
-
 /* ABOUT ME SECTION */
 .about {
     text-align: center;
@@ -453,7 +449,3 @@ body {
         color: #ff99ff !important; /* Even lighter for readability */
     }
 }
-
-
-
-
