@@ -424,8 +424,8 @@ body {
     bottom: 70px; /* Distance from bottom of screen for desktop */
     right: 25px; /* Distance from right of screen for desktop */
     left: auto; /* Ensure it stays on the right by default */
-    width: 65px; /* Size for desktop */
-    height: 65px;
+    width: 50px; /* Size for desktop */
+    height: 50px;
     background-color: #5707b9; /* Button background color (intense pink) */
     border-radius: 50%; /* Makes it circular */
     display: flex;
