@@ -74,7 +74,7 @@ header {
         0 0 15px #a20ef1, /* Another pink layer */
         0 0 20px #bf00ff, /* Violet/Purple glow layer */
         0 0 25px #bf00ff; /* Even wider violet/purple glow */
-    font-size: 1.25em; /* Optional: Adjust size for prominence */
+    font-size: 1em; /* Optional: Adjust size for prominence */
     line-height: 1.4;  /* Optional: Adjust line spacing */
 }
 .profile h2.vibrant-violet {
