@@ -20,14 +20,19 @@ const songNameDisplay = document.getElementById("song-name");
 
 // 🎛 Toggle Play/Pause Button
 playPauseButton.addEventListener("click", function () {
+
     if (audio.paused) {
-        audio.play();
-        playPauseButton.src = "assets/pause-icon.svg"; // Switch to pause icon
-        songNameDisplay.classList.add("glow"); // Apply glowing effect to song name
+        audio.play().then(() => {
+            playPauseButton.src = "assets/pause-icon.svg";
+            songNameDisplay.classList.add("glow");
+        }).catch(error => {
+            console.error("Playback failed:", error);
+        });
+
     } else {
         audio.pause();
-        playPauseButton.src = "assets/play-icon.svg"; // Switch to play icon
-        songNameDisplay.classList.remove("glow"); // Remove glowing effect
+        playPauseButton.src = "assets/play-icon.svg";
+        songNameDisplay.classList.remove("glow");
     }
 });
 
