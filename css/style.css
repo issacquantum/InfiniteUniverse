@@ -18,7 +18,7 @@ body {
     -webkit-text-size-adjust: 100%; /* For Webkit browsers (iOS Safari, Chrome Android) */
     text-size-adjust: 100%; /* Standard */
     /* NEW: Prevent horizontal overflow on the body itself */
-    overflow-x: hidden; 
+    overflow-x: hidden;     
 }
 /* NAVIGATION BAR */
 header {
@@ -50,12 +50,10 @@ header {
 }
 
 /* Navigation Bar Name Styling */
-.site-name { 
-    font-size: 1.5rem; 
-    text-align: center; 
-    /* ADDITION for mobile zoom: Helps prevent text overflow and layout breaks when zoomed. */
-    white-space: nowrap;
-    min-width: fit-content;
+.site-name {
+    font-size: 1.5rem;
+    text-align: center;
+    white-space: normal;
 }
 .site-name:hover {
     text-shadow: 0 0 12px #ff69b4, 0 0 18px #c71585, 0 0 24px #9400d3;
@@ -163,13 +161,6 @@ h2.about-me-heading {
     filter: drop-shadow(0 0 15px #bf00ff) drop-shadow(0 0 20px #9a00e6) drop-shadow(0 0 30px #6f00b8);
 }
 
-/* FOOTER */
-.footer {
-    text-align: center;
-    padding: 10px;
-    background: rgba(0, 0, 0, 0.3);
-}
-
 .copyright {
     color: #FF1493;
     font-size: 0.9rem;
@@ -187,25 +178,14 @@ h2.about-me-heading {
     .profile img { width: 100px; height: 100px; }
     .social-logo { width: 30px; }
 }
-/* 🎵 Music Player - Fix Position Inside Footer */
-.music-control {
-    position: absolute;
-    bottom: 10px;
-    right: 20px; /* Aligns to the right side of the footer */
-    display: flex;
-    align-items: center;
-    gap: 15px; /* Adds spacing between song name & button */
-}
-
-/* 🎵 Fix Footer to Contain Music Controls */
 .footer {
-    position: relative; /* Allows absolute positioning inside */
+    position: relative;
     display: flex;
-    justify-content: space-between; /* Pushes content apart */
+    justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
+    flex-wrap: wrap;
 }
-
 /* 🎵 Song Name Styling */
 #song-name {
     font-size: 14px;
@@ -281,63 +261,12 @@ h2.about-me-heading {
         color: #e673d9; /* Lighter fluorescent tone for mobile */
     }
 }
-/* 💜 Fluorescent Pink Color & Glow Effect for Atom Logo */
-#atomLogo {
-    width: 30px; /* Maintain the original size */
-    height: auto;
-    margin-left: 15px; /* Space between atom logo and site name */
-    filter: brightness(0) saturate(100%) invert(24%) sepia(97%) saturate(7500%) hue-rotate(315deg) brightness(110%) contrast(120%);
-    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
-}
 /* 🎇 Enhance Glow Effect When Hovered */
 #atomLogo:hover {
     transform: scale(1.1);
     filter: drop-shadow(0 0 18px #ff69b4) 
             drop-shadow(0 0 25px #ff1493) 
             drop-shadow(0 0 35px #ff1493);
-}
-/* 💜 Apply Fluorescent Pink Color to Atom Logo (While Keeping Glow) */
-#atomLogo {
-    width: 30px; /* Maintain the original size */
-    height: auto;
-    margin-left: 15px; /* Space between atom logo and site name */
-    
-    /* Change the actual icon color to Fluorescent Pink */
-    filter: brightness(0) saturate(100%) invert(17%) sepia(98%) saturate(5000%) 
-            hue-rotate(315deg) brightness(130%) contrast(120%);
-    
-    /* Keep the existing glow effect */
-    drop-shadow(0 0 15px #ff1493) 
-    drop-shadow(0 0 25px #ff69b4) 
-    drop-shadow(0 0 35px #ff1493);
-    
-    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
-}
-/* 🌌 Ultra Small Glowing Particles & Much Slower Fading */
-.particle {
-    position: fixed; /* Ensures particles stay in place */
-    border-radius: 50%;
-    background-color: #9400D3; /* Intense Fluorescent Violet */
-    opacity: 0;
-    animation: fade 30s infinite alternate, moveParticles 40s linear infinite; /* Ultra Slow Fading & Floating */
-
-    /* Tiny particle size */
-    width: 1px;
-    height: 1px;
-
-    /* Fluorescent Glow */
-    filter: drop-shadow(0 0 4px #9400D3) 
-            drop-shadow(0 0 6px #8A2BE2) 
-            drop-shadow(0 0 8px #6A0DAD);
-
-    z-index: -1; /* Ensures particles appear behind content */
-}
-
-/* 🌌 Ultra Slow Fade-In and Fade-Out */
-@keyframes fade {
-    0% { opacity: 0; }
-    50% { opacity: 0.75; } /* Soft glow at max */
-    100% { opacity: 0; }
 }
 
 /* 🌌 Even Slower Floating Motion */
@@ -346,8 +275,6 @@ h2.about-me-heading {
     50% { transform: translateY(-3px); } /* Tiny floating effect */
     100% { transform: translateY(0px); }
 }
-
-
 
 /* 🌌 Rotating Planet Next to Name - Bigger & Fluorescent Pink */
 .rotating-planet {
@@ -447,5 +374,35 @@ body {
 @media only screen and (max-width: 768px) {
     .about h2, .section-title {
         color: #ff99ff !important; /* Even lighter for readability */
+    }
+}
+/* 📱 Footer Layout Fix for Mobile */
+@media (max-width: 768px) {
+
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 8px;
+    }
+
+    .music-control {
+        position: static;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    #song-name {
+        font-size: 12px;
+        max-width: 90%;
+        word-break: break-word;
+        text-align: center;
+    }
+
+    .copyright {
+        font-size: 12px;
     }
 }
