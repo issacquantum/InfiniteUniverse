@@ -1,4 +1,4 @@
-// 🎵 Music Player Configuration (Updated Filenames)
+// Music Player Configuration (Updated Filenames)
 const songs = [
     "assets/Sitemusic/Prelude_Csharp_Op3_No2.mp3",
     "assets/Sitemusic/Moment_Musical_No4_Op16.mp3",
@@ -18,7 +18,7 @@ let audio = new Audio(songs[currentSongIndex]);
 const playPauseButton = document.getElementById("playPauseButton");
 const songNameDisplay = document.getElementById("song-name");
 
-// 🎛 Toggle Play/Pause Button
+// Toggle Play/Pause Button
 playPauseButton.addEventListener("click", function () {
 
     if (audio.paused) {
@@ -36,7 +36,7 @@ playPauseButton.addEventListener("click", function () {
     }
 });
 
-// 🎵 Automatically Play Next Song When Current Song Ends
+// Automatically Play Next Song When Current Song Ends
 audio.addEventListener("ended", function () {
     currentSongIndex = (currentSongIndex + 1) % songs.length;
     audio.src = songs[currentSongIndex];
@@ -44,11 +44,11 @@ audio.addEventListener("ended", function () {
     audio.play();
 });
 
-// 🎛 Ensure Volume is at 100%
+// Ensure Volume is at 100%
 audio.volume = 1.0;
 
 
-// 🌌 Generate Glowing Particles Across the Entire Site
+// Generate Glowing Particles Across the Entire Site
 document.addEventListener("DOMContentLoaded", function () {
     const particleContainer = document.getElementById("particles-container");
 
