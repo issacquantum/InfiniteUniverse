@@ -421,7 +421,7 @@ body {
  /* Resume Floating Action Button (FAB) - Default (Desktop) */
 .resume-fab {
     position: fixed;
-    bottom: 25px; /* Distance from bottom of screen for desktop */
+    bottom: 70px; /* Distance from bottom of screen for desktop */
     right: 25px; /* Distance from right of screen for desktop */
     left: auto; /* Ensure it stays on the right by default */
     width: 65px; /* Size for desktop */
