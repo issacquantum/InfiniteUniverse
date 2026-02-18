@@ -94,7 +94,7 @@ header {
     color: #a455ee; 
     margin-top: 0;
     margin-bottom: 10px;
-    font-size: 1.30em; 
+    font-size: 1em; 
     line-height: 1.6;
      /* NEW: Ensure text flows within boundaries */
      word-wrap: break-word; 
