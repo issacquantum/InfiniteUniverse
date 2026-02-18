@@ -418,3 +418,56 @@ body {
         font-size: 12px;
     }
 }
+ /* Resume Floating Action Button (FAB) - Default (Desktop) */
+.resume-fab {
+    position: fixed;
+    bottom: 25px; /* Distance from bottom of screen for desktop */
+    right: 25px; /* Distance from right of screen for desktop */
+    left: auto; /* Ensure it stays on the right by default */
+    width: 65px; /* Size for desktop */
+    height: 65px;
+    background-color: #5707b9; /* Button background color (intense pink) */
+    border-radius: 50%; /* Makes it circular */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+    transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+    z-index: 101; /* Ensures it stays above other content and particles */
+
+    /* Glow effect for the button */
+    filter: drop-shadow(0 0 8px #e409ce)
+            drop_shadow(0 0 15px #e409ce)
+            drop_shadow(0 0 25px rgba(228, 9, 206, 0.7)); /* Stronger pink glow */
+}
+
+.resume-fab:hover {
+    transform: scale(1.1); /* Slightly enlarge button on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6); /* Deeper shadow on hover */
+    filter: drop-shadow(0 0 10px #ff1493) /* Enhanced glow on hover */
+            drop_shadow(0 0 20px #ff69b4)
+            drop_shadow(0 0 30px #a20ef1);
+}
+
+.resume-fab img {
+    width: 35px; /* Size of the icon inside the button for desktop */
+    height: 35px;
+    /* Invert and tint the icon to match your site's color scheme (makes the icon white) */
+    filter: invert(100%) sepia(100%) saturate(0%) hue_rotate(282deg) brightness(100%) contrast(100%);
+}
+
+/* Responsive adjustments for smaller screens (mobile devices) */
+@media only screen and (max-width: 768px) {
+    .resume-fab {
+        bottom: 30px; /* More padding from bottom for mobile */
+        left: 30px;  /* <-- NEW: Move to left side for mobile */
+        right: auto; /* <-- NEW: Disable right positioning for mobile */
+        width: 60px; /* A good visible size on mobile */
+        height: 60px;
+    }
+
+    .resume-fab img {
+        width: 32px; /* A good visible icon size on mobile */
+        height: 32px;
+    }
+}
