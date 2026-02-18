@@ -17,7 +17,6 @@ body {
     /* FOR MOBILE ZOOM: Prevent browser from trying to auto-adjust text size */
     -webkit-text-size-adjust: 100%; /* For Webkit browsers (iOS Safari, Chrome Android) */
     text-size-adjust: 100%; /* Standard */
-    /* NEW: Prevent horizontal overflow on the body itself */
     overflow-x: hidden;     
 }
 /* NAVIGATION BAR */
@@ -32,9 +31,7 @@ header {
     display: flex;
     justify-content: center;
     z-index: 100;
-
-     /* NEW: Ensure header always takes at least a minimum width, even when zoomed */
-     min-width: 320px; /* Common minimum mobile width, helps prevent squishing */
+    min-width: 320px; /* Common minimum mobile width, helps prevent squishing */
 }
 .nav-container {
     width: 90%;
@@ -44,8 +41,6 @@ header {
     justify-content: center;
     /* Allow items to wrap when space is tight (especially on mobile zoom) */
     flex-wrap: wrap; 
-    
-    /* NEW: Add padding to sides to prevent content from touching edges */
     padding: 0 5px; 
 }
 
@@ -62,12 +57,11 @@ header {
 .profile {
     text-align: center;
     margin-top:120px;
-     /* NEW: Add horizontal padding to prevent image from touching edges */
-     padding: 0 10px;
+    padding: 0 10px;
 }
 /* ADD THIS NEW RULE HERE: */
 .profile p {
-    color: #bfbbc1; /* Set the base color for the text, ensures visibility with glow */
+    color: #bfbbc1; /* color for the text, ensures visibility with glow */
     text-shadow:
         0 0 5px #ff1493,  /* Inner, bright pink glow */
         0 0 10px #ff69b4, /* Mid-range, slightly lighter pink */
@@ -87,7 +81,6 @@ header {
     padding: 20px;
     margin-top: 0px;
     margin-bottom: 25px;
-    /* NEW: Add more generous horizontal padding for better readability on zoom */
     padding: 20px 15px; 
  }
  .about p {
@@ -96,9 +89,8 @@ header {
     margin-bottom: 10px;
     font-size: 1em; 
     line-height: 1.6;
-     /* NEW: Ensure text flows within boundaries */
-     word-wrap: break-word; 
-     overflow-wrap: break-word; 
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
      
 }
 .about p strong { 
@@ -114,10 +106,10 @@ header {
 h2.about-me-heading {
     color: #a145c0;
     text-align: center;
-    margin-top: 40px;    /* Space from "Welcome" (adjust as needed) */
-    margin-bottom: 20px; /* Space to the content below (adjust as needed) */
-    margin-left: 0;      /* No side margins */
-    margin-right: 0;     /* No side margins */
+    margin-top: 40px;    /* Space from "Welcome" */
+    margin-bottom: 20px; 
+    margin-left: 0;      
+    margin-right: 0;     
     padding: 0;
     font-size: 1.5em;
 }
@@ -126,7 +118,6 @@ h2.about-me-heading {
     height: 150px;
     border-radius: 50%;
     margin-bottom: 5px;
-    /* Ensure images scale down properly if container gets smaller, and don't exceed their original size */
     max-width: 100%; 
     height: auto; 
     display: block; /* Helps with centering and consistent sizing */
@@ -198,7 +189,7 @@ h2.about-me-heading {
     padding: 10px 20px;
     flex-wrap: wrap;
 }
-/* 🎵 Song Name Styling */
+/* Song Name Styling */
 #song-name {
     font-size: 14px;
     font-weight: bold;
@@ -207,7 +198,7 @@ h2.about-me-heading {
     transition: text-shadow 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
-/* 🔥 Glowing effect applies only when playing */
+/* Glowing effect applies only when playing */
 .glow {
     text-shadow: 0 0 20px #ff1493, 0 0 30px #ff69b4, 0 0 40px #ff85c1;
 }
@@ -217,7 +208,7 @@ h2.about-me-heading {
     text-shadow: none;
 }
 
-/* 🎵 Play/Pause Button Styling */
+/* Play/Pause Button Styling */
 #playPauseButton {
     width: 35px;
     height: auto;
@@ -226,12 +217,12 @@ h2.about-me-heading {
     transition: transform 0.2s ease-in-out;
 }
 
-/* 📱 Responsive Fix for Mobile */
+/* Responsive Fix for Mobile */
 @media only screen and (max-width: 768px) {
     .music-control {
         bottom: 15px;
         right: 10px;
-        flex-direction: row-reverse; /* Keep button aligned properly */
+        flex-direction: row-reverse; /* Keeps button aligned properly */
     }
 
     #song-name {
@@ -246,7 +237,7 @@ h2.about-me-heading {
 @media (max-width: 768px) {
     /* Hide the song name on mobile */
     #song-name {
-        display: none;  /* Song name is hidden on mobile */
+        display: none;  /* Song name is hidden on mobile since it overlaps with play icon */
     }
 
     /* Resize and move the play/pause button to the right */
@@ -263,7 +254,7 @@ h2.about-me-heading {
     font-size: 20px;
 }
 
-/* 🌟 Adjust Section Titles for Mobile Readability */
+/* Adjust Section Titles for Mobile Readability */
 @media only screen and (max-width: 768px) {
     .section-title {
         color: #ff99ff; /* Lighter intense pink-violet */
@@ -273,7 +264,7 @@ h2.about-me-heading {
         color: #e673d9; /* Lighter fluorescent tone for mobile */
     }
 }
-/* 🎇 Enhance Glow Effect When Hovered */
+/* Enhance Glow Effect When Hovered */
 #atomLogo:hover {
     transform: scale(1.1);
     filter: drop-shadow(0 0 18px #ff69b4) 
@@ -281,14 +272,14 @@ h2.about-me-heading {
             drop-shadow(0 0 35px #ff1493);
 }
 
-/* 🌌 Even Slower Floating Motion */
+/* Even Slower Floating Motion */
 @keyframes moveParticles {
     0% { transform: translateY(0px); }
     50% { transform: translateY(-3px); } /* Tiny floating effect */
     100% { transform: translateY(0px); }
 }
 
-/* 🌌 Rotating Planet Next to Name - Bigger & Fluorescent Pink */
+/* Rotating Planet Next to Name - Bigger & Fluorescent Pink */
 .rotating-planet {
     width: 40px; /* Increased size */
     height: auto;
@@ -309,7 +300,7 @@ h2.about-me-heading {
     animation: rotatePlanet 8s linear infinite;
 }
 
-/* 🌌 Rotation Keyframes */
+/* Rotation Keyframes */
 @keyframes rotatePlanet {
     from {
         transform: rotate(0deg);
@@ -319,19 +310,19 @@ h2.about-me-heading {
     }
 }
 
-/* 🌌 Hover Effect - Slight Scale Up */
+/* Hover Effect - Slight Scale Up */
 .rotating-planet:hover {
     transform: scale(1.2); /* Slightly bigger on hover */
     transition: transform 0.3s ease-in-out;
 }
-/* ⚛️ Atom Logo Alignment Fix */
+/* Atom Logo Alignment Fix */
 #atomLogo {
     width: 35px; /* Make sure it's the same size as the planet */
     height: auto;
     vertical-align: middle; /* Ensures both icons align */
     margin-top: -5px; /* Adjust this if needed */
 }
-/* 🌌 Glowing Particles Styling */
+/* Glowing Particles Styling */
 .particle {
     position: fixed; /* Ensures particles stay in place */
     border-radius: 50%;
@@ -347,14 +338,14 @@ h2.about-me-heading {
     z-index: 0; /* Ensures particles appear behind content */
 }
 
-/* 🌌 Randomized Particle Fading */
+/* Randomized Particle Fading */
 @keyframes fade {
     0% { opacity: 0; }
     50% { opacity: 1; }
     100% { opacity: 0; }
 }
 
-/* 🌌 Smooth Floating Motion */
+/* Smooth Floating Motion */
 @keyframes moveParticles {
     from { transform: translateY(0px); }
     to { transform: translateY(-20px); }
@@ -365,7 +356,7 @@ h2.about-me-heading {
         overscroll-behavior: contain !important;
     }
 }
-/* 🔥 Fix PC Font Color */
+/* Fix PC Font Color */
 body {
     color: #bc5ec8 !important; /* Restoring original violet-pink for desktop */
 }
