@@ -1,4 +1,4 @@
-// Music Player Configuration (Updated Filenames)
+// Music Player Configuration
 const songs = [
     "assets/Sitemusic/Prelude_Csharp_Op3_No2.mp3",
     "assets/Sitemusic/Moment_Musical_No4_Op16.mp3",
@@ -44,7 +44,7 @@ audio.addEventListener("ended", function () {
     audio.play();
 });
 
-// Ensure Volume is at 100%
+// Volume at a 100% level
 audio.volume = 1.0;
 
 
