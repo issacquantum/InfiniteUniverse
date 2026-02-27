@@ -14,7 +14,7 @@ body {
     background-position: center !important;
     background-repeat: no-repeat !important;
     background-blend-mode: soft-light !important;
-    /* FOR MOBILE ZOOM: Prevent browser from trying to auto-adjust text size */
+    /* FOR MOBILE ZOOM: Prevent browser from trying to auto-adjust text size (still not working as intended, will try to troubleshoot in the future) */
     -webkit-text-size-adjust: 100%; /* For Webkit browsers (iOS Safari, Chrome Android) */
     text-size-adjust: 100%; /* Standard */
     overflow-x: hidden;     
@@ -320,7 +320,7 @@ h2.about-me-heading {
     width: 35px; /* Make sure it's the same size as the planet */
     height: auto;
     vertical-align: middle; /* Ensures both icons align */
-    margin-top: -5px; /* Adjust this if needed */
+    margin-top: -5px; /* Adjust if needed */
 }
 /* Glowing Particles Styling */
 .particle {
@@ -364,22 +364,22 @@ body {
 /* 📱 Lighter Tone for Mobile Readability */
 @media only screen and (max-width: 768px) {
     body {
-        color: #ff99ff !important; /* Lighter fluorescent pink for mobile */
+        color: #ff99ff !important; /* Lighter fluorescent pink for mobile only */
     }
 }
 
-/* 🟣 Ensure Section Titles Are Clear */
+/*  Ensure Section Titles Are Clear */
 .about h2, .section-title {
     color: #e409ce !important; /* Restore correct color */
 }
 
-/* 📱 Adjust Titles for Mobile */
+/*  Adjust Titles for Mobile */
 @media only screen and (max-width: 768px) {
     .about h2, .section-title {
         color: #ff99ff !important; /* Even lighter for readability */
     }
 }
-/* 📱 Footer Layout Fix for Mobile */
+/*  Footer Layout Fix for Mobile */
 @media (max-width: 768px) {
 
     .footer {
@@ -447,7 +447,7 @@ body {
     filter: invert(100%) sepia(100%) saturate(0%) hue_rotate(282deg) brightness(100%) contrast(100%);
 }
 
-/* Responsive adjustments for smaller screens (mobile devices) */
+/* Responsive adjustments for smaller screens (mobile devices), this worked on iOS, verify on androids later*/
 @media only screen and (max-width: 768px) {
     .resume-fab {
         bottom: 30px; /* More padding from bottom for mobile */
@@ -458,7 +458,7 @@ body {
     }
 
     .resume-fab img {
-        width: 32px; /* A good visible icon size on mobile */
+        width: 32px; /* A good visible icon size on mobile, adjust if too big or too small */
         height: 32px;
     }
 }
