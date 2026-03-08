@@ -326,7 +326,7 @@ h2.about-me-heading {
 .particle {
     position: fixed; /* Ensures particles stay in place */
     border-radius: 50%;
-    background-color: #d00ae6; /* Intense Fluorescent Violet */
+    background-color: #f8f6f9; /* Intense Fluorescent Violet */
     opacity: 0;
     animation: fade 6s infinite alternate, moveParticles 30s linear infinite; /* Fading & Floating */
 
