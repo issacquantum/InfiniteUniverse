@@ -161,7 +161,7 @@ h2.about-me-heading {
 
 .social-logo:hover {
     transform: scale(1.1);
-    filter: drop-shadow(0 0 15px #bf00ff) drop-shadow(0 0 20px #9a00e6) drop-shadow(0 0 30px #6f00b8);
+    filter: drop-shadow(0 0 15px #bf00ff) drop-shadow(0 0 20px #9a00e6) drop-shadow(0 0 30px #f64fff);
 }
 
 .copyright {
