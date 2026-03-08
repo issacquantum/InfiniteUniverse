@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Randomize position
         particle.style.left = `${Math.random() * 100}vw`;
         particle.style.top = `${Math.random() * 100}vh`;
-        particle.style.width = `${Math.random() * 8 + 4}px`;  // Random size (4px - 12px)
+        particle.style.width = `${Math.random() * 4 + 2}px`;  // Random size (8px - 15px)
         particle.style.height = particle.style.width;
 
         // Append to container
