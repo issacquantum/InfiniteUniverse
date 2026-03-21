@@ -30,16 +30,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Responsive fix for mobile: Lighter Tone for Mobile Readability, still in development */
-@media only screen and (max-width: 768px) {
-    body {
-        color: #ff99ff;
-        /* Lighter fluorescent pink for mobiles */
-        /* Disable parallax background on mobile devices */
-        background-attachment: scroll;
-    }
-}
-
 /* Special workaround for iOS Safari - applies overflow-x: hidden and overscroll-behavior: contain to body */
 @supports (-webkit-touch-callout: none) {
     body {
@@ -289,23 +279,6 @@ h2.about-me-heading {
     font-size: 0.9rem;
 }
 
-/* RESPONSIVENESS (still in developing, it keeps failing when zooming inon mobile devices) */
-@media only screen and (max-width: 768px) {
-    .profile img {
-        width: 120px;
-        height: 120px;
-    }
-
-    .site-name {
-        font-size: 1.5rem;
-        text-align: center;
-    }
-
-    .social-logo {
-        width: 35px;
-    }
-}
-
 @media only screen and (max-width: 480px) {
     .site-name {
         font-size: 1.2rem;
@@ -547,29 +520,12 @@ body {
     /* Restoring original violet-pink for desktop */
 }
 
-/* Lighter Tone for Mobile Readability (still in development)*/
-@media only screen and (max-width: 768px) {
-    body {
-        color: #ff99ff !important;
-        /* Lighter fluorescent pink for mobile */
-    }
-}
 
 /* Ensure Section Titles Are Clear */
 .about h2,
 .section-title {
     color: #e409ce !important;
     /* Restore correct color */
-}
-
-/* Adjust Titles for Mobile (still in development) */
-@media only screen and (max-width: 768px) {
-
-    .about h2,
-    .section-title {
-        color: #ff99ff !important;
-        /* Even lighter for readability */
-    }
 }
 
 /* Footer Layout Fix for Mobile (so far so good, probably will be modified in the future)*/
@@ -696,13 +652,6 @@ body {
 
 strong {
     font-weight: bold;
-}
-
-/* Disable parallax background on mobile devices (background still in development for mobile devices)*/
-@media only screen and (max-width: 768px) {
-    body {
-        background-attachment: scroll !important;
-    }
 }
 
 /* ===== The Big Bang should not be imagined as an explosion — image ===== */
