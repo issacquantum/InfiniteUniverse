@@ -1216,7 +1216,7 @@ mjx-container {
     /*           GENERAL MOBILE BODY STYLES        */
     /* ------------------------------------------- */
     body {
-        font-family: 'Open Sans', sans-serif; /* Recommend a more readable font for mobile */
+        font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif !important;
         font-size: 16px; /* Base font size for mobile readability */
         line-height: 1.5; /* Good line spacing for mobile */
         color: #ff99ff !important; /* Lighter fluorescent pink for mobile */
