@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<title>Radiation</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header>
+    <div class="nav-container"> <!-- Added this div to match index.html's structure for navigation -->
+        <a href="projects.html" class="nav-projects">My Projects</a> <!-- Added the My Projects link -->
+        <h1 class="site-name">
+            <a href="index.html">
+                <img src="assets/solar-system.svg" class="rotating-planet">
+                Issac Tabares
+                <img src="assets/atom.svg" id="atomLogo">
+            </a>
+        </h1>
+    </div> <!-- Closing nav-container div -->
+</header>
+
+<section class="about">
+
+<a href="from-the-big-bang-to-the-present-universe.html#bigbang-p1" class="back-arrow">⬅ </a>
+
+<h2 class="section-title">Radiation</h2>
+
+<p>
+    <strong>Radiation</strong> is <span class="popup-term"><strong>energy</strong><span class="popup-box">Energy is the capacity to do work or produce heat, a fundamental quantity in physics and cosmology.</span></span> that travels through space or through <span class="popup-term"><strong>matter</strong><span class="popup-box">Matter is the physical substance of the universe, anything that has mass and takes up space. It interacts with energy and radiation, forming everything from subatomic particles to celestial bodies.</span></span> in the form of <span class="popup-term"><strong>waves</strong><span class="popup-box">Waves are propagating disturbances that transfer energy without the net transfer of matter. In the context of electromagnetic radiation, waves describe the oscillating electric and magnetic fields that transport energy and momentum through space.</span></span> or <span class="popup-term"><strong>particles.</strong><span class="popup-box">Particles are fundamental discrete entities of matter or energy that demonstrate both particle-like and wave-like behaviors, serving as the constituents of matter and carriers of radiation.</span></span>. In <strong>physics</strong> and <strong>cosmology</strong>, the term most often refers to <span class="popup-term"><strong>electromagnetic radiation</strong><span class="popup-box">Electromagnetic radiation is a form of energy propagation through oscillating electric and magnetic fields, traveling at the speed of light. It encompasses a spectrum from radio waves to gamma rays, differing in wavelength and frequency..</span></span>, which is carried by particles called <span class="popup-term"><strong>photons</strong><span class="popup-box">Photons are tiny, fundamental packets of light and other forms of electromagnetic radiation. They carry energy and travel at the speed of light, acting as the carriers of all electromagnetic forces.</span></span>.
+    </p>
+
+<p>
+<strong>Electromagnetic radiation</strong> includes many familiar forms of energy such as <span class="popup-term"><strong>radio waves</strong><span class="popup-box">Radio waves are the longest-wavelength, lowest-frequency form of electromagnetic radiation, propagating as oscillating electric and magnetic fields through space..</span></span>, <span class="popup-term"><strong>microwaves</strong><span class="popup-box">Microwaves are a form of electromagnetic radiation with wavelengths longer than infrared light but shorter than radio waves, capable of heating substances and used in radar and telecommunications..</span></span>, <span class="popup-term"><strong>infrared light</strong><span class="popup-box">Infrared light is a form of electromagnetic radiation with wavelengths longer than visible light but shorter than microwaves. It is primarily associated with heat and is emitted by all objects with temperature..</span></span>, <span class="popup-term"><strong>visible light</strong><span class="popup-box">Visible light is the portion of the electromagnetic spectrum that is perceptible to the human eye, encompassing a range of wavelengths that appear as different colors.</span></span>, <span class="popup-term"><strong>ultraviolet radiation</strong><span class="popup-box">Ultraviolet radiation is a form of electromagnetic radiation with wavelengths shorter than visible light but longer than X-rays. It is energetic enough to cause chemical reactions and is a component of sunlight.</span></span>, <span class="popup-term"><strong>X-rays</strong><span class="popup-box">X-rays are a form of high-energy electromagnetic radiation with wavelengths shorter than ultraviolet light but longer than gamma rays, often used in medical imaging and astronomy..</span></span>, and <span class="popup-term"><strong>gamma rays</strong><span class="popup-box">Gamma rays are the most energetic form of electromagnetic radiation, possessing the shortest wavelengths and highest frequencies, typically produced by nuclear processes and cosmic phenomena..</span></span>. These forms differ in their <span class="popup-term"><strong>wavelength</strong><span class="popup-box">Wavelength is the spatial period of a wave, the distance over which a wave's shape repeats. It determines the type of electromagnetic radiation and is inversely related to its energy and frequency.</span></span>, <span class="popup-term"><strong>frequency</strong><span class="popup-box">Frequency is the number of complete wave cycles that pass a fixed point per unit of time. It determines the energy of electromagnetic radiation and is inversely related to its wavelength.</span></span>, and <strong>energy</strong>, but they all belong to the same physical phenomenon known as the <span class="popup-term"><strong>electromagnetic spectrum</strong><span class="popup-box">"Electromagnetic spectrum is the entire range of all types of electromagnetic radiation, ordered by wavelength, frequency, and energy, encompassing radio waves, microwaves, infrared, visible light, ultraviolet, X-rays, and gamma rays..</span></span>.
+</p>
+
+<p>
+Unlike <strong>matter</strong>, which consists of particles that possess <span class="popup-term"><strong>mass</strong><span class="popup-box">Mass is a fundamental property of matter, representing its resistance to acceleration and a measure of its gravitational influence. In the universe, it determines how objects interact under gravity and forms the basis of all physical structures.</span></span>, radiation can travel through empty space at the <span class="popup-term"><strong>speed of light</strong><span class="popup-box">Speed of light is the constant maximum speed at which all forms of electromagnetic radiation and gravity waves propagate in a vacuum, denoted as 'c', fundamental to the laws of physics and the structure of spacetime..</span></span>. Because of this property, radiation is able to transport energy across extremely large distances in the <strong>universe</strong>.
+</p>
+
+<p>
+In <strong>cosmology</strong>, radiation played a major role in the <strong>early universe</strong>. During the earliest stages after the <strong>Big Bang</strong>, extremely high <strong>temperatures</strong> filled space with energetic radiation that interacted continuously with matter. As the universe expanded and cooled, radiation gradually lost energy and matter began to dominate the <strong>large-scale structure</strong> of the cosmos.
+</p>
+
+<figure class="radiation-spectrum">
+
+    <img src="assets/electromagnetic-spectrum-radiation-wavelength-comparison.webp"
+    alt="Electromagnetic spectrum diagram showing radio waves through gamma rays">
+    
+    <figcaption>
+    
+    <span class="diagram-description">
+    The electromagnetic spectrum showing different forms of radiation arranged by wavelength and energy. 
+    Radio waves have the longest wavelengths, while gamma rays have the shortest wavelengths and highest energies.
+    </span>
+    
+    <br>
+    
+    <span class="diagram-credit">
+    Image credit: NASA
+</span>
+</figcaption>
+</figure>
+
+<!-- ===== 3D Electromagnetic Wave Model ===== -->
+<figure class="radiation-wave-3d">
+    <canvas id="emWaveCanvas"></canvas>
+    <figcaption>
+        Simplified 2D model of an electromagnetic wave. The electric field and magnetic field oscillate in perpendicular directions while the wave propagates through space.
+    </figcaption>
+</figure>
+
+</section>
+
+<footer class="footer">
+<p class="copyright">© 2026 Issac Tabares. All Rights Reserved.</p>
+</footer>
+
+<script>
+ (function () {
+    const canvas = document.getElementById("emWaveCanvas");
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+
+    // ===== COLOR ADJUSTERS =====
+    const PANEL_BG = "#321354";     // background panel color
+    const Z_AXIS_COLOR = "#ffffff"; // propagation axis
+    const Y_AXIS_COLOR = "#ff4df0"; // electric-field axis (now more purple/pink)
+    const X_AXIS_COLOR = "#7a3cff"; // magnetic-field axis (now more blue)
+
+    const E_WAVE_COLOR = "#ff6fae"; // electric wave color (pink)
+    const B_WAVE_COLOR = "#57d6ff"; // magnetic wave color (blue)
+
+    const E_ARROW_COLOR = "#ff9ac8"; // electric connector arrows
+    const B_ARROW_COLOR = "#8fe8ff"; // magnetic connector arrows
+
+    const LABEL_COLOR = "#f0d8ff";   // axis/field labels
+
+    // ===== SIZE / MOTION ADJUSTERS =====
+    const AMP = 40;          // wave amplitude
+    const LENGTH = 560;      // visible z-length of wave
+    const CYCLES = 2.2;      // how many oscillations fit in the visible length
+    const SPEED = 0.001;     // animation speed
+    const SAMPLE_STEP = 5;   // line smoothness for the main waves
+    const CONNECTOR_STEP = 70; // spacing between field arrows
+    const FILL_LINE_STEP = 10; // Spacing for the filling lines - adjusted for density
+
+    function resizeCanvas() {
+        const rect = canvas.getBoundingClientRect();
+        const dpr = window.devicePixelRatio || 1;
+        canvas.width = rect.width * dpr;
+        canvas.height = rect.height * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function project(x, y, z, originX, originY) {
+        // simple 3D-looking projection
+        const px = originX + z + x * (-0.80);
+        const py = originY - y + x * 0.80;
+        return { x: px, y: py };
+    }
+
+    function drawArrow(x1, y1, x2, y2, color, width = 2) {
+        ctx.strokeStyle = color;
+        ctx.lineWidth = width;
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.stroke();
+
+        const angle = Math.atan2(y2 - y1, x2 - x1);
+        const head = 8;
+        ctx.beginPath();
+        ctx.moveTo(x2, y2);
+        ctx.lineTo(x2 - head * Math.cos(angle - Math.PI / 6), y2 - head * Math.sin(angle - Math.PI / 6));
+        ctx.lineTo(x2 - head * Math.cos(angle + Math.PI / 6), y2 - head * Math.sin(angle + Math.PI / 6));
+        ctx.closePath();
+        ctx.fillStyle = color;
+        ctx.fill();
+    }
+
+    function drawLabel(text, x, y, color, font = "18px Georgia") {
+        ctx.fillStyle = color;
+        ctx.font = font;
+        ctx.fillText(text, x, y);
+    }
+
+    function draw(time) {
+        const t = time * SPEED;
+        const w = canvas.clientWidth;
+        const h = canvas.clientHeight;
+
+        ctx.clearRect(0, 0, w, h);
+
+        const originX = 90;
+        const originY = h / 2;
+
+        // background inside canvas
+        ctx.fillStyle = PANEL_BG;
+        ctx.fillRect(0, 0, w, h);
+
+        // ===== AXES =====
+        const zEnd = project(0, 0, LENGTH + 70, originX, originY);
+        const yEnd = project(0, AMP + 70, 0, originX, originY);
+        const xEnd = project(AMP + 70, 0, 0, originX, originY);
+
+        drawArrow(originX, originY, zEnd.x, zEnd.y, Z_AXIS_COLOR, 2.2);
+        drawArrow(originX, originY, yEnd.x, yEnd.y, Y_AXIS_COLOR, 2.2);
+        drawArrow(originX, originY, xEnd.x, xEnd.y, X_AXIS_COLOR, 2.2);
+
+        drawLabel("z", zEnd.x + 10, zEnd.y + 4, Z_AXIS_COLOR);
+        drawLabel("y", yEnd.x - 8, yEnd.y - 10, Y_AXIS_COLOR);
+        drawLabel("x", xEnd.x - 10, xEnd.y + 18, X_AXIS_COLOR);
+
+        // ===== WAVES =====
+        const k = (Math.PI * 2 * CYCLES) / LENGTH; // Define k here, before it's used
+
+        // ===== FILLING LINES FOR 3D EFFECT (drawn BEFORE main waves for layering) =====
+        ctx.lineWidth = 1.2; // Slightly thicker for visibility, adjust if needed
+
+        // Electric Wave Filling Lines (Vertical lines from z-axis to wave)
+        ctx.strokeStyle = E_WAVE_COLOR;
+        for (let z = 0; z <= LENGTH; z += FILL_LINE_STEP) {
+            const y = AMP * Math.sin(k * z - t);
+            const p1 = project(0, 0, z, originX, originY); // Point on Z-axis (x=0, y=0)
+            const p2 = project(0, y, z, originX, originY);  // Point on Electric Wave
+            ctx.beginPath();
+            ctx.moveTo(p1.x, p1.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.stroke();
+        }
+
+        // Magnetic Wave Filling Lines (Projected "horizontal" lines from wave to the X-axis projection)
+        ctx.strokeStyle = B_WAVE_COLOR;
+        for (let z = 0; z <= LENGTH; z += FILL_LINE_STEP) {
+            const x = AMP * Math.sin(k * z - t);
+            const p1 = project(x, 0, z, originX, originY); // Point on Magnetic Wave
+            const p2 = project(0, 0, z, originX, originY);  // Point on Z-axis (x=0, y=0) - visually it creates the "horizontal" fill effect.
+            ctx.beginPath();
+            ctx.moveTo(p1.x, p1.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.stroke();
+        }
+
+        // Electric wave: oscillates in y direction, x = 0
+        ctx.beginPath();
+        for (let z = 0; z <= LENGTH; z += SAMPLE_STEP) {
+            const y = AMP * Math.sin(k * z - t);
+            const p = project(0, y, z, originX, originY);
+            if (z === 0) ctx.moveTo(p.x, p.y);
+            else ctx.lineTo(p.x, p.y);
+        }
+        ctx.strokeStyle = E_WAVE_COLOR;
+        ctx.lineWidth = 3; // Main wave lines are thicker
+        ctx.stroke();
+
+        // Magnetic wave: oscillates in x direction, y = 0
+        ctx.beginPath();
+        for (let z = 0; z <= LENGTH; z += SAMPLE_STEP) {
+            const x = AMP * Math.sin(k * z - t);
+            const p = project(x, 0, z, originX, originY);
+            if (z === 0) ctx.moveTo(p.x, p.y);
+            else ctx.lineTo(p.x, p.y);
+        }
+        ctx.strokeStyle = B_WAVE_COLOR;
+        ctx.lineWidth = 3; // Main wave lines are thicker
+        ctx.stroke();
+
+        // ===== CONNECTOR ARROWS ===== (These will still be drawn to connect the wave to the axes)
+        for (let z = 50; z <= LENGTH; z += CONNECTOR_STEP) {
+            // Electric connectors from z-axis to electric wave
+            const y = AMP * Math.sin(k * z - t);
+            const baseE = project(0, 0, z, originX, originY);
+            const tipE = project(0, y, z, originX, originY);
+            drawArrow(baseE.x, baseE.y, tipE.x, tipE.y, E_ARROW_COLOR, 1.5);
+
+            // Magnetic connectors from z-axis to magnetic wave
+            const x = AMP * Math.sin(k * z - t);
+            const baseB = project(0, 0, z, originX, originY);
+            const tipB = project(x, 0, z, originX, originY);
+            drawArrow(baseB.x, baseB.y, tipB.x, tipB.y, B_ARROW_COLOR, 1.5);
+        }
+
+        // ===== LABELS =====
+        drawLabel("Electric Field", originX + 110, originY - 95, E_WAVE_COLOR, "22px Georgia");
+        drawLabel("Magnetic Field", originX + 20, originY + 92, B_WAVE_COLOR, "22px Georgia");
+
+        requestAnimationFrame(draw);
+    }
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+    requestAnimationFrame(draw);
+})();
+
+    </script>
+
+    
+
+</body>
+</html>
