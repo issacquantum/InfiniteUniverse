@@ -1210,7 +1210,7 @@ mjx-container {
 }
 
 /* --- CONSOLIDATED MOBILE-SPECIFIC STYLES (applies to screens 768px and below) --- */
-/* This block should be at the very end of style.css to ensure these rules override desktop styles. */
+
 @media only screen and (max-width: 768px) {
     /* ------------------------------------------- */
     /*           GENERAL MOBILE BODY STYLES        */
@@ -1220,7 +1220,8 @@ mjx-container {
         font-size: 16px; /* Base font size for mobile readability */
         line-height: 1.5; /* Good line spacing for mobile */
         color: #ff99ff !important; /* Lighter fluorescent pink for mobile */
-
+        padding-top: 130px !important; /* <--- NEW/MODIFIED: Adjust this value to push content down */
+        /* Background Adjustments */
         /* Background Adjustments */
         background-attachment: scroll !important; /* Disable parallax background on mobile */
         background-size: auto 100% !important; /* Make the background proportional to screen height */
