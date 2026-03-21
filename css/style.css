@@ -1216,18 +1216,19 @@ mjx-container {
     /*           GENERAL MOBILE BODY STYLES        */
     /* ------------------------------------------- */
     body {
-        font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif !important;
-        font-size: 16px; /* Base font size for mobile readability */
-        line-height: 1.5; /* Good line spacing for mobile */
-        color: #ff99ff !important; /* Lighter fluorescent pink for mobile */
-        padding-top: 80px !important; /* <--- NEW/MODIFIED: Adjust this value to push content down */
-        /* Background Adjustments */
-        /* Background Adjustments */
-        background-attachment: scroll !important; /* Disable parallax background on mobile */
-        background-size: auto 100% !important; /* Make the background proportional to screen height */
-        background-position: center top !important; /* Focus the top of the image */
-        /* If 'auto 100%' is still too small, try '150% auto' or 'cover' (but cover might crop) */
-        overflow-x: hidden; /* Ensure no horizontal scrollbar */
+        /* REVISED FONT: Still using system fonts, hopefully less generic */
+        font-family: 'Avenir Next', 'Montserrat', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif !important;
+        font-size: 16px !important; /* Ensure this is applied */
+        line-height: 1.5 !important; /* Ensure this is applied */
+        color: #ff99ff !important;
+        padding-top: 80px !important; /* This is the adjusted value for header clearance */
+        /* REVISED BACKGROUND ADJUSTMENTS: Ensure background scales correctly */
+        background-image: url('../img/hexlineweave5.svg') !important; /* Explicitly set the background image */
+        background-size: cover !important;        /* **KEY FIX**: Scales background to cover the entire body without "zoom" */
+        background-repeat: no-repeat !important;  /* Prevents image from repeating */
+        background-position: center center !important; /* Centers the background image */
+        background-attachment: fixed !important;  /* Keeps background fixed when scrolling */
+        overflow-x: hidden !important; /* Ensure no horizontal scrollbar */
     }
 
     /* ------------------------------------------- */
