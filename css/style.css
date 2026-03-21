@@ -1208,3 +1208,169 @@ mjx-container {
         0 0 25px #bf00ff;
     transform: scale(1.05);
 }
+
+/* --- CONSOLIDATED MOBILE-SPECIFIC STYLES (applies to screens 768px and below) --- */
+/* This block should be at the very end of style.css to ensure these rules override desktop styles. */
+@media only screen and (max-width: 768px) {
+    /* ------------------------------------------- */
+    /*           GENERAL MOBILE BODY STYLES        */
+    /* ------------------------------------------- */
+    body {
+        font-family: 'Open Sans', sans-serif; /* Recommend a more readable font for mobile */
+        font-size: 16px; /* Base font size for mobile readability */
+        line-height: 1.5; /* Good line spacing for mobile */
+        color: #ff99ff !important; /* Lighter fluorescent pink for mobile */
+
+        /* Background Adjustments */
+        background-attachment: scroll !important; /* Disable parallax background on mobile */
+        background-size: auto 100% !important; /* Make the background proportional to screen height */
+        background-position: center top !important; /* Focus the top of the image */
+        /* If 'auto 100%' is still too small, try '150% auto' or 'cover' (but cover might crop) */
+        overflow-x: hidden; /* Ensure no horizontal scrollbar */
+    }
+
+    /* ------------------------------------------- */
+    /*           HEADER AND NAVIGATION FIXES       */
+    /* ------------------------------------------- */
+    header {
+        flex-direction: column; /* Stack header items vertically */
+        align-items: center; /* Center items horizontally */
+        padding: 10px 0; /* Adjust padding for mobile */
+        min-width: unset; /* Remove min-width that was causing issues with zooming */
+    }
+
+    .nav-container {
+        flex-direction: column; /* Stack navigation items */
+        width: 100%; /* Take full width */
+        padding: 0; /* Remove internal padding */
+    }
+
+    .site-name { /* The "Issac Tabares" title */
+        font-size: 1.8rem; /* Make title smaller for mobile */
+        margin: 10px 0; /* Add vertical spacing around title */
+        order: 1; /* Place title first in the stack */
+        position: static; /* Remove absolute positioning if it had any */
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-projects, /* "My Projects" link */
+    .nav-about-me { /* "About Me" link */
+        position: static; /* Remove absolute positioning */
+        width: 100%; /* Take full width */
+        text-align: center; /* Center the text */
+        margin: 5px 0; /* Add vertical spacing between links */
+        font-size: 1.1rem; /* Make link text smaller */
+        padding: 8px 0; /* Adjust padding for touch targets */
+        order: 2; /* Place links below the title */
+    }
+    
+    /* Ensure the rotating planet and atom logo are appropriately sized/hidden if they are part of the site-name */
+    .site-name .rotating-planet,
+    .site-name #atomLogo {
+        width: 25px; /* Smaller size for mobile */
+        height: 25px;
+        margin: 0 5px; /* Adjust margin */
+    }
+
+    /* ------------------------------------------- */
+    /*           FLOATING RESUME ICON (.resume-fab) */
+    /* ------------------------------------------- */
+    .resume-fab {
+        bottom: 20px !important; /* Distance from the bottom edge */
+        right: 20px !important; /* Distance from the right edge */
+        left: auto !important; /* Ensure it stays on the right */
+        width: 50px !important; /* Consistent size on mobile */
+        height: 50px !important; /* Consistent size on mobile */
+        /* Other styles like font-size, padding, z-index are already good from your desktop definition */
+    }
+    .resume-fab img { /* Icon inside the resume FAB */
+        width: 30px !important; /* Adjust icon size */
+        height: 30px !important;
+    }
+
+    /* ------------------------------------------- */
+    /*           MUSIC PLAYER (#jp_container_1)    */
+    /* ------------------------------------------- */
+    #jp_container_1 {
+        position: fixed; /* Keep it fixed */
+        bottom: 80px !important; /* Place it above the resume FAB (20px FAB + 50px FAB height + 10px gap) */
+        right: 20px !important; /* Align with the resume FAB */
+        left: auto !important;
+        z-index: 999 !important; /* Ensure it's below the resume FAB but still visible */
+        width: 150px !important; /* Make music player narrower */
+        height: 40px !important; /* Reduce height */
+        overflow: hidden !important; /* Hide overflowing elements */
+        background: url("../assets/hexline-weavepink.svg") repeat, rgba(18, 0, 36, 0.9) !important; /* Apply a solid background */
+        background-size: cover !important;
+        background-blend-mode: overlay !important;
+        border-radius: 8px !important; /* Add some rounded corners */
+        box-shadow: 0 2px 5px rgba(0,0,0,0.5) !important; /* Subtle shadow */
+        display: flex !important; /* Use flexbox for internal layout */
+        justify-content: space-around !important; /* Distribute items */
+        align-items: center !important; /* Center items vertically */
+    }
+
+    /* Hide specific music player elements for more space on mobile */
+    #jp_container_1 .jp-volume-bar,
+    #jp_container_1 .jp-time-holder,
+    #song-name { /* Hide song name too, as you previously tried */
+        display: none !important;
+    }
+    #playPauseButton {
+        width: 30px !important; /* Adjust play button size */
+        height: 30px !important;
+        margin: 0 !important; /* Remove any external margins */
+        position: static !important; /* Remove any absolute/fixed positioning */
+    }
+
+    /* ------------------------------------------- */
+    /*           OTHER MOBILE ADJUSTMENTS          */
+    /* ------------------------------------------- */
+    .profile img { /* Your main profile image */
+        width: 120px !important;
+        height: 120px !important;
+        margin-bottom: 5px !important;
+    }
+    .social-logo {
+        width: 35px !important; /* Social media icons */
+    }
+    .about h2,
+    .section-title { /* Section titles */
+        color: #ff99ff !important; /* Lighter for readability */
+    }
+    .about p,
+    .contact p {
+        color: #e673d9 !important; /* Lighter fluorescent tone */
+    }
+    .vibrant-violet {
+        font-size: 18px !important; /* Adjust vibrant violet text size */
+    }
+    .copyright {
+        font-size: 0.8rem !important; /* Smaller copyright text */
+    }
+
+    /* Footer layout is already handled well in its own media query,
+       but we want to make sure no conflicting styles are here. */
+    .footer {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 8px !important;
+        padding: 10px !important; /* Adjust footer padding for mobile */
+    }
+    .music-control { /* This is the container within the footer for song name/button */
+        position: static !important; /* Ensure it behaves normally in the footer flow */
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        flex-wrap: wrap !important;
+        gap: 6px !important;
+    }
+    /* Hide the music player that is in the footer, if the fixed one is active */
+    .footer .music-control,
+    .footer #jp_container_1 {
+        display: none !important; /* Hide the music player from the footer on mobile if it conflicts */
+    }
+
+} /* END of @media (max-width: 768px) */
