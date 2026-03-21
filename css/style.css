@@ -1220,7 +1220,7 @@ mjx-container {
         font-size: 16px; /* Base font size for mobile readability */
         line-height: 1.5; /* Good line spacing for mobile */
         color: #ff99ff !important; /* Lighter fluorescent pink for mobile */
-        padding-top: 130px !important; /* <--- NEW/MODIFIED: Adjust this value to push content down */
+        padding-top: 80px !important; /* <--- NEW/MODIFIED: Adjust this value to push content down */
         /* Background Adjustments */
         /* Background Adjustments */
         background-attachment: scroll !important; /* Disable parallax background on mobile */
@@ -1247,8 +1247,8 @@ mjx-container {
     }
 
     .site-name { /* The "Issac Tabares" title */
-        font-size: 1.8rem; /* Make title smaller for mobile */
-        margin: 10px 0; /* Add vertical spacing around title */
+        font-size: 1.2rem; /* Make title smaller for mobile */
+        margin: 5px 0; /* Add vertical spacing around title */
         order: 1; /* Place title first in the stack */
         position: static; /* Remove absolute positioning if it had any */
         width: 100%;
@@ -1260,9 +1260,9 @@ mjx-container {
         position: static; /* Remove absolute positioning */
         width: 100%; /* Take full width */
         text-align: center; /* Center the text */
-        margin: 5px 0; /* Add vertical spacing between links */
-        font-size: 1.1rem; /* Make link text smaller */
-        padding: 8px 0; /* Adjust padding for touch targets */
+        margin: 2px 0; /* Add vertical spacing between links */
+        font-size: 1rem; /* Make link text smaller */
+        padding: 5px 0; /* Adjust padding for touch targets */
         order: 2; /* Place links below the title */
     }
     
