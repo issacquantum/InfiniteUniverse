@@ -386,7 +386,7 @@ h2.about-me-heading {
     }
 
     #playPauseButton {
-        width: 30px;
+        width: 20px;
     }
 }
 
@@ -657,9 +657,9 @@ body {
     .resume-fab {
         bottom: 30px;
         /* More padding from bottom for mobile */
-        left: 30px;
+        left: auto;
         /* <-- NEW: Move to left side for mobile */
-        right: auto;
+        right: 30px;
         /* <-- NEW: Disable right positioning for mobile */
         width: 60px;
         /* A good visible size on mobile */
