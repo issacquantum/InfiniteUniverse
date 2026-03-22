@@ -1275,7 +1275,7 @@ mjx-container {
         font-size: 16px !important;
         line-height: 1.5 !important;
         color: #ff99ff !important;
-        padding-top: 150px !important; /* Keep the last padding-top value */
+        padding-top: 0 !important; /* Reset this here, padding will be controlled by header */
 
         /* Background Adjustments (keep these as they fix the background issue) */
         background-image: url('../img/hexlineweave5.svg') !important;
@@ -1382,29 +1382,82 @@ mjx-container {
     /* ------------------------------------------- */
     /*           HEADER FIX: Vertical tabs under title */
     /* ------------------------------------------- */
-    
-/* IMPORTANT: Ensure these header element rules are also present and correct in your CSS */
-    /* These rules make your header more compact on mobile */
-    .site-name { 
-        font-size: 1.5rem !important; 
-        margin: 5px 0 !important; 
-        order: 1; 
-        position: static; 
-        width: 100%; 
-        text-align: center; 
+    /* This targets the main header container */
+    .header {
+        position: relative !important;
+        /* Padding to push content down and avoid profile picture overlap */
+        padding-top: 150px !important; 
+        display: flex !important;
+        flex-direction: column !important; /* Stack items vertically */
+        align-items: center !important; /* Center items horizontally */
+        justify-content: flex-start !important;
+        z-index: 10 !important;
+        width: 100% !important; /* Ensure header uses full width */
+        background-color: transparent !important; /* Ensure no unwanted background on header itself */
     }
 
+    /* For the Isaac Tabares title (assuming it has class .site-name based on your code) */
+    .header .site-name { 
+        font-size: 1.5rem !important; 
+        margin: 5px 0 !important; 
+        order: 1 !important; /* Ensure it's first in order */
+        position: static !important; 
+        width: 100% !important; 
+        text-align: center !important; 
+        /* The image showed a different font for the name. If .site-name has a different font that's okay, 
+           but if it needs to match the new body font, you might need to apply it here specifically. */
+    }
+
+    /* For "My Projects" and "About Me" (assuming they are .nav-projects and .nav-about-me) */
+    /* These need to be grouped or put inside a common parent to be stacked correctly */
+    /* If they are direct children of .header, they will stack due to .header's flex-direction: column */
     .nav-projects, 
     .nav-about-me { 
-        position: static; 
-        width: 100%; 
-        text-align: center; 
-        margin: 2px 0 !important; 
+        position: static !important; 
+        width: 100% !important; 
+        text-align: center !important; 
+        margin: 5px 0 !important; /* Space between the items */
         font-size: 1rem !important; 
         padding: 5px 0 !important; 
-        order: 2; 
+        /* Adjust order if necessary, but with flex-direction: column, they should follow naturally */
+        /* order: 2; removed as not strictly needed for this layout */
     }
-}
+    
+    /* If My Projects and About Me are inside a .nav-tabs container,
+       this will ensure they also stack and are centered.
+       Adjust selector if your HTML structure is different. */
+    .header .nav-tabs {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin-top: 10px !important; /* Space after the title */
+    }
+
+    /* If My Projects and About Me are individual links inside .nav-tabs */
+    .header .nav-tabs a {
+        margin: 5px 0 !important; /* Vertical spacing between nav items */
+        padding: 8px 0 !important;
+        width: 100% !important; /* Ensure links take full width for centering */
+        text-align: center !important;
+    }
+
+    /* Any header specific music controls should be gone - keeping this from previous code */
+    .header .music-control,
+    .header #playPauseButton,
+    .header #song-name {
+        display: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        height: 0 !important;
+        width: 0 !important;
+        overflow: hidden !important;
+        visibility: hidden !important;
+        position: absolute !important; /* Remove from flow to prevent affecting layout */
+        left: -9999px !important;
+        top: -9999px !important;
+    }
+
     /* ------------------------------------------- */
     /*           OTHER MOBILE ADJUSTMENTS          */
     /* ------------------------------------------- */
