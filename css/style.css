@@ -1396,49 +1396,29 @@ mjx-container {
     /* ------------------------------------------- */
     /*           HEADER FIX: Vertical tabs under title */
     /* ------------------------------------------- */
-    .header {
-        position: relative !important;
-        padding-top: 150px !important; /* Prevent overlap with profile picture */
-        display: flex !important;
-        flex-direction: column !important; /* Stack items vertically */
-        align-items: center !important; /* Center items horizontally */
-        justify-content: flex-start !important; /* Align content to the top */
-        z-index: 10 !important; /* Ensure header content is on top */
-        /* IMPORTANT: Ensure any default header padding/margins that cause issues are removed or controlled here */
-        padding-bottom: 10px !important; /* Small padding at bottom of header */
+    
+/* IMPORTANT: Ensure these header element rules are also present and correct in your CSS */
+    /* These rules make your header more compact on mobile */
+    .site-name { 
+        font-size: 1.5rem !important; 
+        margin: 5px 0 !important; 
+        order: 1; 
+        position: static; 
+        width: 100%; 
+        text-align: center; 
     }
 
-    /* Assuming .title is the class for "Isaac Tabares" */
-    .header .title {
-        text-align: center !important;
-        width: 100% !important; /* Ensure it takes full width to center */
-        margin-bottom: 10px !important; /* Space between title and tabs */
-        font-size: 24px !important; /* Adjust as needed */
-        /* Ensure color and other styles are as you want for the title */
+    .nav-projects, 
+    .nav-about-me { 
+        position: static; 
+        width: 100%; 
+        text-align: center; 
+        margin: 2px 0 !important; 
+        font-size: 1rem !important; 
+        padding: 5px 0 !important; 
+        order: 2; 
     }
-
-    /* Assuming .nav-tabs wraps "My Projects" and "About Me" */
-    .header .nav-tabs {
-        display: flex !important;
-        flex-direction: column !important; /* Vertical alignment for tabs */
-        align-items: center !important; /* Center tabs horizontally */
-        justify-content: center !important;
-        width: 100% !important; /* Ensure it takes full width to center its contents */
-        margin-top: 0 !important; /* Remove any default top margin */
-        padding: 0 !important; /* Remove any default padding */
-        list-style: none !important; /* Remove list bullets if it's an ul/li */
-    }
-
-    /* Styling for individual tabs (e.g., li or a elements within .nav-tabs) */
-    .header .nav-tabs > * {
-        margin: 6px 0 !important; /* Space between each tab vertically */
-        text-align: center !important;
-        width: auto !important; /* Allow tabs to size based on content, but keep centered */
-        padding: 8px 15px !important; /* Add some padding to tab items for clickable area */
-        background-color: transparent !important; /* Ensure no unwanted background */
-        border: none !important; /* Remove any unwanted borders */
-    }
-
+}
     /* ------------------------------------------- */
     /*           OTHER MOBILE ADJUSTMENTS          */
     /* ------------------------------------------- */
