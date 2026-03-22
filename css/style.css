@@ -1288,10 +1288,8 @@ mjx-container {
     /* ------------------------------------------- */
     .resume-fab {
         position: fixed !important;
-
         bottom: calc(var(--footer-height, 60px) + var(--resume-fab-bottom-offset-from-footer, 20px)) !important;
         right: var(--resume-fab-right-offset, 15px) !important;
-        left: auto !important;
 
         width: var(--resume-fab-size, 50px) !important;
         height: var(--resume-fab-size, 50px) !important;
@@ -1309,7 +1307,7 @@ mjx-container {
     }
 
     /* ------------------------------------------- */
-    /*           MUSIC PLAYER (HIDDEN)            */
+    /*           MUSIC PLAYER                     */
     /* ------------------------------------------- */
     #jp_container_1 {
         display: none !important;
@@ -1372,79 +1370,82 @@ mjx-container {
     }
 
     /* ------------------------------------------- */
-/*           HEADER (FORCED VERTICAL FIX)      */
-/* ------------------------------------------- */
-.header {
-    position: relative !important;
+    /*           HEADER (FULL FIX)                */
+    /* ------------------------------------------- */
+    .header {
+        position: relative !important;
 
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
 
-    width: 100% !important;
-    z-index: 10 !important;
+        width: 100% !important;
+        z-index: 10 !important;
 
-    background-color: transparent !important;
+        background-color: transparent !important;
 
-    padding-top: 10px !important;
-    padding-bottom: 160px !important; /* prevents overlap with profile */
-}
+        padding-top: 10px !important;
+        padding-bottom: 160px !important; /* prevents overlap with profile */
+    }
 
-/* TITLE */
-.header .site-name {
-    display: block !important;
+    /* 🔴 REMOVE ALL DESKTOP POSITIONING */
+    .header *,
+    .header *::before,
+    .header *::after {
+        position: static !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
 
-    width: 100% !important;
-    text-align: center !important;
+        transform: none !important;
+    }
 
-    font-size: 1.6rem !important;
-    margin: 0 !important;
-}
+    /* TITLE */
+    .header .site-name {
+        display: block !important;
+        width: 100% !important;
+        text-align: center !important;
 
-/* NAV CONTAINER — FORCE COLUMN */
-.header .nav-tabs {
-    display: flex !important;
-    flex-direction: column !important;  /* 🔴 critical */
-    align-items: center !important;
+        font-size: 1.6rem !important;
+        margin: 0 0 6px 0 !important;
+        line-height: 1.2 !important;
+    }
 
-    width: 100% !important;
-}
+    /* NAV CONTAINER */
+    .header .nav-tabs {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
 
-/* NAV LINKS — FORCE FULL WIDTH STACK */
-.header .nav-tabs a,
-.header .nav-tabs * {
-    display: block !important;          /* 🔴 kills inline/horizontal */
-    width: 100% !important;
+        width: 100% !important;
+    }
 
-    text-align: center !important;
+    /* NAV ITEMS */
+    .header .nav-tabs a,
+    .nav-projects,
+    .nav-about-me {
+        display: block !important;
 
-    margin: 2px 0 !important;
-    padding: 2px 0 !important;
+        width: 100% !important;
+        text-align: center !important;
 
-    float: none !important;             /* 🔴 kills float layouts */
-}
+        margin: 2px 0 !important;
+        padding: 2px 0 !important;
 
-/* DIRECT FALLBACK (if nav-tabs isn't used properly) */
-.nav-projects,
-.nav-about-me {
-    display: block !important;
-    width: 100% !important;
-    text-align: center !important;
+        line-height: 1.2 !important;
 
-    margin: 2px 0 !important;
-    padding: 2px 0 !important;
-}
+        float: none !important;
+    }
 
-/* NUCLEAR OPTION: kill any horizontal rules */
-.header a {
-    display: block !important;
-    float: none !important;
-}
+    /* FINAL SAFETY */
+    .header a {
+        display: block !important;
+        width: 100% !important;
+        float: none !important;
+    }
 
-/* REMOVE ANY TRANSFORM / POSITION BUGS */
-.header * {
-    transform: none !important;
-}
     /* ------------------------------------------- */
     /*           OTHER MOBILE ADJUSTMENTS         */
     /* ------------------------------------------- */
