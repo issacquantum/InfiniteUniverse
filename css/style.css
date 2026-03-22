@@ -1273,7 +1273,7 @@ mjx-container {
         line-height: 1.5 !important;
         color: #ff99ff !important;
 
-        padding-top: 0 !important;
+        padding-top: 0 !important; /* Controlled by header */
         overflow-x: hidden !important;
 
         background-image: url('../img/hexlineweave5.svg') !important;
@@ -1281,6 +1281,10 @@ mjx-container {
         background-repeat: no-repeat !important;
         background-position: center center !important;
         background-attachment: fixed !important;
+
+        margin: 0 !important; /* Ensure no external margins on body */
+        min-height: 100vh !important;
+        position: relative !important;
     }
 
     /* ------------------------------------------- */
@@ -1290,6 +1294,7 @@ mjx-container {
         position: fixed !important;
         bottom: calc(var(--footer-height, 60px) + var(--resume-fab-bottom-offset-from-footer, 20px)) !important;
         right: var(--resume-fab-right-offset, 15px) !important;
+        left: auto !important; /* Ensure it stays on the right */
 
         width: var(--resume-fab-size, 50px) !important;
         height: var(--resume-fab-size, 50px) !important;
@@ -1374,69 +1379,84 @@ mjx-container {
     /* ------------------------------------------- */
     .header {
         position: relative !important;
-
         display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
+        flex-direction: column !important; /* Stack items vertically */
+        align-items: center !important; /* Center items horizontally */
         justify-content: flex-start !important;
 
         width: 100% !important;
         z-index: 10 !important;
-
         background-color: transparent !important;
 
-        padding-top: 10px !important;
-        padding-bottom: 160px !important; /* prevents overlap with profile */
+        padding-top: 10px !important; /* Initial padding from the very top of the screen */
+        padding-bottom: 20px !important; /* Padding at the bottom of the header container itself */
     }
 
-    /* 🔴 REMOVE ALL DESKTOP POSITIONING */
-    .header *,
-    .header *::before,
-    .header *::after {
+    /* Remove problematic desktop positioning from all direct children */
+    .header > *,
+    .header > *::before,
+    .header > *::after {
         position: static !important;
         top: auto !important;
         left: auto !important;
         right: auto !important;
         bottom: auto !important;
-
         transform: none !important;
     }
 
-    /* TITLE */
+    /* Profile image positioning (absolute, relative to the header) */
+    .profile img {
+        width: 120px !important;
+        height: 120px !important;
+        margin-bottom: 0 !important; /* Remove any previous bottom margin */
+        
+        position: absolute !important; /* Absolutely positioned within the header */
+        top: 15px !important; /* Positioned 15px from the top of the header */
+        left: 50% !important; /* Centered horizontally */
+        transform: translateX(-50%) !important;
+        z-index: 100 !important; /* Ensure it's on top */
+        display: block !important;
+    }
+
+    /* TITLE - Isaac Tabares */
     .header .site-name {
         display: block !important;
         width: 100% !important;
         text-align: center !important;
 
         font-size: 1.6rem !important;
-        margin: 0 0 6px 0 !important;
+        /* Push the title down to clear space for the profile image + 150px padding */
+        margin-top: calc(150px + 120px / 2) !important; /* 150px offset + half image height */
+        margin-bottom: 6px !important; /* Space between title and next item */
         line-height: 1.2 !important;
+        z-index: 12 !important; /* Ensure it's above other elements */
     }
 
     /* NAV CONTAINER */
     .header .nav-tabs {
         display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-
+        flex-direction: column !important; /* Stack its children vertically */
+        align-items: center !important; /* Center its children horizontally */
         width: 100% !important;
+        margin: 0 !important; /* No extra margin on the container itself */
+        padding: 0 !important;
+        list-style: none !important; /* Remove list bullets if it's an ul/li */
+        z-index: 12 !important;
     }
 
-    /* NAV ITEMS */
+    /* NAV ITEMS - My Projects and About Me */
     .header .nav-tabs a,
-    .nav-projects,
+    .nav-projects, /* Assuming these are your "My Projects" and "About Me" items */
     .nav-about-me {
-        display: block !important;
-
+        display: block !important; /* Crucial for vertical stacking as separate blocks */
         width: 100% !important;
         text-align: center !important;
 
-        margin: 2px 0 !important;
+        margin: 5px 0 !important; /* Vertical space between "My Projects" and "About Me" */
         padding: 2px 0 !important;
-
         line-height: 1.2 !important;
-
-        float: none !important;
+        float: none !important; /* Prevent floating issues */
+        z-index: 12 !important;
     }
 
     /* FINAL SAFETY */
@@ -1446,14 +1466,31 @@ mjx-container {
         float: none !important;
     }
 
+    /* Any header specific music controls should be gone */
+    .header .music-control,
+    .header #playPauseButton,
+    .header #song-name {
+        display: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        height: 0 !important;
+        width: 0 !important;
+        overflow: hidden !important;
+        visibility: hidden !important;
+        position: absolute !important;
+        left: -9999px !important;
+        top: -9999px !important;
+    }
+
     /* ------------------------------------------- */
     /*           OTHER MOBILE ADJUSTMENTS         */
     /* ------------------------------------------- */
-    .profile img {
+    /* The general .profile img rule is now overridden by the specific one within .header */
+    /* .profile img {
         width: 120px !important;
         height: 120px !important;
         margin-bottom: 5px !important;
-    }
+    } */
 
     .social-logo {
         width: 35px !important;
@@ -1479,4 +1516,4 @@ mjx-container {
         text-decoration: none !important;
         color: inherit !important;
     }
-}
+} /* END of @media (max-width: 768px) */
