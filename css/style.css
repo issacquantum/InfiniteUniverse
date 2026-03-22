@@ -1372,88 +1372,79 @@ mjx-container {
     }
 
     /* ------------------------------------------- */
-    /*           HEADER (FIXED + CLEAN)           */
-    /* ------------------------------------------- */
-    .header {
-        position: relative !important;
+/*           HEADER (FORCED VERTICAL FIX)      */
+/* ------------------------------------------- */
+.header {
+    position: relative !important;
 
-        /* REQUIRED spacing to avoid profile overlap */
-        padding-top: 160px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
 
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: flex-start !important;
+    width: 100% !important;
+    z-index: 10 !important;
 
-        width: 100% !important;
-        z-index: 10 !important;
+    background-color: transparent !important;
 
-        background-color: transparent !important;
-    }
+    padding-top: 10px !important;
+    padding-bottom: 160px !important; /* prevents overlap with profile */
+}
 
-    /* TITLE */
-    .header .site-name {
-        order: 1 !important;
+/* TITLE */
+.header .site-name {
+    display: block !important;
 
-        width: 100% !important;
-        text-align: center !important;
+    width: 100% !important;
+    text-align: center !important;
 
-        font-size: 1.8rem !important;
-        margin: 0 0 10px 0 !important;
+    font-size: 1.6rem !important;
+    margin: 0 !important;
+}
 
-        position: static !important;
-    }
+/* NAV CONTAINER — FORCE COLUMN */
+.header .nav-tabs {
+    display: flex !important;
+    flex-direction: column !important;  /* 🔴 critical */
+    align-items: center !important;
 
-    /* NAV CONTAINER */
-    .header .nav-tabs {
-        order: 2 !important;
+    width: 100% !important;
+}
 
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
+/* NAV LINKS — FORCE FULL WIDTH STACK */
+.header .nav-tabs a,
+.header .nav-tabs * {
+    display: block !important;          /* 🔴 kills inline/horizontal */
+    width: 100% !important;
 
-        width: 100% !important;
-        margin-top: 5px !important;
-    }
+    text-align: center !important;
 
-    /* NAV ITEMS */
-    .header .nav-tabs a,
-    .nav-projects,
-    .nav-about-me {
-        display: block !important;
+    margin: 2px 0 !important;
+    padding: 2px 0 !important;
 
-        width: 100% !important;
-        text-align: center !important;
+    float: none !important;             /* 🔴 kills float layouts */
+}
 
-        font-size: 1.05rem !important;
-        margin: 6px 0 !important;
-        padding: 6px 0 !important;
+/* DIRECT FALLBACK (if nav-tabs isn't used properly) */
+.nav-projects,
+.nav-about-me {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
 
-        position: static !important;
-    }
+    margin: 2px 0 !important;
+    padding: 2px 0 !important;
+}
 
-    /* REMOVE ANY HEADER INTERFERENCE */
-    .header * {
-        transform: none !important;
-    }
+/* NUCLEAR OPTION: kill any horizontal rules */
+.header a {
+    display: block !important;
+    float: none !important;
+}
 
-    /* REMOVE HEADER MUSIC ELEMENTS */
-    .header .music-control,
-    .header #playPauseButton,
-    .header #song-name {
-        display: none !important;
-
-        height: 0 !important;
-        width: 0 !important;
-
-        overflow: hidden !important;
-        visibility: hidden !important;
-
-        position: absolute !important;
-        left: -9999px !important;
-        top: -9999px !important;
-    }
-
+/* REMOVE ANY TRANSFORM / POSITION BUGS */
+.header * {
+    transform: none !important;
+}
     /* ------------------------------------------- */
     /*           OTHER MOBILE ADJUSTMENTS         */
     /* ------------------------------------------- */
