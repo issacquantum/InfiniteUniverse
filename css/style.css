@@ -1274,21 +1274,25 @@ mjx-container {
     /*           FLOATING RESUME ICON (.resume-fab) */
     /* ------------------------------------------- */
     .resume-fab {
-        bottom: var(--resume-fab-bottom-offset, 35px) !important; /* ADJUSTER: Increased to 35px to be more elevated */
-        right: var(--resume-fab-right-offset, 20px) !important; /* Your current position */
-        left: auto !important; /* Ensure it stays on the right */
-        width: var(--resume-fab-size, 50px) !important; /* ADJUSTER for size */
-        height: var(--resume-fab-size, 50px) !important; /* Uses same variable as width */
-        position: fixed !important;
-        z-index: 9999 !important; /* Ensure it's above other content */
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-    }
-    .resume-fab img { /* Icon inside the resume FAB */
-        width: var(--resume-fab-icon-size, 30px) !important; /* ADJUSTER for icon size */
-        height: var(--resume-fab-icon-size, 30px) !important;
-    }
+    position: fixed !important;
+    bottom: calc(var(--footer-min-height-mobile, 60px) + 20px) !important;
+    right: var(--resume-fab-right-offset, 15px) !important;
+    left: auto !important;
+
+    width: var(--resume-fab-size, 50px) !important;
+    height: var(--resume-fab-size, 50px) !important;
+
+    z-index: 1000 !important;
+
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.resume-fab img {
+    width: var(--resume-fab-icon-size, 30px) !important;
+    height: var(--resume-fab-icon-size, 30px) !important;
+}
 
     /* ------------------------------------------- */
     /*           MUSIC PLAYER (#jp_container_1)    */
@@ -1302,49 +1306,40 @@ mjx-container {
     /*           FOOTER & MOBILE MUSIC CONTROLS    */
     /* ------------------------------------------- */
     .footer {
-        flex-direction: column !important; /* Keep as column to easily center copyright below */
-        align-items: center !important; /* Centers everything horizontally within the footer */
-        text-align: center !important; /* Ensures text like copyright is centered */
-        gap: 8px !important; /* Your original gap */
-        padding: var(--footer-padding-mobile, 10px) !important; /* ADJUSTER: Control overall footer padding */
-        min-height: var(--footer-min-height-mobile, 60px) !important; /* ADJUSTER: Slightly increased min-height for better spacing */
-        position: relative !important; /* Allows absolute positioning of play button inside */
-    }
+    position: relative;
+    display: flex;
+    justify-content: center; /* true horizontal centering */
+    align-items: center;
+    text-align: center;
+    padding: var(--footer-padding-mobile, 10px);
+    min-height: var(--footer-min-height-mobile, 60px);
+}
 
     .music-control {
-        position: absolute !important; /* POSITION THE PLAY BUTTON ABSOLUTELY WITHIN THE FOOTER */
-        left: var(--play-button-absolute-left, 10px) !important; /* ADJUSTER: Play button on the EXTREME LEFT */
-        bottom: var(--play-button-absolute-bottom, 10px) !important; /* ADJUSTER: Aligns play button to the bottom of the footer */
-        display: flex !important; /* Still needs flex to control its content if any */
-        justify-content: flex-start !important; /* Just in case, ensures content within it is left-aligned */
-        align-items: center !important;
-        flex-wrap: nowrap !important;
-        gap: 6px !important;
-        width: auto !important; /* Allow it to size to content */
-        order: unset !important; /* Remove order as absolute positioning dictates placement */
-        /* No margin-right or width: 100% needed here due to absolute positioning */
-    }
+    position: fixed; /* KEY CHANGE */
+    left: 10px; /* stick to left edge */
+    bottom: 15px; /* align with footer baseline */
+    z-index: 1000; /* stay above everything */
+    
+    display: flex;
+    align-items: center;
+}
 
     #song-name { /* Hide song name explicitly within the footer music control */
         display: none !important;
     }
 
-    #playPauseButton { /* The actual play button */
-        width: var(--play-button-size, 40px) !important; /* ADJUSTER: Change --play-button-size */
-        height: var(--play-button-size, 40px) !important; /* Uses same variable as width */
-        position: static !important; /* Flows naturally within its parent (.music-control) */
-        margin: 0 !important; /* Remove any external margins */
-        display: block !important; /* Ensure it's displayed */
-        visibility: visible !important; /* Ensure it's visible */
-        /* If you need more specific styling for the button itself (background, etc.), add it here. */
-    }
+    #playPauseButton {
+    width: var(--play-button-size, 40px);
+    height: var(--play-button-size, 40px);
+    margin: 0;
+}
 
     .copyright {
-        font-size: var(--copyright-font-size, 12px) !important; /* ADJUSTER: Adjust copyright text size */
-        order: 1 !important; /* Place copyright after the music controls (conceptually) */
-        width: 100% !important; /* Ensures it takes full width for text-align: center to work properly */
-        /* It will be centered due to .footer's align-items: center and text-align: center */
-    }
+    width: 100%;
+    text-align: center;
+    font-size: var(--copyright-font-size, 12px);
+}
     
     /* ------------------------------------------- */
     /*           OTHER MOBILE ADJUSTMENTS          */
