@@ -1266,14 +1266,25 @@ mjx-container {
     /* ------------------------------------------- */
     /*           GLOBAL BODY/HTML RESET FOR NO SPACE */
     /* ------------------------------------------- */
-    body, html {
-        margin: 0 !important;
-        padding: 0 !important;
-        min-height: 100vh !important; /* Ensure body takes full viewport height */
-        position: relative !important; /* Helps with layout */
-        overflow-x: hidden !important; /* Prevent horizontal scrollbars if elements go out of bounds */
-    }
+        /* ------------------------------------------- */
+    /*           GENERAL MOBILE BODY STYLES        */
+    /* ------------------------------------------- */
+    body {
+        /* NEW FONT: More script-like system fonts, NO HTML EDITS */
+        font-family: 'Apple Chancery', Papyrus, fantasy, cursive, sans-serif !important;
+        font-size: 16px !important;
+        line-height: 1.5 !important;
+        color: #ff99ff !important;
+        padding-top: 110px !important; /* Keep the last padding-top value */
 
+        /* Background Adjustments (keep these as they fix the background issue) */
+        background-image: url('../img/hexlineweave5.svg') !important;
+        background-size: cover !important;
+        background-repeat: no-repeat !important;
+        background-position: center center !important;
+        background-attachment: fixed !important;
+        overflow-x: hidden !important;
+    }
     /* ------------------------------------------- */
     /*           FLOATING RESUME ICON (.resume-fab) */
     /* ------------------------------------------- */
