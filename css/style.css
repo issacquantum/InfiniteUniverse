@@ -30,33 +30,16 @@ body {
     overflow-x: hidden;
 }
 
-/* Responsive fix for mobile: Lighter Tone for Mobile Readability, still in development */
-@media only screen and (max-width: 768px) {
-    body {
-        color: #ff99ff;
-        /* Lighter fluorescent pink for mobiles */
-        /* Disable parallax background on mobile devices */
-        background-attachment: scroll;
-    }
-}
-
-/* Special workaround for iOS Safari - applies overflow-x: hidden and overscroll-behavior: contain to body */
-@supports (-webkit-touch-callout: none) {
-    body {
-        overflow-x: hidden !important;
-        overscroll-behavior: contain !important;
-    }
-}
-
 /* NAVIGATION BAR */
 header {
+    font-family: 'Dancing Script', cursive;
     position: fixed;
     top: 0;
     width: 100%;
     background: url("../assets/hexline-weavepink.svg") repeat, rgba(18, 0, 36, 0.9);
     background-size: cover;
     background-blend-mode: overlay;
-    padding: 10px 0;
+    padding: px 0;
     display: flex;
     justify-content: center;
     z-index: 100;
@@ -170,7 +153,7 @@ a[href="index.html"] {
 /* ABOUT ME SECTION */
 .about {
     text-align: center;
-    margin-top: 0px;
+    margin-top: 40px;
     margin-bottom: 25px;
     /* NEW: Add more generous horizontal padding for better readability on zoom */
     padding: 50px 15px 20px 15px;
@@ -192,11 +175,11 @@ a[href="index.html"] {
     font-weight: bold;
     color: #bfbbc1;
     text-shadow:
-        0 0 5px #a20ef1,
+        0 0 5px #801e85,
         /* Inner, bright pink glow */
         0 0 10px #a20ef1,
         /* Mid-range, slightly lighter pink */
-        0 0 15px #a20ef1,
+        0 0 15px #f10ec4,
         /* Another pink layer */
         0 0 20px #a20ef1,
         /* Violet/Purple glow layer */
@@ -289,37 +272,6 @@ h2.about-me-heading {
     font-size: 0.9rem;
 }
 
-/* RESPONSIVENESS (still in developing, it keeps failing when zooming inon mobile devices) */
-@media only screen and (max-width: 768px) {
-    .profile img {
-        width: 120px;
-        height: 120px;
-    }
-
-    .site-name {
-        font-size: 1.5rem;
-        text-align: center;
-    }
-
-    .social-logo {
-        width: 35px;
-    }
-}
-
-@media only screen and (max-width: 480px) {
-    .site-name {
-        font-size: 1.2rem;
-    }
-
-    .profile img {
-        width: 100px;
-        height: 100px;
-    }
-
-    .social-logo {
-        width: 30px;
-    }
-}
 
 .footer {
     position: fixed;
@@ -372,65 +324,11 @@ h2.about-me-heading {
     transition: transform 0.2s ease-in-out;
 }
 
-/*  Responsive Fix for Mobile (still in development, it keeps failing when zooming inon mobile devices) */
-@media only screen and (max-width: 768px) {
-    .music-control {
-        bottom: 15px;
-        right: 10px;
-        flex-direction: row-reverse;
-        /* Keep button aligned properly */
-    }
-
-    #song-name {
-        font-size: 12px;
-    }
-
-    #playPauseButton {
-        width: 20px;
-    }
-}
-
-/* For mobile devices and small screens (e.g., 768px and below) (still in development, it keeps failing when zooming inon mobile devices) */
-@media (max-width: 768px) {
-
-    /* Hide the song name on mobile * (This was tested and it worked fine) */
-    #song-name {
-        display: none;
-        /* Song name is hidden on mobile (this has been tested and it worked fine) */
-    }
-
-    /* Resize and move the play/pause button to the right */
-    #playPauseButton {
-        width: 40px;
-        /* Make the button a bit smaller */
-        height: 40px;
-        /* Make the button a bit smaller */
-        right: 10px;
-        /* Move the button to the right to avoid overlap */
-        bottom: 10px;
-        /* Ensure it doesn't get too close to the bottom */
-    }
-}
-
 .vibrant-violet {
     color: #d48bff;
     /* Lighter vibrant violet for mobile */
     font-weight: bold;
     font-size: 20px;
-}
-
-/* Adjust Section Titles for Mobile Readability (so far do good, still in development)*/
-@media only screen and (max-width: 768px) {
-    .section-title {
-        color: #ff99ff;
-        /* Lighter intense pink-violet */
-    }
-
-    .about p,
-    .contact p {
-        color: #e673d9;
-        /* Lighter fluorescent tone for mobile */
-    }
 }
 
 /* Enhance Glow Effect When Hovered */
@@ -479,7 +377,7 @@ h2.about-me-heading {
     transition: transform 0.3s ease-in-out;
 }
 
-/* ⚛️ Atom Logo Alignment Fix */
+/* Atom Logo Alignment Fix */
 #atomLogo {
     width: 35px;
     height: auto;
@@ -547,61 +445,7 @@ body {
     /* Restoring original violet-pink for desktop */
 }
 
-/* Lighter Tone for Mobile Readability (still in development)*/
-@media only screen and (max-width: 768px) {
-    body {
-        color: #ff99ff !important;
-        /* Lighter fluorescent pink for mobile */
-    }
-}
 
-/* Ensure Section Titles Are Clear */
-.about h2,
-.section-title {
-    color: #e409ce !important;
-    /* Restore correct color */
-}
-
-/* Adjust Titles for Mobile (still in development) */
-@media only screen and (max-width: 768px) {
-
-    .about h2,
-    .section-title {
-        color: #ff99ff !important;
-        /* Even lighter for readability */
-    }
-}
-
-/* Footer Layout Fix for Mobile (so far so good, probably will be modified in the future)*/
-@media (max-width: 768px) {
-
-    .footer {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 8px;
-    }
-
-    .music-control {
-        position: static;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 6px;
-    }
-
-    #song-name {
-        font-size: 12px;
-        max-width: 90%;
-        word-break: break-word;
-        text-align: center;
-    }
-
-    .copyright {
-        font-size: 12px;
-    }
-}
 
 /* Resume Floating Action Button (FAB) - Default (Desktop) */
 .resume-fab {
@@ -644,34 +488,6 @@ body {
         drop-shadow(0 0 20px #ff69b4) drop-shadow(0 0 30px #a20ef1);
 }
 
-.resume-fab img {
-    width: 35px;
-    /* Size of the icon inside the button for desktop */
-    height: 35px;
-    /* Invert and tint the icon to match your site's color scheme (makes the icon white) */
-    filter: invert(100%) sepia(100%) saturate(0%) hue_rotate(282deg) brightness(100%) contrast(100%);
-}
-
-/* Responsive adjustments for smaller screens (mobile devices) (still in development, zoom breaks site on mobile devices) */
-@media only screen and (max-width: 768px) {
-    .resume-fab {
-        bottom: 30px;
-        /* More padding from bottom for mobile */
-        left: auto;
-        /* <-- NEW: Move to left side for mobile */
-        right: 30px;
-        /* <-- NEW: Disable right positioning for mobile */
-        width: 60px;
-        /* A good visible size on mobile */
-        height: 60px;
-    }
-
-    .resume-fab img {
-        width: 32px;
-        /* A good visible icon size on mobile */
-        height: 32px;
-    }
-}
 
 .about a {
     text-decoration: none;
@@ -694,9 +510,7 @@ body {
         0 0 22px #bf00ff;
 }
 
-strong {
-    font-weight: bold;
-}
+
 
 /* Disable parallax background on mobile devices (background still in development for mobile devices)*/
 @media only screen and (max-width: 768px) {
@@ -1261,7 +1075,6 @@ mjx-container {
 }
 
 /* --- CONSOLIDATED MOBILE-SPECIFIC STYLES (<=768px) --- */
-
 @media only screen and (max-width: 768px) {
 
     /* ------------------------------------------- */
@@ -1271,10 +1084,10 @@ mjx-container {
         font-family: 'Apple Chancery', Papyrus, fantasy, cursive, sans-serif;
         font-size: 16px;
         line-height: 1.5;
-        color: #ff99ff;
+        color: #8c4dc8;
 
         margin: 0;
-        padding: 0;
+        padding: 90;
 
         overflow-x: hidden;
 
@@ -1283,6 +1096,268 @@ mjx-container {
         background-repeat: no-repeat;
         background-position: center center;
         background-attachment: fixed;
+
+        /* PROFILE SECTION */
+        .profile {
+            text-align: center;
+            margin-top: 0px;
+            /* NEW: Add horizontal padding to prevent image from touching edges */
+            padding: 100px;
+        }
+
+        /*  */
+        .profile p {
+            color: #bfbbc1;
+            /* Set the base color for the text, ensures visibility with glow */
+            text-shadow:
+                0 0 5px #ff1493,
+                /* Inner, bright pink glow */
+                0 0 10px #ff69b4,
+                /* Mid-range, slightly lighter pink */
+                0 0 15px #a20ef1,
+                /* Another pink layer */
+                0 0 20px #bf00ff,
+                /* Violet/Purple glow layer */
+                0 0 25px #f200ff;
+            /* Even wider violet/purple glow */
+            font-size: 1.25em;
+            /* Optional: Adjust size for prominence */
+            line-height: 1.4;
+            /* Optional: Adjust line spacing */
+        }
     }
 
-   
+    /* NAVIGATION BAR */
+    header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: url("../assets/hexline-weavepink.svg") repeat, rgba(18, 0, 36, 0.9);
+        background-size: cover;
+        background-blend-mode: overlay;
+        padding: 0px 0;
+        display: flex;
+        justify-content: center;
+        z-index: 100;
+
+        /* NEW: Ensure header always takes at least a minimum width, even when zoomed (still in developing, it keeps failing when zooming inon mobile devices) */
+        min-width: 320px;
+        /* Common minimum mobile width, helps prevent squishing (still in development, it keeps failing when zooming inon mobile devices) */
+    }
+
+    /* Parent container controls layout */
+    .nav-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0px;
+    }
+
+    /* Site name */
+    .site-name {
+        font-size: 1.5rem;
+        text-align: center;
+        margin: 0;
+    }
+
+    /* About Me */
+    .nav-about-me {
+        position: static;
+        color: #c0bbc1;
+        text-decoration: none;
+        font-family: 'Dancing Script', cursive;
+        font-size: 1.2rem;
+        padding: 0px 0px;
+        transition: text-shadow 0.3s ease-in-out, transform 0.2s ease-in-out;
+    }
+
+    /* Projects */
+    .nav-projects {
+        position: static;
+        /* REMOVE left */
+        color: #bfbbc1;
+        text-decoration: none;
+        font-family: 'Dancing Script', cursive;
+        font-size: 1.2rem;
+        padding: 8px 12px;
+        transition: text-shadow 0.3s ease-in-out, transform 0.2s ease-in-out;
+    }
+
+    /* ---------- MOBILE READABILITY ADDITIONS (HEADINGS) ---------- */
+    /* Brighter base color so titles don’t rely only on glow */
+    .bigbang-title,
+    .universe-subtitle,
+    h2.section-title,
+    h3.universe-subtitle,
+    h4 {
+        color: #f3d6ff;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+    }
+
+    /* Tighter glow + thin dark edge for edge definition */
+    .bigbang-title {
+        text-shadow:
+            0 0 6px rgba(191, 0, 255, 0.9),
+            0 0 14px rgba(148, 0, 211, 0.8),
+            0 0 1px rgba(0, 0, 0, 0.85);
+    }
+
+    .universe-subtitle,
+    h3.universe-subtitle,
+    h2.section-title {
+        text-shadow:
+            0 0 5px rgba(191, 0, 255, 0.85),
+            0 0 12px rgba(160, 32, 240, 0.75),
+            0 0 1px rgba(0, 0, 0, 0.85);
+    }
+
+    h4 {
+        color: #f5d9ff;
+        text-shadow:
+            0 0 4px rgba(200, 105, 255, 0.9),
+            0 0 8px rgba(251, 20, 255, 0.75),
+            0 0 1px rgba(0, 0, 0, 0.85);
+    }
+
+    /* ---------- MOBILE BOLD ADJUSTERS (only when bolded) ---------- */
+    /* Make bolded text slightly brighter + crisper glow so it pops without blurring */
+    strong,
+    b {
+        color: #f7e9ff;
+        text-shadow:
+            0 0 4px rgba(255, 20, 147, 0.9),
+            0 0 10px rgba(191, 0, 255, 0.85),
+            0 0 1px rgba(0, 0, 0, 0.9);
+    }
+
+    /* If the bold is inside a heading, keep it extra crisp */
+    .bigbang-title strong,
+    .bigbang-title b,
+    .universe-subtitle strong,
+    .universe-subtitle b,
+    h2.section-title strong,
+    h2.section-title b,
+    h3.universe-subtitle strong,
+    h3.universe-subtitle b,
+    h4 strong,
+    h4 b {
+        color: #ffffff;
+        text-shadow:
+            0 0 5px rgba(165, 105, 255, 0.95),
+            0 0 12px rgba(191, 0, 255, 0.9),
+            0 0 1px rgba(0, 0, 0, 0.95);
+    }
+
+    /* If bolded text is inside body paragraphs in .about, give it a touch more lift */
+    .about p strong,
+    .about p b {
+        color: #f7e9ff;
+        text-shadow:
+            0 0 4px rgba(212, 20, 255, 0.85),
+            0 0 9px rgba(191, 0, 255, 0.8),
+            0 0 1px rgba(0, 0, 0, 0.9);
+    }
+}
+
+/* Footer Layout Fix for Mobile (so far so good, probably will be modified in the future)*/
+@media (max-width: 768px) {
+
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 8px;
+    }
+
+    .music-control {
+        position: static;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    #song-name {
+        font-size: 12px;
+        max-width: 90%;
+        word-break: break-word;
+        text-align: center;
+    }
+
+    .copyright {
+        font-size: 12px;
+    }
+
+    /* ---------- MOBILE READABILITY ADDITIONS (FOOTER) ---------- */
+    /* Keep footer text crisp on small screens */
+    .footer,
+    .footer * {
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+    }
+}
+
+/* Responsive adjustments for smaller screens (mobile devices) (still in development, zoom breaks site on mobile devices) */
+@media only screen and (max-width: 768px) {
+    .resume-fab {
+        bottom: 37px;
+        /* More padding from bottom for mobile */
+        left: auto px;
+        /* <-- NEW: Move to left side for mobile */
+        right: 20px;
+        /* <-- NEW: Disable right positioning for mobile */
+        width: 60px;
+        /* A good visible size on mobile */
+        height: 60px;
+    }
+
+    .resume-fab img {
+        width: 42px;
+        /* A good visible icon size on mobile */
+        height: 42px;
+    }
+
+    /* ---------- MOBILE BOLD ADJUSTERS (EXTRA SAFETY) ---------- */
+    /* If any bold appears inside footer on very small screens, keep it readable */
+    .footer strong,
+    .footer b {
+        color: #ffe8ff;
+        text-shadow:
+            0 0 3px rgba(255, 20, 147, 0.8),
+            0 0 8px rgba(191, 0, 255, 0.75),
+            0 0 1px rgba(0, 0, 0, 0.9);
+    }
+}
+
+/* iPad/Tablet adjustments (768px–1366px) */
+@media (min-width: 768px) and (max-width: 1366px) {
+    html body {
+        background-attachment: scroll !important;
+        background-size: 1200px auto !important;
+        /* fixed tile size to prevent oversized SVG */
+        background-position: top center !important;
+        background-repeat: repeat !important;
+        background-image:
+            linear-gradient(rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.78)),
+            url("../assets/hexlineweave5.svg") !important;
+        /* dark overlay + weave */
+        background-blend-mode: multiply, normal;
+        background-color: #120016 !important;
+        /* deep fallback color */
+        color: #f0ddff !important;
+        /* keep text readable on darker bg */
+    }
+
+    header,
+    .footer {
+        background-image:
+            linear-gradient(rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.78)),
+            url("../assets/hexline-weavepink.svg") !important;
+        background-blend-mode: multiply, overlay;
+        background-size: cover !important;
+        background-position: center !important;
+    }
+}
