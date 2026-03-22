@@ -1087,8 +1087,7 @@ mjx-container {
         color: #8c4dc8;
 
         margin: 0;
-        padding-top: 64px;
-        /* space for the fixed header; adjust to your header height */
+        padding: 90;
 
         overflow-x: hidden;
 
@@ -1097,26 +1096,35 @@ mjx-container {
         background-repeat: no-repeat;
         background-position: center center;
         background-attachment: fixed;
-    }
 
-    /* PROFILE SECTION (home page only) */
-    .profile {
-        text-align: center;
-        margin-top: 0;
-        padding: 0 12px;
-        /* remove the huge 100px padding */
-    }
+        /* PROFILE SECTION */
+        .profile {
+            text-align: center;
+            margin-top: 0px;
+            /* NEW: Add horizontal padding to prevent image from touching edges */
+            padding: 100px;
+        }
 
-    .profile p {
-        color: #bfbbc1;
-        text-shadow:
-            0 0 5px #ff1493,
-            0 0 10px #ff69b4,
-            0 0 15px #a20ef1,
-            0 0 20px #bf00ff,
-            0 0 25px #f200ff;
-        font-size: 1.25em;
-        line-height: 1.4;
+        /*  */
+        .profile p {
+            color: #bfbbc1;
+            /* Set the base color for the text, ensures visibility with glow */
+            text-shadow:
+                0 0 5px #ff1493,
+                /* Inner, bright pink glow */
+                0 0 10px #ff69b4,
+                /* Mid-range, slightly lighter pink */
+                0 0 15px #a20ef1,
+                /* Another pink layer */
+                0 0 20px #bf00ff,
+                /* Violet/Purple glow layer */
+                0 0 25px #f200ff;
+            /* Even wider violet/purple glow */
+            font-size: 1.25em;
+            /* Optional: Adjust size for prominence */
+            line-height: 1.4;
+            /* Optional: Adjust line spacing */
+        }
     }
 
     /* NAVIGATION BAR */
@@ -1127,50 +1135,57 @@ mjx-container {
         background: url("../assets/hexline-weavepink.svg") repeat, rgba(18, 0, 36, 0.9);
         background-size: cover;
         background-blend-mode: overlay;
-        padding: 4px 0;
-        /* a little breathing room */
+        padding: 0px 0;
         display: flex;
         justify-content: center;
         z-index: 100;
+
+        /* NEW: Ensure header always takes at least a minimum width, even when zoomed (still in developing, it keeps failing when zooming inon mobile devices) */
         min-width: 320px;
+        /* Common minimum mobile width, helps prevent squishing (still in development, it keeps failing when zooming inon mobile devices) */
     }
 
+    /* Parent container controls layout */
     .nav-container {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 2px;
+        gap: 0px;
     }
 
+    /* Site name */
     .site-name {
         font-size: 1.5rem;
         text-align: center;
         margin: 0;
-        line-height: 1.2;
     }
 
+    /* About Me */
     .nav-about-me {
         position: static;
         color: #c0bbc1;
         text-decoration: none;
         font-family: 'Dancing Script', cursive;
         font-size: 1.2rem;
-        padding: 2px 8px;
+        padding: 0px 0px;
         transition: text-shadow 0.3s ease-in-out, transform 0.2s ease-in-out;
     }
 
+    /* Projects */
     .nav-projects {
         position: static;
+        /* REMOVE left */
         color: #bfbbc1;
         text-decoration: none;
         font-family: 'Dancing Script', cursive;
         font-size: 1.2rem;
-        padding: 6px 12px;
+        padding: 8px 12px;
         transition: text-shadow 0.3s ease-in-out, transform 0.2s ease-in-out;
     }
 
     /* ---------- MOBILE READABILITY ADDITIONS (HEADINGS) ---------- */
+    /* Brighter base color so titles don’t rely only on glow */
     .bigbang-title,
     .universe-subtitle,
     h2.section-title,
@@ -1181,6 +1196,7 @@ mjx-container {
         text-rendering: optimizeLegibility;
     }
 
+    /* Tighter glow + thin dark edge for edge definition */
     .bigbang-title {
         text-shadow:
             0 0 6px rgba(191, 0, 255, 0.9),
@@ -1205,7 +1221,8 @@ mjx-container {
             0 0 1px rgba(0, 0, 0, 0.85);
     }
 
-    /* ---------- MOBILE BOLD ADJUSTERS ---------- */
+    /* ---------- MOBILE BOLD ADJUSTERS (only when bolded) ---------- */
+    /* Make bolded text slightly brighter + crisper glow so it pops without blurring */
     strong,
     b {
         color: #f7e9ff;
@@ -1215,6 +1232,7 @@ mjx-container {
             0 0 1px rgba(0, 0, 0, 0.9);
     }
 
+    /* If the bold is inside a heading, keep it extra crisp */
     .bigbang-title strong,
     .bigbang-title b,
     .universe-subtitle strong,
@@ -1232,6 +1250,7 @@ mjx-container {
             0 0 1px rgba(0, 0, 0, 0.95);
     }
 
+    /* If bolded text is inside body paragraphs in .about, give it a touch more lift */
     .about p strong,
     .about p b {
         color: #f7e9ff;
@@ -1239,5 +1258,106 @@ mjx-container {
             0 0 4px rgba(212, 20, 255, 0.85),
             0 0 9px rgba(191, 0, 255, 0.8),
             0 0 1px rgba(0, 0, 0, 0.9);
+    }
+}
+
+/* Footer Layout Fix for Mobile (so far so good, probably will be modified in the future)*/
+@media (max-width: 768px) {
+
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 8px;
+    }
+
+    .music-control {
+        position: static;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    #song-name {
+        font-size: 12px;
+        max-width: 90%;
+        word-break: break-word;
+        text-align: center;
+    }
+
+    .copyright {
+        font-size: 12px;
+    }
+
+    /* ---------- MOBILE READABILITY ADDITIONS (FOOTER) ---------- */
+    /* Keep footer text crisp on small screens */
+    .footer,
+    .footer * {
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+    }
+}
+
+/* Responsive adjustments for smaller screens (mobile devices) (still in development, zoom breaks site on mobile devices) */
+@media only screen and (max-width: 768px) {
+    .resume-fab {
+        bottom: 37px;
+        /* More padding from bottom for mobile */
+        left: auto px;
+        /* <-- NEW: Move to left side for mobile */
+        right: 20px;
+        /* <-- NEW: Disable right positioning for mobile */
+        width: 60px;
+        /* A good visible size on mobile */
+        height: 60px;
+    }
+
+    .resume-fab img {
+        width: 42px;
+        /* A good visible icon size on mobile */
+        height: 42px;
+    }
+
+    /* ---------- MOBILE BOLD ADJUSTERS (EXTRA SAFETY) ---------- */
+    /* If any bold appears inside footer on very small screens, keep it readable */
+    .footer strong,
+    .footer b {
+        color: #ffe8ff;
+        text-shadow:
+            0 0 3px rgba(255, 20, 147, 0.8),
+            0 0 8px rgba(191, 0, 255, 0.75),
+            0 0 1px rgba(0, 0, 0, 0.9);
+    }
+}
+
+/* iPad/Tablet adjustments (768px–1366px) */
+@media (min-width: 768px) and (max-width: 1366px) {
+    html body {
+        background-attachment: scroll !important;
+        background-size: 1200px auto !important;
+        /* fixed tile size to prevent oversized SVG */
+        background-position: top center !important;
+        background-repeat: repeat !important;
+        background-image:
+            linear-gradient(rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.78)),
+            url("../assets/hexlineweave5.svg") !important;
+        /* dark overlay + weave */
+        background-blend-mode: multiply, normal;
+        background-color: #120016 !important;
+        /* deep fallback color */
+        color: #f0ddff !important;
+        /* keep text readable on darker bg */
+    }
+
+    header,
+    .footer {
+        background-image:
+            linear-gradient(rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.78)),
+            url("../assets/hexline-weavepink.svg") !important;
+        background-blend-mode: multiply, overlay;
+        background-size: cover !important;
+        background-position: center !important;
     }
 }
