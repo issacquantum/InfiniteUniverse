@@ -342,67 +342,6 @@ h2.about-me-heading {
     transition: transform 0.2s ease-in-out;
 }
 
-/*  Responsive Fix for Mobile (still in development, it keeps failing when zooming in on mobile devices) */
-@media only screen and (max-width: 768px) {
-    .music-control {
-        bottom: 15px;
-        right: 10px;
-        flex-direction: row-reverse;
-        /* This keeps button aligned properly */
-    }
-
-    #song-name {
-        font-size: 12px;
-    }
-
-    #playPauseButton {
-        width: 30px;
-    }
-}
-
-/* For mobile devices and small screens (e.g., 768px and below) (still in development, it keeps failing when zooming in on mobile devices) */
-@media (max-width: 768px) {
-
-    /* Hide the song name on mobile * (This was tested and it worked fine) */
-    #song-name {
-        display: none;
-        /* Song name is hidden on mobile (this has been tested and it worked fine) */
-    }
-
-    /* Resize and move the play/pause button to the right */
-    #playPauseButton {
-        width: 40px;
-        /* Make the button a bit smaller */
-        height: 40px;
-        /* Make the button a bit smaller */
-        right: 10px;
-        /* Move the button to the right to avoid overlap */
-        bottom: 10px;
-        /* Ensure it doesn't get too close to the bottom */
-    }
-}
-
-.vibrant-violet {
-    color: #d48bff;
-    /* Lighter vibrant violet for mobile */
-    font-weight: bold;
-    font-size: 20px;
-}
-
-/* Adjust Section Titles for Mobile Readability (so far do good, still in development)*/
-@media only screen and (max-width: 768px) {
-    .section-title {
-        color: #ff99ff;
-        /* Lighter intense pink-violet */
-    }
-
-    .about p,
-    .contact p {
-        color: #e673d9;
-        /* Lighter fluorescent tone for mobile */
-    }
-}
-
 /* Enhance Glow Effect When Hovered */
 #atomLogo:hover {
     transform: scale(1.1);
@@ -603,32 +542,6 @@ body {
     height: 35px;
     /* Invert and tint the icon to match your site's color scheme (makes the icon white) */
     filter: invert(100%) sepia(100%) saturate(0%) hue_rotate(282deg) brightness(100%) contrast(100%);
-}
-
-/* Responsive adjustments for smaller screens (mobile devices) (still in development, zoom breaks site on mobile devices) */
-@media only screen and (max-width: 768px) {
-    .resume-fab {
-        bottom: 30px;
-        /* More padding from bottom for mobile */
-        left: 30px;
-        /* <-- NEW: Move to left side for mobile */
-        right: auto;
-        /* <-- NEW: Disable right positioning for mobile */
-        width: 60px;
-        /* A good visible size on mobile */
-        height: 60px;
-    }
-
-    .resume-fab img {
-        width: 32px;
-        /* A good visible icon size on mobile */
-        height: 32px;
-    }
-}
-
-.about a {
-    text-decoration: none;
-    color: inherit;
 }
 
 /* Big Bang page titles */
