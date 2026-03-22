@@ -1299,26 +1299,29 @@ mjx-container {
         display: none !important; /* Hide the fixed music player completely on mobile */
     }
 
-    /* ------------------------------------------- */
+        /* ------------------------------------------- */
     /*           FOOTER & MOBILE MUSIC CONTROLS    */
     /* ------------------------------------------- */
     .footer {
-        flex-direction: column !important;
-        align-items: center !important;
-        text-align: center !important;
-        gap: 8px !important;
-        padding: 10px !important;
+        flex-direction: row !important; /* Changed to row to allow items to be side-by-side */
+        justify-content: space-between !important; /* Pushes copyright to left, play button to right */
+        align-items: center !important; /* Aligns items vertically in the center */
+        gap: 0 !important; /* Removed gap since space-between handles spacing */
+        padding: var(--footer-padding-mobile, 10px 10px) !important; /* ADJUSTER: Control overall footer padding (top/bottom left/right) */
+        min-height: var(--footer-min-height-mobile, 50px) !important; /* ADJUSTER: Control minimum height of the footer */
+        /* If the footer still feels "too big", try reducing padding or min-height */
     }
 
     .music-control {
-        position: static !important; /* Resetting to static for normal footer flow */
+        position: static !important; /* Still static for normal footer flow */
         display: flex !important;
-        justify-content: flex-start !important; /* Align play button to the left */
+        justify-content: flex-end !important; /* ALIGN PLAY BUTTON TO THE RIGHT within its container */
         align-items: center !important;
-        flex-wrap: nowrap !important; /* Prevent wrapping to keep elements on one line */
-        gap: 6px !important;
-        width: 100% !important; /* Ensure it takes full width for alignment */
-        order: -1 !important; /* Place music controls at the top of the footer */
+        flex-wrap: nowrap !important;
+        gap: 0 !important; /* No internal gap in music control */
+        order: 1 !important; /* Places the music control (and thus the play button) after the copyright */
+        /* ADJUSTER: Add space between the play button and the right edge of the footer */
+        margin-right: var(--music-control-right-offset, 10px) !important;
     }
 
     #song-name { /* Hide song name explicitly within the footer music control */
@@ -1326,9 +1329,9 @@ mjx-container {
     }
 
     #playPauseButton { /* The actual play button */
-        width: 40px !important; /* Size from your original block */
-        height: 40px !important; /* Size from your original block */
-        position: static !important; /* Remove any absolute/fixed positioning that might exist */
+        width: var(--play-button-size, 40px) !important; /* ADJUSTER: Change --play-button-size (e.g., 35px, 50px) */
+        height: var(--play-button-size, 40px) !important; /* Uses same variable as width */
+        position: static !important; /* Crucial: make it static so it flows with the footer, not fixed/absolute */
         margin: 0 !important; /* Remove any external margins */
         display: block !important; /* Ensure it's displayed */
         visibility: visible !important; /* Ensure it's visible */
@@ -1336,10 +1339,12 @@ mjx-container {
     }
 
     .copyright {
-        font-size: 12px !important; /* From your previous block */
-        order: 1 !important; /* Place copyright after music controls */
+        font-size: var(--copyright-font-size, 12px) !important; /* ADJUSTER: Adjust copyright text size (e.g., 14px) */
+        order: 0 !important; /* Places the copyright before the music control */
+        /* ADJUSTER: Add space between the copyright and the left edge of the footer */
+        margin-left: var(--copyright-left-offset, 10px) !important;
     }
-
+    
     /* ------------------------------------------- */
     /*           OTHER MOBILE ADJUSTMENTS          */
     /* ------------------------------------------- */
