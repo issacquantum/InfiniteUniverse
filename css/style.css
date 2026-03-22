@@ -1268,188 +1268,176 @@ mjx-container {
     /*           BODY / GLOBAL                    */
     /* ------------------------------------------- */
     body {
-        font-family: 'Apple Chancery', Papyrus, fantasy, cursive, sans-serif !important;
-        font-size: 16px !important;
-        line-height: 1.5 !important;
-        color: #ff99ff !important;
+        font-family: 'Apple Chancery', Papyrus, fantasy, cursive, sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+        color: #ff99ff;
 
-        margin: 0 !important;
-        padding: 0 !important;
+        margin: 0;
+        padding: 0;
 
-        overflow-x: hidden !important;
+        overflow-x: hidden;
 
-        background-image: url('../img/hexlineweave5.svg') !important;
-        background-size: cover !important;
-        background-repeat: no-repeat !important;
-        background-position: center center !important;
-        background-attachment: fixed !important;
+        background-image: url('../img/hexlineweave5.svg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
     }
 
     /* ------------------------------------------- */
-    /*           HEADER (FIXED PROPERLY)          */
+    /*           HEADER (REAL FIX)                */
     /* ------------------------------------------- */
-    .header {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
+    header .nav-container {
+        display: flex;
+        flex-direction: column;              /* 🔴 vertical stack */
+        align-items: center;
 
-        width: 100% !important;
+        width: 100%;
 
-        padding-top: 15px !important;
-        padding-bottom: 10px !important;
-
-        position: relative !important;
+        padding-top: 15px;
+        padding-bottom: 10px;
     }
 
-    /* remove ALL bad desktop positioning */
-    .header * {
-        position: static !important;
-        transform: none !important;
-        float: none !important;
-    }
+    /* CONTROL ORDER EXPLICITLY */
+    .site-title-link { order: 1; }
+    .nav-projects     { order: 2; }
+    .nav-about-me     { order: 3; }
+    .nav-music-control { order: 4; }
 
     /* TITLE */
     .site-name {
-        width: 100% !important;
-        text-align: center !important;
+        text-align: center;
+        font-size: 1.6rem;
 
-        font-size: 1.6rem !important;
-        margin-bottom: 10px !important;
+        margin: 8px 0;
     }
 
-    /* NAV STACK */
-    .nav-tabs {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-
-        gap: 8px !important;
-        width: 100% !important;
-    }
-
-    .nav-tabs a,
+    /* NAV LINKS */
     .nav-projects,
     .nav-about-me {
-        display: block !important;
-        width: 100% !important;
-        text-align: center !important;
+        display: block;
+        width: 100%;
 
-        padding: 4px 0 !important;
-        margin: 0 !important;
+        text-align: center;
+        margin: 4px 0;
+    }
+
+    /* OPTIONAL: remove clutter that breaks vertical layout */
+    .nav-music-control {
+        display: none;
     }
 
     /* ------------------------------------------- */
-    /*           PROFILE (CRITICAL FIX)           */
+    /*           PROFILE                          */
     /* ------------------------------------------- */
     .profile {
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
-        margin-top: 20px !important;
-        margin-bottom: 20px !important;
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
 
     .profile img {
-        width: 120px !important;
-        height: 120px !important;
+        width: 120px;
+        height: 120px;
 
-        display: block !important;
-
-        position: static !important;   /* 🔴 removes overlap */
+        display: block;
     }
 
     /* ------------------------------------------- */
     /*           RESUME FAB                       */
     /* ------------------------------------------- */
     .resume-fab {
-        position: fixed !important;
+        position: fixed;
 
-        bottom: calc(var(--footer-height, 60px) + 20px) !important;
-        right: 15px !important;
+        bottom: calc(60px + 20px);
+        right: 15px;
 
-        width: 50px !important;
-        height: 50px !important;
+        width: 50px;
+        height: 50px;
 
-        z-index: 1000 !important;
+        z-index: 1000;
 
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .resume-fab img {
-        width: 30px !important;
-        height: 30px !important;
+        width: 30px;
+        height: 30px;
     }
 
     /* ------------------------------------------- */
     /*           MUSIC PLAYER                     */
     /* ------------------------------------------- */
     #jp_container_1 {
-        display: none !important;
+        display: none;
     }
 
     /* ------------------------------------------- */
     /*           FOOTER                          */
     /* ------------------------------------------- */
     .footer {
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
-        min-height: 60px !important;
-        padding: 10px !important;
+        min-height: 60px;
+        padding: 10px;
     }
 
     .music-control {
-        display: flex !important;
-        align-items: center !important;
+        display: flex;
+        align-items: center;
 
-        width: 35px !important;
-        height: 35px !important;
+        width: 35px;
+        height: 35px;
     }
 
     #playPauseButton {
-        width: 100% !important;
-        height: 100% !important;
+        width: 100%;
+        height: 100%;
     }
 
     #song-name {
-        display: none !important;
+        display: none;
     }
 
     .copyright {
-        flex-grow: 1 !important;
-        text-align: center !important;
-        font-size: 12px !important;
+        flex-grow: 1;
+        text-align: center;
+        font-size: 12px;
     }
 
     /* ------------------------------------------- */
     /*           OTHER                           */
     /* ------------------------------------------- */
     .social-logo {
-        width: 35px !important;
+        width: 35px;
     }
 
     .about h2,
     .section-title {
-        color: #ff99ff !important;
+        color: #ff99ff;
     }
 
     .about p,
     .contact p {
-        color: #e673d9 !important;
+        color: #e673d9;
     }
 
     .vibrant-violet {
-        font-size: 18px !important;
-        color: #d48bff !important;
-        font-weight: bold !important;
+        font-size: 18px;
+        color: #d48bff;
+        font-weight: bold;
     }
 
     .about a {
-        text-decoration: none !important;
-        color: inherit !important;
+        text-decoration: none;
+        color: inherit;
     }
 }
