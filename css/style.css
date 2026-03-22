@@ -1317,13 +1317,8 @@ mjx-container {
 
     .music-control {
     position: fixed !important;
-
-    left: 10px !important;
-
-    bottom: calc(var(--footer-min-height-mobile, 60px) / 2 - 20px) !important;
-    /* 60px footer / 2 = 30px center
-       40px button / 2 = 20px
-       → aligns vertical center with footer text */
+    left: 10px !important;          /* ← LEFT SIDE (this was always correct) */
+    bottom: 10px !important;        /* ← aligns with footer text line */
 
     z-index: 1000 !important;
 
