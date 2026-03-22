@@ -1296,14 +1296,14 @@ mjx-container {
         width: 100%;
 
         padding-top: 15px;
-        padding-bottom: 10px;
+        padding-bottom: 160px; /* Adjusted padding to prevent overlap with profile picture */
     }
 
     /* CONTROL ORDER EXPLICITLY */
     .site-title-link { order: 1; }
     .nav-projects     { order: 2; }
     .nav-about-me     { order: 3; }
-    .nav-music-control { order: 4; }
+    .nav-music-control { order: 4; display: none; } /* Ensure music control is hidden and doesn't interfere */
 
     /* TITLE */
     .site-name {
@@ -1321,6 +1321,7 @@ mjx-container {
 
         text-align: center;
         margin: 4px 0;
+        padding: 5px 0; /* Add some padding to links themselves for better spacing */
     }
 
     /* OPTIONAL: remove clutter that breaks vertical layout */
