@@ -1271,14 +1271,18 @@ mjx-container {
     }
 
         /* ------------------------------------------- */
-    /*           FLOATING RESUME ICON (.resume-fab) */
-    /* ------------------------------------------- */
-    .resume-fab {
+/*           FLOATING RESUME ICON (.resume-fab) */
+/* ------------------------------------------- */
+.resume-fab {
     position: fixed !important;
-    bottom: calc(var(--footer-min-height-mobile, 60px) + 20px) !important;
+    /* ADJUSTER: bottom - Use this to move it up/down. Larger number moves it up. */
+    /* This calculation ensures it's above the footer, with 20px extra space. */
+    bottom: calc(var(--footer-min-height-mobile, 60px) + var(--resume-fab-bottom-offset-from-footer, 20px)) !important; 
+    /* ADJUSTER: right - Use this to move it left/right from the right edge. Larger number moves it left. */
     right: var(--resume-fab-right-offset, 15px) !important;
     left: auto !important;
 
+    /* ADJUSTER: width, height - Control the size of the FAB button. */
     width: var(--resume-fab-size, 50px) !important;
     height: var(--resume-fab-size, 50px) !important;
 
@@ -1290,56 +1294,91 @@ mjx-container {
 }
 
 .resume-fab img {
+    /* ADJUSTER: width, height - Control the size of the icon inside the FAB button. */
     width: var(--resume-fab-icon-size, 30px) !important;
     height: var(--resume-fab-icon-size, 30px) !important;
 }
 
-    /* ------------------------------------------- */
-    /*           MUSIC PLAYER (#jp_container_1)    */
-    /* ------------------------------------------- */
-    /* Resetting the fixed music player that was conflicting */
-    #jp_container_1 {
-        display: none !important; /* Hide the fixed music player completely on mobile */
-    }
-
-    /* ------------------------------------------- */
-    /*           FOOTER & MOBILE MUSIC CONTROLS    */
-    /* ------------------------------------------- */
-    .footer {
-    position: relative;
-    display: flex;
-    justify-content: center; /* true horizontal centering */
-    align-items: center;
-    text-align: center;
-    padding: var(--footer-padding-mobile, 10px);
-    min-height: var(--footer-min-height-mobile, 60px);
+/* ------------------------------------------- */
+/*           MUSIC PLAYER (#jp_container_1)    */
+/* ------------------------------------------- */
+/* This rule ensures NO fixed music player appears anywhere. */
+/* The actual play button will be moved to the header. */
+#jp_container_1 {
+    display: none !important; /* Hide the fixed music player completely on mobile */
 }
 
-    .music-control {
-    position: fixed !important;
-    left: 10px !important;          /* ← LEFT SIDE (this was always correct) */
-    bottom: 10px !important;        /* ← aligns with footer text line */
-
-    z-index: 9999 !important;
-
-    display: flex !important;
+/* ------------------------------------------- */
+/*           HEADER MUSIC CONTROL (NEW LOCATION FOR PLAY BUTTON) */
+/* ------------------------------------------- */
+.header .music-control {
+    position: absolute !important; /* Position absolutely within the header */
+    /* ADJUSTER: left - Moves the play button from the left edge of the header. */
+    left: var(--header-play-button-left-offset, 10px) !important; 
+    /* ADJUSTER: top - Moves the play button from the top edge of the header. */
+    top: var(--header-play-button-top-offset, 15px) !important; /* Adjust if header padding/height changes */
+    
+    z-index: 9999 !important; /* Ensure it's on top */
+    
+    display: flex !important; /* Ensure it's visible and acts as a flex container */
+    justify-content: flex-start !important;
     align-items: center !important;
+    
+    /* Small size as requested */
+    width: var(--header-play-button-container-width, 40px) !important; /* Adjust overall container width */
+    height: var(--header-play-button-container-height, 40px) !important; /* Adjust overall container height */
 }
 
-    #song-name { /* Hide song name explicitly within the footer music control */
-        display: none !important;
-    }
-
-    #playPauseButton {
-    width: var(--play-button-size, 40px);
-    height: var(--play-button-size, 40px);
-    margin: 0;
+/* Specific styling for the play button itself when in the header */
+.header #playPauseButton {
+    /* ADJUSTER: width, height - Control the size of the play button icon. */
+    width: var(--header-play-button-size, 30px) !important; /* Small size for header */
+    height: var(--header-play-button-size, 30px) !important; /* Small size for header */
+    margin: 0 !important; /* No external margins */
+    display: block !important;
+    visibility: visible !important;
+    position: static !important; /* Flows within its .music-control parent */
 }
 
-    .copyright {
-    width: 100%;
-    text-align: center;
-    font-size: var(--copyright-font-size, 12px);
+/* Hide the song name if it was somehow appearing in the header's music control */
+.header #song-name {
+    display: none !important;
+}
+
+/* ------------------------------------------- */
+/*           FOOTER & MOBILE MUSIC CONTROLS    */
+/* ------------------------------------------- */
+.footer {
+    /* Ensure the footer maintains its structure for the copyright */
+    position: relative !important; /* Important for any contained elements */
+    display: flex !important;
+    flex-direction: column !important; /* To center the copyright text */
+    justify-content: center !important; /* Centers content vertically */
+    align-items: center !important; /* Centers content horizontally */
+    text-align: center !important; /* Ensures text is centered */
+    padding: var(--footer-padding-mobile, 10px) !important; /* ADJUSTER: Footer padding */
+    min-height: var(--footer-min-height-mobile, 60px) !important; /* ADJUSTER: Footer height */
+}
+
+/* Reset any specific music-control styling that might have affected the footer */
+.footer .music-control, /* Target music-control if it still ends up in the footer */
+.music-control:not(.header .music-control) { /* Ensure this doesn't target the header's music-control */
+    display: none !important; /* Completely hide music control from footer if it appears */
+}
+
+#song-name { /* Ensure song name is hidden if it reappears anywhere */
+    display: none !important;
+}
+
+#playPauseButton:not(.header #playPauseButton) { /* Hide play button if it appears outside the header */
+    display: none !important;
+}
+
+.copyright {
+    /* ADJUSTER: font-size - Control the copyright text size. */
+    font-size: var(--copyright-font-size, 12px) !important;
+    width: 100% !important; /* Ensure it takes full width for centering */
+    text-align: center !important; /* Explicitly center the text */
 }
     
     /* ------------------------------------------- */
