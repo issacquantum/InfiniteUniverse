@@ -1316,13 +1316,19 @@ mjx-container {
 }
 
     .music-control {
-    position: fixed; /* KEY CHANGE */
-    left: 10px; /* stick to left edge */
-    bottom: 15px; /* align with footer baseline */
-    z-index: 1000; /* stay above everything */
-    
-    display: flex;
-    align-items: center;
+    position: fixed !important;
+
+    left: 10px !important;
+
+    bottom: calc(var(--footer-min-height-mobile, 60px) / 2 - 20px) !important;
+    /* 60px footer / 2 = 30px center
+       40px button / 2 = 20px
+       → aligns vertical center with footer text */
+
+    z-index: 1000 !important;
+
+    display: flex !important;
+    align-items: center !important;
 }
 
     #song-name { /* Hide song name explicitly within the footer music control */
