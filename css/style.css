@@ -1217,7 +1217,7 @@ mjx-container {
     /* ------------------------------------------- */
     body {
         /* REVISED FONT: Still using system fonts, hopefully less generic */
-        font-family: 'Avenir Next', 'Montserrat', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif !important;
+        font-family: 'Apple Chancery', Papyrus, fantasy, cursive, sans-serif !important;
         font-size: 16px !important; /* Ensure this is applied */
         line-height: 1.5 !important; /* Ensure this is applied */
         color: #ff99ff !important;
