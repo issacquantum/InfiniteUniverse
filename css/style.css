@@ -1255,7 +1255,7 @@ mjx-container {
     .about p b {
         color: #f7e9ff;
         text-shadow:
-            0 0 4px rgba(212, 20, 255, 0.85),
+            0 0 4px rgba(255, 20, 147, 0.85),
             0 0 9px rgba(191, 0, 255, 0.8),
             0 0 1px rgba(0, 0, 0, 0.9);
     }
@@ -1359,11 +1359,5 @@ mjx-container {
         background-blend-mode: multiply, overlay;
         background-size: cover !important;
         background-position: center !important;
-    }
-}
-
-@media (max-width: 768px) {
-    .profile {
-        padding: 0 12px !important;
     }
 }
