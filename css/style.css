@@ -1320,7 +1320,7 @@ mjx-container {
     left: 10px !important;          /* ← LEFT SIDE (this was always correct) */
     bottom: 10px !important;        /* ← aligns with footer text line */
 
-    z-index: 1000 !important;
+    z-index: 9999 !important;
 
     display: flex !important;
     align-items: center !important;
