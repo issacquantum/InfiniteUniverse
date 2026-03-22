@@ -1361,3 +1361,9 @@ mjx-container {
         background-position: center !important;
     }
 }
+
+@media (max-width: 768px) {
+    .profile {
+        padding: 0 12px !important;
+    }
+}
