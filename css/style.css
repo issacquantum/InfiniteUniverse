@@ -48,9 +48,9 @@ header {
     display: flex;
     justify-content: center;
     z-index: 100;
-    /* This Ensures the header always takes at least a minimum width, even when zoomed (still in developing, it keeps failing when zooming in on mobile devices) */
+    /* This Ensures the header always takes at least a minimum width, even when zoomed (still in developing, it keeps glitching when zooming in on mobile devices, probably due to the particles effect) */
     min-width: 320px;
-    /* Common minimum mobile width, helps prevent squishing (still in development, it keeps failing when zooming inon mobile devices) */
+    /* Common minimum mobile width, helps prevent squishing (still in development, it keeps failing when zooming inon mobile devices, probably due to the particles effect) */
 }
 
 .nav-container {
@@ -84,7 +84,7 @@ header {
     transform: scale(1.2);
     /* Slight enlargement on hover */
     text-shadow: 0 0 5px #ff1493, 0 0 10px #ff69b4;
-    /* Add a subtle glow on hover */
+    /* Add a subtle glow on hover, still  undecided about color */
 }
 
 .nav-projects:hover,
@@ -124,7 +124,7 @@ a[href="index.html"] {
 .profile {
     text-align: center;
     margin-top: 20px;
-    /* NEW: Add horizontal padding to prevent image from touching edges */
+    /* Testing horizontal padding to prevent image from touching edges */
     padding: 0 10px;
 }
 
@@ -159,7 +159,7 @@ a[href="index.html"] {
     text-align: center;
     margin-top: 0px;
     margin-bottom: 25px;
-    /* NEW: Add more generous horizontal padding for better readability on zoom */
+    /* Added for a more generous horizontal padding for better readability on zoom */
     padding: 50px 15px 20px 15px;
 }
 
@@ -169,7 +169,7 @@ a[href="index.html"] {
     margin-bottom: 10px;
     font-size: 1em;
     line-height: 1.6;
-    /* NEW: Ensure text flows within boundaries (atill undecisive about keeping it) */
+    /* This ensures the text flows within boundaries */
     word-wrap: break-word;
     overflow-wrap: break-word;
 
@@ -211,7 +211,7 @@ h2.about-me-heading {
     height: 230px;
     border-radius: 50%;
     margin-bottom: 5px;
-    /* Ensure images scale down properly if container gets smaller, and don't exceed the original size */
+    /*This ensure images scale down properly if container gets smaller, don't exceed the original size */
     max-width: 100%;
     height: auto;
     display: block;
@@ -251,7 +251,7 @@ h2.about-me-heading {
     transition: filter 0.3s ease-in-out, transform 0.3s ease-in-out;
     animation: rotateIcon 5s linear infinite;
     filter: drop-shadow(0 0 12px #bf00ff) drop-shadow(0 0 18px #9a00e6) drop-shadow(0 0 25px #6f00b8);
-    /* --- ADD THIS LINE TO FIX THE STACKING --- */
+    /* --- ADDED THIS LINE TO FIX THE STACKING --- */
     display: inline-block;
     /* This makes the image behave like text but allows width/height */
 }
@@ -297,9 +297,9 @@ h2.about-me-heading {
     bottom: 0;
     /* ADDED: Sticks it to the bottom of the viewport */
     width: 100%;
-    /* ADDED: Ensures it spans the full width */
+    /* ADDED: This ensures it spans the full width */
     background: url("../assets/hexline-weavepink.svg") repeat, rgba(18, 0, 36, 0.9);
-    /* ADDED: This will give it a background similar to your header, otherwise it would be transparent */
+    /* ADDED: This will give it a background similar to the header, otherwise it would be transparent */
     background-size: cover;
     background-blend-mode: overlay;
     display: flex;
@@ -308,7 +308,7 @@ h2.about-me-heading {
     padding: 10px 20px;
     flex-wrap: wrap;
     z-index: 100;
-    /* ADDED: Ensures it stays on top of other content */
+    /* ADDED: This ensures it stays on top of other content */
     box-sizing: border-box;
     /* ADDED: Good practice to prevent horizontal scrollbars due to padding */
 }
@@ -342,13 +342,13 @@ h2.about-me-heading {
     transition: transform 0.2s ease-in-out;
 }
 
-/*  Responsive Fix for Mobile (still in development, it keeps failing when zooming inon mobile devices) */
+/*  Responsive Fix for Mobile (still in development, it keeps failing when zooming in on mobile devices) */
 @media only screen and (max-width: 768px) {
     .music-control {
         bottom: 15px;
         right: 10px;
         flex-direction: row-reverse;
-        /* Keep button aligned properly */
+        /* This keeps button aligned properly */
     }
 
     #song-name {
@@ -360,7 +360,7 @@ h2.about-me-heading {
     }
 }
 
-/* For mobile devices and small screens (e.g., 768px and below) (still in development, it keeps failing when zooming inon mobile devices) */
+/* For mobile devices and small screens (e.g., 768px and below) (still in development, it keeps failing when zooming in on mobile devices) */
 @media (max-width: 768px) {
 
     /* Hide the song name on mobile * (This was tested and it worked fine) */
@@ -449,14 +449,14 @@ h2.about-me-heading {
     transition: transform 0.3s ease-in-out;
 }
 
-/* ⚛️ Atom Logo Alignment Fix */
+/*  Atom Logo Alignment Fix */
 #atomLogo {
     width: 35px;
     height: auto;
     vertical-align: middle;
     margin-top: -5px;
     margin-left: 15px;
-    /* Add space between name and atom */
+    /* This is to add space between name and atom */
     display: inline-block;
 }
 
@@ -731,9 +731,9 @@ strong {
     width: 100%;
     height: auto;
     border-radius: 6px;
-    /* --- NEW SIZE ADJUSTER BELOW --- */
+    /* --- NEW SIZE ADJUSTER --- */
     max-width: 200px;
-    /* Adjust this value (e.g., 250px, 80%, etc.) to your desired image width */
+    /* Adjust this value (e.g., 250px, 80%, etc.) to a desired image width */
     display: block;
     /* Important for centering block elements */
     margin: 0 auto;
@@ -744,10 +744,10 @@ strong {
 .hubble-image figcaption {
     margin-top: 8px;
     font-size: 0.70rem;
-    /* caption text size — unchanged */
+    /* caption text size  */
     line-height: 1.4;
     color: #bfbbc1;
-    /* caption text color — unchanged */
+    /* caption text color  */
 }
 
 /* Styling for images within the "Visualizing the Hubble diagram for cepheids" section */
@@ -755,7 +755,7 @@ strong {
     max-width: 100%;
     /* Adjust this percentage as needed (e.g., 70%, 100%) */
     height: 300px;
-    /* Keep aspect ratio */
+    /* Keeps aspect ratio */
     display: block;
     /* Ensures proper block-level behavior for centering */
     margin: 1em auto;
@@ -1128,7 +1128,7 @@ header.site-name img.logo#atomLogo {
     vertical-align: middle;
     /* Aligns them nicely with the text */
     /* Remove box-shadow and border-radius if they're coming from a generic 'img' rule
-       and you don't want them on these small logos. */
+       and don't want them on these small logos. */
     box-shadow: none;
     border-radius: 0;
 }
@@ -1148,10 +1148,10 @@ header.site-name img.logo#atomLogo {
         0 0 15px #a020f0,
         0 0 22px #bf00ff;
     text-align: center;
-    /* Added this from the end of your CSS where it was duplicated */
+    
 }
 
-/* NEW RULE FOR H4 */
+/* NEW RULE FOR H4s */
 h4 {
     color: #ef49fb;
     /* Example: a lighter pinkish-purple, adjust as desired */
@@ -1160,7 +1160,7 @@ h4 {
         0 0 8px #fb14ff;
     /* Add a subtle glow if you like */
     text-align: center;
-    /* H4s are also centered in your content */
+    /* H4s are also centered in the content */
     margin-top: 20px;
     /* Adjust spacing as needed */
     margin-bottom: 10px;
@@ -1170,11 +1170,11 @@ h4 {
 }
 
 /* Equations Bolding Rule Test
-/* Math equations styling — matches your current strong look */
+/* Math equations styling — matches my current strong look */
 mjx-container {
     font-weight: 700 !important;
     color: #e727ea !important;
-    /* match your purple */
+    /* match my favourite purple */
     text-shadow: 0 0 8px #9d5abc;
 }
 
@@ -1218,7 +1218,7 @@ mjx-container {
         font-size: 16px !important; /* Ensure this is applied */
         line-height: 1.5 !important; /* Ensure this is applied */
         color: #ff99ff !important;
-        padding-top: 130px !important; /* This is the adjusted value for header clearance */
+        padding-top: 150px !important; /* This is the adjusted value for header clearance */
         /* REVISED BACKGROUND ADJUSTMENTS: Ensure background scales correctly */
         background-image: url('../img/hexlineweave5.svg') !important; /* Explicitly set the background image */
         background-size: cover !important;        /* **KEY FIX**: Scales background to cover the entire body without "zoom" */
