@@ -1264,176 +1264,125 @@ mjx-container {
 
 @media only screen and (max-width: 768px) {
     /* ------------------------------------------- */
-    /*           GENERAL MOBILE BODY STYLES        */
+    /*           GLOBAL BODY/HTML RESET FOR NO SPACE */
     /* ------------------------------------------- */
-    body {
-        font-family: 'Apple Chancery', Papyrus, fantasy, cursive, sans-serif !important;
-        font-size: 16px !important;
-        line-height: 1.5 !important;
-        color: #ff99ff !important;
-        padding-top: 150px !important; /* Adjusted value for header clearance */
-        background-image: url('../img/hexlineweave5.svg') !important;
-        background-size: cover !important;
-        background-repeat: no-repeat !important;
-        background-position: center center !important;
-        background-attachment: fixed !important;
-        overflow-x: hidden !important; /* Ensure no horizontal scrollbar */
+    body, html {
+        margin: 0 !important;
+        padding: 0 !important;
+        min-height: 100vh !important; /* Ensure body takes full viewport height */
+        position: relative !important; /* Helps with layout */
+        overflow-x: hidden !important; /* Prevent horizontal scrollbars if elements go out of bounds */
     }
 
     /* ------------------------------------------- */
-    /*           HEADER AND NAVIGATION FIXES       */
+    /*           FLOATING RESUME ICON (.resume-fab) */
     /* ------------------------------------------- */
-    header {
-        flex-direction: column;
-        align-items: center;
-        padding: 10px 0;
-        min-width: unset;
+    .resume-fab {
+        position: fixed !important;
+        /* Position resume button above the new combined footer area */
+        bottom: calc(var(--footer-height, 60px) + var(--resume-fab-bottom-offset-from-footer, 20px)) !important;
+        right: var(--resume-fab-right-offset, 15px) !important;
+        left: auto !important;
+
+        width: var(--resume-fab-size, 50px) !important;
+        height: var(--resume-fab-size, 50px) !important;
+
+        z-index: 1000 !important; /* Ensure it's on top */
+
+        display: flex !important; /* Ensure it's visible */
+        justify-content: center !important;
+        align-items: center !important;
     }
 
-    .nav-container {
-        flex-direction: column;
-        width: 100%;
-        padding: 0;
+    .resume-fab img {
+        width: var(--resume-fab-icon-size, 30px) !important;
+        height: var(--resume-fab-icon-size, 30px) !important;
     }
 
-    .site-name { /* The "Issac Tabares" title */
-        font-size: 1.5rem;
-        margin: 5px 0;
-        order: 1;
-        position: static;
-        width: 100%;
-        text-align: center;
-    }
-
-    .nav-projects, /* "My Projects" link */
-    .nav-about-me { /* "About Me" link */
-        position: static;
-        width: 100%;
-        text-align: center;
-        margin: 2px 0;
-        font-size: 1rem;
-        padding: 5px 0;
-        order: 2;
-    }
-
-    /* Ensure the rotating planet and atom logo are appropriately sized/hidden if they are part of the site-name */
-    .site-name .rotating-planet,
-    .site-name #atomLogo {
-        width: 25px; /* Smaller size for mobile */
-        height: 25px;
-        margin: 0 5px;
-    }
-
-/* ------------------------------------------- */
-/*           FLOATING RESUME ICON (.resume-fab) */
-/* ------------------------------------------- */
-.resume-fab {
-    position: fixed !important;
-    /* This calculation ensures it's above the footer, with 20px extra space. */
-    bottom: calc(var(--footer-min-height-mobile, 60px) + var(--resume-fab-bottom-offset-from-footer, 20px)) !important; 
-    right: var(--resume-fab-right-offset, 15px) !important;
-    left: auto !important; /* Ensure it stays on the right */
-
-    width: var(--resume-fab-size, 50px) !important;
-    height: var(--resume-fab-size, 50px) !important;
-
-    z-index: 1000 !important; /* Ensure it's on top */
-
-    display: flex !important; /* Ensure it's visible */
-    justify-content: center !important;
-    align-items: center !important;
-}
-
-.resume-fab img {
-    width: var(--resume-fab-icon-size, 30px) !important;
-    height: var(--resume-fab-icon-size, 30px) !important;
-}
-
-/* ------------------------------------------- */
-/*           MUSIC PLAYER (#jp_container_1)    */
-/* ------------------------------------------- */
-/* Hide the default music player, as we're moving the button */
-#jp_container_1 {
-    display: none !important; 
-}
-
-/* ------------------------------------------- */
-/*           HEADER (Assuming your header has a class like '.header') */
-/* ------------------------------------------- */
-/* If your header has a different class/ID, replace '.header' */
-.header {
-    position: relative !important; /* Crucial for absolute positioning of the play button inside */
-    /* Add any other existing header styles here */
-}
-
-/* ------------------------------------------- */
-/*           HEADER MUSIC CONTROL (Play button for header) */
-/* ------------------------------------------- */
-.header .music-control {
-    position: absolute !important; /* Position absolutely within the header */
-    left: var(--header-play-button-left-offset, 10px) !important; /* Play button on the EXTREME LEFT */
-    top: var(--header-play-button-top-offset, 15px) !important; /* Position from top of header */
-    
-    z-index: 9999 !important; /* Ensure it's on top of other header content */
-    
-    display: flex !important; /* Ensure it's visible */
-    justify-content: flex-start !important;
-    align-items: center !important;
-    
-    width: var(--header-play-button-container-width, 40px) !important;
-    height: var(--header-play-button-container-height, 40px) !important;
-}
-
-/* Specific styling for the play button itself when in the header */
-.header #playPauseButton {
-    width: var(--header-play-button-size, 30px) !important; /* Small size for header */
-    height: var(--header-play-button-size, 30px) !important; /* Small size for header */
-    margin: 0 !important; /* No external margins */
-    display: block !important; /* Ensure it's visible */
-    visibility: visible !important; /* Ensure it's visible */
-    position: static !important; /* Flows within its .music-control parent */
-}
-
-/* Hide the song name if it was somehow appearing in the header's music control */
-.header #song-name {
-    display: none !important;
-}
-
-/* ------------------------------------------- */
-/*           FOOTER & MOBILE MUSIC CONTROLS    */
-/* ------------------------------------------- */
-.footer {
-    position: relative !important; /* Important for any contained elements */
-    display: flex !important;
-    flex-direction: column !important; /* To center the copyright text */
-    justify-content: center !important; /* Centers content vertically */
-    align-items: center !important; /* Centers content horizontally */
-    text-align: center !important; /* Ensures text is centered */
-    padding: var(--footer-padding-mobile, 10px) !important;
-    min-height: var(--footer-min-height-mobile, 60px) !important;
-    /* This next line is the key to removing extra space. */
-    margin-bottom: 0 !important; /* Ensures no extra space below the footer itself */
-}
-
-/* Ensure no music control or play button shows up in the footer */
-/* These rules are critical to remove anything pushing down the page */
-.footer .music-control,
-.footer #playPauseButton,
-#song-name { /* This specifically targets any #song-name not inside .header */
-    display: none !important; 
-    margin: 0 !important; /* Also remove any potential margins */
-    padding: 0 !important; /* Also remove any potential padding */
-    height: 0 !important; /* Collapse its height */
-    overflow: hidden !important; /* Hide any overflowing content */
-}
-
-.copyright {
-    font-size: var(--copyright-font-size, 12px) !important;
-    width: 100% !important; /* Ensure it takes full width for centering */
-    text-align: center !important; /* Explicitly center the text */
-}
-    
     /* ------------------------------------------- */
+    /*           MUSIC PLAYER (#jp_container_1)    */
+    /* ------------------------------------------- */
+    /* Hide the default jPlayer container, as we're handling the button in the footer */
+    #jp_container_1 {
+        display: none !important;
+    }
+
+    /* ------------------------------------------- */
+    /*           FOOTER WITH INTEGRATED MUSIC CONTROL & COPYRIGHT */
+    /* ------------------------------------------- */
+    .footer {
+        position: relative !important; /* Important for any contained elements */
+        display: flex !important;
+        justify-content: space-between !important; /* Distribute items (play button left, copyright center) */
+        align-items: center !important; /* Vertically align everything */
+        padding: var(--footer-padding-mobile, 10px) !important;
+        min-height: var(--footer-height, 60px) !important; /* Set a consistent height for the footer */
+
+        /* CRITICAL: Remove all margins/padding that could cause space below the footer */
+        margin: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    /* Play/Pause Button in Footer (re-enable and position it here) */
+    .music-control {
+        position: static !important; /* Make it flow normally within the footer */
+        left: auto !important;
+        bottom: auto !important;
+        z-index: auto !important; /* Not fixed, so z-index less critical */
+
+        display: flex !important; /* Ensure it's visible and laid out */
+        align-items: center !important;
+        justify-content: flex-start !important; /* Push it to the left within its space */
+        
+        /* Make it small */
+        width: var(--play-button-size-footer, 35px) !important; /* Adjust size as needed */
+        height: var(--play-button-size-footer, 35px) !important; /* Adjust size as needed */
+        margin: 0 !important;
+        padding: 0 !important;
+        flex-shrink: 0 !important; /* Prevent it from shrinking */
+    }
+
+    #playPauseButton {
+        width: 100% !important; /* Fill its parent music-control container */
+        height: 100% !important;
+        margin: 0 !important;
+        display: block !important;
+        visibility: visible !important;
+        position: static !important; /* Flow normally */
+    }
+
+    /* Hide the song name if it was somehow appearing */
+    #song-name {
+        display: none !important;
+    }
+
+    /* Copyright text - needs to be centered while other items are left/right */
+    .copyright {
+        /* Ensure it takes minimal width necessary, but centers itself in the remaining space */
+        flex-grow: 1 !important; /* Allow it to take up available space */
+        text-align: center !important; /* Center the text */
+        font-size: var(--copyright-font-size, 12px) !important;
+        margin: 0 !important; /* Remove any default margins */
+        padding: 0 !important;
+    }
+
+    /* Any header specific music controls should be gone */
+    .header .music-control,
+    .header #playPauseButton,
+    .header #song-name {
+        display: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        height: 0 !important;
+        width: 0 !important;
+        overflow: hidden !important;
+        visibility: hidden !important;
+        position: absolute !important; /* Remove from flow to prevent affecting layout */
+        left: -9999px !important;
+        top: -9999px !important;
+    }
+}
+/* ------------------------------------------- */
     /*           OTHER MOBILE ADJUSTMENTS          */
     /* ------------------------------------------- */
     .profile img { /* Your main profile image */
