@@ -1213,18 +1213,16 @@ mjx-container {
     /*           GENERAL MOBILE BODY STYLES        */
     /* ------------------------------------------- */
     body {
-        /* REVISED FONT: Still using system fonts, hopefully less generic */
         font-family: 'Apple Chancery', Papyrus, fantasy, cursive, sans-serif !important;
-        font-size: 16px !important; /* Ensure this is applied */
-        line-height: 1.5 !important; /* Ensure this is applied */
+        font-size: 16px !important;
+        line-height: 1.5 !important;
         color: #ff99ff !important;
-        padding-top: 150px !important; /* This is the adjusted value for header clearance */
-        /* REVISED BACKGROUND ADJUSTMENTS: Ensure background scales correctly */
-        background-image: url('../img/hexlineweave5.svg') !important; /* Explicitly set the background image */
-        background-size: cover !important;        /* **KEY FIX**: Scales background to cover the entire body without "zoom" */
-        background-repeat: no-repeat !important;  /* Prevents image from repeating */
-        background-position: center center !important; /* Centers the background image */
-        background-attachment: fixed !important;  /* Keeps background fixed when scrolling */
+        padding-top: 150px !important; /* Adjusted value for header clearance */
+        background-image: url('../img/hexlineweave5.svg') !important;
+        background-size: cover !important;
+        background-repeat: no-repeat !important;
+        background-position: center center !important;
+        background-attachment: fixed !important;
         overflow-x: hidden !important; /* Ensure no horizontal scrollbar */
     }
 
@@ -1232,95 +1230,114 @@ mjx-container {
     /*           HEADER AND NAVIGATION FIXES       */
     /* ------------------------------------------- */
     header {
-        flex-direction: column; /* Stack header items vertically */
-        align-items: center; /* Center items horizontally */
-        padding: 10px 0; /* Adjust padding for mobile */
-        min-width: unset; /* Remove min-width that was causing issues with zooming */
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0;
+        min-width: unset;
     }
 
     .nav-container {
-        flex-direction: column; /* Stack navigation items */
-        width: 100%; /* Take full width */
-        padding: 0; /* Remove internal padding */
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
     }
 
     .site-name { /* The "Issac Tabares" title */
-        font-size: 1.5rem; /* Make title smaller for mobile */
-        margin: 5px 0; /* Add vertical spacing around title */
-        order: 1; /* Place title first in the stack */
-        position: static; /* Remove absolute positioning if it had any */
+        font-size: 1.5rem;
+        margin: 5px 0;
+        order: 1;
+        position: static;
         width: 100%;
         text-align: center;
     }
 
     .nav-projects, /* "My Projects" link */
     .nav-about-me { /* "About Me" link */
-        position: static; /* Remove absolute positioning */
-        width: 100%; /* Take full width */
-        text-align: center; /* Center the text */
-        margin: 2px 0; /* Add vertical spacing between links */
-        font-size: 1rem; /* Make link text smaller */
-        padding: 5px 0; /* Adjust padding for touch targets */
-        order: 2; /* Place links below the title */
+        position: static;
+        width: 100%;
+        text-align: center;
+        margin: 2px 0;
+        font-size: 1rem;
+        padding: 5px 0;
+        order: 2;
     }
-    
+
     /* Ensure the rotating planet and atom logo are appropriately sized/hidden if they are part of the site-name */
     .site-name .rotating-planet,
     .site-name #atomLogo {
         width: 25px; /* Smaller size for mobile */
         height: 25px;
-        margin: 0 5px; /* Adjust margin */
+        margin: 0 5px;
     }
 
     /* ------------------------------------------- */
     /*           FLOATING RESUME ICON (.resume-fab) */
     /* ------------------------------------------- */
     .resume-fab {
-        bottom: 20px !important; /* Distance from the bottom edge */
-        right: 20px !important; /* Distance from the right edge */
+        bottom: 20px !important; /* Your current position */
+        right: 20px !important; /* Your current position */
         left: auto !important; /* Ensure it stays on the right */
-        width: 50px !important; /* Consistent size on mobile */
-        height: 50px !important; /* Consistent size on mobile */
-        /* Other styles like font-size, padding, z-index are already good from your desktop definition */
+        width: 50px !important;
+        height: 50px !important;
+        /* Adding explicit positioning properties for consistency and adjuster */
+        position: fixed !important;
+        z-index: 999 !important; /* Ensure it's above other content but below the play button if needed */
+        display: flex !important; /* Ensure visibility and proper icon centering */
+        justify-content: center !important;
+        align-items: center !important;
     }
     .resume-fab img { /* Icon inside the resume FAB */
-        width: 30px !important; /* Adjust icon size */
+        width: 30px !important;
         height: 30px !important;
     }
 
     /* ------------------------------------------- */
     /*           MUSIC PLAYER (#jp_container_1)    */
     /* ------------------------------------------- */
+    /* Resetting the fixed music player that was conflicting */
     #jp_container_1 {
-        position: fixed; /* Keep it fixed */
-        bottom: 80px !important; /* Place it above the resume FAB (20px FAB + 50px FAB height + 10px gap) */
-        right: 20px !important; /* Align with the resume FAB */
-        left: auto !important;
-        z-index: 999 !important; /* Ensure it's below the resume FAB but still visible */
-        width: 150px !important; /* Make music player narrower */
-        height: 40px !important; /* Reduce height */
-        overflow: hidden !important; /* Hide overflowing elements */
-        background: url("../assets/hexline-weavepink.svg") repeat, rgba(18, 0, 36, 0.9) !important; /* Apply a solid background */
-        background-size: cover !important;
-        background-blend-mode: overlay !important;
-        border-radius: 8px !important; /* Add some rounded corners */
-        box-shadow: 0 2px 5px rgba(0,0,0,0.5) !important; /* Subtle shadow */
-        display: flex !important; /* Use flexbox for internal layout */
-        justify-content: space-around !important; /* Distribute items */
-        align-items: center !important; /* Center items vertically */
+        display: none !important; /* Hide the fixed music player completely on mobile */
     }
 
-    /* Hide specific music player elements for more space on mobile */
-    #jp_container_1 .jp-volume-bar,
-    #jp_container_1 .jp-time-holder,
-    #song-name { /* Hide song name too, as you previously tried */
+    /* ------------------------------------------- */
+    /*           FOOTER & MOBILE MUSIC CONTROLS    */
+    /* ------------------------------------------- */
+    .footer {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 8px !important;
+        padding: 10px !important;
+    }
+
+    .music-control {
+        position: static !important; /* Resetting to static for normal footer flow */
+        display: flex !important;
+        justify-content: flex-start !important; /* Align play button to the left */
+        align-items: center !important;
+        flex-wrap: nowrap !important; /* Prevent wrapping to keep elements on one line */
+        gap: 6px !important;
+        width: 100% !important; /* Ensure it takes full width for alignment */
+        order: -1 !important; /* Place music controls at the top of the footer */
+    }
+
+    #song-name { /* Hide song name explicitly within the footer music control */
         display: none !important;
     }
-    #playPauseButton {
-        width: 30px !important; /* Adjust play button size */
-        height: 30px !important;
+
+    #playPauseButton { /* The actual play button */
+        width: 40px !important; /* Size from your original block */
+        height: 40px !important; /* Size from your original block */
+        position: static !important; /* Remove any absolute/fixed positioning that might exist */
         margin: 0 !important; /* Remove any external margins */
-        position: static !important; /* Remove any absolute/fixed positioning */
+        display: block !important; /* Ensure it's displayed */
+        visibility: visible !important; /* Ensure it's visible */
+        /* If you need more specific styling for the button itself (background, etc.), add it here. */
+    }
+
+    .copyright {
+        font-size: 12px !important; /* From your previous block */
+        order: 1 !important; /* Place copyright after music controls */
     }
 
     /* ------------------------------------------- */
@@ -1332,44 +1349,24 @@ mjx-container {
         margin-bottom: 5px !important;
     }
     .social-logo {
-        width: 35px !important; /* Social media icons */
+        width: 35px !important;
     }
     .about h2,
     .section-title { /* Section titles */
-        color: #ff99ff !important; /* Lighter for readability */
+        color: #ff99ff !important; /* Lighter for readability from previous block */
     }
     .about p,
     .contact p {
-        color: #e673d9 !important; /* Lighter fluorescent tone */
+        color: #e673d9 !important; /* Lighter fluorescent tone from previous block */
     }
     .vibrant-violet {
-        font-size: 18px !important; /* Adjust vibrant violet text size */
-    }
-    .copyright {
-        font-size: 0.8rem !important; /* Smaller copyright text */
-    }
-
-    /* Footer layout is already handled well in its own media query,
-       but we want to make sure no conflicting styles are here. */
-    .footer {
-        flex-direction: column !important;
-        align-items: center !important;
-        text-align: center !important;
-        gap: 8px !important;
-        padding: 10px !important; /* Adjust footer padding for mobile */
-    }
-    .music-control { /* This is the container within the footer for song name/button */
-        position: static !important; /* Ensure it behaves normally in the footer flow */
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-        flex-wrap: wrap !important;
-        gap: 6px !important;
-    }
-    /* Hide the music player that is in the footer, if the fixed one is active */
-    .footer .music-control,
-    .footer #jp_container_1 {
-        display: none !important; /* Hide the music player from the footer on mobile if it conflicts */
+        font-size: 18px !important; /* Adjusted from 20px in your newest block */
+        color: #d48bff !important; /* From your previous block */
+        font-weight: bold !important; /* From your previous block */
     }
 
+    .about a { /* From your previous block */
+        text-decoration: none !important;
+        color: inherit !important;
+    }
 } /* END of @media (max-width: 768px) */
