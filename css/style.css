@@ -4,15 +4,15 @@ body {
     letter-spacing: 0.5px;
     margin: 0;
     /* The padding: 0; was resetting all padding.
-        to explicitly set top and bottom padding. */
+       We need to explicitly set top and bottom padding. */
     padding-top: 60px;
-    /* keeps content below the header */
+    /* keeps content below your header */
     padding-bottom: 70px;
-    /* < This creates space for the fixed footer */
+    /* <--- ADDED: This creates space for the fixed footer */
     background-color: #21142f;
-    /* base background colour */
+    /* base dark background color */
     color: #993ad9;
-    /* Default violet-pink for computers */
+    /* Default violet-pink for desktop */
 
     /* Parallax Background */
     background-image: url("../assets/hexlineweave5.svg");
@@ -21,14 +21,26 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-blend-mode: soft-light;
-    /* To Prevent browser from trying to auto-adjust text size */
+
+    /* Prevent browser from trying to auto-adjust text size */
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
-    /* Prevents horizontal overflow on the body itself */
+
+    /* Prevent horizontal overflow on the body itself */
     overflow-x: hidden;
 }
 
-/* Testing workaround for iOS Safari - applies overflow-x: hidden and overscroll-behavior: contains to body */
+/* Responsive fix for mobile: Lighter Tone for Mobile Readability, still in development */
+@media only screen and (max-width: 768px) {
+    body {
+        color: #ff99ff;
+        /* Lighter fluorescent pink for mobiles */
+        /* Disable parallax background on mobile devices */
+        background-attachment: scroll;
+    }
+}
+
+/* Special workaround for iOS Safari - applies overflow-x: hidden and overscroll-behavior: contain to body */
 @supports (-webkit-touch-callout: none) {
     body {
         overflow-x: hidden !important;
@@ -48,9 +60,10 @@ header {
     display: flex;
     justify-content: center;
     z-index: 100;
-    /* This Ensures the header always takes at least a minimum width, even when zoomed (still in developing, it keeps glitching when zooming in on mobile devices, probably due to the particles effect) */
+
+    /* NEW: Ensure header always takes at least a minimum width, even when zoomed (still in developing, it keeps failing when zooming inon mobile devices) */
     min-width: 320px;
-    /* Common minimum mobile width, helps prevent squishing (still in development, it keeps failing when zooming inon mobile devices, probably due to the particles effect) */
+    /* Common minimum mobile width, helps prevent squishing (still in development, it keeps failing when zooming inon mobile devices) */
 }
 
 .nav-container {
@@ -84,7 +97,7 @@ header {
     transform: scale(1.2);
     /* Slight enlargement on hover */
     text-shadow: 0 0 5px #ff1493, 0 0 10px #ff69b4;
-    /* Add a subtle glow on hover, still  undecided about color */
+    /* Add a subtle glow on hover */
 }
 
 .nav-projects:hover,
@@ -124,7 +137,7 @@ a[href="index.html"] {
 .profile {
     text-align: center;
     margin-top: 20px;
-    /* Testing horizontal padding to prevent image from touching edges */
+    /* NEW: Add horizontal padding to prevent image from touching edges */
     padding: 0 10px;
 }
 
@@ -159,7 +172,7 @@ a[href="index.html"] {
     text-align: center;
     margin-top: 0px;
     margin-bottom: 25px;
-    /* Added for a more generous horizontal padding for better readability on zoom */
+    /* NEW: Add more generous horizontal padding for better readability on zoom */
     padding: 50px 15px 20px 15px;
 }
 
@@ -169,7 +182,7 @@ a[href="index.html"] {
     margin-bottom: 10px;
     font-size: 1em;
     line-height: 1.6;
-    /* This ensures the text flows within boundaries */
+    /* NEW: Ensure text flows within boundaries (atill undecisive about keeping it) */
     word-wrap: break-word;
     overflow-wrap: break-word;
 
@@ -211,7 +224,7 @@ h2.about-me-heading {
     height: 230px;
     border-radius: 50%;
     margin-bottom: 5px;
-    /*This ensure images scale down properly if container gets smaller, don't exceed the original size */
+    /* Ensure images scale down properly if container gets smaller, and don't exceed the original size */
     max-width: 100%;
     height: auto;
     display: block;
@@ -251,7 +264,7 @@ h2.about-me-heading {
     transition: filter 0.3s ease-in-out, transform 0.3s ease-in-out;
     animation: rotateIcon 5s linear infinite;
     filter: drop-shadow(0 0 12px #bf00ff) drop-shadow(0 0 18px #9a00e6) drop-shadow(0 0 25px #6f00b8);
-    /* --- ADDED THIS LINE TO FIX THE STACKING --- */
+    /* --- ADD THIS LINE TO FIX THE STACKING --- */
     display: inline-block;
     /* This makes the image behave like text but allows width/height */
 }
@@ -276,6 +289,23 @@ h2.about-me-heading {
     font-size: 0.9rem;
 }
 
+/* RESPONSIVENESS (still in developing, it keeps failing when zooming inon mobile devices) */
+@media only screen and (max-width: 768px) {
+    .profile img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .site-name {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .social-logo {
+        width: 35px;
+    }
+}
+
 @media only screen and (max-width: 480px) {
     .site-name {
         font-size: 1.2rem;
@@ -297,9 +327,9 @@ h2.about-me-heading {
     bottom: 0;
     /* ADDED: Sticks it to the bottom of the viewport */
     width: 100%;
-    /* ADDED: This ensures it spans the full width */
+    /* ADDED: Ensures it spans the full width */
     background: url("../assets/hexline-weavepink.svg") repeat, rgba(18, 0, 36, 0.9);
-    /* ADDED: This will give it a background similar to the header, otherwise it would be transparent */
+    /* ADDED: This will give it a background similar to your header, otherwise it would be transparent */
     background-size: cover;
     background-blend-mode: overlay;
     display: flex;
@@ -308,7 +338,7 @@ h2.about-me-heading {
     padding: 10px 20px;
     flex-wrap: wrap;
     z-index: 100;
-    /* ADDED: This ensures it stays on top of other content */
+    /* ADDED: Ensures it stays on top of other content */
     box-sizing: border-box;
     /* ADDED: Good practice to prevent horizontal scrollbars due to padding */
 }
@@ -340,6 +370,67 @@ h2.about-me-heading {
     cursor: pointer;
     filter: invert(35%) sepia(80%) saturate(500%) hue-rotate(250deg) brightness(110%) contrast(120%);
     transition: transform 0.2s ease-in-out;
+}
+
+/*  Responsive Fix for Mobile (still in development, it keeps failing when zooming inon mobile devices) */
+@media only screen and (max-width: 768px) {
+    .music-control {
+        bottom: 15px;
+        right: 10px;
+        flex-direction: row-reverse;
+        /* Keep button aligned properly */
+    }
+
+    #song-name {
+        font-size: 12px;
+    }
+
+    #playPauseButton {
+        width: 30px;
+    }
+}
+
+/* For mobile devices and small screens (e.g., 768px and below) (still in development, it keeps failing when zooming inon mobile devices) */
+@media (max-width: 768px) {
+
+    /* Hide the song name on mobile * (This was tested and it worked fine) */
+    #song-name {
+        display: none;
+        /* Song name is hidden on mobile (this has been tested and it worked fine) */
+    }
+
+    /* Resize and move the play/pause button to the right */
+    #playPauseButton {
+        width: 40px;
+        /* Make the button a bit smaller */
+        height: 40px;
+        /* Make the button a bit smaller */
+        right: 10px;
+        /* Move the button to the right to avoid overlap */
+        bottom: 10px;
+        /* Ensure it doesn't get too close to the bottom */
+    }
+}
+
+.vibrant-violet {
+    color: #d48bff;
+    /* Lighter vibrant violet for mobile */
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* Adjust Section Titles for Mobile Readability (so far do good, still in development)*/
+@media only screen and (max-width: 768px) {
+    .section-title {
+        color: #ff99ff;
+        /* Lighter intense pink-violet */
+    }
+
+    .about p,
+    .contact p {
+        color: #e673d9;
+        /* Lighter fluorescent tone for mobile */
+    }
 }
 
 /* Enhance Glow Effect When Hovered */
@@ -388,14 +479,14 @@ h2.about-me-heading {
     transition: transform 0.3s ease-in-out;
 }
 
-/*  Atom Logo Alignment Fix */
+/* ⚛️ Atom Logo Alignment Fix */
 #atomLogo {
     width: 35px;
     height: auto;
     vertical-align: middle;
     margin-top: -5px;
     margin-left: 15px;
-    /* This is to add space between name and atom */
+    /* Add space between name and atom */
     display: inline-block;
 }
 
@@ -456,12 +547,29 @@ body {
     /* Restoring original violet-pink for desktop */
 }
 
+/* Lighter Tone for Mobile Readability (still in development)*/
+@media only screen and (max-width: 768px) {
+    body {
+        color: #ff99ff !important;
+        /* Lighter fluorescent pink for mobile */
+    }
+}
 
 /* Ensure Section Titles Are Clear */
 .about h2,
 .section-title {
     color: #e409ce !important;
     /* Restore correct color */
+}
+
+/* Adjust Titles for Mobile (still in development) */
+@media only screen and (max-width: 768px) {
+
+    .about h2,
+    .section-title {
+        color: #ff99ff !important;
+        /* Even lighter for readability */
+    }
 }
 
 /* Footer Layout Fix for Mobile (so far so good, probably will be modified in the future)*/
@@ -544,6 +652,32 @@ body {
     filter: invert(100%) sepia(100%) saturate(0%) hue_rotate(282deg) brightness(100%) contrast(100%);
 }
 
+/* Responsive adjustments for smaller screens (mobile devices) (still in development, zoom breaks site on mobile devices) */
+@media only screen and (max-width: 768px) {
+    .resume-fab {
+        bottom: 30px;
+        /* More padding from bottom for mobile */
+        left: 30px;
+        /* <-- NEW: Move to left side for mobile */
+        right: auto;
+        /* <-- NEW: Disable right positioning for mobile */
+        width: 60px;
+        /* A good visible size on mobile */
+        height: 60px;
+    }
+
+    .resume-fab img {
+        width: 32px;
+        /* A good visible icon size on mobile */
+        height: 32px;
+    }
+}
+
+.about a {
+    text-decoration: none;
+    color: inherit;
+}
+
 /* Big Bang page titles */
 
 .bigbang-title {
@@ -562,6 +696,13 @@ body {
 
 strong {
     font-weight: bold;
+}
+
+/* Disable parallax background on mobile devices (background still in development for mobile devices)*/
+@media only screen and (max-width: 768px) {
+    body {
+        background-attachment: scroll !important;
+    }
 }
 
 /* ===== The Big Bang should not be imagined as an explosion — image ===== */
@@ -644,9 +785,9 @@ strong {
     width: 100%;
     height: auto;
     border-radius: 6px;
-    /* --- NEW SIZE ADJUSTER --- */
+    /* --- NEW SIZE ADJUSTER BELOW --- */
     max-width: 200px;
-    /* Adjust this value (e.g., 250px, 80%, etc.) to a desired image width */
+    /* Adjust this value (e.g., 250px, 80%, etc.) to your desired image width */
     display: block;
     /* Important for centering block elements */
     margin: 0 auto;
@@ -657,10 +798,10 @@ strong {
 .hubble-image figcaption {
     margin-top: 8px;
     font-size: 0.70rem;
-    /* caption text size  */
+    /* caption text size — unchanged */
     line-height: 1.4;
     color: #bfbbc1;
-    /* caption text color  */
+    /* caption text color — unchanged */
 }
 
 /* Styling for images within the "Visualizing the Hubble diagram for cepheids" section */
@@ -668,7 +809,7 @@ strong {
     max-width: 100%;
     /* Adjust this percentage as needed (e.g., 70%, 100%) */
     height: 300px;
-    /* Keeps aspect ratio */
+    /* Keep aspect ratio */
     display: block;
     /* Ensures proper block-level behavior for centering */
     margin: 1em auto;
@@ -1041,7 +1182,7 @@ header.site-name img.logo#atomLogo {
     vertical-align: middle;
     /* Aligns them nicely with the text */
     /* Remove box-shadow and border-radius if they're coming from a generic 'img' rule
-       and don't want them on these small logos. */
+       and you don't want them on these small logos. */
     box-shadow: none;
     border-radius: 0;
 }
@@ -1061,10 +1202,10 @@ header.site-name img.logo#atomLogo {
         0 0 15px #a020f0,
         0 0 22px #bf00ff;
     text-align: center;
-    
+    /* Added this from the end of your CSS where it was duplicated */
 }
 
-/* NEW RULE FOR H4s */
+/* NEW RULE FOR H4 */
 h4 {
     color: #ef49fb;
     /* Example: a lighter pinkish-purple, adjust as desired */
@@ -1073,7 +1214,7 @@ h4 {
         0 0 8px #fb14ff;
     /* Add a subtle glow if you like */
     text-align: center;
-    /* H4s are also centered in the content */
+    /* H4s are also centered in your content */
     margin-top: 20px;
     /* Adjust spacing as needed */
     margin-bottom: 10px;
@@ -1083,11 +1224,11 @@ h4 {
 }
 
 /* Equations Bolding Rule Test
-/* Math equations styling — matches my current strong look */
+/* Math equations styling — matches your current strong look */
 mjx-container {
     font-weight: 700 !important;
     color: #e727ea !important;
-    /* match my favourite purple */
+    /* match your purple */
     text-shadow: 0 0 8px #9d5abc;
 }
 
