@@ -4,15 +4,15 @@ body {
     letter-spacing: 0.5px;
     margin: 0;
     /* The padding: 0; was resetting all padding.
-       We need to explicitly set top and bottom padding. */
+        to explicitly set top and bottom padding. */
     padding-top: 60px;
-    /* keeps content below your header */
+    /* keeps content below the header */
     padding-bottom: 70px;
-    /* <--- ADDED: This creates space for the fixed footer */
+    /* < This creates space for the fixed footer */
     background-color: #21142f;
-    /* base dark background color */
+    /* base background colour */
     color: #993ad9;
-    /* Default violet-pink for desktop */
+    /* Default violet-pink for computers */
 
     /* Parallax Background */
     background-image: url("../assets/hexlineweave5.svg");
@@ -21,16 +21,14 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-blend-mode: soft-light;
-
-    /* Prevent browser from trying to auto-adjust text size */
+    /* To Prevent browser from trying to auto-adjust text size */
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
-
-    /* Prevent horizontal overflow on the body itself */
+    /* Prevents horizontal overflow on the body itself */
     overflow-x: hidden;
 }
 
-/* Special workaround for iOS Safari - applies overflow-x: hidden and overscroll-behavior: contain to body */
+/* Testing workaround for iOS Safari - applies overflow-x: hidden and overscroll-behavior: contains to body */
 @supports (-webkit-touch-callout: none) {
     body {
         overflow-x: hidden !important;
@@ -50,8 +48,7 @@ header {
     display: flex;
     justify-content: center;
     z-index: 100;
-
-    /* NEW: Ensure header always takes at least a minimum width, even when zoomed (still in developing, it keeps failing when zooming inon mobile devices) */
+    /* This Ensures the header always takes at least a minimum width, even when zoomed (still in developing, it keeps failing when zooming in on mobile devices) */
     min-width: 320px;
     /* Common minimum mobile width, helps prevent squishing (still in development, it keeps failing when zooming inon mobile devices) */
 }
@@ -1221,7 +1218,7 @@ mjx-container {
         font-size: 16px !important; /* Ensure this is applied */
         line-height: 1.5 !important; /* Ensure this is applied */
         color: #ff99ff !important;
-        padding-top: 120px !important; /* This is the adjusted value for header clearance */
+        padding-top: 130px !important; /* This is the adjusted value for header clearance */
         /* REVISED BACKGROUND ADJUSTMENTS: Ensure background scales correctly */
         background-image: url('../img/hexlineweave5.svg') !important; /* Explicitly set the background image */
         background-size: cover !important;        /* **KEY FIX**: Scales background to cover the entire body without "zoom" */
