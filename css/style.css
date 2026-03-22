@@ -1221,7 +1221,7 @@ mjx-container {
         font-size: 16px !important; /* Ensure this is applied */
         line-height: 1.5 !important; /* Ensure this is applied */
         color: #ff99ff !important;
-        padding-top: 80px !important; /* This is the adjusted value for header clearance */
+        padding-top: 120px !important; /* This is the adjusted value for header clearance */
         /* REVISED BACKGROUND ADJUSTMENTS: Ensure background scales correctly */
         background-image: url('../img/hexlineweave5.svg') !important; /* Explicitly set the background image */
         background-size: cover !important;        /* **KEY FIX**: Scales background to cover the entire body without "zoom" */
@@ -1248,7 +1248,7 @@ mjx-container {
     }
 
     .site-name { /* The "Issac Tabares" title */
-        font-size: 1.2rem; /* Make title smaller for mobile */
+        font-size: 1.5rem; /* Make title smaller for mobile */
         margin: 5px 0; /* Add vertical spacing around title */
         order: 1; /* Place title first in the stack */
         position: static; /* Remove absolute positioning if it had any */
