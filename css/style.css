@@ -1270,25 +1270,24 @@ mjx-container {
         margin: 0 5px;
     }
 
-    /* ------------------------------------------- */
+        /* ------------------------------------------- */
     /*           FLOATING RESUME ICON (.resume-fab) */
     /* ------------------------------------------- */
     .resume-fab {
-        bottom: 20px !important; /* Your current position */
-        right: 20px !important; /* Your current position */
+        bottom: var(--resume-fab-bottom-offset, 35px) !important; /* ADJUSTER: Increased to 35px to be more elevated */
+        right: var(--resume-fab-right-offset, 20px) !important; /* Your current position */
         left: auto !important; /* Ensure it stays on the right */
-        width: 50px !important;
-        height: 50px !important;
-        /* Adding explicit positioning properties for consistency and adjuster */
+        width: var(--resume-fab-size, 50px) !important; /* ADJUSTER for size */
+        height: var(--resume-fab-size, 50px) !important; /* Uses same variable as width */
         position: fixed !important;
-        z-index: 999 !important; /* Ensure it's above other content but below the play button if needed */
-        display: flex !important; /* Ensure visibility and proper icon centering */
+        z-index: 9999 !important; /* Ensure it's above other content */
+        display: flex !important;
         justify-content: center !important;
         align-items: center !important;
     }
     .resume-fab img { /* Icon inside the resume FAB */
-        width: 30px !important;
-        height: 30px !important;
+        width: var(--resume-fab-icon-size, 30px) !important; /* ADJUSTER for icon size */
+        height: var(--resume-fab-icon-size, 30px) !important;
     }
 
     /* ------------------------------------------- */
@@ -1299,29 +1298,31 @@ mjx-container {
         display: none !important; /* Hide the fixed music player completely on mobile */
     }
 
-        /* ------------------------------------------- */
+    /* ------------------------------------------- */
     /*           FOOTER & MOBILE MUSIC CONTROLS    */
     /* ------------------------------------------- */
     .footer {
-        flex-direction: row !important; /* Changed to row to allow items to be side-by-side */
-        justify-content: space-between !important; /* Pushes copyright to left, play button to right */
-        align-items: center !important; /* Aligns items vertically in the center */
-        gap: 0 !important; /* Removed gap since space-between handles spacing */
-        padding: var(--footer-padding-mobile, 10px 10px) !important; /* ADJUSTER: Control overall footer padding (top/bottom left/right) */
-        min-height: var(--footer-min-height-mobile, 50px) !important; /* ADJUSTER: Control minimum height of the footer */
-        /* If the footer still feels "too big", try reducing padding or min-height */
+        flex-direction: column !important; /* Keep as column to easily center copyright below */
+        align-items: center !important; /* Centers everything horizontally within the footer */
+        text-align: center !important; /* Ensures text like copyright is centered */
+        gap: 8px !important; /* Your original gap */
+        padding: var(--footer-padding-mobile, 10px) !important; /* ADJUSTER: Control overall footer padding */
+        min-height: var(--footer-min-height-mobile, 60px) !important; /* ADJUSTER: Slightly increased min-height for better spacing */
+        position: relative !important; /* Allows absolute positioning of play button inside */
     }
 
     .music-control {
-        position: static !important; /* Still static for normal footer flow */
-        display: flex !important;
-        justify-content: flex-end !important; /* ALIGN PLAY BUTTON TO THE RIGHT within its container */
+        position: absolute !important; /* POSITION THE PLAY BUTTON ABSOLUTELY WITHIN THE FOOTER */
+        left: var(--play-button-absolute-left, 10px) !important; /* ADJUSTER: Play button on the EXTREME LEFT */
+        bottom: var(--play-button-absolute-bottom, 10px) !important; /* ADJUSTER: Aligns play button to the bottom of the footer */
+        display: flex !important; /* Still needs flex to control its content if any */
+        justify-content: flex-start !important; /* Just in case, ensures content within it is left-aligned */
         align-items: center !important;
         flex-wrap: nowrap !important;
-        gap: 0 !important; /* No internal gap in music control */
-        order: 1 !important; /* Places the music control (and thus the play button) after the copyright */
-        /* ADJUSTER: Add space between the play button and the right edge of the footer */
-        margin-right: var(--music-control-right-offset, 10px) !important;
+        gap: 6px !important;
+        width: auto !important; /* Allow it to size to content */
+        order: unset !important; /* Remove order as absolute positioning dictates placement */
+        /* No margin-right or width: 100% needed here due to absolute positioning */
     }
 
     #song-name { /* Hide song name explicitly within the footer music control */
@@ -1329,9 +1330,9 @@ mjx-container {
     }
 
     #playPauseButton { /* The actual play button */
-        width: var(--play-button-size, 40px) !important; /* ADJUSTER: Change --play-button-size (e.g., 35px, 50px) */
+        width: var(--play-button-size, 40px) !important; /* ADJUSTER: Change --play-button-size */
         height: var(--play-button-size, 40px) !important; /* Uses same variable as width */
-        position: static !important; /* Crucial: make it static so it flows with the footer, not fixed/absolute */
+        position: static !important; /* Flows naturally within its parent (.music-control) */
         margin: 0 !important; /* Remove any external margins */
         display: block !important; /* Ensure it's displayed */
         visibility: visible !important; /* Ensure it's visible */
@@ -1339,10 +1340,10 @@ mjx-container {
     }
 
     .copyright {
-        font-size: var(--copyright-font-size, 12px) !important; /* ADJUSTER: Adjust copyright text size (e.g., 14px) */
-        order: 0 !important; /* Places the copyright before the music control */
-        /* ADJUSTER: Add space between the copyright and the left edge of the footer */
-        margin-left: var(--copyright-left-offset, 10px) !important;
+        font-size: var(--copyright-font-size, 12px) !important; /* ADJUSTER: Adjust copyright text size */
+        order: 1 !important; /* Place copyright after the music controls (conceptually) */
+        width: 100% !important; /* Ensures it takes full width for text-align: center to work properly */
+        /* It will be centered due to .footer's align-items: center and text-align: center */
     }
     
     /* ------------------------------------------- */
