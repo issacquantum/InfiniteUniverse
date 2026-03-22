@@ -1260,37 +1260,35 @@ mjx-container {
     transform: scale(1.05);
 }
 
-/* --- CONSOLIDATED MOBILE-SPECIFIC STYLES (applies to screens 768px and below) --- */
+/* --- CONSOLIDATED MOBILE-SPECIFIC STYLES (<=768px) --- */
 
 @media only screen and (max-width: 768px) {
+
     /* ------------------------------------------- */
-    /*           GLOBAL BODY/HTML RESET FOR NO SPACE */
-    /* ------------------------------------------- */
-        /* ------------------------------------------- */
-    /*           GENERAL MOBILE BODY STYLES        */
+    /*           BODY / GLOBAL                    */
     /* ------------------------------------------- */
     body {
-        /* NEW FONT: More script-like system fonts, NO HTML EDITS */
         font-family: 'Apple Chancery', Papyrus, fantasy, cursive, sans-serif !important;
         font-size: 16px !important;
         line-height: 1.5 !important;
         color: #ff99ff !important;
-        padding-top: 0 !important; /* Reset this here, padding will be controlled by header */
 
-        /* Background Adjustments (keep these as they fix the background issue) */
+        padding-top: 0 !important;
+        overflow-x: hidden !important;
+
         background-image: url('../img/hexlineweave5.svg') !important;
         background-size: cover !important;
         background-repeat: no-repeat !important;
         background-position: center center !important;
         background-attachment: fixed !important;
-        overflow-x: hidden !important;
     }
+
     /* ------------------------------------------- */
-    /*           FLOATING RESUME ICON (.resume-fab) */
+    /*           RESUME FAB                       */
     /* ------------------------------------------- */
     .resume-fab {
         position: fixed !important;
-        /* Position resume button above the new combined footer area */
+
         bottom: calc(var(--footer-height, 60px) + var(--resume-fab-bottom-offset-from-footer, 20px)) !important;
         right: var(--resume-fab-right-offset, 15px) !important;
         left: auto !important;
@@ -1298,9 +1296,9 @@ mjx-container {
         width: var(--resume-fab-size, 50px) !important;
         height: var(--resume-fab-size, 50px) !important;
 
-        z-index: 1000 !important; /* Ensure it's on top */
+        z-index: 1000 !important;
 
-        display: flex !important; /* Ensure it's visible */
+        display: flex !important;
         justify-content: center !important;
         align-items: center !important;
     }
@@ -1311,180 +1309,182 @@ mjx-container {
     }
 
     /* ------------------------------------------- */
-    /*           MUSIC PLAYER (#jp_container_1)    */
+    /*           MUSIC PLAYER (HIDDEN)            */
     /* ------------------------------------------- */
-    /* Hide the default jPlayer container, as we're handling the button in the footer */
     #jp_container_1 {
         display: none !important;
     }
 
     /* ------------------------------------------- */
-    /*           FOOTER WITH INTEGRATED MUSIC CONTROL & COPYRIGHT */
+    /*           FOOTER                          */
     /* ------------------------------------------- */
     .footer {
-        position: relative !important; /* Important for any contained elements */
-        display: flex !important;
-        justify-content: space-between !important; /* Distribute items (play button left, copyright center) */
-        align-items: center !important; /* Vertically align everything */
-        padding: var(--footer-padding-mobile, 10px) !important;
-        min-height: var(--footer-height, 60px) !important; /* Set a consistent height for the footer */
+        position: relative !important;
 
-        /* CRITICAL: Remove all margins/padding that could cause space below the footer */
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+
+        min-height: var(--footer-height, 60px) !important;
+        padding: var(--footer-padding-mobile, 10px) !important;
+
         margin: 0 !important;
-        padding-bottom: 0 !important;
     }
 
-    /* Play/Pause Button in Footer (re-enable and position it here) */
     .music-control {
-        position: static !important; /* Make it flow normally within the footer */
-        left: auto !important;
-        bottom: auto !important;
-        z-index: auto !important; /* Not fixed, so z-index less critical */
+        position: static !important;
 
-        display: flex !important; /* Ensure it's visible and laid out */
+        display: flex !important;
         align-items: center !important;
-        justify-content: flex-start !important; /* Push it to the left within its space */
-        
-        /* Make it small */
-        width: var(--play-button-size-footer, 35px) !important; /* Adjust size as needed */
-        height: var(--play-button-size-footer, 35px) !important; /* Adjust size as needed */
+        justify-content: flex-start !important;
+
+        width: var(--play-button-size-footer, 35px) !important;
+        height: var(--play-button-size-footer, 35px) !important;
+
         margin: 0 !important;
         padding: 0 !important;
-        flex-shrink: 0 !important; /* Prevent it from shrinking */
+        flex-shrink: 0 !important;
     }
 
     #playPauseButton {
-        width: 100% !important; /* Fill its parent music-control container */
+        width: 100% !important;
         height: 100% !important;
-        margin: 0 !important;
+
         display: block !important;
+        position: static !important;
+
+        margin: 0 !important;
         visibility: visible !important;
-        position: static !important; /* Flow normally */
     }
 
-    /* Hide the song name if it was somehow appearing */
     #song-name {
         display: none !important;
     }
 
-    /* Copyright text - needs to be centered while other items are left/right */
     .copyright {
-        /* Ensure it takes minimal width necessary, but centers itself in the remaining space */
-        flex-grow: 1 !important; /* Allow it to take up available space */
-        text-align: center !important; /* Center the text */
+        flex-grow: 1 !important;
+        text-align: center !important;
+
         font-size: var(--copyright-font-size, 12px) !important;
-        margin: 0 !important; /* Remove any default margins */
+
+        margin: 0 !important;
         padding: 0 !important;
     }
 
-    
-
     /* ------------------------------------------- */
-    /*           HEADER FIX: Vertical tabs under title */
+    /*           HEADER (FIXED + CLEAN)           */
     /* ------------------------------------------- */
-    /* This targets the main header container */
     .header {
         position: relative !important;
-        /* Padding to push content down and avoid profile picture overlap */
-        padding-top: 150px !important; 
-        display: flex !important;
-        flex-direction: column !important; /* Stack items vertically */
-        align-items: center !important; /* Center items horizontally */
-        justify-content: flex-start !important;
-        z-index: 10 !important;
-        width: 100% !important; /* Ensure header uses full width */
-        background-color: transparent !important; /* Ensure no unwanted background on header itself */
-    }
 
-    /* For the Isaac Tabares title (assuming it has class .site-name based on your code) */
-    .header .site-name { 
-        font-size: 1.5rem !important; 
-        margin: 5px 0 !important; 
-        order: 1 !important; /* Ensure it's first in order */
-        position: static !important; 
-        width: 100% !important; 
-        text-align: center !important; 
-        /* The image showed a different font for the name. If .site-name has a different font that's okay, 
-           but if it needs to match the new body font, you might need to apply it here specifically. */
-    }
+        /* REQUIRED spacing to avoid profile overlap */
+        padding-top: 160px !important;
 
-    /* For "My Projects" and "About Me" (assuming they are .nav-projects and .nav-about-me) */
-    /* These need to be grouped or put inside a common parent to be stacked correctly */
-    /* If they are direct children of .header, they will stack due to .header's flex-direction: column */
-    .nav-projects, 
-    .nav-about-me { 
-        position: static !important; 
-        width: 100% !important; 
-        text-align: center !important; 
-        margin: 5px 0 !important; /* Space between the items */
-        font-size: 1rem !important; 
-        padding: 5px 0 !important; 
-        /* Adjust order if necessary, but with flex-direction: column, they should follow naturally */
-        /* order: 2; removed as not strictly needed for this layout */
-    }
-    
-    /* If My Projects and About Me are inside a .nav-tabs container,
-       this will ensure they also stack and are centered.
-       Adjust selector if your HTML structure is different. */
-    .header .nav-tabs {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
+        justify-content: flex-start !important;
+
         width: 100% !important;
-        margin-top: 10px !important; /* Space after the title */
+        z-index: 10 !important;
+
+        background-color: transparent !important;
     }
 
-    /* If My Projects and About Me are individual links inside .nav-tabs */
-    .header .nav-tabs a {
-        margin: 5px 0 !important; /* Vertical spacing between nav items */
-        padding: 8px 0 !important;
-        width: 100% !important; /* Ensure links take full width for centering */
+    /* TITLE */
+    .header .site-name {
+        order: 1 !important;
+
+        width: 100% !important;
         text-align: center !important;
+
+        font-size: 1.8rem !important;
+        margin: 0 0 10px 0 !important;
+
+        position: static !important;
     }
 
-    /* Any header specific music controls should be gone - keeping this from previous code */
+    /* NAV CONTAINER */
+    .header .nav-tabs {
+        order: 2 !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+
+        width: 100% !important;
+        margin-top: 5px !important;
+    }
+
+    /* NAV ITEMS */
+    .header .nav-tabs a,
+    .nav-projects,
+    .nav-about-me {
+        display: block !important;
+
+        width: 100% !important;
+        text-align: center !important;
+
+        font-size: 1.05rem !important;
+        margin: 6px 0 !important;
+        padding: 6px 0 !important;
+
+        position: static !important;
+    }
+
+    /* REMOVE ANY HEADER INTERFERENCE */
+    .header * {
+        transform: none !important;
+    }
+
+    /* REMOVE HEADER MUSIC ELEMENTS */
     .header .music-control,
     .header #playPauseButton,
     .header #song-name {
         display: none !important;
-        margin: 0 !important;
-        padding: 0 !important;
+
         height: 0 !important;
         width: 0 !important;
+
         overflow: hidden !important;
         visibility: hidden !important;
-        position: absolute !important; /* Remove from flow to prevent affecting layout */
+
+        position: absolute !important;
         left: -9999px !important;
         top: -9999px !important;
     }
 
     /* ------------------------------------------- */
-    /*           OTHER MOBILE ADJUSTMENTS          */
+    /*           OTHER MOBILE ADJUSTMENTS         */
     /* ------------------------------------------- */
-    .profile img { /* Your main profile image */
+    .profile img {
         width: 120px !important;
         height: 120px !important;
         margin-bottom: 5px !important;
     }
+
     .social-logo {
         width: 35px !important;
     }
+
     .about h2,
-    .section-title { /* Section titles */
-        color: #ff99ff !important; /* Lighter for readability from previous block */
-    }
-    .about p,
-    .contact p {
-        color: #e673d9 !important; /* Lighter fluorescent tone from previous block */
-    }
-    .vibrant-violet {
-        font-size: 18px !important; /* Adjusted from 20px in your newest block */
-        color: #d48bff !important; /* From your previous block */
-        font-weight: bold !important; /* From your previous block */
+    .section-title {
+        color: #ff99ff !important;
     }
 
-    .about a { /* From your previous block */
+    .about p,
+    .contact p {
+        color: #e673d9 !important;
+    }
+
+    .vibrant-violet {
+        font-size: 18px !important;
+        color: #d48bff !important;
+        font-weight: bold !important;
+    }
+
+    .about a {
         text-decoration: none !important;
         color: inherit !important;
     }
-} /* END of @media (max-width: 768px) */
+}
