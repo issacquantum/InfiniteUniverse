@@ -1275,7 +1275,7 @@ mjx-container {
         font-size: 16px !important;
         line-height: 1.5 !important;
         color: #ff99ff !important;
-        padding-top: 110px !important; /* Keep the last padding-top value */
+        padding-top: 150px !important; /* Keep the last padding-top value */
 
         /* Background Adjustments (keep these as they fix the background issue) */
         background-image: url('../img/hexlineweave5.svg') !important;
@@ -1377,21 +1377,7 @@ mjx-container {
         padding: 0 !important;
     }
 
-    /* Any header specific music controls should be gone */
-    .header .music-control,
-    .header #playPauseButton,
-    .header #song-name {
-        display: none !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        height: 0 !important;
-        width: 0 !important;
-        overflow: hidden !important;
-        visibility: hidden !important;
-        position: absolute !important; /* Remove from flow to prevent affecting layout */
-        left: -9999px !important;
-        top: -9999px !important;
-    }
+    
 
     /* ------------------------------------------- */
     /*           HEADER FIX: Vertical tabs under title */
