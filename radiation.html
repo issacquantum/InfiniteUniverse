@@ -110,33 +110,15 @@
                 structure</strong> of the cosmos.
         </p>
 
-        <figure class="radiation-spectrum">
 
-            <img src="assets/electromagnetic-spectrum-radiation-wavelength-comparison.webp"
-                alt="Electromagnetic spectrum diagram showing radio waves through gamma rays">
 
-            <figcaption>
-
-                <span class="diagram-description">
-                    The electromagnetic spectrum showing different forms of radiation arranged by wavelength and energy.
-                    Radio waves have the longest wavelengths, while gamma rays have the shortest wavelengths and highest
-                    energies.
-                </span>
-
-                <br>
-
-                <span class="diagram-credit">
-                    Image credit: NASA
-                </span>
-            </figcaption>
-        </figure>
-
-        <!-- ===== 2D Electromagnetic Wave Model ===== -->
+        <!-- ===== 3D Electromagnetic Wave Model ===== -->
         <figure class="radiation-wave-3d">
-            <canvas id="emWaveCanvas"></canvas>
+            <div id="emWave3D" style="width:100%;height:260px;display:block"></div>
             <figcaption>
-                Simplified 2D model of an electromagnetic wave. The electric field and magnetic field oscillate in
-                perpendicular directions while the wave propagates through space.
+                <p><strong>3D model</strong>: the <strong>electric</strong> and <strong>magnetic fields</strong>
+                    oscillate in <strong>perpendicular planes</strong> while the <strong>wave propagates</strong>
+                    through space.</p>
             </figcaption>
         </figure>
 
@@ -146,151 +128,119 @@
         <p class="copyright">© 2026 Issac Tabares. All Rights Reserved.</p>
     </footer>
 
-    <script>
-        (function () {
-            const canvas = document.getElementById("emWaveCanvas");
-            if (!canvas) return;
-            const ctx = canvas.getContext("2d");
+    <script type="module">
+        import * as THREE from "https://unpkg.com/three@0.160.0/build/three.module.js";
 
-            /* ===== COLORS ===== */
-            const PANEL_BG = "#321354";
-            const Z_AXIS_COLOR = "#ffffff";
-            const Y_AXIS_COLOR = "#ff4df0";
-            const X_AXIS_COLOR = "#7a3cff";
-            const E_WAVE_COLOR = "#ff6fae";
-            const B_WAVE_COLOR = "#57d6ff";
+        const container = document.getElementById("emWave3D");
+        if (!container) throw new Error("#emWave3D not found");
 
-            /* ===== BASE VALUES (for computers) ===== */
-            const BASE = {
-                AMP: 40,
-                LENGTH: 709,
-                CYCLES: 2.2,
-                SPEED: 0.001,
-                SAMPLE_STEP: 5,
-                FILL_LINE_STEP: 11,   // 10–14 gives the individual-rib look
-                ORIGIN_X: 90
-            };
+        const scene = new THREE.Scene();
+        // transparent background so it doesn't cover the page
+        // (remove the line below if you want a solid panel color)
+        // scene.background = new THREE.Color("#321354");
 
-            function paramsForWidth(w) {
-                const isMobile = w < 768;
-                const s = isMobile ? Math.max(0.55, w / 768) : 1;
-                return {
-                    AMP: Math.round(BASE.AMP * s),
-                    LENGTH: Math.round(BASE.LENGTH * s),
-                    CYCLES: BASE.CYCLES,
-                    SPEED: BASE.SPEED,
-                    SAMPLE_STEP: Math.max(3, Math.round(BASE.SAMPLE_STEP * s)),
-                    FILL_LINE_STEP: Math.max(7, Math.round(BASE.FILL_LINE_STEP * s)),
-                    ORIGIN_X: isMobile ? 40 : BASE.ORIGIN_X,
-                    LABEL_FONT: isMobile ? "16px Georgia" : "18px Georgia",
-                    TITLE_FONT: isMobile ? "18px Georgia" : "22px Georgia",
-                    isMobile
-                };
+        const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 200);
+        camera.position.set(0, 1.8, 11);
+        camera.lookAt(0, 0, 0);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+        renderer.setClearColor(0x000000, 0); // transparent
+        container.appendChild(renderer.domElement);
+
+        function resize() {
+            const w = container.clientWidth, h = container.clientHeight;
+            renderer.setSize(w, h, false);
+            camera.aspect = w / Math.max(1, h);
+            camera.updateProjectionMatrix();
+        }
+        new ResizeObserver(resize).observe(container);
+        resize();
+
+        // flat reference grid
+        const grid = new THREE.GridHelper(24, 48, 0x8e79ff, 0x3b1f99);
+        scene.add(grid);
+
+        // responsive params (compact by default)
+        const isMobile = matchMedia("(max-width: 768px)").matches;
+        const AMP = isMobile ? 1.1 : 1.6;
+        const LENGTH = isMobile ? 7 : 10;
+        const CYCLES = 2.2;
+        const SPEED = 0.0015;
+        const RIB_STEP = isMobile ? 0.18 : 0.14;
+        const TUBE_RADIUS = isMobile ? 0.07 : 0.09;
+
+        // materials
+        const redMat = new THREE.MeshBasicMaterial({ color: 0x5a2dcc, transparent: true, opacity: 0.95 });
+        const blueMat = new THREE.MeshBasicMaterial({ color: 0xff1493, transparent: true, opacity: 0.95 });
+        const redLine = new THREE.LineBasicMaterial({ color: 0xa020f0 });
+        const blueLine = new THREE.LineBasicMaterial({ color: 0x7a3cff });
+
+        const eGroup = new THREE.Group(), bGroup = new THREE.Group();
+        scene.add(eGroup, bGroup);
+
+        // z-axis (added once)
+        const axisGeo = new THREE.BufferGeometry().setFromPoints([
+            new THREE.Vector3(0, 0, -LENGTH / 2 - 1.0),
+            new THREE.Vector3(0, 0, LENGTH / 2 + 1.0)
+        ]);
+        scene.add(new THREE.Line(axisGeo, new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.9 })));
+
+        // helpers
+        function tube(points, material) {
+            const curve = new THREE.CatmullRomCurve3(points, false);
+            const geo = new THREE.TubeGeometry(curve, Math.max(140, points.length * 2), TUBE_RADIUS, 12, false);
+            return new THREE.Mesh(geo, material);
+        }
+
+        function rebuild(t) {
+            eGroup.clear(); bGroup.clear();
+            const k = (Math.PI * 2 * CYCLES) / LENGTH;
+
+            const ePts = [], bPts = [];
+            for (let z = -LENGTH / 2; z <= LENGTH / 2; z += 0.05) {
+                const y = AMP * Math.sin(k * z - t);
+                const x = AMP * Math.sin(k * z - t);
+                ePts.push(new THREE.Vector3(0, y, z));
+                bPts.push(new THREE.Vector3(x, 0, z));
             }
+            eGroup.add(tube(ePts, redMat));
+            bGroup.add(tube(bPts, blueMat));
 
-            function resizeCanvas() {
-                const rect = canvas.getBoundingClientRect();
-                const dpr = window.devicePixelRatio || 1;
-                canvas.width = rect.width * dpr;
-                canvas.height = rect.height * dpr;
-                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            // single ribs only
+            const ePos = [], bPos = [];
+            for (let z = -LENGTH / 2; z <= LENGTH / 2; z += RIB_STEP) {
+                const y = AMP * Math.sin(k * z - t);
+                const x = AMP * Math.sin(k * z - t);
+                ePos.push(0, 0, z, 0, y, z);
+                bPos.push(0, 0, z, x, 0, z);
             }
+            const eRibGeo = new THREE.BufferGeometry();
+            const bRibGeo = new THREE.BufferGeometry();
+            eRibGeo.setAttribute('position', new THREE.Float32BufferAttribute(ePos, 3));
+            bRibGeo.setAttribute('position', new THREE.Float32BufferAttribute(bPos, 3));
+            eGroup.add(new THREE.LineSegments(eRibGeo, redLine));
+            bGroup.add(new THREE.LineSegments(bRibGeo, blueLine));
+        }
 
-            function project(x, y, z, ox, oy) {
-                const px = ox + z + x * -0.80;
-                const py = oy - y + x * 0.80;
-                return { x: px, y: py };
-            }
+        function loop(now) {
+            rebuild(now * SPEED);
+            scene.rotation.y = Math.sin(now * 0.00025) * 0.20;
+            renderer.render(scene, camera);
+            requestAnimationFrame(loop);
+        }
+        requestAnimationFrame(loop);
 
-            function drawArrow(x1, y1, x2, y2, color, width = 2) {
-                ctx.strokeStyle = color; ctx.lineWidth = width;
-                ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
-                const a = Math.atan2(y2 - y1, x2 - x1), h = 8;
-                ctx.beginPath();
-                ctx.moveTo(x2, y2);
-                ctx.lineTo(x2 - h * Math.cos(a - Math.PI / 6), y2 - h * Math.sin(a - Math.PI / 6));
-                ctx.lineTo(x2 - h * Math.cos(a + Math.PI / 6), y2 - h * Math.sin(a + Math.PI / 6));
-                ctx.closePath(); ctx.fillStyle = color; ctx.fill();
-            }
-
-            function drawLabel(text, x, y, color, font) {
-                ctx.fillStyle = color; ctx.font = font; ctx.fillText(text, x, y);
-            }
-
-            function draw(time) {
-                const t = time * BASE.SPEED;
-                const w = canvas.clientWidth, h = canvas.clientHeight;
-                const P = paramsForWidth(w);
-                const ox = P.ORIGIN_X, oy = h / 2;
-
-                ctx.clearRect(0, 0, w, h);
-                ctx.fillStyle = PANEL_BG; ctx.fillRect(0, 0, w, h);
-
-                // axes
-                const zEnd = project(0, 0, P.LENGTH + 70, ox, oy);
-                const yEnd = project(0, P.AMP + 70, 0, ox, oy);
-                const xEnd = project(P.AMP + 70, 0, 0, ox, oy);
-                drawArrow(ox, oy, zEnd.x, zEnd.y, Z_AXIS_COLOR, 2.2);
-                drawArrow(ox, oy, yEnd.x, yEnd.y, Y_AXIS_COLOR, 2.2);
-                drawArrow(ox, oy, xEnd.x, xEnd.y, X_AXIS_COLOR, 2.2);
-                drawLabel("z", zEnd.x + 10, zEnd.y + 4, Z_AXIS_COLOR, P.LABEL_FONT);
-                drawLabel("y", yEnd.x - 8, yEnd.y - 10, Y_AXIS_COLOR, P.LABEL_FONT);
-                drawLabel("x", xEnd.x - 10, xEnd.y + 18, X_AXIS_COLOR, P.LABEL_FONT);
-
-                const k = (Math.PI * 2 * P.CYCLES) / P.LENGTH;
-
-                // ribs (draw BEFORE the thick wave lines)
-                ctx.lineWidth = 1.2;
-                // electric ribs (vertical)
-                ctx.strokeStyle = E_WAVE_COLOR;
-                for (let z = 0; z <= P.LENGTH; z += P.FILL_LINE_STEP) {
-                    const y = P.AMP * Math.sin(k * z - t);
-                    const p1 = project(0, 0, z, ox, oy);
-                    const p2 = project(0, y, z, ox, oy);
-                    ctx.beginPath(); ctx.moveTo(p1.x, p1.y); ctx.lineTo(p2.x, p2.y); ctx.stroke();
-                }
-                // magnetic ribs (slanted)
-                ctx.strokeStyle = B_WAVE_COLOR;
-                for (let z = 0; z <= P.LENGTH; z += P.FILL_LINE_STEP) {
-                    const x = P.AMP * Math.sin(k * z - t);
-                    const p1 = project(x, 0, z, ox, oy);
-                    const p2 = project(0, 0, z, ox, oy);
-                    ctx.beginPath(); ctx.moveTo(p1.x, p1.y); ctx.lineTo(p2.x, p2.y); ctx.stroke();
-                }
-
-                // main waves (draw after ribs)
-                ctx.lineWidth = 3;
-                ctx.strokeStyle = E_WAVE_COLOR;
-                ctx.beginPath();
-                for (let z = 0; z <= P.LENGTH; z += P.SAMPLE_STEP) {
-                    const y = P.AMP * Math.sin(k * z - t);
-                    const p = project(0, y, z, ox, oy);
-                    if (z === 0) ctx.moveTo(p.x, p.y); else ctx.lineTo(p.x, p.y);
-                }
-                ctx.stroke();
-
-                ctx.strokeStyle = B_WAVE_COLOR;
-                ctx.beginPath();
-                for (let z = 0; z <= P.LENGTH; z += P.SAMPLE_STEP) {
-                    const x = P.AMP * Math.sin(k * z - t);
-                    const p = project(x, 0, z, ox, oy);
-                    if (z === 0) ctx.moveTo(p.x, p.y); else ctx.lineTo(p.x, p.y);
-                }
-                ctx.stroke();
-
-                // hide in-canvas text on mobile
-                if (!P.isMobile) {
-                    drawLabel("Electric Field", ox + 110, oy - 95, E_WAVE_COLOR, P.TITLE_FONT);
-                    drawLabel("Magnetic Field", ox + 20, oy + 92, B_WAVE_COLOR, P.TITLE_FONT);
-                }
-
-                requestAnimationFrame(draw);
-            }
-
-            window.addEventListener("resize", resizeCanvas);
-            resizeCanvas();
-            requestAnimationFrame(draw);
-        })();
+        // drag to orbit (optional)
+        let down = false, lx = 0, ly = 0;
+        container.addEventListener('pointerdown', e => { down = true; lx = e.clientX; ly = e.clientY; });
+        addEventListener('pointerup', () => down = false);
+        addEventListener('pointermove', e => {
+            if (!down) return;
+            const dx = (e.clientX - lx) / 200, dy = (e.clientY - ly) / 200;
+            scene.rotation.y += dx; scene.rotation.x += dy;
+            lx = e.clientX; ly = e.clientY;
+        });
     </script>
 
 
