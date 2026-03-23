@@ -112,7 +112,7 @@
 
 
 
-        <!-- ===== 3D Electromagnetic Wave Model ===== -->
+        <!-- ===== 3D Electromagnetic Wave Model finally perfected ===== -->
         <figure class="radiation-wave-3d">
             <div id="emWave3D" style="width:100%;height:260px;display:block"></div>
             <figcaption>
@@ -135,9 +135,8 @@
         if (!container) throw new Error("#emWave3D not found");
 
         const scene = new THREE.Scene();
-        // transparent background so it doesn't cover the page
-        // (remove the line below if you want a solid panel color)
-        // scene.background = new THREE.Color("#321354");
+        // transparent background so it doesn't cover the page, (tested with a background color and it looked horrible)
+        
 
         const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 200);
         camera.position.set(0, 1.8, 11);
@@ -171,10 +170,10 @@
         const TUBE_RADIUS = isMobile ? 0.07 : 0.09;
 
         // materials
-        const redMat = new THREE.MeshBasicMaterial({ color: 0x5a2dcc, transparent: true, opacity: 0.95 });
-        const blueMat = new THREE.MeshBasicMaterial({ color: 0xff1493, transparent: true, opacity: 0.95 });
-        const redLine = new THREE.LineBasicMaterial({ color: 0xa020f0 });
-        const blueLine = new THREE.LineBasicMaterial({ color: 0x7a3cff });
+        const indigovioletMat = new THREE.MeshBasicMaterial({ color: 0x5a2dcc, transparent: true, opacity: 0.95 });
+        const hotmagentaMat = new THREE.MeshBasicMaterial({ color: 0xff1493, transparent: true, opacity: 0.95 });
+        const electricpurpleLine = new THREE.LineBasicMaterial({ color: 0xa020f0 });
+        const violetpurpleLine = new THREE.LineBasicMaterial({ color: 0x7a3cff });
 
         const eGroup = new THREE.Group(), bGroup = new THREE.Group();
         scene.add(eGroup, bGroup);
@@ -186,7 +185,7 @@
         ]);
         scene.add(new THREE.Line(axisGeo, new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.9 })));
 
-        // helpers
+        // geometry utils
         function tube(points, material) {
             const curve = new THREE.CatmullRomCurve3(points, false);
             const geo = new THREE.TubeGeometry(curve, Math.max(140, points.length * 2), TUBE_RADIUS, 12, false);
