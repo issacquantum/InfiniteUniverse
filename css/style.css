@@ -1084,7 +1084,7 @@ mjx-container {
         font-family: 'Apple Chancery', Papyrus, fantasy, cursive, sans-serif;
         font-size: 16px;
         line-height: 1.5;
-        color: #8c4dc8;
+        color: #962bf9;
 
         margin: 0;
         padding: 90;
@@ -1360,4 +1360,17 @@ mjx-container {
         background-size: cover !important;
         background-position: center !important;
     }
+}
+
+@media (max-width: 768px) {
+    .radiation-wave-3d {
+        max-width: 100%;
+        padding: 14px;
+    }
+
+    #emWaveCanvas {
+        height: 170px;
+    }
+
+    /* a little taller so the axes don’t get cramped */
 }
