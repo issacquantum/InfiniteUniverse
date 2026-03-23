@@ -296,12 +296,12 @@ h2.about-me-heading {
 }
 
 /* Song Name Styling */
-#song-name {
+#song-name,
+#rach-song-name {
     font-size: 14px;
     font-weight: bold;
-    color: #ff1493;
-    /* Fluorescent pink */
-    text-shadow: 0 0 12px #ff1493, 0 0 18px #ff69b4, 0 0 24px #ff85c1;
+    color: #7A3CFF;
+    text-shadow: 0 0 12px #9400D3, 0 0 18px #7A3CFF, 0 0 24px #6F00FF;
     transition: text-shadow 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
@@ -320,12 +320,12 @@ h2.about-me-heading {
     width: 35px;
     height: auto;
     cursor: pointer;
-    filter: invert(35%) sepia(80%) saturate(500%) hue-rotate(250deg) brightness(110%) contrast(120%);
+    filter: invert(20%) sepia(100%) saturate(800%) hue-rotate(268deg) brightness(130%) contrast(130%) drop-shadow(0 0 8px #7A3CFF) drop-shadow(0 0 16px #A56BFF);
     transition: transform 0.2s ease-in-out;
 }
 
 .vibrant-violet {
-    color: #d48bff;
+    color: #7A3CFF;
     /* Lighter vibrant violet for mobile */
     font-weight: bold;
     font-size: 20px;
@@ -1185,7 +1185,7 @@ mjx-container {
         color: #ffffff;
         text-shadow:
             0 0 5px rgba(255, 105, 180, 0.95),
-            0 0 12px rgba(191, 0, 255, 0.9),
+            0 0 12px rgba(141, 70, 165, 0.9),
             0 0 1px rgba(0, 0, 0, 0.95);
     }
 
@@ -1343,4 +1343,19 @@ mjx-container {
     color: #e9ddff;
     /* testing different colors due to background*/
     text-shadow: 0 1px 2px rgba(0, 0, 0, .35);
+}
+
+#rachPlayPauseButton {
+    width: 35px;
+    height: auto;
+    cursor: pointer;
+    /* fluorescent indigo-violet */
+    filter: invert(22%) sepia(95%) saturate(700%) hue-rotate(265deg) brightness(120%) contrast(125%);
+    transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+}
+
+#rachPlayPauseButton:hover {
+    transform: scale(1.1);
+    /* a touch brighter on hover */
+    filter: invert(20%) sepia(100%) saturate(800%) hue-rotate(268deg) brightness(130%) contrast(130%) drop-shadow(0 0 8px #7a3cff) drop-shadow(0 0 16px #a56bff);
 }
