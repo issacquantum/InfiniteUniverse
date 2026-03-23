@@ -459,14 +459,14 @@ body {
     width: 50px;
     /* Size for desktop */
     height: 50px;
-    background-color: #5707b9;
+    background-color: #5208dc;
     /* Button background color (intense pink) */
     border-radius: 50%;
     /* Makes it circular */
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 8px rgba(226, 3, 247, 0.4);
     /* Subtle shadow for depth */
     transition: all 0.3s ease-in-out;
     /* Smooth transition for hover effects */
@@ -687,67 +687,6 @@ body {
 
 /* ===== Popup Definitions (inline concept explanations) ===== */
 
-/* ===== Radiation page — electromagnetic spectrum diagram ===== */
-
-.radiation-spectrum {
-    text-align: center;
-    margin: 70px auto;
-    max-width: 400px;
-    /* IMAGE SIZE — adjust if needed */
-    background-color: #321354;
-    /* same panel color used across your site */
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.radiation-spectrum img {
-    width: 100%;
-    height: auto;
-    border-radius: 6px;
-}
-
-.radiation-spectrum figcaption {
-    margin-top: 12px;
-    font-size: 0.75rem;
-    /* DESCRIPTION + CREDIT TEXT SIZE — adjust if needed */
-    line-height: 1.5;
-    color: #bfbbc1;
-    /* DESCRIPTION + CREDIT TEXT COLOR — adjust if needed */
-}
-
-/* ===== Radiation page — 3D Electromagnetic Wave Model ===== */
-
-.radiation-wave-3d {
-    text-align: center;
-    margin: 60px auto;
-
-    max-width: 700px;
-    /* PANEL WIDTH ADJUSTER */
-    background-color: #321354;
-    /* PANEL BACKGROUND COLOR ADJUSTER */
-    padding: 20px;
-    border-radius: 10px;
-}
-
-#emWaveCanvas {
-    width: 100%;
-    height: 110px;
-    /* MODEL HEIGHT ADJUSTER */
-    display: block;
-}
-
-/* caption */
-.radiation-wave-3d figcaption {
-    margin-top: 12px;
-    font-size: 0.75rem;
-    /* TEXT SIZE ADJUSTER */
-    line-height: 1.5;
-    color: #bfbbc1;
-    /* TEXT COLOR ADJUSTER */
-}
-
-/* ===== Popup Definitions (inline concept explanations)  Emnergy===== */
-
 .popup-term {
     position: relative;
     cursor: help;
@@ -759,7 +698,7 @@ body {
     font-size: 0.65em;
     vertical-align: super;
     margin-left: 3px;
-    color: #bfbbc1;
+    color: #fa07d6;
     opacity: 0.7;
 }
 
@@ -796,7 +735,7 @@ body {
 }
 
 /* --- Global Reset for Images to ensure responsiveness --- */
-/* This is a good general rule to have for all images across your site, unless overridden.
+/* This is a good general rule to have for all images across my site, unless overridden.
    It ensures images don't overflow and maintain their aspect ratio. */
 img {
     max-width: 100%;
@@ -1016,7 +955,7 @@ header.site-name img.logo#atomLogo {
         0 0 15px #a020f0,
         0 0 22px #bf00ff;
     text-align: center;
-    /* Added this from the end of your CSS where it was duplicated */
+    /* Added this from the end of my CSS where it was duplicated */
 }
 
 /* NEW RULE FOR H4 */
@@ -1038,7 +977,7 @@ h4 {
 }
 
 /* Equations Bolding Rule Test
-/* Math equations styling — matches your current strong look */
+/* Math equations styling — matches my current strong look */
 mjx-container {
     font-weight: 700 !important;
     color: #e727ea !important;
@@ -1101,7 +1040,7 @@ mjx-container {
         .profile {
             text-align: center;
             margin-top: 0px;
-            /* NEW: Add horizontal padding to prevent image from touching edges */
+            /* Added horizontal padding to prevent image from touching edges */
             padding: 100px;
         }
 
@@ -1140,7 +1079,7 @@ mjx-container {
         justify-content: center;
         z-index: 100;
 
-        /* NEW: Ensure header always takes at least a minimum width, even when zoomed (still in developing, it keeps failing when zooming inon mobile devices) */
+        /* This ensures header always takes at least a minimum width, even when zoomed (still in developing, it keeps failing when zooming inon mobile devices) */
         min-width: 320px;
         /* Common minimum mobile width, helps prevent squishing (still in development, it keeps failing when zooming inon mobile devices) */
     }
@@ -1227,7 +1166,7 @@ mjx-container {
     b {
         color: #f7e9ff;
         text-shadow:
-            0 0 4px rgba(255, 20, 147, 0.9),
+            0 0 4px rgba(169, 20, 255, 0.9),
             0 0 10px rgba(191, 0, 255, 0.85),
             0 0 1px rgba(0, 0, 0, 0.9);
     }
@@ -1255,7 +1194,7 @@ mjx-container {
     .about p b {
         color: #f7e9ff;
         text-shadow:
-            0 0 4px rgba(255, 20, 147, 0.85),
+            0 0 4px rgba(177, 18, 230, 0.85),
             0 0 9px rgba(191, 0, 255, 0.8),
             0 0 1px rgba(0, 0, 0, 0.9);
     }
@@ -1320,13 +1259,13 @@ mjx-container {
         height: 42px;
     }
 
-    /* ---------- MOBILE BOLD ADJUSTERS (EXTRA SAFETY) ---------- */
-    /* If any bold appears inside footer on very small screens, keep it readable */
+    /* ---------- MOBILE BOLD ADJUSTERS  ---------- */
+    /* If any bold appears inside footer on very small screens, this will keep it readable */
     .footer strong,
     .footer b {
-        color: #ffe8ff;
+        color: #c779e1;
         text-shadow:
-            0 0 3px rgba(255, 20, 147, 0.8),
+            0 0 3px rgba(245, 9, 205, 0.8),
             0 0 8px rgba(191, 0, 255, 0.75),
             0 0 1px rgba(0, 0, 0, 0.9);
     }
@@ -1391,7 +1330,7 @@ mjx-container {
     }
 }
 
-/* remove the purple panel just for this model */
+/* This removes the purple panel just for my 3d wave model */
 .radiation-wave-3d {
     background: transparent !important;
     box-shadow: none !important;
@@ -1399,9 +1338,9 @@ mjx-container {
     /* optional: remove rounded corners */
 }
 
-/* caption color—make sure it’s readable on your page bg */
+/* caption color—make sure it’s readable on the page bg */
 .radiation-wave-3d figcaption {
     color: #e9ddff;
-    /* change to a darker color if your page bg is light */
+    /* testing different colors due to background*/
     text-shadow: 0 1px 2px rgba(0, 0, 0, .35);
 }
