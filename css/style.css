@@ -1362,15 +1362,46 @@ mjx-container {
     }
 }
 
-@media (max-width: 768px) {
+.radiation-wave-3d {
+    position: relative;
+    overflow: hidden;
+}
+
+#emWave3D {
+    position: relative;
+    width: 100%;
+    height: 260px;
+    display: block;
+}
+
+#emWave3D canvas {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+@media (max-width:768px) {
+    #emWave3D {
+        height: 200px;
+    }
+
     .radiation-wave-3d {
         max-width: 100%;
         padding: 14px;
     }
+}
 
-    #emWaveCanvas {
-        height: 170px;
-    }
+/* remove the purple panel just for this model */
+.radiation-wave-3d {
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0;
+    /* optional: remove rounded corners */
+}
 
-    /* a little taller so the axes don’t get cramped */
+/* caption color—make sure it’s readable on your page bg */
+.radiation-wave-3d figcaption {
+    color: #e9ddff;
+    /* change to a darker color if your page bg is light */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .35);
 }
