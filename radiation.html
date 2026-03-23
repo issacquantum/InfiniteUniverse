@@ -171,10 +171,10 @@
         const TUBE_RADIUS = isMobile ? 0.07 : 0.09;
 
         // materials
-        const redMat = new THREE.MeshBasicMaterial({ color: 0x5a2dcc, transparent: true, opacity: 0.95 });
-        const blueMat = new THREE.MeshBasicMaterial({ color: 0xff1493, transparent: true, opacity: 0.95 });
-        const redLine = new THREE.LineBasicMaterial({ color: 0xa020f0 });
-        const blueLine = new THREE.LineBasicMaterial({ color: 0x7a3cff });
+        const indigoVioletMat = new THREE.MeshBasicMaterial({ color: 0x5a2dcc, transparent: true, opacity: 0.95 });
+        const deepPinkMat = new THREE.MeshBasicMaterial({ color: 0xff1493, transparent: true, opacity: 0.95 });
+        const electricPurpleLine = new THREE.LineBasicMaterial({ color: 0xa020f0 });
+        const mediumPurpleLine = new THREE.LineBasicMaterial({ color: 0x7a3cff });
 
         const eGroup = new THREE.Group(), bGroup = new THREE.Group();
         scene.add(eGroup, bGroup);
@@ -204,8 +204,8 @@
                 ePts.push(new THREE.Vector3(0, y, z));
                 bPts.push(new THREE.Vector3(x, 0, z));
             }
-            eGroup.add(tube(ePts, redMat));
-            bGroup.add(tube(bPts, blueMat));
+            eGroup.add(tube(ePts, indigoVioletMat));
+            bGroup.add(tube(bPts, deepPinkMat));
 
             // single ribs only
             const ePos = [], bPos = [];
@@ -219,8 +219,8 @@
             const bRibGeo = new THREE.BufferGeometry();
             eRibGeo.setAttribute('position', new THREE.Float32BufferAttribute(ePos, 3));
             bRibGeo.setAttribute('position', new THREE.Float32BufferAttribute(bPos, 3));
-            eGroup.add(new THREE.LineSegments(eRibGeo, redLine));
-            bGroup.add(new THREE.LineSegments(bRibGeo, blueLine));
+            eGroup.add(new THREE.LineSegments(eRibGeo, electricPurpleLine));
+            bGroup.add(new THREE.LineSegments(bRibGeo, mediumPurpleLine));
         }
 
         function loop(now) {
