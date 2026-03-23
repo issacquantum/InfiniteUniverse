@@ -71,3 +71,65 @@ document.addEventListener("DOMContentLoaded", function () {
         particleContainer.appendChild(particle);
     }
 });
+
+// 🎻 Dedicated Rachmaninoff-only player (loops Op. 43)
+(function () {
+    // Use the same file path you already have in your playlist
+    const RACH_SRC = "assets/Sitemusic/Rhapsody_Paganini_Op43.mp3";
+    const RACH_NAME = "Rhapsody on a Theme of Paganini, Op. 43 (Variation 18)";
+
+    const rachBtn = document.getElementById("rachPlayPauseButton");
+    const rachLabel = document.getElementById("rach-song-name");
+
+    // Guard: if the block isn't on this page, do nothing
+    if (!rachBtn || !rachLabel) return;
+
+    const rachAudio = new Audio(RACH_SRC);
+    rachAudio.loop = true;       // loop only this track
+    rachAudio.volume = 1.0;
+
+    function setRachPlayingUI(isPlaying) {
+        if (!rachBtn || !rachLabel) return;
+        rachBtn.src = isPlaying ? "assets/pause-icon.svg" : "assets/play-icon.svg";
+        rachLabel.textContent = RACH_NAME;
+        // reuse your existing glow class used on #song-name
+        if (isPlaying) {
+            rachLabel.classList.add("glow");
+        } else {
+            rachLabel.classList.remove("glow");
+        }
+    }
+
+    rachBtn.addEventListener("click", function () {
+        // Pause the main site player if it's running (don’t touch its logic)
+        try {
+            if (typeof audio !== "undefined" && audio && !audio.paused) {
+                audio.pause();
+                if (typeof playPauseButton !== "undefined" && playPauseButton) {
+                    playPauseButton.src = "assets/play-icon.svg";
+                }
+                if (typeof songNameDisplay !== "undefined" && songNameDisplay) {
+                    songNameDisplay.classList.remove("glow");
+                }
+            }
+        } catch (e) { }
+
+        if (rachAudio.paused) {
+            rachAudio.play().then(() => setRachPlayingUI(true)).catch(err => {
+                console.error("Rach playback failed:", err);
+            });
+        } else {
+            rachAudio.pause();
+            setRachPlayingUI(false);
+        }
+    });
+
+    // Keep UI consistent if playback ends (loop=true, but just in case)
+    rachAudio.addEventListener("ended", function () {
+        // with loop=true this won’t fire, but leave a safe fallback
+        setRachPlayingUI(false);
+    });
+
+    // Initialize label
+    rachLabel.textContent = RACH_NAME;
+})();
