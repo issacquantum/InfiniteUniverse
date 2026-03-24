@@ -231,10 +231,10 @@
                 // Get the referrer URL
                 let referrerUrl = document.referrer;
 
-                // Check if the referrer is from your own site (to avoid issues with external referrers)
-                // You might need to adjust 'yourdomain.com' to match your actual domain for production
+                // Check if the referrer is from my own site (to avoid issues with external referrers)
+                // I might need to adjust 'mydomain.com' to match my actual domain for production
                 if (referrerUrl.includes(window.location.hostname)) {
-                    // Ensure we go back to the specific paragraph if possible, or just the page
+                    // Ensures readers go back to the specific paragraph if possible, or just the page
                     // This simple approach goes back to the referrer URL as is.
                     // For exact paragraph return, the original link needs to store more info,
                     // or the referrer needs to be explicitly the one with the #hubble-paragraph.
