@@ -6,6 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>Radiation</title>
     <link rel="stylesheet" href="css/style.css">
+    <!-- MathJax config (optional but recommended) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']]
+            }
+        };
+    </script>
+
+    <!-- MathJax library -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 <body>
@@ -116,9 +128,20 @@
         <figure class="radiation-wave-3d">
             <div id="emWave3D" style="width:100%;height:260px;display:block"></div>
             <figcaption>
-                <p><strong>3D model</strong>: the <strong>electric</strong> and <strong>magnetic fields</strong>
-                    oscillate in <strong>perpendicular planes</strong> while the <strong>wave propagates</strong>
-                    through space.</p>
+                <p>
+                    <strong>Orthogonal Field Oscillation</strong>:
+                    This model visualizes an <strong>electromagnetic wave</strong> as a self-propagating structure of
+                    two coupled fields, described by
+                    \( \mathbf{E}(z,t) = E_0 \sin(kz - \omega t)\,\hat{y} \) and
+                    \( \mathbf{B}(z,t) = B_0 \sin(kz - \omega t)\,\hat{x} \).
+                    The <strong>electric field</strong> and <strong>magnetic field</strong> oscillate in
+                    <strong>mutually perpendicular directions</strong> while remaining <strong>phase-locked</strong>,
+                    forming a <strong>transverse wave</strong> that advances through space, where
+                    \( c = \frac{\omega}{k} \) and \( E_0 = c B_0 \).
+                    The geometry illustrates how <strong>energy is transported</strong> through the continuous
+                    interaction of these
+                    <strong>orthogonal field components</strong>.
+                </p>
             </figcaption>
         </figure>
 
@@ -135,9 +158,6 @@
         if (!container) throw new Error("#emWave3D not found");
 
         const scene = new THREE.Scene();
-        // transparent background so it doesn't cover the page
-        // (remove the line below if you want a solid panel color)
-        // scene.background = new THREE.Color("#321354");
 
         const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 200);
         camera.position.set(0, 1.8, 11);
@@ -145,7 +165,7 @@
 
         const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
         renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-        renderer.setClearColor(0x000000, 0); // transparent
+        renderer.setClearColor(0x000000, 0);
         container.appendChild(renderer.domElement);
 
         function resize() {
@@ -157,11 +177,11 @@
         new ResizeObserver(resize).observe(container);
         resize();
 
-        // flat reference grid
+        // grid
         const grid = new THREE.GridHelper(24, 48, 0x8e79ff, 0x3b1f99);
         scene.add(grid);
 
-        // responsive params (compact by default)
+        // params
         const isMobile = matchMedia("(max-width: 768px)").matches;
         const AMP = isMobile ? 1.1 : 1.6;
         const LENGTH = isMobile ? 7 : 10;
@@ -169,6 +189,12 @@
         const SPEED = 0.0015;
         const RIB_STEP = isMobile ? 0.18 : 0.14;
         const TUBE_RADIUS = isMobile ? 0.07 : 0.09;
+
+        // physics params
+        const c = 1;              // scaled speed of light
+        const E0 = AMP;
+        const B0 = AMP / c;
+        const omega = SPEED;
 
         // materials
         const indigoVioletMat = new THREE.MeshBasicMaterial({ color: 0x5a2dcc, transparent: true, opacity: 0.95 });
@@ -179,7 +205,7 @@
         const eGroup = new THREE.Group(), bGroup = new THREE.Group();
         scene.add(eGroup, bGroup);
 
-        // z-axis (added once)
+        // z-axis
         const axisGeo = new THREE.BufferGeometry().setFromPoints([
             new THREE.Vector3(0, 0, -LENGTH / 2 - 1.0),
             new THREE.Vector3(0, 0, LENGTH / 2 + 1.0)
@@ -193,53 +219,74 @@
             return new THREE.Mesh(geo, material);
         }
 
-        function rebuild(t) {
-            eGroup.clear(); bGroup.clear();
+        function rebuild(time) {
+            eGroup.clear();
+            bGroup.clear();
+
             const k = (Math.PI * 2 * CYCLES) / LENGTH;
 
             const ePts = [], bPts = [];
+
             for (let z = -LENGTH / 2; z <= LENGTH / 2; z += 0.05) {
-                const y = AMP * Math.sin(k * z - t);
-                const x = AMP * Math.sin(k * z - t);
-                ePts.push(new THREE.Vector3(0, y, z));
-                bPts.push(new THREE.Vector3(x, 0, z));
+                const phase = k * z - omega * time;
+
+                const y = E0 * Math.sin(phase);
+                const x = B0 * Math.sin(phase);
+
+                ePts.push(new THREE.Vector3(0, y, z)); // E along y
+                bPts.push(new THREE.Vector3(x, 0, z)); // B along x
             }
+
             eGroup.add(tube(ePts, indigoVioletMat));
             bGroup.add(tube(bPts, deepPinkMat));
 
-            // single ribs only
             const ePos = [], bPos = [];
+
             for (let z = -LENGTH / 2; z <= LENGTH / 2; z += RIB_STEP) {
-                const y = AMP * Math.sin(k * z - t);
-                const x = AMP * Math.sin(k * z - t);
+                const phase = k * z - omega * time;
+
+                const y = E0 * Math.sin(phase);
+                const x = B0 * Math.sin(phase);
+
                 ePos.push(0, 0, z, 0, y, z);
                 bPos.push(0, 0, z, x, 0, z);
             }
+
             const eRibGeo = new THREE.BufferGeometry();
             const bRibGeo = new THREE.BufferGeometry();
+
             eRibGeo.setAttribute('position', new THREE.Float32BufferAttribute(ePos, 3));
             bRibGeo.setAttribute('position', new THREE.Float32BufferAttribute(bPos, 3));
+
             eGroup.add(new THREE.LineSegments(eRibGeo, electricPurpleLine));
             bGroup.add(new THREE.LineSegments(bRibGeo, mediumPurpleLine));
         }
 
         function loop(now) {
-            rebuild(now * SPEED);
+            rebuild(now);
             scene.rotation.y = Math.sin(now * 0.00025) * 0.20;
             renderer.render(scene, camera);
             requestAnimationFrame(loop);
         }
         requestAnimationFrame(loop);
 
-        // drag to orbit (optional)
+        // interaction
         let down = false, lx = 0, ly = 0;
-        container.addEventListener('pointerdown', e => { down = true; lx = e.clientX; ly = e.clientY; });
+
+        container.addEventListener('pointerdown', e => {
+            down = true; lx = e.clientX; ly = e.clientY;
+        });
+
         addEventListener('pointerup', () => down = false);
+
         addEventListener('pointermove', e => {
             if (!down) return;
-            const dx = (e.clientX - lx) / 200, dy = (e.clientY - ly) / 200;
-            scene.rotation.y += dx; scene.rotation.x += dy;
-            lx = e.clientX; ly = e.clientY;
+            const dx = (e.clientX - lx) / 200;
+            const dy = (e.clientY - ly) / 200;
+            scene.rotation.y += dx;
+            scene.rotation.x += dy;
+            lx = e.clientX;
+            ly = e.clientY;
         });
     </script>
 
