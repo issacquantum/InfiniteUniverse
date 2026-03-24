@@ -1,4 +1,4 @@
-// 🎵 Music Player Configuration (Updated Filenames)
+//  Music Player Configuration (Updated Filenames)
 const songs = [
     "assets/Sitemusic/Prelude_Csharp_Op3_No2.mp3",
     "assets/Sitemusic/Moment_Musical_No4_Op16.mp3",
@@ -18,7 +18,7 @@ let audio = new Audio(songs[currentSongIndex]);
 const playPauseButton = document.getElementById("playPauseButton");
 const songNameDisplay = document.getElementById("song-name");
 
-// 🎛 Toggle Play/Pause Button
+//  Toggles Play/Pause Button
 playPauseButton.addEventListener("click", function () {
 
     if (audio.paused) {
@@ -36,7 +36,7 @@ playPauseButton.addEventListener("click", function () {
     }
 });
 
-// 🎵 Automatically Play Next Song When Current Song Ends
+//  Automatically Plays Next Song When Current Song Ends
 audio.addEventListener("ended", function () {
     currentSongIndex = (currentSongIndex + 1) % songs.length;
     audio.src = songs[currentSongIndex];
@@ -44,11 +44,11 @@ audio.addEventListener("ended", function () {
     audio.play();
 });
 
-// 🎛 Ensure Volume is at 100%
+// Ensures Volume is at 100%
 audio.volume = 1.0;
 
 
-// 🌌 Generate Glowing Particles Across the Entire Site
+// Generates Glowing Particles Across the Entire Site
 document.addEventListener("DOMContentLoaded", function () {
     const particleContainer = document.getElementById("particles-container");
 
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-    for (let i = 0; i < 80; i++) { // Adjust particle count
+    for (let i = 0; i < 80; i++) { // Adjusts particle count
         let particle = document.createElement("div");
         particle.classList.add("particle");
 
@@ -72,9 +72,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-// 🎻 Dedicated Rachmaninoff-only player (loops Op. 43)
+// Dedicated Rachmaninoff-only player (loops Op. 43)
 (function () {
-    // Use the same file path you already have in your playlist
+    // Used the same file path I already have in my playlist
     const RACH_SRC = "assets/Sitemusic/Rhapsody_Paganini_Op43.mp3";
     const RACH_NAME = "Rhapsody on a Theme of Paganini, Op. 43 (Variation 18)";
 
@@ -85,14 +85,14 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!rachBtn || !rachLabel) return;
 
     const rachAudio = new Audio(RACH_SRC);
-    rachAudio.loop = true;       // loop only this track
+    rachAudio.loop = true;       // loops only this track
     rachAudio.volume = 1.0;
 
     function setRachPlayingUI(isPlaying) {
         if (!rachBtn || !rachLabel) return;
         rachBtn.src = isPlaying ? "assets/pause-icon.svg" : "assets/play-icon.svg";
         rachLabel.textContent = RACH_NAME;
-        // reuse your existing glow class used on #song-name
+        // reuse  existing glow class used on #song-name
         if (isPlaying) {
             rachLabel.classList.add("glow");
         } else {
@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     rachBtn.addEventListener("click", function () {
-        // Pause the main site player if it's running (don’t touch its logic)
+        // Pauses the main site player if it's running (don’t touch its logic)
         try {
             if (typeof audio !== "undefined" && audio && !audio.paused) {
                 audio.pause();
@@ -124,12 +124,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Keep UI consistent if playback ends (loop=true, but just in case)
+    // Keeps UI consistent if playback ends (loop=true, but just in case)
     rachAudio.addEventListener("ended", function () {
-        // with loop=true this won’t fire, but leave a safe fallback
+        // with loop=true this won’t fire, but leaves a safe fallback
         setRachPlayingUI(false);
     });
 
-    // Initialize label
+    // Initializes label
     rachLabel.textContent = RACH_NAME;
 })();
