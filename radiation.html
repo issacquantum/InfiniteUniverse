@@ -277,24 +277,57 @@
         }
         requestAnimationFrame(loop);
 
-        // interaction
-        let down = false, lx = 0, ly = 0;
+        // interaction — desktop: same as before. mobile: only when touching the model.
+        let down = false, lx = 0, ly = 0, activePointerId = null;
 
-        container.addEventListener('pointerdown', e => {
-            down = true; lx = e.clientX; ly = e.clientY;
+        const isTouch = matchMedia("(pointer: coarse)").matches || ('ontouchstart' in window);
+        const isMobileWidth = matchMedia("(max-width: 768px)").matches;
+        const mobileMode = isTouch && isMobileWidth;
+
+        function startRotate(clientX, clientY, pointerId) {
+            down = true;
+            lx = clientX; ly = clientY;
+            activePointerId = pointerId ?? null;
+        }
+        function endRotate() {
+            down = false;
+            activePointerId = null;
+        }
+
+        container.addEventListener('pointerdown', (e) => {
+            startRotate(e.clientX, e.clientY, e.pointerId);
+            if (container.setPointerCapture) {
+                try { container.setPointerCapture(e.pointerId); } catch { }
+            }
         });
 
-        addEventListener('pointerup', () => down = false);
+        container.addEventListener('pointerup', () => endRotate());
+        container.addEventListener('pointercancel', () => endRotate());
+        container.addEventListener('pointerleave', () => {
+            if (mobileMode) endRotate();
+        });
 
-        addEventListener('pointermove', e => {
+        container.addEventListener('pointermove', (e) => {
             if (!down) return;
+            if (activePointerId !== null && e.pointerId !== activePointerId) return;
+
             const dx = (e.clientX - lx) / 200;
             const dy = (e.clientY - ly) / 200;
+
+            if (mobileMode) {
+                const dist = Math.hypot(e.clientX - lx, e.clientY - ly);
+                if (dist < 6) return;
+                e.preventDefault();
+            }
+
             scene.rotation.y += dx;
             scene.rotation.x += dy;
+
             lx = e.clientX;
             ly = e.clientY;
-        });
+        }, { passive: false });
+
+        container.style.touchAction = mobileMode ? 'none' : 'auto';
     </script>
 
 
