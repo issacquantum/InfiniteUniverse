@@ -1321,7 +1321,7 @@ mjx-container {
 
 @media (max-width:768px) {
     #emWave3D {
-        height: 200px;
+        height: 280px;
     }
 
     .radiation-wave-3d {
@@ -1358,4 +1358,42 @@ mjx-container {
     transform: scale(1.1);
     /* a touch brighter on hover */
     filter: invert(20%) sepia(100%) saturate(800%) hue-rotate(268deg) brightness(130%) contrast(130%) drop-shadow(0 0 8px #7a3cff) drop-shadow(0 0 16px #a56bff);
+}
+/* ===== EM WAVE CAPTION CONTROL (FINAL OVERRIDE) ===== */
+
+/* Desktop default */
+.radiation-wave-3d .caption-desktop {
+    display: block;
+}
+
+.radiation-wave-3d .caption-mobile {
+    display: none;
+}
+
+/* Mobile behavior */
+@media (max-width: 768px) {
+
+    .radiation-wave-3d .caption-desktop {
+        display: none !important;
+    }
+
+    .radiation-wave-3d .caption-mobile {
+        display: block !important;
+        font-size: 0.75rem;
+        text-align: center;
+        padding: 0 6px;
+        line-height: 1.3;
+    }
+
+    /* Prevent MathJax from breaking layout */
+    .radiation-wave-3d .caption-mobile mjx-container {
+        display: inline-block !important;
+        white-space: nowrap;
+    }
+
+    /* Allow horizontal scroll instead of squish */
+    .radiation-wave-3d .caption-mobile {
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
 }
