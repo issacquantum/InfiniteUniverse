@@ -8,7 +8,7 @@ body {
     padding-top: 60px;
     /* keeps content below your header */
     padding-bottom: 70px;
-    /* <--- ADDED: This creates space for the fixed footer */
+    /* <--- This creates space for the fixed footer */
     background-color: #21142f;
     /* base dark background color */
     color: #993ad9;
@@ -22,11 +22,11 @@ body {
     background-repeat: no-repeat;
     background-blend-mode: soft-light;
 
-    /* Prevent browser from trying to auto-adjust text size */
+    /* Prevents browser from trying to auto-adjust text size */
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
 
-    /* Prevent horizontal overflow on the body itself */
+    /* Prevents horizontal overflow on the body itself */
     overflow-x: hidden;
 }
 
@@ -44,7 +44,7 @@ header {
     justify-content: center;
     z-index: 100;
 
-    /* NEW: Ensure header always takes at least a minimum width, even when zoomed (still in developing, it keeps failing when zooming inon mobile devices) */
+    /* Ensures header always takes at least a minimum width, even when zoomed (still in developing, it keeps failing when zooming in on mobile devices) */
     min-width: 320px;
     /* Common minimum mobile width, helps prevent squishing (still in development, it keeps failing when zooming inon mobile devices) */
 }
@@ -80,7 +80,7 @@ header {
     transform: scale(1.2);
     /* Slight enlargement on hover */
     text-shadow: 0 0 5px #ff1493, 0 0 10px #ff69b4;
-    /* Add a subtle glow on hover */
+    /* Adds a subtle glow on hover */
 }
 
 .nav-projects:hover,
@@ -120,25 +120,25 @@ a[href="index.html"] {
 .profile {
     text-align: center;
     margin-top: 20px;
-    /* NEW: Add horizontal padding to prevent image from touching edges */
+    /* Adds horizontal padding to prevent image from touching the edges */
     padding: 0 10px;
 }
 
 /*  */
 .profile p {
     color: #bfbbc1;
-    /* Set the base color for the text, ensures visibility with glow */
+    /* Sets the base color for the text, ensures visibility with glow */
     text-shadow:
         0 0 5px #ff1493,
-        /* Inner, bright pink glow */
+        /* Inner, deep pink glow */
         0 0 10px #ff69b4,
-        /* Mid-range, slightly lighter pink */
+        /* Mid-range, hot pink */
         0 0 15px #a20ef1,
-        /* Another pink layer */
+        /* Another bright electric purple */
         0 0 20px #bf00ff,
-        /* Violet/Purple glow layer */
+        /* Electric Purple glow layer */
         0 0 25px #bf00ff;
-    /* Even wider violet/purple glow */
+    /* Even wider Electric Purple  glow */
     font-size: 1.25em;
     /* Optional: Adjust size for prominence */
     line-height: 1.4;
@@ -155,7 +155,7 @@ a[href="index.html"] {
     text-align: center;
     margin-top: 40px;
     margin-bottom: 25px;
-    /* NEW: Add more generous horizontal padding for better readability on zoom */
+    /* Adds more generous horizontal padding for better readability on zoom (still under development) */
     padding: 50px 15px 20px 15px;
 }
 
@@ -165,7 +165,7 @@ a[href="index.html"] {
     margin-bottom: 10px;
     font-size: 1em;
     line-height: 1.6;
-    /* NEW: Ensure text flows within boundaries (atill undecisive about keeping it) */
+    /* Ensures text flows within boundaries (still undecisive about keeping it) */
     word-wrap: break-word;
     overflow-wrap: break-word;
 
@@ -176,15 +176,15 @@ a[href="index.html"] {
     color: #bfbbc1;
     text-shadow:
         0 0 5px #801e85,
-        /* Inner, bright pink glow */
+        /* Inner, deep magenta-purple glow */
         0 0 10px #a20ef1,
-        /* Mid-range, slightly lighter pink */
+        /* Mid-range, electric purple */
         0 0 15px #f10ec4,
-        /* Another pink layer */
+        /* Another Hot Magenta / Shocking Pink layer */
         0 0 20px #a20ef1,
-        /* Violet/Purple glow layer */
+        /* electric purple  glow layer */
         0 0 25px #a20ef1;
-    /* Even wider violet/purple glow */
+    /*  electric purple  glow */
 }
 
 h2.about-me-heading {
@@ -207,7 +207,7 @@ h2.about-me-heading {
     height: 230px;
     border-radius: 50%;
     margin-bottom: 5px;
-    /* Ensure images scale down properly if container gets smaller, and don't exceed the original size */
+    /* Ensures images scale down properly if container gets smaller, and don't exceed the original size */
     max-width: 100%;
     height: auto;
     display: block;
@@ -247,7 +247,7 @@ h2.about-me-heading {
     transition: filter 0.3s ease-in-out, transform 0.3s ease-in-out;
     animation: rotateIcon 5s linear infinite;
     filter: drop-shadow(0 0 12px #bf00ff) drop-shadow(0 0 18px #9a00e6) drop-shadow(0 0 25px #6f00b8);
-    /* --- ADD THIS LINE TO FIX THE STACKING --- */
+    /* --- THIS FIXES THE STACKING --- */
     display: inline-block;
     /* This makes the image behave like text but allows width/height */
 }
@@ -275,13 +275,13 @@ h2.about-me-heading {
 
 .footer {
     position: fixed;
-    /* CHANGED FROM 'relative' TO 'fixed' */
+    /* Changed from 'relative' TO 'fixed' */
     bottom: 0;
-    /* ADDED: Sticks it to the bottom of the viewport */
+    /* Sticks it to the bottom of the viewport */
     width: 100%;
-    /* ADDED: Ensures it spans the full width */
+    /* Ensures it spans the full width */
     background: url("../assets/hexline-weavepink.svg") repeat, rgba(18, 0, 36, 0.9);
-    /* ADDED: This will give it a background similar to your header, otherwise it would be transparent */
+    /* This will give it a background similar to the header, otherwise it would be transparent */
     background-size: cover;
     background-blend-mode: overlay;
     display: flex;
@@ -290,9 +290,9 @@ h2.about-me-heading {
     padding: 10px 20px;
     flex-wrap: wrap;
     z-index: 100;
-    /* ADDED: Ensures it stays on top of other content */
+    /* Ensures it stays on top of other content */
     box-sizing: border-box;
-    /* ADDED: Good practice to prevent horizontal scrollbars due to padding */
+    /* Good practice to prevent horizontal scrollbars due to padding */
 }
 
 /* Song Name Styling */
@@ -310,7 +310,7 @@ h2.about-me-heading {
     text-shadow: 0 0 20px #ff1493, 0 0 30px #ff69b4, 0 0 40px #ff85c1;
 }
 
-/* ⏸ Remove glow when paused */
+/* ⏸ Removes glow when paused */
 .no-glow {
     text-shadow: none;
 }
@@ -326,12 +326,12 @@ h2.about-me-heading {
 
 .vibrant-violet {
     color: #7A3CFF;
-    /* Lighter vibrant violet for mobile */
+    /* medium violet for mobile */
     font-weight: bold;
     font-size: 20px;
 }
 
-/* Enhance Glow Effect When Hovered */
+/* Enhances Glow Effect When Hovered */
 #atomLogo:hover {
     transform: scale(1.1);
     filter: drop-shadow(0 0 18px #ff69b4) drop-shadow(0 0 25px #ff1493) drop-shadow(0 0 35px #ff1493);
@@ -343,7 +343,7 @@ h2.about-me-heading {
     /* Increased size */
     height: auto;
     margin-right: 15px;
-    /* Space between planet and name */
+    /* Space between planet and my name */
 
     /* Center with the text */
     display: inline-block;
@@ -384,7 +384,7 @@ h2.about-me-heading {
     vertical-align: middle;
     margin-top: -5px;
     margin-left: 15px;
-    /* Add space between name and atom */
+    /* Adds space between name and atom */
     display: inline-block;
 }
 
@@ -442,7 +442,7 @@ h2.about-me-heading {
 /* Fix PC Font Color */
 body {
     color: #993ad9 !important;
-    /* Restoring original violet-pink for desktop */
+    /* Restoring original rich medium purple for desktop */
 }
 
 
@@ -460,7 +460,7 @@ body {
     /* Size for desktop */
     height: 50px;
     background-color: #5208dc;
-    /* Button background color (intense pink) */
+    /* Button background color (deep indigo-violet) */
     border-radius: 50%;
     /* Makes it circular */
     display: flex;
@@ -512,7 +512,7 @@ body {
 
 
 
-/* Disable parallax background on mobile devices (background still in development for mobile devices)*/
+/* Disables parallax background on mobile devices (background still in development for mobile devices)*/
 @media only screen and (max-width: 768px) {
     body {
         background-attachment: scroll !important;
@@ -599,14 +599,14 @@ body {
     width: 100%;
     height: auto;
     border-radius: 6px;
-    /* --- NEW SIZE ADJUSTER BELOW --- */
+    /* ---USE NEW SIZE ADJUSTER BELOW --- */
     max-width: 200px;
-    /* Adjust this value (e.g., 250px, 80%, etc.) to your desired image width */
+    /* Adjust this value (e.g., 250px, 80%, etc.) to the desired image width */
     display: block;
     /* Important for centering block elements */
     margin: 0 auto;
     /* Centers the image within its .hubble-image container */
-    /* --- NEW SIZE ADJUSTER ABOVE --- */
+ 
 }
 
 .hubble-image figcaption {
@@ -623,7 +623,7 @@ body {
     max-width: 100%;
     /* Adjust this percentage as needed (e.g., 70%, 100%) */
     height: 300px;
-    /* Keep aspect ratio */
+    /* Keeps aspect ratio */
     display: block;
     /* Ensures proper block-level behavior for centering */
     margin: 1em auto;
@@ -682,7 +682,7 @@ body {
     /* adjust caption size if needed */
     line-height: 1.5;
     color: #bfbbc1;
-    /* your site's caption color */
+    /* site's caption color */
 }
 
 /* ===== Popup Definitions (inline concept explanations) ===== */
@@ -735,8 +735,6 @@ body {
 }
 
 /* --- Global Reset for Images to ensure responsiveness --- */
-/* This is a good general rule to have for all images across my site, unless overridden.
-   It ensures images don't overflow and maintain their aspect ratio. */
 img {
     max-width: 100%;
     height: auto;
@@ -756,15 +754,15 @@ figcaption {
 }
 
 /* --- Specific Styling for.cosmic-image figures in big-bang-contributors.html --- */
-/* This general class can add common styling like borders, shadows, etc., to all images in that file */
+/* This general class adds common styling like borders, shadows, etc., to all images in that file */
 .cosmic-image {
     text-align: center;
-    /* Ensures the image and its caption are centered */
+    /* Ensures the images and captions are centered */
     margin-bottom: 2em;
     /* Spacing below each figure */
     padding: 1em;
-    /* Add some padding around the figure if needed */
-    /* Add a background or border to the figure if I want a box around each image */
+    /* Adds some padding around the figure if needed */
+    /* Adds a background or border to the figure if I want a box around each image */
 }
 
 /* --- Individual Image Sizing or Big Bang Contributors --- */
@@ -965,15 +963,15 @@ h4 {
     text-shadow:
         0 0 4px #e669ff,
         0 0 8px #fb14ff;
-    /* Add a subtle glow if you like */
+    /* Adds a subtle glow if you like */
     text-align: center;
-    /* H4s are also centered in your content */
+    /* H4s are also centered in the content */
     margin-top: 20px;
-    /* Adjust spacing as needed */
+    /* Adjusts spacing as needed */
     margin-bottom: 10px;
-    /* Adjust spacing as needed */
+    /* Adjusts spacing as needed */
     font-size: 1.1em;
-    /* Adjust size relative to paragraphs or h3 */
+    /* Adjusts size relative to paragraphs or h3 */
 }
 
 /* Equations Bolding Rule Test
@@ -981,11 +979,11 @@ h4 {
 mjx-container {
     font-weight: 700 !important;
     color: #e727ea !important;
-    /* match your purple */
+    /* matches my purples */
     text-shadow: 0 0 8px #9d5abc;
 }
 
-/* New About Me Link */
+/* About Me Link */
 .nav-about-me {
     position: absolute;
     right: 10px;
@@ -1047,22 +1045,22 @@ mjx-container {
         /*  */
         .profile p {
             color: #bfbbc1;
-            /* Set the base color for the text, ensures visibility with glow */
+            /* Sets the base color for the text, ensures visibility with glow */
             text-shadow:
                 0 0 5px #ff1493,
-                /* Inner, bright pink glow */
+                /* Inner, Deep Pink */
                 0 0 10px #ff69b4,
-                /* Mid-range, slightly lighter pink */
+                /* Mid-range, Hot Pink */
                 0 0 15px #a20ef1,
-                /* Another pink layer */
+                /* Another electric purple  */
                 0 0 20px #bf00ff,
-                /* Violet/Purple glow layer */
+                /* Electric Purpleglow layer */
                 0 0 25px #bf00ff;
-            /* Even wider violet/purple glow */
+            /* Electric Purple glow */
             font-size: 1.25em;
-            /* Optional: Adjust size for prominence */
+            /* Optional: Adjusts size for prominence */
             line-height: 1.4;
-            /* Optional: Adjust line spacing */
+            /* Optional: Adjusts line spacing */
         }
     }
 
@@ -1079,9 +1077,9 @@ mjx-container {
         justify-content: center;
         z-index: 100;
 
-        /* This ensures header always takes at least a minimum width, even when zoomed (still in developing, it keeps failing when zooming inon mobile devices) */
+        /* This ensures header always takes at least a minimum width, even when zoomed (still in developing, it keeps failing when zooming in on mobile devices) */
         min-width: 320px;
-        /* Common minimum mobile width, helps prevent squishing (still in development, it keeps failing when zooming inon mobile devices) */
+        /* Common minimum mobile width, helps prevent squishing (still in development, it keeps failing when zooming in on mobile devices) */
     }
 
     /* Parent container controls layout */
@@ -1114,7 +1112,7 @@ mjx-container {
     /* Projects */
     .nav-projects {
         position: static;
-        /* REMOVE left */
+        /* REMOVES left */
         color: #bfbbc1;
         text-decoration: none;
         font-family: 'Dancing Script', cursive;
@@ -1245,9 +1243,9 @@ mjx-container {
         bottom: 37px;
         /* More padding from bottom for mobile */
         left: auto px;
-        /* <-- NEW: Move to left side for mobile */
+        /* <-- Moves to left side for mobile */
         right: 20px;
-        /* <-- NEW: Disable right positioning for mobile */
+        /* <-- Disables right positioning for mobile */
         width: 60px;
         /* A good visible size on mobile */
         height: 60px;
@@ -1335,7 +1333,7 @@ mjx-container {
     background: transparent !important;
     box-shadow: none !important;
     border-radius: 0;
-    /* optional: remove rounded corners */
+    /* optional: removes rounded corners */
 }
 
 /* caption color—make sure it’s readable on the page bg */
