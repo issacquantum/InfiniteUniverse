@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Dark Ages of the Universe</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- MathJax config + loader -->
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="projects.html" class="nav-projects">My Projects</a>
+
+            <h1 class="site-name">
+                <a href="index.html">
+                    <img src="assets/solar-system.svg" class="rotating-planet" alt="Rotating Planet">
+                    Issac Tabares
+                    <img src="assets/atom.svg" class="logo" id="atomLogo" alt="Atom Logo">
+                </a>
+            </h1>
+        </div>
+    </header>
+
+    <section class="about">
+        <!-- Back Arrow (returns to the main timeline page) -->
+        <a href="from-the-big-bang-to-the-present-universe.html" class="back-arrow">⬅</a>
+
+        <h2 class="section-title bigbang-title"><strong>The Dark Ages of the Universe</strong></h2>
+
+        <p>
+            Following the formation of <strong>neutral atoms</strong> during the epoch of <strong>recombination</strong>
+            (approximately <strong>380,000
+                years after the Big Bang</strong>), the universe entered a period known as the <strong>cosmic Dark
+                Ages</strong>.
+            During this
+            time, the universe was filled predominantly with <strong>neutral hydrogen and helium gas</strong>, with no
+            luminous
+            sources to emit light. The <strong>Cosmic Microwave Background (CMB) photons</strong> were no longer
+            interacting with
+            matter, allowing them to travel freely, but no new light sources had yet formed. This period lasted for
+            several hundred million years, stretching from about \( 3.8 \times 10^{5} \text{ years} \) to
+            <strong>several
+                hundred million years
+                after the Big Bang</strong>.
+        </p>
+        <p>
+            The Dark Ages were characterized by a relative absence of <strong>electromagnetic radiation</strong> in the
+            visible and
+            ultraviolet wavelengths. The existing matter, primarily <strong>neutral gas</strong> and <strong>dark
+                matter</strong>, slowly began to
+            coalesce under the influence of <strong>gravity</strong>. Small overdensities in the otherwise uniform
+            distribution of
+            matter, seeded by **quantum fluctuations** from the <strong>inflationary epoch</strong>, started to attract
+            more matter.
+            These regions would eventually grow dense enough to collapse and form the first stars and galaxies.
+        </p>
+
+    </section>
+
+    <footer class="footer">
+        <p class="copyright">© 2026 Issac Tabares. All Rights Reserved.</p>
+    </footer>
+
+    <div id="particles-container"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const backArrow = document.querySelector('.back-arrow');
+            if (backArrow) {
+                // Optional: make the arrow use history.back()
+                // backArrow.addEventListener('click', (e) => { e.preventDefault(); window.history.back(); });
+            }
+        });
+    </script>
+
+</body>
+
+</html>

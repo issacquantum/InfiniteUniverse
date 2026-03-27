@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Blackbody radiation</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="projects.html" class="nav-projects">My Projects</a>
+            <h1 class="site-name">
+                <a href="index.html">
+                    <img src="assets/solar-system.svg" class="rotating-planet" alt="Rotating Planet">
+                    Issac Tabares
+                    <img src="assets/atom.svg" class="logo" id="atomLogo" alt="Atom Logo">
+                </a>
+            </h1>
+        </div>
+    </header>
+
+    <section class="about" style="margin-top:0px">
+        <!-- Back to Quantum Mechanics hub -->
+        <a href="quantum-mechanics.html" class="back-arrow">⬅</a>
+
+        <h2 class="section-title"><strong>Blackbody Radiation</strong></h2>
+
+        <p>
+            A <strong>blackbody</strong> is an idealized physical system that absorbs <em>all</em> incoming
+            electromagnetic radiation,
+            regardless of wavelength or direction. When such an object is in thermal equilibrium, it re-emits radiation
+            with a
+            very specific pattern, namely a spectrum that depends <strong>only</strong> on its temperature $T$, and not
+            on what it is made of
+            or its geometry.
+        </p>
+
+        <p>
+            In practical terms, physicists approximate a blackbody using a hollow cavity with a tiny hole. Radiation
+            entering the
+            hole gets trapped inside, bouncing around until it is fully absorbed. The radiation that leaks back out
+            behaves almost
+            exactly like that of a perfect blackbody. The quantity used to describe this emission is the
+            <strong>spectral energy density</strong> $u(\nu, T)$, which tells us how much energy is present at each
+            frequency $\nu$
+            for a given temperature.
+        </p>
+
+        <p>
+            Careful experiments in the late 19th century, notably by <strong>Lummer</strong> and
+            <strong>Pringsheim</strong>, and independently by <strong>Rubens</strong> and <strong>Kurlbaum</strong>,
+            measured this distribution across
+            frequencies. What they found was striking: the behavior of the radiation splits into two distinct regimes.
+        </p>
+
+        <p>
+            At <strong>low frequencies</strong>, the data follow the <strong>Rayleigh–Jeans law</strong>:
+            $$
+            u(\nu,T) \simeq \frac{8\pi\nu^2}{c^3} k_B T.
+            $$
+            In plain terms, this expression says that the energy density increases as the square of the frequency
+            ($\nu^2$)
+            and also grows proportionally with temperature. In other words, hotter objects emit more radiation overall,
+            and
+            higher frequencies contribute increasingly more, at least within this low-frequency regime.
+        </p>
+
+        <p>
+            However, at <strong>high frequencies</strong>, experiments show the opposite trend. The radiation does not
+            keep growing;
+            instead, it drops off very rapidly. This behavior is captured empirically by <strong>Wien’s law</strong>:
+            $$
+            u(\nu,T) \simeq a\,\nu^3 e^{-b\nu/T}.
+            $$
+            In simple language, this tells us that although the $\nu^3$ factor initially increases the energy at higher
+            frequencies, the exponential term $e^{-b\nu/T}$ dominates and forces the energy to decay sharply. In effect,
+            very high-frequency radiation is strongly suppressed.
+        </p>
+
+        <p>
+            This created a serious problem for classical physics. The Rayleigh–Jeans formula predicts
+            $u(\nu,T) \propto \nu^2 T$, which implies that energy keeps increasing without bound as frequency increases.
+            If we sum, or integrate, this over all frequencies, the total energy becomes infinite, which is clearly
+            unphysical.
+            This inconsistency is known as the <strong>ultraviolet catastrophe</strong>.
+        </p>
+
+        <p>
+            In straightforward terms, classical theory was predicting that hot objects should emit an infinite amount of
+            energy,
+            mostly concentrated at extremely short wavelengths, such as ultraviolet and beyond. This is not what
+            experiments show.
+            The root of the issue lies in the classical assumption of <em>equipartition</em>, which assigns the same
+            average
+            energy $k_B T$ to every possible mode of vibration, with no natural limit at high frequencies.
+        </p>
+
+        <p>
+            The resolution came in 1900, when <strong>Max Planck</strong> introduced a new formula that correctly
+            reproduces
+            the entire observed spectrum:
+            $$
+            u(\nu,T)=\frac{8\pi h \nu^3}{c^3}\,\frac{1}{e^{h\nu/k_B T}-1}, \qquad
+            U(T)=\int_0^\infty u(\nu,T)\,d\nu = a\,T^4.
+            $$
+            This expression, known as <strong>Planck’s law</strong>, can be understood as follows.
+        </p>
+
+        <p>
+            At low frequencies ($h\nu \ll k_B T$), the exponential term can be approximated, and the formula reduces to
+            the Rayleigh–Jeans result. This means it recovers the classical behavior where energy grows with $\nu^2$ and
+            $T$.
+        </p>
+
+        <p>
+            At high frequencies ($h\nu \gg k_B T$), the exponential term becomes very large, making the denominator grow
+            rapidly.
+            As a result, the energy density drops off, reproducing Wien’s exponential suppression.
+        </p>
+
+        <p>
+            The second part,
+            $$
+            U(T) = a\,T^4,
+            $$
+            tells us that the <strong>total energy density</strong> emitted by a blackbody increases as the fourth power
+            of its
+            temperature. In simpler terms, if you double the temperature, the emitted energy increases by a factor of
+            $16$,
+            which shows a very steep dependence.
+        </p>
+
+        <p>
+            The key new ingredient introduced by Planck is the constant $h$, known as <strong>Planck’s
+                constant</strong>.
+            This sets a fundamental scale for when quantum effects become important.
+        </p>
+
+        <p>
+            Planck’s breakthrough idea was to assume that energy is not exchanged continuously, but in discrete packets:
+            $$
+            E = h\nu.
+            $$
+            In plain words, this means energy comes in indivisible units, each proportional to the frequency.
+            Higher-frequency radiation corresponds to larger energy packets.
+        </p>
+
+        <p>
+            This simple assumption prevents the runaway accumulation of energy at high frequencies. Since high-frequency
+            modes
+            require larger energy quanta, they are harder to excite at a given temperature. This naturally suppresses
+            the
+            ultraviolet region of the spectrum.
+        </p>
+
+        <p>
+            Two immediate consequences follow from Planck’s theory.
+        </p>
+
+        <p>
+            First, the peak of the spectrum shifts with temperature according to <strong>Wien’s displacement
+                law</strong>,
+            $\nu_{\max} \propto T$. In simple terms, as an object gets hotter, the frequency at which it emits most
+            strongly
+            moves toward higher values, for example from infrared to visible light.
+        </p>
+
+        <p>
+            Second, the total radiated power follows the <strong>Stefan–Boltzmann law</strong>:
+            $$
+            P = \sigma A T^4.
+            $$
+            This means that the total energy emitted per unit time increases very rapidly with temperature, much faster
+            than
+            linearly. Even a modest increase in temperature leads to a dramatic increase in radiated power.
+        </p>
+
+        <!-- ===================== END ========================== -->
+    </section>
+
+    <footer class="footer">
+        <p class="copyright">© 2026 Issac Tabares. All Rights Reserved.</p>
+    </footer>
+</body>
+
+</html>

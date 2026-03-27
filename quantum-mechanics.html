@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Quantum Mechanics</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+
+    <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+    </script>
+
+    <style>
+        .hydrogen-viewer {
+            position: relative;
+            max-width: 900px;
+            margin: 30px auto;
+            background-color: transparent;
+            padding: 18px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        #hydrogenCanvas {
+            width: 100%;
+            height: 420px;
+            display: block;
+            border-radius: 8px;
+            background: transparent;
+            touch-action: none;
+        }
+
+        .hydrogen-viewer figcaption {
+            margin-top: 10px;
+            font-size: 0.8rem;
+            line-height: 1.4;
+            color: #bfbbc1;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            #hydrogenCanvas {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="projects.html" class="nav-projects">My Projects</a>
+            <h1 class="site-name">
+                <a href="index.html">
+                    <img src="assets/solar-system.svg" class="rotating-planet" alt="Rotating Planet">
+                    Issac Tabares
+                    <img src="assets/atom.svg" class="logo" id="atomLogo" alt="Atom Logo">
+                </a>
+            </h1>
+        </div>
+    </header>
+
+    <section class="about" style="margin-top:0px">
+        <a href="projects.html" class="back-arrow">⬅</a>
+
+        <h2 class="section-title"><strong>Quantum Mechanics</strong></h2>
+        <p>
+            The term <strong>quantum</strong> (from the Latin <em>quantus</em>, meaning “how much” or “how much of
+            something”)
+            refers to a <strong>discrete unit</strong>, that is, a smallest indivisible amount in which a physical
+            quantity can
+            be exchanged. In contrast to classical physics, where quantities are assumed to vary continuously, the
+            quantum
+            perspective states that certain properties come in fixed “packets” rather than arbitrary values.
+        </p>
+
+        <p>
+            The word <strong>mechanics</strong> denotes the branch of physics concerned with describing motion, change,
+            and the
+            evolution of physical systems over time. When combined, <strong>quantum mechanics</strong> becomes the
+            theoretical
+            framework that governs how nature behaves at microscopic scales, such as atoms, electrons, and photons,
+            where
+            classical intuitions no longer apply.
+        </p>
+
+        <p>
+            Within this framework, key physical quantities, including <strong>energy</strong>, <strong>angular
+                momentum</strong>,
+            and other measurable properties, called <strong>observables</strong>, do not take on arbitrary values.
+            Instead, they
+            appear in <strong>discrete sets</strong> under many circumstances. In simple terms, systems are often
+            restricted to
+            specific allowed values rather than a continuous range.
+        </p>
+
+        <p>
+            The state of a quantum system is described by a mathematical object called the
+            <strong>wavefunction</strong>,
+            denoted by $\psi$. This function encodes all the information that can be known about the system. However, it
+            does
+            not directly describe a physical quantity like position or velocity in the classical sense.
+        </p>
+
+        <p>
+            Instead, the quantity
+            $$
+            |\psi|^2
+            $$
+            represents a <strong>probability density</strong>. In plain terms, this means it tells us how likely we are
+            to find
+            the system in a particular state or at a particular location when a measurement is performed. Higher values
+            correspond to greater likelihood, while lower values indicate less probable outcomes.
+        </p>
+
+        <p>
+            This probabilistic interpretation marks a fundamental departure from classical physics. Quantum mechanics
+            does not,
+            in general, predict exact outcomes. Rather, it provides a structured way to calculate the <strong>likelihood
+                of
+                different possible results</strong>.
+        </p>
+
+        <p>
+            The evolution of the wavefunction over time is governed by deterministic equations, such as the Schrödinger
+            equation. However, the results of measurements themselves are inherently probabilistic. In simple terms, the
+            underlying dynamics follow precise mathematical rules, while what we observe is described in terms of
+            probabilities.
+        </p>
+
+        <h3 class="universe-subtitle">The birth of quantum mechanics</h3>
+
+        <h4 class="universe-subtitle">
+            <a href="blackbody-radiation.html">Blackbody radiation</a>
+        </h4>
+
+        <h4 class="universe-subtitle">
+            <a href="photoelectric-effect.html">Photoelectric effect</a>
+        </h4>
+
+        <h4 class="universe-subtitle">
+            <a href="atomic-spectra.html">Atomic spectra</a>
+        </h4>
+
+        <h4 class="universe-subtitle">
+            <a href="bohr-model.html">Bohr model & hydrogen spectrum</a>
+        </h4>
+
+        <h4 class="universe-subtitle">
+            <a href="compton-scattering.html">Compton scattering</a>
+        </h4>
+
+        <h4 class="universe-subtitle">
+            <a href="photon-momentum-compton-shift.html">Photon momentum & the Compton shift</a>
+        </h4>
+
+        <h4 class="universe-subtitle">
+            <a href="matter-waves-de-broglie.html">Matter waves & de Broglie wavelength</a>
+        </h4>
+
+        <h4 class="universe-subtitle">
+            <a href="electron-diffraction.html">
+                Electron diffraction & confirming <span class="mathjax-neon">$\lambda = h/p$</span>
+            </a>
+        </h4>
+
+        <h4 class="universe-subtitle">
+            <a href="heat-capacity-phonons.html">Heat capacity & phonons</a>
+        </h4>
+        <h4 class="universe-subtitle">
+            <a href="dulong.html">From Dulong–Petit to Einstein & Debye</a>
+        </h4>
+
+        <h4 class="universe-subtitle">
+            <a href="old-quantum.html">Old quantum theory → matrix & wave mechanics</a>
+        </h4>
+
+        <h4 class="universe-subtitle">
+            <a href="uncertainty.html">Quantum Principles: Uncertainty, Waves, and Probability</a>
+        </h4>
+
+        <h4 class="universe-subtitle">
+            <a href="spin-exclusion.html">Spin and the Exclusion Principle</a>
+        </h4>
+
+
+        <h4 class="universe-subtitle">
+            <a href="periodic-table.html">Stern–Gerlach, Uhlenbeck–Goudsmit spin, Pauli exclusion principle, periodic
+                table logic.</a>
+        </h4>
+
+        <h4 class="universe-subtitle">
+            <a href="relativistic-dirac.html">Relativistic synthesis & Dirac</a>
+        </h4>
+
+        <h4 class="universe-subtitle">
+            <a href="dirac-equation.html">The Dirac Equation: Spin & Antimatter</a>
+        </h4>
+
+        <figure class="hydrogen-viewer">
+            <canvas id="hydrogenCanvas"></canvas>
+            <figcaption>
+                Hydrogen Testing Model — Monte-Carlo sampling of the wavefunction; electron cloud in fluorescent
+                violet→pink
+                layers, testing rotating view, scroll/pinch to zoom & drag on desktops.
+            </figcaption>
+        </figure>
+
+        <h3 class="universe-subtitle">Notes</h3>
+        <p>
+            The radial part $R_{nl}(r)$ uses the hydrogenic form $R_{nl}(r)\propto (2r/n)^l e^{-r/n}
+            L_{n-l-1}^{2l+1}(2r/n)$,
+            and the angular part is sampled from $|Y_l^m(\theta,\phi)|^2\propto |P_l^m(\cos\theta)|^2$. The point cloud
+            is rendered with additive blending to emphasize density layering.
+        </p>
+    </section>
+
+    <div class="development-notice"
+        style="margin: 20px auto; padding: 15px; border-left: 3px solid #ef49fb; background: rgba(157, 0, 255, 0.05); width: min(900px, 92vw);">
+        <h4 class="universe-subtitle" style="margin-top: 0; color: #ef49fb;">Project Status & Content Update</h4>
+        <p style="font-size: 0.9rem; line-height: 1.6; color: #d8c8ff; margin-bottom: 0;">
+            Please note that this curriculum is currently a work in progress. While I am systematically populating all
+            sections,
+            priority has been given to core interests of mine such as <strong>The Dirac Equation: Spin &
+                Antimatter</strong> and
+            <strong>Old quantum theory → matrix & wave mechanics</strong>.
+        </p>
+        <p style="font-size: 0.9rem; line-height: 1.6; color: #d8c8ff; margin-top: 10px;">
+            Many modules already feature full documentation, while others currently serve as placeholders for
+            interactive 3D models.
+            I appreciate your patience as content is updated as professional time allows. This includes the integration
+            of
+            formal sources and citations, which are presently undergoing a permissions review with their respective
+            authors
+            to ensure full copyright compliance.
+        </p>
+    </div>
+
+    <footer class="footer">
+        <p class="copyright">© 2026 Issac Tabares. All Rights Reserved.</p>
+    </footer>
+
+    <script type="module">
+        import * as THREE from "three";
+        import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+
+        // ---------------- Hydrogen Model  Test ----------------
+        const CONFIG = {
+            n: 3, l: 2, m: 0, // orbital
+            N: 100000, // particle count
+            SCALE: 0.55, //
+            POINT_SIZE: 0.090, // dot size (slightly smaller reduces blow-out)
+            ALPHA: 5.0, // opacity
+            COLOR_A: "#7A00FF", // electric violet
+            COLOR_B: "#4B00FF" // deep blue-violet
+        };
+        // -----------------------------------------------------------------------
+
+        // ----- math -----
+        const fact = k => { let r = 1; for (let i = 2; i <= k; i++) r *= i; return r; };
+        function assocLaguerre(p, q, x) { if (q === 0) return 1; if (q === 1) return 1 + p - x; let L0 = 1, L1 = 1 + p - x, Lk = 0; for (let k = 2; k <= q; k++) { Lk = ((2 * k - 1 + p - x) * L1 - (k - 1 + p) * L0) / k; L0 = L1; L1 = Lk; } return L1; }
+        function assocLegendre(l, m, x) { const mm = Math.abs(m); let pmm = 1.0; if (mm > 0) { const s = Math.sqrt(Math.max(0, 1 - x * x)); let f = 1.0; for (let i = 1; i <= mm; i++) { pmm *= -f * s; f += 2.0; } } if (l === mm) return pmm; let pmmp1 = x * (2 * mm + 1) * pmm; if (l === mm + 1) return pmmp1; let pll = 0.0; for (let ll = mm + 2; ll <= l; ll++) { pll = ((2 * ll - 1) * x * pmmp1 - (ll + mm - 1) * pmm) / (ll - mm); pmm = pmmp1; pmmp1 = pll; } return pll; }
+        function Ylm(l, m, theta, phi) { const x = Math.cos(theta); const N = Math.sqrt((2 * l + 1) / (4 * Math.PI) * fact(l - Math.abs(m)) / fact(l + Math.abs(m))); const P = assocLegendre(l, m, x); if (m === 0) return N * P; const s = Math.SQRT2 * N * P; return (m > 0) ? s * Math.cos(m * phi) : s * Math.sin(-m * phi); }
+        function Rnl(n, l, r) { const rho = 2 * r / n; const norm = Math.sqrt((2 / n) ** 3 * fact(n - l - 1) / (2 * n * fact(n + l))); const L = assocLaguerre(2 * l + 1, n - l - 1, rho); return norm * Math.exp(-rho / 2) * Math.pow(rho, l) * L; }
+        function psi(n, l, m, r, theta, phi) { return Rnl(n, l, r) * Ylm(l, m, theta, phi); }
+        function hexToRgb(hex) { const h = (hex || "").trim().replace("#", ""); const v = parseInt(h || "000000", 16); if (!isFinite(v)) return [1, 1, 1]; return [(v >> 16 & 255) / 255, (v >> 8 & 255) / 255, (v & 255) / 255]; }
+
+        // ----- scene -----
+        const canvas = document.getElementById('hydrogenCanvas');
+        const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, premultipliedAlpha: false });
+        renderer.setPixelRatio(Math.min(2, window.devicePixelRatio));
+        // This is the key line to make the Three.js canvas background transparent
+        renderer.setClearAlpha(0); // Sets the clear alpha to 0 (fully transparent)
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(45, 1, 0.01, 2000);
+        camera.position.set(0, 0, 28);
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true; controls.autoRotate = true; controls.autoRotateSpeed = 0.35;
+        controls.enableZoom = true; controls.zoomSpeed = 1.0; controls.minDistance = 6; controls.maxDistance = 300;
+
+        function sampleOrbital(n, l, m, N, scale) {
+            l = Math.max(0, Math.min(n - 1, l)); m = Math.max(-l, Math.min(l, m));
+            const R = Math.max(8, 5 * n + 4 * l);
+            let maxP = 0; for (let i = 0; i < 20000; i++) { const r = Math.random() * R, th = Math.acos(2 * Math.random() - 1), ph = 2 * Math.PI * Math.random(); const p = psi(n, l, m, r, th, ph) ** 2; if (p > maxP) maxP = p; } maxP = maxP * 1.25 + 1e-12;
+            const pos = new Float32Array(N * 3), raw = new Float32Array(N);
+            let accepted = 0, pmin = Infinity, pmax = 0;
+            while (accepted < N) {
+                const x = (Math.random() * 2 - 1) * R, y = (Math.random() * 2 - 1) * R, z = (Math.random() * 2 - 1) * R;
+                const r = Math.hypot(x, y, z); if (r === 0 || r > R) continue;
+                const theta = Math.acos(z / (r + 1e-12)), phi = Math.atan2(y, x);
+                const p = psi(n, l, m, r, theta, phi) ** 2;
+                if (Math.random() * maxP <= p) {
+                    const i = accepted * 3;
+                    pos[i] = x * scale; pos[i + 1] = y * scale; pos[i + 2] = z * scale;
+                    raw[accepted] = p;
+                    if (p < pmin) pmin = p; if (p > pmax) pmax = p; accepted++;
+                }
+            }
+            return { pos, raw, pmin, pmax };
+        }
+
+        function buildColors(raw, pmin, pmax, colAhex, colBhex) {
+            const N = raw.length;
+            const col = new Float32Array(N * 3);
+            const A = hexToRgb(colAhex), B = hexToRgb(colBhex);
+            for (let i = 0; i < N; i++) {
+                let t = (raw[i] - pmin) / (pmax - pmin + 1e-12);
+                t = Math.pow(Math.max(0, Math.min(1, t)), 0.55);
+                const j = i * 3;
+                col[j] = A[0] + (B[0] - A[0]) * t;
+                col[j + 1] = A[1] + (B[1] - A[1]) * t;
+                col[j + 2] = A[2] + (B[2] - A[2]) * t;
+            }
+            return col;
+        }
+
+        let points;
+        function rebuild() {
+            const { n, l, m, N, SCALE, POINT_SIZE, ALPHA, COLOR_A, COLOR_B } = CONFIG;
+            if (points) { scene.remove(points); points.geometry.dispose(); points.material.dispose(); points = null; }
+            const { pos, raw, pmin, pmax } = sampleOrbital(n, l, m, N, SCALE);
+            const col = buildColors(raw, pmin, pmax, COLOR_A, COLOR_B);
+            const geo = new THREE.BufferGeometry();
+            geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+            geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
+            const mat = new THREE.PointsMaterial({
+                size: POINT_SIZE,
+                vertexColors: true,
+                transparent: true,
+                opacity: ALPHA,
+                depthWrite: false,
+                sizeAttenuation: true
+            });
+            // Use normal blending to avoid additive white-out
+            mat.blending = THREE.NormalBlending;
+            points = new THREE.Points(geo, mat);
+            scene.add(points);
+        }
+
+        function resize() {
+            const rect = canvas.getBoundingClientRect();
+            const w = Math.max(1, Math.floor(rect.width)), h = Math.max(1, Math.floor(rect.height));
+            renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix();
+        }
+        new ResizeObserver(resize).observe(canvas); resize();
+        function animate() { requestAnimationFrame(animate); controls.update(); renderer.render(scene, camera); } animate();
+
+        rebuild();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Spin and the Exclusion Principle</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="projects.html" class="nav-projects">My Projects</a>
+            <h1 class="site-name">
+                <a href="index.html">
+                    <img src="assets/solar-system.svg" class="rotating-planet" alt="Rotating Planet">
+                    Issac Tabares
+                    <img src="assets/atom.svg" class="logo" id="atomLogo" alt="Atom Logo">
+                </a>
+            </h1>
+        </div>
+    </header>
+
+    <section class="about">
+        <!-- Back Arrow -->
+        <a href="quantum-mechanics.html" class="back-arrow" aria-label="Back to Quantum Mechanics">⬅</a>
+
+        <h2 class="section-title bigbang-title"><strong>Spin and the Exclusion Principle</strong></h2>
+
+        <!--  intro linking spin to Pauli exclusion -->
+
+        <h3 class="universe-subtitle">Stern–Gerlach & two-valued spin</h3>
+        <!-- Content beam splitting, two spots, m_s = ±1/2 -->
+        <!-- Model  -->
+        <figure class="model-viewer" id="model-stern-gerlach"><canvas id="canvas-stern-gerlach"></canvas>
+            <figcaption><!-- Explanation of the model --></figcaption>
+        </figure>
+
+        <h3 class="universe-subtitle">Spin operator & magnetic moment</h3>
+        <!-- CONTENT HERE: S^2 = s(s+1)ħ^2, s=1/2, μ_s = -g(e/2m)S, g≈2 -->
+        <!-- Model -->
+        <figure class="model-viewer" id="model-spin-precession"><canvas id="canvas-spin-precession"></canvas>
+            <figcaption><!-- Explanation of the model--></figcaption>
+        </figure>
+
+        <h3 class="universe-subtitle">Pauli exclusion principle</h3>
+        <!-- Content statement and consequences -->
+        <!-- Model -->
+        <figure class="model-viewer" id="model-pauli-demo"><canvas id="canvas-pauli-demo"></canvas>
+            <figcaption><!-- Model explanation  --></figcaption>
+        </figure>
+
+        <h3 class="universe-subtitle">Notes & key formulas</h3>
+        <p><!-- $$ \mathbf{S}^2 = s(s+1)\hbar^2,\quad s=\tfrac12,\quad m_s=\pm\tfrac12,\quad \boldsymbol{\mu}_s = -g\frac{e}{2m}\mathbf{S}\ (g\approx2). $$ -->
+        </p>
+    </section>
+
+    <footer class="footer">
+        <p class="copyright">© 2026 Issac Tabares. All Rights Reserved.</p>
+    </footer>
+
+    <div id="particles-container"></div>
+</body>
+
+</html>

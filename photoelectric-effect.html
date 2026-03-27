@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Photoelectric effect</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="projects.html" class="nav-projects">My Projects</a>
+            <h1 class="site-name">
+                <a href="index.html">
+                    <img src="assets/solar-system.svg" class="rotating-planet" alt="Rotating Planet">
+                    Issac Tabares
+                    <img src="assets/atom.svg" class="logo" id="atomLogo" alt="Atom Logo">
+                </a>
+            </h1>
+        </div>
+    </header>
+
+    <section class="about" style="margin-top:0px">
+        <!-- Back to Quantum Mechanics hub -->
+        <a href="quantum-mechanics.html" class="back-arrow">⬅</a>
+
+        <h2 class="section-title"><strong>Photoelectric Effect</h2></strong>
+
+        <p>
+            The <strong>photoelectric effect</strong> is the emission of electrons from a metal surface when it is
+            illuminated
+            by light with sufficiently high frequency, or equivalently, sufficiently short wavelength. The emitted
+            electrons,
+            called <strong>photoelectrons</strong>, can be analyzed by applying a retarding voltage that just stops
+            them,
+            allowing their maximum kinetic energy to be measured.
+        </p>
+
+        <p>
+            Two key observations cannot be explained by classical wave theory. First, there exists a sharp
+            <strong>threshold frequency</strong> $\nu_0$ (or wavelength $\lambda_0$) below which no electrons are
+            emitted,
+            regardless of how intense the light is. Second, when $\nu \ge \nu_0$, emission occurs immediately, and the
+            maximum
+            kinetic energy of the electrons depends on the <strong>frequency</strong> of the light, not its intensity.
+        </p>
+
+        <p>
+            In 1905, <strong>Einstein</strong> explained these results by proposing that light is made of discrete
+            quanta,
+            later called <strong>photons</strong>. Each photon carries energy
+            $$
+            E = h\nu,
+            $$
+            which means energy is delivered in fixed packets whose size increases with frequency. Higher-frequency light
+            therefore carries more energetic photons.
+        </p>
+
+        <p>
+            A photon also carries momentum
+            $$
+            p = \frac{h}{\lambda} = \frac{h\nu}{c},
+            $$
+            meaning that even without mass, light transfers a definite amount of directional momentum when it interacts
+            with
+            matter.
+        </p>
+
+        <p>
+            Each material is characterized by a <strong>work function</strong> $\phi$, defined as the minimum energy
+            required to
+            remove an electron from the surface. This is related to the threshold frequency by $\phi = h\nu_0$.
+        </p>
+
+        <p>
+            Applying energy conservation to a single photon interacting with an electron gives
+            $$
+            h\nu = \phi + K_{\max}, \qquad K_{\max} = eV_0,
+            $$
+            where $K_{\max}$ is the maximum kinetic energy of the emitted electron and $V_0$ is the stopping potential.
+            In
+            simple terms, the photon’s energy is divided into two parts: one portion is used to free the electron, and
+            the
+            remainder appears as kinetic energy, which is measured through the stopping voltage.
+        </p>
+
+        <p>
+            Rearranging,
+            $$
+            V_0 = \frac{h}{e}\nu - \frac{\phi}{e}.
+            $$
+            This shows that the stopping potential varies linearly with frequency. The slope is $h/e$, which encodes
+            Planck’s
+            constant, and the intercept is $-\phi/e$, which depends on the material. Increasing the
+            <strong>intensity</strong>
+            at fixed frequency increases the number of emitted electrons, and therefore the current, but does not change
+            their
+            maximum kinetic energy because each photon carries the same energy.
+        </p>
+
+        <p>
+            The threshold condition follows directly as $\nu_0 = \phi/h$ (equivalently $\lambda_0 = hc/\phi$). In simple
+            terms,
+            if a photon does not carry enough energy to overcome the work function, no electron is emitted, regardless
+            of how
+            many photons arrive. Once the threshold is exceeded, any additional energy appears as kinetic energy.
+        </p>
+
+        <p>
+            The absence of delay in emission reflects the localized nature of energy transfer. A single photon either
+            has enough
+            energy to eject an electron immediately, or it does not produce emission at all.
+        </p>
+
+        <p>
+            This interpretation was confirmed experimentally by <strong>Millikan</strong> in 1916, who measured the
+            stopping
+            potential as a function of frequency and found the predicted linear relationship. The slope yielded a value
+            of
+            Planck’s constant consistent with that obtained from blackbody radiation, providing independent confirmation
+            that
+            light behaves as discrete energy quanta.
+        </p>
+
+        <!-- TEMP placeholder so the page is not blank -->
+        <p><em>Content goes here. Replace this paragraph with your photoelectric effect text and equations.</em></p>
+
+        <!-- ===================== ========================== -->
+    </section>
+
+    <footer class="footer">
+        <p class="copyright">© 2026 Issac Tabares. All Rights Reserved.</p>
+    </footer>
+</body>
+
+</html>

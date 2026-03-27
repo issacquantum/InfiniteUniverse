@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Atomic spectra</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+
+    <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+    </script>
+
+    <style>
+        .spectra-viewer {
+            position: relative;
+            max-width: 900px;
+            margin: 30px auto;
+            /* Removed the background-color and border from here to allow site background */
+            padding: 18px;
+            border-radius: 10px;
+        }
+
+        #spectraCanvas {
+            width: 100%;
+            height: 420px;
+            display: block;
+            border-radius: 8px;
+            /* Removed fixed background gradient to be transparent */
+            /* Add a subtle border or shadow to define the canvas area if needed */
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            touch-action: none;
+        }
+
+        .spectra-viewer figcaption {
+            margin-top: 10px;
+            font-size: 0.8rem;
+            line-height: 1.4;
+            color: #bfbbc1;
+            text-align: center;
+        }
+
+        .spectra-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+        }
+
+        .spectra-controls label {
+            color: #e9ddff;
+            font-size: 0.9em;
+        }
+
+        .spectra-controls select {
+            background-color: #4b005e;
+            color: #fff;
+            border: 1px solid #7a00ff;
+            padding: 5px 8px;
+            border-radius: 4px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .spectra-controls select:focus {
+            border-color: #ff6ec7;
+            box-shadow: 0 0 5px #ff6ec7;
+        }
+
+        @media (max-width: 768px) {
+            #spectraCanvas {
+                height: 300px;
+            }
+
+            .spectra-controls {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="projects.html" class="nav-projects">My Projects</a>
+            <h1 class="site-name">
+                <a href="index.html">
+                    <img src="assets/solar-system.svg" class="rotating-planet" alt="Rotating Planet">
+                    Issac Tabares
+                    <img src="assets/atom.svg" class="logo" id="atomLogo" alt="Atom Logo">
+                </a>
+            </h1>
+        </div>
+    </header>
+
+    <section class="about" style="margin-top:0px">
+        <!-- Back to Quantum Mechanics hub -->
+        <a href="quantum-mechanics.html" class="back-arrow">⬅</a>
+
+        <h2 class="section-title"><strong>Atomic Spectra</strong></h2>
+
+        <p>
+            When atoms are excited, for example by heating or electrical discharge, they emit light at specific,
+            well-defined wavelengths. Instead of producing a continuous spectrum, they generate a set of discrete
+            lines known as an <strong>atomic spectrum</strong>. Each chemical element has its own unique pattern,
+            which acts like a fingerprint.
+        </p>
+
+        <p>
+            These spectral lines were studied in detail for hydrogen, the simplest atom. Experimentally, their
+            wavelengths follow the <strong>Rydberg formula</strong>:
+            $$
+            \frac{1}{\lambda} = R \left( \frac{1}{n^2} - \frac{1}{m^2} \right), \qquad m > n,
+            $$
+            where $R$ is the Rydberg constant. In simple terms, this equation predicts the exact wavelengths of
+            emitted light using two integers. This strongly suggests that the energy of the atom is not continuous,
+            but restricted to specific levels.
+        </p>
+
+        <p>
+            In 1913, <strong>Niels Bohr</strong> proposed a model of the hydrogen atom that explains these discrete
+            spectra by introducing quantized electron orbits. His model is based on three key postulates.
+        </p>
+
+        <p>
+            First, the electron moves in certain allowed circular orbits around the nucleus without radiating energy.
+            These are called <strong>stationary states</strong>, and each one corresponds to a definite energy.
+        </p>
+
+        <p>
+            Second, the angular momentum of the electron is quantized:
+            $$
+            L = n\hbar, \qquad n = 1, 2, 3, \dots
+            $$
+            In simple terms, the electron can only occupy orbits where its angular momentum takes specific discrete
+            values, rather than any arbitrary value.
+        </p>
+
+        <p>
+            Third, radiation is emitted or absorbed only when the electron transitions between these allowed states.
+            The frequency of the emitted or absorbed light is determined by the energy difference:
+            $$
+            h\nu = E_m - E_n.
+            $$
+            This means that light is produced when the electron jumps between energy levels, and the frequency
+            directly reflects the size of that energy change.
+        </p>
+
+        <p>
+            From these assumptions, Bohr derived the allowed energy levels for hydrogen:
+            $$
+            E_n = -\frac{13.6\ \text{eV}}{n^2}.
+            $$
+            In simple terms, the electron can only have certain fixed energies, labeled by the integer $n$. The
+            negative sign indicates that the electron is bound to the nucleus, and as $n$ increases, the energy
+            approaches zero, meaning the electron becomes less tightly bound.
+        </p>
+
+        <p>
+            When an electron falls from a higher level $m$ to a lower level $n$, it emits a photon whose wavelength
+            matches the observed spectral lines. This explains the Rydberg formula and the discrete nature of atomic
+            spectra.
+        </p>
+
+        <p>
+            The Bohr model successfully explains the hydrogen spectrum and introduces quantization in a concrete
+            way. However, it has limitations. It does not accurately describe more complex atoms, and it cannot
+            account for finer details such as spectral line splitting or the full dynamics of electrons.
+        </p>
+
+        <p>
+            Despite these limitations, Bohr’s model marked a crucial step toward modern quantum mechanics by showing
+            that atomic structure is inherently quantized and that energy levels are discrete rather than continuous.
+        </p>
+
+        <figure class="spectra-viewer">
+            <canvas id="spectraCanvas"></canvas>
+            <figcaption>
+                Interactive Hydrogen Emission Simulator — Select the initial and final energy levels ($n$ and $m$)
+                to visualize an electron transition and the resulting emitted photon. Observe how the photon's
+                color changes with energy. You can rotate the view and zoom in/out.
+            </figcaption>
+            <div class="spectra-controls">
+                <label for="initialN">Initial State ($m$):</label>
+                <select id="initialN">
+                    <option value="2">2</option>
+                    <option value="3" selected>3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                </select>
+                <label for="finalN">Final State ($n$):</label>
+                <select id="finalN">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+        </figure>
+
+        <!-- EXPLANATION FOR THE MODEL  -->
+        <p>
+            This interactive model visualizes the Bohr model of the hydrogen atom, specifically demonstrating how
+            electrons transition between discrete energy levels and emit photons.
+        </p>
+        <p>
+            The central sphere represents the <strong>nucleus</strong>, and the concentric rings are the
+            <strong>quantized electron
+                orbits</strong>
+            (or stationary states) with energy levels $n = 1, 2, 3, \dots$. When you select an "Initial State ($m$)"
+            and a "Final State ($n$)," an electron (represented by a small white sphere) is shown making a jump
+            from the higher energy level ($m$) to the lower energy level ($n$).
+        </p>
+        <p>
+            During this transition, a <strong>photon</strong> is emitted, depicted as a small wave packet. The color of
+            this photon
+            is determined by its energy, which in turn depends on the energy difference between the initial and
+            final electron states ($E_m - E_n$). Higher energy transitions (larger jumps or jumps to lower n states)
+            result in photons with shorter wavelengths (e.g., ultraviolet or violet light), while lower energy
+            transitions
+            produce longer wavelengths (e.g., red light or infrared).
+        </p>
+        <p>
+            This simulation helps to illustrate the fundamental principle of <strong>quantization</strong> in atomic
+            spectra:
+            atoms only emit light at specific, discrete wavelengths because electrons can only occupy specific
+            energy levels and make discrete jumps between them.
+        </p>
+        <!-- End  -->
+
+    </section>
+
+    <footer class="footer">
+        <p class="copyright">© 2026 Issac Tabares. All Rights Reserved.</p>
+    </footer>
+
+    <script type="module">
+        import * as THREE from "three";
+        import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+
+        // Scene setup
+        const canvas = document.getElementById('spectraCanvas');
+        const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+        renderer.setPixelRatio(Math.min(2, window.devicePixelRatio));
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000);
+        camera.position.set(0, 0, 20);
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.enableZoom = true;
+        controls.minDistance = 5;
+        controls.maxDistance = 50;
+
+        // Lights
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+        scene.add(ambientLight);
+        const pointLight = new THREE.PointLight(0xffffff, 1);
+        pointLight.position.set(10, 10, 10);
+        scene.add(pointLight);
+
+        // Nucleus
+        const nucleusGeometry = new THREE.SphereGeometry(0.5, 32, 32);
+        const nucleusMaterial = new THREE.MeshBasicMaterial({ color: 0x993ad9 }); // Purple
+        const nucleus = new THREE.Mesh(nucleusGeometry, nucleusMaterial);
+        scene.add(nucleus);
+
+        // Orbits
+        const orbitMaterial = new THREE.LineBasicMaterial({ color: 0xFF1493, transparent: true, opacity: 0.5 });
+        const orbits = [];
+        const maxN = 6;
+        for (let n = 1; n <= maxN; n++) {
+            const radius = n * 1.25; // Scale orbits for visibility
+            const points = [];
+            for (let i = 0; i <= 64; i++) {
+                const angle = (i / 64) * Math.PI * 2;
+                points.push(new THREE.Vector3(radius * Math.cos(angle), radius * Math.sin(angle), 0));
+            }
+            const orbitGeometry = new THREE.BufferGeometry().setFromPoints(points);
+            const orbit = new THREE.Line(orbitGeometry, orbitMaterial);
+            orbits.push(orbit);
+            scene.add(orbit);
+        }
+
+        // Electron
+        const electronGeometry = new THREE.SphereGeometry(0.15, 16, 16);
+        const electronMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff }); // White electron
+        const electron = new THREE.Mesh(electronGeometry, electronMaterial);
+        scene.add(electron);
+
+        // Photon (simplified as a moving sphere for visualization)
+        const photonGeometry = new THREE.SphereGeometry(0.1, 16, 16);
+        const photonMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
+        const photon = new THREE.Mesh(photonGeometry, photonMaterial);
+        photon.visible = false;
+        scene.add(photon);
+
+        let initialNValue = parseInt(document.getElementById('initialN').value);
+        let finalNValue = parseInt(document.getElementById('finalN').value);
+
+        function getEnergyLevelRadius(n) {
+            return n * 2; // Scale factor matching orbit creation
+        }
+
+        function getPhotonColor(m, n) {
+            // Bohr energy levels in eV: En = -13.6 / n^2
+            const E_m = -13.6 / (m * m);
+            const E_n = -13.6 / (n * n);
+            const deltaE = Math.abs(E_m - E_n); // Energy of emitted photon in eV (always positive for emission)
+
+            // Convert energy to wavelength (simplified for visual mapping)
+            // Using 1240 for hc in eV*nm (approximate)
+            const wavelength_nm = 1240 / deltaE;
+
+            // Map wavelength to color (simplified visible spectrum approximation)
+            // UV range (n=1 transitions, Lyman series)
+            if (n === 1) { // Lyman series (UV)
+                return new THREE.Color(0xbf00ff); // Bright purple for UV
+            }
+            // Visible range (n=2 transitions, Balmer series)
+            else if (n === 2) { // Balmer series (Visible)
+                if (m === 3) return new THREE.Color(0xff0000); // H-alpha: Red (656nm)
+                if (m === 4) return new THREE.Color(0x0000ff); // H-beta: Blue (486nm)
+                if (m === 5) return new THREE.Color(0x8a2be2); // H-gamma: Violet (434nm)
+                if (m === 6) return new THREE.Color(0x8a2be2); // H-delta: Violet (410nm)
+                return new THREE.Color(0x8a2be2); // Default for Balmer (violet)
+            }
+            // IR range (n=3 transitions, Paschen series, etc.)
+            else if (n === 3) { // Paschen series (IR)
+                return new THREE.Color(0xff6ec7); // Pink for IR
+            }
+            // Fallback for other series or unhandled
+            return new THREE.Color(0xffffff); // White
+        }
+
+        let animationProgress = 0;
+        let animationState = 'idle'; // 'idle', 'transitioning', 'emitting'
+
+        function resetSimulation() {
+            animationState = 'idle';
+            animationProgress = 0;
+            const initialRadius = getEnergyLevelRadius(initialNValue);
+            electron.position.set(initialRadius, 0, 0); // Start electron on its initial orbit
+            photon.visible = false;
+        }
+
+        function startTransition() {
+            resetSimulation(); // Ensure electron is on initial orbit before transition
+            animationState = 'transitioning';
+        }
+
+        document.getElementById('initialN').addEventListener('change', (event) => {
+            initialNValue = parseInt(event.target.value);
+            // Ensure m > n
+            if (initialNValue <= finalNValue) {
+                finalNValue = initialNValue - 1;
+                if (finalNValue < 1) finalNValue = 1; // Minimum final state
+                document.getElementById('finalN').value = finalNValue;
+            }
+            startTransition();
+        });
+
+        document.getElementById('finalN').addEventListener('change', (event) => {
+            finalNValue = parseInt(event.target.value);
+            // Ensure m > n
+            if (initialNValue <= finalNValue) {
+                initialNValue = finalNValue + 1;
+                document.getElementById('initialN').value = initialNValue;
+            }
+            startTransition();
+        });
+
+        resetSimulation(); // Initial setup
+
+        const animate = () => {
+            requestAnimationFrame(animate);
+
+            if (animationState === 'transitioning') {
+                animationProgress += 0.03; // Speed of electron transition
+                if (animationProgress >= 1) {
+                    animationProgress = 1; // Ensure it reaches the final position
+                    animationState = 'emitting';
+                    photon.visible = true;
+                    photon.material.color.copy(getPhotonColor(initialNValue, finalNValue));
+                    // Start photon from the nucleus, representing emission from the atom's center
+                    photon.position.copy(nucleus.position);
+                    photon.scale.set(1, 1, 1); // Reset photon scale
+                }
+
+                const initialRadius = getEnergyLevelRadius(initialNValue);
+                const finalRadius = getEnergyLevelRadius(finalNValue);
+
+                // Simple linear interpolation for electron position
+                const currentRadius = initialRadius * (1 - animationProgress) + finalRadius * animationProgress;
+                electron.position.x = currentRadius * Math.cos(Date.now() * 0.002); // Keep orbiting
+                electron.position.y = currentRadius * Math.sin(Date.now() * 0.002);
+                electron.position.z = 0;
+
+            } else if (animationState === 'emitting') {
+                const photonSpeed = 0.3;
+                photon.position.x += photonSpeed * Math.cos(Date.now() * 0.005); // Move outwards with some wiggle
+                photon.position.y += photonSpeed * Math.sin(Date.now() * 0.005);
+                photon.position.z += photonSpeed * Math.sin(Date.now() * 0.007);
+                photon.scale.multiplyScalar(.995); // Photon fades out by growing
+
+                if (photon.position.length() > 50) { // If photon is far away
+                    resetSimulation();
+                    startTransition(); // Loop the animation
+                }
+            } else {
+                // Electron orbiting in initial state
+                const currentOrbitRadius = getEnergyLevelRadius(initialNValue);
+                electron.position.x = currentOrbitRadius * Math.cos(Date.now() * 0.002);
+                electron.position.y = currentOrbitRadius * Math.sin(Date.now() * 0.002);
+                electron.position.z = 0; // Keep it on the plane
+            }
+
+            controls.update();
+            renderer.render(scene, camera);
+        };
+
+        const resize = () => {
+            const rect = canvas.getBoundingClientRect();
+            const w = Math.max(1, Math.floor(rect.width)), h = Math.max(1, Math.floor(rect.height));
+            renderer.setSize(w, h, false);
+            camera.aspect = w / h;
+            camera.updateProjectionMatrix();
+        };
+
+        new ResizeObserver(resize).observe(canvas);
+        resize();
+        animate();
+    </script>
+</body>
+
+</html>

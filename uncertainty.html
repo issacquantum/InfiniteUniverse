@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Spin and the Exclusion Principle</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <script src="js/script.js" defer></script>
+
+    <style>
+        /* Viewer boxes (smaller) */
+        .qm-viewer {
+            position: relative;
+            width: min(760px, 92vw);
+            margin: 14px auto 6px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            box-shadow: none;
+            padding: 12px;
+            overflow: hidden;
+        }
+
+        .qm-viewer canvas {
+            width: 100% !important;
+            height: 300px;
+            /* was 360 */
+            display: block;
+            border-radius: 10px;
+        }
+
+        .qm-ui {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            align-items: center;
+            justify-content: center;
+            margin: 8px auto 0;
+            padding: 8px 10px;
+            width: min(760px, 92vw);
+            background: rgba(40, 12, 70, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            backdrop-filter: blur(4px);
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 8px;
+            border-radius: 999px;
+            font: 500 12px/1.1 'Dancing Script', cursive;
+            color: #f3e9ff;
+            background: rgba(157, 0, 255, 0.18);
+            border: 1px solid rgba(157, 0, 255, 0.45);
+            box-shadow: 0 0 10px rgba(255, 110, 199, 0.22), inset 0 0 14px rgba(157, 0, 255, 0.12);
+            text-shadow: 0 0 5px rgba(255, 110, 199, 0.5), 0 0 12px rgba(157, 0, 255, 0.3);
+        }
+
+        .pill input[type="range"] {
+            accent-color: #FF6EC7;
+            height: 14px;
+            width: 110px;
+            margin: 0 6px;
+        }
+
+        .pill button {
+            all: unset;
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 999px;
+            background: linear-gradient(180deg, rgba(255, 110, 199, .25), rgba(157, 0, 255, .25));
+            border: 1px solid rgba(255, 110, 199, .55);
+            font-size: 12px;
+        }
+
+        .pill button:hover {
+            box-shadow: 0 0 14px rgba(255, 110, 199, .4), 0 0 20px rgba(157, 0, 255, .3);
+            transform: translateY(-1px);
+        }
+
+        .pill button:active {
+            transform: translateY(0);
+        }
+
+        .hint {
+            width: min(760px, 92vw);
+            margin: 6px auto 0;
+            color: #e9ddff;
+            opacity: .9;
+            font: 500 12px/1.4 'Dancing Script', cursive;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .qm-viewer {
+                max-width: 420px;
+                padding: 10px;
+            }
+
+            .qm-viewer canvas {
+                height: 200px;
+            }
+
+            .pill input[type="range"] {
+                width: 90px;
+            }
+        }
+
+        .model-tag {
+            display: inline-block;
+            margin: 6px auto 4px;
+            padding: 4px 8px;
+            border-radius: 999px;
+            background: rgba(157, 0, 255, 0.18);
+            border: 1px solid rgba(157, 0, 255, 0.45);
+            box-shadow: 0 0 10px rgba(255, 110, 199, 0.22);
+            font: 600 11px/1 'Dancing Script', cursive;
+            letter-spacing: .3px;
+        }
+
+        .explain-slot {
+            width: min(760px, 92vw);
+            margin: 6px auto 14px;
+            color: #d8c8ff;
+            font: 400 14px/1.55 'Dancing Script', cursive;
+        }
+
+        .explain-slot h4 {
+            margin: 8px 0 4px;
+            color: #ef49fb;
+            text-shadow: 0 0 4px #e669ff, 0 0 8px #fb14ff;
+            font-size: 1.0em;
+        }
+
+        /* Specific override for Mobile Phones */
+        @media (max-width: 768px) {
+
+            .pill,
+            .hint,
+            .model-tag,
+            .explain-slot,
+            .explain-slot h4 {
+                font-family: 'Apple Chancery', 'Papyrus', fantasy, cursive, sans-serif !important;
+            }
+        }
+    </style>
+
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="projects.html" class="nav-projects">My Projects</a>
+            <h1 class="site-name">
+                <a href="index.html">
+                    <img src="assets/solar-system.svg" class="rotating-planet" alt="Rotating Planet">
+                    Issac Tabares
+                    <img src="assets/atom.svg" class="logo" id="atomLogo" alt="Atom Logo">
+                </a>
+            </h1>
+        </div>
+    </header>
+
+    <section class="about">
+        <a href="quantum-mechanics.html" class="back-arrow" aria-label="Back to Quantum Mechanics">⬅</a>
+
+        <h2 class="section-title bigbang-title"><strong>Spin and the Exclusion Principle</strong></h2>
+
+        <!-- ===== MODEL 1: Heisenberg γ-ray Microscope ===== -->
+        <div class="model-tag">Model 1 · Heisenberg γ-ray Microscope</div>
+        <figure class="qm-viewer" id="heisViewer">
+            <canvas id="heisCanvas" aria-label="Heisenberg gamma-ray microscope visualization"></canvas>
+            <figcaption class="hint">
+                Shorter wavelength $\rightarrow$ better position resolution but larger momentum kick. Product $\Delta
+                x\cdot\Delta p$ shown below.
+            </figcaption>
+        </figure>
+        <div class="qm-ui" id="heisUI">
+            <span class="pill">
+                <label for="lambdaSlider">λ (nm)</label>
+                <input id="lambdaSlider" type="range" min="200" max="800" step="10" value="500">
+                <span id="lambdaVal">500</span>
+            </span>
+            <span class="pill">
+                <label for="apertureSlider">Aperture θ (deg)</label>
+                <input id="apertureSlider" type="range" min="10" max="80" step="1" value="40">
+                <span id="thetaVal">40°</span>
+            </span>
+            <span class="pill"><button id="firePhoton" type="button">Fire photon</button></span>
+            <span class="pill">Δx ≈ <b id="dxOut" aria-live="polite">—</b></span>
+            <span class="pill">Δp ≈ <b id="dpOut" aria-live="polite">—</b></span>
+            <span class="pill">Δx·Δp ≈ <b id="prodOut" aria-live="polite">—</b> (ħ/2 = <span id="hbar2">—</span>)</span>
+        </div>
+        <div class="explain-slot">
+            <h4>What this shows</h4>
+            <p></p>
+            <h4>How to read it</h4>
+            <p></p>
+        </div>
+
+        <!-- ===== MODEL 2: Gaussian Wave Packet ===== -->
+        <div class="model-tag">Model 2 · Gaussian Wave Packet (<span class="mjx">$\Delta x$ & $\Delta p$</span> in time)
+        </div>
+        <figure class="qm-viewer" id="gpViewer">
+            <canvas id="gpCanvas" aria-label="Gaussian wave packet in x and p space"></canvas>
+            <figcaption class="hint">
+                Top: $|\psi(x,t)|^2$ · Bottom: $|\varphi(p,t)|^2$. Narrower in $x$ $\leftrightarrow$ wider in $p$ (and
+                it spreads over time).
+            </figcaption>
+        </figure>
+        <div class="qm-ui" id="gpUI">
+            <span class="pill">
+                <label for="gpSigma0">σ₀</label>
+                <input id="gpSigma0" type="range" min="0.20" max="1.20" step="0.01" value="0.45">
+                <span id="gpSigma0Val">0.45</span>
+            </span>
+            <span class="pill">
+                <label for="gpP0">p₀</label>
+                <input id="gpP0" type="range" min="-3.0" max="3.0" step="0.1" value="1.5">
+                <span id="gpP0Val">1.5</span>
+            </span>
+            <span class="pill">
+                <label for="gpMass">m</label>
+                <input id="gpMass" type="range" min="0.5" max="4.0" step="0.1" value="1.0">
+                <span id="gpMassVal">1.0</span>
+            </span>
+            <span class="pill"><button id="gpPlay" type="button">Pause</button></span>
+            <span class="pill"><button id="gpReset" type="button">Reset</button></span>
+            <span class="pill">Δx = <b id="gpDx">—</b></span>
+            <span class="pill">Δp = <b id="gpDp">—</b></span>
+            <span class="pill">Δx·Δp = <b id="gpProd">—</b> (ħ/2 = <span id="gpHbar2">—</span>)</span>
+        </div>
+        <div class="explain-slot">
+            <h4>What this shows</h4>
+            <p>A free Gaussian wave packet with initial width $\sigma_0$ and mean momentum $p_0$. It translates and
+                spreads:
+                $\sigma(t) = \sigma_0\,\sqrt{1 + \left(\frac{\hbar t}{2m\sigma_0^2}\right)^2}$. Momentum width stays
+                constant:
+                $\Delta p = \frac{\hbar}{2\sigma_0}$. Product $\Delta x\cdot\Delta p \ge \frac{\hbar}{2}$.</p>
+            <p></p>
+        </div>
+
+        <!-- ===== MODEL 3: Double-Slit ===== -->
+        <div class="model-tag">Model 3 · Double-Slit (waves → probability → measurement)</div>
+        <figure class="qm-viewer" id="dsViewer">
+            <canvas id="dsCanvas" aria-label="Double-slit interference visualization"></canvas>
+            <figcaption class="hint">
+                Adjust slits and wavelength; toggle which-path to collapse interference into particle-like hits.
+            </figcaption>
+        </figure>
+        <div class="qm-ui" id="dsUI">
+            <span class="pill">
+                <label for="dsLambda">λ (nm)</label>
+                <input id="dsLambda" type="range" min="380" max="750" step="5" value="550">
+                <span id="dsLambdaVal">550</span>
+            </span>
+            <span class="pill">
+                <label for="dsSlitSep">Slit sep d (µm)</label>
+                <input id="dsSlitSep" type="range" min="10" max="200" step="1" value="80">
+                <span id="dsSlitSepVal">80</span>
+            </span>
+            <span class="pill">
+                <label for="dsSlitWidth">Slit width a (µm)</label>
+                <input id="dsSlitWidth" type="range" min="5" max="100" step="1" value="20">
+                <span id="dsSlitWidthVal">20</span>
+            </span>
+            <span class="pill"><button id="dsWhichPath" type="button" aria-pressed="false">Which-path:
+                    Off</button></span>
+            <span class="pill"><button id="dsReset" type="button">Reset</button></span>
+            <span class="pill">Visibility V = <b id="dsVisibility">—</b></span>
+        </div>
+        <div class="explain-slot">
+            <h4>What this shows</h4>
+            <p></p>
+            <h4>How to read it</h4>
+            <p></p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p class="copyright">© 2026 Issac Tabares. All Rights Reserved.</p>
+    </footer>
+
+    <div id="particles-container"></div>
+
+    <!-- Model 1 JS -->
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+        // --- DOM Elements ---
+        const lambdaSlider = document.getElementById('lambdaSlider');
+        const thetaSlider = document.getElementById('apertureSlider');
+        const lambdaVal = document.getElementById('lambdaVal');
+        const thetaVal = document.getElementById('thetaVal');
+        const dxOut = document.getElementById('dxOut');
+        const dpOut = document.getElementById('dpOut');
+        const prodOut = document.getElementById('prodOut');
+        const hbar2El = document.getElementById('hbar2');
+        const fireBtn = document.getElementById('firePhoton');
+        const canvas = document.getElementById('heisCanvas');
+
+        // --- Scene Setup ---
+        const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 200);
+        camera.position.set(0, 1.0, 17);
+
+        if (window.matchMedia('(max-width: 768px)').matches) camera.position.set(0, 2.2, 14);
+
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.enablePan = false;
+
+        // --- NEON LIGHTING ---
+        scene.add(new THREE.AmbientLight(0x4b0082, 0.6)); // Deep Indigo Ambient
+        const key = new THREE.DirectionalLight(0xff00d4, 1.5); // Hot Pink Key
+        key.position.set(4, 6, 8);
+        scene.add(key);
+
+        const grid = new THREE.GridHelper(36, 36, 0xff00d4, 0x9d00ff);
+        grid.position.y = -2.2;
+        grid.material.opacity = 0.15;
+        grid.material.transparent = true;
+        scene.add(grid);
+
+        // --- ELEVATED OBJECTS ---
+        // Electron: Electric Violet with Core Pulse
+        const electron = new THREE.Mesh(
+            new THREE.SphereGeometry(0.28, 32, 32),
+            new THREE.MeshStandardMaterial({
+                color: 0x9d00ff,
+                emissive: 0x9d00ff,
+                emissiveIntensity: 1.2,
+                metalness: 0.5,
+                roughness: 0.2
+            })
+        );
+        scene.add(electron);
+
+        // Microscope Cone: Dark Indigo Chrome
+        const cone = new THREE.Mesh(
+            new THREE.ConeGeometry(1.6, 2.5, 44, 1, true),
+            new THREE.MeshStandardMaterial({ color: 0x1a0033, metalness: 0.9, roughness: 0.1, side: THREE.DoubleSide })
+        );
+        cone.rotation.x = Math.PI;
+        cone.position.set(0, 2.4, 0);
+        scene.add(cone);
+
+        // Lens: Neon Violet Glass
+        const lens = new THREE.Mesh(
+            new THREE.CylinderGeometry(1.5, 1.5, 0.12, 44),
+            new THREE.MeshPhysicalMaterial({
+                color: 0x9d00ff,
+                transmission: 0.9,
+                thickness: 1.0,
+                transparent: true,
+                opacity: 0.4
+            })
+        );
+        lens.position.set(0, 1.0, 0);
+        scene.add(lens);
+
+        // Photon: Hot Pink Energy
+        const photon = new THREE.Mesh(
+            new THREE.SphereGeometry(0.12, 22, 22),
+            new THREE.MeshStandardMaterial({ color: 0xff00d4, emissive: 0xff00d4, emissiveIntensity: 2.0 })
+        );
+        photon.visible = false;
+        scene.add(photon);
+
+        const lineMat = new THREE.LineBasicMaterial({ color: 0xff00d4, transparent: true, opacity: 0.8 });
+        const lineGeom = new THREE.BufferGeometry();
+        const line = new THREE.Line(lineGeom, lineMat);
+        scene.add(line);
+
+        // --- LOGIC ---
+        function updateAperture(thetaDeg) {
+            const thetaRad = THREE.MathUtils.degToRad(thetaDeg);
+            const yLens = 1.0;
+            const xEdge = Math.tan(thetaRad) * yLens;
+            const pos = new Float32Array([-xEdge, yLens, 0, 0, 0, 0, xEdge, yLens, 0]);
+            lineGeom.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+        }
+
+        function compute() {
+            const lambda = parseFloat(lambdaSlider.value);
+            const theta = THREE.MathUtils.degToRad(parseFloat(thetaSlider.value));
+            const dx = lambda / (2 * Math.max(0.1, Math.sin(theta)));
+            const dp = 1.0 / Math.max(1e-6, lambda);
+
+            if (dxOut) dxOut.textContent = dx.toFixed(1);
+            if (dpOut) dpOut.textContent = dp.toFixed(3);
+            if (prodOut) prodOut.textContent = (dx * dp).toFixed(3);
+
+            updateAperture(parseFloat(thetaSlider.value));
+        }
+
+        function fire() {
+            if (photon.visible) return;
+            photon.visible = true;
+            const start = new THREE.Vector3(-6, 1.5, 0);
+            const end = electron.position.clone();
+            const t0 = performance.now();
+
+            function step(now) {
+                const t = Math.min(1, (now - t0) / 450);
+                photon.position.lerpVectors(start, end, t);
+                if (t < 1) requestAnimationFrame(step);
+                else {
+                    photon.visible = false;
+                    const dp = 1.0 / parseFloat(lambdaSlider.value);
+                    electron.position.x += (Math.random() - 0.5) * dp * 10;
+                    electron.position.z += (Math.random() - 0.5) * dp * 10;
+                    lens.material.emissive = new THREE.Color(0xff00d4);
+                    lens.material.emissiveIntensity = 2.0;
+                    setTimeout(() => { lens.material.emissiveIntensity = 0; }, 120);
+                }
+            }
+            requestAnimationFrame(step);
+        }
+
+        // --- BOOT ---
+        function bind() {
+            lambdaSlider.oninput = () => { lambdaVal.textContent = lambdaSlider.value; compute(); };
+            thetaSlider.oninput = () => { thetaVal.textContent = thetaSlider.value + '°'; compute(); };
+            fireBtn.onclick = fire;
+            compute();
+        }
+        bind();
+
+        function animate() {
+            requestAnimationFrame(animate);
+            // Electron "restoring" effect
+            electron.position.lerp(new THREE.Vector3(0, 0, 0), 0.04);
+            // Neon pulse
+            electron.material.emissiveIntensity = 1.0 + Math.sin(Date.now() * 0.005) * 0.5;
+
+            const w = canvas.clientWidth, h = canvas.clientHeight;
+            if (canvas.width !== w || canvas.height !== h) {
+                renderer.setSize(w, h, false);
+                camera.aspect = w / h;
+                camera.updateProjectionMatrix();
+            }
+            controls.update();
+            renderer.render(scene, camera);
+        }
+        animate();
+    </script>
+
+    <!-- Model 2 JS -->
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+        // --- DOM & Setup ---
+        const canvas = document.getElementById('gpCanvas');
+        const sigmaSlider = document.getElementById('gpSigma0');
+        const p0Slider = document.getElementById('gpP0');
+        const massSlider = document.getElementById('gpMass');
+        const dxOut = document.getElementById('gpDx');
+        const dpOut = document.getElementById('gpDp');
+        const prodOut = document.getElementById('gpProd');
+        const playBtn = document.getElementById('gpPlay');
+
+        const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 200);
+        camera.position.set(0, 3, 10);
+
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+
+        // --- NEON LIGHTING ---
+        const ambient = new THREE.AmbientLight(0x5a0eff, 0.4); // Indigo base
+        scene.add(ambient);
+        const pointLight = new THREE.PointLight(0xff00d4, 1.5, 20); // Hot Pink glow
+        pointLight.position.set(0, 2, 2);
+        scene.add(pointLight);
+
+        // --- GRID: Neon Indigo ---
+        const grid = new THREE.GridHelper(20, 20, 0xff00d4, 0x5a0eff);
+        grid.position.y = -2;
+        grid.material.opacity = 0.1;
+        grid.material.transparent = true;
+        scene.add(grid);
+
+        // --- CORE MATH CONSTANTS ---
+        const N = 256;
+        const Lx = 12.0;
+        const hbar = 1.0;
+        const xs = new Float32Array(N);
+        for (let i = 0; i < N; i++) xs[i] = -Lx / 2 + (i / (N - 1)) * Lx;
+
+        // --- ELEVATED WAVE GEOMETRY ---
+        // Using a Tube/Ribbon feel instead of a thin line
+        function createNeonWave(color) {
+            const geom = new THREE.BufferGeometry();
+            geom.setAttribute('position', new THREE.BufferAttribute(new Float32Array(N * 3), 3));
+            const mat = new THREE.LineBasicMaterial({
+                color: color,
+                linewidth: 3, // Note: linewidth is 1 in many browsers, but we simulate glow below
+                transparent: true,
+                opacity: 0.9
+            });
+            const line = new THREE.Line(geom, mat);
+
+            // Add a "Glow" duplicate
+            const glowMat = new THREE.LineBasicMaterial({ color: color, transparent: true, opacity: 0.3, linewidth: 10 });
+            const glow = new THREE.Line(geom, glowMat);
+            line.add(glow);
+
+            return line;
+        }
+
+        const waveX = createNeonWave(0xff00d4); // Hot Pink for Position
+        const waveP = createNeonWave(0x9d00ff); // Electric Violet for Momentum
+        waveX.position.y = 1.2;
+        waveP.position.y = -1.2;
+        scene.add(waveX, waveP);
+
+        // --- PHYSICS LOGIC ---
+        let t = 0, playing = true, dir = 1;
+        let sigma0 = +sigmaSlider.value, p0 = +p0Slider.value, m = +massSlider.value;
+
+        function getSigmaT(time) {
+            return sigma0 * Math.sqrt(1 + Math.pow((hbar * time) / (2 * m * sigma0 * sigma0), 2));
+        }
+
+        function updatePhysics() {
+            const st = getSigmaT(t);
+            const xc = (p0 / m) * t;
+            const posAttrX = waveX.geometry.attributes.position;
+            const posAttrP = waveP.geometry.attributes.position;
+
+            for (let i = 0; i < N; i++) {
+                // Position Space Curve
+                const dx = xs[i] - xc;
+                const valX = (1 / (Math.sqrt(Math.PI) * st)) * Math.exp(-(dx * dx) / (2 * st * st));
+                posAttrX.setXYZ(i, xs[i], valX * 2.5, 0); // Scale up for visibility
+
+                // Momentum Space Curve (Static shape, shifts with p0)
+                const dp = xs[i] - p0;
+                const sigP = hbar / (2 * sigma0);
+                const valP = (1 / (Math.sqrt(Math.PI) * sigP)) * Math.exp(-(dp * dp) / (2 * sigP * sigP));
+                posAttrP.setXYZ(i, xs[i], valP * 1.5, 0);
+            }
+
+            posAttrX.needsUpdate = true;
+            posAttrP.needsUpdate = true;
+
+            dxOut.textContent = st.toFixed(3);
+            dpOut.textContent = (hbar / (2 * sigma0)).toFixed(3);
+            prodOut.textContent = (st * (hbar / (2 * sigma0))).toFixed(3);
+        }
+
+        // --- ANIMATION LOOP ---
+        function animate() {
+            requestAnimationFrame(animate);
+
+            if (playing) {
+                t += 0.02 * dir;
+                if (t > 8 || t < 0) dir *= -1;
+                updatePhysics();
+            }
+
+            // Pulse the Neon Emissivity effect
+            const pulse = 0.8 + Math.sin(Date.now() * 0.005) * 0.2;
+            waveX.material.opacity = pulse;
+            waveP.material.opacity = pulse;
+
+            // Auto-Resize logic
+            const w = canvas.clientWidth, h = canvas.clientHeight;
+            if (canvas.width !== w || canvas.height !== h) {
+                renderer.setSize(w, h, false);
+                camera.aspect = w / h;
+                camera.updateProjectionMatrix();
+            }
+
+            controls.update();
+            renderer.render(scene, camera);
+        }
+
+        // --- BINDING ---
+        sigmaSlider.oninput = () => { sigma0 = +sigmaSlider.value; updatePhysics(); };
+        p0Slider.oninput = () => { p0 = +p0Slider.value; updatePhysics(); };
+        massSlider.oninput = () => { m = +massSlider.value; updatePhysics(); };
+        playBtn.onclick = () => { playing = !playing; };
+
+        animate();
+    </script>
+
+    <!-- Model 3 JS -->
+    <script type="module">
+        import * as THREE from 'three';
+
+        // --- DOM ELEMENTS ---
+        const canvas = document.getElementById('dsCanvas');
+        const lambdaSlider = document.getElementById('dsLambda');
+        const sepSlider = document.getElementById('dsSlitSep');
+        const widthSlider = document.getElementById('dsSlitWidth');
+        const whichBtn = document.getElementById('dsWhichPath');
+        const resetBtn = document.getElementById('dsReset');
+
+        // --- NEW DATA LABELS ---
+        const valLam = document.getElementById('valLambda');
+        const valSep = document.getElementById('valSep');
+        const valWidth = document.getElementById('valWidth');
+        const valVis = document.getElementById('valVisibility');
+
+        const COLORS = { pink: 0xff00d4, violet: 0x9d00ff, lavender: 0xf3e9ff };
+        const X_BAR = -5.95;
+        const X_WALL = 4.9;
+
+        const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+        const scene = new THREE.Scene();
+        const camera = new THREE.OrthographicCamera(-6, 6, 3.5, -3.5, 0.1, 100);
+        camera.position.z = 10;
+
+        const slitGroup = new THREE.Group();
+        const wfGroup = new THREE.Group();
+        const maxGroup = new THREE.Group();
+        const wallGroup = new THREE.Group();
+        const labelGroup = new THREE.Group();
+        scene.add(slitGroup, wfGroup, maxGroup, wallGroup, labelGroup);
+
+        let d_um = 1.5, a_um = 0.2, lam_nm = 550, phase = 0, showInterference = true;
+
+        // --- ORIGINS ---
+        const s1 = new THREE.Group(), s2 = new THREE.Group();
+        [s1, s2].forEach(g => {
+            const core = new THREE.Mesh(new THREE.CircleGeometry(0.06, 32), new THREE.MeshBasicMaterial({ color: COLORS.pink }));
+            const glow = new THREE.Mesh(new THREE.CircleGeometry(0.12, 32), new THREE.MeshBasicMaterial({ color: COLORS.pink, transparent: true, opacity: 0.4 }));
+            g.add(core, glow); g.position.x = X_BAR; g.position.z = 1.5; g.renderOrder = 1000;
+            slitGroup.add(g);
+        });
+
+        const barrierGeom = new THREE.BufferGeometry();
+        const barrierLine = new THREE.LineSegments(barrierGeom, new THREE.LineBasicMaterial({ color: COLORS.violet, transparent: true, opacity: 0.8 }));
+        scene.add(barrierLine);
+
+        // --- MEASUREMENT SCALE ---
+        function mkLabel(text, y) {
+            const c = document.createElement('canvas'); c.width = 256; c.height = 128;
+            const ctx = c.getContext('2d');
+            ctx.fillStyle = '#f3e9ff';
+            ctx.font = 'italic 40px serif';
+            ctx.textAlign = 'left';
+            ctx.fillText(text, 10, 64);
+            const spr = new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(c), transparent: true }));
+            spr.scale.set(1.5, 0.75, 1); spr.position.set(5.1, y, 2);
+            return spr;
+        }
+        [{ t: '3 µm', y: 3 }, { t: '2 µm', y: 2 }, { t: '1 µm', y: 1 }, { t: '0', y: 0 }, { t: '1 µm', y: -1 }, { t: '2 µm', y: -2 }, { t: '3 µm', y: -3 }].forEach(p => labelGroup.add(mkLabel(p.t, p.y)));
+
+        function rebuild() {
+            wfGroup.clear(); maxGroup.clear(); wallGroup.clear();
+            const y1 = d_um / 2, y2 = -d_um / 2;
+            s1.position.y = y1; s2.position.y = y2;
+
+            const hw = a_um / 2;
+            const bPts = [X_BAR, 4, 0, X_BAR, y1 + hw, 0, X_BAR, y1 - hw, 0, X_BAR, y2 + hw, 0, X_BAR, y2 - hw, 0, X_BAR, -4, 0];
+            barrierGeom.setAttribute('position', new THREE.BufferAttribute(new Float32Array(bPts), 3));
+
+            const lam_um = lam_nm / 1000;
+            const mMax = Math.floor(d_um / lam_um);
+
+            // --- UPDATE UI READOUTS ---
+            if (valLam) valLam.innerText = lam_nm;
+            if (valSep) valSep.innerText = d_um.toFixed(2);
+            if (valWidth) valWidth.innerText = a_um.toFixed(2);
+
+            for (let m = -mMax; m <= mMax; m++) {
+                const ang = Math.asin((m * lam_um) / d_um);
+                if (isNaN(ang)) continue;
+
+                const beta = (Math.PI * a_um * Math.sin(ang)) / lam_um;
+                const factor = beta === 0 ? 1 : Math.pow(Math.sin(beta) / beta, 2);
+                const targetY = (X_WALL - X_BAR) * Math.tan(ang);
+
+                const lg = new THREE.BufferGeometry().setAttribute('position', new THREE.BufferAttribute(new Float32Array([X_BAR, 0, 0.1, X_WALL, targetY, 0.1]), 3));
+                const ln = new THREE.Line(lg, new THREE.LineDashedMaterial({ color: COLORS.lavender, dashSize: 0.15, gapSize: 0.1, transparent: true, opacity: 0.4 * factor }));
+                ln.computeLineDistances();
+                maxGroup.add(ln);
+
+                const dot = new THREE.Mesh(new THREE.CircleGeometry(0.07, 16), new THREE.MeshBasicMaterial({ color: COLORS.lavender, transparent: true, opacity: 0.7 * factor }));
+                dot.position.set(X_WALL, targetY, 0.2);
+                wallGroup.add(dot);
+            }
+
+            // VISIBILITY CALCULATION
+            if (valVis) {
+                const V = Math.exp(-Math.pow(a_um / (lam_um * 2), 2)).toFixed(2);
+                valVis.innerText = showInterference ? V : "0.00";
+            }
+
+            maxGroup.visible = showInterference;
+            wallGroup.visible = showInterference;
+
+            for (let r = lam_um; r < 14; r += lam_um) {
+                const col = (Math.round(r / lam_um) % 2 === 0) ? COLORS.pink : COLORS.violet;
+                [y1, y2].forEach(y => {
+                    const wf = new THREE.Line(new THREE.BufferGeometry().setAttribute('position', new THREE.BufferAttribute(new Float32Array(64 * 3), 3)), new THREE.LineBasicMaterial({ color: col, transparent: true, opacity: 0.45 }));
+                    wfGroup.add(wf);
+                });
+            }
+        }
+
+        function updatePhysics() {
+            const lam_um = lam_nm / 1000;
+            phase = (phase + 0.018) % lam_um;
+            const y1 = d_um / 2, y2 = -d_um / 2;
+            wfGroup.children.forEach((line, idx) => {
+                const r = ((Math.floor(idx / 2) + 1) * lam_um) + phase;
+                const sY = (idx % 2 === 0) ? y1 : y2;
+                const pos = line.geometry.attributes.position.array;
+                for (let i = 0; i < 64; i++) {
+                    const th = (i / 63) * Math.PI - Math.PI / 2;
+                    pos[i * 3] = X_BAR + r * Math.cos(th);
+                    pos[i * 3 + 1] = sY + r * Math.sin(th);
+                }
+                line.geometry.attributes.position.needsUpdate = true;
+                line.visible = r < 14;
+            });
+        }
+
+        sepSlider.oninput = () => { d_um = parseFloat(sepSlider.value); rebuild(); };
+        widthSlider.oninput = () => { a_um = parseFloat(widthSlider.value); rebuild(); };
+        lambdaSlider.oninput = () => { lam_nm = parseFloat(lambdaSlider.value); rebuild(); };
+        whichBtn.onclick = () => { showInterference = !showInterference; rebuild(); };
+        resetBtn.onclick = () => {
+            d_um = 1.5; a_um = 0.2; lam_nm = 550; showInterference = true;
+            sepSlider.value = 1.5; widthSlider.value = 0.2; lambdaSlider.value = 550;
+            rebuild();
+        };
+
+        function animate() {
+            requestAnimationFrame(animate);
+            updatePhysics();
+            renderer.render(scene, camera);
+            if (canvas.width !== canvas.clientWidth) renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
+        }
+
+        rebuild(); animate();
+    </script>

@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+    <title>Old quantum theory → matrix & wave mechanics</title>
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Three.js -->
+    <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+
+    <script src="js/script.js" defer></script>
+
+    <style>
+        .wave-mechanics-viewer,
+        .bohr-viewer {
+            position: relative;
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 18px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        #waveMechanicsCanvas,
+        #bohrCanvas {
+            width: 100%;
+            height: 360px;
+            display: block;
+            border-radius: 8px;
+            touch-action: none;
+        }
+
+        @media (max-width: 768px) {
+
+            .wave-mechanics-viewer,
+            .bohr-viewer {
+                max-width: 520px;
+                /* make the whole box narrower on phones */
+                padding: 14px;
+            }
+
+            #waveMechanicsCanvas,
+            #bohrCanvas {
+                height: 220px;
+                /* make the square shorter on phones */
+            }
+        }
+
+        .label-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .model-label {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+        }
+
+        .model-label.visible {
+            opacity: 1;
+        }
+
+        .interact-button {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            background: #5a0eff;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="projects.html" class="nav-projects">My Projects</a>
+
+            <h1 class="site-name">
+                <a href="index.html">
+                    <img src="assets/solar-system.svg" class="rotating-planet" alt="Rotating Planet" />
+                    Issac Tabares
+                    <img src="assets/atom.svg" class="logo" id="atomLogo" alt="Atom Logo" />
+                </a>
+            </h1>
+        </div>
+    </header>
+
+    <section class="about">
+
+        <a href="quantum-mechanics.html" class="back-arrow" aria-label="Back to Quantum Mechanics">⬅</a>
+
+        <h2 class="section-title bigbang-title">
+            <strong>Old quantum theory → matrix & wave mechanics (1925–1926)</strong>
+        </h2>
+
+        <!-- Intro / bridge -->
+        <h3 class="universe-subtitle">The Quantum Transition (1925–1926)</h3>
+        <p>
+            This section bridges the heuristic “old quantum” era—defined by <strong>Bohr–Sommerfeld
+                quantization</strong>, to the rigorous foundations of modern mechanics. In the pivotal years of
+            1925–1926, two distinct yet mathematically equivalent frameworks emerged: <strong>Heisenberg’s matrix
+                mechanics</strong> and <strong>Schrödinger’s wave mechanics</strong>.
+        </p>
+        <p>
+            While matrix mechanics focused on observable transitions, wave mechanics introduced the
+            <strong>time-dependent Schrödinger equation</strong> to govern the system's evolution. Together with
+            <strong>Born’s rule</strong> for probabilistic interpretation, these theories completed the shift from
+            classical orbits to quantum states.
+        </p>
+        <p>
+            Detailed explorations of foundational milestones, such as blackbody radiation, the photoelectric effect,
+            atomic spectra, the Bohr model, Compton scattering, de Broglie matter waves, and the heat capacity models of
+            Einstein and Debye, are available on their respective pages.
+        </p>
+
+        <!-- Old Quantum (Bohr–Sommerfeld) -->
+        <h3 class="universe-subtitle">Old Quantum (Bohr–Sommerfeld) Quantization</h3>
+
+        <p>
+            The <strong>Old Quantum Theory</strong> describes the era between 1900 and 1925 when physicists attempted to
+            correct classical mechanics using ad hoc quantum rules. This period was defined by the transition from
+            <strong>Newtonian physics</strong> to a deeper understanding of the subatomic world, primarily focused on
+            explaining the stability and spectra of atoms.
+        </p>
+
+        <p>
+            The foundation of this era was the <strong>Bohr Model (1913)</strong>. Niels Bohr proposed that electrons
+            move in <strong>stationary states</strong> or orbits around the nucleus. He postualted that <strong>angular
+                momentum</strong> is quantized in integer multiples of <strong>$\hbar$</strong>. This meant electrons
+            could only occupy specific discrete paths, and energy was only released or absorbed as a
+            <strong>photon</strong> when an electron "jumped" between these levels.
+        </p>
+
+
+
+        <p>
+            In 1916, <strong>Arnold Sommerfeld</strong> expanded this model to account for the complex <strong>fine
+                structure</strong> of spectral lines. He introduced <strong>elliptical orbits</strong> and the
+            <strong>Wilson–Sommerfeld quantization rule</strong>, which stated that the action integral for any periodic
+            system must be an integer multiple of <strong>Planck’s constant ($h$)</strong>. This introduced additional
+            <strong>quantum numbers</strong> for the shape and orientation of orbits, significantly improving the
+            model's accuracy for hydrogen-like atoms.
+        </p>
+
+        <p>
+            A guiding principle of this time was the <strong>Correspondence Principle</strong>, which dictated that
+            quantum behavior must merge with <strong>classical physics</strong> at large scales or high energy levels.
+            However, the theory had severe <strong>limitations</strong>. It could not explain the <strong>Helium
+                atom</strong> (which has two electrons), nor could it predict the <strong>intensity</strong> of spectral
+            lines.
+        </p>
+
+        <p>
+            Ultimately, the <strong>Old Quantum Theory</strong> was a hybrid of classical trajectories and arbitrary
+            quantum constraints. Its internal contradictions led directly to the development of <strong>Matrix
+                Mechanics</strong> and <strong>Wave Mechanics</strong> in 1925, where the concept of physical orbits was
+            replaced by <strong>probability amplitudes</strong> and <strong>wavefunctions</strong>.
+        </p>
+        <p>
+            Bohr–Sommerfeld selects discrete orbits by the action condition $\oint p\,dq = n h$ (with integer $n$). For
+            hydrogen
+            this gives $r_n \propto n^2$ and $E_n \propto -1/n^2$. This explains the Balmer series and sets the stage
+            for the
+            1925–1926 breakthroughs.
+        </p>
+        <figure class="bohr-viewer">
+            <canvas id="bohrCanvas"></canvas>
+            <figcaption>
+                Bohr model of hydrogen: quantized circular orbits with radii \(r_n = a_0 n^2\) and energies \(E_n =
+                -\dfrac{13.6\,\text{eV}}{n^2}\) (shown for \(n=1,2,3\)). The animation places the electron on the
+                \(n=2\) orbit and uses the Bohr–Wilson–Sommerfeld condition \(\displaystyle \oint p\,dq = n
+                h\;(n=1,2,3,\dots)\). Relative angular speed follows Bohr dynamics (\(\omega_n \propto v_n/r_n \propto
+                1/n^3\)).
+            </figcaption>
+        </figure>
+
+        <!-- Matrix mechanics (Heisenberg–Born–Jordan) -->
+        <h3 class="universe-subtitle"><strong>Matrix Mechanics (Heisenberg, Born, Jordan 1925)</h3></strong>
+
+        <p>
+            In a radical departure from visual intuition, <strong>Werner Heisenberg</strong> abandoned the concept of
+            electron orbits entirely. He replaced classical trajectories with tables of "transition quantities," which
+            <strong>Max Born</strong> and <strong>Pascual Jordan</strong> identified as <strong>matrices</strong>. This
+            shift moved physics away from what could be seen and toward what could be measured: <strong>discrete
+                spectral frequencies</strong> and intensities.
+        </p>
+
+        <p>
+            In this framework, physical observables like <strong>position ($\hat{x}$)</strong> and <strong>momentum
+                ($\hat{p}$)</strong> are no longer simple numbers, but <strong>operators</strong> that do not commute.
+            This is captured by the fundamental <strong>canonical commutation relation</strong>:
+        </p>
+
+        <p style="text-align: center; color: #FF00D4; font-weight: bold;">
+            $[\hat{x}, \hat{p}] = i\hbar$
+        </p>
+
+        <p>
+            By <strong>diagonalizing the Hamiltonian</strong> matrix, physicists could derive energy levels directly
+            from the math. While the abstraction was initially daunting, <strong>Wolfgang Pauli</strong> famously
+            validated the theory by applying it to the <strong>hydrogen atom</strong>, proving that this "matrix
+            algebra" perfectly predicted the observed Rydberg states. Today, this remains the basis for the
+            <strong>Heisenberg picture</strong> of quantum dynamics, where <strong>measurement outcomes</strong>
+            correspond to the <strong>eigenvalues</strong> of these matrices.
+        </p>
+
+        <!-- Schrödinger wave mechanics -->
+        <h2 class="universe-subtitle"><strong>Schrödinger’s wave mechanics (1926)</h2></strong>
+        <p>
+            In 1926, <strong>Erwin Schrödinger</strong> reformulated quantum theory as a continuous wave problem.
+            Instead of discrete jumps between orbits, he proposed that a particle is described by a complex valued
+            wavefunction $\psi(\mathbf{r},t)$ evolving according to:
+        </p>
+
+        <p>
+            $$ i\hbar\,\partial_t\psi(\mathbf{r},t) = \hat{H}\psi(\mathbf{r},t), \qquad
+            \hat{H}= -\frac{\hbar^2}{2m}\nabla^2 + V(\mathbf{r}). $$
+        </p>
+
+        <p>
+            This equation is structurally analogous to classical wave equations, but with a crucial difference:
+            $\psi$ does not represent a physical wave like water or sound. Its squared magnitude,
+            $|\psi|^2$, gives a <strong>probability density</strong> (<strong>Born interpretation</strong>).
+        </p>
+
+        <p>
+            For time independent potentials, solutions separate as:
+            $$ \psi(\mathbf{r},t)=u(\mathbf{r})e^{-iEt/\hbar}, \quad \hat{H}u = E u. $$
+            This converts the problem into an <strong>eigenvalue equation</strong>. For hydrogen, where
+            $V(r) = -\frac{e^2}{4\pi\varepsilon_0 r}$, the solutions take the form:
+        </p>
+
+        <p>
+            $$ u_{nlm}(\mathbf{r}) = R_{nl}(r)\,Y_{lm}(\theta,\phi), \qquad
+            E_n = -\frac{13.6\,\text{eV}}{n^2}. $$
+        </p>
+
+        <p>
+            These solutions replace Bohr’s circular orbits with <strong>orbitals</strong>:
+            spatial probability distributions determined by quantum numbers $(n,l,m)$.
+            The electron is no longer a particle following a path, but a distributed
+            <strong>probability amplitude</strong> constrained by boundary conditions.
+        </p>
+
+        <p>
+            The origin of this formulation lies in <strong>de Broglie’s hypothesis</strong> that matter
+            has wave like properties ($\lambda = h/p$). Schrödinger extended this idea by connecting it
+            to the <strong>Hamilton–Jacobi formalism</strong>, effectively replacing classical trajectories with wave
+            phases
+            $S$ through $\psi \sim e^{iS/\hbar}$.
+        </p>
+
+        <p>
+            The personal and intellectual contrast with <strong>Werner Heisenberg</strong> is striking.
+            In 1925, Heisenberg developed <strong>matrix mechanics</strong>, a formulation that abandoned visualization
+            entirely and focused only on observable quantities. His approach was algebraic, abstract, and
+            conceptually radical, built on non commuting quantities like $[x,p]=i\hbar$.
+        </p>
+
+        <p>
+            Schrödinger, by contrast, resisted this abstraction. He sought a theory that preserved
+            continuity and visual intuition. Where Heisenberg eliminated trajectories, Schrödinger
+            replaced them with waves. Where Heisenberg used matrices, Schrödinger used differential equations.
+            Despite their radically different appearances, the two formulations were soon proven to be
+            <strong>mathematically equivalent</strong>.
+        </p>
+
+        <p>
+            Ironically, although Heisenberg’s formulation came first and was more fundamentally aligned with
+            the observable nature of quantum mechanics, Schrödinger’s version became the dominant language of
+            physics. The reason is practical: differential equations are solvable, visualizable, and directly
+            connected to spatial intuition. <strong>Orbitals can be plotted</strong>; eigenvalues can be computed;
+            boundary
+            conditions can be imposed naturally.
+        </p>
+
+        <p>
+            In modern terms, both approaches describe the same underlying structure: a <strong>Hilbert space</strong> of
+            states
+            with operators acting upon them. Schrödinger’s equation corresponds to a specific representation
+            where position is explicit and momentum becomes $\hat{p} = -i\hbar\nabla$.
+        </p>
+
+        <p>
+            The result is one of the most powerful frameworks in physics: a theory where reality is encoded not
+            in definite trajectories, but in evolving probability amplitudes, <strong>deterministic in
+                evolution</strong>, yet
+            <strong>intrinsically probabilistic in measurement</strong>.
+        </p>
+
+        <!-- Wave mechanics model placed right after Schrödinger -->
+        <figure class="wave-mechanics-viewer">
+            <canvas id="waveMechanicsCanvas"></canvas>
+            <div class="label-container" id="waveMechanicsLabelContainer"></div>
+            <button id="measureButton" class="interact-button">Perform Measurement</button>
+            <figcaption>
+                Schrödinger wave mechanics: Monte Carlo sampling of \(|\psi_{100}(r,\theta,\phi)|^2\)
+                for hydrogen \(1s\) \((n=1,l=0,m=0)\). Points are drawn by rejection sampling of the
+                probability density; color and opacity vary with radius (core to edge gradient). Cloud
+                and nucleus are scaled by 0.5. Click Measure to select one sampled
+                point, illustrating the collapse of the wavefunction to a localized outcome.
+            </figcaption>
+        </figure>
+
+        <!-- Born rule & operators -->
+        <h3 class="universe-subtitle"><strong>The Born Rule, Operators, and Expectation Values</h3></strong>
+
+        <p>
+            The bridge between the abstract wave function and physical reality is the <strong>Born Rule</strong>. It
+            dictates that the square of the magnitude of the wave function, <strong>$\rho(\mathbf{r},t) =
+                |\psi(\mathbf{r},t)|^2$</strong>, represents the <strong>probability density</strong> of finding a
+            particle at a specific point in space. To ensure physical consistency, the wave function must be
+            <strong>normalized</strong>, meaning the total probability across all space must equal
+            <strong>unity</strong>: $\int |\psi|^2\,d^3r = 1$.
+        </p>
+
+        <p>
+            In this framework, physical observables (such as position, momentum, or energy) are represented by
+            <strong>Hermitian operators ($\hat{A}$)</strong>. We cannot predict a single definitive outcome for a
+            measurement; instead, we calculate the <strong>Expectation Value ($\langle \hat{A}\rangle$)</strong>, which
+            is the <strong>statistical average</strong> of many measurements performed on identically prepared systems:
+        </p>
+
+        <p style="text-align: center; color: #9D00FF; font-weight: bold;">
+            $\langle \hat{A}\rangle = \int \psi^* \hat{A} \psi \, d^3r$
+        </p>
+
+        <p>
+            The dynamics of these averages are governed by <strong>Ehrenfest's Theorem</strong>, showing how quantum
+            expectations evolve toward classical laws. The time evolution of an expectation value is determined by the
+            <strong>commutator</strong> of the operator with the <strong>Hamiltonian ($\hat{H}$)</strong>:
+        </p>
+
+        <p style="text-align: center; color: #FF00D4; font-weight: bold;">
+            $\frac{d}{dt}\langle \hat{A}\rangle = \frac{i}{\hbar}\langle [\hat{H}, \hat{A}] \rangle + \langle \partial_t
+            \hat{A} \rangle$
+        </p>
+
+        <p>
+            This relation demonstrates that if an operator <strong>commutes with the Hamiltonian</strong> and has no
+            explicit time dependence, its expectation value is a <strong>constant of motion</strong>, representing a
+            conserved quantity in the quantum system.
+        </p>
+
+        <!-- Uncertainty principle -->
+        <h3 class="universe-subtitle"><strong>Heisenberg Uncertainty Principle (1927)</h3></strong>
+
+        <p>
+            The most famous consequence of quantum mechanics is the <strong>Heisenberg Uncertainty Principle</strong>.
+            It states that for any quantum state, the product of the uncertainties in <strong>position ($\Delta
+                x$)</strong> and <strong>momentum ($\Delta p_x$)</strong> must satisfy the inequality:
+        </p>
+
+        <p style="text-align: center; color: #FF00D4; font-weight: bold;">
+            $\Delta x\,\Delta p_x \ge \frac{\hbar}{2}$
+        </p>
+
+        <p>
+            More generally, for any two <strong>non-commuting operators</strong> ($\hat{A}$) and ($\hat{B}$), the
+            <strong>Robertson Uncertainty Relation</strong> applies:
+        </p>
+
+        <p style="text-align: center; color: #9D00FF; font-weight: bold;">
+            $\Delta A\,\Delta B \ge \frac{1}{2}|\langle [\hat{A},\hat{B}]\rangle|$
+        </p>
+
+        <p>
+            Crucially, this is a <strong>kinematic consequence</strong> of the wave-like nature of matter and the
+            non-commutative algebra of operators. It is not a <strong>measurement disturbance artifact</strong> or a
+            result of "clumsy" equipment. Instead, it represents a <strong>fundamental limit</strong> to the precision
+            with which certain pairs of physical properties can be simultaneously defined.
+        </p>
+
+        <p>
+            If the <strong>commutator</strong> of two observables is non-zero, they are <strong>incompatible</strong>;
+            the more precisely one is known, the more the other is "smeared" across the probability density.
+        </p>
+
+
+
+    </section>
+
+    <footer class="footer">
+        <p class="copyright">© 2026 Issac Tabares. All Rights Reserved.</p>
+    </footer>
+
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+        (function initBohr() {
+            const canvas = document.getElementById('bohrCanvas');
+            if (!canvas || typeof THREE === 'undefined') {
+                console.error("Canvas or THREE missing");
+                return;
+            }
+
+            // =====================
+            // Renderer (robust)
+            // =====================
+            const renderer = new THREE.WebGLRenderer({
+                canvas,
+                alpha: true,
+                antialias: true
+            });
+
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+            renderer.setClearColor(0x000000, 0);
+
+            // =====================
+            // Scene + Camera
+            // =====================
+            const scene = new THREE.Scene();
+
+            const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+            camera.position.set(0, 0, 12);
+
+            // =====================
+            // Controls (safe)
+            // =====================
+            let controls = null;
+            if (typeof OrbitControls !== 'undefined') {
+                controls = new OrbitControls(camera, renderer.domElement);
+                controls.enableDamping = true;
+                controls.dampingFactor = 0.05;
+            }
+
+            // =====================
+            // Group
+            // =====================
+            const bohrGroup = new THREE.Group();
+            scene.add(bohrGroup);
+            bohrGroup.scale.set(0.651, 0.651, 0.651);
+
+            // =====================
+            // Colors
+            // =====================
+            const COL = {
+                nucleus: 0xC724F5,
+                orbit: 0x7a2cff, // slightly brighter for visibility
+                electron: 0x7B00FF,
+                label: '#E9DDFF'
+            };
+
+            // =====================
+            // Nucleus
+            // =====================
+            const nucleus = new THREE.Mesh(
+                new THREE.SphereGeometry(0.26, 48, 48),
+                new THREE.MeshBasicMaterial({ color: COL.nucleus })
+            );
+            nucleus.renderOrder = 2;
+            bohrGroup.add(nucleus);
+
+            const halo = new THREE.Mesh(
+                new THREE.SphereGeometry(0.42, 48, 48),
+                new THREE.MeshBasicMaterial({
+                    color: COL.nucleus,
+                    transparent: true,
+                    opacity: 0.25,
+                    blending: THREE.AdditiveBlending,
+                    depthWrite: false
+                })
+            );
+            halo.renderOrder = 1;
+            bohrGroup.add(halo);
+
+            // =====================
+            // Orbits
+            // =====================
+            const a0 = 0.8;
+            const ns = [1, 2, 3];
+            const orbitRadii = ns.map(n => a0 * n * n);
+
+            const orbitMaterial = new THREE.LineBasicMaterial({
+                color: COL.orbit,
+                transparent: true,
+                opacity: 0.9,
+                depthWrite: false
+            });
+
+            orbitRadii.forEach((R, idx) => {
+                const pts = [];
+                const segs = 256;
+
+                for (let i = 0; i <= segs; i++) {
+                    const th = (i / segs) * Math.PI * 2;
+                    pts.push(new THREE.Vector3(R * Math.cos(th), R * Math.sin(th), 0));
+                }
+
+                const orbit = new THREE.Line(
+                    new THREE.BufferGeometry().setFromPoints(pts),
+                    orbitMaterial
+                );
+                orbit.renderOrder = 0;
+                bohrGroup.add(orbit);
+
+                // ticks
+                const tickMat = new THREE.LineBasicMaterial({
+                    color: COL.orbit,
+                    transparent: true,
+                    opacity: 0.35,
+                    depthWrite: false
+                });
+
+                const ticks = new THREE.BufferGeometry();
+                const tpos = [];
+
+                for (let k = 0; k < 12; k++) {
+                    const th = (k / 12) * Math.PI * 2;
+                    const cs = Math.cos(th), sn = Math.sin(th);
+
+                    tpos.push(
+                        R * 0.97 * cs, R * 0.97 * sn, 0,
+                        R * 1.03 * cs, R * 1.03 * sn, 0
+                    );
+                }
+
+                ticks.setAttribute('position', new THREE.Float32BufferAttribute(tpos, 3));
+
+                const tickLines = new THREE.LineSegments(ticks, tickMat);
+                tickLines.renderOrder = 0;
+                bohrGroup.add(tickLines);
+
+                // label
+                const c = document.createElement('canvas');
+                c.width = c.height = 64;
+                const g = c.getContext('2d');
+
+                g.fillStyle = COL.label;
+                g.font = 'bold 40px system-ui';
+                g.textAlign = 'center';
+                g.textBaseline = 'middle';
+                g.fillText('n=' + ns[idx], 32, 32);
+
+                const tex = new THREE.CanvasTexture(c);
+
+                const label = new THREE.Sprite(
+                    new THREE.SpriteMaterial({
+                        map: tex,
+                        transparent: true,
+                        depthWrite: false
+                    })
+                );
+
+                label.scale.set(0.45, 0.45, 1);
+                label.position.set(R + 0.35, 0, 0.01);
+                label.renderOrder = 3;
+
+                bohrGroup.add(label);
+            });
+
+            // =====================
+            // Electron
+            // =====================
+            const electron = new THREE.Mesh(
+                new THREE.SphereGeometry(0.11, 24, 24),
+                new THREE.MeshBasicMaterial({ color: COL.electron })
+            );
+            electron.renderOrder = 2;
+            bohrGroup.add(electron);
+
+            // =====================
+            // Timing (fixed)
+            // =====================
+            let last = performance.now();
+            let t = 0;
+
+            const baseOmega = 0.9;
+            const omega = (n) => baseOmega / (n * n * n);
+
+            function resize() {
+                let w = canvas.clientWidth;
+                let h = canvas.clientHeight;
+
+                if (!w || !h) {
+                    w = 420;
+                    h = 260;
+                    canvas.style.width = w + 'px';
+                    canvas.style.height = h + 'px';
+                }
+
+                renderer.setSize(w, h, false);
+                camera.aspect = w / h;
+                camera.updateProjectionMatrix();
+            }
+
+            resize();
+
+            function animateBohr(now) {
+                requestAnimationFrame(animateBohr);
+
+                const dt = (now - last) / 1000;
+                last = now;
+                t += dt;
+
+                const n = 2;
+                const R = a0 * n * n;
+                const th = omega(n) * t * 10;
+
+                electron.position.set(
+                    R * Math.cos(th),
+                    R * Math.sin(th),
+                    0.02
+                );
+
+                const pulse = 1 + Math.sin(t * 3.0) * 0.06;
+                nucleus.scale.set(pulse, pulse, pulse);
+                halo.scale.set(pulse * 1.05, pulse * 1.05, pulse * 1.05);
+
+                if (controls) controls.update();
+                renderer.render(scene, camera);
+            }
+
+            animateBohr(performance.now());
+
+            window.addEventListener('resize', resize, { passive: true });
+        })();
+
+        /* =======================
+   Wave Mechanics (cached)
+   ======================= */
+        const CONFIG = {
+            n: 1, l: 0, m: 0,
+            PARTICLE_COUNT: 15000,
+            SCALE: 1.0,
+            POINT_SIZE: 0.06,
+            ALPHA: 0.8,
+            COLOR_A_HEX: "#FF6EC7", // core (pink)
+            COLOR_B_HEX: "#A100F2", // edge (violet)
+            LOCALIZED_COLOR_HEX: "#5a0eff",
+            MEASUREMENT_DURATION: 1700
+        };
+
+        const canvas = document.getElementById('waveMechanicsCanvas');
+        const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+        renderer.setPixelRatio(1);
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(45, canvas.clientWidth / canvas.clientHeight, 0.1, 100);
+        camera.position.set(0, 0, 4);
+
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.autoRotate = true;
+        controls.autoRotateSpeed = 0.5;
+
+        const nucleus = new THREE.Mesh(
+            new THREE.SphereGeometry(0.25, 32, 32),
+            new THREE.MeshBasicMaterial({ color: 0xFF69B4 })
+        );
+        scene.add(nucleus);
+
+        // Geometry & material (vertex colors + per-point alpha)
+        const geometry = new THREE.BufferGeometry();
+        geometry.setAttribute('position', new THREE.BufferAttribute(new Float32Array(0), 3));
+
+        const material = new THREE.PointsMaterial({
+            size: CONFIG.POINT_SIZE,
+            vertexColors: true,
+            transparent: true,
+            opacity: CONFIG.ALPHA,
+            blending: THREE.AdditiveBlending,
+            depthWrite: false
+        });
+
+        // Inject per-point alpha into the built-in point shader
+        material.onBeforeCompile = (shader) => {
+            shader.vertexShader = shader.vertexShader
+                .replace('void main() {', 'attribute float alpha; varying float vAlpha; void main() {');
+            shader.vertexShader = shader.vertexShader
+                .replace('#include <color_vertex>', '#include <color_vertex>\nvAlpha = alpha;');
+            shader.fragmentShader = shader.fragmentShader
+                .replace('void main() {', 'varying float vAlpha; void main() {');
+            shader.fragmentShader = shader.fragmentShader
+                .replace('gl_FragColor = vec4( outgoingLight, diffuseColor.a );',
+                    'gl_FragColor = vec4( outgoingLight, diffuseColor.a * vAlpha );');
+        };
+        material.needsUpdate = true;
+
+        const cloud = new THREE.Points(geometry, material);
+        scene.add(cloud);
+        cloud.scale.set(0.5, 0.5, 0.5);
+        nucleus.scale.set(0.5, 0.5, 0.5);
+
+        const particle = new THREE.Mesh(
+            new THREE.SphereGeometry(0.07, 16, 16),
+            new THREE.MeshBasicMaterial({ color: 0x7B00FF })
+        );
+        particle.visible = false;
+        scene.add(particle);
+
+        document.getElementById("measureButton").onclick = () => {
+            const arr = geometry.attributes.position.array;
+            if (!arr || arr.length === 0) return;
+            const i = Math.floor(Math.random() * (arr.length / 3));
+            particle.position.set(arr[i * 3], arr[i * 3 + 1], arr[i * 3 + 2]);
+            particle.visible = true;
+            setTimeout(() => particle.visible = false, CONFIG.MEASUREMENT_DURATION);
+        };
+
+        function animate() {
+            requestAnimationFrame(animate);
+            cloud.rotation.y += 0.005;
+            controls.update();
+            renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
+            camera.aspect = canvas.clientWidth / canvas.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.render(scene, camera);
+        }
+        addEventListener('resize', () => {
+            renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
+            camera.aspect = canvas.clientWidth / canvas.clientHeight;
+            camera.updateProjectionMatrix();
+        }, { passive: true });
+        animate();
+
+        // ---------- IndexedDB cache ----------
+        const DB_NAME = 'qm-cloud-cache';
+        const STORE = 'positions';
+        function idbOpen() {
+            return new Promise((resolve, reject) => {
+                const req = indexedDB.open(DB_NAME, 1);
+                req.onupgradeneeded = () => req.result.createObjectStore(STORE);
+                req.onsuccess = () => resolve(req.result);
+                req.onerror = () => reject(req.error);
+            });
+        }
+        async function idbGet(key) {
+            const db = await idbOpen();
+            return new Promise((resolve, reject) => {
+                const tx = db.transaction(STORE, 'readonly');
+                const st = tx.objectStore(STORE);
+                const req = st.get(key);
+                req.onsuccess = () => resolve(req.result || null);
+                req.onerror = () => reject(req.error);
+            });
+        }
+        async function idbSet(key, value) {
+            const db = await idbOpen();
+            return new Promise((resolve, reject) => {
+                const tx = db.transaction(STORE, 'readwrite');
+                const st = tx.objectStore(STORE);
+                const req = st.put(value, key);
+                req.onsuccess = () => resolve();
+                req.onerror = () => reject(req.error);
+            });
+        }
+        const cacheKey = (n, l, m, N) => `n${n}_l${l}_m${m}_N${N}_v1`;
+
+        // Worker: sample |ψ_nlm(r,θ,φ)|^2 via rejection (unchanged math)
+        const workerCode = `
+    const fact = k => { let r = 1; for (let i = 2; i <= k; i++) r *= i; return r; };
+    function assocLaguerre(p, q, x) {
+        if (q === 0) return 1;
+        if (q === 1) return 1 + p - x;
+        let L0 = 1, L1 = 1 + p - x;
+        for (let k = 2; k <= q; k++) {
+            let Lk = ((2 * k - 1 + p - x) * L1 - (k - 1 + p) * L0) / k;
+            L0 = L1; L1 = Lk;
+        }
+        return L1;
+    }
+    function assocLegendre(l, m, x) {
+        const mm = Math.abs(m);
+        let pmm = 1;
+        if (mm > 0) {
+            const s = Math.sqrt(1 - x * x);
+            let f = 1;
+            for (let i = 1; i <= mm; i++) { pmm *= -f * s; f += 2; }
+        }
+        if (l === mm) return pmm;
+        let pmmp1 = x * (2 * mm + 1) * pmm;
+        if (l === mm + 1) return pmmp1;
+        let pll = 0;
+        for (let ll = mm + 2; ll <= l; ll++) {
+            pll = ((2 * ll - 1) * x * pmmp1 - (ll + mm - 1) * pmm) / (ll - mm);
+            pmm = pmmp1; pmmp1 = pll;
+        }
+        return pll;
+    }
+    function Ylm(l, m, th, ph) {
+        const x = Math.cos(th);
+        const N = Math.sqrt((2 * l + 1) / (4 * Math.PI) * fact(l - Math.abs(m)) / fact(l + Math.abs(m)));
+        const P = assocLegendre(l, m, x);
+        if (m === 0) return N * P;
+        const s = Math.SQRT2 * N * P;
+        return m > 0? s * Math.cos(m * ph) : s * Math.sin(-m * ph);
+    }
+    function Rnl(n, l, r) {
+        const rho = (2 * r) / n;
+        const L = assocLaguerre(2 * l + 1, n - l - 1, rho);
+        return Math.exp(-rho / 2) * Math.pow(rho, l) * L;
+    }
+    function psi(n, l, m, r, th, ph) {
+        return Rnl(n, l, r) * Ylm(l, m, th, ph);
+    }
+    self.onmessage = (e) => {
+        const { n, l, m, N } = e.data;
+        const pos = new Float32Array(N * 3);
+        let i = 0;
+        const R = n * n + 4 * n;
+        while (i < N) {
+            const x = (Math.random() * 2 - 1) * R;
+            const y = (Math.random() * 2 - 1) * R;
+            const z = (Math.random() * 2 - 1) * R;
+            const r = Math.hypot(x, y, z);
+            if (r === 0 || r > R) continue;
+            const th = Math.acos(z / r);
+            const ph = Math.atan2(y, x);
+            const prob = Math.pow(psi(n, l, m, r, th, ph), 2) * 0.5;
+            if (Math.random() < prob) {
+                pos[i * 3] = x;
+                pos[i * 3 + 1] = y;
+                pos[i * 3 + 2] = z;
+                i++;
+            }
+        }
+        self.postMessage(pos, [pos.buffer]);
+    };
+`;
+
+        // Apply positions + per-point color/alpha based on radius
+        function setCloud(pos) {
+            geometry.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+
+            const N = pos.length / 3;
+            const colors = new Float32Array(N * 3);
+            const alphas = new Float32Array(N);
+            const cCore = new THREE.Color(CONFIG.COLOR_A_HEX);
+            const cEdge = new THREE.Color(CONFIG.COLOR_B_HEX);
+
+            // scale for 1s: map r in [0, ~2.5] to [0,1]
+            const RMAX = 2.5;
+            for (let i = 0; i < N; i++) {
+                const x = pos[3 * i], y = pos[3 * i + 1], z = pos[3 * i + 2];
+                const r = Math.hypot(x, y, z);
+                const t = Math.min(1, r / RMAX);
+                const c = cCore.clone().lerp(cEdge, t);
+                colors[3 * i] = c.r; colors[3 * i + 1] = c.g; colors[3 * i + 2] = c.b;
+                alphas[i] = Math.max(0.06, 1.0 - 0.9 * t); // denser core
+            }
+            geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+            geometry.setAttribute('alpha', new THREE.BufferAttribute(alphas, 1));
+
+            geometry.attributes.position.needsUpdate = true;
+            geometry.computeBoundingSphere();
+        }
+
+        (async () => {
+            const key = cacheKey(CONFIG.n, CONFIG.l, CONFIG.m, CONFIG.PARTICLE_COUNT);
+            const cached = await idbGet(key);
+            if (cached && cached.byteLength === CONFIG.PARTICLE_COUNT * 3 * 4) {
+                setCloud(new Float32Array(cached));
+                return;
+            }
+            const worker = new Worker(URL.createObjectURL(new Blob([workerCode], { type: 'application/javascript' })));
+            worker.onmessage = async (e) => {
+                const pos = e.data;
+                setCloud(pos);
+                try { await idbSet(key, pos.buffer); } catch { }
+                worker.terminate();
+            };
+            worker.postMessage({ n: CONFIG.n, l: CONFIG.l, m: CONFIG.m, N: CONFIG.PARTICLE_COUNT });
+        })();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edwin Hubble & Hubble's Law</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+    <!-- MathJax for rendering equations -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+
+    <!-- Load MathJax -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+
+<body>
+    <!-- Navigation Bar (Copied from index.html, without music controls) -->
+    <header>
+        <div class="nav-container">
+            <a href="projects.html" class="nav-projects">My Projects</a>
+
+            <!-- Site Name & Atom Logo -->
+            <a href="index.html">
+                <h1 class="site-name static-glow">
+                    <img src="assets/solar-system.svg" alt="Rotating Planet" class="rotating-planet">
+                    <span class="nav-animation"></span> Issac Tabares
+                    <img src="assets/atom.svg" alt="Solar System Logo" class="logo" id="atomLogo">
+                </h1>
+            </a>
+        </div>
+    </header>
+
+    <section class="about">
+        <!-- Back Arrow -->
+        <a href="from-the-big-bang-to-the-present-universe.html#hubble-paragraph" class="back-arrow">⬅ </a>
+
+        <h2 class="section-title bigbang-title">Edwin Hubble & Hubble's Law</h2>
+
+        <!-- Edwin Hubble Biography Section -->
+        <section id="hubble-image">
+            <h3 class="universe-subtitle">Edwin Hubble</h3>
+            <figure class="cosmic-image">
+                <img src="assets/hubble-image-filename.jpeg" alt="Image related to Edwin Hubble">
+                <figcaption>
+                    Image credit:
+                    <a href="https://commons.wikimedia.org/wiki/File:Hst15years2.tiff" target="_blank"
+                        rel="noopener noreferrer">
+                        Wikimedia Commons
+                    </a>.
+                    Public domain (NASA/ESA Hubble material);
+                    credit: NASA, STScI, ESA;
+                    modified with AI using ChatGPT to add cosmic visualization.
+                </figcaption>
+            </figure>
+            <p>
+                <strong>Edwin Powell Hubble (1889 – 1953)</strong> was an <strong>American <span
+                        class="popup-term">astronomer<span class="popup-box">An astronomer is a scientist who studies
+                            celestial objects, space, and the physical universe as a whole.</span></span></strong> who
+                made <strong>groundbreaking discoveries</strong> that revolutionized our understanding of the <span
+                    class="popup-term"><strong>cosmos</strong><span class="popup-box">The universe considered as an
+                        orderly, harmonious, and structured system, often implying an ordered and interconnected
+                        whole..</span></span>. After studying <strong>law at Oxford as a Rhodes Scholar</strong> and
+                even a brief stint as a high school basketball coach, he pursued his passion for
+                <strong>astronomy</strong>. His work primarily focused on observing <span
+                    class="popup-term"><strong>nebulae</strong><span class="popup-box">Nebulae: Interstellar clouds
+                        composed of dust, hydrogen, helium, and other ionized gases. They serve as regions where new
+                        stars form, or they represent the remnants of dead stars, and can also be simply diffuse clouds
+                        illuminated by nearby celestial objects.</span></span> with the powerful <strong><span
+                        class="popup-term">Hooker Telescope<span class="popup-box">The Hooker Telescope is a 100-inch
+                            (2.5-meter) reflecting telescope located at Mount Wilson Observatory in California, famous
+                            for its use by Edwin Hubble in making groundbreaking cosmological discoveries.</span></span>
+                    at Mount Wilson Observatory</strong>.
+            </p>
+            <p>
+                <strong>Hubble</strong> provided <strong>conclusive evidence</strong> that many "nebulae" previously
+                thought to be <strong>gas clouds within the <span class="popup-term">Milky Way<span
+                            class="popup-box">The Milky Way is the galaxy that contains our Solar System, appearing as a
+                            hazy band of light in the night sky formed from millions of stars.</span></span></strong>
+                were, in fact, <strong>entire galaxies far beyond our own</strong>. His most significant contribution,
+                however, came in <strong>1929</strong> when he observed a <strong>direct relationship</strong> between a
+                <strong>galaxy's distance from Earth</strong> and its <span class="popup-term"><strong>recessional
+                        velocity</strong><span class="popup-box">Recessional velocity: The speed at which a celestial
+                        object, typically a galaxy, is moving directly away from an observer, primarily due to the
+                        expansion of the universe. It is determined by measuring the redshift of the object's emitted
+                        light.</span></span>,now famously known as <strong>Hubble's Law</strong>. This discovery
+                provided the <strong>first strong observational evidence</strong> for the <strong>expansion of the
+                    universe</strong>, laying a <strong>cornerstone for the Big Bang theory</strong>.
+            </p>
+        </section>
+
+        <!-- Hubble's Law Explanation Section -->
+        <section id="hubble-law-explanation">
+            <h3 class="universe-subtitle">Hubble's Law: v = H₀ d</h3>
+
+            <p>
+                <strong>Hubble's Law</strong> describes a <strong>fundamental relationship</strong> in
+                <strong>cosmology</strong>: the <strong>universe is expanding</strong>, and <strong>galaxies</strong>
+                are <strong>moving away</strong> from each other at a <strong>speed proportional to their
+                    distance</strong>. The farther away a galaxy is, the faster it appears to <strong>recede from
+                    us</strong>. This relationship is <strong>mathematically expressed by the equation</strong>:
+            </p>
+
+            <p style="text-align: center; font-size: 1.5em; font-weight: bold; color: #ff69b4;">
+                $$v = H_0 d$$
+            </p>
+
+            <h4>Breakdown of the Equation:</h4>
+            <ul>
+                <li>
+                    <strong>v (<span class="popup-term">recessional velocity<span class="popup-box">Recessional velocity
+                                is the speed at which a celestial object, typically a galaxy, is moving directly away
+                                from an observer, primarily due to the expansion of the universe. It is determined by
+                                measuring the redshift of the object's emitted light.</span></span>):</strong>
+                    <p>
+                        Represents the <strong>speed</strong> at which a <strong>distant galaxy</strong> is moving away
+                        from the <strong>observer</strong> due to the <strong>expansion of space</strong>. This
+                        <strong>velocity</strong> is determined by observing the <strong>redshift</strong> of the
+                        galaxy's light.
+                        <strong>Units:</strong> Typically measured in <strong>kilometers per second (km/s)</strong>.
+                    </p>
+                </li>
+                <li>
+                    <strong>H₀ (<span class="popup-term">Hubble Constant<span class="popup-box">The Hubble Constant (H₀)
+                                is the cosmological parameter that describes the current rate at which the universe is
+                                expanding. Its value relates the recessional velocity of distant galaxies to their
+                                distance from us.</span></span>):</strong>
+                    <p>
+                        This is the <strong>constant of proportionality</strong> that describes the <strong>current
+                            rate</strong> of the <strong>universe's expansion</strong>. Its <strong>value</strong> has
+                        been <strong>refined over time</strong> through various <strong>astronomical
+                            measurements</strong>. A <strong>higher H₀</strong> implies a <strong>faster expansion
+                            rate</strong>.
+                        <strong>Value:</strong> Current estimates for <strong>H₀</strong> are around <strong>67 to 74
+                            km/s/Mpc</strong> (kilometers per second per megaparsec). For instance, <strong>70
+                            km/s/Mpc</strong> means that for every <strong>megaparsec</strong> (about <strong>3.26
+                            million light-years</strong>) a galaxy is away from us, it recedes an additional <strong>70
+                            km/s faster</strong>.
+                        <strong>Units:</strong> Measured in <strong>kilometers per second per megaparsec
+                            (km/s/Mpc)</strong>.
+                    </p>
+                </li>
+                <li>
+                    <strong>d (<span class="popup-term">proper distance<span class="popup-box">Proper distance, in
+                                cosmology, refers to the spatial separation between celestial objects as measured at a
+                                specific cosmic time. Unlike comoving distance, it accounts for the expansion of the
+                                universe at that moment.</span></span>):</strong>
+                    <p>
+                        Represents the <strong>proper distance</strong> from the <strong>observer</strong> to the
+                        <strong>galaxy</strong>. This is the <strong>distance</strong> as it would be measured at a
+                        <strong>specific cosmic time</strong>.
+                        <strong>Units:</strong> Typically measured in <strong>megaparsecs (Mpc)</strong>, where
+                        <strong>1 Mpc ≈ 3.086 × 10¹⁹ kilometers</strong>.
+                    </p>
+                </li>
+            </ul>
+
+            <h4>How to Read Aloud:</h4>
+            <p>
+                $$v = H_0 d$$ is read aloud as:
+            </p>
+            <p style="text-align: center; font-style: italic; color: #a20ef1;">
+                "Velocity equals H naught d"
+            </p>
+            <p>
+                or more descriptively:
+            </p>
+            <p style="text-align: center; font-style: italic; color: #a20ef1;">
+                "Recessional velocity equals the Hubble constant times distance"
+            </p>
+        </section>
+
+        <!-- Visuals Related to Hubble's Law -->
+        <section id="hubble-visuals">
+            <h3 class="universe-subtitle">Visualizing the Expansion</h3>
+
+            <figure class="cosmic-image">
+                <img src="assets/hubble-diagram-for-cepheids.jpg"
+                    alt="Hubble Diagram showing recessional velocity versus distance for Cepheid variable stars">
+                <figcaption>
+                    Hubble Diagram for Cepheids: This diagram illustrates the relationship between the recessional
+                    velocity and distance of galaxies, derived from observations of Cepheid variable stars. The linear
+                    trend provides clear evidence for the expanding universe. Image credit: NASA and ESA.
+                </figcaption>
+            </figure>
+
+            <figure class="cosmic-image">
+                <img src="assets/redshift-diagram.webp"
+                    alt="Diagram illustrating cosmological redshift and the Doppler effect">
+                <figcaption>
+                    Cosmological Redshift and the Doppler Effect: This diagram illustrates how the light from a moving
+                    source changes wavelength (Doppler effect) and, crucially, how the expansion of space stretches
+                    light from distant galaxies to longer, redder wavelengths (cosmological redshift). Image credit:
+                    NASA, ESA, Leah Hustak (STScI).
+                </figcaption>
+            </figure>
+
+            <!-- In the furue I can  add an interactive model later, it would go here -->
+            <!-- <figure class="radiation-wave-3d">
+                <canvas id="hubbleExpansionCanvas"></canvas>
+                <figcaption>Interactive model illustrating the expansion of space.</figcaption>
+            </figure> -->
+        </section>
+
+    </section>
+
+    <!-- Footer Section (Copied from index.html) -->
+    <footer class="footer">
+        <p class="copyright">© 2026 Issac Tabares. All Rights Reserved.</p>
+        <!-- Music control from index.html footer also removed -->
+    </footer>
+
+    <!-- Glowing Particles Container (Copied from index.html) -->
+    <div id="particles-container"></div>
+
+    <!-- JavaScript for Dynamic Back Arrow -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const backArrow = document.getElementById('dynamic-back-arrow');
+            if (backArrow && document.referrer) {
+                // Get the referrer URL
+                let referrerUrl = document.referrer;
+
+                // Check if the referrer is from my own site (to avoid issues with external referrers)
+                // I might need to adjust 'mydomain.com' to match my actual domain for production
+                if (referrerUrl.includes(window.location.hostname)) {
+                    // Ensures readers go back to the specific paragraph if possible, or just the page
+                    // This simple approach goes back to the referrer URL as is.
+                    // For exact paragraph return, the original link needs to store more info,
+                    // or the referrer needs to be explicitly the one with the #hubble-paragraph.
+                    backArrow.href = referrerUrl;
+                } else {
+                    // Fallback for direct access or external referrers
+                    backArrow.href = 'from-the-big-bang-to-the-present-universe.html#hubble-paragraph';
+                }
+            } else if (backArrow) {
+                // Fallback if no referrer (e.g., direct access), go to the main history page
+                backArrow.href = 'from-the-big-bang-to-the-present-universe.html#hubble-paragraph';
+            }
+        });
+    </script>
+</body>
+
+</html>

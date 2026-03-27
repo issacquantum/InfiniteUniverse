@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+    <title>Periodic Table — Spin, Exclusion & Aufbau</title>
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- MathJax -->
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Fonts: desktop vs mobile families-->
+    <style>
+        /* Desktop font */
+        @media (min-width: 701px) {
+
+            body,
+            .section-title,
+            .universe-subtitle,
+            .about p,
+            figcaption {
+                font-family: 'Dancing Script', cursive;
+            }
+        }
+
+        /* Mobile font */
+        @media (max-width: 700px) {
+
+            body,
+            .section-title,
+            .universe-subtitle,
+            .about p,
+            figcaption {
+                font-family: 'Apple Chancery', Papyrus, fantasy, cursive, sans-serif;
+            }
+        }
+
+        /* Viewer wrapper that I can reuse for any model */
+        .model-viewer {
+            position: relative;
+            max-width: 900px;
+            margin: 24px auto;
+            background: transparent;
+            padding: 16px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .model-viewer canvas {
+            width: 100%;
+            height: 420px;
+            display: block;
+            border-radius: 8px;
+            background: transparent;
+            touch-action: none;
+        }
+
+        .model-viewer figcaption {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            color: #bfbbc1;
+            text-align: center;
+        }
+
+        @media (max-width: 700px) {
+            .model-viewer canvas {
+                height: 300px;
+            }
+        }
+    </style>
+
+    <!--global JS  -->
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="projects.html" class="nav-projects">My Projects</a>
+            <h1 class="site-name">
+                <a href="index.html">
+                    <img src="assets/solar-system.svg" class="rotating-planet" alt="Rotating Planet" />
+                    Issac Tabares
+                    <img src="assets/atom.svg" class="logo" id="atomLogo" alt="Atom Logo" />
+                </a>
+            </h1>
+        </div>
+    </header>
+
+    <section class="about">
+        <!-- Back Arrow to Quantum Mechanics -->
+        <a href="quantum-mechanics.html" class="back-arrow" aria-label="Back to Quantum Mechanics">⬅</a>
+
+        <h2 class="section-title bigbang-title">
+            <strong>Stern–Gerlach, Spin, Pauli Exclusion & Periodic Table Logic</strong>
+        </h2>
+
+        <!-- Intro / Content slot -->
+        <!-- Content, short intro paragraph(s) about spin, Stern–Gerlach, Uhlenbeck–Goudsmit, Pauli, and how they lead to the Aufbau principle and the periodic table. -->
+
+        <h3 class="universe-subtitle">Stern–Gerlach experiment (spin quantization)</h3>
+        <!-- Content, explanation of the experiment, beam splitting, two-valued $m_s = \pm \tfrac12$ etc. -->
+
+        <!-- Model slot  1 -->
+        <!-- Model,  Stern–Gerlach beam splitter (animated particles + inhomogeneous B-field). -->
+        <figure class="model-viewer" id="model-stern-gerlach">
+            <canvas id="canvas-stern-gerlach"></canvas>
+            <figcaption>
+                <!-- Explanation of the model. -->
+            </figcaption>
+        </figure>
+
+        <h3 class="universe-subtitle">Electron spin & magnetic moment</h3>
+        <!-- CONTENT HERE: Uhlenbeck–Goudsmit proposal, spin-1/2, $g \approx 2$, magnetic moment $\boldsymbol{\mu}_s = -g \frac{e}{2m} \mathbf{S}$. -->
+
+        <!-- Model slot 2 -->
+        <!-- Model Classical vs quantum magnetic dipole precession (vector S precessing around B). -->
+        <figure class="model-viewer" id="model-spin-precession">
+            <canvas id="canvas-spin-precession"></canvas>
+            <figcaption>
+                <!-- Explanation of the model -->
+            </figcaption>
+        </figure>
+
+        <h3 class="universe-subtitle">Pauli exclusion principle</h3>
+        <!-- Content, statement of the principle, antisymmetrization, occupancy rules, relation to spin. -->
+
+        <h3 class="universe-subtitle">Aufbau principle, Hund’s rule & periodic trends</h3>
+        <!-- Content,filling order, $(n+l)$ rule, Hund’s max multiplicity, shielding/penetration → periodicity. -->
+
+        <!-- Model slot 3 -->
+        <!-- Model explained, Interactive periodic table builder (drag electrons to fill subshells; show term symbols). -->
+        <figure class="model-viewer" id="model-aufbau">
+            <canvas id="canvas-aufbau"></canvas>
+            <figcaption>
+                <!--Explanation of the model. -->
+            </figcaption>
+        </figure>
+
+        <h3 class="universe-subtitle">Term symbols & ground states</h3>
+        <!-- Content,  LS-coupling notation $^{2S+1}L_J$, examples for C, N, O, etc. -->
+
+        <!-- Model slot 4 -->
+        <!-- Model,  Atomic orbital shapes gallery (s, p, d) with isosurfaces; switch $n,l,m$. -->
+        <figure class="model-viewer" id="model-orbitals">
+            <canvas id="canvas-orbitals"></canvas>
+            <figcaption>
+                <!-- Explanation of the model -->
+            </figcaption>
+        </figure>
+
+        <h3 class="universe-subtitle">Notes & equations</h3>
+        <!-- Content key formulas: $\mathbf{S}^2 = s(s+1)\hbar^2$, $s=\tfrac12$, $m_s=\pm\tfrac12$, Pauli principle statement, $(n+l)$ rule. -->
+        <p>
+            <!-- Extra math space if needed: $$^{2S+1}L_J,\quad \boldsymbol{\mu}_s = -g \frac{e}{2m} \mathbf{S},\quad g \approx 2.$$ -->
+        </p>
+    </section>
+
+    <footer class="footer">
+        <p class="copyright">© 2026 Issac Tabares. All Rights Reserved.</p>
+    </footer>
+
+    <div id="particles-container"></div>
+</body>
+
+</html>

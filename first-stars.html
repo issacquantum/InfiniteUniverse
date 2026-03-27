@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Stars</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- MathJax config + loader -->
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="projects.html" class="nav-projects">My Projects</a>
+
+            <h1 class="site-name">
+                <a href="index.html">
+                    <img src="assets/solar-system.svg" class="rotating-planet" alt="Rotating Planet">
+                    Issac Tabares
+                    <img src="assets/atom.svg" class="logo" id="atomLogo" alt="Atom Logo">
+                </a>
+            </h1>
+        </div>
+    </header>
+
+    <section class="about">
+        <!-- Back Arrow (returns to the main timeline page) -->
+        <a href="from-the-big-bang-to-the-present-universe.html" class="back-arrow">⬅</a>
+
+        <h2 class="section-title bigbang-title"><strong>First Stars</strong></h2>
+
+        <h2>Formation of the First Stars (Population III Stars)</h2>
+        <p>
+            The first stars, often referred to as <strong>Population III stars</strong>, began to form approximately \(
+            1 \times
+            10^{8} \text{ to } 2.5 \times 10^{8} \text{ years} \). Unlike later generations of stars, Population III
+            stars were composed
+            almost entirely of the primordial elements created during <strong>Big Bang nucleosynthesis:</strong>
+            <strong>hydrogen</strong> and
+            <strong>helium</strong>, with only trace amounts of <strong>lithium</strong>. There were no heavier elements
+            (which astronomers call
+            "metals") available to facilitate cooling during their formation.
+        </p>
+        <p>
+            The formation of these first stars required immense gravitational collapse in the densest regions of the
+            nascent universe. Without heavy elements to efficiently radiate away heat, the primordial gas clouds needed
+            to be significantly more massive than the clouds that form modern stars to overcome the higher temperatures
+            and pressures. Theoretical models suggest these first stars were therefore typically very
+            <strong>massive</strong>,
+            ranging from tens to hundreds of times the mass of our Sun.
+        </p>
+
+        <h4>Characteristics of Population III Stars</h4>
+        <p>
+            Due to their enormous mass and pure hydrogen/helium composition, <strong>Population III stars</strong> were
+            predicted to
+            have been: <strong>Extremely Hot</strong>, with intense gravitational compression and very high core
+            temperatures, making
+            them very luminous. They were also <strong>Very Luminous</strong>, potentially millions of times more
+            luminous than the
+            Sun. Their massive nature meant they were <strong>Short-lived</strong>, existing for only a few million
+            years. Finally,
+            they were <strong>Crucial for Reionization</strong>, as the intense ultraviolet radiation they emitted
+            played a vital
+            role in reionizing the neutral hydrogen gas, ending the Dark Ages.
+        </p>
+        <p>
+            These stars were the universe's first <strong>"heavy element factories."</strong> Through <strong>nuclear
+                fusion</strong> in their
+            cores, they synthesized heavier elements such as <strong>carbon, oxygen, and iron</strong>. When these
+            massive stars
+            reached the end of their short lives, they exploded as powerful <strong>supernovae</strong>. These
+            explosions dispersed
+            the newly formed heavy elements into the surrounding intergalactic medium, enriching it for the formation of
+            subsequent generations of stars and galaxies.
+        </p>
+
+        <h4>Impact on Cosmic Evolution</h4>
+        <p>
+            The formation and death of the first stars marked a profound turning point in <strong>cosmic
+                history</strong>. They were
+            instrumental in <strong>Ending the Dark Ages</strong> through their powerful radiation, which reionized the
+            neutral
+            hydrogen. They also were key in <strong>Enriching the Universe</strong>, as their supernova explosions
+            produced and
+            distributed the first <strong>heavy elements</strong>, essential for the formation of planets and life.
+            Furthermore, they
+            were vital in <strong>Seeding Galaxy Formation</strong>, as their remnants and enriched gas clouds provided
+            the initial
+            conditions for the hierarchical growth of the first <strong>galaxies</strong>.
+        </p>
+        <p>
+            Although <strong>Population III stars</strong> have never been directly observed due to their extreme
+            distance and short
+            lifespan, their existence is strongly supported by theoretical models and indirect observations of the early
+            universe, particularly the chemical composition of very old stars and distant quasars. Future telescopes,
+            such as the <strong>James Webb Space Telescope</strong>, continue to search for direct evidence of these
+            elusive first
+            luminaries.
+        </p>
+
+    </section>
+
+    <footer class="footer">
+        <p class="copyright">© 2026 Issac Tabares. All Rights Reserved.</p>
+    </footer>
+
+    <div id="particles-container"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const backArrow = document.querySelector('.back-arrow');
+            if (backArrow) {
+                // Optional: make the arrow use history.back()
+                // backArrow.addEventListener('click', (e) => { e.preventDefault(); window.history.back(); });
+            }
+        });
+    </script>
+
+</body>
+
+</html>

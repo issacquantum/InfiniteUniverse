@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age of the Universe</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- MathJax config + loader for equations to display properly-->
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="projects.html" class="nav-projects">My Projects</a>
+
+            <h1 class="site-name">
+                <a href="index.html">
+                    <img src="assets/solar-system.svg" class="rotating-planet" alt="Rotating Planet">
+                    Issac Tabares
+                    <img src="assets/atom.svg" class="logo" id="atomLogo" alt="Atom Logo">
+                </a>
+            </h1>
+        </div>
+    </header>
+
+    <section class="about">
+        <a href="from-the-big-bang-to-the-present-universe.html" class="back-arrow">⬅</a>
+
+        <h2 class="section-title bigbang-title"><strong>Age of the Universe</strong></h2>
+
+        <h2>Determining Cosmic Time</h2>
+        <p>
+            The <strong>age of the universe</strong> refers to the time elapsed since the <strong>Big Bang</strong>.
+            According to the
+            <strong>Lambda-CDM cosmological model</strong> the most accepted scientific
+            model describing the <strong>universe's evolution</strong>, the
+            <strong>universe</strong> is currently estimated to be approximately <strong>\( 1.38 \times 10^{10} \text{
+                years}
+                \)</strong> old. This precise age is
+            derived from a combination of fundamental physics and precise <strong>astronomical observations</strong>,
+            primarily by
+            measuring the <strong>expansion rate of the universe</strong> and extrapolating backward to its origin.
+        </p>
+
+        <h2>Calculations from Cosmic Expansion</h2>
+        <p>
+            The primary method for calculating the <strong>age of the universe</strong> involves measuring the
+            <strong>Hubble
+                Constant \( (H_0) \)</strong>, which quantifies the <strong>rate at which the universe is expanding
+                today</strong>.
+            If the <strong>universe</strong> has been
+            expanding at a relatively constant rate, its age would simply be the inverse of the <strong>Hubble Constant
+                \( (H_0) \)</strong>
+        </p>
+        <p>
+        <p>$$t_H = \frac{1}{H_0}$$</p>
+        </p>
+        <p>
+            However, the <strong>expansion rate</strong> has not been constant throughout <strong>cosmic
+                history</strong>. The <strong>universe's
+                expansion</strong> has been influenced by its varying <strong>energy density</strong> (composed of
+            <strong>matter</strong>, <strong>radiation</strong>,
+            and <strong>dark energy</strong>). In the early <strong>universe</strong>, <strong>matter</strong> and
+            <strong>radiation</strong> slowed the expansion due to
+            <strong>gravity</strong>, while in recent <strong>cosmic epochs</strong>, <strong>dark energy</strong> has
+            caused the expansion to accelerate.
+            Therefore, a more sophisticated calculation derived from the <strong>Friedmann equations</strong> is
+            necessary to
+            accurately determine the <strong>age of the universe</strong>.
+        </p>
+        <p>
+            The <strong>age of the universe \( (t_0) \)</strong> is given by the integral of the inverse of the
+            <strong>Hubble parameter \( H(z) \)</strong> over redshift <strong>\( z \)</strong>:
+        </p>
+        <p>
+        <p>$$t_0 = \int_{0}^{\infty} \frac{dz}{(1+z)H(z)}$$</p>
+        </p>
+        <p>
+            where <strong>\( H(z) \)</strong>, the <strong>Hubble parameter</strong> at redshift <strong>\( z
+                \)</strong>, is dependent on
+            the
+            <strong>cosmological parameters</strong>
+            defining the <strong>energy densities</strong> of <strong>matter</strong>, <strong>dark energy</strong>, and
+            <strong>curvature</strong>. For a flat
+            <strong>\( \Lambda \)CDM model</strong>, <strong>\( H(z) \)</strong> can be expressed as:
+        </p>
+        <p>
+        <p>$$H(z) = H_0 \sqrt{\Omega_m (1+z)^3 + \Omega_r (1+z)^4 + \Omega_\Lambda}$$</p>
+        </p>
+        <p>
+            Here, <strong>\( \Omega_m \)</strong>, <strong>\( \Omega_r \)</strong>, and <strong>\( \Omega_\Lambda
+                \)</strong> represent the
+            present-day <strong>density parameters</strong>
+            for <strong>matter</strong>,
+            <strong>radiation</strong>, and <strong>dark energy</strong>, respectively. Given that <strong>\( \Omega_m +
+                \Omega_r + \Omega_\Lambda = 1 \)</strong> for a flat
+            <strong>universe</strong>, precise measurements of these <strong>parameters</strong> and <strong>\( H_0
+                \)</strong> are crucial
+            for an
+            accurate age
+            calculation.
+        </p>
+
+        <h2>Observational Evidence</h2>
+        <p>
+            The most precise measurements of these <strong>cosmological parameters</strong> come from detailed studies
+            of the
+            <strong>Cosmic Microwave Background (CMB)</strong>, particularly from missions like <strong>NASA's
+                WMAP</strong> and the <strong>European
+                Space Agency's Planck satellite</strong>. The <strong>CMB</strong> provides a snapshot of the
+            <strong>universe</strong> when it was only
+            about <strong>\( 3.8 \times 10^{5} \text{ years} \)</strong> offering critical data on its early composition
+            and <strong>expansion rate</strong>.
+        </p>
+        <p>
+            Independent confirmation comes from observations of the oldest known objects, such as <strong>globular
+                clusters</strong>
+            (dense groupings of very old <strong>stars</strong>) and very distant <strong>galaxies</strong>. The ages
+            derived for these objects
+            are consistent with, and do not exceed, the <strong>cosmic age</strong> derived from <strong>CMB</strong>
+            and <strong>Hubble Constant
+                \( (H_0) \)</strong>
+            measurements, providing a crucial consistency check for the <strong>ΛCDM model</strong>.
+        </p>
+
+    </section>
+
+    <footer class="footer">
+        <p class="copyright">© 2026 Issac Tabares. All Rights Reserved.</p>
+    </footer>
+
+    <div id="particles-container"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const backArrow = document.querySelector('.back-arrow');
+            if (backArrow) {
+                // Optional: make the arrow use history.back()
+                // backArrow.addEventListener('click', (e) => { e.preventDefault(); window.history.back(); });
+            }
+        });
+    </script>
+
+</body>
+
+</html>

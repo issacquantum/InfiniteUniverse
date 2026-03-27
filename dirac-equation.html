@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Dirac equation, spin-½ as natural consequence, prediction of antimatter (positron).</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <script>
+        window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] } };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="js/script.js" defer></script>
+
+    <style>
+        /* --- Model sizing & transparency  --- */
+        .model-viewer {
+            max-width: 520px;
+            margin: 18px auto;
+            padding: 10px;
+            background: transparent !important;
+            border: none;
+            box-shadow: none;
+            border-radius: 8px;
+        }
+
+        .model-viewer canvas {
+            display: block;
+            width: 100% !important;
+            height: 220px !important;
+            background: transparent !important;
+        }
+
+        .model-caption {
+            margin-top: 8px;
+            font-size: 0.85rem;
+            color: #e9ddff;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, .35);
+        }
+
+        /* controls/labels */
+        .model-ui {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 6px;
+            flex-wrap: wrap;
+        }
+
+        .pill {
+            font-size: 0.8rem;
+            padding: 4px 8px;
+            border-radius: 999px;
+            background: rgba(157, 0, 255, 0.14);
+            border: 1px solid rgba(157, 0, 255, 0.4);
+            color: #FF6EC7;
+            text-shadow: 0 0 6px rgba(255, 110, 199, .55);
+            box-shadow: 0 0 10px rgba(255, 110, 199, .22), inset 0 0 12px rgba(157, 0, 255, .12);
+        }
+
+        .pill:hover {
+            transform: translateY(-1px);
+        }
+
+        /* Mobile sizing */
+        @media (max-width: 768px) {
+            .model-viewer {
+                max-width: 340px;
+                padding: 8px;
+            }
+
+            .model-viewer canvas {
+                height: 200px !important;
+            }
+
+            .pill {
+                font-size: 0.75rem;
+                padding: 3px 7px;
+            }
+
+            .model-caption {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="projects.html" class="nav-projects">My Projects</a>
+            <h1 class="site-name">
+                <a href="index.html">
+                    <img src="assets/solar-system.svg" class="rotating-planet" alt="Rotating Planet">
+                    Issac Tabares
+                    <img src="assets/atom.svg" class="logo" id="atomLogo" alt="Atom Logo">
+                </a>
+            </h1>
+        </div>
+    </header>
+
+    <section class="about">
+        <a href="quantum-mechanics.html" class="back-arrow" aria-label="Back to Quantum Mechanics">⬅</a>
+        <h2 class="section-title bigbang-title">
+            <strong>The Dirac Equation: Spin, Antimatter, and the Positron</strong>
+        </h2>
+
+        <p>The <strong>Dirac equation</strong> is a <strong>relativistic wave equation</strong> that describes fermionic
+            particles such as the electron. It was formulated by <strong>Paul Dirac</strong> to reconcile
+            <strong>quantum mechanics</strong> with <strong>special relativity</strong>, addressing limitations in
+            earlier formulations like the <strong>Schrödinger equation</strong>, which is not <strong>Lorentz
+                invariant</strong>.
+        </p>
+
+        <p>The term <strong>relativistic</strong> (from the Latin <em>relativus</em>, "having relation") refers to
+            consistency with the transformations of <strong>spacetime</strong> described by relativity. In a transparent
+            sense, this means the equation remains true regardless of how fast an observer is moving. Meanwhile,
+            <strong>spin</strong> originates from the intrinsic angular momentum of particles, an inherent quantum
+            property not associated with classical rotation.
+        </p>
+
+        <p>The Dirac equation is given by:</p>
+
+        <p>
+            $$(i \hbar \gamma^\mu \partial_\mu - mc)\psi = 0$$
+        </p>
+
+        <p>To put this in a more accessible light, this compact statement is a "recipe" for how a particle moves through
+            space and time while respecting the speed of light. Here, <strong>$\psi$</strong> (the Greek letter
+            <em>psi</em>) is the <strong>Dirac spinor</strong>, a multi-component object encoding the particle’s state.
+            The matrices <strong>$\gamma^\mu$</strong>, known as <strong>gamma matrices</strong>, are the "gears" that
+            enforce the relativistic structure, and <strong>$\partial_\mu$</strong> represents
+            <strong>derivatives</strong> (the rate of change) in spacetime. The constants <strong>$\hbar$</strong> and
+            <strong>$c$</strong> denote the <strong>reduced Planck constant</strong> and the <strong>speed of
+                light</strong>, respectively.
+        </p>
+
+        <p>A central implication of this equation is the natural emergence of <strong>spin</strong>. The etymology of
+            <strong>intrinsic</strong> (from the Latin <em>intrinsecus</em>, "inner/within") is vital here; unlike
+            earlier theories where spin was added as an afterthought, the Dirac formulation produces it directly from
+            its mathematical structure. It predicts a spin value of <strong>$1/2$</strong> for electrons, defining them
+            as <strong>fermions</strong>.
+        </p>
+
+        <p>Another critical result is the existence of <strong>negative energy solutions</strong>. Rather than
+            discarding them as "impossible," <strong>Dirac</strong> interpreted these solutions as representing a new
+            class of particles. This led to the prediction of <strong>antimatter</strong>, specifically the
+            <strong>positron</strong>, a discovery later experimentally confirmed by <strong>Carl Anderson</strong>.
+        </p>
+
+        <p>The concept of <strong>antimatter</strong> follows from <strong>symmetry</strong> (from the Greek
+            <em>symmetria</em>, "agreement in dimensions") within the equation: for every particle solution, there
+            exists a corresponding solution with an opposite charge. The <strong>positron</strong> is therefore the
+            <strong>antiparticle</strong> of the electron, sharing the exact same mass but carrying a positive charge.
+            When they meet, they <strong>annihilate</strong> (from the Latin <em>annihilare</em>, "to reduce to
+            nothing"), converting their mass entirely back into energy.
+        </p>
+
+        <p>The Dirac equation can also be written in <strong>Hamiltonian form</strong>:</p>
+
+        <p>
+            $$i \hbar \frac{\partial \psi}{\partial t} = \left( c \boldsymbol{\alpha} \cdot \mathbf{p} + \beta mc^2
+            \right)\psi$$
+        </p>
+
+        <p>To view this in a more straightforward manner: the left side represents the <strong>total energy</strong> of
+            the particle over time, while the right side breaks that energy down into two parts: <strong>kinetic
+                energy</strong> (movement, represented by momentum <strong>$\mathbf{p}$</strong> and the matrices
+            <strong>$\boldsymbol{\alpha}$</strong>) and <strong>rest mass energy</strong> (the famous $E=mc^2$ logic,
+            represented by <strong>$\beta mc^2$</strong>). This form makes explicit the relationship between
+            <strong>energy</strong>, <strong>momentum</strong>, and <strong>mass</strong> within a relativistic quantum
+            framework.
+        </p>
+
+        <p>Beyond its immediate predictions, the Dirac equation established a foundation for <strong>quantum field
+                theory</strong>. It formalized the connection between <strong>symmetry</strong>,
+            <strong>relativity</strong>, and <strong>quantum structure</strong>, making it one of the most significant
+            developments in the history of physics.
+        </p>
+
+        <h3 class="universe-subtitle"><strong>Klein–Gordon problem & negative energies</h3></strong>
+        <p>
+            The Klein–Gordon equation is the simplest wave equation built from the energy–momentum relation
+            $$E^2 = p^2c^2 + m^2c^4.$$
+            In plain words: “square the energy, and it equals the square of momentum times $c^2$ plus the square of the
+            rest energy.” Because the relation is <strong>quadratic</strong>, taking the square root gives two branches,
+            $E = \pm \sqrt{p^2c^2 + m^2c^4}$. The plus sign is ordinary positive energy; the minus sign is a genuine
+            <strong>negative-energy</strong> solution. Unlike the Schrödinger equation, which is first order in time,
+            Klein–Gordon is <strong>second order in time</strong> (it involves
+            $\partial^2/\partial t^2$). That extra time derivative changes the conserved quantity.
+        </p>
+        <p>
+            The conserved <strong>density</strong>
+            from Klein–Gordon is
+            $$\rho = \frac{i\hbar}{2m}\left(\psi^* \partial_t \psi - \psi\,\partial_t \psi^*\right).$$
+            Simple version: “rho is built from psi and its time change.” Because of the time derivatives, $\rho$ is
+            <strong>not guaranteed to be positive</strong>. In other words, it can be negative, so it cannot be read as
+            a <strong>probability</strong> density. That is the core
+            “probability problem.” The Klein–Gordon current
+            $j^\mu = \frac{i\hbar}{2m}\left(\psi^*\partial^\mu \psi - \psi\,\partial^\mu \psi^*\right)$ is conserved
+            ($\partial_\mu j^\mu=0$), but its time component $j^0=\rho$ can flip sign.
+        </p>
+        <p>
+            Two consequences follow. First, the <strong>negative branch</strong> is unavoidable in a quadratic relation,
+            so the spectrum is unbounded below; there is no built-in “floor” to prevent cascading to ever-lower
+            energies. Second, because $\rho$ can be negative, one cannot interpret $\psi$ as a single-particle
+            wavefunction with a positive probability. Historically, this motivated a first-order equation in time
+            (Dirac) and, in modern language, the shift from wavefunctions to <strong>fields</strong> (Latin
+            <em>campus</em>, “open field”; an extended quantity defined at every point), where particles and
+            antiparticles appear as distinct excitations.
+        </p>
+
+        <p class="model-expl__lead">
+            This plot shows the <strong>allowed energies</strong> for a free relativistic particle as a function of
+            momentum.
+        </p>
+        <ul class="model-expl__list">
+            <li>
+                The <strong>top curve</strong> (bright pink) is the positive branch $E_{+}=+\sqrt{p^2+m^2}$.
+                In plain words: “energy is the positive square root.” It’s the usual energy you expect, larger when the
+                momentum is larger.
+            </li>
+            <li>
+                The <strong>bottom curve</strong> (electric violet) is the negative branch $E_{-}=-\sqrt{p^2+m^2}$.
+                In plain words: “same size, but with a minus sign.” It mirrors the top one below zero.
+            </li>
+            <li>
+                At zero momentum $p=0$, the two curves sit at $E=\pm m$ (here $E=\pm 1$).
+                Simple version: “at rest, energy equals plus or minus the mass.” The gap between them is $2m$ (here it’s
+                2).
+            </li>
+            <li>
+                The dashed diagonal lines are $E=\pm|p|$. Plain version: “energy equals the size of momentum.”
+                For large $|p|$ the curves get close to these lines, mass stops mattering much.
+            </li>
+        </ul>
+        <p class="model-expl__end">
+            That’s it: two mirrored sheets (one above zero, one below), touching the points $\pm m$ at $p=0$ and hugging
+            the lines $\pm|p|$ when $|p|$ is big.
+        </p>
+
+        <!-- MODEL -->
+        <figure class="model-viewer" id="model-kg-problem">
+            <canvas id="canvas-kg-problem"></canvas>
+            <!-- Script -->
+            <script>
+                (() => {
+                    const canvas = document.getElementById('canvas-kg-problem');
+                    if (!canvas) return;
+                    const ctx = canvas.getContext('2d', { alpha: true });
+
+                    // Resize to CSS size * devicePixelRatio
+                    function fit() {
+                        const rect = canvas.getBoundingClientRect();
+                        const dpr = Math.max(1, window.devicePixelRatio || 1);
+                        canvas.width = Math.round(rect.width * dpr);
+                        canvas.height = Math.round(rect.height * dpr);
+                        draw();
+                    }
+                    new ResizeObserver(fit).observe(canvas);
+
+                    // Controls 
+                    let showAxes = true, showAsymptotes = true, m = 1.0;
+
+                    // High-contrast neon palette (my favorites)
+                    const col = {
+                        pos: '#FF6EC7',   // neon pink
+                        neg: '#9D00FF',   // electric violet
+                        axes: '#E9DDFF',   // pale lavender
+                        grid: 'rgba(233,221,255,0.18)',
+                        asym: '#BF00FF',   // bright violet
+                        glow1: 'rgba(255,110,199,0.55)',
+                        glow2: 'rgba(157,0,255,0.55)'
+                    };
+
+                    function Epos(p) { return Math.sqrt(p * p + m * m); }
+                    function Eneg(p) { return -Math.sqrt(p * p + m * m); }
+
+                    function draw() {
+                        const W = canvas.width, H = canvas.height;
+                        ctx.clearRect(0, 0, W, H);
+
+                        // screen mapping
+                        const pMax = 4.5;                 // momentum range
+                        const eMax = Math.sqrt(pMax * pMax + m * m) * 1.15;
+                        const pad = Math.round(Math.min(W, H) * 0.08);
+                        const x0 = pad, y0 = H - pad;
+                        const x1 = W - pad, y1 = pad;
+                        const sx = (x1 - x0) / (2 * pMax);
+                        const sy = (y0 - y1) / (2 * eMax);
+
+                        const X = p => x0 + (p + pMax) * sx;
+                        const Y = e => y0 - (e + eMax) * sy;
+
+                        // faint grid
+                        ctx.save();
+                        ctx.strokeStyle = col.grid;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        for (let i = -4; i <= 4; i++) {
+                            const gx = X(i); ctx.moveTo(gx, y1); ctx.lineTo(gx, y0);
+                        }
+                        for (let j = -Math.ceil(eMax); j <= Math.ceil(eMax); j++) {
+                            const gy = Y(j); ctx.moveTo(x0, gy); ctx.lineTo(x1, gy);
+                        }
+                        ctx.stroke();
+                        ctx.restore();
+
+                        // axes
+                        if (showAxes) {
+                            ctx.save();
+                            ctx.strokeStyle = col.axes;
+                            ctx.lineWidth = 1.5;
+                            ctx.beginPath();
+                            ctx.moveTo(x0, Y(0)); ctx.lineTo(x1, Y(0)); // p-axis
+                            ctx.moveTo(X(0), y0); ctx.lineTo(X(0), y1); // E-axis
+                            ctx.stroke();
+                            // ticks/labels (tiny, high contrast)
+                            ctx.fillStyle = col.axes;
+                            ctx.font = `${Math.max(10, Math.round(H * 0.035))}px Dancing Script, Apple Chancery, sans-serif`;
+                            ctx.fillText('p', x1 - 10, Y(0) - 6);
+                            ctx.fillText('E', X(0) + 8, y1 + 12);
+                            ctx.restore();
+                        }
+
+                        // asymptotes E = ±|p|
+                        if (showAsymptotes) {
+                            ctx.save();
+                            ctx.setLineDash([4, 6]);
+                            ctx.strokeStyle = col.asym;
+                            ctx.lineWidth = 1.5;
+                            ctx.beginPath();
+                            ctx.moveTo(X(-pMax), Y(-pMax)); ctx.lineTo(X(pMax), Y(pMax));
+                            ctx.moveTo(X(-pMax), Y(pMax)); ctx.lineTo(X(pMax), Y(-pMax));
+                            ctx.stroke();
+                            ctx.restore();
+                        }
+
+                        // curves with glow
+                        function plot(fn, color, glow) {
+                            ctx.save();
+                            ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+                            // glow
+                            ctx.shadowColor = glow; ctx.shadowBlur = 18;
+                            ctx.strokeStyle = color; ctx.lineWidth = 3;
+                            ctx.beginPath();
+                            let first = true;
+                            for (let i = 0; i <= 400; i++) {
+                                const p = -pMax + (2 * pMax) * (i / 400);
+                                const x = X(p), y = Y(fn(p));
+                                if (first) { ctx.moveTo(x, y); first = false; } else { ctx.lineTo(x, y); }
+                            }
+                            ctx.stroke();
+                            // core stroke (extra contrast)
+                            ctx.shadowBlur = 0;
+                            ctx.lineWidth = 1.5;
+                            ctx.stroke();
+                            ctx.restore();
+                        }
+
+                        plot(Epos, col.pos, col.glow1);
+                        plot(Eneg, col.neg, col.glow2);
+
+                        // small legend dots near curves
+                        ctx.save();
+                        ctx.fillStyle = col.pos; ctx.shadowColor = col.glow1; ctx.shadowBlur = 10;
+                        ctx.beginPath(); ctx.arc(X(2.6), Y(Epos(2.6)), 4, 0, Math.PI * 2); ctx.fill();
+                        ctx.fillStyle = col.neg; ctx.shadowColor = col.glow2;
+                        ctx.beginPath(); ctx.arc(X(-2.6), Y(Eneg(-2.6)), 4, 0, Math.PI * 2); ctx.fill();
+                        ctx.restore();
+                    }
+
+                    // init
+                    fit();
+                })();
+            </script>
+
+            <div class="model-ui">
+                <span class="pill">E± branches</span>
+                <span class="pill">m=1, c=1 units</span>
+            </div>
+            <figcaption class="model-caption">
+                Dispersion with $E_{+}=+\sqrt{p^2+m^2}$ (bright pink) and $E_{-}=-\sqrt{p^2+m^2}$ (electric violet),
+                plus the asymptotes $E=\pm|p|$. Gap $2m$ at $p=0$. Motivates a first-order, linear wave equation.
+            </figcaption>
+        </figure>
+
+        <h3 class="universe-subtitle"><strong>Spin</strong>-$\frac{1}{2}$ <strong>Emerges Naturally</strong></h3>
+
+        <p>In this context, <strong>spin</strong> refers to <strong>intrinsic angular momentum</strong>. Unlike a
+            spinning top or a planet, which rotates because its physical parts are moving around an axis, quantum
+            <strong>spin</strong> is a fundamental property built into the particle itself. It is not caused by physical
+            rotation; rather, it is an internal "degree of freedom" that dictates how a particle interacts with magnetic
+            fields and how it occupies space with other particles.
+        </p>
+
+        <p>To understand why <strong>spin</strong> is considered a "natural" consequence of the <strong>Dirac
+                equation</strong>, we must look at the mathematical crisis that preceded it. Before this formulation,
+            spin was merely a "patch" added to the <strong>Schrödinger equation</strong> to make it match experimental
+            data. Dirac’s version made spin a structural requirement of the universe.</p>
+
+        <p>The standard <strong>Schrödinger equation</strong> treats space and time differently, using a
+            <strong>second-order derivative</strong> for space but a <strong>first-order derivative</strong> for time.
+            In <strong>Special Relativity</strong>, space and time must be on equal footing. While the
+            <strong>Klein–Gordon equation</strong> attempted to fix this by using second-order derivatives for both, it
+            resulted in "negative probabilities": a physical impossibility where a particle would have a less-than-zero
+            percent chance of existing.
+        </p>
+
+        <p><strong>Paul Dirac</strong> realized that to keep probabilities positive, the equation had to remain
+            <strong>first-order in time</strong>. To satisfy relativity, it therefore also had to be <strong>first-order
+                in space</strong>. The energy-momentum relation in relativity is:
+        </p>
+
+        <p>
+            $$E^2 = (pc)^2 + (mc^2)^2$$
+        </p>
+
+        <p>To create a first-order equation, Dirac essentially had to take the "square root" of this operator.
+            Mathematically, you cannot take the square root of a sum of squares using ordinary numbers; you require
+            <strong>matrices</strong>. To make this "square root" work, Dirac introduced the <strong>$\gamma$ (gamma)
+                matrices</strong>. Because these are $4 \times 4$ matrices, the wave function $\psi$ could no longer be
+            a single number. It evolved into a <strong>column vector with four components</strong>, known as a
+            <strong>Dirac spinor</strong>.
+        </p>
+
+        <p>These four components represent the fundamental states of the particle:</p>
+        <ul>
+            <li><strong>Electron</strong> with <strong>Spin Up</strong> ($+\frac{1}{2}$)</li>
+            <li><strong>Electron</strong> with <strong>Spin Down</strong> ($-\frac{1}{2}$)</li>
+            <li><strong>Positron</strong> with <strong>Spin Up</strong> ($+\frac{1}{2}$)</li>
+            <li><strong>Positron</strong> with <strong>Spin Down</strong> ($-\frac{1}{2}$)</li>
+        </ul>
+
+        <p>When solving the Dirac equation for an electron interacting with an electromagnetic field, an extra term
+            appears automatically that represents <strong>intrinsic angular momentum</strong>. In the Schrödinger model,
+            you must manually insert the "magnetic moment" of the electron. In the <strong>Dirac equation</strong>, the
+            math literally fails to function unless the particle possesses an internal "rotation" value of
+            <strong>$\frac{1}{2}$</strong>.
+        </p>
+
+        <p>One of the greatest triumphs of this emergence was the prediction of the <strong>gyromagnetic ratio</strong>
+            (the <strong>$g$-factor</strong>). Classically, a spinning charge was expected to have a magnetic strength
+            of $1$. Experiments showed the electron was twice as strong ($g \approx 2$). The Dirac equation predicted a
+            value of exactly $2$ purely from its internal geometry, proving that <strong>spin</strong> is a fundamental
+            necessity when <strong>Quantum Mechanics</strong> and <strong>Special Relativity</strong> are combined.</p>
+
+
+        <h3 class="universe-subtitle"><strong>Antimatter and the Positron</h3></strong>
+
+        <p>To define <strong>antimatter</strong>, we must view it as a mirror image of ordinary matter. Every
+            fundamental particle in the universe has a corresponding <strong>antiparticle</strong>. These pairs share
+            the exact same mass and life span, but they possess opposite physical charges, such as electric charge and
+            magnetic moment. When a particle and its <strong>antiparticle</strong> meet, they undergo
+            <strong>annihilation</strong>, a process where their combined mass is converted entirely into pure energy in
+            the form of high-energy photons (gamma rays).
+        </p>
+
+        <p>The <strong>positron</strong> is specifically the <strong>antiparticle</strong> of the electron. While an
+            electron carries a negative electric charge, the <strong>positron</strong> carries a positive electric
+            charge ($+e$). It was the first piece of <strong>antimatter</strong> ever predicted and discovered, serving
+            as the ultimate proof that the <strong>Dirac equation</strong> was describing a deep reality of
+            <strong>spacetime</strong> rather than just a mathematical quirk.
+        </p>
+
+        <p>The existence of the <strong>positron</strong> emerged from a problem in the <strong>Dirac equation</strong>:
+            the presence of <strong>negative energy solutions</strong>. In classical physics, a particle with negative
+            energy makes no sense. However, <strong>Paul Dirac</strong> proposed a bold theoretical model known as the
+            <strong>Dirac Sea</strong>. He imagined that the vacuum is not "empty" but is instead an infinite "sea" of
+            electrons occupying all possible negative energy states. According to the <strong>Pauli Exclusion
+                Principle</strong>, no two electrons can occupy the same state, so ordinary electrons are forced to stay
+            in the positive energy levels we observe.
+        </p>
+
+        <p>If a high-energy photon strikes this "sea," it can kick a negative-energy electron into a positive-energy
+            state. This leaves behind a "hole" in the sea. <strong>Dirac</strong> realized that this "hole" would behave
+            exactly like a particle with positive energy and a positive charge. This "hole" is the
+            <strong>positron</strong>. Today, we describe this through <strong>Quantum Field Theory</strong> as
+            <strong>pair production</strong>, where energy ($E$) is converted into a particle and an antiparticle pair,
+            satisfying the famous relation:
+        </p>
+
+        <p>
+            $$E = mc^2$$
+        </p>
+
+
+
+        <p>The discovery of the <strong>positron</strong> by <strong>Carl Anderson</strong> in 1932 confirmed this
+            theory. By observing <strong>cosmic rays</strong> in a cloud chamber, he noticed a particle that curved in a
+            magnetic field exactly like an electron but in the opposite direction. This proved that the
+            <strong>positron</strong> was not just a theoretical "hole" in a mathematical sea, but a real, physical
+            entity.
+        </p>
+
+        <p>The implications of <strong>antimatter</strong> are central to our understanding of the <strong>Big
+                Bang</strong>. According to the laws of physics, the early universe should have produced equal amounts
+            of matter and <strong>antimatter</strong>. However, we live in a universe dominated by matter. This
+            <strong>baryon asymmetry</strong> remains one of the greatest unsolved mysteries in physics, but the
+            <strong>Dirac equation</strong> remains our primary tool for understanding the fundamental symmetry that
+            governs these two opposing forms of existence.
+        </p>
+
+        <h3 class="universe-subtitle"><strong>Relativistic dispersion vs Schrödinger</h3></strong>
+
+        <p>The fundamental difference between these two frameworks lies in the <strong>dispersion relation</strong>,
+            which is the mathematical rule that connects a particle's <strong>energy</strong> ($E$) to its
+            <strong>momentum</strong> ($p$). This relation dictates how a wave packet spreads over time and how a
+            particle responds to external forces.
+        </p>
+
+        <p>The <strong>Schrödinger equation</strong> is based on a <strong>non-relativistic dispersion relation</strong>
+            derived from classical mechanics. It assumes that energy is proportional to the square of momentum, divided
+            by twice the mass:</p>
+
+        <p>
+            $$E = \frac{p^2}{2m}$$
+        </p>
+
+        <p>In this framework, the relationship is <strong>quadratic</strong>. Because the energy depends only on $p^2$,
+            the equation only requires a <strong>second-order spatial derivative</strong> ($\nabla^2$) and a
+            <strong>first-order time derivative</strong> ($\partial/\partial t$). While this works perfectly for
+            slow-moving particles like electrons in an atom, it fails to account for the finite speed of light. It
+            treats time as an absolute background rather than a dimension integrated with space.
+        </p>
+
+        <p>The <strong>Dirac equation</strong>, however, must satisfy the <strong>relativistic dispersion
+                relation</strong>, which incorporates the constant speed of light ($c$):</p>
+
+        <p>
+            $$E^2 = (pc)^2 + (mc^2)^2$$
+        </p>
+
+        <p>This is a <strong>hyperbolic</strong> relationship. The presence of the $E^2$ term creates a massive
+            mathematical hurdle: it implies two possible energy branches for any given momentum, one
+            <strong>positive</strong> and one <strong>negative</strong>. This "gap" between $+mc^2$ and $-mc^2$ is
+            exactly $2mc^2$, the energy threshold required to create a particle-antiparticle pair.
+        </p>
+
+
+
+        <p>By forcing the <strong>wave function</strong> to comply with this relativistic rule, the <strong>Dirac
+                equation</strong> automatically accounts for effects that the Schrödinger model ignores. For instance,
+            as a particle's momentum increases, its energy does not grow indefinitely in a simple parabola; instead, it
+            approaches a linear relationship ($E \approx pc$) as it nears the speed of light. This transition is what
+            allows the Dirac model to predict the fine structure of hydrogen and the high-energy behavior of subatomic
+            particles with extreme precision.</p>
+
+        <p>Ultimately, while the <strong>Schrödinger</strong> approach treats mass as a constant "bucket" for kinetic
+            energy, the <strong>relativistic dispersion</strong> used by Dirac treats mass itself as a form of energy.
+            This shift is what transforms a simple probability wave into a <strong>quantum field</strong> capable of
+            describing the creation and destruction of matter.</p>
+        <p class="model-expl__lead">
+            This plot compares the <strong>dispersion relations</strong> (energy vs momentum) for a free particle.
+        </p>
+        <ul class="model-expl__list">
+            <li>
+                <strong>Schrödinger (pink):</strong>
+                <span style="white-space:nowrap">$E=\dfrac{p^2}{2m}$</span>.
+                Plain words: “energy grows like momentum squared; starts at zero.”
+            </li>
+            <li>
+                <strong>Relativistic (violet):</strong>
+                <span style="white-space:nowrap">$E_{+}=+\sqrt{\,p^{2}c^{2}+m^{2}c^{4}\,}$</span>.
+                Plain words: “starts at the rest energy $mc^2$ and bends toward <span
+                    style="white-space:nowrap">$E=|p|c$</span> (dashed) for large <span
+                    style="white-space:nowrap">$|p|$</span>.”
+            </li>
+        </ul>
+
+        <figure class="model-viewer" id="model-dispersion-compare">
+            <canvas id="canvas-dispersion-compare"></canvas>
+            <script>
+                (() => {
+                    const canvas = document.getElementById('canvas-dispersion-compare');
+                    if (!canvas) return;
+                    const ctx = canvas.getContext('2d', { alpha: true });
+
+                    const m = 1.0, c = 1.0;
+                    const col = { sch: '#FF6EC7', rel: '#9D00FF', asym: '#BF00FF', axes: '#E9DDFF', grid: 'rgba(233,221,255,0.18)', glowSch: 'rgba(255,110,199,0.55)', glowRel: 'rgba(157,0,255,0.55)' };
+                    const E_sch = p => (p * p) / (2 * m);
+                    const E_rel = p => Math.sqrt(p * p * c * c + m * m * c * c * c * c);
+
+                    function draw() {
+                        const W = canvas.width, H = canvas.height; ctx.clearRect(0, 0, W, H);
+                        const pMax = 3.5, eMax = Math.max(E_rel(pMax), E_sch(pMax)) * 1.15;
+                        const pad = Math.round(Math.min(W, H) * 0.08);
+                        const x0 = pad, y0 = H - pad, x1 = W - pad, y1 = pad;
+                        const sx = (x1 - x0) / (2 * pMax), sy = (y0 - y1) / (2 * eMax);
+                        const X = p => x0 + (p + pMax) * sx, Y = e => y0 - (e + eMax) * sy;
+
+                        ctx.save(); ctx.strokeStyle = col.grid; ctx.lineWidth = 1; ctx.beginPath();
+                        for (let i = -3; i <= 3; i++) { const gx = X(i); ctx.moveTo(gx, y1); ctx.lineTo(gx, y0); }
+                        for (let j = 0; j <= Math.ceil(eMax); j++) { const gy = Y(j); ctx.moveTo(x0, gy); ctx.lineTo(x1, gy); }
+                        ctx.stroke(); ctx.restore();
+
+                        ctx.save(); ctx.strokeStyle = col.axes; ctx.lineWidth = 1.5; ctx.beginPath();
+                        ctx.moveTo(x0, Y(0)); ctx.lineTo(x1, Y(0)); ctx.moveTo(X(0), y0); ctx.lineTo(X(0), y1); ctx.stroke();
+                        ctx.fillStyle = col.axes; ctx.font = `${Math.max(10, Math.round(H * 0.035))}px Dancing Script, Apple Chancery, sans-serif`;
+                        ctx.fillText('p', x1 - 10, Y(0) - 6); ctx.fillText('E', X(0) + 8, y1 + 12); ctx.restore();
+
+                        ctx.save(); ctx.setLineDash([4, 6]); ctx.strokeStyle = col.asym; ctx.lineWidth = 1.5; ctx.beginPath();
+                        ctx.moveTo(X(-pMax), Y(Math.abs(-pMax) * c)); ctx.lineTo(X(pMax), Y(Math.abs(pMax) * c)); ctx.stroke(); ctx.restore();
+
+                        function plot(fn, color, glow) {
+                            ctx.save(); ctx.lineJoin = 'round'; ctx.lineCap = 'round'; ctx.shadowColor = glow; ctx.shadowBlur = 16;
+                            ctx.strokeStyle = color; ctx.lineWidth = 3; ctx.beginPath(); let first = true;
+                            for (let i = 0; i <= 400; i++) { const p = -pMax + (2 * pMax) * (i / 400), x = X(p), y = Y(fn(p)); if (first) { ctx.moveTo(x, y); first = false; } else { ctx.lineTo(x, y); } }
+                            ctx.stroke(); ctx.shadowBlur = 0; ctx.lineWidth = 1.5; ctx.stroke(); ctx.restore();
+                        }
+                        plot(E_sch, col.sch, col.glowSch); plot(E_rel, col.rel, col.glowRel);
+
+                        ctx.save(); ctx.fillStyle = col.axes; ctx.beginPath(); ctx.arc(X(0), Y(m * c * c), 3.5, 0, Math.PI * 2); ctx.fill();
+                        ctx.font = `${Math.max(10, Math.round(H * 0.032))}px Dancing Script, Apple Chancery, sans-serif`; ctx.fillText('mc²', X(0) + 8, Y(m * c * c) - 6); ctx.restore();
+                    }
+                    function fit() { const r = canvas.getBoundingClientRect(), dpr = Math.max(1, window.devicePixelRatio || 1); canvas.width = Math.round(r.width * dpr); canvas.height = Math.round(r.height * dpr); draw(); }
+                    new ResizeObserver(fit).observe(canvas); fit();
+                })();
+            </script>
+
+            <div class="model-ui">
+                <span class="pill">Schrödinger</span>
+                <span class="pill">Relativistic</span>
+            </div>
+
+            <figcaption class="model-caption">
+                Positive branches only.
+                <span style="white-space:nowrap">Schrödinger (pink): $E=\dfrac{p^2}{2m}$.</span>
+                <span style="white-space:nowrap">Relativistic (violet):
+                    $E_{+}=+\sqrt{\,p^{2}c^{2}+m^{2}c^{4}\,}$;</span>
+                starts at <span style="white-space:nowrap">$mc^2$</span> and approaches
+                <span style="white-space:nowrap">$E=|p|c$</span> (dashed) for large <span
+                    style="white-space:nowrap">$|p|$</span>.
+            </figcaption>
+        </figure>
+        <h3 class="universe-subtitle"><strong>Dirac Operator & Gamma Matrices Structure</h3></strong>
+
+        <p>The <strong>Dirac operator</strong> is the mathematical tool used to "linearize" the energy-momentum relation
+            of special relativity. While the <strong>Schrödinger operator</strong> involves a second-order spatial
+            derivative ($\nabla^2$), the Dirac operator is a first-order differential operator. It is typically written
+            as:</p>
+
+        <p>
+            $$\hat{D} = i \gamma^\mu \partial_\mu - m$$
+        </p>
+
+        <p>In this structure, the <strong>gamma matrices</strong> ($\gamma^\mu$) are the most critical components. They
+            are not simple numbers, but $4 \times 4$ complex matrices that act on the four components of the
+            <strong>Dirac spinor</strong>. Their primary function is to act as the "square root" of the spacetime
+            metric, ensuring that the equation satisfies the relativistic requirement $E^2 = p^2c^2 + m^2c^4$.
+        </p>
+
+        <p>The <strong>gamma matrices</strong> must obey a specific algebraic rule known as the <strong>anti-commutation
+                relation</strong> (or the Clifford Algebra):</p>
+
+        <p>
+            $$\{\gamma^\mu, \gamma^\nu\} = \gamma^\mu \gamma^\nu + \gamma^\nu \gamma^\mu = 2\,\eta^{\mu\nu} I_4$$
+        </p>
+
+        <p>Here $\eta^{\mu\nu}=\mathrm{diag}(+1,-1,-1,-1)$ is the <strong>Minkowski metric</strong> and $I_4$ is the
+            $4\times4$ identity. There are four standard gamma matrices ($\gamma^0, \gamma^1, \gamma^2, \gamma^3$),
+            corresponding to the one time and three space dimensions.</p>
+
+        <p>The structure of these matrices is often represented in the <strong>Dirac representation</strong> (or
+            standard representation) as:</p>
+
+        <p>
+            $$\gamma^0 = \begin{pmatrix} I_2 & 0 \\ 0 & -I_2 \end{pmatrix}, \qquad
+            \gamma^k = \begin{pmatrix} 0 & \sigma^k \\ -\sigma^k & 0 \end{pmatrix},\quad k=1,2,3$$
+        </p>
+
+        <p>Here $\sigma^k$ are the $2\times2$ <strong>Pauli matrices</strong>. This nested structure shows how
+            <strong>spin</strong> is woven into relativistic motion; the Dirac operator describes both matter and
+            antimatter in a single framework, accounting for mass $m$, momentum, and intrinsic angular momentum
+            simultaneously.
+        </p>
+
+        <figure class="model-viewer" id="model-dirac-operator">
+            <canvas id="canvas-dirac-operator"></canvas>
+            <script>
+                (() => {
+                    const canvas = document.getElementById('canvas-dirac-operator');
+                    if (!canvas) return;
+                    const ctx = canvas.getContext('2d', { alpha: true });
+
+                    const col = {
+                        grid: 'rgba(233,221,255,0.16)',
+                        cell: 'rgba(157,0,255,0.16)',
+                        cell2: 'rgba(255,110,199,0.16)',
+                        plus: '#E9DDFF',
+                        minus: '#FF6EC7',
+                        one: '#9D00FF',
+                        text: '#E9DDFF',
+                        glow: 'rgba(157,0,255,0.45)'
+                    };
+
+                    const sigma = { 1: [[0, 1], [1, 0]], 2: [[0, -1], [1, 0]], 3: [[1, 0], [0, -1]] };
+
+                    function drawMatrix(x, y, size, M, title) {
+                        const n = 4, pad = Math.max(6, size * 0.06), cell = (size - 2 * pad) / n;
+                        ctx.save();
+                        ctx.fillStyle = col.text;
+                        ctx.font = `${Math.max(11, Math.round(size * 0.11))}px Dancing Script, Apple Chancery, sans-serif`;
+                        ctx.textAlign = 'center';
+                        ctx.fillText(title, x + size / 2, y - pad * 0.6);
+                        ctx.shadowColor = col.glow; ctx.shadowBlur = 12;
+                        ctx.strokeStyle = col.cell; ctx.lineWidth = 1.5;
+                        ctx.strokeRect(x + pad, y + pad, n * cell, n * cell);
+                        ctx.shadowBlur = 0;
+
+                        ctx.strokeStyle = col.grid; ctx.lineWidth = 1; ctx.beginPath();
+                        for (let i = 0; i <= n; i++) {
+                            const gx = x + pad + i * cell, gy = y + pad + i * cell;
+                            ctx.moveTo(gx, y + pad); ctx.lineTo(gx, y + pad + n * cell);
+                            ctx.moveTo(x + pad, gy); ctx.lineTo(x + pad + n * cell, gy);
+                        }
+                        ctx.stroke();
+
+                        ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+                        ctx.font = `${Math.max(10, Math.round(cell * 0.42))}px ui-monospace, Menlo, Consolas, monospace`;
+                        for (let r = 0; r < n; r++) {
+                            for (let c = 0; c < n; c++) {
+                                const v = M[r][c]; if (v === 0) continue;
+                                ctx.fillStyle = (v > 0 ? col.cell : col.cell2);
+                                ctx.fillRect(x + pad + c * cell + 1, y + pad + r * cell + 1, cell - 2, cell - 2);
+                                ctx.fillStyle = (v > 0 ? col.one : col.minus);
+                                ctx.fillText((Math.abs(v) === 1 ? (v > 0 ? '+1' : '−1') : (v > 0 ? '+i' : '−i')), x + pad + c * cell + cell / 2, y + pad + r * cell + cell / 2);
+                            }
+                        }
+                        ctx.restore();
+                    }
+                    const buildGamma0 = () => { const g = Array.from({ length: 4 }, () => Array(4).fill(0)); for (let i = 0; i < 2; i++) g[i][i] = 1; for (let i = 2; i < 4; i++) g[i][i] = -1; return g; };
+                    const buildGammak = k => { const g = Array.from({ length: 4 }, () => Array(4).fill(0)); const S = sigma[k]; for (let i = 0; i < 2; i++) for (let j = 0; j < 2; j++) g[i][2 + j] = S[i][j]; for (let i = 0; i < 2; i++) for (let j = 0; j < 2; j++) g[2 + i][j] = -S[i][j]; return g; };
+
+                    function draw() {
+                        const W = canvas.width, H = canvas.height; ctx.clearRect(0, 0, W, H);
+                        const margin = Math.round(Math.min(W, H) * 0.07), gap = Math.round(Math.min(W, H) * 0.06);
+                        const availW = W - 2 * margin - gap, availH = H - 2 * margin - gap - margin * 0.6, size = Math.min(availW / 2, availH / 2);
+                        const x0 = margin + (availW - (2 * size + gap)) / 2, y0 = margin + (availH - (2 * size + gap)) / 2 + margin * 0.3;
+                        drawMatrix(x0, y0, size, buildGamma0(), 'γ⁰ = β');
+                        drawMatrix(x0 + size + gap, y0, size, buildGammak(1), 'γ¹');
+                        drawMatrix(x0, y0 + size + gap, size, buildGammak(2), 'γ²');
+                        drawMatrix(x0 + size + gap, y0 + size + gap, size, buildGammak(3), 'γ³');
+                        ctx.save(); ctx.fillStyle = col.text; ctx.font = `${Math.max(9, Math.round(size * 0.09))}px Dancing Script, Apple Chancery, sans-serif`; ctx.textAlign = 'center';
+                        ctx.fillText('{γμ, γν} = 2 ημν I₄, (γ⁰)² = I₄, (γᵏ)² = −I₄', W / 2, H - margin * 0.35); ctx.restore();
+                    }
+                    function fit() { const r = canvas.getBoundingClientRect(), dpr = Math.max(1, window.devicePixelRatio || 1); canvas.width = Math.round(r.width * dpr); canvas.height = Math.round(r.height * dpr); draw(); }
+                    new ResizeObserver(fit).observe(canvas); fit();
+                })();
+            </script>
+
+            <div class="model-ui">
+                <span class="pill">γ^μ algebra</span>
+                <span class="pill">{γ^μ,γ^ν}=2η^{μν}</span>
+            </div>
+            <figcaption class="model-caption">
+                Sparsity pattern in the <strong>Dirac</strong> (standard) basis: $\gamma^0$ is diagonal ($+I_2, -I_2$);
+                each $\gamma^k$ has off-diagonal <strong>Pauli</strong> blocks ($\sigma^k$ and $-\sigma^k$). Pink =
+                $-1$, violet = $+1$ (entries labeled "$i$" indicate the pattern up to a factor $i$). Footer line states
+                the algebra: different $\gamma$ matrices anticommute; time squares to $+I_4$, space to $-I_4$.
+            </figcaption>
+        </figure>
+
+
+        <h3 class="universe-subtitle"><strong>Four-component spinor (bispinor)</h3></strong>
+
+        <p>To understand the <strong>four-component spinor</strong>, also known as a <strong>bispinor</strong>, we must
+            look at why two components, which were sufficient for the <strong>Schrödinger equation</strong>, were no
+            longer enough once <strong>Special Relativity</strong> was introduced. When moving from a two-component
+            system to a four-component system, we aren't just doubling the math; we are allowing the particle to exist
+            in a complete <strong>spacetime</strong> framework.</p>
+
+        <p>In non-relativistic quantum mechanics, an electron is described by a two-component <strong>Pauli
+                spinor</strong>. These two components represent the two possible states of <strong>spin</strong>
+            ($+\frac{1}{2}$ and $-\frac{1}{2}$). However, once <strong>Paul Dirac</strong> linearized the relativistic
+            energy-momentum relation, the resulting <strong>gamma matrices</strong> required a wave function with
+            <strong>four components</strong>. This object is the <strong>bispinor</strong> ($\psi$), structured as a
+            column vector:
+        </p>
+
+        <p>
+            $$\psi = \begin{pmatrix} \psi_1 \\ \psi_2 \\ \psi_3 \\ \psi_4 \end{pmatrix} = \begin{pmatrix} \phi_{upper}
+            \\ \chi_{lower} \end{pmatrix}$$
+        </p>
+
+        <p>This four-component structure is necessary because the <strong>Dirac equation</strong> describes both
+            <strong>matter</strong> and <strong>antimatter</strong> simultaneously. In the <strong>standard (Dirac)
+                representation</strong>, we interpret these components in pairs:
+        </p>
+
+        <ul class="model-expl__list">
+            <li>
+                <strong>The Upper Components ($\phi$):</strong> These represent the <strong>electron</strong> states.
+                $\psi_1$ is an electron with <strong>spin-up</strong>, and $\psi_2$ is an electron with
+                <strong>spin-down</strong>. At low speeds (the non-relativistic limit), these two components dominate
+                the physical behavior.
+            </li>
+            <li>
+                <strong>The Lower Components ($\chi$):</strong> These represent the <strong>positron</strong>
+                (antimatter) states. $\psi_3$ and $\psi_4$ correspond to the spin states of the antiparticle. In the
+                rest frame of a particle, these components are effectively zero, but as the particle nears the
+                <strong>speed of light</strong>, they "mix" with the upper components.
+            </li>
+        </ul>
+
+        <p>The term <strong>bispinor</strong> literally means "two spinors." It highlights that the particle is a
+            composite of two 2-component mathematical objects that transform into one another under <strong>Lorentz
+                transformations</strong>. This means that if you boost a particle to a high velocity, its
+            "electron-like" nature and its "positron-like" nature overlap mathematically.</p>
+
+        <p>A critical feature of the <strong>bispinor</strong> is how it reacts to rotation. While a classical object
+            returns to its original state after a $360^{\circ}$ rotation, a <strong>bispinor</strong> gains a negative
+            sign ($\psi \to -\psi$). It requires a full $720^{\circ}$ rotation to return to its initial mathematical
+            state. This unique geometric behavior is why electrons are classified as <strong>fermions</strong> and obey
+            the <strong>Pauli Exclusion Principle</strong>.</p>
+
+        <p>Finally, the <strong>bispinor</strong> allows for the calculation of <strong>probability density</strong> and
+            <strong>probability current</strong> in a way that is always positive and relativistically consistent. By
+            using the <strong>Dirac adjoint</strong> ($\bar{\psi} = \psi^\dagger \gamma^0$), we can ensure that the
+            "flow" of the particle through spacetime respects the laws of <strong>causality</strong>, something the
+            2-component models could never achieve at high energies.
+        </p>
+        <p>The <strong>bispinor</strong> is not just a list of numbers; it is a <strong>four-dimensional geometric
+                object</strong> that lives in the "internal" space of a particle. It acts as a bridge between the
+            macroscopic world of relativity and the microscopic world of spin. In this model, we visualize the four
+            components as nodes within a <strong>spacetime cell</strong>, where their relative positions and rotations
+            dictate whether the particle behaves as <strong>matter</strong> or <strong>antimatter</strong>, and whether
+            its <strong>spin</strong> points up or down.</p>
+
+        <figure class="model-viewer" id="model-bispinor"
+            style="min-height:500px; background: radial-gradient(circle at center, #1a0b2e 0%, #0a0514 100%); border-radius: 12px; overflow: hidden;">
+            <canvas id="canvas-bispinor" style="width:100%; height:500px; display:block;"></canvas>
+
+            <script>
+                (() => {
+                    const canvas = document.getElementById('canvas-bispinor');
+                    if (!canvas) return;
+                    const ctx = canvas.getContext('2d', { alpha: true });
+
+                    const col = {
+                        edge: 'rgba(233, 221, 255, 0.4)',
+                        glow: 'rgba(157, 0, 255, 0.6)',
+                        electron: 'rgba(157, 0, 255, 0.8)',
+                        positron: 'rgba(255, 110, 199, 0.8)',
+                        text: '#E9DDFF',
+                        orbit: 'rgba(233, 221, 255, 0.08)'
+                    };
+
+                    const verts = [[-1, -1, -1], [1, -1, -1], [1, 1, -1], [-1, 1, -1], [-1, -1, 1], [1, -1, 1], [1, 1, 1], [-1, 1, 1]];
+                    const edges = [[0, 1], [1, 2], [2, 3], [3, 0], [4, 5], [5, 6], [6, 7], [7, 4], [0, 4], [1, 5], [2, 6], [3, 7]];
+
+                    const comps = [
+                        { pos: [-0.6, -0.6, 0.6], type: 'electron' },
+                        { pos: [0.6, -0.6, -0.6], type: 'electron' },
+                        { pos: [-0.6, 0.6, -0.6], type: 'positron' },
+                        { pos: [0.6, 0.6, 0.6], type: 'positron' }
+                    ];
+
+                    let t = 0;
+
+                    const rotX = (p, a) => [p[0], p[1] * Math.cos(a) - p[2] * Math.sin(a), p[1] * Math.sin(a) + p[2] * Math.cos(a)];
+                    const rotY = (p, a) => [p[0] * Math.cos(a) + p[2] * Math.sin(a), p[1], -p[0] * Math.sin(a) + p[2] * Math.cos(a)];
+                    const rotZ = (p, a) => [p[0] * Math.cos(a) - p[1] * Math.sin(a), p[0] * Math.sin(a) + p[1] * Math.cos(a), p[2]];
+                    const proj = (p, s, d) => { const z = p[2] + d; const f = s / z; return [p[0] * f, p[1] * f, z]; };
+
+                    function draw() {
+                        const W = canvas.width, H = canvas.height;
+                        ctx.clearRect(0, 0, W, H);
+                        const cx = W / 2, cy = H / 2;
+                        const scale = Math.min(W, H) * 0.999, d = 4;
+                        t += 0.008;
+
+                        const R_frame = verts.map(v => rotZ(rotY(rotX(v, t * 0.4), t * 0.5), t * 0.2));
+                        const P_frame = R_frame.map(p => proj(p, scale, d));
+
+                        ctx.save();
+                        ctx.translate(cx, cy);
+
+                        ctx.strokeStyle = col.edge;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        edges.forEach(([a, b]) => {
+                            ctx.moveTo(P_frame[a][0], P_frame[a][1]);
+                            ctx.lineTo(P_frame[b][0], P_frame[b][1]);
+                        });
+                        ctx.stroke();
+
+                        const processedComps = comps.map(c => {
+                            const r = rotZ(rotY(rotX(c.pos, t * 0.4), t * 0.5), t * 0.2);
+                            return { ...proj(r, scale, d), type: c.type };
+                        }).sort((a, b) => b[2] - a[2]);
+
+                        processedComps.forEach((p) => {
+                            const size = Math.max(8, 30 / p[2]);
+                            ctx.beginPath();
+                            ctx.arc(p[0], p[1], size, 0, Math.PI * 2);
+
+                            ctx.shadowBlur = 20;
+                            ctx.shadowColor = p.type === 'electron' ? col.electron : col.positron;
+                            ctx.fillStyle = p.type === 'electron' ? col.electron : col.positron;
+                            ctx.fill();
+
+                            ctx.beginPath();
+                            ctx.arc(p[0], p[1], size * 0.4, 0, Math.PI * 2);
+                            ctx.fillStyle = '#FFF';
+                            ctx.fill();
+                        });
+
+                        ctx.restore();
+                        requestAnimationFrame(draw);
+                    }
+
+                    function fit() {
+                        const r = canvas.getBoundingClientRect(), dpr = window.devicePixelRatio || 1;
+                        canvas.width = r.width * dpr; canvas.height = r.height * dpr;
+                    }
+                    window.addEventListener('resize', fit);
+                    fit(); draw();
+                })();
+            </script>
+
+
+
+            <div
+                style="text-align:center; margin-top:8px; color:#E9DDFF; font-size:1.05em; font-family: 'Dancing Script', serif;">
+                $\psi = \big[ (\psi_1,\, \psi_2)_{\!\uparrow},\; (\psi_3,\, \psi_4)_{\!\downarrow} \big]^{\!T}$
+            </div>
+
+            <figcaption class="model-caption">
+                The $\mathbf{bispinor}$ shows the internal degrees of freedom required by the Dirac equation. Upper pair
+                (violet) = electron spin states ($\psi_1$ up, $\psi_2$ down); lower pair (pink) = positron states
+                ($\psi_3$ up, $\psi_4$ down). At relativistic speeds the components mix, revealing matter and antimatter
+                as two sides of the same field.
+            </figcaption>
+
+        </figure>
+
+        <h3 class="universe-subtitle"><strong>Chirality Split (Left/Right Components)</h3></strong>
+
+        <p>To understand <strong>chirality</strong>, we must look deeper than the simple matter-antimatter division.
+            While the <strong>Dirac representation</strong> splits a <strong>bispinor</strong> into electrons and
+            positrons, the <strong>Weyl representation</strong> (or <strong>Chirality basis</strong>) reveals a more
+            fundamental structural split: the <strong>left-handed</strong> ($\psi_L$) and <strong>right-handed</strong>
+            ($\psi_R$) components.</p>
+
+        <p>The term <strong>chirality</strong> comes from the Greek word for "hand." Just as your left and right hands
+            are mirror images that cannot be perfectly superimposed, <strong>quantum fields</strong> possess an
+            intrinsic "handedness" that dictates how they interact with the fundamental forces of nature. In this basis,
+            the <strong>bispinor</strong> is decomposed into two <strong>two-component Weyl spinors</strong>:</p>
+
+        <p>
+            $$\psi = \begin{pmatrix} \psi_L \\ \psi_R \end{pmatrix}$$
+        </p>
+
+
+
+        <p>The distinction between these two components is not just a mathematical curiosity; it is the reason for
+            <strong>maximal parity violation</strong> in our universe. The core differences are as follows:
+        </p>
+
+        <ul class="model-expl__list">
+            <li>
+                <strong>The Weak Force Preference:</strong> In the <strong>Standard Model</strong>, the <strong>Weak
+                    Nuclear Force</strong> only "sees" <strong>left-handed</strong> particles. If an electron were
+                purely <strong>right-handed</strong>, it would be invisible to the force responsible for nuclear decay.
+                This asymmetry is one of the most startling discoveries in 20th-century physics.
+            </li>
+            <li>
+                <strong>The Role of Mass:</strong> For a <strong>massless</strong> particle (like a photon or a
+                theoretical massless neutrino), the <strong>left</strong> and <strong>right</strong> components are
+                completely independent. They move at the speed of light and never "talk" to each other. However,
+                <strong>mass</strong> acts as a bridge that couples these two halves together.
+            </li>
+        </ul>
+
+        <p>In a massive particle like an electron, the <strong>left-handed</strong> and <strong>right-handed</strong>
+            states are constantly "flipping" into one another as the particle moves. This interaction is mathematically
+            described by the <strong>mass term</strong> in the <strong>Dirac Lagrangian</strong>:</p>
+
+        <p>
+            $$\mathcal{L}_{mass} = -m(\bar{\psi}_L \psi_R + \bar{\psi}_R \psi_L)$$
+        </p>
+
+
+
+        <p>This coupling is exactly how the <strong>Higgs Field</strong> grants mass to matter. By interacting with the
+            <strong>Higgs field</strong>, the <strong>left</strong> and <strong>right</strong> components "stick" to
+            each other, slowing down from the speed of light and gaining the property we call <strong>inertia</strong>.
+            Without this <strong>chirality split</strong>, we could not explain why the universe has a preferred
+            "handedness" or how the vacuum of space generates the physical weight of the atoms in your body.
+        </p>
+
+        <p>Mathematically, we extract these components using <strong>projection operators</strong> $P_L$ and $P_R$,
+            which utilize the <strong>$\gamma^5$ matrix</strong> (the chirality operator). This matrix is the product of
+            all four spacetime <strong>gamma matrices</strong> and serves as the ultimate test for a particle's internal
+            orientation. Even if a particle's <strong>spin</strong> points one way, its <strong>chirality</strong>
+            remains an absolute property of the field itself.</p>
+
+        <p>In the high-energy limit, <strong>chirality</strong> is best visualized through <strong>helicity</strong>:
+            the projection of a particle's <strong>spin</strong> onto its direction of <strong>motion</strong>. For a
+            <strong>left-handed</strong> particle, the spin is always "fighting" against the momentum, while for a
+            <strong>right-handed</strong> particle, they are "in sync."
+        </p>
+
+        <figure class="model-viewer" id="model-chirality"
+            style="min-height:380px; background: #0a0514; border-radius: 8px;">
+            <canvas id="canvas-chirality" style="width:100%; height:380px; display:block;"></canvas>
+
+            <script>
+                (() => {
+                    const canvas = document.getElementById('canvas-chirality');
+                    if (!canvas) return;
+                    const ctx = canvas.getContext('2d');
+
+                    const col = {
+                        left: '#9D00FF',    // Violet
+                        right: '#FF6EC7',   // Pink
+                        arrow: '#E9DDFF',
+                        grid: 'rgba(233,221,255,0.1)'
+                    };
+
+                    let t = 0;
+
+                    function draw() {
+                        const W = canvas.width, H = canvas.height;
+                        ctx.clearRect(0, 0, W, H);
+                        const dpr = window.devicePixelRatio || 1;
+
+                        // Layout constants
+                        const centerY = H / 2;
+                        const leftX = W * 0.28;
+                        const rightX = W * 0.72;
+                        const size = Math.min(W, H) * 0.15;
+
+                        t += 0.03;
+
+                        const renderParticle = (x, y, isRight) => {
+                            const angle = isRight ? t : -t;
+                            const spinDir = isRight ? 1 : -1;
+
+                            // 1. Draw Momentum Arrow (Fixed)
+                            ctx.strokeStyle = col.arrow;
+                            ctx.lineWidth = 3;
+                            ctx.beginPath();
+                            ctx.moveTo(x, y + size);
+                            ctx.lineTo(x, y - size * 1.5); // Pointing Up
+                            ctx.stroke();
+                            // Arrowhead
+                            ctx.beginPath();
+                            ctx.moveTo(x - 5, y - size * 1.3);
+                            ctx.lineTo(x, y - size * 1.6);
+                            ctx.lineTo(x + 5, y - size * 1.3);
+                            ctx.stroke();
+
+                            // 2. Draw Rotating Spin Ring (The "Handedness")
+                            ctx.strokeStyle = isRight ? col.right : col.left;
+                            ctx.setLineDash([]);
+                            ctx.lineWidth = 4;
+
+                            // Ellipse parameters for 3D perspective
+                            const rx = size;
+                            const ry = size * 0.4;
+
+                            ctx.beginPath();
+                            ctx.ellipse(x, y, rx, ry, 0, 0, Math.PI * 2);
+                            ctx.stroke();
+
+                            // 3. Draw Rotating Spin Particle/Node
+                            const px = x + Math.cos(angle) * rx;
+                            const py = y + Math.sin(angle) * ry;
+
+                            ctx.shadowBlur = 15;
+                            ctx.shadowColor = isRight ? col.right : col.left;
+                            ctx.fillStyle = isRight ? col.right : col.left;
+                            ctx.beginPath();
+                            ctx.arc(px, py, 8, 0, Math.PI * 2);
+                            ctx.fill();
+                            ctx.shadowBlur = 0;
+
+                            // Labels
+                            ctx.fillStyle = col.arrow;
+                            ctx.font = `bold ${Math.max(12, W * 0.02)}px sans-serif`;
+                            ctx.textAlign = 'center';
+                            ctx.fillText(isRight ? 'RIGHT-HANDED' : 'LEFT-HANDED', x, y + size * 1.8);
+                            ctx.font = `italic ${Math.max(10, W * 0.015)}px serif`;
+                            ctx.fillText(isRight ? 'ψ_R' : 'ψ_L', x, y - size * 2);
+                        };
+
+                        renderParticle(leftX, centerY, false);
+                        renderParticle(rightX, centerY, true);
+
+                        requestAnimationFrame(draw);
+                    }
+
+                    function fit() {
+                        const r = canvas.getBoundingClientRect(), dpr = window.devicePixelRatio || 1;
+                        canvas.width = r.width * dpr; canvas.height = r.height * dpr;
+                    }
+                    window.addEventListener('resize', fit);
+                    fit(); draw();
+                })();
+            </script>
+
+
+
+            <figcaption class="model-caption">
+                This model demonstrates $\mathbf{chirality}$ via the relationship between motion (vertical arrow) and
+                internal $\mathbf{spin}$ (rotating node). The sign of the $\mathbf{helicity}$ $\hat{p}\cdot\vec{S}$
+                indicates the handedness: a $\mathbf{left\text{-}handed}$ configuration ($\psi_L$) has spin anti-aligned
+                with momentum, while a $\mathbf{right\text{-}handed}$ one ($\psi_R$) has spin aligned with momentum. For
+                massless particles, chirality equals helicity; for massive particles, the two differ (chirality is
+                Lorentz-invariant, helicity is not). In the $\mathbf{Standard\ Model}$, $\psi_L$ and $\psi_R$ are
+                independent for massless fields but are $\mathbf{coupled}$ by the $\mathbf{Higgs\ field}$ to generate
+                $\mathbf{mass}$.
+            </figcaption>
+
+        </figure>
+
+        <h3 class="universe-subtitle"><strong>Dirac Sea & Hole Interpretation (Positron)</h3></strong>
+
+        <p>The <strong>Dirac equation</strong> introduced a profound mathematical crisis: it predicted that particles
+            could exist in <strong>negative energy states</strong>. In classical physics, a particle with negative
+            energy is impossible, as it would mean the particle has "less than zero" energy. However, <strong>Paul
+                Dirac</strong> realized that if these states were empty, every electron in the universe would eventually
+            radiate its energy and fall into this "bottomless pit" of negative levels.</p>
+
+        <p>To solve this, <strong>Dirac</strong> proposed the <strong>Dirac Sea</strong>. He hypothesized that the
+            <strong>vacuum</strong> is not truly empty, but is instead an infinite "ocean" where every single
+            <strong>negative energy state</strong> is already occupied by an electron. Because electrons are
+            <strong>fermions</strong>, the <strong>Pauli Exclusion Principle</strong> prevents any more electrons from
+            entering these states. Therefore, the electrons we observe in our daily lives are forced to stay in
+            <strong>positive energy states</strong> because the "sea" below them is full.
+        </p>
+
+
+
+        <p>This model led to the <strong>hole interpretation</strong>, which provided the first theoretical description
+            of <strong>antimatter</strong>:</p>
+
+        <ul class="model-expl__list">
+            <li>
+                <strong>Excitation:</strong> If a high-energy photon strikes an electron within the <strong>negative
+                    energy sea</strong>, it can provide enough energy to "kick" that electron up into a <strong>positive
+                    energy state</strong>.
+            </li>
+            <li>
+                <strong>The Hole:</strong> This leaves behind an empty space, or a <strong>hole</strong>, in the sea.
+                Because the sea is normally a uniform background of negative charge, the absence of an electron (a
+                negative charge) acts exactly like a <strong>positive charge</strong>.
+            </li>
+            <li>
+                <strong>The Positron:</strong> Dirac originally thought this hole might be a proton, but he soon
+                realized it must have the exact same mass as the electron. This "hole" is the <strong>positron</strong>.
+            </li>
+        </ul>
+
+        <p>When a free electron encounters one of these <strong>holes</strong>, it can fall back into the sea.
+            Mathematically, the particle and the hole disappear, and their combined mass is converted back into energy.
+            This process is <strong>annihilation</strong>. While modern <strong>Quantum Field Theory</strong> has moved
+            past the literal "sea" of particles, the concept of the <strong>vacuum</strong> as a dynamic environment
+            where <strong>pair production</strong> occurs remains a pillar of modern physics.</p>
+
+        <p>This interpretation was confirmed in 1932 by <strong>Carl Anderson</strong>, who discovered the
+            <strong>positron</strong> in cosmic rays, proving that <strong>antimatter</strong> is not just a
+            mathematical trick but a fundamental part of the <strong>quantum universe</strong>.
+        </p>
+        <figure class="model-viewer" id="model-dirac-sea"
+            style="position:relative; width:100%; max-width:900px; margin:2rem auto; border-radius:12px; overflow:hidden; background:#05030a;">
+            <canvas id="canvas-dirac-sea" style="display:block; width:100%; height:450px; cursor:crosshair;"></canvas>
+
+            <script>
+                (function () {
+                    const canvas = document.getElementById('canvas-dirac-sea');
+                    const ctx = canvas.getContext('2d');
+                    let W, H, DPR = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
+
+                    function resize() {
+                        const r = canvas.getBoundingClientRect();
+                        W = Math.floor(r.width); H = 450;
+                        canvas.width = Math.floor(W * DPR); canvas.height = Math.floor(H * DPR);
+                        canvas.style.height = H + 'px'; ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+                    }
+                    resize(); addEventListener('resize', resize);
+
+                    const C = {
+                        bg: '#05030a',
+                        sea: '#7C3AED',
+                        electron: '#FF3EB5',
+                        hole: '#C4B5FD',
+                        band: '#A78BFA',
+                        gapFill: 'rgba(167,139,250,0.03)'
+                    };
+
+                    const y0 = H * 0.5;
+                    const bandGap = 70;
+                    let time = 0, flash = 0;
+
+                    // 3D Projection Logic
+                    const project = (x, y, z) => {
+                        const perspective = 400;
+                        const scale = perspective / (perspective + z);
+                        return {
+                            x: W / 2 + (x - W / 2) * scale,
+                            y: y0 + (y - y0) * scale,
+                            s: scale
+                        };
+                    };
+
+                    // Sea lattice (negative-energy states) with 3D coords
+                    const seaParticles = [];
+                    for (let i = 0; i < 60; i++) {
+                        seaParticles.push({
+                            x: Math.random() * W,
+                            y: y0 + bandGap + Math.random() * 200,
+                            z: Math.random() * 400 - 200,
+                            phase: Math.random() * Math.PI * 2
+                        });
+                    }
+
+                    const particles = [];
+                    const holes = [];
+
+                    function triggerPair(e) {
+                        const rect = canvas.getBoundingClientRect();
+                        const clickX = (e && typeof e.clientX === 'number') ? (e.clientX - rect.left) : W / 2;
+                        flash = 1.0;
+                        const startX = clickX;
+                        const startZ = (Math.random() * 200) - 100;
+                        particles.push({ x: startX, y: y0 + bandGap + 20, z: startZ, progress: 0 });
+                        holes.push({ x: startX, y: y0 + bandGap + 20, z: startZ });
+                    }
+                    canvas.addEventListener('mousedown', triggerPair);
+
+                    function update() {
+                        time += 0.015;
+                        if (flash > 0) flash *= 0.92;
+                        particles.forEach((p, i) => {
+                            if (p.progress < 1) p.progress += 0.025;
+                            p.y = (y0 + bandGap + 20) - (p.progress * (bandGap * 2 + 80));
+                            if (p.progress >= 1) {
+                                p.x += Math.sin(time + i) * 0.3;
+                                p.z += Math.cos(time + i) * 0.3;
+                            }
+                        });
+                        holes.forEach(h => { h.y += Math.sin(time) * 0.05; });
+                    }
+
+                    function drawScene() {
+                        ctx.fillStyle = C.bg;
+                        ctx.fillRect(0, 0, W, H);
+
+                        // Draw 3D Grid Lines (Perspective Floor/Ceiling)
+                        ctx.strokeStyle = 'rgba(124, 58, 237, 0.08)';
+                        ctx.lineWidth = 1;
+                        for (let i = -2; i <= 2; i++) {
+                            const xPos = W / 2 + i * 150;
+                            const pNear = project(xPos, y0 + bandGap, -200);
+                            const pFar = project(xPos, y0 + bandGap, 200);
+                            ctx.beginPath(); ctx.moveTo(pNear.x, pNear.y); ctx.lineTo(pFar.x, pFar.y); ctx.stroke();
+                        }
+
+                        // Sea lattice
+                        seaParticles.forEach(p => {
+                            const wave = Math.sin(time + p.phase) * 4;
+                            const pos = project(p.x, p.y + wave, p.z);
+                            ctx.fillStyle = `rgba(124, 58, 237, ${0.4 * pos.s})`;
+                            ctx.beginPath(); ctx.arc(pos.x, pos.y, 2 * pos.s, 0, Math.PI * 2); ctx.fill();
+                        });
+
+                        // Holes (positrons)
+                        holes.forEach(h => {
+                            const pos = project(h.x, h.y, h.z);
+                            ctx.shadowBlur = 15 * pos.s; ctx.shadowColor = C.hole;
+                            ctx.strokeStyle = C.hole; ctx.setLineDash([2, 2]);
+                            ctx.beginPath(); ctx.arc(pos.x, pos.y, 10 * pos.s, 0, Math.PI * 2); ctx.stroke();
+                            ctx.setLineDash([]);
+                            ctx.fillStyle = C.hole; ctx.font = `bold ${Math.floor(9 * pos.s)}px system-ui`;
+                            ctx.textAlign = 'center'; ctx.fillText('+e', pos.x, pos.y + (3 * pos.s));
+                        });
+
+                        // Promoted electrons
+                        particles.forEach(p => {
+                            const pos = project(p.x, p.y, p.z);
+                            ctx.shadowBlur = 20 * pos.s; ctx.shadowColor = C.electron;
+                            ctx.fillStyle = C.electron; ctx.beginPath(); ctx.arc(pos.x, pos.y, 6 * pos.s, 0, Math.PI * 2); ctx.fill();
+                            if (p.progress < 1) {
+                                const pStart = project(p.x, y0 + bandGap + 20, p.z);
+                                ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
+                                ctx.beginPath(); ctx.moveTo(pStart.x, pStart.y); ctx.lineTo(pos.x, pos.y); ctx.stroke();
+                            }
+                        });
+
+                        // Photon flash
+                        if (flash > 0.01) {
+                            ctx.fillStyle = `rgba(233, 221, 255, ${flash * 0.15})`;
+                            ctx.fillRect(0, 0, W, H);
+                        }
+
+                        ctx.shadowBlur = 0;
+                        requestAnimationFrame(drawScene);
+                        update();
+                    }
+                    drawScene();
+                })();
+            </script>
+
+            <div class="model-ui"
+                style="position:absolute; top:10px; left:10px; display:flex; gap:8px; font:600 12px/1.2 system-ui,Segoe UI,Roboto; pointer-events:none;">
+                <span class="pill"
+                    style="padding:6px 10px; border-radius:999px; background:#120a22; color:#C4B5FD; border:1px solid #3b2a6b;">Dirac
+                    sea (filled $E<0$)< /span>
+                        <span class="pill"
+                            style="padding:6px 10px; border-radius:999px; background:#220a18; color:#FF7AD6; border:1px solid #6b2a4f;">Electron
+                            ($E>0$)</span>
+                        <span class="pill"
+                            style="padding:6px 10px; border-radius:999px; background:#0e0a22; color:#A78BFA; border:1px solid #3b2a6b;">Hole
+                            = positron</span>
+            </div>
+
+            <figcaption class="model-caption"
+                style="padding: 1.2rem; color: #E9DDFF; font-size: 0.9em; line-height: 1.5;">
+                The $\mathbf{Dirac\ sea}$ pictures the vacuum as filled negative-energy states (violet). Removing an
+                electron from the sea leaves a $\mathbf{hole}$ that behaves as a $\mathbf{positron}$ (positive charge,
+                opposite momentum). Click to simulate a photon promoting an electron across the gap, creating an
+                electron–positron pair.
+            </figcaption>
+        </figure>
+
+
+    </section>
+
+    <footer class="footer">
+        <p class="copyright">© 2026 Issac Tabares. All Rights Reserved.</p>
+    </footer>
+
+    <div id="particles-container"></div>
+</body>
+
+</html>
