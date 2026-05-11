@@ -2067,6 +2067,129 @@ body[data-link-visibility="enhanced"] :where(.structured-content, .legacy-conten
 }
 
 @media (max-width: 768px) {
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .site-shell,
+  .site-stage,
+  .stage-column,
+  .site-bottom,
+  .content-window,
+  .structured-content,
+  .legacy-content,
+  .content-block,
+  .structured-content > *,
+  .legacy-content > *,
+  .structured-content section,
+  .legacy-content section,
+  .structured-content figure,
+  .legacy-content figure,
+  .structured-content figcaption,
+  .legacy-content figcaption,
+  .media-note {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .site-shell,
+  .site-stage,
+  .stage-column,
+  .content-window {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  :where(.structured-content, .legacy-content) :where(p, li, h1, h2, h3, h4, h5, h6, figcaption, a, strong, em, span) {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  :where(.structured-content, .legacy-content) :where(a[href], .paper-link, .platform-link, .qiskit-link) {
+    word-break: break-word;
+  }
+
+  .paper-list,
+  .abbreviation-glossary__note,
+  .source-language-note {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .research-table-wrap {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .research-table {
+    table-layout: fixed;
+    width: 100%;
+    max-width: 100%;
+    font-size: 0.78rem;
+  }
+
+  .research-table th,
+  .research-table td {
+    padding: 0.5rem 0.42rem;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  :where(
+    .double-slit-simulator,
+    .gravity-fabric,
+    .gravity-lensing,
+    .wormhole-model,
+    .quantum-channel,
+    .orbital-selector,
+    .quantum-entanglement,
+    .quantum-fluctuation,
+    .quantum-model,
+    .black-hole-model,
+    .numerical-methods,
+    .neural-architect,
+    .information-theory-model,
+    .algorithm-visualizer,
+    .quantum-gates
+  ) {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  :where(.structured-content, .legacy-content) :where(canvas, iframe, video, img, svg) {
+    max-width: 100%;
+  }
+
+  .structured-content .equation-link-wrap,
+  .legacy-content .equation-link-wrap {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .structured-content .equation-link,
+  .structured-content .equation-display,
+  .legacy-content .equation-link,
+  .legacy-content .equation-display {
+    width: 100%;
+    max-width: 100%;
+    padding-inline: 0.42rem;
+  }
+
+  .content-window mjx-container,
+  .structured-content .equation-link mjx-container,
+  .structured-content .equation-display mjx-container,
+  .legacy-content .equation-link mjx-container,
+  .legacy-content .equation-display mjx-container {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    font-size: 58% !important;
+  }
+
   .glass-window {
     padding: 0.92rem 0.92rem;
     border-radius: 1.4rem;
