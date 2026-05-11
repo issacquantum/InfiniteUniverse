@@ -1,0 +1,573 @@
+<div class="structured-content" data-structured-content>
+  <section class="content-block">
+    <h3>Etimología</h3>
+    <p>
+      <strong>Artificial</strong> viene de raíces latinas relacionadas con algo hecho mediante técnica o arte.
+      <strong>Inteligencia</strong> viene de <em>intelligere</em>, entender, elegir o distinguir entre cosas.
+      <strong>Inteligencia artificial</strong> pregunta si un sistema construido puede procesar estructura de una forma
+      que se parezca al razonamiento, la percepción, el lenguaje, la planeación o el aprendizaje.
+    </p>
+    <p>
+      La IA (inteligencia artificial) no es magia ni un solo método. Es una familia de sistemas matemáticos, estadísticos y computacionales para
+      convertir datos, reglas, búsqueda y retroalimentación en conducta.
+    </p>
+    <p>
+      En esta sección trato la IA como computación, representación, optimización e ingeniería. Eso está separado de la
+      pregunta por la interioridad consciente: un sistema puede producir conducta que parece inteligente sin que eso pruebe
+      experiencia de primera persona.
+    </p>
+    <p class="source-language-note">
+      <strong>Fuente del origen etimológico:</strong> Las fuentes enlazadas están en inglés, que es el idioma en que las leí para esta explicación.
+      <a class="platform-link" href="https://www.etymonline.com/word/artificial" target="_blank" rel="noopener noreferrer">Online Etymology Dictionary: artificial</a>;
+      <a class="platform-link" href="https://www.etymonline.com/word/intelligence" target="_blank" rel="noopener noreferrer">Online Etymology Dictionary: intelligence</a>;
+      <a class="platform-link" href="https://www-formal.stanford.edu/jmc/history/dartmouth/dartmouth.html" target="_blank" rel="noopener noreferrer">propuesta de Dartmouth sobre IA</a>.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>La inteligencia artificial temprana</h3>
+    <p>
+      Antes de que el campo tuviera nombre, <strong>Alan Turing</strong> reformuló la pregunta sobre la inteligencia de
+      las máquinas. En lugar de exigir una definición perfecta del pensamiento, preguntó si una máquina podía producir
+      una conducta capaz de obligarnos a reconsiderar la frontera entre computación e inteligencia.
+    </p>
+    <p>
+      La frase se formalizó con el <strong>taller de Dartmouth de 1956</strong>, organizado por
+      <strong>John McCarthy</strong>, <strong>Marvin Minsky</strong>, <strong>Nathaniel Rochester</strong> y
+      <strong>Claude Shannon</strong>. Su propuesta trataba la inteligencia como algo que quizá podía describirse con
+      tanta precisión que una máquina pudiera simular partes de ella.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>IA simbólica, búsqueda y aprendizaje</h3>
+    <p>
+      La IA temprana se dividió en varias rutas: <strong>razonamiento simbólico</strong>, <strong>búsqueda</strong>,
+      <strong>planeación</strong>, <strong>percepción</strong>, <strong>robótica</strong> y
+      <strong>redes neuronales</strong>. Los sistemas simbólicos manipulan reglas explícitas. Los sistemas de búsqueda
+      exploran estados posibles. Los sistemas de aprendizaje se ajustan desde datos.
+    </p>
+    <p>
+      La IA moderna no elimina esas ideas. Las combina. Un sistema de juego puede usar redes neuronales más búsqueda en
+      árbol. Un modelo de lenguaje puede usar un transformador entrenado por autosupervisión, después ajuste por
+      instrucciones, y después recuperación o herramientas. El cambio importante es que muchas conductas ya no se
+      escriben directamente como reglas. Se aprenden desde ejemplos y objetivos optimizados.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>De reglas a representación</h3>
+    <p>
+      La programación clásica le dice a una máquina qué pasos seguir. El aprendizaje automático pregunta si un sistema
+      puede inferir una representación útil desde ejemplos y aplicarla a casos que no vio antes. Esa diferencia mueve el
+      problema de la instrucción a la <strong>generalización</strong>.
+    </p>
+    <p>
+      Una capa simple de red neuronal puede escribirse como:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="artificial-intelligence-equations" data-item-id="neural-network-layer"
+        aria-label="Abrir explicación para una capa de red neuronal">
+        $$
+        h = \sigma(Wx + b)
+        $$
+      </button>
+    </div>
+    <p>
+      Las entradas se transforman mediante pesos aprendidos, se desplazan con un sesgo y pasan por una función no lineal.
+      Al apilar capas, el modelo construye representaciones internas progresivamente más útiles.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Entrenamiento y optimización</h3>
+    <p>
+      El entrenamiento suele plantearse como la minimización de una <strong>función de pérdida</strong>. La pérdida no
+      es inteligencia. Es la señal objetivo elegida por el diseñador. Si el objetivo es estrecho, sesgado o incompleto,
+      el modelo puede volverse extremadamente bueno en lo incorrecto.
+    </p>
+    <p>
+      La regla básica es el <strong>descenso de gradiente</strong>:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="artificial-intelligence-equations" data-item-id="gradient-descent-update"
+        aria-label="Abrir explicación para descenso de gradiente">
+        $$
+        \theta_{t+1} = \theta_t - \eta \nabla_\theta L(\theta_t)
+        $$
+      </button>
+    </div>
+    <p>
+      En la práctica, modelos grandes suelen usar optimizadores adaptativos como <strong>Adam</strong>:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="artificial-intelligence-equations" data-item-id="adam-optimizer-update"
+        aria-label="Abrir explicación para la actualización del optimizador Adam">
+        $$
+        \theta_{t+1}=\theta_t-\eta\frac{\hat m_t}{\sqrt{\hat v_t}+\epsilon}
+        $$
+      </button>
+    </div>
+  </section>
+
+  <section class="content-block">
+    <h3>Datos, etiquetas y pérdida</h3>
+    <p>
+      Los modelos supervisados aprenden de ejemplos con etiquetas. Los modelos autosupervisados aprenden de estructura
+      ya presente en los datos. El aprendizaje por refuerzo usa recompensas y acciones. No son detalles menores: definen
+      qué tipo de conducta el sistema tiene presión de adquirir.
+    </p>
+    <p>
+      Los modelos de clasificación suelen usar <strong>pérdida de entropía cruzada</strong>:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="artificial-intelligence-equations" data-item-id="cross-entropy-loss"
+        aria-label="Abrir explicación para la pérdida de entropía cruzada">
+        $$
+        L = -\sum_i y_i \log(\hat{y}_i)
+        $$
+      </button>
+    </div>
+    <p>
+      <strong>Los modelos de lenguaje</strong> suelen entrenarse con predicción de la siguiente unidad léxica:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="artificial-intelligence-equations" data-item-id="language-modeling-objective"
+        aria-label="Abrir explicación para el objetivo de modelado de lenguaje">
+        $$
+        L_{\rm LM}=-\sum_t \log p_\theta(x_t\mid x_{1:t-1})
+        $$
+      </button>
+    </div>
+  </section>
+
+  <section class="content-block">
+    <h3>Familias de modelos de IA</h3>
+    <p>
+      <strong>Aprendizaje automático</strong> es la categoría amplia: sistemas que aprenden patrones desde datos en vez
+      de estar escritos solo como reglas fijas. Un filtro de spam, un recomendador, un clasificador o un modelo de
+      regresión pueden ser aprendizaje automático sin ser una red neuronal gigante.
+    </p>
+    <p>
+      <strong>Aprendizaje supervisado</strong> entrena con ejemplos que tienen objetivos conocidos, como etiquetas de
+      imágenes, puntuaciones de riesgo o respuestas correctas. <strong>Aprendizaje no supervisado</strong> busca
+      estructura sin etiquetas, como grupos, dimensiones latentes o representaciones comprimidas.
+      <strong>Aprendizaje autosupervisado</strong> crea su propio objetivo desde los datos, como predecir palabras
+      faltantes, parches enmascarados o la siguiente unidad léxica.
+    </p>
+    <p>
+      <strong>Aprendizaje profundo</strong> usa muchas capas de transformaciones aprendidas. Las capas tempranas pueden detectar
+      rasgos simples, mientras capas más profundas los combinan en estructura más abstracta. El modelo aprende su propia
+      representación en vez de depender por completo de rasgos diseñados manualmente.
+    </p>
+    <p>
+      <strong>Modelos generativos</strong> aprenden una estructura de probabilidad suficiente para crear muestras nuevas:
+      texto, imágenes, sonido, código, moléculas o trayectorias. Son distintos de los clasificadores comunes porque su
+      salida no es solo una etiqueta. Sintetizan un objeto o una secuencia nueva.
+    </p>
+    <p>
+      <strong>Transformadores</strong> son arquitecturas de aprendizaje profundo construidas alrededor de la atención. Son
+      especialmente potentes para secuencias porque cada unidad léxica puede compararse con otras unidades del contexto.
+      <strong>Atención</strong> es el mecanismo que decide qué partes del contexto importan más para la siguiente
+      actualización interna.
+    </p>
+    <p>
+      <strong>Modelos de difusión</strong> son una familia generativa importante. Aprenden a revertir un proceso de
+      ruido, paso por paso, para que generar sea una ruta controlada desde ruido aleatorio hacia estructura.
+      <strong>Aprendizaje por refuerzo</strong> es distinto: un agente elige acciones, recibe recompensas y aprende una
+      política para actuar en un entorno.
+    </p>
+    <p>
+      <strong>Modelos multimodales</strong> conectan más de un tipo de dato, como texto, imágenes, audio, video y
+      acciones. <strong>Métodos de alineación</strong>, incluyendo ajuste por instrucciones y <strong>RLHF (aprendizaje por refuerzo con retroalimentacion humana) (reinforcement learning from human feedback, aprendizaje por refuerzo con retroalimentación humana)</strong>, no crean el modelo
+      base desde cero; moldean cómo se comporta después del preentrenamiento.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Transformadores</h3>
+    <p>
+      Los transformadores cambiaron la IA moderna porque hicieron escalable el <strong>modelado de secuencias</strong>. Las unidades
+      léxicas se convierten en representaciones vectoriales, se agrega información de posición, la atención mezcla
+      información a través del contexto, los bloques de alimentación directa transforman cada unidad y las rutas
+      residuales mantienen entrenables las redes profundas.
+    </p>
+    <p>
+      La atención de producto punto escalado es:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="artificial-intelligence-equations" data-item-id="scaled-dot-product-attention"
+        aria-label="Abrir explicación para atención de producto punto escalado">
+        $$
+        \operatorname{Atencion}(Q,K,V)=\operatorname{normaliza}_{\exp}\!\left(\frac{QK^T}{\sqrt{d_k}}\right)V
+        $$
+      </button>
+    </div>
+    <p>
+      La <strong>estructura residual</strong> de los bloques de transformador es igual de importante:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="artificial-intelligence-equations" data-item-id="transformer-residual-block"
+        aria-label="Abrir explicación para bloques residuales de transformador">
+        $$
+        y=\operatorname{NormCapa}(x+\operatorname{Subcapa}(x))
+        $$
+      </button>
+    </div>
+  </section>
+
+  <section class="content-block">
+    <h3>IA generativa</h3>
+    <p>
+      Los modelos generativos no solo recuperan respuestas terminadas. Generan muestras nuevas desde estructura de
+      probabilidad aprendida. <strong>Los modelos de lenguaje</strong> generan secuencias de unidades léxicas. <strong>Los modelos de difusión</strong> aprenden a
+      moverse desde ruido hacia estructura. <strong>Los modelos multimodales</strong> conectan texto, imágenes, audio, video y acciones
+      en representaciones compartidas.
+    </p>
+    <p>
+      Un objetivo común de entrenamiento para difusión es:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="artificial-intelligence-equations" data-item-id="diffusion-denoising-objective"
+        aria-label="Abrir explicación para el objetivo de eliminación de ruido en difusión">
+        $$
+        L_{\rm simple}=\mathbb{E}_{t,x_0,\epsilon}\!\left[\|\epsilon-\epsilon_\theta(x_t,t)\|^2\right]
+        $$
+      </button>
+    </div>
+  </section>
+
+  <section class="content-block">
+    <h3>Alineación, RLHF y seguridad</h3>
+    <p>
+      Un modelo entrenado solo para predecir texto no es automáticamente útil, honesto o seguro. El ajuste por
+      instrucciones y el aprendizaje por refuerzo con retroalimentación humana agregan una segunda presión de
+      entrenamiento: producir salidas que las personas prefieren bajo una configuración de evaluación.
+    </p>
+    <p>
+      Un objetivo simplificado de <strong>RLHF</strong> es:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="artificial-intelligence-equations" data-item-id="rlhf-objective"
+        aria-label="Abrir explicación para el objetivo de RLHF, aprendizaje por refuerzo con retroalimentación humana">
+        $$
+        \max_\theta\;\mathbb{E}[r_\phi(x,y)]-\beta D_{\rm KL}(\pi_\theta(y|x)\|\pi_{\rm ref}(y|x))
+        $$
+      </button>
+    </div>
+    <p>
+      <strong>RLHF</strong> es útil, pero no es una máquina de verdad. Los modelos de recompensa son imperfectos, las preferencias
+      humanas pueden entrar en conflicto y un modelo puede aprender a sonar alineado sin ser confiable. La evaluación,
+      el monitoreo y el juicio humano siguen siendo parte del sistema.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Escalamiento y cómputo</h3>
+    <p>
+      La IA moderna también es una historia de infraestructura. El desempeño suele mejorar de forma predecible con el
+      tamaño del modelo, el tamaño de los datos y el cómputo de entrenamiento, pero escalar es costoso y no ilimitado.
+      <strong>Más parámetros</strong> no corrigen automáticamente datos malos, evaluación débil o despliegue inseguro.
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="artificial-intelligence-equations" data-item-id="neural-scaling-law"
+        aria-label="Abrir explicación para leyes de escalamiento neuronal">
+        $$
+        L(N,D)\approx L_\infty+aN^{-\alpha}+bD^{-\beta}
+        $$
+      </button>
+    </div>
+  </section>
+
+  <section class="content-block">
+    <h3>Evaluación y fallas</h3>
+    <p>
+      La pregunta seria no es si un modelo suena fluido. Es si la salida está calibrada, es verificable, robusta ante
+      cambio de distribución y segura en contexto. Las fallas incluyen <strong>alucinación</strong>,
+      <strong>sesgo</strong>, <strong>sobreajuste</strong>, <strong>contaminación de datos</strong>,
+      <strong>optimización de pruebas de referencia</strong>, <strong>sensibilidad a la instrucción de entrada</strong> y
+      <strong>sesgo de automatización</strong>.
+    </p>
+    <p>
+      La IA debe tratarse como un instrumento estadístico poderoso, no como autoridad. Su valor depende de la tarea, los
+      datos, el contexto de despliegue y la disciplina de la persona o sistema que la usa.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Figuras clave y avances</h3>
+    <p>
+      La historia pasa por <strong>Turing</strong>, <strong>McCarthy</strong>, <strong>Minsky</strong>,
+      <strong>Shannon</strong>, <strong>Rosenblatt</strong>, <strong>Newell</strong>, <strong>Simon</strong>,
+      <strong>Rumelhart</strong>, <strong>Hinton</strong>, <strong>LeCun</strong>, <strong>Bengio</strong>,
+      <strong>Sutton</strong>, <strong>Vaswani</strong> y muchos más. Entre los avances importantes están la prueba de
+      Turing, la IA simbólica, el perceptrón, la retropropagación, las redes convolucionales, las redes residuales, el
+      aprendizaje por refuerzo, los transformadores, los modelos de difusión y los modelos de lenguaje ajustados por
+      instrucciones.
+    </p>
+    <p>
+      El problema científico es hasta dónde pueden llegar el <strong>patrón</strong>, el <strong>lenguaje</strong> y la
+      <strong>computación</strong> antes de que confundamos imitación con comprensión.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Modelo de arquitectura neuronal</h3>
+    <p>
+      Este modelo conecta las ideas principales directamente: las <strong>capas</strong> mueven activaciones por
+      conexiones ponderadas, la <strong>atención</strong> vuelve visibles las relaciones entre unidades léxicas, y el
+      <strong>descenso de gradiente</strong> muestra cómo la optimización sigue una superficie de pérdida.
+    </p>
+    <p>
+      <strong>Flujo de red</strong> muestra capas ponderadas y pulsos de activación. <strong>Mapa de atención</strong>
+      muestra una matriz de atención multicabeza escalada \(QK^T/\sqrt{d_k}\), donde las barras más altas indican mayor
+      influencia entre unidades léxicas. <strong>Paisaje de gradiente</strong> muestra un optimizador siguiendo la pendiente local
+      de una superficie de pérdida no convexa.
+    </p>
+    <figure class="neural-architect glass-window" data-neural-architect-model data-language="es">
+      <div class="neural-architect__frame" data-na-frame></div>
+      <div class="neural-architect__panel">
+        <div class="neural-architect__modes" role="group" aria-label="Modo de arquitectura neuronal">
+          <button class="neural-architect__button neural-architect__mode is-active" type="button"
+            data-na-mode="network" aria-pressed="true">Flujo de red</button>
+          <button class="neural-architect__button neural-architect__mode" type="button" data-na-mode="attention"
+            aria-pressed="false">Mapa de atención</button>
+          <button class="neural-architect__button neural-architect__mode" type="button" data-na-mode="landscape"
+            aria-pressed="false">Paisaje de gradiente</button>
+        </div>
+        <div class="neural-architect__body">
+          <div class="neural-architect__controls">
+            <div class="neural-architect__panel-group" data-na-panel="network">
+              <div class="neural-architect__actions">
+                <button class="neural-architect__button is-active" type="button" data-na-action="train"
+                  aria-pressed="true">Pausar</button>
+                <button class="neural-architect__button" type="button" data-na-action="reset-network">Reiniciar</button>
+              </div>
+              <label class="neural-architect__label">
+                Tasa de aprendizaje <span class="neural-architect__value" data-na-display="learningRate">0.050</span>
+              </label>
+              <input class="neural-architect__range" type="range" min="0.005" max="0.3" step="0.005" value="0.05"
+                data-na-param="learningRate">
+              <label class="neural-architect__label" for="na-detail-es">Detalle visual</label>
+              <select class="neural-architect__select" id="na-detail-es" data-na-detail>
+                <option value="weights">Pesos y activaciones</option>
+                <option value="flow">Énfasis en flujo de señal</option>
+              </select>
+            </div>
+            <div class="neural-architect__panel-group is-hidden" data-na-panel="attention">
+              <label class="neural-architect__label">
+                Longitud de secuencia <span class="neural-architect__value" data-na-display="attentionLength">8</span>
+              </label>
+              <input class="neural-architect__range" type="range" min="4" max="16" step="1" value="8"
+                data-na-param="attentionLength">
+              <label class="neural-architect__label">
+                Cabezas de atención <span class="neural-architect__value" data-na-display="attentionHeads">4</span>
+              </label>
+              <input class="neural-architect__range" type="range" min="1" max="8" step="1" value="4"
+                data-na-param="attentionHeads">
+              <label class="neural-architect__label">
+                Temperatura de normalización exponencial <span class="neural-architect__value" data-na-display="attentionTemperature">1.00</span>
+              </label>
+              <input class="neural-architect__range" type="range" min="0.4" max="2" step="0.05" value="1"
+                data-na-param="attentionTemperature">
+              <label class="neural-architect__label" for="na-attention-pattern-es">Patrón de atención</label>
+              <select class="neural-architect__select" id="na-attention-pattern-es" data-na-attention-pattern>
+                <option value="evolve">Estructura evolutiva</option>
+                <option value="static">Enfoque diagonal</option>
+                <option value="chaos">Afinidad caótica</option>
+              </select>
+              <button class="neural-architect__button" type="button" data-na-action="recompute-attention">Recalcular
+                QK (consulta-clave)</button>
+            </div>
+            <div class="neural-architect__panel-group is-hidden" data-na-panel="landscape">
+              <label class="neural-architect__label">
+                Mínimos locales <span class="neural-architect__value" data-na-display="complexity">1.5</span>
+              </label>
+              <input class="neural-architect__range" type="range" min="0" max="3" step="0.1" value="1.5"
+                data-na-param="complexity">
+              <label class="neural-architect__label">
+                Momento <span class="neural-architect__value" data-na-display="momentum">0.80</span>
+              </label>
+              <input class="neural-architect__range" type="range" min="0" max="0.95" step="0.01" value="0.8"
+                data-na-param="momentum">
+              <div class="neural-architect__actions">
+                <button class="neural-architect__button" type="button" data-na-action="reset-landscape">Reiniciar</button>
+                <button class="neural-architect__button" type="button" data-na-action="perturb-landscape">Perturbar</button>
+              </div>
+            </div>
+          </div>
+          <div class="neural-architect__metrics">
+            <p class="neural-architect__status" data-na-status></p>
+            <div class="neural-architect__metric-group" data-na-metrics="network">
+              <div class="neural-architect__metric">
+                <div class="neural-architect__metric-row">
+                  <span class="neural-architect__metric-label">Época</span>
+                  <span class="neural-architect__value" data-na-value="epoch">0</span>
+                </div>
+              </div>
+              <div class="neural-architect__metric">
+                <div class="neural-architect__metric-row">
+                  <span class="neural-architect__metric-label">Pérdida</span>
+                  <span class="neural-architect__value" data-na-value="loss">1.0000</span>
+                </div>
+              </div>
+              <div class="neural-architect__metric">
+                <div class="neural-architect__metric-row">
+                  <span class="neural-architect__metric-label">Precisión</span>
+                  <span class="neural-architect__value" data-na-value="accuracy">0%</span>
+                </div>
+              </div>
+            </div>
+            <div class="neural-architect__metric-group is-hidden" data-na-metrics="attention">
+              <div class="neural-architect__metric">
+                <div class="neural-architect__metric-row">
+                  <span class="neural-architect__metric-label">Cabezas</span>
+                  <span class="neural-architect__value" data-na-value="attentionHeads">4</span>
+                </div>
+              </div>
+              <div class="neural-architect__metric">
+                <div class="neural-architect__metric-row">
+                  <span class="neural-architect__metric-label">Entropía</span>
+                  <span class="neural-architect__value" data-na-value="attentionEntropy">0.000</span>
+                </div>
+              </div>
+            </div>
+            <div class="neural-architect__metric-group is-hidden" data-na-metrics="landscape">
+              <div class="neural-architect__metric">
+                <div class="neural-architect__metric-row">
+                  <span class="neural-architect__metric-label">Altura de pérdida</span>
+                  <span class="neural-architect__value" data-na-value="landscapeLoss">0.000</span>
+                </div>
+              </div>
+              <div class="neural-architect__metric">
+                <div class="neural-architect__metric-row">
+                  <span class="neural-architect__metric-label">Momento</span>
+                  <span class="neural-architect__value" data-na-value="momentum">0.80</span>
+                </div>
+              </div>
+            </div>
+            <div class="neural-architect__legend" aria-label="Leyenda del modelo neuronal">
+              <span>peso positivo morado profundo</span>
+              <span>peso negativo violeta</span>
+              <span>ruta de optimización rosa intenso</span>
+              <span>fuerza de atención morada</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <figcaption>
+        Arte + computación: capas neuronales, pesos de atención y descenso de gradiente. Nota de diseño: la paleta
+        recurrente de violeta, índigo y rosa intenso refleja mis colores favoritos.
+      </figcaption>
+    </figure>
+  </section>
+
+  <section class="content-block glossary-section">
+    <h3>Glosario de Términos Técnicos</h3>
+    <ul class="paper-list glossary-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Representación vectorial:</strong> Una representación numérica aprendida de una unidad léxica, parche de imagen, objeto o concepto dentro de un espacio vectorial.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Dimensión latente:</strong> Una coordenada oculta en la representación interna de un modelo, a menudo no interpretable por sí sola.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Ruta residual:</strong> Una conexión de atajo que permite que la información rodee una capa y facilita entrenar redes muy profundas.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Bloque de alimentación directa:</strong> La subred neuronal por unidad léxica dentro de una capa de transformador, separada de la operación de atención.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Temperatura de normalización exponencial:</strong> Un valor de escala que vuelve una distribución de probabilidad más concentrada o más plana antes de muestrear o visualizar.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Cambio de distribución:</strong> Una diferencia entre los datos vistos durante entrenamiento y los datos que el modelo encuentra después.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Contaminación de datos:</strong> Filtración de material de prueba, referencia o evaluación dentro de los datos de entrenamiento.</span></li>
+    </ul>
+  </section>
+  <section class="content-block glossary-section abbreviation-glossary" data-abbreviation-glossary>
+    <h3>Glosario de Abreviaturas</h3>
+    <p class="abbreviation-glossary__note">Este glosario expande las abreviaturas usadas en esta seccion. La primera aparicion en el texto incluye el significado completo entre parentesis; las repeticiones quedan abreviadas para mantener la lectura limpia.</p>
+    <ul class="paper-list glossary-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>IA:</strong> inteligencia artificial.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>RLHF:</strong> aprendizaje por refuerzo con retroalimentacion humana.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>QK:</strong> consulta-clave.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>URLs:</strong> localizadores uniformes de recursos.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>DOI:</strong> identificador digital de objeto.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>CVF:</strong> Computer Vision Foundation, Fundacion de Vision por Computadora.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>BERT:</strong> representaciones de codificador bidireccional de transformadores.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>ACM:</strong> Association for Computing Machinery, Asociacion de Maquinaria Computacional.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>OpenAI:</strong> Open Artificial Intelligence.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>GPT-4:</strong> Generative Pretrained Transformer 4, transformador generativo preentrenado 4.</span></li>
+    </ul>
+  </section>
+
+<section class="content-block source-papers">
+    <h3>URLs (localizadores uniformes de recursos) de Fuentes Fundamentales y Modernas</h3>
+    <p class="source-language-note">Estas son las fuentes que leí originalmente. Las conservo en el idioma en que las leí; si encuentro traducciones al español, las agregaré junto a la fuente original.</p>
+    <ul class="paper-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://academic.oup.com/mind/article/LIX/236/433/986238" target="_blank"
+            rel="noopener noreferrer">Alan M. Turing, 1950. <em>Computing Machinery and Intelligence.</em></a> <span
+            class="paper-note">Página oficial del artículo en Oxford Academic.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://www-formal.stanford.edu/jmc/history/dartmouth/dartmouth.html" target="_blank"
+            rel="noopener noreferrer">John McCarthy et al., 1955. <em>A Proposal for the Dartmouth Summer Research
+              Project on Artificial Intelligence.</em></a> <span class="paper-note">Página del archivo de McCarthy
+            alojada por Stanford.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://doi.org/10.1037/h0042519" target="_blank" rel="noopener noreferrer">Frank Rosenblatt, 1958.
+            <em>The Perceptron.</em></a> <span class="paper-note">Registro DOI (identificador digital de objeto) oficial.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://www.nature.com/articles/323533a0" target="_blank" rel="noopener noreferrer">David E.
+            Rumelhart, Geoffrey E. Hinton y Ronald J. Williams, 1986. <em>Aprendizaje de representaciones mediante
+              retropropagación de errores.</em></a> <span class="paper-note">Página oficial del artículo en Nature.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://arxiv.org/abs/1412.6980" target="_blank" rel="noopener noreferrer">Diederik P. Kingma y Jimmy
+            Ba, 2014. <em>Adam: A Method for Stochastic Optimization.</em></a> <span class="paper-note">Registro en
+            arXiv.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://www.nature.com/articles/nature14539" target="_blank" rel="noopener noreferrer">Yann LeCun,
+            Yoshua Bengio y Geoffrey Hinton, 2015. <em>Aprendizaje profundo.</em></a> <span class="paper-note">Página oficial
+            de la revisión en Nature.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://openaccess.thecvf.com/content_cvpr_2016/html/He_Deep_Residual_Learning_CVPR_2016_paper.html"
+            target="_blank" rel="noopener noreferrer">Kaiming He et al., 2016. <em>Aprendizaje residual profundo para
+              reconocimiento de imágenes.</em></a> <span class="paper-note">Página oficial abierta de CVF (Computer Vision Foundation, Fundacion de Vision por Computadora).</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://www.nature.com/articles/nature16961" target="_blank" rel="noopener noreferrer">David Silver et
+            al., 2016. <em>Dominio del juego de Go con redes neuronales profundas y búsqueda en árbol.</em></a> <span
+            class="paper-note">Página oficial del artículo en Nature.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://papers.neurips.cc/paper/7181-attention-is-all-you-need" target="_blank"
+            rel="noopener noreferrer">Vaswani et al., 2017. <em>Attention Is All You Need.</em></a> <span
+            class="paper-note">Página oficial del artículo en NeurIPS.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://arxiv.org/abs/1810.04805" target="_blank" rel="noopener noreferrer">Jacob Devlin et al., 2018.
+            <em>BERT (representaciones de codificador bidireccional de transformadores): preentrenamiento de transformadores bidireccionales profundos para comprensión del lenguaje.</em></a> <span
+            class="paper-note">Registro en arXiv.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://arxiv.org/abs/2001.08361" target="_blank" rel="noopener noreferrer">Kaplan et al., 2020.
+            <em>Scaling Laws for Neural Language Models.</em></a> <span class="paper-note">Registro en arXiv.</span></span>
+      </li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://papers.neurips.cc/paper/2020/hash/1457c0d6bfcb4967418bfb8ac142f64a-Abstract.html"
+            target="_blank" rel="noopener noreferrer">Brown et al., 2020. <em>Language Models are Few-Shot
+              Learners.</em></a> <span class="paper-note">Página oficial del artículo en NeurIPS.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://arxiv.org/abs/2006.11239" target="_blank" rel="noopener noreferrer">Jonathan Ho, Ajay Jain y
+            Pieter Abbeel, 2020. <em>Denoising Diffusion Probabilistic Models.</em></a> <span
+            class="paper-note">Registro en arXiv.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://dl.acm.org/doi/10.1145/3442188.3445922" target="_blank" rel="noopener noreferrer">Bender et
+            al., 2021. <em>On the Dangers of Stochastic Parrots.</em></a> <span class="paper-note">Página oficial del
+            artículo en ACM (Association for Computing Machinery, Asociacion de Maquinaria Computacional) FAccT.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://arxiv.org/abs/2203.02155" target="_blank" rel="noopener noreferrer">Ouyang et al., 2022.
+            <em>Training Language Models to Follow Instructions with Human Feedback.</em></a> <span
+            class="paper-note">Registro en arXiv para InstructGPT/<strong>RLHF</strong>.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://arxiv.org/abs/2303.08774" target="_blank" rel="noopener noreferrer">OpenAI (Open Artificial Intelligence), 2023. <em>GPT-4 (Generative Pretrained Transformer 4, transformador generativo preentrenado 4)
+              Technical Report.</em></a> <span class="paper-note">Registro en arXiv.</span></span></li>
+    </ul>
+  </section>
+</div>

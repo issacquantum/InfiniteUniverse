@@ -1,0 +1,566 @@
+<div class="structured-content" data-structured-content>
+  <section class="content-block">
+    <h3>Etymology</h3>
+    <p>
+      The term <strong>black hole</strong> was popularized by <strong>John Archibald Wheeler</strong> in 1967, but the
+      idea is older than the name. In the eighteenth century, John Michell and Pierre Simon Laplace imagined dark stars
+      whose <strong>escape velocity</strong> could exceed the <strong>speed of light</strong>. Their argument used
+      <strong>Newtonian gravity</strong>:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="black-holes-equations" data-item-id="escape-velocity"
+        aria-label="Open the explanation page for escape velocity">
+        $$
+        v_e = \sqrt{\frac{2GM}{r}}
+        $$
+      </button>
+    </div>
+    <p>
+      If the escape velocity equals light speed, the critical radius becomes:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="black-holes-equations" data-item-id="schwarzschild-radius"
+        aria-label="Open the explanation page for the Schwarzschild radius">
+        $$
+        r_s = \frac{2GM}{c^2}
+        $$
+      </button>
+    </div>
+    <p>
+      <strong>General relativity</strong> changed that idea completely. A black hole is not merely a heavy object with
+      strong gravity. It is a region of spacetime whose <strong>causal structure</strong> prevents anything inside the
+      <strong>event horizon</strong> from reaching the outside universe. That is what makes the subject feel almost
+      impossible at first: it is not a monster sitting inside space, it is a <strong>deformation of space and time
+      themselves</strong>.
+    </p>
+    <p class="source-language-note">
+      <strong>Source of etymological origin:</strong>
+      <a class="platform-link" href="https://www.etymonline.com/word/black%20hole" target="_blank" rel="noopener noreferrer">Online Etymology Dictionary: black hole</a>;
+      <a class="platform-link" href="https://imagine.gsfc.nasa.gov/educators/blackholes/starchild/page2.html" target="_blank" rel="noopener noreferrer">NASA (National Aeronautics and Space Administration) Imagine: black hole naming</a>.
+    </p>
+  </section>
+
+<section class="content-block">
+    <h3>Schwarzschild's Solution</h3>
+    <p>
+      A central figure is <strong>Karl Schwarzschild</strong>. In 1916, while serving during the
+      <strong>First World War</strong>, he found the first exact solution to <strong>Einstein's field equations</strong>
+      for the gravitational field outside a spherical mass. The context is historically striking, but the scientific
+      point is the precision of the result: the equations became a concrete black hole geometry.
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="black-holes-equations" data-item-id="schwarzschild-metric"
+        aria-label="Open the explanation page for the Schwarzschild metric">
+        $$
+        ds^2 = -\left(1 - \frac{2GM}{rc^2}\right)c^2dt^2
+        + \left(1 - \frac{2GM}{rc^2}\right)^{-1}dr^2
+        + r^2d\Omega^2
+        $$
+      </button>
+    </div>
+    <p>
+      At first, the Schwarzschild radius looked like a mathematical disaster:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="black-holes-equations" data-item-id="schwarzschild-radius"
+        aria-label="Open the explanation page for the Schwarzschild radius">
+        $$r_s=\frac{2GM}{c^2}$$
+      </button>
+    </div>
+    <p>
+      Later work showed that this surface is not a real <strong>physical singularity</strong>. It is a
+      <strong>horizon</strong>, and the apparent problem comes from the coordinates used to describe it. The real
+      <strong>curvature singularity</strong> lies at the center, where curvature grows without bound. A compact way to see
+      that is the <strong>Kretschmann scalar</strong>:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="black-holes-equations" data-item-id="kretschmann-scalar"
+        aria-label="Open the explanation page for the Kretschmann scalar">
+        $$
+        K = R_{\mu\nu\rho\sigma}R^{\mu\nu\rho\sigma}
+        = \frac{48G^2M^2}{c^4r^6}
+        $$
+      </button>
+    </div>
+    <p>
+      That distinction matters. The horizon is not a wall. It is a <strong>causal boundary</strong>. Crossing it does not require a
+      local explosion or impact. The terrifying part is quieter: once inside, every possible future points deeper
+      inward.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Light Cones and Causality</h3>
+    <p>
+      The cleanest way to understand the horizon is through <strong>light cones</strong>. Locally, light still moves at
+      \(c\), and the lightlike condition remains:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="black-holes-equations" data-item-id="light-cone-condition"
+        aria-label="Open the explanation page for the light cone condition">
+        $$
+        ds^2 = 0
+        $$
+      </button>
+    </div>
+    <p>
+      What changes is the orientation of possible futures. Outside the horizon, some future-directed light paths can
+      still escape. At the horizon, the outward path becomes tangent to the boundary. Inside it, all future-directed
+      timelike and lightlike paths point toward smaller \(r\). <strong>Penrose diagrams</strong> make that causal
+      structure visible by compressing infinite distances while preserving which events can influence which other
+      events.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>How Black Holes Form</h3>
+    <p>
+      <strong>Stellar black holes</strong> form when a <strong>massive star</strong> can no longer support itself
+      against gravity. Fusion stops supplying enough pressure, the <strong>core collapses</strong>, and if no stable
+      neutron star can remain, gravity wins completely. The <strong>Tolman Oppenheimer Volkoff limit</strong> gives
+      the rough upper boundary for ordinary neutron star stability, though the exact value depends on the unknown
+      behavior of matter at extreme density.
+    </p>
+    <p>
+      In relativistic language, collapse becomes decisive when light itself can no longer expand outward from a region.
+      A <strong>trapped surface</strong> forms when the expansion of outgoing light rays becomes negative:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="black-holes-equations" data-item-id="trapped-surface-condition"
+        aria-label="Open the explanation page for the trapped surface condition">
+        $$
+        \theta_{(\ell)} < 0
+        $$
+      </button>
+    </div>
+    <p>
+      <strong>Supermassive black holes</strong> probably grow through a mixture of direct collapse, mergers, and
+      accretion onto early seed black holes. <strong>Primordial black holes</strong> remain hypothetical, but they are
+      scientifically important because they would connect black holes directly to <strong>density fluctuations</strong>
+      in the early universe.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Growth and the Seed Problem</h3>
+    <p>
+      Formation is only the beginning. Black holes grow by <strong>accretion</strong> and by <strong>mergers</strong>,
+      but both processes have limits. If gas falling inward radiates too strongly, its own radiation pressure can push
+      the gas back outward. The standard scale for that balance is the <strong>Eddington luminosity</strong>:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="black-holes-equations" data-item-id="eddington-luminosity"
+        aria-label="Open the explanation page for the Eddington luminosity">
+        $$
+        L_{\rm Edd} = \frac{4\pi GMm_p c}{\sigma_T}
+        $$
+      </button>
+    </div>
+    <p>
+      Early supermassive black holes are difficult because some quasars are already enormous when the universe is young,
+      so their seeds may have been unusually massive, their accretion may have been very efficient, or both. That is
+      still an active problem in cosmology and galaxy formation.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Anatomy of a Black Hole</h3>
+    <p>
+      A settled black hole is described from the outside by only a few quantities: <strong>mass</strong>,
+      <strong>angular momentum</strong>, and <strong>electric charge</strong>. Astrophysical black holes are expected
+      to be almost neutral, so <strong>mass and spin</strong> dominate the real objects we observe. For a rotating
+      <strong>Kerr black hole</strong>, the <strong>outer horizon</strong> is located at:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="black-holes-equations" data-item-id="kerr-horizon-radius"
+        aria-label="Open the explanation page for the Kerr horizon radius">
+        $$
+        r_+ = \frac{GM}{c^2}
+        + \sqrt{\left(\frac{GM}{c^2}\right)^2 - \left(\frac{J}{Mc}\right)^2}
+        $$
+      </button>
+    </div>
+    <p>
+      The spin is often summarized by the dimensionless Kerr parameter:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="black-holes-equations" data-item-id="dimensionless-spin-parameter"
+        aria-label="Open the explanation page for the dimensionless spin parameter">
+        $$
+        \chi = \frac{cJ}{GM^2}
+        $$
+      </button>
+    </div>
+    <p>
+      Around the hole, light and matter behave in ways that expose the geometry. For a non rotating black hole, the
+      <strong>photon sphere</strong> is the radius where light can orbit unstably:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="black-holes-equations" data-item-id="photon-sphere-radius"
+        aria-label="Open the explanation page for the photon sphere radius">
+        $$
+        r_{\text{ph}} = \frac{3GM}{c^2}
+        $$
+      </button>
+    </div>
+    <p>
+      The <strong>innermost stable circular orbit</strong> gives a natural inner boundary for stable disk motion around
+      a non rotating black hole:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="black-holes-equations" data-item-id="isco-radius"
+        aria-label="Open the explanation page for the ISCO, innermost stable circular orbit, radius">
+        $$
+        r_{\text{ISCO}} = \frac{6GM}{c^2}
+        $$
+      </button>
+    </div>
+    <p>
+      Rotating black holes also have an <strong>ergosphere</strong>, where <strong>spacetime itself is dragged</strong>
+      around the hole. Inside that region, remaining still relative to distant stars is impossible. This is not
+      ordinary rotation through space. It is the geometry of spacetime being pulled into motion.
+    </p>
+    <p>
+      That ergosphere is also where the <strong>Penrose process</strong> becomes possible. In Kerr geometry, a particle
+      can split so that one fragment falls inward on a negative-energy orbit as measured from infinity:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="black-holes-equations" data-item-id="penrose-process-efficiency"
+        aria-label="Open the explanation page for the Penrose process">
+        $$
+        E_\infty < 0
+        $$
+      </button>
+    </div>
+    <p>
+      The escaping fragment can carry away extra energy, which comes from the hole's rotation. In astrophysics, the
+      magnetic-field version of this idea is the <strong>Blandford Znajek mechanism</strong>, one of the main ways
+      rotating black holes can power relativistic jets. The outside description is also constrained by the
+      <strong>no-hair theorem</strong>: once settled, a classical black hole is characterized by mass, spin, and charge,
+      not by the detailed history of what formed it.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Disks, Shadows, and Jets</h3>
+    <p>
+      A visible black hole is usually visible because of what surrounds it. Gas in an <strong>accretion disk</strong>
+      heats through friction and magnetic turbulence. Relativistic motion makes the approaching side brighter through
+      <strong>Doppler beaming</strong>, while gravity bends light so strongly that the far side of the disk can appear
+      above and below the hole. The dark central region is the <strong>black hole shadow</strong>, bordered by light
+      that orbited near the photon region before escaping.
+    </p>
+    <p>
+      Jets are not simple exhaust pipes. They are probably launched when rotating black holes and disks organize strong
+      magnetic fields, extracting rotational energy and collimating plasma along the spin axis. The shadow, photon ring,
+      disk brightness, and jet direction together carry information about mass, spin, inclination, and the plasma
+      environment.
+    </p>
+    <figure class="science-visualization-figure">
+      <video class="science-visualization-video" controls muted loop playsinline preload="metadata"
+        poster="https://svs.gsfc.nasa.gov/vis/a020000/a020200/a020281/BlazarProRes.00801_print.jpg"
+        aria-describedby="black-hole-blazar-video-caption-en">
+        <source src="Assets2/BlazarProRes.webm" type="video/webm">
+      </video>
+      <figcaption id="black-hole-blazar-video-caption-en">
+        NASA Scientific Visualization Studio animation of a blazar: a supermassive black hole with an accretion disk,
+        dusty torus, and relativistic particle jets. This video represents the jet-launching context discussed above:
+        organized magnetic fields near a rotating black hole can collimate plasma along the spin axis. Credit: NASA
+        Goddard Conceptual Image Lab/Walt Feimer; produced by Scott Wiessinger. Embedded local copy from:
+        <a class="platform-link" href="https://svs.gsfc.nasa.gov/20281/#media_group_326203" target="_blank"
+          rel="noopener noreferrer">NASA SVS (Scientific Visualization Studio) media group</a>. Source page:
+        <a class="platform-link" href="https://svs.gsfc.nasa.gov/20281/" target="_blank"
+          rel="noopener noreferrer">NASA SVS</a>.
+      </figcaption>
+    </figure>
+    <p class="source-language-note">
+      Reference only: <code>BlackHoleSim.avif</code> from the Simons Foundation plasma-jet article is credited to
+      K. Parfrey et al./Physical Review Letters 2019. I am not republishing the local file because the source terms do
+      not provide clear local reuse permission. Source:
+      <a class="platform-link" href="https://www.simonsfoundation.org/2019/01/29/black-hole-plasma-jets/"
+        target="_blank" rel="noopener noreferrer">Simons Foundation</a>.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Time at the Edge</h3>
+    <p>
+      Near a black hole, time is not only measured differently. It is <strong>shaped by gravity</strong>. Light climbing
+      away from the horizon loses frequency, and the signal seen by a distant observer is <strong>redshifted</strong>:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="black-holes-equations" data-item-id="black-hole-gravitational-redshift"
+        aria-label="Open the explanation page for black hole gravitational redshift">
+        $$
+        \nu_\infty = \nu_{\text{local}}\sqrt{1 - \frac{2GM}{rc^2}}
+        $$
+      </button>
+    </div>
+    <p>
+      To an observer far away, matter falling toward the horizon appears to slow, fade, and redden. To the falling
+      observer, crossing the horizon can happen in <strong>finite proper time</strong>. That contrast makes time look
+      less like a universal river and more like something whose meaning depends on where existence is being measured
+      from.
+    </p>
+    <p>
+      <strong>Tidal gravity</strong> is also real. The difference in gravitational pull across a body can be approximated by:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="black-holes-equations" data-item-id="tidal-acceleration"
+        aria-label="Open the explanation page for tidal acceleration">
+        $$
+        \Delta a \sim \frac{2GM}{r^3}\Delta r
+        $$
+      </button>
+    </div>
+    <p>
+      For stellar black holes, those tides can destroy an object before or near the horizon. For supermassive black
+      holes, the horizon can be crossed more gently because the <strong>tidal gradient</strong> at the horizon is much
+      smaller. The boundary can be physically quiet and still be absolute.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Thermodynamics and Quantum Trouble</h3>
+    <p>
+      Black holes became even stranger when physicists realized that <strong>horizon area behaves like entropy</strong>.
+      The laws of <strong>black hole mechanics</strong> relate mass, horizon area, spin, charge, and surface gravity.
+      The first law is:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="black-holes-equations" data-item-id="black-hole-first-law"
+        aria-label="Open the explanation page for the first law of black hole mechanics">
+        $$
+        dM = \frac{\kappa}{8\pi G}dA + \Omega_H dJ + \Phi_H dQ
+        $$
+      </button>
+    </div>
+    <p>
+      <strong>Hawking</strong> then showed that black holes are not completely black once <strong>quantum field
+      theory</strong> is considered on curved spacetime. They radiate with a temperature:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="black-holes-equations" data-item-id="hawking-temperature"
+        aria-label="Open the explanation page for Hawking temperature">
+        $$
+        T_H = \frac{\hbar \kappa}{2\pi c k_B}
+        = \frac{\hbar c^3}{8\pi G M k_B}
+        $$
+      </button>
+    </div>
+    <p>
+      The <strong>entropy associated with the horizon</strong> is:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="black-holes-equations" data-item-id="bekenstein-hawking-entropy"
+        aria-label="Open the explanation page for Bekenstein Hawking entropy">
+        $$
+        S_{BH} = \frac{k_B c^3 A}{4G\hbar}
+        $$
+      </button>
+    </div>
+    <p>
+      For a non rotating uncharged black hole, the <strong>evaporation time</strong> scales as:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="black-holes-equations" data-item-id="black-hole-evaporation-time"
+        aria-label="Open the explanation page for black hole evaporation time">
+        $$
+        \tau = \frac{5120\pi G^2M^3}{\hbar c^4}
+        $$
+      </button>
+    </div>
+    <p>
+      This is where black holes stop being only a relativity problem. They become a collision between
+      <strong>gravity</strong>, <strong>thermodynamics</strong>, <strong>quantum mechanics</strong>, and
+      <strong>information</strong>. If a black hole can evaporate, what happens to everything that fell in? Is
+      information destroyed, hidden, returned, or encoded in a way we still do not understand? That question connects
+      directly with existence: what does it mean for information or matter to be hidden behind a boundary?
+    </p>
+    <p>
+      A unitary evaporation process is expected to follow a <strong>Page curve</strong>: the entropy of the radiation
+      rises at first, then falls after the radiation begins carrying enough correlations to purify the final state.
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="black-holes-equations" data-item-id="page-curve-unitarity"
+        aria-label="Open the explanation page for the Page curve">
+        $$
+        S_{\rm rad}(t)\uparrow\ \text{until}\ t_{\rm Page},\qquad S_{\rm rad}(t)\downarrow\ \text{after}
+        $$
+      </button>
+    </div>
+    <p>
+      Modern work using <strong>holography</strong>, <strong>quantum extremal surfaces</strong>, and
+      <strong>islands</strong> has reproduced Page-curve behavior in controlled models. That is progress, but it is not
+      yet a complete physical account of what an observer experiences at a real astrophysical singularity.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Evidence</h3>
+    <p>
+      Without <strong>evidence</strong>, black holes would sound like mythology. They are scientific because independent
+      observations point to the same conclusion. Stellar motion around <strong>Sagittarius A*</strong>
+      reveals a compact mass of about four million solar masses at the center of the Milky Way. <strong>X ray
+      binaries</strong> show compact objects accreting matter with no visible surface. <strong>LIGO (Laser Interferometer Gravitational-Wave Observatory) and Virgo</strong>
+      detected gravitational waves from black hole mergers, matching numerical relativity across inspiral, merger, and
+      ringdown.
+    </p>
+    <p>
+      Each method probes a different piece of the same object: stellar orbits measure compact mass, X ray timing probes
+      inner accretion flow, gravitational waves measure dynamical spacetime, and horizon-scale imaging tests the size
+      and shape of the shadow. Agreement between independent methods is what makes the black-hole interpretation
+      strong.
+    </p>
+    <p>
+      The <strong>Event Horizon Telescope</strong> then produced images of the shadows of <strong>M87 (Messier 87)*</strong> and
+      <strong>Sagittarius A*</strong>. Those images are not photographs of the event horizon itself. They are evidence
+      of light bent around an extremely compact object whose shadow size matches the predictions of
+      <strong>general relativity</strong>. This made black holes empirical objects rather than only mathematical
+      possibilities.
+    </p>
+    <figure class="science-visualization-figure">
+      <img class="science-visualization-image science-visualization-image--moderate" src="Assets2/blckholeimage.jpg"
+        alt="Event Horizon Telescope image of the black hole shadow in M87"
+        data-gallery-trigger data-gallery-src="Assets2/blckholeimage.jpg"
+        data-gallery-alt="Event Horizon Telescope image of the black hole shadow in M87"
+        role="button" tabindex="0" aria-describedby="black-hole-eht-image-caption-en">
+      <figcaption id="black-hole-eht-image-caption-en">
+        First image of the black hole shadow in M87, produced by the Event Horizon Telescope Collaboration. This is
+        observational evidence, not an illustration: the ring is horizon-scale emission from plasma bent by strong
+        gravity around an extremely compact object. Credit: EHT (Event Horizon Telescope) Collaboration. Source:
+        <a class="platform-link" href="https://www.eso.org/public/images/eso1907a/" target="_blank"
+          rel="noopener noreferrer">ESO (European Southern Observatory)</a>.
+      </figcaption>
+    </figure>
+    <figure class="science-visualization-figure">
+      <img class="science-visualization-image" src="Assets2/black-hole-accretion-disk-visualization.gif"
+        alt="NASA visualization of a black hole accretion disk"
+        data-gallery-trigger data-gallery-src="Assets2/black-hole-accretion-disk-visualization.gif"
+        data-gallery-alt="NASA visualization of a black hole accretion disk"
+        role="button" tabindex="0" aria-describedby="black-hole-visualization-caption-en">
+      <figcaption id="black-hole-visualization-caption-en">
+        NASA visualization of a black hole accretion disk, showing relativistic light bending, Doppler beaming, the
+        photon ring, and the black hole shadow. This visual explains why the far side of a disk can appear warped above
+        and below the hole, and why one side appears brighter. Credit: NASA's Goddard Space Flight Center/Jeremy
+        Schnittman. Source:
+        <a class="platform-link" href="https://svs.gsfc.nasa.gov/13326" target="_blank"
+          rel="noopener noreferrer">NASA Scientific Visualization Studio</a>.
+      </figcaption>
+    </figure>
+    <figure class="black-hole-model glass-window" data-black-hole-model data-language="en">
+      <div class="black-hole-model__frame" data-bh-frame></div>
+      <div class="black-hole-model__controls" aria-label="Black hole model controls">
+        <div class="black-hole-model__group">
+          <label class="black-hole-model__label" for="bh-mass-en">Mass scale <span class="black-hole-model__value" data-bh-value="mass">1.0</span></label>
+          <input class="black-hole-model__range" id="bh-mass-en" data-bh-param="mass" type="range" min="0.7" max="1.4" step="0.01" value="1">
+        </div>
+        <div class="black-hole-model__group">
+          <label class="black-hole-model__label" for="bh-spin-en">Spin \(\chi\) <span class="black-hole-model__value" data-bh-value="spin">0.72</span></label>
+          <input class="black-hole-model__range" id="bh-spin-en" data-bh-param="spin" type="range" min="0" max="0.99" step="0.01" value="0.72">
+        </div>
+        <div class="black-hole-model__group">
+          <label class="black-hole-model__label" for="bh-inclination-en">Inclination <span class="black-hole-model__value" data-bh-value="inclination">62.0</span></label>
+          <input class="black-hole-model__range" id="bh-inclination-en" data-bh-param="inclination" type="range" min="12" max="82" step="1" value="62">
+        </div>
+        <div class="black-hole-model__group">
+          <label class="black-hole-model__label" for="bh-brightness-en">Disk glow <span class="black-hole-model__value" data-bh-value="brightness">1.0</span></label>
+          <input class="black-hole-model__range" id="bh-brightness-en" data-bh-param="brightness" type="range" min="0.4" max="1.6" step="0.01" value="1">
+        </div>
+        <button class="black-hole-model__button" type="button" data-bh-reset>Reset view</button>
+      </div>
+      <figcaption class="black-hole-model__note">
+        Custom artistic animation inspired by black-hole optics. It represents the central shadow, a photon-ring-like
+        glow, Doppler-style brightness asymmetry, and how mass, spin, inclination, and disk brightness affect the scene.
+        It does not represent a numerical-relativity simulation, real telescope data, true plasma turbulence, Hawking
+        radiation, or interior structure. The violet, indigo, and hot-pink treatment is a personal visual
+        palette, not physical color data.
+      </figcaption>
+    </figure>
+  </section>
+
+  <section class="content-block">
+    <h3>Open Questions</h3>
+    <p>
+      The deepest questions remain unresolved. The <strong>singularity</strong> suggests that classical general
+      relativity reaches the edge of its domain. The <strong>information paradox</strong> suggests that quantum
+      mechanics and gravity are not yet speaking the same language. The <strong>holographic principle</strong> suggests
+      that the information content of a region may be encoded on a boundary rather than throughout a volume. These
+      ideas point directly at the <strong>structure of reality</strong>.
+    </p>
+    <p>
+      <strong>Cosmic censorship</strong> is another open issue: does nature always hide singularities behind horizons,
+      or can a naked singularity form? A visible singularity would break the predictive structure of classical
+      relativity. Black holes are therefore not only objects; they are stress tests for the consistency of our theories.
+    </p>
+  </section>
+
+  <section class="content-block glossary-section">
+    <h3>Technical Terms Glossary</h3>
+    <ul class="paper-list glossary-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Kretschmann scalar:</strong> A curvature invariant used to tell a coordinate problem apart from a genuine curvature blow-up.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Ergosphere:</strong> The region outside a rotating black hole where spacetime dragging prevents observers from remaining stationary relative to infinity.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Penrose process:</strong> A theoretical mechanism for extracting rotational energy from a Kerr black hole through its ergosphere.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Blandford-Znajek mechanism:</strong> A magnetic-field process that can extract rotational energy from a black hole and help power relativistic jets.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Doppler beaming:</strong> Brightness enhancement when emitting matter moves toward the observer at relativistic speed.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Cosmic censorship:</strong> The conjecture that singularities formed by collapse are hidden behind horizons rather than visible to distant observers.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Naked singularity:</strong> A hypothetical singularity not hidden by an event horizon.</span></li>
+    </ul>
+  </section>
+  <section class="content-block glossary-section abbreviation-glossary" data-abbreviation-glossary>
+    <h3>Abbreviation Glossary</h3>
+    <p class="abbreviation-glossary__note">This glossary expands the abbreviations used in this section. The first appearance in the text includes the full wording in parentheses; later uses stay abbreviated so the section stays readable.</p>
+    <ul class="paper-list glossary-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>NASA:</strong> National Aeronautics and Space Administration.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>SVS:</strong> Scientific Visualization Studio.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>LIGO:</strong> Laser Interferometer Gravitational-Wave Observatory.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>M87:</strong> Messier 87.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>EHT:</strong> Event Horizon Telescope.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>ESO:</strong> European Southern Observatory.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>URLs:</strong> Uniform Resource Locators.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>APS:</strong> American Physical Society.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>OSTI:</strong> Office of Scientific and Technical Information.</span></li>
+    </ul>
+  </section>
+
+<section class="content-block source-papers">
+    <h3>Foundational and Modern Paper URLs (Uniform Resource Locators)</h3>
+    <ul class="paper-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/pdf/physics/9905030" target="_blank" rel="noopener noreferrer">Karl Schwarzschild, 1916. <em>On the Gravitational Field of a Mass Point According to Einstein's Theory.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://journals.aps.org/pr/abstract/10.1103/PhysRev.56.455" target="_blank" rel="noopener noreferrer">Oppenheimer and Snyder, 1939. <em>On Continued Gravitational Contraction.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.11.237" target="_blank" rel="noopener noreferrer">Roy Kerr, 1963. <em>Gravitational Field of a Spinning Mass as an Example of Algebraically Special Metrics.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.14.57" target="_blank" rel="noopener noreferrer">Roger Penrose, 1965. <em>Gravitational Collapse and Space Time Singularities.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://journals.aps.org/pr/abstract/10.1103/PhysRev.164.1776" target="_blank" rel="noopener noreferrer">Werner Israel, 1967. <em>Event Horizons in Static Vacuum Space-Times.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.26.331" target="_blank" rel="noopener noreferrer">Brandon Carter, 1971. <em>Axisymmetric Black Hole Has Only Two Degrees of Freedom.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://projecteuclid.org/journals/communications-in-mathematical-physics/volume-31/issue-2/The-four-laws-of-black-hole-mechanics/cmp/1103858973.pdf" target="_blank" rel="noopener noreferrer">Bardeen, Carter, and Hawking, 1973. <em>The Four Laws of Black Hole Mechanics.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://journals.aps.org/prd/abstract/10.1103/PhysRevD.7.2333" target="_blank" rel="noopener noreferrer">Jacob Bekenstein, 1973. <em>Black Holes and Entropy.</em></a> <span class="paper-note">Official APS (American Physical Society) article page.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://projecteuclid.org/journals/communications-in-mathematical-physics/volume-43/issue-3/Particle-creation-by-black-holes/cmp/1103899181.pdf" target="_blank" rel="noopener noreferrer">Stephen Hawking, 1975. <em>Particle Creation by Black Holes.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://academic.oup.com/mnras/article/179/3/433/962905" target="_blank" rel="noopener noreferrer">Blandford and Znajek, 1977. <em>Electromagnetic Extraction of Energy from Kerr Black Holes.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.71.3743" target="_blank" rel="noopener noreferrer">Don Page, 1993. <em>Information in Black Hole Radiation.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.osti.gov/biblio/1508025" target="_blank" rel="noopener noreferrer">Event Horizon Telescope Collaboration, 2019. <em>First M87 Event Horizon Telescope Results.</em></a> <span class="paper-note">OSTI (Office of Scientific and Technical Information) article record for the open-access paper.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://link.springer.com/article/10.1007/JHEP12%282019%29063" target="_blank" rel="noopener noreferrer">Almheiri, Engelhardt, Marolf, and Maxfield, 2019. <em>The Entropy of Bulk Quantum Fields and the Entanglement Wedge of an Evaporating Black Hole.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://link.springer.com/article/10.1007/JHEP09%282020%29002" target="_blank" rel="noopener noreferrer">Geoffrey Penington, 2020. <em>Entanglement Wedge Reconstruction and the Information Paradox.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://eventhorizontelescope.org/publications/first-sagittarius-event-horizon-telescope-results-i-shadow-supermassive-black-hole" target="_blank" rel="noopener noreferrer">Event Horizon Telescope Collaboration, 2022. <em>First Sagittarius A* Event Horizon Telescope Results. I. The Shadow of the Supermassive Black Hole in the Center of the Milky Way.</em></a> <span class="paper-note">Official EHT publication page.</span></span></li>
+    </ul>
+  </section>
+</div>

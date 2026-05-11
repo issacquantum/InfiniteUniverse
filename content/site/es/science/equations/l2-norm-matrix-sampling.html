@@ -1,0 +1,27 @@
+<div class="structured-content equation-detail-page" data-structured-content>
+  <section class="content-block"><h3>Muestreo Matricial de Norma L2 (norma L dos) (norma euclidiana)</h3></section>
+  <section class="content-block">
+    <h3>Ecuación</h3>
+    <div class="equation-link-wrap"><div class="glass-window equation-display">$$ \Pr[i]=\frac{\|A_{i,*}\|_2^2}{\|A\|_F^2},\qquad \Pr[j\mid i]=\frac{|A_{ij}|^2}{\|A_{i,*}\|_2^2} $$</div></div>
+  </section>
+  <section class="content-block"><h3>Lectura Literal</h3><p>La probabilidad de elegir la fila \(i\) es su norma de fila al cuadrado dividida por la norma de Frobenius al cuadrado de la matriz. Después de elegir la fila \(i\), la probabilidad de elegir la columna \(j\) es la entrada al cuadrado dividida por la norma de esa fila al cuadrado.</p></section>
+  <section class="content-block"><h3>Lectura de un Físico</h3><p>Esta es la versión matricial del muestreo por longitud al cuadrado: primero se muestrean filas de alta energía, y después entradas de alta energía dentro de la fila elegida.</p></section>
+  <section class="content-block">
+    <h3>Desglose de Símbolos</h3>
+    <p><strong>\(A\)</strong>: matriz que se está muestreando.</p>
+    <p><strong>\(A_{i,*}\)</strong>: fila \(i\) de la matriz.</p>
+    <p><strong>\(A_{ij}\)</strong>: entrada en la fila \(i\), columna \(j\).</p>
+    <p><strong>\(\|A_{i,*}\|_2\)</strong>: norma \(\ell^2\) de la fila \(i\).</p>
+    <p><strong>\(\|A\|_F\)</strong>: norma de Frobenius de toda la matriz.</p>
+    <p><strong>\(\Pr[j\mid i]\)</strong>: probabilidad de elegir \(j\) después de que \(i\) ya fue elegido.</p>
+  </section>
+  <section class="content-block"><h3>Significado Físico</h3><p>Este modelo de acceso permite que un algoritmo clásico se enfoque en filas y columnas estadísticamente importantes sin leer toda la matriz. También es restrictivo, porque la estructura de datos debe permitir ese muestreo eficientemente.</p></section>
+
+  <section class="content-block glossary-section abbreviation-glossary" data-abbreviation-glossary>
+    <h3>Glosario de Abreviaturas</h3>
+    <p class="abbreviation-glossary__note">Este glosario expande las abreviaturas usadas en esta seccion. La primera aparicion en el texto incluye el significado completo entre parentesis; las repeticiones quedan abreviadas para mantener la lectura limpia.</p>
+    <ul class="paper-list glossary-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>L2:</strong> norma L dos.</span></li>
+    </ul>
+  </section>
+</div>

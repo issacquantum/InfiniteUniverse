@@ -1,0 +1,27 @@
+<div class="structured-content equation-detail-page" data-structured-content>
+  <section class="content-block"><h3>L2 (L two norm)-Norm (Euclidean norm) Matrix Sampling</h3></section>
+  <section class="content-block">
+    <h3>Equation</h3>
+    <div class="equation-link-wrap"><div class="glass-window equation-display">$$ \Pr[i]=\frac{\|A_{i,*}\|_2^2}{\|A\|_F^2},\qquad \Pr[j\mid i]=\frac{|A_{ij}|^2}{\|A_{i,*}\|_2^2} $$</div></div>
+  </section>
+  <section class="content-block"><h3>Literal Reading</h3><p>The probability of choosing row \(i\) is its squared row norm divided by the squared Frobenius norm of the matrix. After row \(i\) is chosen, the probability of choosing column \(j\) is the squared entry divided by that row's squared norm.</p></section>
+  <section class="content-block"><h3>Physicist's Reading</h3><p>This is the matrix version of length-square sampling: sample large-energy rows first, then large-energy entries within the selected row.</p></section>
+  <section class="content-block">
+    <h3>Symbol Breakdown</h3>
+    <p><strong>\(A\)</strong>: the matrix being sampled.</p>
+    <p><strong>\(A_{i,*}\)</strong>: row \(i\) of the matrix.</p>
+    <p><strong>\(A_{ij}\)</strong>: entry in row \(i\), column \(j\).</p>
+    <p><strong>\(\|A_{i,*}\|_2\)</strong>: \(\ell^2\) norm of row \(i\).</p>
+    <p><strong>\(\|A\|_F\)</strong>: Frobenius norm of the whole matrix.</p>
+    <p><strong>\(\Pr[j\mid i]\)</strong>: probability of choosing \(j\) after \(i\) has already been chosen.</p>
+  </section>
+  <section class="content-block"><h3>Physical Meaning</h3><p>This access model is powerful because it lets a classical algorithm focus on statistically important rows and columns without reading the whole matrix. It is also restrictive because the data structure must support this sampling efficiently.</p></section>
+
+  <section class="content-block glossary-section abbreviation-glossary" data-abbreviation-glossary>
+    <h3>Abbreviation Glossary</h3>
+    <p class="abbreviation-glossary__note">This glossary expands the abbreviations used in this section. The first appearance in the text includes the full wording in parentheses; later uses stay abbreviated so the section stays readable.</p>
+    <ul class="paper-list glossary-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>L2:</strong> L two norm.</span></li>
+    </ul>
+  </section>
+</div>

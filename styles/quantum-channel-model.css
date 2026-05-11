@@ -1,0 +1,424 @@
+.quantum-channel {
+  --qc-hot-pink: #ff00a2;
+  --qc-strong-pink: #ff58d6;
+  --qc-electric: #bf40ff;
+  --qc-violet: #7700ff;
+  --qc-indigo: #2b006d;
+  --qc-deep: #050008;
+  --qc-glass: rgba(17, 4, 28, 0.56);
+  --qc-edge: rgba(191, 64, 255, 0.48);
+  --qc-window-width: 680px;
+  --qc-frame-min-height: 190px;
+  --qc-frame-max-height: 360px;
+  --qc-frame-mobile-min-height: 170px;
+
+  display: grid;
+  gap: 0;
+  width: min(100%, var(--qc-window-width));
+  max-width: var(--qc-window-width);
+  margin: 1.5rem auto;
+  overflow: hidden;
+  border: 1px solid var(--qc-edge);
+  border-radius: 1rem;
+  background: var(--qc-glass);
+  box-shadow:
+    0 20px 50px rgba(var(--shadow-rgb), 0.5),
+    0 0 24px rgba(var(--glow-rgb), 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.quantum-channel.glass-window::before {
+  background:
+    linear-gradient(90deg,
+      transparent 0 9%,
+      rgba(255, 0, 162, 0.72) 14% 18%,
+      transparent 24% 77%,
+      rgba(191, 64, 255, 0.48) 82% 86%,
+      transparent 92%),
+    linear-gradient(180deg,
+      transparent 0 10%,
+      rgba(255, 88, 214, 0.44) 15% 18%,
+      transparent 24% 82%,
+      rgba(119, 0, 255, 0.34) 88% 91%,
+      transparent 100%);
+}
+
+.quantum-channel.glass-window::after {
+  box-shadow:
+    0 0 0 1px rgba(255, 0, 162, 0.82),
+    0 0 24px rgba(255, 88, 214, 0.54),
+    0 0 44px rgba(119, 0, 255, 0.74),
+    0 0 72px rgba(191, 64, 255, 0.34);
+}
+
+.quantum-channel__frame {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: var(--qc-frame-min-height);
+  max-height: var(--qc-frame-max-height);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 48%, rgba(255, 0, 162, 0.16), transparent 30%),
+    radial-gradient(circle at 76% 24%, rgba(191, 64, 255, 0.22), transparent 38%),
+    radial-gradient(circle at center, var(--qc-indigo) 0%, var(--qc-deep) 100%);
+}
+
+.quantum-channel__canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  cursor: grab;
+  touch-action: none;
+}
+
+.quantum-channel__canvas:active {
+  cursor: grabbing;
+}
+
+.quantum-channel__canvas:focus-visible {
+  box-shadow:
+    inset 0 0 0 2px rgba(255, 0, 162, 0.68),
+    inset 0 0 24px rgba(119, 0, 255, 0.34);
+}
+
+.quantum-channel__panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(12rem, 0.74fr);
+  gap: 0.72rem;
+  padding: clamp(0.62rem, 1.4vw, 0.78rem);
+  border-top: 1px solid var(--qc-edge);
+  background: rgba(30, 8, 48, 0.42);
+}
+
+.quantum-channel__controls,
+.quantum-channel__metrics {
+  display: grid;
+  gap: 0.62rem;
+  align-content: start;
+}
+
+.quantum-channel__group {
+  display: grid;
+  gap: 0.34rem;
+}
+
+.quantum-channel__label,
+.quantum-channel__metric-label,
+.quantum-channel__graph-label {
+  color: var(--qc-strong-pink);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.quantum-channel__label {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.quantum-channel__value {
+  color: var(--qc-hot-pink);
+  font-variant-numeric: tabular-nums;
+}
+
+.quantum-channel__select,
+.quantum-channel__range,
+.quantum-channel__button {
+  font: inherit;
+}
+
+.quantum-channel__select {
+  width: 100%;
+  padding: 0.3rem 0.48rem;
+  border: 1px solid rgba(191, 64, 255, 0.48);
+  border-radius: 0.38rem;
+  background:
+    linear-gradient(180deg, rgba(43, 0, 109, 0.72), rgba(5, 0, 8, 0.92));
+  color: var(--qc-strong-pink);
+  outline: none;
+}
+
+.quantum-channel__select:focus-visible {
+  border-color: var(--qc-hot-pink);
+  box-shadow:
+    0 0 0 2px rgba(255, 0, 162, 0.3),
+    0 0 18px rgba(119, 0, 255, 0.42);
+}
+
+.quantum-channel__select option {
+  background: var(--qc-deep);
+  color: var(--qc-strong-pink);
+}
+
+.quantum-channel__description {
+  min-height: 1.8rem;
+  margin: 0;
+  color: rgba(var(--outline-rgb), 0.78);
+  font-size: 0.68rem;
+  line-height: 1.24;
+}
+
+.quantum-channel__range {
+  width: 100%;
+  height: 2px;
+  border-radius: 999px;
+  background:
+    linear-gradient(90deg, rgba(119, 0, 255, 0.26), rgba(255, 0, 162, 0.34));
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.quantum-channel__range:focus-visible {
+  box-shadow:
+    0 0 0 2px rgba(255, 0, 162, 0.34),
+    0 0 14px rgba(191, 64, 255, 0.44);
+}
+
+.quantum-channel__range::-webkit-slider-thumb {
+  width: 10px;
+  height: 10px;
+  border: 1px solid var(--qc-hot-pink);
+  border-radius: 50%;
+  background: var(--qc-electric);
+  cursor: pointer;
+  box-shadow:
+    0 0 8px var(--qc-hot-pink),
+    0 0 14px rgba(119, 0, 255, 0.52);
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.quantum-channel__range::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  border: 1px solid var(--qc-hot-pink);
+  border-radius: 50%;
+  background: var(--qc-electric);
+  cursor: pointer;
+  box-shadow:
+    0 0 8px var(--qc-hot-pink),
+    0 0 14px rgba(119, 0, 255, 0.52);
+}
+
+.quantum-channel__actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.quantum-channel__button {
+  padding: 0.32rem 0.52rem;
+  border: 1px solid var(--qc-violet);
+  border-radius: 0.38rem;
+  background: rgba(var(--glow-rgb), 0.22);
+  color: var(--qc-strong-pink);
+  cursor: pointer;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  outline: none;
+  text-transform: uppercase;
+  transition:
+    background 240ms ease,
+    box-shadow 240ms ease,
+    color 240ms ease;
+}
+
+.quantum-channel__button:hover,
+.quantum-channel__button:focus-visible,
+.quantum-channel__button.is-active {
+  background: rgba(var(--glow-rgb), 0.42);
+  color: var(--qc-hot-pink);
+  box-shadow: 0 0 15px rgba(var(--glow-rgb), 0.42);
+}
+
+.quantum-channel__metric {
+  display: grid;
+  gap: 0.26rem;
+}
+
+.quantum-channel__metric-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.quantum-channel__meter {
+  height: 0.32rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(43, 0, 109, 0.55);
+  box-shadow: inset 0 0 8px rgba(119, 0, 255, 0.24);
+}
+
+.quantum-channel__meter-fill {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background:
+    linear-gradient(90deg, var(--qc-violet), var(--qc-electric), var(--qc-hot-pink));
+  box-shadow: 0 0 10px rgba(255, 0, 162, 0.5);
+  transition: width 220ms ease;
+}
+
+.quantum-channel__meter-fill--full {
+  width: 100%;
+}
+
+.quantum-channel__readout {
+  display: grid;
+  gap: 0.5rem;
+  padding: 0.58rem;
+  border: 1px solid rgba(191, 64, 255, 0.3);
+  border-radius: 0.7rem;
+  background:
+    linear-gradient(145deg, rgba(43, 0, 109, 0.34), rgba(5, 0, 8, 0.58)),
+    rgba(17, 4, 28, 0.44);
+  box-shadow:
+    inset 0 0 16px rgba(119, 0, 255, 0.16),
+    0 0 14px rgba(191, 64, 255, 0.1);
+}
+
+.quantum-channel__readout-row {
+  display: grid;
+  gap: 0.22rem;
+  padding-bottom: 0.42rem;
+  border-bottom: 1px solid rgba(191, 64, 255, 0.18);
+}
+
+.quantum-channel__readout-row:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.quantum-channel__readout-row--inline {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.quantum-channel__readout-label {
+  color: var(--qc-strong-pink);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.quantum-channel__readout-value,
+.quantum-channel__matrix,
+.quantum-channel__status {
+  color: var(--qc-electric);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 0.76rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+.quantum-channel__readout-value {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.quantum-channel__matrix {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.26rem;
+}
+
+.quantum-channel__matrix span {
+  min-height: 1.45rem;
+  padding: 0.28rem 0.34rem;
+  border: 1px solid rgba(255, 88, 214, 0.22);
+  border-radius: 0.36rem;
+  background: rgba(5, 0, 8, 0.58);
+  color: var(--qc-strong-pink);
+  text-align: center;
+  text-shadow: 0 0 10px rgba(255, 88, 214, 0.22);
+}
+
+.quantum-channel__status {
+  padding: 0.18rem 0.42rem;
+  border: 1px solid rgba(191, 64, 255, 0.36);
+  border-radius: 999px;
+  color: var(--qc-hot-pink);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.quantum-channel__status.is-met {
+  border-color: rgba(191, 64, 255, 0.58);
+  color: var(--qc-electric);
+  box-shadow: 0 0 12px rgba(191, 64, 255, 0.24);
+}
+
+.quantum-channel__status.is-fail {
+  border-color: rgba(255, 0, 162, 0.52);
+  color: var(--qc-hot-pink);
+  box-shadow: 0 0 12px rgba(255, 0, 162, 0.22);
+}
+
+.quantum-channel__graph {
+  height: 8.25rem;
+  overflow: hidden;
+  border: 1px solid rgba(191, 64, 255, 0.28);
+  border-radius: 0.75rem;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255, 0, 162, 0.1), transparent 38%),
+    rgba(5, 0, 8, 0.68);
+}
+
+.quantum-channel__graph-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.quantum-channel__note {
+  margin: 0;
+  padding: 0.85rem 1rem 1rem;
+  color: var(--qc-strong-pink);
+  line-height: 1.35;
+  text-align: center;
+}
+
+.quantum-channel__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  justify-content: center;
+  color: var(--qc-strong-pink);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-align: center;
+  text-transform: lowercase;
+}
+
+.quantum-channel__legend span {
+  padding: 0.3rem 0.48rem;
+  border: 1px solid rgba(191, 64, 255, 0.34);
+  border-radius: 999px;
+  background: rgba(17, 4, 28, 0.5);
+}
+
+@media (max-width: 760px) {
+  .quantum-channel__frame {
+    aspect-ratio: 16 / 10;
+    min-height: var(--qc-frame-mobile-min-height);
+  }
+
+  .quantum-channel__panel {
+    grid-template-columns: 1fr;
+  }
+
+  .quantum-channel__actions {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,17 @@
+<div class="structured-content equation-detail-page" data-structured-content>
+  <section class="content-block"><h3>Actualización del Optimizador Adam</h3></section>
+  <section class="content-block">
+    <h3>Ecuación</h3>
+    <div class="equation-link-wrap"><div class="glass-window equation-display">$$ \theta_{t+1}=\theta_t-\eta\frac{\hat m_t}{\sqrt{\hat v_t}+\epsilon} $$</div></div>
+  </section>
+  <section class="content-block"><h3>Lectura Literal</h3><p>Los parámetros se mueven por una tasa de aprendizaje multiplicada por un primer momento corregido, dividido entre un segundo momento escalado.</p></section>
+  <section class="content-block"><h3>Lectura de un Físico</h3><p>Adam adapta el tamaño de paso por parámetro usando estimaciones móviles de la media y varianza del gradiente.</p></section>
+  <section class="content-block">
+    <h3>Desglose de Símbolos</h3>
+    <p><strong>\(\hat m_t\)</strong>: estimación corregida del primer momento del gradiente.</p>
+    <p><strong>\(\hat v_t\)</strong>: estimación corregida del segundo momento.</p>
+    <p><strong>\(\eta\)</strong>: tasa de aprendizaje.</p>
+    <p><strong>\(\epsilon\)</strong>: constante pequeña que evita división entre cero.</p>
+  </section>
+  <section class="content-block"><h3>Significado Físico</h3><p>Adam es una herramienta práctica de optimización. No cambia lo que el modelo aprende; cambia qué tan eficientemente los parámetros se mueven por la superficie de pérdida.</p></section>
+</div>

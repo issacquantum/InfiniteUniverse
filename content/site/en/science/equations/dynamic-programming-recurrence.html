@@ -1,0 +1,16 @@
+<div class="structured-content equation-detail-page" data-structured-content>
+  <section class="content-block"><h3>Dynamic Programming Recurrence</h3></section>
+  <section class="content-block">
+    <h3>Equation</h3>
+    <div class="equation-link-wrap"><div class="glass-window equation-display">$$ \mathrm{OPT}(i)=\min_j\{c(i,j)+\mathrm{OPT}(j)\} $$</div></div>
+  </section>
+  <section class="content-block"><h3>Literal Reading</h3><p>The optimal value at state \(i\) is the best choice over possible next states \(j\), combining immediate cost with the optimal remaining cost.</p></section>
+  <section class="content-block"><h3>Physicist's Reading</h3><p>A hard global problem is turned into reusable local subproblems whose answers are stored instead of recomputed.</p></section>
+  <section class="content-block">
+    <h3>Symbol Breakdown</h3>
+    <p><strong>\(\mathrm{OPT}(i)\)</strong>: optimal value from state \(i\).</p>
+    <p><strong>\(c(i,j)\)</strong>: cost of moving from state \(i\) to state \(j\).</p>
+    <p><strong>\(\min_j\)</strong>: choose the best next option.</p>
+  </section>
+  <section class="content-block"><h3>Physical Meaning</h3><p>Dynamic programming works when a problem has optimal substructure and overlapping subproblems. It trades memory for avoided repetition.</p></section>
+</div>

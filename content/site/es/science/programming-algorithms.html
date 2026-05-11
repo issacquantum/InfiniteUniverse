@@ -1,0 +1,356 @@
+<div class="structured-content" data-structured-content>
+  <section class="content-block">
+    <h3>Etimología</h3>
+    <p>
+      <strong>Algoritmo</strong> viene del nombre latinizado del matemático persa <strong>al-Khwarizmi</strong>. Mucho
+      antes de las computadoras electrónicas, un algoritmo era un procedimiento confiable para calcular.
+      <strong>Programación</strong> es escribir un plan ejecutable por adelantado.
+    </p>
+    <p>
+      Programación y algoritmos convierten intención en procedimiento exacto: una idea vaga debe volverse
+      suficientemente clara para que una máquina la ejecute y otra persona la verifique.
+    </p>
+    <p class="source-language-note">
+      <strong>Fuente del origen etimológico:</strong> Las fuentes enlazadas están en inglés, que es el idioma en que las leí para esta explicación.
+      <a class="platform-link" href="https://www.etymonline.com/word/algorithm" target="_blank" rel="noopener noreferrer">Online Etymology Dictionary: algorithm</a>;
+      <a class="platform-link" href="https://www.etymonline.com/word/program" target="_blank" rel="noopener noreferrer">Online Etymology Dictionary: program</a>.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Computabilidad</h3>
+    <p>
+      La base científica de la computación cambió con <strong>Alan Turing</strong> y <strong>Alonzo Church</strong>. La
+      máquina de Turing no era una pieza de hardware. Era un modelo abstracto de procedimiento: símbolos, estados,
+      reglas y una cinta. Eso permitió preguntar qué problemas pueden computarse.
+    </p>
+    <p>
+      La computabilidad marca la primera frontera. Algunas tareas no son resolubles por algoritmo en general. El
+      problema de la parada es la advertencia clásica: no existe un algoritmo universal que decida, para todo programa y
+      entrada, si ese programa se detendrá.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Corrección antes de velocidad</h3>
+    <p>
+      Un programa puede parecer correcto porque el caso de prueba era fácil. Un algoritmo debe funcionar porque su
+      estructura fuerza el resultado correcto. La corrección, los <strong>invariantes</strong>, las <strong>precondiciones</strong> y las <strong>postcondiciones</strong>
+      hacen explícita esa estructura.
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="programming-algorithms-equations" data-item-id="hoare-triple"
+        aria-label="Abrir explicación para triples de Hoare">
+        $$
+        \{P\}\;C\;\{Q\}
+        $$
+      </button>
+    </div>
+    <p>
+      Esto dice qué debe ser verdadero antes de ejecutar código y qué debe ser verdadero al terminar. Es la versión
+      matemática de no aceptar un programa solo porque pareció convincente una vez.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Complejidad y Big O</h3>
+    <p>
+      La corrección pregunta si el algoritmo da la respuesta correcta. La complejidad pregunta si puede hacerlo con
+      recursos razonables. Tiempo, memoria, comunicación y energía forman parte del diseño.
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="programming-algorithms-equations" data-item-id="big-o-notation"
+        aria-label="Abrir explicación para notación Big O">
+        $$
+        f(n)=O(g(n))
+        $$
+      </button>
+    </div>
+    <p>
+      <strong>Big O</strong> no es un cronómetro. Es un modelo de crecimiento. Explica por qué un método ineficiente puede parecer
+      aceptable con entradas pequeñas y colapsar cuando la entrada crece.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Recursión y divide y vencerás</h3>
+    <p>
+      Los <strong>algoritmos recursivos</strong> resuelven un problema dividiéndolo en problemas pequeños, resolviendo esos problemas y
+      combinando los resultados. Su tiempo suele describirse con una <strong>recurrencia</strong>:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="programming-algorithms-equations" data-item-id="algorithmic-recurrence"
+        aria-label="Abrir explicación para recurrencia algorítmica">
+        $$
+        T(n)=aT(n/b)+f(n)
+        $$
+      </button>
+    </div>
+    <p>
+      Este patrón aparece en mergesort, búsqueda binaria, multiplicación rápida, algoritmos de árboles y muchos métodos
+      numéricos.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Ordenamiento y cotas inferiores</h3>
+    <p>
+      Ordenar es un ejemplo limpio porque muchos algoritmos producen el mismo orden final pagando costos distintos.
+      Bubble sort es simple pero ineficiente. Quicksort es rápido en promedio. Mergesort da comportamiento confiable
+      \(O(n\log n)\).
+    </p>
+    <p>
+      Para ordenamiento por comparación existe una <strong>cota inferior</strong>:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="programming-algorithms-equations" data-item-id="comparison-sort-lower-bound"
+        aria-label="Abrir explicación para el límite inferior de ordenamiento por comparación">
+        $$
+        \Omega(n\log_2 n)
+        $$
+      </button>
+    </div>
+    <p>
+      Es un argumento de información: ordenar debe distinguir entre muchos órdenes de entrada posibles, y cada
+      comparación revela información limitada.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Grafos y caminos mínimos</h3>
+    <p>
+      Los <strong>grafos</strong> modelan rutas, dependencias, redes, estados, citas, moléculas y estructura social. El
+      <strong>algoritmo de Dijkstra</strong> resuelve caminos mínimos cuando todos los pesos de aristas son no negativos.
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="programming-algorithms-equations" data-item-id="dijkstra-relaxation"
+        aria-label="Abrir explicación para la relajación de Dijkstra">
+        $$
+        d[v]>d[u]+w(u,v)
+        $$
+      </button>
+    </div>
+    <p>
+      Con una cola de prioridad, una implementación común corre en:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="programming-algorithms-equations" data-item-id="dijkstra-priority-queue-complexity"
+        aria-label="Abrir explicación para complejidad de Dijkstra con cola de prioridad">
+        $$
+        O((V+E)\log V)
+        $$
+      </button>
+    </div>
+    <p>
+      La idea clave es corrección disciplinada: conservar la mejor distancia conocida, probar caminos vecinos y
+      actualizar solo cuando se demuestra una ruta estrictamente mejor.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Programación dinámica y decisiones greedy</h3>
+    <p>
+      La programación dinámica guarda respuestas a subproblemas para no recalcularlas. Funciona cuando un problema
+      tiene subproblemas repetidos y subestructura óptima.
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="programming-algorithms-equations" data-item-id="dynamic-programming-recurrence"
+        aria-label="Abrir explicación para recurrencia de programación dinámica">
+        $$
+        \mathrm{OPT}(i)=\min_j\{c(i,j)+\mathrm{OPT}(j)\}
+        $$
+      </button>
+    </div>
+    <p>
+      Los <strong>algoritmos greedy</strong> son distintos: toman la mejor decisión local y dependen de una estructura que demuestre que
+      esa decisión local es globalmente segura. Dijkstra es greedy. No todo problema permite ser greedy.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>P, NP (tiempo polinomial no determinista) (nondeterministic polynomial time, tiempo polinomial no determinista) y dificultad</h3>
+    <p>
+      La teoría de complejidad estudia los límites de la computación eficiente. Algunos problemas son resolubles
+      eficientemente. Otros tienen soluciones verificables eficientemente, pero no conocemos una forma eficiente de
+      encontrarlas.
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="programming-algorithms-equations" data-item-id="p-np-definitions"
+        aria-label="Abrir explicación para P y NP, tiempo polinomial no determinista">
+        $$
+        P=\bigcup_{k\ge1}\mathrm{TIME}(n^k),\qquad NP=\bigcup_{k\ge1}\mathrm{NTIME}(n^k)
+        $$
+      </button>
+    </div>
+    <p>
+      Los problemas <strong>NP-completos</strong> son centrales porque una solución en tiempo polinomial para cualquiera
+      de ellos daría soluciones en tiempo polinomial para todos los problemas en NP. Las reducciones muestran cuándo un
+      problema carga la dificultad de otro.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Programar como disciplina de ingeniería</h3>
+    <p>
+      La programación real añade restricciones que el pseudocódigo puede ocultar: casos extremos, entradas inválidas,
+      distribución de memoria, concurrencia, latencia, límites de API (interfaz de programacion de aplicaciones) (application programming interfaces, interfaces de programación de aplicaciones), corrupción de datos y <strong>mantenibilidad</strong>. Buen
+      software no es solo inteligente. Es legible, comprobable y honesto sobre sus fallas.
+    </p>
+    <p>
+      Los algoritmos dan estructura; la programación hace que esa estructura sobreviva al contacto con sistemas reales.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Visualizador 3D de algoritmos</h3>
+    <p>
+      Este modelo pone lado a lado tres ideas algorítmicas: <strong>búsqueda de caminos con Dijkstra</strong>,
+      <strong>ordenamiento por comparación repetida</strong> y <strong>crecimiento Big O</strong>. Arrastra para rotar,
+      usa shift-arrastrar o clic derecho para mover el modelo, y la rueda para acercar.
+    </p>
+    <p>
+      <strong>Dijkstra</strong> muestra nodos fijados, aristas relajadas y el camino mínimo final.
+      <strong>Ordenamiento</strong> muestra comparaciones e intercambios paso a paso. <strong>Big O</strong> compara
+      cómo las curvas de costo se separan cuando crece la entrada.
+    </p>
+    <figure class="algorithm-visualizer glass-window" data-algorithm-visualizer-model data-language="es">
+      <div class="algorithm-visualizer__frame" data-av-frame></div>
+      <div class="algorithm-visualizer__panel">
+        <div class="algorithm-visualizer__modes" role="group" aria-label="Modos del visualizador de algoritmos">
+          <button class="algorithm-visualizer__button is-active" type="button" data-av-mode="path">Dijkstra</button>
+          <button class="algorithm-visualizer__button" type="button" data-av-mode="sort">Ordenar</button>
+          <button class="algorithm-visualizer__button" type="button" data-av-mode="bigo"><strong>Big O</strong></button>
+        </div>
+        <div class="algorithm-visualizer__body">
+          <div class="algorithm-visualizer__controls" aria-label="Controles del visualizador de algoritmos">
+            <div class="algorithm-visualizer__actions">
+              <button class="algorithm-visualizer__button" type="button" data-av-action="step">Paso</button>
+              <button class="algorithm-visualizer__button" type="button" data-av-action="run">Ejecutar</button>
+              <button class="algorithm-visualizer__button" type="button" data-av-action="reset">Reiniciar</button>
+            </div>
+            <label class="algorithm-visualizer__group">
+              <span class="algorithm-visualizer__label">Velocidad <span class="algorithm-visualizer__value" data-av-value="speed">1.0x</span></span>
+              <input class="algorithm-visualizer__range" type="range" min="0.4" max="3" step="0.1" value="1"
+                data-av-param="speed" aria-label="Velocidad de animación del algoritmo">
+            </label>
+            <p class="algorithm-visualizer__status" data-av-status></p>
+          </div>
+          <div class="algorithm-visualizer__metrics" aria-label="Métricas del visualizador de algoritmos">
+            <div class="algorithm-visualizer__metric">
+              <div class="algorithm-visualizer__metric-row">
+                <span class="algorithm-visualizer__metric-label">Modo</span>
+                <span class="algorithm-visualizer__value" data-av-value="mode">Dijkstra</span>
+              </div>
+            </div>
+            <div class="algorithm-visualizer__metric">
+              <div class="algorithm-visualizer__metric-row">
+                <span class="algorithm-visualizer__metric-label">Paso</span>
+                <span class="algorithm-visualizer__value" data-av-value="step">0</span>
+              </div>
+            </div>
+            <div class="algorithm-visualizer__metric">
+              <div class="algorithm-visualizer__metric-row">
+                <span class="algorithm-visualizer__metric-label">Estado</span>
+                <span class="algorithm-visualizer__value" data-av-value="metric">listo</span>
+              </div>
+            </div>
+            <div class="algorithm-visualizer__legend" aria-label="Leyenda del visualizador de algoritmos">
+              <span>rosa intenso = elegido/final</span>
+              <span>violeta = comparación activa</span>
+              <span>índigo = base/no explorado</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <figcaption class="algorithm-visualizer__note">
+        Arte + computación: búsqueda de caminos, ordenamiento y crecimiento <strong>Big O</strong>. Nota de diseño: la paleta recurrente
+        de violeta, índigo y rosa intenso refleja mis colores favoritos.
+      </figcaption>
+    </figure>
+  </section>
+
+  <section class="content-block glossary-section">
+    <h3>Glosario de Términos Técnicos</h3>
+    <ul class="paper-list glossary-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Invariante:</strong> Una afirmación que permanece verdadera durante cada paso de un algoritmo y ayuda a probar corrección.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Precondición:</strong> Lo que debe ser cierto antes de ejecutar un algoritmo o función para que su garantía aplique.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Postcondición:</strong> Lo que debe ser cierto después de que un algoritmo o función termina si es correcto.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Recurrencia:</strong> Una ecuación que describe el tiempo de ejecución relacionando un problema con subproblemas más pequeños.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Cota inferior:</strong> Una prueba de que ningún algoritmo dentro de un modelo puede superar cierto costo mínimo.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Reducción:</strong> Una transformación que muestra que resolver un problema también resolvería otro.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Frontera:</strong> El borde descubierto pero aún no procesado completamente dentro de una búsqueda en grafo.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Tratable:</strong> Suficientemente práctico para resolverse con recursos razonables, a menudo asociado con algoritmos de tiempo polinomial.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Intratable:</strong> Demasiado costoso para resolverse exactamente a escala útil con los métodos conocidos.</span></li>
+    </ul>
+  </section>
+  <section class="content-block glossary-section abbreviation-glossary" data-abbreviation-glossary>
+    <h3>Glosario de Abreviaturas</h3>
+    <p class="abbreviation-glossary__note">Este glosario expande las abreviaturas usadas en esta seccion. La primera aparicion en el texto incluye el significado completo entre parentesis; las repeticiones quedan abreviadas para mantener la lectura limpia.</p>
+    <ul class="paper-list glossary-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>NP:</strong> tiempo polinomial no determinista.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>API:</strong> interfaz de programacion de aplicaciones.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>URLs:</strong> localizadores uniformes de recursos.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>DOI:</strong> identificador digital de objeto.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>ACM:</strong> Association for Computing Machinery, Asociacion de Maquinaria Computacional.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>SIAM:</strong> Society for Industrial and Applied Mathematics, Sociedad de Matematica Industrial y Aplicada.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>IEEE:</strong> Institute of Electrical and Electronics Engineers, Instituto de Ingenieros Electricos y Electronicos.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>MIT:</strong> Massachusetts Institute of Technology, Instituto Tecnologico de Massachusetts.</span></li>
+    </ul>
+  </section>
+
+<section class="content-block source-papers">
+    <h3>URLs (localizadores uniformes de recursos) de Fuentes Fundamentales y Modernas</h3>
+    <p class="source-language-note">Estas son las fuentes que leí originalmente. Las conservo en el idioma en que las leí; si encuentro traducciones al español, las agregaré junto a la fuente original.</p>
+    <ul class="paper-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://academic.oup.com/plms/article/s2-42/1/230/1491926" target="_blank"
+            rel="noopener noreferrer">Alan M. Turing, 1937. <em>On Computable Numbers, with an Application to the
+              Entscheidungsproblem.</em></a> <span class="paper-note">Página oficial de Oxford Academic.</span></span>
+      </li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://doi.org/10.1007/BF01386390" target="_blank" rel="noopener noreferrer">Edsger W. Dijkstra,
+            1959. <em>A Note on Two Problems in Connexion with Graphs.</em></a> <span class="paper-note">Registro DOI (identificador digital de objeto)
+            oficial.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://dl.acm.org/doi/10.1145/366622.366644" target="_blank" rel="noopener noreferrer">C. A. R.
+            Hoare, 1961. <em>Algorithm 64: Quicksort.</em></a> <span class="paper-note">Página DOI oficial de
+            ACM (Association for Computing Machinery, Asociacion de Maquinaria Computacional).</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://doi.org/10.1145/363235.363259" target="_blank" rel="noopener noreferrer">C. A. R. Hoare,
+            1969. <em>An Axiomatic Basis for Computer Programming.</em></a> <span class="paper-note">Registro DOI
+            oficial de ACM.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://dl.acm.org/doi/10.1145/800157.805047" target="_blank" rel="noopener noreferrer">Stephen A.
+            Cook, 1971. <em>The Complexity of Theorem-Proving Procedures.</em></a> <span class="paper-note">Página DOI
+            oficial de ACM.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://doi.org/10.1007/978-1-4684-2001-2_9" target="_blank" rel="noopener noreferrer">Richard M.
+            Karp, 1972. <em>Reducibility among Combinatorial Problems.</em></a> <span class="paper-note">Registro DOI
+            oficial.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://epubs.siam.org/doi/10.1137/0201010" target="_blank" rel="noopener noreferrer">Robert E.
+            Tarjan, 1972. <em>Depth-First Search and Linear Graph Algorithms.</em></a> <span class="paper-note">Página
+            oficial de SIAM (Society for Industrial and Applied Mathematics, Sociedad de Matematica Industrial y Aplicada).</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://doi.org/10.1109/TSSC.1968.300136" target="_blank" rel="noopener noreferrer">Hart, Nilsson y
+            Raphael, 1968. <em>A Formal Basis for the Heuristic Determination of Minimum Cost Paths.</em></a> <span
+            class="paper-note">Registro DOI oficial de IEEE (Institute of Electrical and Electronics Engineers, Instituto de Ingenieros Electricos y Electronicos) para A*.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://www-cs-faculty.stanford.edu/~knuth/taocp.html" target="_blank"
+            rel="noopener noreferrer">Donald E. Knuth. <em>The Art of Computer Programming.</em></a> <span
+            class="paper-note">Página oficial del autor.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank"
+            rel="noopener noreferrer">Cormen, Leiserson, Rivest y Stein, 2022. <em>Introduction to Algorithms, cuarta
+              edición.</em></a> <span class="paper-note">Página oficial de MIT (Massachusetts Institute of Technology) Press.</span></span></li>
+    </ul>
+  </section>
+</div>

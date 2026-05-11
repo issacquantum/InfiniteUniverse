@@ -1,0 +1,18 @@
+@keyframes pulseGlow {
+  from {
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.1) inset,
+      0 -22px 42px rgba(var(--glass-rgb), 0.16) inset,
+      0 18px 36px rgba(var(--shadow-rgb), 0.56),
+      0 0 28px rgba(var(--glow-rgb), 0.44);
+  }
+
+  to {
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.12) inset,
+      0 -22px 44px rgba(var(--glass-rgb), 0.18) inset,
+      0 20px 38px rgba(var(--shadow-rgb), 0.6),
+      0 0 42px rgba(var(--glow-rgb), 0.62),
+      0 0 78px rgba(var(--glow-rgb), 0.28);
+  }
+}
