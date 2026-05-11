@@ -1,0 +1,800 @@
+<div class="structured-content" data-structured-content>
+  <section class="content-block">
+    <h3>Etymology</h3>
+    <p>
+      The word <strong>information</strong> comes from the Latin <strong><em>informatio</em></strong>, meaning a
+      shaping, forming, or giving structure to something. Quantum information is not
+      only about messages, data, or computation. It is about how physical reality stores structure, how that structure
+      changes, and what can or cannot be known after a measurement.
+    </p>
+    <p>
+      The term <strong>quantum information</strong> became central in the late twentieth century, after entanglement,
+      measurement, communication, cryptography, and computation began to be treated as parts of one framework. It sits
+      between <strong>quantum entanglement</strong> and <strong>quantum computing</strong>: entanglement reveals that
+      information can belong to a whole system rather than to its parts, and quantum computing uses that structure as a
+      controlled resource.
+    </p>
+    <p>
+      The modern usage also inherits from <strong>Claude Shannon's 1948 information theory</strong>, which gave the
+      classical notion of a <em>bit</em> a precise mathematical meaning. Quantum information generalizes that
+      framework: where Shannon described what can be communicated through a noisy classical channel, the quantum
+      version asks the same question for channels that carry amplitudes, phases, and entanglement.
+    </p>
+    <p class="source-language-note">
+      <strong>Source of etymological origin:</strong>
+      <a class="platform-link" href="https://www.etymonline.com/word/information" target="_blank"
+        rel="noopener noreferrer">Online Etymology Dictionary: information</a>;
+      <a class="platform-link" href="https://www.etymonline.com/word/quantum" target="_blank"
+        rel="noopener noreferrer">Online Etymology Dictionary: quantum</a>;
+      <a class="platform-link" href="https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf"
+        target="_blank" rel="noopener noreferrer">Shannon, <em>A Mathematical Theory of Communication</em></a>.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Information as a Physical Quantity</h3>
+    <p>
+      Classical information theory studies how messages can be encoded, compressed, transmitted, and recovered. Quantum
+      information keeps those questions, but it changes the object being carried. A <strong>classical bit</strong> has a definite value.
+      A <strong>qubit</strong> can carry amplitudes, phase, coherence, and entanglement. That means information is no longer only a
+      symbol written somewhere. It is a physical state with rules imposed by quantum mechanics.
+    </p>
+    <p>
+      A general single <strong>qubit</strong> state is written as:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="qubit-superposition-state"
+        aria-label="Open explanation for the qubit superposition state">
+        $$
+        |\psi\rangle = \alpha|0\rangle + \beta|1\rangle
+        $$
+      </button>
+    </div>
+    <p>
+      The amplitudes must satisfy the normalization condition:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="qubit-normalization-condition"
+        aria-label="Open explanation for the qubit normalization condition">
+        $$
+        |\alpha|^2 + |\beta|^2 = 1
+        $$
+      </button>
+    </div>
+    <p>
+      This is conveniently visualized as a point on the <strong>Bloch sphere</strong>. Unlike a <strong>classical bit</strong>, which
+      sits
+      at one of two poles, a <strong>qubit</strong> can lie anywhere on the surface, encoding a continuum of <strong>relative phases</strong> and
+      amplitudes.
+    </p>
+    <p>
+      The physical nature of information is sharpened by <strong>Landauer's principle</strong>, which states that the
+      irreversible erasure of one bit of information must dissipate at least
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="landauer-principle"
+        aria-label="Open explanation for Landauer's principle">
+        $$
+        E_{\min} = k_B T \ln 2
+        $$
+      </button>
+    </div>
+    <p>
+      of energy as heat. This is one of the cleanest demonstrations that information is not an abstraction. It has a
+      thermodynamic cost, and that cost links computation, measurement, and the second law of thermodynamics.
+    </p>
+    <p>
+      Quantum information makes knowledge physical. What can be copied, what can be hidden, what survives noise, what
+      becomes irreversible, and what belongs only to the whole become questions about reality itself.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>From Bits to Qubits</h3>
+    <p>
+      A <strong>classical bit</strong> is described by a value, either \(0\) or \(1\), or by a probability distribution over those
+      values.
+      A <strong>qubit</strong> is different. Before measurement, it is described by <strong>complex amplitudes</strong>. The probabilities appear only
+      when a
+      measurement is chosen and performed.
+    </p>
+    <p>
+      That difference is not cosmetic. The <strong>relative phase</strong> between amplitudes can change later interference, even when
+      two
+      states would give the same immediate measurement probabilities. Quantum information is not just classical
+      probability with smaller objects. It keeps track of amplitudes, phase, coherence, and correlations that classical
+      information theory does not contain.
+    </p>
+    <p>
+      Shannon entropy measures uncertainty in a classical distribution. <strong>Von Neumann entropy</strong> measures uncertainty in a
+      quantum state. The bridge between them appears when a <strong>density matrix</strong> is diagonal: then the quantum state behaves
+      like
+      a <strong>classical probability distribution</strong> in that basis.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>What the Density Matrix Means</h3>
+    <p>
+      The central object is the <strong>density matrix</strong>, written as \(\rho\). A wave function is enough for a
+      perfectly known pure state, but real information tasks need something more general: a way to describe uncertainty,
+      noise, discarded subsystems, and entanglement with an environment.
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="density-matrix-state"
+        aria-label="Open explanation for the density matrix state">
+        $$
+        \rho = |\psi\rangle\langle\psi|,\qquad
+        \rho = \sum_i p_i|\psi_i\rangle\langle\psi_i|,\qquad
+        \operatorname{Tr}(\rho)=1
+        $$
+      </button>
+    </div>
+    <p>
+      The diagonal entries of \(\rho\) are <strong>populations</strong>: the probabilities for basis outcomes. The
+      off-diagonal entries are <strong>coherences</strong>: they store phase relationships that can create interference.
+      When noise erases those off-diagonal terms, the state becomes more classical.
+    </p>
+    <p>
+      A pure state has maximal knowledge and satisfies \(\rho^2=\rho\). A mixed state represents incomplete information,
+      environmental noise, or a subsystem of a larger entangled state. The trace condition keeps total probability equal
+      to one, and the positivity of \(\rho\) keeps all measurement probabilities nonnegative.
+    </p>
+    <p>
+      The <strong>density matrix</strong> replaces the wave function in quantum information because it can describe one <strong>qubit</strong>, a noisy
+      memory, a communication channel output, or the local state left after part of an entangled system is ignored.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Entropy and Correlation</h3>
+    <p>
+      Once the state is written as \(\rho\), its uncertainty or information content is measured by the
+      <strong>von Neumann entropy</strong>:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="von-neumann-entropy"
+        aria-label="Open explanation for von Neumann entropy">
+        $$
+        S(\rho) = -\operatorname{Tr}(\rho \log_2 \rho)
+        $$
+      </button>
+    </div>
+    <p>
+      This generalizes the classical <strong>Shannon entropy</strong>:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="shannon-entropy"
+        aria-label="Open explanation for Shannon entropy">
+        $$
+        H(X) = -\sum_x p_x \log_2 p_x
+        $$
+      </button>
+    </div>
+    <p>
+      The von Neumann entropy reduces to Shannon entropy whenever \(\rho\) is diagonal in the measurement basis. It can
+      therefore be read as the quantum amount of missing information about a system described by \(\rho\).
+    </p>
+    <p>
+      For a pure state, this entropy is zero because the state is fully specified. For a mixed state, entropy is larger
+      because the state contains uncertainty. In an entangled system, the total state can be pure while each part looks
+      mixed by itself. That is one of the cleanest ways to see that quantum information can be stored in relationships,
+      not only in individual objects.
+    </p>
+    <p>
+      For a pure bipartite state \(|\psi\rangle_{AB}\), the <strong>entanglement entropy</strong> is exactly:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="entanglement-entropy"
+        aria-label="Open explanation for entanglement entropy">
+        $$
+        S(\rho_A) = S(\rho_B)
+        $$
+      </button>
+    </div>
+    <p>
+      Each reduced state comes from tracing out the other subsystem. This single number quantifies how strongly the two
+      parts are entangled, and it is obtained directly from the <strong>Schmidt decomposition</strong> of
+      \(|\psi\rangle_{AB}\).
+    </p>
+    <p>
+      The amount of total correlation between two quantum systems is captured by <strong>quantum mutual
+        information</strong>:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="quantum-mutual-information"
+        aria-label="Open explanation for quantum mutual information">
+        $$
+        I(A:B) = S(A) + S(B) - S(AB)
+        $$
+      </button>
+    </div>
+    <p>
+      This expression is simple but powerful. It measures how much knowing one subsystem tells us about the other. In
+      quantum theory, those correlations can include classical correlation and entanglement, which is why information
+      becomes a bridge between measurement, thermodynamics, and the structure of physical systems.
+    </p>
+    <p>
+      A finer comparison between two states is given by the <strong>quantum relative entropy</strong>
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="quantum-relative-entropy"
+        aria-label="Open explanation for quantum relative entropy">
+        $$
+        S(\rho \,\|\, \sigma) = \operatorname{Tr}(\rho \log_2 \rho) - \operatorname{Tr}(\rho \log_2 \sigma)
+        $$
+      </button>
+    </div>
+    <p>
+      which acts as a distinguishability measure and underlies many results in quantum hypothesis testing,
+      thermodynamics, and channel capacity. Entropy in the quantum setting also obeys
+      <strong>strong subadditivity</strong>:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="strong-subadditivity"
+        aria-label="Open explanation for strong subadditivity">
+        $$
+        S(ABC) + S(B) \le S(AB) + S(BC)
+        $$
+      </button>
+    </div>
+    <p>
+      It is one of the deepest structural inequalities in the theory.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>No Cloning and Measurement</h3>
+    <p>
+      One of the sharpest differences between classical and quantum information is that an unknown quantum state cannot
+      be copied perfectly. Classical data can be duplicated again and again. A general quantum state cannot. A universal
+      perfect copier would require a transformation like this:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="no-cloning-linearity"
+        aria-label="Open explanation for no cloning and linearity">
+        $$
+        U\left(|\psi\rangle|0\rangle\right) = |\psi\rangle|\psi\rangle
+        $$
+      </button>
+    </div>
+    <p>
+      Quantum mechanics does not allow this operation for every possible unknown state. The reason is not a technical
+      limitation. It follows from the linear structure of quantum theory. This single fact shapes quantum cryptography,
+      error correction, communication, and the way information must be protected inside quantum devices.
+    </p>
+    <p>
+      Closely related are the <strong>no-broadcasting theorem</strong>, which extends the no-cloning result to mixed
+      states, and the <strong>no-deleting theorem</strong>, which forbids the inverse operation: given two copies of an
+      unknown state, no unitary process can erase one while leaving a blank slate. Together they enforce a kind of
+      conservation of quantum information.
+    </p>
+    <p>
+      Measurement adds another boundary. Measuring a quantum state does not merely reveal a value that was sitting there
+      in the classical sense. It changes the state and returns a classical outcome. Quantum information always lives
+      between two worlds: the quantum state before measurement and the classical record after measurement.
+    </p>
+    <p>
+      The probability of outcome \(m\) is given by the <strong>Born rule</strong>,
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="born-rule-povm-measurement"
+        aria-label="Open explanation for the Born rule and POVM, positive operator-valued measure, measurement">
+        $$
+        P(m) = \langle \psi | M_m^\dagger M_m | \psi \rangle
+        $$
+        $$
+        |\psi_m\rangle = \frac{M_m|\psi\rangle}{\sqrt{P(m)}},\qquad \sum_m E_m = I
+        $$
+      </button>
+    </div>
+    <p>
+      The most general measurement is described by a <strong>POVM (positive operator-valued measure)</strong>, a set of positive operators. Projective
+      measurements are a special case where each \(E_m\) is a projector. This formalism is what makes quantum
+      information a real operational theory: every protocol must close with measurement, and the Born rule sets the
+      bridge to classical statistics.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Channels, Noise, and Communication</h3>
+    <p>
+      Real quantum information never exists in perfect isolation. It moves through channels, interacts with the
+      environment, and loses coherence. A general quantum channel can be written in the <strong>Kraus
+        representation</strong>:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="quantum-channel-kraus-representation"
+        aria-label="Open explanation for the Kraus representation of a quantum channel">
+        $$
+        \mathcal{E}(\rho) = \sum_k K_k \rho K_k^\dagger,\qquad \sum_k K_k^\dagger K_k = I
+        $$
+      </button>
+    </div>
+    <p>
+      This is the language used to describe noise, loss, decoherence, and controlled operations. It lets physicists
+      talk about imperfect reality without pretending the system is isolated from the world. The completeness condition
+      is what keeps total probability conserved; in the language of quantum information, the channel is
+      <strong>trace preserving</strong>.
+    </p>
+    <p>
+      A channel is not only a wire. It can be a fiber-optic link, a noisy <strong>qubit</strong> memory, a detector, a gate with
+      imperfections, or an interaction with the environment. It is the mathematical object that says: this is how the
+      input
+      state \(\rho\) becomes an output state \(\mathcal{E}(\rho)\).
+    </p>
+    <p>
+      The most studied noise models are the <strong>amplitude damping</strong>, <strong>phase damping</strong>, and
+      <strong>depolarizing</strong> channels. Amplitude damping models energy loss, such as an excited <strong>qubit</strong> relaxing
+      toward \(|0\rangle\). Phase damping keeps the populations fixed but destroys phase coherence. Depolarizing noise
+      pushes the state toward a maximally mixed state, as if random Pauli errors were washing out the information. Phase
+      damping in particular captures decoherence: the off-diagonal coherences of \(\rho\) decay as:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="phase-damping-coherence-decay"
+        aria-label="Open explanation for phase damping coherence decay">
+        $$
+        \rho_{01}(t) = \rho_{01}(0)\, e^{-t/T_2}
+        $$
+      </button>
+    </div>
+    <p>
+      In the model, the wire sphere marks pure one-<strong>qubit</strong> states, the blob is the <strong>density matrix</strong>, the arrow is the Bloch
+      vector when the state is coherent, and the entropy graph records information lost to noise over time.
+      It is a simplified artistic/physics visualizer of one-<strong>qubit</strong> density matrices and decoherence, not a full quantum
+      communication simulator.
+    </p>
+    <figure class="quantum-channel glass-window" data-quantum-channel-model data-language="en">
+      <div class="quantum-channel__frame" data-qc-frame></div>
+      <div class="quantum-channel__panel">
+        <div class="quantum-channel__controls">
+          <label class="quantum-channel__group">
+            <span class="quantum-channel__label">Initial State</span>
+            <select class="quantum-channel__select" data-qc-initial-state aria-label="Initial quantum state">
+              <option value="plus">|+> coherent superposition</option>
+              <option value="plus-i">|+i> phase superposition</option>
+              <option value="zero">|0> ground state</option>
+              <option value="one">|1> excited state</option>
+            </select>
+          </label>
+          <label class="quantum-channel__group">
+            <span class="quantum-channel__label">Noise Channel</span>
+            <select class="quantum-channel__select" data-qc-channel aria-label="Noise channel model">
+              <option value="none">Identity Channel</option>
+              <option value="amplitude">Amplitude Damping</option>
+              <option value="phase">Phase Damping</option>
+              <option value="depolarizing">Depolarizing Channel</option>
+              <option value="measurement">Projective Measurement</option>
+            </select>
+          </label>
+          <p class="quantum-channel__description" data-qc-description></p>
+          <label class="quantum-channel__group">
+            <span class="quantum-channel__label">Noise Intensity <span class="quantum-channel__value"
+                data-qc-value="noise">0.00</span></span>
+            <input class="quantum-channel__range" type="range" min="0" max="1" step="0.01" value="0" data-qc-noise
+              aria-label="Noise intensity">
+          </label>
+          <label class="quantum-channel__group">
+            <span class="quantum-channel__label">Evolution Speed <span class="quantum-channel__value"
+                data-qc-value="speed">1.0x</span></span>
+            <input class="quantum-channel__range" type="range" min="0" max="5" step="0.1" value="1" data-qc-speed
+              aria-label="Evolution speed">
+          </label>
+          <div class="quantum-channel__actions">
+            <button class="quantum-channel__button" type="button" data-qc-action="reset">Reset State</button>
+            <button class="quantum-channel__button is-active" type="button" data-qc-action="flow"
+              aria-pressed="true">Toggle Flow</button>
+          </div>
+        </div>
+        <div class="quantum-channel__metrics">
+          <div class="quantum-channel__metric">
+            <div class="quantum-channel__metric-row">
+              <span class="quantum-channel__metric-label">Von Neumann Entropy</span>
+              <span class="quantum-channel__value" data-qc-value="entropy">0.000</span>
+            </div>
+            <div class="quantum-channel__meter"><span class="quantum-channel__meter-fill" data-qc-bar="entropy"></span>
+            </div>
+          </div>
+          <div class="quantum-channel__metric">
+            <div class="quantum-channel__metric-row">
+              <span class="quantum-channel__metric-label">Purity</span>
+              <span class="quantum-channel__value" data-qc-value="purity">1.000</span>
+            </div>
+            <div class="quantum-channel__meter"><span
+                class="quantum-channel__meter-fill quantum-channel__meter-fill--full" data-qc-bar="purity"></span></div>
+          </div>
+          <div class="quantum-channel__metric">
+            <div class="quantum-channel__metric-row">
+              <span class="quantum-channel__metric-label">Coherence</span>
+              <span class="quantum-channel__value" data-qc-value="coherence">1.000</span>
+            </div>
+            <div class="quantum-channel__meter"><span
+                class="quantum-channel__meter-fill quantum-channel__meter-fill--full" data-qc-bar="coherence"></span>
+            </div>
+          </div>
+          <div class="quantum-channel__readout" aria-label="Quantum state matrix readout">
+            <div class="quantum-channel__readout-row">
+              <span class="quantum-channel__readout-label">Bloch Vector</span>
+              <span class="quantum-channel__readout-value">
+                x:<span data-qc-bloch="x">0.000</span>
+                y:<span data-qc-bloch="y">0.000</span>
+                z:<span data-qc-bloch="z">0.000</span>
+              </span>
+            </div>
+            <div class="quantum-channel__readout-row">
+              <span class="quantum-channel__readout-label">Density Matrix \(\rho\)</span>
+              <div class="quantum-channel__matrix" aria-label="Density matrix values">
+                <span data-qc-matrix="00">0.00</span>
+                <span data-qc-matrix="01">0.00</span>
+                <span data-qc-matrix="10">0.00</span>
+                <span data-qc-matrix="11">0.00</span>
+              </div>
+            </div>
+            <div class="quantum-channel__readout-row">
+              <span class="quantum-channel__readout-label">Kraus Labels</span>
+              <span class="quantum-channel__readout-value" data-qc-kraus>Identity</span>
+            </div>
+            <div class="quantum-channel__readout-row quantum-channel__readout-row--inline">
+              <span class="quantum-channel__readout-label">Fidelity Target 0.99</span>
+              <span class="quantum-channel__status" data-qc-fidelity-status>Checking</span>
+            </div>
+          </div>
+          <div class="quantum-channel__group">
+            <span class="quantum-channel__graph-label">Entropy History</span>
+            <div class="quantum-channel__graph" data-qc-graph></div>
+          </div>
+          <div class="quantum-channel__legend" aria-label="Quantum channel visual legend">
+            <span>wire sphere = pure-state boundary</span>
+            <span>blob = <strong>density matrix</strong></span>
+            <span>arrow = coherent state vector</span>
+            <span>pink particles = environmental noise</span>
+          </div>
+        </div>
+      </div>
+      <figcaption class="quantum-channel__note">
+        Artistic + physics: density matrices, channels, entropy, purity, and decoherence. Design note: the recurring
+        violet, indigo, and hot pink palette reflects my favourite colors.
+      </figcaption>
+    </figure>
+    <p>
+      Here \(T_2\) is the dephasing time. The closeness of two states under noise is measured by the
+      <strong>fidelity</strong>:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="quantum-state-fidelity"
+        aria-label="Open explanation for quantum state fidelity">
+        $$
+        F(\rho, \sigma) = \left(\operatorname{Tr}\sqrt{\sqrt{\rho}\,\sigma\,\sqrt{\rho}}\right)^2
+        $$
+      </button>
+    </div>
+    <p>
+      which equals 1 only for identical states and 0 for orthogonal states. Fidelity is the standard benchmark for
+      gates,
+      memories, and teleportation experiments.
+    </p>
+    <p>
+      Quantum information also sets a limit on how much classical information can be extracted from quantum states. One
+      important quantity is the <strong>Holevo information</strong>:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="holevo-information"
+        aria-label="Open explanation for Holevo information">
+        $$
+        \chi = S\!\left(\sum_x p_x\rho_x\right) - \sum_x p_x S(\rho_x)
+        $$
+      </button>
+    </div>
+    <p>
+      Quantum states can contain rich structure, but measurement limits what can be recovered as classical data. Quantum
+      information is therefore not just about having more possibilities. It is about knowing which possibilities can
+      actually become usable information.
+    </p>
+    <p>
+      The <strong>Holevo, Schumacher, and Westmoreland (HSW (Holevo-Schumacher-Westmoreland)) theorem</strong> turns this bound into the actual classical
+      capacity of a memoryless quantum channel:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="hsw-capacity-and-coherent-information"
+        aria-label="Open explanation for HSW, Holevo-Schumacher-Westmoreland, capacity and coherent information">
+        $$
+        C(\mathcal{E}) = \max_{\{p_x, \rho_x\}} \chi(\mathcal{E})
+        $$
+        $$
+        I_c(\rho, \mathcal{E}) =
+        S(\mathcal{E}(\rho)) - S((\mathcal{E} \otimes \mathrm{id})(|\psi\rangle\langle\psi|))
+        $$
+      </button>
+    </div>
+    <p>
+      This gives the quantum analog of Shannon's noisy-channel coding theorem. Sending quantum information itself is
+      governed instead by the <strong>quantum capacity</strong> \(Q(\mathcal{E})\), expressed through the regularized
+      <strong>coherent information</strong>.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Compression, Distinguishability, and Capacity</h3>
+    <p>
+      Shannon showed that long classical messages can be compressed close to their entropy. The quantum version is
+      <strong>Schumacher compression</strong>. If a source emits states described by an average <strong>density matrix</strong> \(\rho\),
+      then many copies can be compressed into roughly \(S(\rho)\) <strong>qubits</strong> per signal without losing the state in the
+      asymptotic limit:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="schumacher-compression"
+        aria-label="Open explanation for Schumacher compression">
+        $$
+        n\ \text{signals} \longrightarrow nS(\rho)\ \text{qubits}
+        $$
+      </button>
+    </div>
+    <p>
+      This is the quantum source-coding theorem. It does not compress one arbitrary unknown <strong>qubit</strong> into less than one
+      <strong>qubit</strong>.
+      It compresses long streams from a known statistical source by keeping only the typical quantum subspace.
+    </p>
+    <p>
+      Another basic question is whether two quantum states can be told apart. The standard measure is
+      <strong>trace distance</strong>:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="trace-distance"
+        aria-label="Open explanation for trace distance">
+        $$
+        D(\rho,\sigma)=\frac{1}{2}\|\rho-\sigma\|_1
+        $$
+      </button>
+    </div>
+    <p>
+      Trace distance is operational: it tells how well the best possible measurement can distinguish \(\rho\) from
+      \(\sigma\). Orthogonal states have distance one and can be perfectly distinguished. Identical states have distance
+      zero and cannot be distinguished at all.
+    </p>
+    <p>
+      This leads directly to <strong>state discrimination</strong>. If two states are non-orthogonal, no measurement can
+      identify them perfectly in a single shot. The best possible success probability for equal priors is governed by
+      the
+      Helstrom bound:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="helstrom-state-discrimination"
+        aria-label="Open explanation for Helstrom state discrimination">
+        $$
+        P_{\mathrm{succ}}^{\max}=\frac{1}{2}\left(1+D(\rho_0,\rho_1)\right)
+        $$
+      </button>
+    </div>
+    <p>
+      Non-orthogonal states are useful in quantum cryptography because an eavesdropper cannot read them perfectly
+      without risking detectable disturbance.
+    </p>
+    <p>
+      Noise also obeys a one-way rule called the <strong>data processing inequality</strong>. A physical channel cannot
+      increase the distinguishability of quantum states:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="data-processing-inequality"
+        aria-label="Open explanation for the data processing inequality">
+        $$
+        S(\mathcal{E}(\rho)\,\|\,\mathcal{E}(\sigma)) \le S(\rho\,\|\,\sigma)
+        $$
+      </button>
+    </div>
+    <p>
+      In plain terms, processing data through a noisy channel cannot create usable information that was not already
+      present. This principle is one reason quantum capacity is hard: the useful quantum information must survive every
+      channel use without being copied or directly inspected.
+    </p>
+    <p>
+      The full <strong>quantum capacity</strong> of a channel is the best asymptotic rate at which unknown quantum
+      states
+      can be transmitted reliably through many uses of the channel:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="quantum-capacity-regularized"
+        aria-label="Open explanation for regularized quantum capacity">
+        $$
+        Q(\mathcal{E})=\lim_{n\to\infty}\frac{1}{n}\max_{\rho} I_c(\rho,\mathcal{E}^{\otimes n})
+        $$
+      </button>
+    </div>
+    <p>
+      The limit appears because quantum channels can behave differently when many uses are encoded jointly. Unlike many
+      classical capacity formulas, the quantum capacity is generally not a simple one-shot number.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Cryptography, Teleportation, and Computation</h3>
+    <p>
+      Quantum information turns entanglement and measurement into tools. <strong>Quantum cryptography</strong> uses the
+      disturbance caused by measurement to detect eavesdropping. <strong>Quantum teleportation</strong> uses
+      entanglement plus classical communication to transfer an unknown quantum state without sending the original system
+      itself. <strong>Superdense coding</strong> shows that entanglement can change the communication capacity of a
+      physical system. <strong>Quantum error correction</strong> protects fragile information by spreading it across a
+      larger structure without violating the no cloning theorem.
+      In this section, entanglement becomes a resource: something protocols can spend to teleport states, distribute
+      secure keys, or increase communication power.
+    </p>
+    <p>
+      The shared resource behind teleportation, superdense coding, and entanglement-based key distribution is the family
+      of <strong>Bell states</strong>,
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="bell-basis-states"
+        aria-label="Open explanation for the Bell basis states">
+        $$
+        |\Phi^\pm\rangle = \tfrac{1}{\sqrt{2}}\left(|00\rangle \pm |11\rangle\right),\qquad
+        |\Psi^\pm\rangle = \tfrac{1}{\sqrt{2}}\left(|01\rangle \pm |10\rangle\right)
+        $$
+      </button>
+    </div>
+    <p>
+      the four maximally entangled two-<strong>qubit</strong> states. The <strong>BB84 (Bennett-Brassard 1984 protocol) (Bennett-Brassard 1984)</strong> protocol of Bennett and Brassard uses
+      non-orthogonal <strong>qubit</strong> bases to detect any eavesdropper through the disturbance their measurement creates, while
+      <strong>E91 (Ekert 1991 protocol) (Ekert 1991)</strong> achieves the same goal by testing Bell-type inequalities on shared entangled pairs.
+    </p>
+    <p>
+      In <strong>BB84</strong>, Alice sends <strong>qubits</strong> prepared in randomly chosen bases. Bob measures in randomly chosen
+      bases. Later they publicly compare only the bases, not the secret results. Whenever an eavesdropper measures the
+      <strong>qubits</strong>, that intervention introduces errors that Alice and Bob can detect in a test sample.
+    </p>
+    <p>
+      In <strong>E91</strong>, the security comes from entanglement. Alice and Bob measure shared entangled pairs in
+      different bases and test whether the correlations violate a Bell inequality. If the correlations are too
+      classical,
+      the channel is not trusted.
+    </p>
+    <p>
+      In <strong>quantum teleportation</strong>, Alice does not send the unknown state itself. She combines it with her
+      half of an entangled pair, performs a Bell-basis measurement, and sends two <strong>classical bits</strong> to Bob. Bob then
+      applies a
+      correction operation to his half of the pair. The state is reconstructed at Bob's side, while the original is
+      destroyed by the measurement, so the no-cloning theorem is respected.
+    </p>
+    <p>
+      <strong>Superdense coding</strong> runs the resource logic in the other direction. If Alice and Bob already share
+      an
+      entangled pair, Alice can send two <strong>classical bits</strong> of information by transmitting only one <strong>qubit</strong> after applying one
+      of
+      four operations. Entanglement acts like stored communication structure.
+    </p>
+    <p>
+      Error correction relies on encoding logical <strong>qubits</strong> into many physical <strong>qubits</strong> so that low-weight errors can be
+      diagnosed and reversed without measuring the protected state itself. The <strong>stabilizer formalism</strong>
+      organizes this in terms of commuting Pauli operators; representative examples include the
+      <strong>Shor 9-qubit code</strong>, the <strong>Steane 7-qubit code</strong>, and the <strong>surface
+        code</strong>,
+      whose locality and high threshold make it the leading candidate for fault-tolerant quantum computers.
+    </p>
+    <p>
+      The key point is that quantum information treats entanglement, measurement, noise, and correction as resources and
+      constraints. A protocol is good only if it respects all of them at once.
+    </p>
+    <p>
+      This is the correct bridge into quantum computing. Quantum computers are not powerful because <strong>qubits</strong> are magical
+      bits. They are powerful only when information is encoded, transformed, protected, and measured in a way that uses
+      the rules of quantum information correctly.
+      Quantum information is the framework of limits, resources, channels, and measurements; quantum computing is one
+      application of that framework.
+    </p>
+  </section>
+
+  <section class="content-block glossary-section">
+    <h3>Technical Terms Glossary</h3>
+    <ul class="paper-list glossary-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Bloch sphere:</strong> A geometric picture of all pure one-<strong>qubit</strong> states as points on a sphere.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>POVM:</strong> A generalized quantum measurement described by positive operators, broader than ordinary projective measurement.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>No-broadcasting theorem:</strong> The mixed-state generalization of no-cloning, ruling out perfect copying of unknown noncommuting states.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Amplitude damping:</strong> A noise model for energy loss, such as an excited <strong>qubit</strong> relaxing toward a lower-energy state.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Holevo information:</strong> The quantity that limits how much classical information can be extracted from an ensemble of quantum states.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Coherent information:</strong> A quantity used in quantum-capacity formulas to measure how much quantum information survives a channel.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Regularization:</strong> Taking a limit over many channel uses because a one-shot formula does not capture the full asymptotic capacity.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Bell measurement:</strong> A joint measurement in an entangled basis, central to quantum teleportation.</span></li>
+    </ul>
+  </section>
+  <section class="content-block glossary-section abbreviation-glossary" data-abbreviation-glossary>
+    <h3>Abbreviation Glossary</h3>
+    <p class="abbreviation-glossary__note">This glossary expands the abbreviations used in this section. The first appearance in the text includes the full wording in parentheses; later uses stay abbreviated so the section stays readable.</p>
+    <ul class="paper-list glossary-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>POVM:</strong> positive operator-valued measure.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>HSW:</strong> Holevo-Schumacher-Westmoreland.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>BB84:</strong> Bennett-Brassard 1984 protocol.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>E91:</strong> Ekert 1991 protocol.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>URLs:</strong> Uniform Resource Locators.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>PDF:</strong> Portable Document Format.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>DOI:</strong> digital object identifier.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>IBM:</strong> International Business Machines.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>APS:</strong> American Physical Society.</span></li>
+    </ul>
+  </section>
+
+<section class="content-block source-papers">
+    <h3>Foundational and Modern Source URLs (Uniform Resource Locators)</h3>
+    <ul class="paper-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf" target="_blank"
+            rel="noopener noreferrer">Claude E. Shannon, 1948. <em>A Mathematical Theory of Communication.</em></a>
+          <span class="paper-note">PDF (Portable Document Format) hosted by Harvard Mathematics.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://doi.org/10.1147/rd.53.0183" target="_blank" rel="noopener noreferrer">Rolf Landauer, 1961.
+            <em>Irreversibility and Heat Generation in the Computing Process.</em></a> <span class="paper-note">Official
+            DOI (digital object identifier) record for the IBM (International Business Machines) Journal paper.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://eudml.org/doc/274115" target="_blank" rel="noopener noreferrer">Elliott H. Lieb and Mary Beth
+            Ruskai, 1973. <em>Proof of the Strong Subadditivity
+              of Quantum-Mechanical Entropy.</em></a> <span class="paper-note">EuDML record with full-text
+            links.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://www.nature.com/articles/299802a0" target="_blank" rel="noopener noreferrer">William K.
+            Wootters and Wojciech H. Zurek, 1982. <em>A Single Quantum Cannot Be Cloned.</em></a> <span
+            class="paper-note">Official Nature article page.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://arxiv.org/pdf/2003.06557" target="_blank" rel="noopener noreferrer">Charles H. Bennett and
+            Gilles Brassard, 1984. <em>Quantum Cryptography: Public Key Distribution and Coin Tossing.</em></a> <span
+            class="paper-note">arXiv PDF of the paper.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.70.1895" target="_blank"
+            rel="noopener noreferrer">Bennett et al., 1993. <em>Teleporting an Unknown Quantum State via Dual Classical
+              and Einstein Podolsky Rosen Channels.</em></a> <span class="paper-note">Official APS (American Physical Society) article page for the
+            paper.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://arxiv.org/pdf/quant-ph/9508027" target="_blank" rel="noopener noreferrer">Peter W. Shor, 1995.
+            <em>Scheme for Reducing Decoherence in Quantum Computer Memory.</em></a> <span class="paper-note">arXiv PDF
+            of the paper.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://journals.aps.org/pra/abstract/10.1103/PhysRevA.51.2738" target="_blank"
+            rel="noopener noreferrer">Benjamin Schumacher, 1995. <em>Quantum Coding.</em></a> <span
+            class="paper-note">Official APS article page.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://arxiv.org/pdf/quant-ph/9602019" target="_blank" rel="noopener noreferrer">Andrew M. Steane,
+            1996. <em>Multiple Particle Interference and Quantum Error Correction.</em></a> <span
+            class="paper-note">arXiv PDF of the paper.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://arxiv.org/pdf/quant-ph/9611023" target="_blank" rel="noopener noreferrer">Alexander S. Holevo,
+            1996. <em>The Capacity of the Quantum Channel with General Signal States.</em></a> <span
+            class="paper-note">arXiv PDF of the paper.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://www.cambridge.org/highereducation/books/quantum-computation-and-quantum-information/01E10196D0A682A6AEFFEA52D53BE9AE"
+            target="_blank" rel="noopener noreferrer">Michael A. Nielsen and Isaac L. Chuang, 2010. <em>Quantum
+              Computation and Quantum Information.</em></a> <span class="paper-note">Official Cambridge University Press
+            book page.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://arxiv.org/pdf/1106.1445" target="_blank" rel="noopener noreferrer">Mark M. Wilde, 2011.
+            <em>From Classical to Quantum Shannon Theory.</em></a> <span class="paper-note">arXiv PDF of the
+            notes.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://jhwatrous.github.io/TQI.pdf" target="_blank" rel="noopener noreferrer">John Watrous, 2018.
+            <em>The Theory of Quantum Information.</em></a> <span class="paper-note">Author-hosted manuscript PDF for
+            personal use.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://opg.optica.org/aop/abstract.cfm?doi=10.1364%2FAOP.361502" target="_blank"
+            rel="noopener noreferrer">Pirandola et al., 2020. <em>Advances in Quantum Cryptography.</em></a> <span
+            class="paper-note">Official Optica Publishing Group article page.</span></span></li>
+    </ul>
+  </section>
+</div>

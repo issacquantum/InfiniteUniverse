@@ -1,0 +1,93 @@
+.quantum-model {
+  display: grid;
+  justify-items: center;
+  gap: 0.72rem;
+  margin-top: 1.5cm;
+}
+
+.quantum-model__frame {
+  display: inline-grid;
+  justify-items: center;
+  width: fit-content;
+  max-width: min(100%, 58rem);
+  padding: 1.1rem;
+  border-radius: 1.35rem;
+  overflow: hidden;
+}
+
+.quantum-model__canvas {
+  display: block;
+  width: 52rem;
+  max-width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 0.95rem;
+  cursor: grab;
+  touch-action: none;
+  background: #050008;
+  box-shadow:
+    0 12px 24px rgba(var(--shadow-rgb), 0.34),
+    0 0 18px rgba(var(--glow-rgb), 0.12);
+}
+
+.quantum-model__canvas:active {
+  cursor: grabbing;
+}
+
+.quantum-model__hint {
+  font-size: 0.78rem;
+  color: rgba(var(--outline-rgb), 0.56);
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  text-align: center;
+  user-select: none;
+}
+
+.quantum-model__frame .content-placeholder {
+  margin: 0;
+}
+
+.quantum-model__caption {
+  text-align: center;
+}
+
+.quantum-model__legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.55rem;
+  margin: 0 0 0.85rem;
+  color: #ff58d6;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-align: center;
+  text-transform: lowercase;
+}
+
+.quantum-model__legend span {
+  padding: 0.14rem 0.3rem;
+  border: 1px solid rgba(191, 64, 255, 0.36);
+  border-radius: 999px;
+  background: rgba(17, 4, 28, 0.56);
+  box-shadow: 0 0 12px rgba(119, 0, 255, 0.18);
+}
+
+body[data-media-notes="on"] .quantum-model__hint {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .quantum-model__frame {
+    width: 100%;
+    max-width: 100%;
+    padding: 0.72rem;
+  }
+
+  .quantum-model__canvas {
+    width: min(100%, 21.5rem);
+    border-radius: 0.9rem;
+  }
+
+  .quantum-model__hint {
+    font-size: 0.72rem;
+  }
+}

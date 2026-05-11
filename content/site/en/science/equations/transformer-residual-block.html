@@ -1,0 +1,16 @@
+<div class="structured-content equation-detail-page" data-structured-content>
+  <section class="content-block"><h3>Transformer Residual Block</h3></section>
+  <section class="content-block">
+    <h3>Equation</h3>
+    <div class="equation-link-wrap"><div class="glass-window equation-display">$$ y=\operatorname{LayerNorm}(x+\operatorname{Sublayer}(x)) $$</div></div>
+  </section>
+  <section class="content-block"><h3>Literal Reading</h3><p>The output is layer normalization applied to the original input plus the sublayer's transformation of that input.</p></section>
+  <section class="content-block"><h3>Physicist's Reading</h3><p>The residual path lets information and gradients move through deep transformer stacks without forcing every layer to relearn the identity map.</p></section>
+  <section class="content-block">
+    <h3>Symbol Breakdown</h3>
+    <p><strong>\(x\)</strong>: incoming representation.</p>
+    <p><strong>\(\operatorname{Sublayer}(x)\)</strong>: attention or feed-forward transformation.</p>
+    <p><strong>\(\operatorname{LayerNorm}\)</strong>: normalization that stabilizes activations.</p>
+  </section>
+  <section class="content-block"><h3>Physical Meaning</h3><p>This is not physics, but the architecture has a physical intuition: preserve a signal path while adding controlled corrections.</p></section>
+</div>

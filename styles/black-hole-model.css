@@ -1,0 +1,204 @@
+.black-hole-model {
+  --bh-hot-pink: #ff00a2;
+  --bh-strong-pink: #ff58d6;
+  --bh-electric: #bf40ff;
+  --bh-violet: #7700ff;
+  --bh-indigo: #2b006d;
+  --bh-deep: #050008;
+  --bh-glass: rgba(17, 4, 28, 0.52);
+  --bh-edge: rgba(191, 64, 255, 0.48);
+
+  display: grid;
+  gap: 0;
+  width: min(100%, var(--model-window-width));
+  max-width: var(--model-window-width);
+  margin: 1.5rem auto;
+  overflow: hidden;
+  border: 1px solid var(--bh-edge);
+  border-radius: 1rem;
+  background: var(--bh-glass);
+  box-shadow:
+    inset 0 1px 0 rgba(224, 152, 255, 0.2),
+    0 16px 36px rgba(var(--shadow-rgb), 0.42);
+  backdrop-filter: blur(13px) saturate(1.25);
+  -webkit-backdrop-filter: blur(13px) saturate(1.25);
+}
+
+.black-hole-model.glass-window::before {
+  background:
+    linear-gradient(90deg,
+      transparent 0 10%,
+      rgba(255, 0, 162, 0.58) 16% 19%,
+      transparent 25% 76%,
+      rgba(191, 64, 255, 0.5) 82% 85%,
+      transparent 92%),
+    linear-gradient(180deg,
+      transparent 0 11%,
+      rgba(255, 88, 214, 0.38) 17% 20%,
+      transparent 26% 82%,
+      rgba(119, 0, 255, 0.35) 88% 91%,
+      transparent 100%);
+}
+
+.black-hole-model.glass-window::after {
+  box-shadow:
+    0 0 0 1px rgba(191, 64, 255, 0.72),
+    0 0 24px rgba(119, 0, 255, 0.5),
+    0 0 42px rgba(191, 64, 255, 0.32);
+}
+
+.black-hole-model__frame {
+  position: relative;
+  width: 100%;
+  min-height: 330px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 55% 42%, rgba(191, 64, 255, 0.18), transparent 34%),
+    radial-gradient(circle at center, #16002f 0%, var(--bh-deep) 72%);
+}
+
+.black-hole-model__canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  outline: none;
+  touch-action: none;
+}
+
+.black-hole-model__canvas:active {
+  cursor: grabbing;
+}
+
+.black-hole-model__canvas:focus-visible {
+  box-shadow:
+    inset 0 0 0 2px rgba(191, 64, 255, 0.62),
+    inset 0 0 18px rgba(255, 0, 162, 0.3);
+}
+
+.black-hole-model__hint {
+  position: absolute;
+  right: 0.72rem;
+  bottom: 0.56rem;
+  left: 0.72rem;
+  color: rgba(255, 88, 214, 0.78);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.25;
+  pointer-events: none;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(119, 0, 255, 0.7);
+}
+
+.black-hole-model__controls {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.56rem;
+  padding: 0.7rem;
+  border-top: 1px solid rgba(191, 64, 255, 0.24);
+  background: rgba(30, 8, 48, 0.34);
+}
+
+.black-hole-model__group {
+  display: grid;
+  gap: 0.28rem;
+}
+
+.black-hole-model__label,
+.black-hole-model__button {
+  color: var(--bh-strong-pink);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.black-hole-model__label {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.black-hole-model__value {
+  color: var(--bh-hot-pink);
+  font-variant-numeric: tabular-nums;
+}
+
+.black-hole-model__range {
+  width: 100%;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(119, 0, 255, 0.34), rgba(255, 0, 162, 0.38));
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.black-hole-model__range::-webkit-slider-thumb {
+  width: 10px;
+  height: 10px;
+  border: 1px solid var(--bh-hot-pink);
+  border-radius: 50%;
+  background: var(--bh-electric);
+  cursor: pointer;
+  box-shadow:
+    0 0 8px var(--bh-hot-pink),
+    0 0 14px rgba(119, 0, 255, 0.52);
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.black-hole-model__range::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  border: 1px solid var(--bh-hot-pink);
+  border-radius: 50%;
+  background: var(--bh-electric);
+  cursor: pointer;
+  box-shadow:
+    0 0 8px var(--bh-hot-pink),
+    0 0 14px rgba(119, 0, 255, 0.52);
+}
+
+.black-hole-model__button {
+  min-height: 1.86rem;
+  border: 1px solid rgba(191, 64, 255, 0.5);
+  border-radius: 0.58rem;
+  background: rgba(43, 0, 109, 0.26);
+  cursor: pointer;
+}
+
+.black-hole-model__button:hover,
+.black-hole-model__button:focus-visible {
+  border-color: rgba(191, 64, 255, 0.88);
+  color: var(--bh-hot-pink);
+  box-shadow: 0 0 16px rgba(119, 0, 255, 0.32);
+}
+
+.black-hole-model__note {
+  margin: 0;
+  padding: 0.72rem 0.9rem 0.9rem;
+  color: var(--color-text);
+  font-size: 0.84rem;
+  line-height: 1.35;
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  .black-hole-model__frame {
+    min-height: 280px;
+  }
+
+  .black-hole-model__controls {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .black-hole-model__controls {
+    grid-template-columns: 1fr;
+  }
+}

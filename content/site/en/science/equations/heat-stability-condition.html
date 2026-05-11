@@ -1,0 +1,17 @@
+<div class="structured-content equation-detail-page" data-structured-content>
+  <section class="content-block"><h3>Heat Stability Condition</h3></section>
+  <section class="content-block">
+    <h3>Equation</h3>
+    <div class="equation-link-wrap"><div class="glass-window equation-display">$$ \lambda=\alpha\frac{\Delta t}{\Delta x^2}\le\frac{1}{2} $$</div></div>
+  </section>
+  <section class="content-block"><h3>Literal Reading</h3><p>The diffusion number lambda equals diffusivity times the time step divided by grid spacing squared, and it must stay below a limit for this explicit one-dimensional update.</p></section>
+  <section class="content-block"><h3>Physicist's Reading</h3><p>A grid cannot move heat too far in one time step. If the step is too aggressive, the numerical solution becomes unstable instead of physical.</p></section>
+  <section class="content-block">
+    <h3>Symbol Breakdown</h3>
+    <p><strong>\(\lambda\)</strong>: diffusion number.</p>
+    <p><strong>\(\alpha\)</strong>: thermal diffusivity.</p>
+    <p><strong>\(\Delta t\)</strong>: time step.</p>
+    <p><strong>\(\Delta x\)</strong>: grid spacing.</p>
+  </section>
+  <section class="content-block"><h3>Physical Meaning</h3><p>The sandbox uses a two-dimensional grid, so its slider is kept more conservative: \(\lambda \le 0.25\).</p></section>
+</div>

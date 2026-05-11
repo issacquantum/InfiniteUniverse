@@ -1,0 +1,297 @@
+:root {
+  --glass-pane-fill: rgba(17, 4, 28, 0.18);
+  --glass-pane-fill-strong: rgba(17, 4, 28, 0.28);
+  --glass-pane-edge: rgba(191, 64, 255, 0.46);
+  --glass-pane-highlight: rgba(191, 64, 255, 0.28);
+  --glass-pane-shadow: rgba(5, 0, 8, 0.74);
+  --glass-frost-filter: blur(30px) saturate(178%) contrast(1.1) brightness(0.98);
+  --glass-frost-filter-soft: blur(18px) saturate(164%) contrast(1.06) brightness(0.98);
+  --glass-hover-purple: 157, 0, 255;
+}
+
+.glass-window,
+.glass-tab,
+.glass-sphere,
+.glass-window:is(
+  .double-slit-simulator,
+  .gravity-lensing,
+  .wormhole-model,
+  .quantum-channel,
+  .quantum-gates,
+  .quantum-entanglement,
+  .numerical-methods,
+  .neural-architect,
+  .algorithm-visualizer,
+  .orbital-selector
+),
+.quantum-model__frame.glass-window {
+  background:
+    radial-gradient(circle at 86% 78%, rgba(119, 0, 255, 0.16), transparent 30%),
+    linear-gradient(135deg,
+      rgba(191, 64, 255, 0.055),
+      rgba(119, 0, 255, 0.03) 28%,
+      rgba(17, 4, 28, 0.12) 58%,
+      rgba(5, 0, 8, 0.28)),
+    var(--glass-pane-fill);
+  border-color: var(--glass-pane-edge);
+  background-clip: padding-box;
+  box-shadow:
+    inset 0 1px 0 rgba(191, 64, 255, 0.2),
+    inset 1px 0 0 rgba(191, 64, 255, 0.12),
+    inset 0 -26px 56px rgba(5, 0, 8, 0.2),
+    inset 0 28px 58px rgba(119, 0, 255, 0.035),
+    0 18px 42px rgba(5, 0, 8, 0.52),
+    0 0 28px rgba(119, 0, 255, 0.28),
+    0 0 64px rgba(191, 64, 255, 0.16);
+  backdrop-filter: var(--glass-frost-filter);
+  -webkit-backdrop-filter: var(--glass-frost-filter);
+}
+
+.content-window {
+  background:
+    radial-gradient(circle at 86% 82%, rgba(119, 0, 255, 0.12), transparent 30%),
+    linear-gradient(145deg,
+      rgba(191, 64, 255, 0.045),
+      rgba(119, 0, 255, 0.03) 32%,
+      rgba(17, 4, 28, 0.18) 62%,
+      rgba(5, 0, 8, 0.34)),
+    var(--glass-pane-fill-strong);
+  backdrop-filter: var(--glass-frost-filter);
+  -webkit-backdrop-filter: var(--glass-frost-filter);
+}
+
+.glass-window:is(
+  .double-slit-simulator,
+  .gravity-lensing,
+  .wormhole-model,
+  .quantum-channel,
+  .quantum-gates,
+  .quantum-entanglement,
+  .numerical-methods,
+  .neural-architect,
+  .algorithm-visualizer,
+  .orbital-selector
+)::before,
+.quantum-model__frame.glass-window::before,
+.glass-window::before,
+.glass-tab::before,
+.glass-sphere::before {
+  display: block;
+  padding: 1px;
+  background:
+    linear-gradient(132deg,
+      rgba(191, 64, 255, 0.62),
+      rgba(191, 64, 255, 0.12) 18%,
+      transparent 31% 57%,
+      rgba(119, 0, 255, 0.42) 72%,
+      rgba(98, 0, 255, 0.58)),
+    linear-gradient(180deg,
+      rgba(191, 64, 255, 0.24),
+      transparent 25% 74%,
+      rgba(119, 0, 255, 0.26));
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+
+.glass-window:is(
+  .double-slit-simulator,
+  .gravity-lensing,
+  .wormhole-model,
+  .quantum-channel,
+  .quantum-gates,
+  .quantum-entanglement,
+  .numerical-methods,
+  .neural-architect,
+  .algorithm-visualizer,
+  .orbital-selector
+)::after,
+.quantum-model__frame.glass-window::after,
+.glass-window::after,
+.glass-tab::after,
+.glass-sphere::after {
+  display: block;
+  inset: 0;
+  opacity: 0.34;
+  background:
+    linear-gradient(116deg,
+      rgba(119, 0, 255, 0.18) 0%,
+      transparent 18% 52%,
+      rgba(191, 64, 255, 0.13) 68%,
+      transparent 86%),
+    radial-gradient(ellipse at 86% 100%, rgba(119, 0, 255, 0.18), transparent 46%),
+    repeating-radial-gradient(circle at 82% 86%,
+      rgba(119, 0, 255, 0.045) 0 0.8px,
+      transparent 0.8px 3.4px);
+  box-shadow:
+    inset 0 1px 0 rgba(191, 64, 255, 0.16),
+    inset 0 -1px 0 rgba(119, 0, 255, 0.18),
+    inset 18px 0 42px rgba(119, 0, 255, 0.035),
+    inset -18px 0 42px rgba(119, 0, 255, 0.08);
+  mix-blend-mode: screen;
+  transition:
+    opacity 320ms ease,
+    filter 320ms ease,
+    transform 320ms ease;
+}
+
+.glass-sphere::after {
+  border-radius: 50%;
+}
+
+.content-window::before,
+.content-window::after {
+  display: none;
+}
+
+.content-window {
+  border-color: rgba(191, 64, 255, 0.4);
+}
+
+.glass-window,
+.glass-tab,
+.glass-sphere,
+.quantum-model__frame.glass-window,
+.glass-window:is(
+  .double-slit-simulator,
+  .gravity-lensing,
+  .wormhole-model,
+  .quantum-channel,
+  .quantum-gates,
+  .quantum-entanglement,
+  .numerical-methods,
+  .neural-architect,
+  .algorithm-visualizer,
+  .orbital-selector
+) {
+  margin: 0;
+}
+
+.glass-window:hover::after,
+.glass-window:focus-visible::after,
+.glass-window:active::after,
+.glass-tab:hover::after,
+.glass-tab:focus-visible::after,
+.glass-tab.is-active::after,
+.glass-sphere:hover::after,
+.glass-sphere:focus-visible::after {
+  opacity: 0.34;
+  filter: none;
+}
+
+.glass-window:is(
+  .double-slit-simulator,
+  .gravity-lensing,
+  .wormhole-model,
+  .quantum-channel,
+  .quantum-gates,
+  .quantum-entanglement,
+  .numerical-methods,
+  .neural-architect,
+  .algorithm-visualizer,
+  .orbital-selector
+):hover,
+.glass-window:is(
+  .double-slit-simulator,
+  .gravity-lensing,
+  .wormhole-model,
+  .quantum-channel,
+  .quantum-gates,
+  .quantum-entanglement,
+  .numerical-methods,
+  .neural-architect,
+  .algorithm-visualizer,
+  .orbital-selector
+):focus-visible,
+.glass-window:is(
+  .double-slit-simulator,
+  .gravity-lensing,
+  .wormhole-model,
+  .quantum-channel,
+  .quantum-gates,
+  .quantum-entanglement,
+  .numerical-methods,
+  .neural-architect,
+  .algorithm-visualizer,
+  .orbital-selector
+):active,
+.quantum-model__frame.glass-window:hover,
+.quantum-model__frame.glass-window:focus-visible,
+.quantum-model__frame.glass-window:active,
+.glass-window:hover,
+.glass-window:focus-visible,
+.glass-window:active,
+.glass-tab:hover,
+.glass-tab:focus-visible,
+.glass-tab.is-active,
+.glass-sphere:hover,
+.glass-sphere:focus-visible {
+  box-shadow:
+    inset 0 1px 0 rgba(191, 64, 255, 0.28),
+    inset 1px 0 0 rgba(191, 64, 255, 0.18),
+    inset 0 -28px 62px rgba(5, 0, 8, 0.42),
+    inset 0 30px 62px rgba(119, 0, 255, 0.07),
+    0 22px 50px rgba(5, 0, 8, 0.72);
+}
+
+.structured-content .equation-link:hover,
+.structured-content .equation-link:focus-visible,
+.structured-content .equation-display:hover,
+.structured-content .equation-display:focus-visible,
+.legacy-content .equation-link:hover,
+.legacy-content .equation-link:focus-visible,
+.legacy-content .equation-display:hover,
+.legacy-content .equation-display:focus-visible,
+.legacy-content img:hover,
+.legacy-content--history img[data-gallery-trigger]:hover,
+.structured-content .science-visualization-image[data-gallery-trigger]:hover {
+  box-shadow:
+    0 0 0 1px rgba(var(--glass-hover-purple), 0.58),
+    0 14px 28px rgba(5, 0, 8, 0.46);
+}
+
+.equation-link.glass-window {
+  backdrop-filter: var(--glass-frost-filter-soft);
+  -webkit-backdrop-filter: var(--glass-frost-filter-soft);
+}
+
+.content-window:hover,
+.content-window:focus-visible,
+.content-window:active {
+  transform: none;
+  box-shadow:
+    inset 0 1px 0 rgba(191, 64, 255, 0.18),
+    inset 0 -26px 56px rgba(5, 0, 8, 0.2),
+    0 18px 42px rgba(5, 0, 8, 0.56);
+}
+
+body[data-reading-mode="on"] .content-window,
+body[data-contrast="high"] .content-window {
+  background:
+    linear-gradient(145deg,
+      rgba(191, 64, 255, 0.08),
+      rgba(119, 0, 255, 0.08) 45%,
+      rgba(5, 0, 8, 0.74)),
+    rgba(9, 2, 16, 0.72);
+}
+
+body[data-motion="reduced"] .glass-window::after,
+body[data-motion="reduced"] .glass-tab::after,
+body[data-motion="reduced"] .glass-sphere::after {
+  transition: none;
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass-window,
+  .glass-tab,
+  .glass-sphere {
+    background:
+      linear-gradient(145deg, rgba(30, 8, 48, 0.88), rgba(5, 0, 8, 0.84)),
+      rgba(17, 4, 28, 0.9);
+  }
+}

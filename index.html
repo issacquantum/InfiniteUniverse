@@ -4,763 +4,231 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Glass Style Lab</title>
-  <style>
-    :root {
-      color-scheme: dark;
-      --bg: #05020a;
-      --heading: #ff00a2;
-      --text: #6200ff;
-      --bright-violet: #6600ff;
-      --glow-rgb: 184, 0, 255;
-      --outline-rgb: 255, 88, 214;
-      --glass-rgb: 58, 14, 93;
-      --shadow-rgb: 0, 0, 0;
-      --edge-white: rgba(255, 255, 255, 0.72);
-      --edge-violet: rgba(224, 152, 255, 0.42);
-      --panel-fill: rgba(17, 4, 28, 0.56);
-      --panel-outline: rgba(255, 255, 255, 0.08);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
-      min-height: 100%;
-    }
-
-    body {
-      margin: 0;
-      padding: 1.25rem;
-      background:
-        radial-gradient(circle at top, rgba(var(--glow-rgb), 0.16), transparent 34%),
-        radial-gradient(circle at bottom, rgba(var(--glass-rgb), 0.16), transparent 42%),
-        var(--bg);
-      color: var(--text);
-      font-family: "Dancing Script", "Apple Chancery", "Papyrus", fantasy, cursive, sans-serif;
-    }
-
-    button,
-    input,
-    output {
-      font: inherit;
-    }
-
-    .lab {
-      width: min(76rem, 100%);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: minmax(18rem, 21rem) minmax(0, 1fr);
-      gap: 1.25rem;
-      align-items: start;
-    }
-
-    .glass-panel,
-    .glass-window,
-    .glass-tab,
-    .glass-sphere {
-      position: relative;
-      isolation: isolate;
-      background:
-        radial-gradient(circle at 20% 18%, rgba(var(--outline-rgb), 0.12), transparent 24%),
-        radial-gradient(circle at 82% 80%, rgba(var(--glow-rgb), 0.14), transparent 28%),
-        linear-gradient(155deg,
-          rgba(255, 255, 255, 0.1),
-          rgba(255, 255, 255, 0.02) 24%,
-          rgba(var(--glass-rgb), 0.32) 58%,
-          rgba(8, 2, 14, 0.76)),
-        var(--panel-fill);
-      border: 0;
-      outline: 0;
-      box-shadow:
-        0 1px 0 var(--panel-outline) inset,
-        0 -22px 42px rgba(var(--glass-rgb), 0.14) inset,
-        0 18px 36px rgba(var(--shadow-rgb), 0.56),
-        0 0 24px rgba(var(--glow-rgb), 0.24);
-      backdrop-filter: blur(24px) saturate(155%);
-      -webkit-backdrop-filter: blur(24px) saturate(155%);
-      transition:
-        transform 320ms ease,
-        box-shadow 320ms ease,
-        filter 320ms ease,
-        opacity 320ms ease;
-    }
-
-    .glass-panel::before,
-    .glass-window::before,
-    .glass-tab::before,
-    .glass-sphere::before,
-    .glass-panel::after,
-    .glass-window::after,
-    .glass-tab::after,
-    .glass-sphere::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      pointer-events: none;
-    }
-
-    .glass-panel::before,
-    .glass-window::before,
-    .glass-tab::before {
-      padding: 1px;
-      background:
-        linear-gradient(90deg,
-          transparent 0 9%,
-          var(--edge-white) 14% 18%,
-          transparent 24% 77%,
-          var(--edge-violet) 82% 86%,
-          transparent 92%),
-        linear-gradient(180deg,
-          transparent 0 10%,
-          rgba(255, 255, 255, 0.42) 15% 18%,
-          transparent 24% 82%,
-          rgba(var(--outline-rgb), 0.26) 88% 91%,
-          transparent 100%);
-      -webkit-mask:
-        linear-gradient(#000 0 0) content-box,
-        linear-gradient(#000 0 0);
-      -webkit-mask-composite: xor;
-      mask:
-        linear-gradient(#000 0 0) content-box,
-        linear-gradient(#000 0 0);
-      mask-composite: exclude;
-    }
-
-    .glass-sphere::before {
-      background:
-        radial-gradient(circle at 30% 24%, rgba(255, 255, 255, 0.34), transparent 18%),
-        radial-gradient(circle at 70% 76%, rgba(var(--outline-rgb), 0.16), transparent 26%),
-        conic-gradient(from 206deg,
-          transparent 0deg 42deg,
-          var(--edge-white) 48deg 60deg,
-          transparent 66deg 214deg,
-          rgba(var(--outline-rgb), 0.32) 220deg 238deg,
-          transparent 244deg 360deg);
-      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1px));
-      mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1px));
-    }
-
-    .glass-panel::after,
-    .glass-window::after,
-    .glass-tab::after,
-    .glass-sphere::after {
-      inset: -1px;
-      opacity: 0;
-      box-shadow:
-        0 0 0 1px rgba(var(--outline-rgb), 0.82),
-        0 0 24px rgba(var(--outline-rgb), 0.56),
-        0 0 44px rgba(var(--glow-rgb), 0.76),
-        0 0 72px rgba(var(--glow-rgb), 0.34);
-      transition: opacity 320ms ease;
-    }
-
-    .glass-window:hover,
-    .glass-window:focus-visible,
-    .glass-tab:hover:not(.is-suppressed),
-    .glass-tab:focus-visible:not(.is-suppressed),
-    .glass-tab.is-pressed,
-    .glass-tab.is-active,
-    .glass-sphere:hover,
-    .glass-sphere:focus-visible,
-    .glass-sphere.is-pressed,
-    .glass-sphere.is-active,
-    .glass-panel:hover,
-    .glass-panel:focus-within {
-      transform: translateY(-6px) scale(1.018);
-      box-shadow:
-        0 1px 0 rgba(255, 255, 255, 0.12) inset,
-        0 -22px 44px rgba(var(--glass-rgb), 0.18) inset,
-        0 24px 44px rgba(var(--shadow-rgb), 0.64),
-        0 0 40px rgba(var(--glow-rgb), 0.54),
-        0 0 74px rgba(var(--glow-rgb), 0.3);
-      filter: brightness(1.05);
-    }
-
-    .glass-window:hover::after,
-    .glass-window:focus-visible::after,
-    .glass-tab:hover:not(.is-suppressed)::after,
-    .glass-tab:focus-visible:not(.is-suppressed)::after,
-    .glass-tab.is-pressed::after,
-    .glass-tab.is-active::after,
-    .glass-sphere:hover::after,
-    .glass-sphere:focus-visible::after,
-    .glass-sphere.is-pressed::after,
-    .glass-sphere.is-active::after,
-    .glass-panel:hover::after,
-    .glass-panel:focus-within::after {
-      opacity: 1;
-    }
-
-    .pulse {
-      animation: pulseGlow 2.7s ease-in-out infinite alternate;
-    }
-
-    .controls {
-      border-radius: 1.55rem;
-      padding: 1rem;
-      position: sticky;
-      top: 1rem;
-    }
-
-    .controls h2,
-    .preview-window h1,
-    .preview-window h2,
-    .preview-window h3,
-    .preview-window h4,
-    .preview-window h5,
-    .preview-window h6 {
-      color: var(--heading);
-      font-weight: 500;
-      margin: 0;
-      text-shadow:
-        0 0 8px rgba(var(--outline-rgb), 0.2),
-        0 0 18px rgba(var(--outline-rgb), 0.16);
-    }
-
-    .controls h2 {
-      font-size: 1.75rem;
-      margin-bottom: 0.35rem;
-    }
-
-    .controls p,
-    .preview-window p,
-    .preview-window li,
-    .value-chip {
-      color: var(--text);
-    }
-
-    .controls p {
-      margin: 0 0 1rem;
-      font-size: 1.1rem;
-      line-height: 1.2;
-    }
-
-    .picker-list {
-      display: grid;
-      gap: 0.8rem;
-    }
-
-    .picker {
-      display: grid;
-      gap: 0.35rem;
-    }
-
-    .picker-title {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.75rem;
-      font-size: 1rem;
-    }
-
-    .picker-title output {
-      min-width: 5.5rem;
-      text-align: right;
-      color: var(--bright-violet);
-    }
-
-    .picker input[type="color"] {
-      width: 100%;
-      height: 2.5rem;
-      padding: 0.2rem;
-      border: 0;
-      border-radius: 999px;
-      background: rgba(0, 0, 0, 0.24);
-      cursor: pointer;
-    }
-
-    .picker input[type="color"]::-webkit-color-swatch-wrapper {
-      padding: 0;
-    }
-
-    .picker input[type="color"]::-webkit-color-swatch {
-      border: 0;
-      border-radius: 999px;
-    }
-
-    .value-row {
-      margin-top: 1rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-    }
-
-    .value-chip {
-      padding: 0.38rem 0.7rem;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.04);
-      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
-      font-size: 0.95rem;
-    }
-
-    .preview {
-      display: grid;
-      gap: 1rem;
-    }
-
-    .sphere-row,
-    .tab-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.65rem;
-      align-items: center;
-    }
-
-    .glass-sphere {
-      width: 2.2rem;
-      height: 2.2rem;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      cursor: pointer;
-      padding: 0;
-      font-size: 0.56rem;
-      letter-spacing: 0.02em;
-      color: var(--bright-violet);
-      text-shadow:
-        0 0 10px rgba(var(--glow-rgb), 0.5),
-        0 0 22px rgba(var(--glow-rgb), 0.24);
-      user-select: none;
-    }
-
-    .glass-sphere.cv-sphere,
-    .glass-sphere.globe-sphere {
-      color: var(--heading);
-      font-weight: 600;
-    }
-
-    .glass-tab {
-      border-radius: 999px;
-      padding: 0.7rem 1rem;
-      cursor: pointer;
-      color: var(--text);
-      font-family: inherit;
-      font-size: 1rem;
-      white-space: nowrap;
-    }
-
-    .glass-tab.is-active {
-      color: var(--bright-violet);
-    }
-
-    .preview-window {
-      border-radius: 1.95rem;
-      padding: 1.35rem 1.35rem 1.2rem;
-    }
-
-    .heading-stack {
-      display: grid;
-      gap: 0.28rem;
-      margin-bottom: 1rem;
-    }
-
-    .heading-stack h1 {
-      font-size: clamp(2rem, 4vw, 2.6rem);
-    }
-
-    .heading-stack h2 {
-      font-size: clamp(1.65rem, 3vw, 2.1rem);
-    }
-
-    .heading-stack h3 {
-      font-size: 1.55rem;
-    }
-
-    .heading-stack h4 {
-      font-size: 1.35rem;
-    }
-
-    .heading-stack h5 {
-      font-size: 1.18rem;
-    }
-
-    .heading-stack h6 {
-      font-size: 1rem;
-    }
-
-    .preview-window p {
-      margin: 0 0 0.9rem;
-      font-size: 1.2rem;
-      line-height: 1.28;
-    }
-
-    strong {
-      color: var(--bright-violet);
-      text-shadow:
-        0 0 12px rgba(var(--glow-rgb), 0.82),
-        0 0 24px rgba(var(--glow-rgb), 0.46),
-        0 0 38px rgba(var(--glow-rgb), 0.18);
-    }
-
-    .math-group {
-      display: grid;
-      gap: 0.75rem;
-      margin: 1rem 0 1.1rem;
-    }
-
-    .math-line,
-    .math-block {
-      border-radius: 1.15rem;
-      padding: 0.85rem 1rem;
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01)),
-        rgba(7, 2, 12, 0.3);
-      box-shadow:
-        0 0 0 1px rgba(255, 255, 255, 0.05) inset,
-        0 0 18px rgba(var(--glow-rgb), 0.12) inset;
-    }
-
-    .math-line,
-    .math-block,
-    mjx-container {
-      color: var(--heading) !important;
-    }
-
-    figure {
-      margin: 1.15rem 0 0;
-    }
-
-    .figure-placeholder {
-      min-height: 7.5rem;
-      border-radius: 1.2rem;
-      display: grid;
-      place-items: center;
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01)),
-        rgba(13, 2, 22, 0.4);
-      box-shadow:
-        0 0 0 1px rgba(255, 255, 255, 0.05) inset,
-        0 0 22px rgba(var(--glow-rgb), 0.14) inset;
-      color: var(--text);
-      font-size: 1.08rem;
-    }
-
-    figcaption {
-      margin-top: 0.75rem;
-      color: var(--bright-violet);
-      font-size: 1.05rem;
-      text-shadow: 0 0 10px rgba(var(--glow-rgb), 0.22);
-    }
-
-    .note {
-      font-size: 0.96rem;
-      opacity: 0.92;
-    }
-
-    @keyframes pulseGlow {
-      from {
-        box-shadow:
-          0 1px 0 rgba(255, 255, 255, 0.1) inset,
-          0 -22px 42px rgba(var(--glass-rgb), 0.16) inset,
-          0 18px 36px rgba(var(--shadow-rgb), 0.56),
-          0 0 28px rgba(var(--glow-rgb), 0.44);
-      }
-
-      to {
-        box-shadow:
-          0 1px 0 rgba(255, 255, 255, 0.12) inset,
-          0 -22px 44px rgba(var(--glass-rgb), 0.18) inset,
-          0 20px 38px rgba(var(--shadow-rgb), 0.6),
-          0 0 42px rgba(var(--glow-rgb), 0.62),
-          0 0 78px rgba(var(--glow-rgb), 0.28);
-      }
-    }
-
-    @media (max-width: 860px) {
-      .lab {
-        grid-template-columns: 1fr;
-      }
-
-      .controls {
-        position: static;
-      }
-    }
-
-    @media (max-width: 640px) {
-      body {
-        padding: 0.9rem;
-      }
-
-      .preview-window {
-        padding: 1.15rem;
-        border-radius: 1.6rem;
-      }
-
-      .glass-tab {
-        padding: 0.62rem 0.86rem;
-        font-size: 0.95rem;
-      }
-
-      .glass-sphere {
-        width: 2rem;
-        height: 2rem;
-        font-size: 0.5rem;
-      }
-
-      .preview-window p {
-        font-size: 1.05rem;
-      }
-
-      .figure-placeholder {
-        min-height: 6.4rem;
-      }
-    }
-  </style>
-  <script>
-    window.MathJax = {
-      tex: {
-        inlineMath: [["\\(", "\\)"]],
-        displayMath: [["\\[", "\\]"]]
-      },
-      chtml: {
-        scale: 1
-      }
-    };
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; frame-ancestors 'none'; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' https://cdn.jsdelivr.net https://unpkg.com; connect-src 'self'; media-src 'self'; frame-src https://www.youtube-nocookie.com; upgrade-insecure-requests; block-all-mixed-content" />
+  <meta name="description"
+    content="Personal website of Issac Tabares, combining scientific education, interactive physics models, programming, music, Tekken, and personal work on time, infinity, and consciousness-first metaphysics." />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://issactabares.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Issac Tabares" />
+  <meta property="og:description"
+    content="Science, interactive models, music, programming, Tekken, and personal work on time and infinity." />
+  <meta property="og:url" content="https://issactabares.com/" />
+  <meta property="og:image" content="https://issactabares.com/Assets2/mylogo.jpeg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Issac Tabares" />
+  <meta name="twitter:description"
+    content="Science, interactive models, music, programming, Tekken, and personal work on time and infinity." />
+  <meta name="twitter:image" content="https://issactabares.com/Assets2/mylogo.jpeg" />
+  <title>Issac Tabares | Science, Music, Programming, and Personal Work</title>
+  <link rel="icon" href="favicon/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png" />
+  <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="favicon/site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles/tokens.css?v=20260507-contrast" />
+  <link rel="stylesheet" href="styles/base.css?v=20260508-a11y-notices" />
+  <link rel="stylesheet" href="styles/animations.css" />
+  <link rel="stylesheet" href="styles/layout.css" />
+  <link rel="stylesheet" href="styles/components.css?v=20260510-hot-pink-links" />
+  <link rel="stylesheet" href="styles/quantum-model.css?v=20260503-wavefunction-phase" />
+  <link rel="stylesheet" href="styles/double-slit-simulator.css?v=20260503-wavefunction-phase" />
+  <link rel="stylesheet" href="styles/gravity-fabric-model.css?v=20260503-relativity-upgrade" />
+  <link rel="stylesheet" href="styles/gravity-lensing-model.css?v=20260503-relativity-upgrade" />
+  <link rel="stylesheet" href="styles/wormhole-model.css?v=20260510-er-bridge-round" />
+  <link rel="stylesheet" href="styles/quantum-channel-model.css?v=20260503-quantum-channel-readout" />
+  <link rel="stylesheet" href="styles/orbital-selector-model.css?v=20260503-wavefunction-phase" />
+  <link rel="stylesheet" href="styles/quantum-entanglement-model.css?v=20260503-wavefunction-phase" />
+  <link rel="stylesheet" href="styles/numerical-methods-model.css?v=20260503-simulation-models-visual" />
+  <link rel="stylesheet" href="styles/neural-architect-model.css?v=20260503-ai-upgrade" />
+  <link rel="stylesheet" href="styles/information-theory-model.css?v=20260503-information-theory" />
+  <link rel="stylesheet" href="styles/algorithm-visualizer-model.css?v=20260503-programming-algorithms" />
+  <link rel="stylesheet" href="styles/quantum-fluctuation-model.css?v=20260506-quantum-fluctuations-vacuum" />
+  <link rel="stylesheet" href="styles/black-hole-model.css?v=20260503-black-hole-clean" />
+  <link rel="stylesheet" href="styles/liquid-glass-effects.css?v=20260503-purple-hover-outline" />
+  <script src="scripts/mathjax-config.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+  <script defer src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js"></script>
+  <script type="module" src="scripts/app.js?v=20260510-numerical-grid"></script>
 </head>
 
 <body>
-  <main class="lab">
-    <aside class="glass-panel controls" aria-label="Color controls">
-      <h2>Color Lab</h2>
-      <p>Adjust the palette here, then hover and click the samples to lock the exact tones.</p>
+  <a class="skip-link" href="#site-stage" id="skip-link">Skip to content</a>
+  <div id="a11y-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+  <canvas id="starfield-canvas" class="site-background" aria-hidden="true"></canvas>
 
-      <div class="picker-list">
-        <label class="picker">
-          <span class="picker-title">
-            <span>Hot Pink Titles</span>
-            <output id="heading-value">#FF00A2</output>
-          </span>
-          <input type="color" id="heading-picker" value="#ff00a2" />
-        </label>
-
-        <label class="picker">
-          <span class="picker-title">
-            <span>Purple Body Text</span>
-            <output id="text-value">#7700FF</output>
-          </span>
-          <input type="color" id="text-picker" value="#7700ff" />
-        </label>
-
-        <label class="picker">
-          <span class="picker-title">
-            <span>Bright Violet Accent</span>
-            <output id="accent-value">#9A4DFF</output>
-          </span>
-          <input type="color" id="accent-picker" value="#9a4dff" />
-        </label>
-
-        <label class="picker">
-          <span class="picker-title">
-            <span>Purple Glow</span>
-            <output id="glow-value">#B800FF</output>
-          </span>
-          <input type="color" id="glow-picker" value="#b800ff" />
-        </label>
-
-        <label class="picker">
-          <span class="picker-title">
-            <span>Pink Neon Outline</span>
-            <output id="outline-value">#FF58D6</output>
-          </span>
-          <input type="color" id="outline-picker" value="#ff58d6" />
-        </label>
-
-        <label class="picker">
-          <span class="picker-title">
-            <span>Glass Tint</span>
-            <output id="glass-value">#3A0E5D</output>
-          </span>
-          <input type="color" id="glass-picker" value="#3a0e5d" />
-        </label>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="header-slot header-slot--left">
+        <button class="glass-sphere music-control music-control--mobile" id="music-button-mobile" type="button"
+          aria-label="Play site music">
+          <i data-music-icon data-lucide="play"></i>
+        </button>
       </div>
 
-      <div class="value-row" aria-label="Current color values">
-        <span class="value-chip" id="chip-heading">TITLE:#FF00A2</span>
-        <span class="value-chip" id="chip-text">TEXT:#7700FF</span>
-        <span class="value-chip" id="chip-accent">ACCENT:#9A4DFF</span>
-        <span class="value-chip" id="chip-glow">GLOW:#B800FF</span>
-        <span class="value-chip" id="chip-outline">OUTLINE:#FF58D6</span>
-        <span class="value-chip" id="chip-glass">GLASS:#3A0E5D</span>
-      </div>
-    </aside>
+      <button class="site-title" id="site-title" type="button" aria-expanded="false">
+        <span class="site-title__clef" aria-hidden="true">
+          <svg viewBox="0 0 64 96" focusable="false">
+            <defs>
+              <linearGradient id="site-clef-gradient" x1="10" x2="54" y1="8" y2="92" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#ff58d6" />
+                <stop offset="0.48" stop-color="#bf40ff" />
+                <stop offset="1" stop-color="#7700ff" />
+              </linearGradient>
+            </defs>
+            <path class="site-title__clef-stroke"
+              d="M35.8 9.5C23.8 24.4 25.2 39.3 38.5 51.5C51.9 63.8 49.1 84.4 32.1 90.4C18.8 95.1 8.7 85.3 13.1 73.2C17.3 61.5 32.4 58.8 41.2 66.8C48.4 73.3 44.1 84.1 34.7 84.7C27.2 85.2 22.3 80.5 23.7 74.7"
+              pathLength="1" />
+            <path class="site-title__clef-stroke site-title__clef-stroke--inner"
+              d="M36.1 9.5C48.3 16.8 45.8 31.3 33.5 30.6C21.2 29.9 21.2 15.6 35.1 11.1M32.3 28.8V78.8" />
+          </svg>
+        </span>
+        <span class="site-title__text">Issac Tabares</span>
+        <span class="site-title__planet" aria-hidden="true">
+          <span class="site-title__planet-orb">
+            <span class="site-title__planet-texture"></span>
+          </span>
+        </span>
+      </button>
 
-    <section class="preview" aria-label="Style preview">
-      <div class="sphere-row" aria-label="Sphere preview">
-        <button class="glass-sphere" type="button" data-sphere>in</button>
-        <button class="glass-sphere" type="button" data-sphere>YT</button>
-        <button class="glass-sphere" type="button" data-sphere>f</button>
-        <button class="glass-sphere cv-sphere pulse" type="button" data-sphere>CV</button>
-        <button class="glass-sphere globe-sphere" type="button" data-sphere>EN</button>
-      </div>
+      <div class="header-slot header-slot--right">
+        <div class="header-actions">
+          <button class="glass-sphere accessibility-toggle" id="accessibility-toggle" type="button"
+            aria-label="Accessibility options" aria-expanded="false" aria-controls="accessibility-panel"
+            aria-haspopup="dialog">
+            <i data-lucide="sliders-horizontal"></i>
+          </button>
 
-      <div class="tab-row" aria-label="Tab preview">
-        <button class="glass-tab" type="button" data-tab>Quantum Foundations</button>
-        <button class="glass-tab is-active pulse" type="button" data-tab>Spacetime &amp; Cosmos</button>
-        <button class="glass-tab" type="button" data-tab>Intelligence &amp; Computation</button>
-      </div>
-
-      <article class="glass-window preview-window" tabindex="0" aria-label="Glass window preview">
-        <div class="heading-stack">
-          <h1>H1 Hot Pink Sample</h1>
-          <h2>H2 Hot Pink Sample</h2>
-          <h3>H3 Hot Pink Sample</h3>
-          <h4>H4 Hot Pink Sample</h4>
-          <h5>H5 Hot Pink Sample</h5>
-          <h6>H6 Hot Pink Sample</h6>
+          <button class="language-control" id="language-toggle" type="button" aria-label="Toggle language">
+            <span class="glass-sphere language-control__sphere" aria-hidden="true">
+              <i data-lucide="globe"></i>
+            </span>
+            <span class="language-control__label" id="language-label">EN/ES</span>
+          </button>
         </div>
+      </div>
+    </header>
 
-        <p>
-          Purple body text preview with a
-          <strong>bright violet strong tag and the purple glow effect</strong>.
-        </p>
-        <p><strong>STRONG_TAG_PREVIEW_USING_A_CLEARER_5D00FF_VARIANT</strong></p>
+    <main class="site-stage" id="site-stage" aria-live="polite" tabindex="-1"></main>
 
-        <div class="math-group" aria-label="Math preview">
-          <div class="math-line">Inline MathJax: \( \psi(x,t) = A e^{i(kx-\omega t)} \)</div>
-          <div class="math-block">\[ i\hbar \frac{\partial}{\partial t}\Psi = \hat{H}\Psi \]</div>
+    <div class="site-bottom">
+      <div class="site-infinity" id="site-infinity" aria-hidden="true">∞</div>
+      <nav class="social-dock" id="social-dock" aria-label="Social links"></nav>
+
+      <footer class="site-footer">
+        <p class="site-footer__copyright" id="site-copyright">© 2026 Issac Tabares. All rights reserved.</p>
+
+        <div class="site-footer__music">
+          <span class="music-track-name" id="desktop-track-name" hidden></span>
+          <button class="glass-sphere music-control music-control--desktop" id="music-button-desktop" type="button"
+            aria-label="Play site music">
+            <i data-music-icon data-lucide="play"></i>
+          </button>
         </div>
+      </footer>
+    </div>
+  </div>
 
-        <figure>
-          <div class="figure-placeholder">Window surface and glow preview</div>
-          <figcaption>Bright near-white violet figcaption sample.</figcaption>
-        </figure>
+  <aside class="glass-window accessibility-panel" id="accessibility-panel" hidden aria-modal="true"
+    aria-labelledby="accessibility-panel-title" aria-describedby="accessibility-panel-description" role="dialog">
+    <div class="accessibility-panel__header">
+      <h2 id="accessibility-panel-title" data-accessibility-copy="title">Accessibility</h2>
+      <p class="accessibility-panel__description" id="accessibility-panel-description"
+        data-accessibility-copy="description">
+        Adjust the reading experience, motion, contrast, and media notes.
+      </p>
+    </div>
 
-        <p class="note">
-          Hover or click the spheres and tabs to test the glow, neon outline, lift, and active state.
-        </p>
-      </article>
+    <section class="accessibility-panel__group" aria-labelledby="accessibility-text-size-label">
+      <h3 id="accessibility-text-size-label" data-accessibility-copy="textSizeLabel">Text Size</h3>
+      <div class="accessibility-panel__choices" role="group" aria-labelledby="accessibility-text-size-label">
+        <button class="glass-tab accessibility-panel__choice" type="button" data-accessibility-setting="textSize"
+          data-value="default" aria-pressed="false">
+          <span data-accessibility-copy="textSizeDefault">Default</span>
+        </button>
+        <button class="glass-tab accessibility-panel__choice" type="button" data-accessibility-setting="textSize"
+          data-value="large" aria-pressed="false">
+          <span data-accessibility-copy="textSizeLarge">Large</span>
+        </button>
+        <button class="glass-tab accessibility-panel__choice" type="button" data-accessibility-setting="textSize"
+          data-value="x-large" aria-pressed="false">
+          <span data-accessibility-copy="textSizeXLarge">Largest</span>
+        </button>
+      </div>
     </section>
-  </main>
 
-  <script>
-    const root = document.documentElement;
+    <section class="accessibility-panel__group">
+      <div class="accessibility-panel__toggles">
+        <button class="glass-tab accessibility-panel__switch" type="button"
+          data-accessibility-toggle-setting="readingMode" aria-pressed="false">
+          <span data-accessibility-copy="readingModeLabel">Reading Mode</span>
+        </button>
+        <button class="glass-tab accessibility-panel__switch" type="button"
+          data-accessibility-toggle-setting="reducedMotion" aria-pressed="false">
+          <span data-accessibility-copy="reducedMotionLabel">Reduced Motion</span>
+        </button>
+        <button class="glass-tab accessibility-panel__switch" type="button"
+          data-accessibility-toggle-setting="highContrast" aria-pressed="false">
+          <span data-accessibility-copy="highContrastLabel">Higher Contrast</span>
+        </button>
+        <button class="glass-tab accessibility-panel__switch" type="button"
+          data-accessibility-toggle-setting="mediaNotes" aria-pressed="false">
+          <span data-accessibility-copy="mediaNotesLabel">Media Notes</span>
+        </button>
+        <button class="glass-tab accessibility-panel__switch" type="button"
+          data-accessibility-toggle-setting="readableFont" aria-pressed="false">
+          <span data-accessibility-copy="readableFontLabel">Readable Font</span>
+        </button>
+        <button class="glass-tab accessibility-panel__switch" type="button"
+          data-accessibility-toggle-setting="linkVisibility" aria-pressed="false">
+          <span data-accessibility-copy="linkVisibilityLabel">Visible Links</span>
+        </button>
+      </div>
+    </section>
 
-    const colorInputs = [
-      {
-        input: document.getElementById("heading-picker"),
-        output: document.getElementById("heading-value"),
-        chip: document.getElementById("chip-heading"),
-        label: "TITLE",
-        apply: (value) => root.style.setProperty("--heading", value)
-      },
-      {
-        input: document.getElementById("text-picker"),
-        output: document.getElementById("text-value"),
-        chip: document.getElementById("chip-text"),
-        label: "TEXT",
-        apply: (value) => root.style.setProperty("--text", value)
-      },
-      {
-        input: document.getElementById("accent-picker"),
-        output: document.getElementById("accent-value"),
-        chip: document.getElementById("chip-accent"),
-        label: "ACCENT",
-        apply: (value) => root.style.setProperty("--bright-violet", value)
-      },
-      {
-        input: document.getElementById("glow-picker"),
-        output: document.getElementById("glow-value"),
-        chip: document.getElementById("chip-glow"),
-        label: "GLOW",
-        apply: (value) => root.style.setProperty("--glow-rgb", hexToRgb(value))
-      },
-      {
-        input: document.getElementById("outline-picker"),
-        output: document.getElementById("outline-value"),
-        chip: document.getElementById("chip-outline"),
-        label: "OUTLINE",
-        apply: (value) => root.style.setProperty("--outline-rgb", hexToRgb(value))
-      },
-      {
-        input: document.getElementById("glass-picker"),
-        output: document.getElementById("glass-value"),
-        chip: document.getElementById("chip-glass"),
-        label: "GLASS",
-        apply: (value) => root.style.setProperty("--glass-rgb", hexToRgb(value))
-      }
-    ];
+    <button class="glass-tab accessibility-panel__reset" type="button" data-accessibility-reset>
+      <span data-accessibility-copy="resetLabel">Reset</span>
+    </button>
 
-    function hexToRgb(hex) {
-      const clean = hex.replace("#", "");
-      const value = clean.length === 3
-        ? clean.split("").map((char) => char + char).join("")
-        : clean;
-      const number = Number.parseInt(value, 16);
-      const r = (number >> 16) & 255;
-      const g = (number >> 8) & 255;
-      const b = number & 255;
-      return `${r}, ${g}, ${b}`;
-    }
+    <div class="accessibility-panel__utility">
+      <button class="glass-tab accessibility-panel__notice-link" id="site-notices-link" type="button"
+        data-action="select-section" data-section-id="site-notices">Site Notices &amp; Privacy</button>
+    </div>
+  </aside>
 
-    function normalizeHex(hex) {
-      return hex.toUpperCase();
-    }
-
-    colorInputs.forEach(({ input, output, chip, label, apply }) => {
-      const sync = () => {
-        const value = normalizeHex(input.value);
-        output.value = value;
-        chip.textContent = `${label}:${value}`;
-        apply(input.value);
-      };
-
-      input.addEventListener("input", sync);
-      sync();
-    });
-
-    document.querySelectorAll("[data-sphere]").forEach((button) => {
-      let pressTimer;
-
-      const clearPressedState = () => {
-        window.clearTimeout(pressTimer);
-        button.classList.remove("is-pressed");
-      };
-
-      button.addEventListener("pointerdown", () => {
-        button.classList.add("is-pressed");
-      });
-
-      button.addEventListener("pointerup", () => {
-        window.clearTimeout(pressTimer);
-        pressTimer = window.setTimeout(() => {
-          button.classList.remove("is-pressed");
-        }, 150);
-      });
-
-      button.addEventListener("pointerleave", clearPressedState);
-      button.addEventListener("blur", clearPressedState);
-    });
-
-    const tabs = Array.from(document.querySelectorAll("[data-tab]"));
-    tabs.forEach((button) => {
-      const clearSuppressedState = () => {
-        button.classList.remove("is-suppressed");
-      };
-
-      button.addEventListener("pointerleave", clearSuppressedState);
-      button.addEventListener("blur", clearSuppressedState);
-
-      button.addEventListener("click", () => {
-        const wasActive = button.classList.contains("is-active");
-
-        tabs.forEach((tab) => {
-          tab.classList.remove("is-active", "pulse", "is-suppressed");
-        });
-
-        if (wasActive) {
-          button.classList.add("is-suppressed");
-        } else {
-          button.classList.add("is-active", "pulse");
-        }
-      });
-    });
-  </script>
+  <div class="gallery-lightbox" id="gallery-lightbox" hidden>
+    <button class="gallery-lightbox__backdrop" type="button" data-gallery-close aria-label="Close gallery"></button>
+    <div class="glass-window gallery-lightbox__panel" role="dialog" aria-modal="true" aria-label="Gallery image viewer">
+      <button class="glass-sphere gallery-lightbox__zoom-button gallery-lightbox__zoom-button--out" type="button"
+        data-gallery-zoom-out aria-label="Zoom out">
+        <i data-lucide="minus"></i>
+      </button>
+      <button class="glass-sphere gallery-lightbox__zoom-button gallery-lightbox__zoom-button--in" type="button"
+        data-gallery-zoom-in aria-label="Zoom in">
+        <i data-lucide="plus"></i>
+      </button>
+      <button class="glass-sphere gallery-lightbox__nav gallery-lightbox__nav--prev" type="button" data-gallery-prev
+        aria-label="Previous image">
+        <i data-lucide="chevron-left"></i>
+      </button>
+      <button class="glass-sphere gallery-lightbox__nav gallery-lightbox__nav--next" type="button" data-gallery-next
+        aria-label="Next image">
+        <i data-lucide="chevron-right"></i>
+      </button>
+      <button class="glass-sphere gallery-lightbox__close" type="button" data-gallery-close aria-label="Close gallery">
+        <i data-lucide="x"></i>
+      </button>
+      <div class="gallery-lightbox__viewport" id="gallery-lightbox-viewport">
+        <img class="gallery-lightbox__image" id="gallery-lightbox-image" alt="">
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

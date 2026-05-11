@@ -1,0 +1,320 @@
+.quantum-gates {
+  --qg-hot-pink: #ff00a2;
+  --qg-strong-pink: #ff58d6;
+  --qg-electric: #bf40ff;
+  --qg-violet: #7700ff;
+  --qg-indigo: #2b006d;
+  --qg-deep: #050008;
+  --qg-glass: rgba(17, 4, 28, 0.56);
+  --qg-edge: rgba(191, 64, 255, 0.48);
+  --qg-frame-min-height: 250px;
+  --qg-frame-mobile-min-height: 330px;
+
+  display: grid;
+  gap: 0;
+  width: min(100%, var(--model-window-width));
+  max-width: var(--model-window-width);
+  margin: 1.5rem auto;
+  overflow: hidden;
+  border: 1px solid var(--qg-edge);
+  border-radius: 1rem;
+  background: var(--qg-glass);
+  box-shadow:
+    0 20px 50px rgba(var(--shadow-rgb), 0.5),
+    0 0 24px rgba(var(--glow-rgb), 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.quantum-gates.glass-window::before {
+  background:
+    linear-gradient(90deg,
+      transparent 0 9%,
+      rgba(255, 0, 162, 0.72) 14% 18%,
+      transparent 24% 77%,
+      rgba(191, 64, 255, 0.48) 82% 86%,
+      transparent 92%),
+    linear-gradient(180deg,
+      transparent 0 10%,
+      rgba(255, 88, 214, 0.44) 15% 18%,
+      transparent 24% 82%,
+      rgba(119, 0, 255, 0.34) 88% 91%,
+      transparent 100%);
+}
+
+.quantum-gates.glass-window::after {
+  box-shadow:
+    0 0 0 1px rgba(255, 0, 162, 0.82),
+    0 0 24px rgba(255, 88, 214, 0.54),
+    0 0 44px rgba(119, 0, 255, 0.74),
+    0 0 72px rgba(191, 64, 255, 0.34);
+}
+
+.quantum-gates__frame {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: var(--qg-frame-min-height);
+  max-height: var(--model-frame-max-height);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 30% 46%, rgba(255, 0, 162, 0.16), transparent 34%),
+    radial-gradient(circle at 72% 42%, rgba(191, 64, 255, 0.24), transparent 36%),
+    radial-gradient(circle at center, var(--qg-indigo) 0%, var(--qg-deep) 100%);
+}
+
+.quantum-gates__canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  cursor: grab;
+  touch-action: none;
+}
+
+.quantum-gates__canvas:active {
+  cursor: grabbing;
+}
+
+.quantum-gates__canvas:focus-visible {
+  box-shadow:
+    inset 0 0 0 2px rgba(255, 0, 162, 0.68),
+    inset 0 0 24px rgba(119, 0, 255, 0.34);
+}
+
+.quantum-gates__panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(12.5rem, 0.78fr);
+  gap: 0.72rem;
+  padding: clamp(0.62rem, 1.4vw, 0.78rem);
+  border-top: 1px solid var(--qg-edge);
+  background: rgba(30, 8, 48, 0.42);
+}
+
+.quantum-gates__controls,
+.quantum-gates__metrics {
+  display: grid;
+  gap: 0.62rem;
+  align-content: start;
+}
+
+.quantum-gates__tabs,
+.quantum-gates__actions,
+.quantum-gates__presets {
+  display: grid;
+  gap: 0.48rem;
+}
+
+.quantum-gates__tabs {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.quantum-gates__actions {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.quantum-gates__preset-group {
+  display: grid;
+  gap: 0.34rem;
+  padding-top: 0.24rem;
+  border-top: 1px solid rgba(191, 64, 255, 0.18);
+}
+
+.quantum-gates__presets {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.quantum-gates__button {
+  padding: 0.32rem 0.48rem;
+  border: 1px solid var(--qg-violet);
+  border-radius: 0.38rem;
+  background:
+    radial-gradient(circle at 30% 18%, rgba(255, 0, 162, 0.16), transparent 40%),
+    rgba(var(--glow-rgb), 0.22);
+  color: var(--qg-strong-pink);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  outline: none;
+  text-transform: uppercase;
+  transition:
+    background 220ms ease,
+    box-shadow 220ms ease,
+    color 220ms ease,
+    transform 220ms ease;
+}
+
+.quantum-gates__button:hover,
+.quantum-gates__button:focus-visible,
+.quantum-gates__button.is-active {
+  background:
+    radial-gradient(circle at 50% 20%, rgba(255, 88, 214, 0.24), transparent 42%),
+    rgba(var(--glow-rgb), 0.42);
+  color: var(--qg-hot-pink);
+  box-shadow: 0 0 15px rgba(var(--glow-rgb), 0.42);
+  transform: translateY(-1px);
+}
+
+.quantum-gates__button:active {
+  transform: scale(0.98);
+}
+
+.quantum-gates__button--wide {
+  grid-column: 1 / -1;
+}
+
+.quantum-gates__button--preset {
+  padding-block: 0.28rem;
+  border-color: rgba(191, 64, 255, 0.64);
+  background:
+    linear-gradient(135deg, rgba(43, 0, 109, 0.42), rgba(255, 0, 162, 0.12)),
+    rgba(5, 0, 8, 0.18);
+}
+
+.quantum-gates__button small {
+  display: block;
+  margin-top: 0.1rem;
+  color: rgba(var(--outline-rgb), 0.72);
+  font-size: 0.52rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.quantum-gates__group {
+  display: grid;
+  gap: 0.28rem;
+}
+
+.quantum-gates__range {
+  width: 100%;
+  accent-color: var(--qg-hot-pink);
+}
+
+.quantum-gates__status,
+.quantum-gates__note {
+  margin: 0;
+  color: var(--qg-strong-pink);
+  line-height: 1.35;
+}
+
+.quantum-gates__status {
+  min-height: 1.8rem;
+  color: rgba(var(--outline-rgb), 0.82);
+  font-size: 0.68rem;
+}
+
+.quantum-gates__metric,
+.quantum-gates__probability,
+.quantum-gates__amplitudes,
+.quantum-gates__history,
+.quantum-gates__readout {
+  display: grid;
+  gap: 0.26rem;
+}
+
+.quantum-gates__metric-label,
+.quantum-gates__label,
+.quantum-gates__basis {
+  color: var(--qg-strong-pink);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.quantum-gates__probability-row,
+.quantum-gates__metric-row,
+.quantum-gates__coords {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.7rem;
+}
+
+.quantum-gates__basis {
+  min-width: 2.6rem;
+  color: var(--qg-electric);
+  font-variant-numeric: tabular-nums;
+}
+
+.quantum-gates__value {
+  color: var(--qg-hot-pink);
+  font-variant-numeric: tabular-nums;
+}
+
+.quantum-gates__meter {
+  flex: 1;
+  height: 0.32rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(43, 0, 109, 0.55);
+  box-shadow: inset 0 0 8px rgba(119, 0, 255, 0.24);
+}
+
+.quantum-gates__meter-fill {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background:
+    linear-gradient(90deg, var(--qg-violet), var(--qg-electric), var(--qg-hot-pink));
+  box-shadow: 0 0 10px rgba(255, 0, 162, 0.5);
+  transition: width 220ms ease;
+}
+
+.quantum-gates__meter-fill--full {
+  width: 100%;
+}
+
+.quantum-gates__qubit-card {
+  display: grid;
+  gap: 0.28rem;
+  padding-top: 0.32rem;
+  border-top: 1px solid rgba(191, 64, 255, 0.22);
+}
+
+.quantum-gates__readout {
+  padding-top: 0.34rem;
+  border-top: 1px solid rgba(191, 64, 255, 0.22);
+}
+
+.quantum-gates__coords {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  color: rgba(var(--outline-rgb), 0.84);
+  font-size: 0.74rem;
+}
+
+.quantum-gates__amplitude-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.32rem 0.6rem;
+  color: rgba(var(--outline-rgb), 0.84);
+  font-size: 0.7rem;
+}
+
+.quantum-gates__history {
+  padding-top: 0.48rem;
+  border-top: 1px solid rgba(191, 64, 255, 0.22);
+}
+
+.quantum-gates__note {
+  padding: 0.85rem 1rem 1rem;
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  .quantum-gates__frame {
+    aspect-ratio: 16 / 10;
+    min-height: var(--qg-frame-mobile-min-height);
+  }
+
+  .quantum-gates__panel {
+    grid-template-columns: 1fr;
+  }
+
+  .quantum-gates__actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
