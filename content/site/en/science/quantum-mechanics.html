@@ -1,0 +1,960 @@
+<div class="structured-content" data-structured-content>
+  <section class="content-block">
+    <h3>Etymology</h3>
+    <p>
+      The term <strong>quantum mechanics</strong> is a compound of two distinct linguistic
+      traditions, each carrying a precise meaning that, when joined, defines one of the most
+      profound intellectual frameworks ever constructed by the human mind.
+    </p>
+    <p>
+      The word <strong>quantum</strong> derives from the <strong>Latin</strong> noun
+      <em>quantum</em>, meaning <strong>how much</strong> or <strong>how great</strong>, itself
+      the neuter singular form of the adjective <em>quantus</em>, rooted in the Proto-Indo-European
+      base <em>kwo</em>, a stem associated with interrogative and relative pronouns concerned
+      with quantity, degree, and measure. In classical Latin, <em>quantum</em> was used in
+      philosophical and rhetorical contexts to express an amount or portion of something, a
+      discrete measurable unit of a larger whole. The word entered the scientific lexicon in
+      1900, when the German theoretical physicist <strong>Max Planck</strong> introduced the
+      concept of the <strong>energy quantum</strong> to resolve the ultraviolet catastrophe,
+      the failure of classical physics to accurately predict the electromagnetic radiation emitted
+      by a blackbody at thermal equilibrium. Planck proposed that energy was not emitted or
+      absorbed in a continuous flow but in discrete, indivisible packets, which he called
+      <em>Quanten</em> in German, directly borrowed from the Latin. This was the moment the
+      word acquired its modern scientific meaning: a <strong>discrete, indivisible unit of
+        a physical quantity</strong>. The plural form <strong>quanta</strong> remains in standard
+      use in physics to this day.
+    </p>
+    <p>
+      The word <strong>mechanics</strong> traces its origin to the <strong>Ancient Greek</strong>
+      noun <em>mechanike</em>, derived from <em>mechane</em>, meaning a <strong>machine,
+        contrivance, or instrument</strong>, itself rooted in the Proto-Indo-European base
+      <em>magh</em>, carrying the sense of <strong>power or that which makes something possible</strong>.
+      The Greek <em>mechane</em> gave rise to the Latin <em>mechanica</em>, which passed through
+      Medieval Latin and Old French before entering English. In its scientific usage, mechanics
+      refers to the branch of physics concerned with the behavior of physical bodies when subjected
+      to forces or displacements, and the subsequent effects on their environment. The discipline
+      was formalized in its classical form by <strong>Isaac Newton</strong> in the seventeenth
+      century, establishing a deterministic framework in which the past and future state of any
+      physical system could, in principle, be calculated with perfect precision given sufficient
+      information about its present condition.
+    </p>
+    <p>
+      The compound term <strong>quantum mechanics</strong> as a unified designation for the new
+      physics of the atomic and subatomic world was consolidated in the 1920s, during the period
+      of intense theoretical development that produced the formal mathematical structure of the
+      theory. The German physicist <strong>Max Born</strong> is widely credited with introducing
+      the phrase <em>Quantenmechanik</em> in 1924, which was translated directly into English as
+      quantum mechanics. The name was fitting in a deeply etymological sense: it named a
+      <strong>mechanics of quanta</strong>, a framework governing the behavior of discrete units
+      of physical reality at scales where the continuous, deterministic laws of classical mechanics
+      cease to apply. Where classical mechanics assumed that quantities like energy, momentum, and
+      position could take any value along a continuous spectrum, quantum mechanics revealed that
+      at the fundamental level, nature is <strong>granular</strong>. Physical quantities are
+      quantized. Transitions between states occur in discrete jumps. And the very act of
+      measurement is not a passive observation but an intervention that irrevocably alters the
+      system being observed.
+    </p>
+    <p>
+      There is a certain philosophical irony embedded in the etymology. The Latin <em>quantum</em>
+      asked <strong>how much</strong>, a question rooted in the assumption that things can be
+      measured, compared, and known. Quantum mechanics, the discipline that inherited that name,
+      answered by revealing the precise limits of what can be known simultaneously, enshrined
+      formally in <strong>Werner Heisenberg's uncertainty principle</strong> of 1927, which
+      demonstrated that the more precisely the position of a particle is determined, the less
+      precisely its momentum can be known, and vice versa. The ancient question of how much
+      gave birth to a science that permanently redefined the boundaries of measurement itself.
+    </p>
+    <p>
+      The word origin of quantum mechanics is therefore not merely a linguistic curiosity. It is
+      a record of the moment human thought crossed a threshold, when the language of discrete
+      quantity, inherited from Latin philosophy and Greek engineering, was pressed into service
+      to describe a reality far stranger, far more fundamental, and far more beautiful than
+      anything those languages were originally built to express.
+    </p>
+    <p class="source-language-note">
+      <strong>Source of etymological origin:</strong>
+      <a class="platform-link" href="https://www.etymonline.com/word/quantum" target="_blank" rel="noopener noreferrer">Online Etymology Dictionary: quantum</a>;
+      <a class="platform-link" href="https://www.etymonline.com/word/mechanics" target="_blank" rel="noopener noreferrer">Online Etymology Dictionary: mechanics</a>;
+      <a class="platform-link" href="https://upload.wikimedia.org/wikipedia/commons/4/4e/On_the_Law_of_the_Energy_Distribution_in_the_Normal_Spectrum.pdf" target="_blank" rel="noopener noreferrer">Planck, blackbody radiation paper</a>.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Double-Slit Interference Simulation</h3>
+    <p>
+      This simulation focuses on the wave-optics geometry of the double-slit experiment. Adjust the
+      <strong>wavelength</strong> and <strong>slit distance</strong>, then show the wavefronts, bright maxima, vertical
+      scale, or the interference pattern on the screen.
+    </p>
+    <div class="double-slit-simulator glass-window" data-double-slit-simulator data-language="en">
+      <div class="ds-viewport" data-ds-viewport></div>
+      <div class="ds-controls">
+        <label class="ds-group">
+          <span class="ds-label">Wavelength <span class="ds-value" data-ds-value="wavelength">32</span></span>
+          <input class="ds-range" type="range" min="18" max="58" value="32" data-ds-param="wavelength" aria-label="Wavelength">
+        </label>
+        <label class="ds-group">
+          <span class="ds-label">Slit distance <span class="ds-value" data-ds-value="slitDistance">84</span></span>
+          <input class="ds-range" type="range" min="44" max="132" value="84" data-ds-param="slitDistance" aria-label="Slit distance">
+        </label>
+        <label class="ds-toggle">
+          <input type="checkbox" checked data-ds-toggle="showWavefronts">
+          <span>Show wavefronts</span>
+        </label>
+        <label class="ds-toggle">
+          <input type="checkbox" checked data-ds-toggle="showMaxima">
+          <span>Show maxima</span>
+        </label>
+        <label class="ds-toggle">
+          <input type="checkbox" checked data-ds-toggle="showScale">
+          <span>Show vertical scale</span>
+        </label>
+        <label class="ds-toggle">
+          <input type="checkbox" checked data-ds-toggle="showHits">
+          <span>Show hit build-up</span>
+        </label>
+        <label class="ds-toggle">
+          <input type="checkbox" data-ds-toggle="detectorMode">
+          <span>Detector mode</span>
+        </label>
+        <div class="ds-actions">
+          <button class="ds-btn" type="button" data-ds-action="pattern">Show Interference Pattern</button>
+          <button class="ds-btn" type="button" data-ds-action="clearHits">Clear Hits</button>
+        </div>
+      </div>
+      <p class="ds-note">
+        This is an educational wave model based on the standard bright-band interference condition. Hit build-up shows
+        how the screen pattern emerges; detector mode removes the interference structure and leaves two classical bands.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-block">
+    <h3>Discovery</h3>
+    <p>
+      Quantum mechanics was not discovered by a single person in one singular moment of illumination.
+      It emerged gradually, almost reluctantly, over approximately three decades spanning the late
+      nineteenth century and the early twentieth, driven not by philosophical speculation but by a
+      concrete experimental problem that classical physics was entirely incapable of resolving.
+    </p>
+    <p>
+      By the late 1800s, physics appeared to be approaching completion. The laws of motion
+      established by <strong>Newton</strong>, the electromagnetic theory of <strong>James Clerk
+        Maxwell</strong>, and the statistical mechanics developed by <strong>Ludwig Boltzmann</strong>
+      and <strong>Josiah Willard Gibbs</strong> seemed to provide a comprehensive and sufficient
+      framework for describing the entirety of the physical universe. There was a prevailing
+      confidence among physicists of the era that the fundamental laws of nature had been
+      identified, and that what remained was largely a matter of refinement and precision.
+      That confidence would not survive the century.
+    </p>
+    <p>
+      The crisis that ultimately gave birth to quantum mechanics originated in the study of
+      <strong>blackbody radiation</strong>, the electromagnetic radiation emitted by an idealized
+      object that absorbs all incoming radiation and re-emits it purely as a function of its
+      temperature. Experimental measurements of this radiation had been accumulating throughout
+      the 1800s, and they revealed a consistent, reproducible curve describing how the intensity
+      of the emitted radiation was distributed across different frequencies. Classical physics,
+      specifically the application of Maxwell's electromagnetic theory combined with the
+      equipartition theorem of statistical mechanics, predicted that the energy radiated by a
+      blackbody should increase without limit as the frequency of the radiation increased toward
+      the ultraviolet end of the spectrum. The classical prediction, known as the
+      <strong>Rayleigh-Jeans law</strong>, described this divergence as:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-mechanics-equations" data-item-id="rayleigh-jeans-law"
+        aria-label="Open the explanation page for the Rayleigh-Jeans law">
+        $$
+        B(\nu, T) = \frac{2\nu^2}{c^2} k_B T
+        $$
+      </button>
+    </div>
+    <p>
+      Classical physics predicted an impossible runaway increase in emitted energy at high
+      frequencies. The data did the opposite: the curve peaked and then declined, which is why
+      this failure became known as <strong>the ultraviolet catastrophe</strong>.
+    </p>
+    <p>
+      It was in <strong>Berlin, Germany</strong>, on the 14th of December <strong>1900</strong>,
+      that the first fracture in the classical framework appeared. The German physicist
+      <strong>Max Planck</strong>, working at the <strong>University of Berlin</strong>, presented
+      a theoretical derivation that successfully reproduced the observed blackbody radiation curve.
+      His solution required an assumption that he himself found deeply uncomfortable: that energy
+      was not exchanged in a continuous flow but only in discrete, indivisible packets, each of
+      magnitude proportional to the frequency of the radiation:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-mechanics-equations" data-item-id="planck-energy-quantum"
+        aria-label="Open the explanation page for the Planck energy quantum relation">
+        $$
+        E = h\nu
+        $$
+      </button>
+    </div>
+    <p>
+      Planck called these packets <strong>quanta</strong>, and the proportionality constant became
+      known as <strong>Planck's constant</strong>. The full blackbody spectrum his formula produced
+      was:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-mechanics-equations" data-item-id="planck-blackbody-law"
+        aria-label="Open the explanation page for Planck&#x27;s blackbody law">
+        $$
+        B(\nu, T) = \frac{2h\nu^3}{c^2} \cdot \frac{1}{e^{\frac{h\nu}{k_B T}} - 1}
+        $$
+      </button>
+    </div>
+    <p>
+      This matched the experimental data with extraordinary precision and fixed the ultraviolet
+      catastrophe. Planck still treated quantization as a desperate mathematical device rather than
+      a literal statement about reality, but he never found a way around it.
+    </p>
+    <p>
+      The deeper physical significance of Planck's quantum was recognized five years later, in
+      <strong>1905</strong>, by a twenty-six year old patent clerk working in <strong>Bern,
+        Switzerland</strong>. <strong>Albert Einstein</strong>, in one of four extraordinary papers
+      he published that year, proposed that quantization of energy was not merely a property of
+      the way matter emits or absorbs radiation, but a fundamental property of light itself. He
+      used this hypothesis to explain the <strong>photoelectric effect</strong>, the observation
+      that light striking a metallic surface ejects electrons only above a certain threshold
+      frequency \(\nu_0\), regardless of intensity. The maximum kinetic energy of the ejected
+      electrons was given by:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-mechanics-equations" data-item-id="photoelectric-equation"
+        aria-label="Open the explanation page for the photoelectric equation">
+        $$
+        K_{\max} = h\nu - \phi
+        $$
+      </button>
+    </div>
+    <p>
+      The result mattered because it showed that intensity alone is not enough: below a threshold
+      frequency, no electrons are emitted at all. Einstein's light quanta, later called
+      <strong>photons</strong>, resolved that contradiction completely, and it was this work, not
+      relativity, that earned him the <strong>Nobel Prize in Physics in 1921</strong>.
+    </p>
+    <p>
+      The next critical step came in <strong>1913</strong>, when the Danish physicist
+      <strong>Niels Bohr</strong>, working in <strong>Copenhagen</strong>, applied the concept
+      of quantization to the structure of the atom. Bohr proposed that electrons could only
+      occupy discrete energy levels, and that the energy of a photon emitted or absorbed during
+      a transition between levels was:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-mechanics-equations" data-item-id="spectral-transition-equation"
+        aria-label="Open the explanation page for the spectral transition equation">
+        $$
+        \Delta E = h\nu = E_i - E_f
+        $$
+      </button>
+    </div>
+    <p>
+      This gave atomic spectra a clear physical interpretation: each element emits or absorbs only
+      the frequencies allowed by its permitted energy differences. The allowed energy levels of
+      hydrogen in Bohr's model were:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-mechanics-equations" data-item-id="hydrogen-energy-levels"
+        aria-label="Open the explanation page for the hydrogen energy levels equation">
+        $$
+        E_n = -\frac{13.6 \text{ eV}}{n^2}, \quad n = 1, 2, 3, \ldots
+        $$
+      </button>
+    </div>
+    <p>
+      The model successfully predicted the spectral lines of hydrogen with remarkable accuracy.
+      It was incomplete and would eventually be superseded, but it established a critical
+      principle: <strong>quantization was not an anomaly confined to radiation. It was a
+        property of matter itself.</strong>
+    </p>
+    <p>
+      The full mathematical framework of quantum mechanics was assembled over the following
+      decade, primarily in <strong>Germany</strong> and <strong>Denmark</strong>. In
+      <strong>1925</strong>, <strong>Werner Heisenberg</strong>, working in
+      <strong>Göttingen</strong>, developed <strong>matrix mechanics</strong>, the first
+      complete and consistent mathematical formulation of quantum theory. The following year,
+      <strong>Erwin Schrödinger</strong>, working in <strong>Zurich</strong>, independently
+      developed an equivalent formulation built around the wave equation that bears his name:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-mechanics-equations" data-item-id="time-dependent-schrodinger-equation"
+        aria-label="Open the explanation page for the time-dependent Schrödinger equation">
+        $$
+        i\hbar \frac{\partial}{\partial t}\Psi(\mathbf{r}, t) = \hat{H}\Psi(\mathbf{r}, t)
+        $$
+      </button>
+    </div>
+    <p>
+      This became the central law of quantum evolution. It is the equation that turned scattered
+      quantum insights into a complete dynamical theory.
+    </p>
+    <p>
+      Heisenberg further established that certain pairs of physical quantities cannot be known
+      simultaneously with arbitrary precision, expressed in his <strong>uncertainty principle</strong>:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-mechanics-equations" data-item-id="heisenberg-uncertainty-principle"
+        aria-label="Open the explanation page for the Heisenberg uncertainty principle">
+        $$
+        \Delta x \, \Delta p \geq \frac{\hbar}{2}
+        $$
+      </button>
+    </div>
+    <p>
+      Its importance was not technical but foundational: classical certainty had failed at the
+      level of principle, not merely at the level of measurement.
+    </p>
+    <p>
+      What had begun as an uncomfortable mathematical patch applied to a problem in thermal
+      radiation had, within twenty-six years, become a complete and revolutionary theory of
+      nature at its most fundamental level. It had not been sought. It had been forced upon
+      physics by experimental reality, piece by piece, crisis by crisis, until the accumulated
+      evidence left no alternative. The classical world did not surrender willingly. It was
+      dismantled, carefully and methodically, by the data.
+    </p>
+  </section>
+  <section class="content-block">
+    <h3>Key Figures and Core Ideas</h3>
+    <p>
+      Quantum mechanics is one of the scientific subjects closest to my questions about
+      <strong>time</strong>, <strong>existence</strong>, hidden structure, and the limits of
+      knowledge.
+    </p>
+    <p>
+      The theory did not emerge from a single mind. It was the product of a generation of
+      extraordinary thinkers working across Europe in the early twentieth century, each
+      contributing a piece of a structure none of them could have built alone.
+      <strong>Max Planck</strong> introduced the concept of the quantum itself.
+      <strong>Albert Einstein</strong> extended it to light and matter through the photoelectric
+      effect. <strong>Niels Bohr</strong> applied quantization to atomic structure.
+      <strong>Louis de Broglie</strong> proposed that matter, like light, carries wave properties.
+      <strong>Max Born</strong> provided the probabilistic interpretation of the wave function.
+      <strong>Paul Dirac</strong> unified quantum mechanics with special relativity, producing
+      one of the most elegant equations in all of physics. Each of these contributions was
+      essential.
+    </p>
+    <p>
+      But within this constellation of figures, two stand above the rest in terms of their
+      direct impact on the mathematical and conceptual foundation of the theory:
+      <strong>Werner Heisenberg</strong> and <strong>Erwin Schrödinger</strong>.
+    </p>
+    <p>
+      Heisenberg's contribution was formidable. His development of <strong>matrix mechanics</strong>
+      in 1925 was the first complete and mathematically consistent formulation of quantum theory,
+      constructed without reference to classical trajectories or visualizable orbits. It was
+      abstract, algebraic, and uncompromising. His <strong>uncertainty principle</strong>:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-mechanics-equations" data-item-id="heisenberg-uncertainty-principle"
+        aria-label="Open the explanation page for the Heisenberg uncertainty principle">
+        $$
+        \Delta x \, \Delta p \geq \frac{\hbar}{2}
+        $$
+      </button>
+    </div>
+    <p>
+      remains one of the most philosophically significant statements in the history of science.
+      It does not describe a limitation of instruments or observers. It declares that position
+      and momentum are not simultaneously well-defined properties of a quantum system at all.
+      Nature itself withholds that precision. The more sharply one quantity is pinned down, the
+      more completely the other dissolves into indeterminacy. This is not a measurement problem.
+      It is a structural feature of reality.
+    </p>
+    <p>
+      Schrödinger's formulation is especially central. In 1926, working in
+      <strong>Zurich</strong>, he formulated what would become the central equation of quantum
+      mechanics. In its most general form, the <strong>time-dependent Schrödinger equation</strong>
+      reads:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-mechanics-equations" data-item-id="time-dependent-schrodinger-equation"
+        aria-label="Open the explanation page for the time-dependent Schrödinger equation">
+        $$
+        i\hbar \frac{\partial}{\partial t}\Psi(\mathbf{r}, t) = \hat{H}\Psi(\mathbf{r}, t)
+        $$
+      </button>
+    </div>
+    <p>
+      This equation is central because <strong>time</strong>, <strong>energy</strong>, and
+      <strong>possibility</strong> are bound together in one law.
+    </p>
+    <p>
+      When the energy of a system is constant in time, the equation simplifies into the
+      <strong>time-independent Schrödinger equation</strong>:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-mechanics-equations" data-item-id="time-independent-schrodinger-equation"
+        aria-label="Open the explanation page for the time-independent Schrödinger equation">
+        $$
+        \hat{H}\psi(\mathbf{r}) = E\psi(\mathbf{r})
+        $$
+      </button>
+    </div>
+    <p>
+      This is where discrete allowed energies emerge cleanly from the mathematics. It explains why
+      atoms are stable, why electrons occupy orbitals, and why ordinary matter has structure at
+      all.
+    </p>
+    <p>
+      In its fully explicit form, with the Hamiltonian expanded into its kinetic and potential
+      energy components, the time-independent equation becomes:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-mechanics-equations" data-item-id="explicit-stationary-schrodinger-equation"
+        aria-label="Open the explanation page for the explicit stationary Schrödinger equation">
+        $$
+        -\frac{\hbar^2}{2m}\nabla^2\psi(\mathbf{r}) + V(\mathbf{r})\psi(\mathbf{r}) = E\psi(\mathbf{r})
+        $$
+      </button>
+    </div>
+    <p>
+      In this form, the equation shows most clearly that the shape of the wave function is set by
+      the energetic landscape the particle inhabits.
+    </p>
+    <p>
+      The simplest non-trivial solution is the <strong>free particle</strong>, a quantum system
+      with no forces acting upon it and zero potential everywhere. The solution takes the form of a plane wave:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-mechanics-equations" data-item-id="free-particle-wavefunction"
+        aria-label="Open the explanation page for the free particle wavefunction">
+        $$
+        \psi(\mathbf{r}) = Ae^{i\mathbf{k}\cdot\mathbf{r}}
+        $$
+      </button>
+    </div>
+    <p>
+      The physical content of this solution is striking: a completely free particle does not have
+      a definite position. Its wave function extends across space, and localizing it immediately
+      forces a tradeoff in momentum precision. This is the uncertainty principle made visible in
+      the mathematics itself.
+    </p>
+    <p>
+      The most celebrated and physically rich solutions to the Schrödinger equation are those
+      of the <strong>hydrogen atom</strong>, where the potential energy is the Coulomb attraction
+      between the electron and the proton:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-mechanics-equations" data-item-id="coulomb-potential"
+        aria-label="Open the explanation page for the Coulomb potential">
+        $$
+        V(r) = -\frac{e^2}{4\pi\epsilon_0 r}
+        $$
+      </button>
+    </div>
+    <p>
+      Substituting this into the time-independent Schrödinger equation and solving yields a
+      discrete set of allowed energy levels:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-mechanics-equations" data-item-id="hydrogen-energy-levels"
+        aria-label="Open the explanation page for the hydrogen energy levels equation">
+        $$
+        E_n = -\frac{13.6 \text{ eV}}{n^2}, \quad n = 1, 2, 3, \ldots
+        $$
+      </button>
+    </div>
+    <p>
+      The crucial point is that the allowed energies form a staircase rather than a continuum.
+      The electron cannot exist between these levels, and that discreteness follows directly from
+      the wave nature of the bound state.
+    </p>
+    <p>
+      The corresponding wave functions, the <strong>atomic orbitals</strong>, are characterized
+      by three quantum numbers \(n\), \(\ell\), and \(m_\ell\), and take the general form:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-mechanics-equations" data-item-id="hydrogen-orbital-wavefunction"
+        aria-label="Open the explanation page for the hydrogen orbital wavefunction decomposition">
+        $$
+        \psi_{n\ell m}(r, \theta, \phi) = R_{n\ell}(r) \cdot Y_\ell^m(\theta, \phi)
+        $$
+      </button>
+    </div>
+    <p>
+      These solutions produce the familiar families of atomic orbitals and, more importantly, the
+      real three-dimensional probability architecture of the hydrogen atom. The mathematics
+      produces geometry, and the geometry is physically real.
+    </p>
+    <p>
+      Another exactly solvable and deeply instructive system is the <strong>quantum harmonic
+        oscillator</strong>, describing a particle confined in a parabolic potential. Its energy levels are:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-mechanics-equations" data-item-id="quantum-harmonic-oscillator-energy-levels"
+        aria-label="Open the explanation page for the quantum harmonic oscillator energy levels">
+        $$
+        E_n = \hbar\omega\left(n + \frac{1}{2}\right), \quad n = 0, 1, 2, \ldots
+        $$
+      </button>
+    </div>
+    <p>
+      The most immediately striking feature of this result is the term \(\frac{1}{2}\hbar\omega\),
+      which persists even at \(n = 0\), the ground state. This is the <strong>zero-point
+        energy</strong>, the irreducible minimum energy that a quantum system can never be
+      stripped of, even at absolute zero temperature. It is a direct consequence of the
+      uncertainty principle: confining a particle to a small region of space sharpens its
+      position, which necessarily introduces uncertainty into its momentum, which means it
+      can never be completely at rest. The quantum harmonic oscillator is not merely an
+      academic exercise. It is the mathematical backbone of <strong>quantum field theory</strong>,
+      where every fundamental field in nature is treated as an infinite collection of
+      harmonic oscillators, each capable of being excited into higher energy states
+      corresponding to the particles we observe.
+    </p>
+
+    <h3>Quantum Fluctuations</h3>
+    <p>
+      A <strong>quantum fluctuation</strong> is not a tiny object randomly appearing from nothing. In precise physics, it
+      means that an observable has a nonzero spread of possible measurement outcomes even when the system is in a
+      well-defined quantum state. The clean definition is variance:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-mechanics-equations" data-item-id="observable-variance"
+        aria-label="Open the explanation page for observable variance">
+        $$
+        (\Delta A)^2 = \langle A^2\rangle - \langle A\rangle^2
+        $$
+      </button>
+    </div>
+    <p>
+      The lowest-energy state of a quantum system is not usually a state with every quantity equal
+      to zero. For the harmonic oscillator, the ground state has a nonzero position spread:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-mechanics-equations" data-item-id="zero-point-position-variance"
+        aria-label="Open the explanation page for zero-point position variance">
+        $$
+        \langle 0|\hat{x}^2|0\rangle = \frac{\hbar}{2m\omega}
+        $$
+      </button>
+    </div>
+    <p>
+      Quantum field theory extends this idea: each field mode behaves like an oscillator, and the vacuum is the joint
+      ground state of those modes. It has no real particles by default, but its field observables still have
+      correlations. One compact way to write that structure is the vacuum two-point function:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-mechanics-equations" data-item-id="vacuum-two-point-correlation"
+        aria-label="Open the explanation page for the vacuum two-point correlation">
+        $$
+        G(x,y)=\langle 0|\hat{\phi}(x)\hat{\phi}(y)|0\rangle
+        $$
+      </button>
+    </div>
+    <p>
+      That distinction is essential. Vacuum fluctuations are ground-state variances and correlations of quantum fields.
+      They are not a permission slip to imagine ordinary particles constantly violating energy conservation. Real
+      particles require interactions, measurements, boundaries, external fields, or changing spacetime conditions that
+      make the fluctuations observable.
+    </p>
+    <p>
+      The model below is therefore not showing particles popping in and out. It renders a finite equal-time Gaussian
+      sample of a free real scalar field, using natural units where the reduced Planck constant and the speed of light
+      are set to one. Each mode is weighted like a ground-state oscillator, high-frequency modes are damped by a
+      visualization cutoff, and the correlation length behaves like an inverse mass scale. The random coefficients are
+      vacuum quadratures: they choose one possible field realization from the same Gaussian structure encoded by the
+      two-point function.
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-mechanics-equations" data-item-id="fluctuation-field-sample"
+        aria-label="Open the explanation page for the fluctuation field sample">
+        $$
+        \phi_\Lambda(\mathbf r,t)\propto
+        \sum_{\mathbf{k}}
+        \frac{e^{-(|\mathbf{k}|/\Lambda)^4}}{\sqrt{2\omega_{\mathbf{k}}}}
+        \Big[
+        (Q_{\mathbf{k}}\cos(\mathbf{k}\cdot\mathbf r)+\widetilde Q_{\mathbf{k}}\sin(\mathbf{k}\cdot\mathbf r))
+        \cos(\omega_{\mathbf{k}}t)
+        +(P_{\mathbf{k}}\cos(\mathbf{k}\cdot\mathbf r)+\widetilde P_{\mathbf{k}}\sin(\mathbf{k}\cdot\mathbf r))
+        \sin(\omega_{\mathbf{k}}t)
+        \Big],\quad
+        \omega_{\mathbf{k}}=\sqrt{|\mathbf{k}|^2+m^2},\quad m\approx\frac{1}{\xi}
+        $$
+      </button>
+    </div>
+
+    <figure class="quantum-fluctuation glass-window" data-quantum-fluctuation-model data-language="en">
+      <div class="quantum-fluctuation__frame" data-qf-frame></div>
+      <div class="quantum-fluctuation__controls" aria-label="Quantum fluctuation model controls">
+        <label class="quantum-fluctuation__group">
+          <span class="quantum-fluctuation__label">Zero-point scale <span class="quantum-fluctuation__value"
+              data-qf-value="scale">1.15</span></span>
+          <input class="quantum-fluctuation__range" type="range" min="0.45" max="2.2" step="0.05" value="1.15"
+            data-qf-param="scale" aria-label="Zero-point scale">
+        </label>
+        <label class="quantum-fluctuation__group">
+          <span class="quantum-fluctuation__label">Correlation length <span class="quantum-fluctuation__value"
+              data-qf-value="correlation">1.40</span></span>
+          <input class="quantum-fluctuation__range" type="range" min="0.55" max="3.2" step="0.05" value="1.4"
+            data-qf-param="correlation" aria-label="Correlation length">
+        </label>
+        <label class="quantum-fluctuation__group">
+          <span class="quantum-fluctuation__label">Mode cutoff <span class="quantum-fluctuation__value"
+              data-qf-value="cutoff">3.4</span></span>
+          <input class="quantum-fluctuation__range" type="range" min="1.2" max="5.2" step="0.1" value="3.4"
+            data-qf-param="cutoff" aria-label="Mode cutoff">
+        </label>
+        <div class="quantum-fluctuation__diagnostics" aria-label="Quantum fluctuation model diagnostics">
+          <span>mass m <strong data-qf-metric="mass">0.71</strong></span>
+          <span>active modes <strong data-qf-metric="modes">0</strong></span>
+          <span>RMS (root-mean-square) amplitude <strong data-qf-metric="rms">0.00</strong></span>
+          <button class="quantum-fluctuation__button" type="button" data-qf-action="resample">
+            New vacuum sample
+          </button>
+        </div>
+      </div>
+      <figcaption class="quantum-fluctuation__note">
+        Physics-guided finite model: a Gaussian equal-time sample of a free real scalar field. The controls change
+        visual amplitude, inverse-mass correlation length, and UV (ultraviolet) damping; the sample button draws new vacuum
+        quadratures. Peaks are large field-amplitude excursions, not particles.
+        Design note: the recurring violet, indigo, and hot pink palette reflects my favourite colors.
+      </figcaption>
+    </figure>
+
+    <p>
+      The wave function itself is governed by two foundational requirements that give it
+      physical meaning. The first is the <strong>normalization condition</strong>:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-mechanics-equations" data-item-id="normalization-condition"
+        aria-label="Open the explanation page for the normalization condition">
+        $$
+        \int_{-\infty}^{\infty} |\Psi(\mathbf{r}, t)|^2 \, d^3r = 1
+        $$
+      </button>
+    </div>
+    <p>
+      Without this condition, the wave function carries no physical meaning. It is the requirement
+      that turns a mathematical amplitude into a valid probability description.
+    </p>
+    <p>
+      The second foundational requirement is the <strong>probability current</strong>:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-mechanics-equations" data-item-id="probability-current"
+        aria-label="Open the explanation page for the probability current equation">
+        $$
+        \mathbf{J} = \frac{\hbar}{2mi}\left(\Psi^*\nabla\Psi - \Psi\nabla\Psi^*\right)
+        $$
+      </button>
+    </div>
+    <p>
+      Together with the normalization condition, it leads directly to the
+      <strong>continuity equation</strong>:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-mechanics-equations" data-item-id="continuity-equation"
+        aria-label="Open the explanation page for the continuity equation">
+        $$
+        \frac{\partial |\Psi|^2}{\partial t} + \nabla \cdot \mathbf{J} = 0
+        $$
+      </button>
+    </div>
+    <p>
+      This is the quantum mechanical statement of <strong>conservation of probability</strong>.
+      Probability does not disappear. It changes location according to a conservation law.
+    </p>
+    <p>
+      Schrödinger's formulation combines qualities that rarely coexist in a single piece of
+      mathematics: <strong>elegance, physical intuition, visual richness, and extraordinary
+        predictive accuracy</strong>.
+      Where Heisenberg's matrix mechanics was algebraically powerful but visually opaque,
+      Schrödinger offered something you could, in a meaningful sense, picture. The wave
+      function has shape. It spreads, it peaks, it interferes with itself. It can be plotted,
+      examined, and understood as a physical object even though it inhabits a mathematical
+      space. The solutions to his equations are not abstract symbols. They are the actual
+      architecture of matter, rendered in three dimensions.
+    </p>
+    <p>
+      Beyond the visual, the wave function also has a direct relationship to questions about
+      existence and measurement. It does not tell you where a particle is. It tells you where it
+      might be, and with what likelihood.
+      Before measurement, the system exists in a <strong>superposition</strong> of all possible
+      states simultaneously. Reality, at this level, is not a collection of definite things.
+      It is a landscape of potentialities that collapse into a single outcome only when
+      observed. That idea, that existence itself is probabilistic at its foundation, that
+      the universe does not commit to a definite state until it is interrogated, is one of the
+      reasons this topic connects naturally with questions about <strong>time</strong>,
+      <strong>existence</strong>, and what it means for something to be physically real.
+    </p>
+    <p>
+      Quantum mechanics remains, to this day, the most accurate physical theory ever
+      constructed. Its predictions have been verified to a precision that no other framework
+      in science has approached. And yet it continues to resist complete interpretation.
+      What the wave function truly represents, what measurement actually does, what it means
+      for a system to exist in superposition, these remain open questions at the frontier
+      of both physics and philosophy.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Hydrogen Orbital Selector</h3>
+    <p>
+      A wave function <strong>ψ</strong> is a complex probability amplitude. The cloud is not the
+      electron itself and it is not ψ directly; it visualizes the probability density
+      <strong>|ψ|²</strong>, the quantity that predicts where a position measurement is likely to
+      find the electron.
+    </p>
+    <p>
+      The sliders change the hydrogen quantum numbers. <strong>n</strong> sets the energy level and
+      overall size, <strong>ℓ</strong> selects the orbital family and angular-node count, and
+      <strong>m</strong> selects the orientation or angular phase structure inside that family.
+      Nodes are places where <strong>ψ = 0</strong>, so the electron is not detected there in that state.
+    </p>
+    <p>
+      Phase affects interference even when it does not change the probability density. Use
+      <strong>phase view</strong>, <strong>phase offset</strong>, and <strong>phase contrast</strong>
+      to compare the real sign, radial sign changes, and azimuthal phase structure. The probability
+      cutoff only hides low-density regions for readability; it does not change the physics being sampled.
+    </p>
+    <figure class="orbital-selector glass-window" data-orbital-selector-model data-language="en">
+      <div class="orbital-selector__frame" data-os-frame></div>
+      <div class="orbital-selector__panel">
+        <div class="orbital-selector__controls" aria-label="Hydrogen orbital selector controls">
+          <label class="orbital-selector__group">
+            <span class="orbital-selector__label">Principal n <span class="orbital-selector__value" data-os-value="n">3</span></span>
+            <input class="orbital-selector__range" type="range" min="1" max="5" step="1" value="3"
+              data-os-param="n" aria-label="Principal quantum number n">
+          </label>
+          <label class="orbital-selector__group">
+            <span class="orbital-selector__label">Angular ℓ <span class="orbital-selector__value" data-os-value="l">2</span></span>
+            <input class="orbital-selector__range" type="range" min="0" max="2" step="1" value="2"
+              data-os-param="l" aria-label="Angular quantum number l">
+          </label>
+          <label class="orbital-selector__group">
+            <span class="orbital-selector__label">Magnetic m <span class="orbital-selector__value" data-os-value="m">0</span></span>
+            <input class="orbital-selector__range" type="range" min="-2" max="2" step="1" value="0"
+              data-os-param="m" aria-label="Magnetic quantum number m">
+          </label>
+          <label class="orbital-selector__group">
+            <span class="orbital-selector__label">Probability cutoff <span class="orbital-selector__value" data-os-value="cutoff">0.035</span></span>
+            <input class="orbital-selector__range" type="range" min="0.004" max="0.18" step="0.001" value="0.035"
+              data-os-param="cutoff" aria-label="Probability cutoff">
+          </label>
+          <label class="orbital-selector__group">
+            <span class="orbital-selector__label">Phase view <span class="orbital-selector__value" data-os-value="phaseView">real phase</span></span>
+            <select class="orbital-selector__select" data-os-param="phaseMode" aria-label="Wave function phase view">
+              <option value="real" selected>Real phase sign</option>
+              <option value="radial">Radial phase</option>
+              <option value="azimuthal">Azimuthal phase</option>
+              <option value="density">Density only</option>
+            </select>
+          </label>
+          <label class="orbital-selector__group">
+            <span class="orbital-selector__label">Phase offset <span class="orbital-selector__value" data-os-value="phaseOffset">0°</span></span>
+            <input class="orbital-selector__range" type="range" min="0" max="360" step="5" value="0"
+              data-os-param="phaseOffset" aria-label="Phase color offset">
+          </label>
+          <label class="orbital-selector__group">
+            <span class="orbital-selector__label">Phase contrast <span class="orbital-selector__value" data-os-value="phaseContrast">0.72</span></span>
+            <input class="orbital-selector__range" type="range" min="0" max="1" step="0.01" value="0.72"
+              data-os-param="phaseContrast" aria-label="Phase color contrast">
+          </label>
+          <div class="orbital-selector__actions">
+            <button class="orbital-selector__button is-active" type="button" data-os-action="rotate"
+              aria-pressed="true">Auto Rotate</button>
+            <button class="orbital-selector__button" type="button" data-os-action="resetView">Reset View</button>
+          </div>
+          <p class="orbital-selector__status" data-os-status>live</p>
+        </div>
+        <div class="orbital-selector__metrics" aria-label="Hydrogen orbital selector metrics">
+          <div class="orbital-selector__metric">
+            <div class="orbital-selector__metric-row">
+              <span class="orbital-selector__metric-label">Orbital</span>
+              <span class="orbital-selector__value" data-os-value="orbital">3dz2</span>
+            </div>
+          </div>
+          <div class="orbital-selector__metric">
+            <div class="orbital-selector__metric-row">
+              <span class="orbital-selector__metric-label">Radial nodes</span>
+              <span class="orbital-selector__value" data-os-value="radialNodes">0</span>
+            </div>
+          </div>
+          <div class="orbital-selector__metric">
+            <div class="orbital-selector__metric-row">
+              <span class="orbital-selector__metric-label">Angular nodes</span>
+              <span class="orbital-selector__value" data-os-value="angularNodes">2</span>
+            </div>
+          </div>
+          <div class="orbital-selector__metric">
+            <div class="orbital-selector__metric-row">
+              <span class="orbital-selector__metric-label">Subshell capacity</span>
+              <span class="orbital-selector__value" data-os-value="capacity">10</span>
+            </div>
+          </div>
+          <div class="orbital-selector__metric">
+            <div class="orbital-selector__metric-row">
+              <span class="orbital-selector__metric-label">Sampled points</span>
+              <span class="orbital-selector__value" data-os-value="points">0</span>
+            </div>
+          </div>
+          <div class="orbital-selector__legend" aria-label="Hydrogen orbital selector legend">
+            <span>phase color = amplitude sign/angle</span>
+            <span>brightness = probability density</span>
+            <span>hot pink nucleus</span>
+            <span>empty regions = nodes</span>
+          </div>
+        </div>
+      </div>
+      <figcaption class="orbital-selector__note">
+        Artistic + physics: hydrogen probability clouds with phase coloring. Design note: the recurring violet, indigo,
+        and hot pink palette reflects my favourite colors.
+      </figcaption>
+    </figure>
+  </section>
+
+  <section class="content-block">
+    <h3>Hydrogen 3D<sub>z²</sub> Orbital: <button class="inline-detail-link" type="button"
+        data-action="select-legacy-item" data-branch-id="quantum-mechanics-equations"
+        data-item-id="monte-carlo-probability-measure"
+        aria-label="Open the explanation page for Monte Carlo sampling">Monte Carlo</button> Visualization of ψ₃₂₀</h3>
+    <figure class="quantum-model-figure">
+      <div class="quantum-model" data-quantum-model aria-label="Interactive 3D hydrogen orbital model">
+        <div class="glass-window quantum-model__frame"></div>
+      </div>
+      <figcaption class="quantum-model__caption">
+        <div class="quantum-model__legend" aria-label="Hydrogen orbital model legend">
+          <span>points = probability density \(|\psi|^2\)</span>
+          <span>empty cones = angular nodes</span>
+          <span>3d<sub>z²</sub> orbital state</span>
+        </div>
+        Interactive 3D Monte Carlo visualization of the hydrogen atom's
+        <strong>3d<sub>z²</sub> orbital</strong>, corresponding to the real
+        stationary eigenstate <strong>ψ₃₂₀</strong> of Schrödinger's
+        time-independent equation for hydrogen:
+
+        <div class="equation-link-wrap">
+          <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+            data-branch-id="quantum-mechanics-equations" data-item-id="hydrogen-hamiltonian-atomic-units"
+            aria-label="Open the explanation page for the hydrogen Hamiltonian in atomic units">
+            $$
+            \left(-\frac{1}{2}\nabla^2 - \frac{1}{r}\right)\psi = E\psi
+            $$
+          </button>
+        </div>
+
+        For this state, with quantum numbers n = 3, ℓ = 2, m = 0,
+        the specific wavefunction is:
+
+        <div class="equation-link-wrap">
+          <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+            data-branch-id="quantum-mechanics-equations" data-item-id="psi-320-wavefunction"
+            aria-label="Open the explanation page for the hydrogen 3d z squared wavefunction">
+            $$
+            \psi_{320}(r,\theta,\phi) = \frac{1}{81\sqrt{6\pi}}\, r^2\, e^{-r/3}\,(3\cos^2\theta - 1)
+            $$
+          </button>
+        </div>
+
+        and the probability density being visualized is:
+
+        <div class="equation-link-wrap">
+          <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+            data-branch-id="quantum-mechanics-equations" data-item-id="psi-320-probability-density"
+            aria-label="Open the explanation page for the hydrogen 3d z squared probability density">
+            $$
+            |\psi_{320}(r,\theta,\phi)|^2 = \frac{1}{39366\pi}\, r^4\, e^{-2r/3}\,(3\cos^2\theta - 1)^2
+            $$
+          </button>
+        </div>
+
+        Each point in the cloud is a position sampled from the probability measure:
+
+        <div class="equation-link-wrap">
+          <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+            data-branch-id="quantum-mechanics-equations" data-item-id="monte-carlo-probability-measure"
+            aria-label="Open the explanation page for Monte Carlo sampling">
+            $$
+            dP = |\psi_{320}|^2\, r^2 \sin\theta\, dr\, d\theta\, d\phi
+            $$
+          </button>
+        </div>
+
+        making the cloud a Monte Carlo approximation of the continuous quantum
+        probability distribution. The two axial lobes and the equatorial torus
+        emerge directly from the angular factor (3cos²θ − 1). The two nodal
+        cones where this factor vanishes, cos²θ = ⅓, are visible as the sharp
+        boundaries separating the lobes from the ring. No radial node exists
+        for this state, since n − ℓ − 1 = 0. Because ψ₃₂₀ is real and m = 0,
+        the probability current <strong>J</strong> = 0 everywhere. This is a
+        static density model. The colors are not physical quantities. Design note:
+        the recurring violet, indigo, and hot pink palette reflects my favorite
+        colors; near-black is used only for contrast.
+      </figcaption>
+    </figure>
+    <p class="media-note">
+      Interactive 3D orbital model. Drag to rotate, Shift/Alt or right-drag to move, and scroll or pinch to zoom. The
+      model is visual-only and has no audio.
+    </p>
+    <p>
+      Few theories have been tested as precisely as quantum mechanics. Its
+      predictions have survived increasingly demanding experiments, while the
+      deeper meaning of what those predictions describe remains unsettled.
+    </p>
+  </section>
+
+  <section class="content-block glossary-section">
+    <h3>Technical Terms Glossary</h3>
+    <ul class="paper-list glossary-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Matrix mechanics:</strong> Heisenberg's operator-based formulation of quantum theory, built from observable quantities rather than visual electron orbits.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Threshold frequency:</strong> The minimum light frequency needed to eject electrons in the photoelectric effect.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Work function:</strong> The minimum energy needed to remove an electron from a material surface.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Spherical harmonic:</strong> An angular wave pattern used to describe the shape and orientation of atomic orbitals.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Azimuthal phase:</strong> Phase structure around the angular coordinate \(\phi\), relevant for orbitals with nonzero magnetic quantum number.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Subshell capacity:</strong> The maximum electron count associated with an angular-momentum subshell, equal to \(2(2\ell+1)\).</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Ultraviolet cutoff:</strong> A high-frequency limit used to keep a visualization or effective model inside a controlled range.</span></li>
+    </ul>
+  </section>
+  <section class="content-block glossary-section abbreviation-glossary" data-abbreviation-glossary>
+    <h3>Abbreviation Glossary</h3>
+    <p class="abbreviation-glossary__note">This glossary expands the abbreviations used in this section. The first appearance in the text includes the full wording in parentheses; later uses stay abbreviated so the section stays readable.</p>
+    <ul class="paper-list glossary-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>RMS:</strong> root mean square.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>UV:</strong> ultraviolet.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>URLs:</strong> Uniform Resource Locators.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>PDF:</strong> Portable Document Format.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>CC BY-SA:</strong> Creative Commons Attribution-ShareAlike.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>ChatGPT:</strong> Chat Generative Pretrained Transformer.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>NASA:</strong> National Aeronautics and Space Administration.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>NTRS:</strong> NASA Technical Reports Server.</span></li>
+    </ul>
+  </section>
+
+<section class="content-block source-papers">
+    <h3>Foundational and Modern Paper URLs (Uniform Resource Locators)</h3>
+    <ul class="paper-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://upload.wikimedia.org/wikipedia/commons/4/4e/On_the_Law_of_the_Energy_Distribution_in_the_Normal_Spectrum.pdf" target="_blank" rel="noopener noreferrer">Max Planck, 1901. <em>On the Law of Distribution of Energy in the Normal Spectrum.</em></a> <span class="paper-note">Wikimedia PDF (Portable Document Format) of an English translation. The file page lists the translation under CC BY-SA (Creative Commons Attribution-ShareAlike) 4.0.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://inters.org/files/einstein1905_photoeff.pdf" target="_blank" rel="noopener noreferrer">Albert Einstein, 1905. <em>On a Heuristic Point of View Concerning the Production and Transformation of Light.</em></a> <span class="paper-note">English translation PDF.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.gutenberg.org/cache/epub/72787/pg72787-images.html" target="_blank" rel="noopener noreferrer">Niels Bohr, 1913. <em>On the Constitution of Atoms and Molecules.</em></a> <span class="paper-note">Project Gutenberg public domain text with images.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://fondationlouisdebroglie.org/LDB-oeuvres/De_Broglie_Kracklauer.pdf" target="_blank" rel="noopener noreferrer">Louis de Broglie, 1924. <em>Researches on the Theory of Quanta.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://upload.wikimedia.org/wikipedia/commons/4/44/Quantisierung_als_Eigenwertproblem.pdf" target="_blank" rel="noopener noreferrer">Erwin Schrödinger, 1926. <em>Quantization as an Eigenvalue Problem.</em></a> <span class="paper-note">Original German paper, <em>Quantisierung als Eigenwertproblem</em>. The Wikimedia file page lists it as public domain in the United States. If you are curious about reading the original file but do not know German, use your preferred translation system. I used ChatGPT (Chat Generative Pretrained Transformer) to translate it as a reading aid.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://ntrs.nasa.gov/api/citations/19840008978/downloads/19840008978.pdf" target="_blank" rel="noopener noreferrer">Werner Heisenberg, 1927. <em>On the Physical Content of Quantum Theoretical Kinematics and Mechanics.</em></a> <span class="paper-note">NASA (National Aeronautics and Space Administration) NTRS (NASA Technical Reports Server) English translation of the original German paper, <em>Über den anschaulichen Inhalt der quantentheoretischen Kinematik und Mechanik</em>. NASA lists the document as public and marks public use as permitted.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.informationphilosopher.com/solutions/scientists/born/QMCollisions2_1926.pdf" target="_blank" rel="noopener noreferrer">Max Born, 1926. <em>On the Quantum Mechanics of Collision Processes.</em></a> <span class="paper-note">English translation by D. H. Delphenich. The original German paper is titled <em>Quantenmechanik der Stoßvorgänge</em> and was published in <em>Zeitschrift für Physik</em>.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.nature.com/articles/s41586-019-1083-9" target="_blank" rel="noopener noreferrer">Benea-Chelmus, Settembrini, Scalari, and Faist, 2019. <em>Electric Field Correlation Measurements on the Electromagnetic Vacuum State.</em></a> <span class="paper-note">Official Nature article page for a modern vacuum-fluctuation measurement.</span></span></li>
+    </ul>
+  </section>
+</div>

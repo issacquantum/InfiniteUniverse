@@ -1,0 +1,116 @@
+<div class="structured-content equation-detail-page" data-structured-content>
+  <section class="content-block">
+    <h3>Monte Carlo Sampling</h3>
+  </section>
+  <section class="content-block">
+    <h3>Equation</h3>
+    <div class="equation-link-wrap">
+      <div class="glass-window equation-display">
+        $$
+        \mu = \mathbb{E}_p[f(X)] = \int f(x)\,p(x)\,dx
+        $$
+      </div>
+    </div>
+    <div class="equation-link-wrap">
+      <div class="glass-window equation-display">
+        $$
+        \hat{\mu}_N = \frac{1}{N}\sum_{k=1}^{N} f(X_k), \qquad X_k \sim p(x)
+        $$
+      </div>
+    </div>
+  </section>
+  <section class="content-block">
+    <h3>Literal Reading</h3>
+    <p>Mu equals the expectation under p of f of X, which is equal to the integral of f of x times p of x d x.</p>
+    <p>Mu hat sub N equals one over N times the sum from k equals one to N of f of X sub k, where X sub k is sampled from p of x.</p>
+  </section>
+  <section class="content-block">
+    <h3>Physicist's Reading</h3>
+    <p>A physicist would read this as Monte Carlo estimates an integral or expectation value by drawing many random samples from the target probability distribution and averaging the resulting values.</p>
+  </section>
+  <section class="content-block">
+    <h3>Symbol Breakdown</h3>
+    <p><strong>\(\mu\)</strong>: the exact quantity being estimated. In probability language, it is the true expectation value.</p>
+    <p><strong>\(\mathbb{E}_p[\cdot]\)</strong>: the expectation taken with respect to the probability distribution \(p\).</p>
+    <p><strong>\(f(X)\)</strong>: the quantity being measured on each random sample. This could be a coordinate, an energy contribution, or any observable built from the sampled variable.</p>
+    <p><strong>\(p(x)\)</strong>: the probability density used to generate samples. It tells the algorithm which regions should be sampled more often and which regions should be sampled less often.</p>
+    <p><strong>\(\int f(x)\,p(x)\,dx\)</strong>: the continuous average over all possible values of \(x\), weighted by their probability density.</p>
+    <p><strong>\(\hat{\mu}_N\)</strong>: the Monte Carlo estimator. The hat means it is an estimate, not the exact value.</p>
+    <p><strong>\(N\)</strong>: the total number of samples. It is a positive integer chosen by the implementation.</p>
+    <p><strong>\(\sum_{k=1}^{N}\)</strong>: the sum over all sampled trials, from the first sample to the \(N\)-th sample.</p>
+    <p><strong>\(X_k\)</strong>: the \(k\)-th sampled random variable.</p>
+    <p><strong>\(X_k \sim p(x)\)</strong>: the statement that each sample is drawn according to the distribution \(p(x)\).</p>
+  </section>
+  <section class="content-block">
+    <h3>Physical Meaning</h3>
+    <p>Monte Carlo sampling is a numerical method for approximating quantities that would otherwise require exact integration over a continuous space. Instead of evaluating every point in that space, the method draws many representative samples from the relevant distribution and lets the average of those samples stand in for the full integral.</p>
+    <p>The idea is simple but powerful. If a distribution assigns high probability to some regions and low probability to others, then random sampling from that distribution automatically spends more time where the contribution matters most. In that sense, Monte Carlo is not random guessing. It is structured statistical estimation.</p>
+  </section>
+  <section class="content-block">
+    <h3>Historical Origin</h3>
+    <p>The Monte Carlo method was developed in the 1940s in work associated with <strong>Stanislaw Ulam</strong>, <strong>John von Neumann</strong>, and <strong>Nicholas Metropolis</strong>. It emerged from problems in neutron transport and statistical physics during the Manhattan Project, where direct analytical solutions were often impossible.</p>
+    <p>The name comes from the Monte Carlo casino in Monaco, because the method relies on repeated random trials. The mathematics is serious, but the name openly acknowledges the role of probability and repeated sampling.</p>
+    <p class="source-language-note">
+      <strong>Source of name origin:</strong>
+      <a class="platform-link" href="https://www.osti.gov/biblio/1898112" target="_blank" rel="noopener noreferrer">Los Alamos / OSTI (Office of Scientific and Technical Information): history of Monte Carlo and MCNP (Monte Carlo N-Particle Transport Code)</a>.
+    </p>
+  </section>
+  <section class="content-block">
+    <h3>Convergence</h3>
+    <div class="equation-link-wrap">
+      <div class="glass-window equation-display">
+        $$
+        \hat{\mu}_N \to \mu \qquad \text{as } N \to \infty
+        $$
+      </div>
+    </div>
+    <div class="equation-link-wrap">
+      <div class="glass-window equation-display">
+        $$
+        \operatorname{SE}(\hat{\mu}_N) = \frac{\sigma_f}{\sqrt{N}}
+        $$
+      </div>
+    </div>
+    <p>The first equation expresses the law of large numbers. As the number of samples grows, the estimator tends toward the true value. The second equation gives the standard error of the estimator. Here, \(\sigma_f\) is the standard deviation of the sampled quantity \(f\).</p>
+    <p>This is one of the most important features of Monte Carlo methods. The uncertainty does not usually fall linearly with the number of samples. It falls like \(1/\sqrt{N}\). To reduce the error by a factor of two, you generally need about four times as many samples.</p>
+  </section>
+  <section class="content-block">
+    <h3>Application To My Model</h3>
+    <div class="equation-link-wrap">
+      <div class="glass-window equation-display">
+        $$
+        dP = |\psi_{320}|^2\, r^2 \sin\theta\, dr\, d\theta\, d\phi
+        $$
+      </div>
+    </div>
+    <div class="equation-link-wrap">
+      <div class="glass-window equation-display">
+        $$
+        \langle A \rangle \approx \frac{1}{N}\sum_{k=1}^{N} A(r_k,\theta_k,\phi_k)
+        $$
+      </div>
+    </div>
+    <p>In the orbital model, the target distribution is the probability measure of the hydrogen \(3d_{z^2}\) state written in spherical coordinates. The factor \(|\psi_{320}|^2\) gives the quantum probability density, and the factor \(r^2 \sin\theta\) comes from the geometry of spherical coordinates.</p>
+    <p>Each rendered point in the cloud is one sampled position \((r_k,\theta_k,\phi_k)\) drawn from that measure. The visible orbital is therefore not a hand-drawn shell. It is a sampled approximation of the continuous probability distribution predicted by Schrödinger's equation.</p>
+    <p>To estimate some observable \(A\) on that distribution, the second equation says to evaluate \(A\) on every sampled point and average the result. That is the broader Monte Carlo logic behind the visualization.</p>
+  </section>
+  <section class="content-block">
+    <h3>Limits Of The Model</h3>
+    <p>This model does not represent a literal electron trajectory, a classical orbit, or a moving particle path. It represents sampled positions from a stationary probability distribution.</p>
+    <p>This model also does not reproduce the full richness of a professional orbital explorer. It does not expose general \(n\), \(\ell\), and \(m\) controls, clipping tools, alternate orbital bases, or the deeper interactive rendering pipeline found in more advanced implementations.</p>
+    <p>This is a simplified educational visualization, not a comprehensive research-grade simulator. It is honest about the state it represents, but it should not be treated as a full physical model.</p>
+  </section>
+  <section class="content-block">
+    <h3>Inspirational Reference</h3>
+    <p>A major inspiration for this work was <a href="https://www.kavang.com/atom" target="_blank" rel="noopener noreferrer">Kavan's atomic orbital viewer</a>. This model does not claim to reproduce every part of Kavan's implementation. It is acknowledged directly as an important reference and inspiration.</p>
+  </section>
+
+  <section class="content-block glossary-section abbreviation-glossary" data-abbreviation-glossary>
+    <h3>Abbreviation Glossary</h3>
+    <p class="abbreviation-glossary__note">This glossary expands the abbreviations used in this section. The first appearance in the text includes the full wording in parentheses; later uses stay abbreviated so the section stays readable.</p>
+    <ul class="paper-list glossary-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>OSTI:</strong> Office of Scientific and Technical Information.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>MCNP:</strong> Monte Carlo N-Particle Transport Code.</span></li>
+    </ul>
+  </section>
+</div>

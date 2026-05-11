@@ -1,0 +1,26 @@
+:root {
+  color-scheme: dark;
+  --bg: #05020a;
+  --heading: #ff00a2;
+  --text: #9f5cff;
+  --strong: #ff58d6;
+  --glow-rgb: 119, 0, 255;
+  --outline-rgb: 255, 88, 214;
+  --hover-outline-rgb: 157, 0, 255;
+  --glass-rgb: 58, 14, 93;
+  --shadow-rgb: 0, 0, 0;
+  --edge-white: rgba(255, 0, 242, 0.72);
+  --edge-violet: rgba(224, 152, 255, 0.42);
+  --panel-fill: rgba(17, 4, 28, 0.56);
+  --panel-outline: rgba(255, 255, 255, 0.08);
+  --font-desktop: "Dancing Script", "Apple Chancery", "Papyrus", fantasy, cursive, sans-serif;
+  --font-content-desktop: "Cormorant Garamond", "EB Garamond", Georgia, serif;
+  --font-mobile: "Apple Chancery", "Papyrus", fantasy, cursive, sans-serif;
+  --site-width: min(74rem, 100%);
+  --model-window-width: 840px;
+  --model-frame-min-height: 220px;
+  --model-frame-max-height: 470px;
+  --model-frame-mobile-min-height: 200px;
+  --header-height: 3rem;
+  --footer-gap: 0.75rem;
+}

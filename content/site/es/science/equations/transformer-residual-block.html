@@ -1,0 +1,16 @@
+<div class="structured-content equation-detail-page" data-structured-content>
+  <section class="content-block"><h3>Bloque Residual de Transformador</h3></section>
+  <section class="content-block">
+    <h3>Ecuación</h3>
+    <div class="equation-link-wrap"><div class="glass-window equation-display">$$ y=\operatorname{NormCapa}(x+\operatorname{Subcapa}(x)) $$</div></div>
+  </section>
+  <section class="content-block"><h3>Lectura Literal</h3><p>La salida es la normalización de capa aplicada a la entrada original más la transformación de esa entrada por una subcapa.</p></section>
+  <section class="content-block"><h3>Lectura de un Físico</h3><p>La ruta residual permite que la información y los gradientes atraviesen pilas profundas de transformadores sin obligar a cada capa a reaprender el mapa identidad.</p></section>
+  <section class="content-block">
+    <h3>Desglose de Símbolos</h3>
+    <p><strong>\(x\)</strong>: representación entrante.</p>
+    <p><strong>\(\operatorname{Subcapa}(x)\)</strong>: transformación de atención o red de alimentación directa.</p>
+    <p><strong>\(\operatorname{NormCapa}\)</strong>: normalización de capa que estabiliza activaciones.</p>
+  </section>
+  <section class="content-block"><h3>Significado Físico</h3><p>No es física, pero la arquitectura tiene una intuición física: preservar una ruta de señal mientras se agregan correcciones controladas.</p></section>
+</div>

@@ -1,0 +1,276 @@
+.quantum-entanglement {
+  --qe-hot-pink: #ff00a2;
+  --qe-strong-pink: #ff58d6;
+  --qe-electric: #bf40ff;
+  --qe-violet: #7700ff;
+  --qe-indigo: #2b006d;
+  --qe-deep: #050008;
+  --qe-glass: rgba(17, 4, 28, 0.56);
+  --qe-edge: rgba(191, 64, 255, 0.48);
+
+  display: grid;
+  gap: 0;
+  width: min(100%, var(--model-window-width));
+  max-width: var(--model-window-width);
+  margin: 1.5rem auto;
+  overflow: hidden;
+  border: 1px solid var(--qe-edge);
+  border-radius: 1rem;
+  background: var(--qe-glass);
+  box-shadow:
+    0 20px 50px rgba(var(--shadow-rgb), 0.5),
+    0 0 24px rgba(var(--glow-rgb), 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.quantum-entanglement.glass-window::before {
+  background:
+    linear-gradient(90deg,
+      transparent 0 9%,
+      rgba(255, 0, 162, 0.72) 14% 18%,
+      transparent 24% 77%,
+      rgba(191, 64, 255, 0.48) 82% 86%,
+      transparent 92%),
+    linear-gradient(180deg,
+      transparent 0 10%,
+      rgba(255, 88, 214, 0.44) 15% 18%,
+      transparent 24% 82%,
+      rgba(119, 0, 255, 0.34) 88% 91%,
+      transparent 100%);
+}
+
+.quantum-entanglement.glass-window::after {
+  box-shadow:
+    0 0 0 1px rgba(255, 0, 162, 0.82),
+    0 0 24px rgba(255, 88, 214, 0.54),
+    0 0 44px rgba(119, 0, 255, 0.74),
+    0 0 72px rgba(191, 64, 255, 0.34);
+}
+
+.quantum-entanglement__frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: var(--model-frame-min-height);
+  max-height: var(--model-frame-max-height);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 29% 48%, rgba(255, 0, 162, 0.18), transparent 33%),
+    radial-gradient(circle at 72% 45%, rgba(191, 64, 255, 0.24), transparent 36%),
+    radial-gradient(circle at center, var(--qe-indigo) 0%, var(--qe-deep) 100%);
+}
+
+.quantum-entanglement__canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  cursor: grab;
+  touch-action: none;
+}
+
+.quantum-entanglement__canvas:active {
+  cursor: grabbing;
+}
+
+.quantum-entanglement__canvas:focus-visible {
+  box-shadow:
+    inset 0 0 0 2px rgba(255, 0, 162, 0.68),
+    inset 0 0 24px rgba(119, 0, 255, 0.34);
+}
+
+.quantum-entanglement__prompt {
+  position: absolute;
+  left: 50%;
+  bottom: 1rem;
+  z-index: 1;
+  max-width: min(90%, 30rem);
+  margin: 0;
+  padding: 0.22rem 0.42rem;
+  border: 1px solid rgba(255, 88, 214, 0.34);
+  border-radius: 0.42rem;
+  background: rgba(17, 4, 28, 0.62);
+  color: var(--qe-strong-pink);
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+  transform: translate3d(-50%, 0, 0);
+}
+
+.quantum-entanglement__panel {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(12.5rem, 1fr);
+  gap: 0.72rem;
+  padding: clamp(0.62rem, 1.4vw, 0.78rem);
+  border-top: 1px solid var(--qe-edge);
+  background: rgba(30, 8, 48, 0.42);
+}
+
+.quantum-entanglement__controls,
+.quantum-entanglement__metrics {
+  display: grid;
+  gap: 0.62rem;
+  align-content: start;
+}
+
+.quantum-entanglement__actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.48rem;
+}
+
+.quantum-entanglement__button {
+  padding: 0.32rem 0.48rem;
+  border: 1px solid var(--qe-violet);
+  border-radius: 0.38rem;
+  background:
+    radial-gradient(circle at 30% 18%, rgba(255, 0, 162, 0.16), transparent 40%),
+    rgba(var(--glow-rgb), 0.22);
+  color: var(--qe-strong-pink);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  outline: none;
+  text-transform: uppercase;
+  transition:
+    background 220ms ease,
+    box-shadow 220ms ease,
+    color 220ms ease,
+    transform 220ms ease;
+}
+
+.quantum-entanglement__button:hover,
+.quantum-entanglement__button:focus-visible,
+.quantum-entanglement__button.is-active {
+  background:
+    radial-gradient(circle at 50% 20%, rgba(255, 88, 214, 0.24), transparent 42%),
+    rgba(var(--glow-rgb), 0.42);
+  color: var(--qe-hot-pink);
+  box-shadow: 0 0 15px rgba(var(--glow-rgb), 0.42);
+  transform: translate3d(0, -1px, 0);
+}
+
+.quantum-entanglement__button:active {
+  transform: scale(0.98);
+}
+
+.quantum-entanglement__group {
+  display: grid;
+  gap: 0.28rem;
+}
+
+.quantum-entanglement__range {
+  width: 100%;
+  accent-color: var(--qe-hot-pink);
+}
+
+.quantum-entanglement__status,
+.quantum-entanglement__note {
+  margin: 0;
+  color: var(--qe-strong-pink);
+  line-height: 1.35;
+}
+
+.quantum-entanglement__status {
+  min-height: 1.3rem;
+  color: rgba(var(--outline-rgb), 0.84);
+  font-size: 0.68rem;
+}
+
+.quantum-entanglement__metric,
+.quantum-entanglement__distribution {
+  display: grid;
+  gap: 0.26rem;
+}
+
+.quantum-entanglement__metric-label,
+.quantum-entanglement__label,
+.quantum-entanglement__basis {
+  color: var(--qe-strong-pink);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.quantum-entanglement__metric-row,
+.quantum-entanglement__distribution-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.7rem;
+}
+
+.quantum-entanglement__basis {
+  min-width: 8.2rem;
+  color: var(--qe-electric);
+  font-variant-numeric: tabular-nums;
+}
+
+.quantum-entanglement__value {
+  color: var(--qe-hot-pink);
+  font-variant-numeric: tabular-nums;
+}
+
+.quantum-entanglement__meter {
+  flex: 1;
+  height: 0.32rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(43, 0, 109, 0.55);
+  box-shadow: inset 0 0 8px rgba(119, 0, 255, 0.24);
+}
+
+.quantum-entanglement__meter-fill {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background:
+    linear-gradient(90deg, var(--qe-violet), var(--qe-electric), var(--qe-hot-pink));
+  box-shadow: 0 0 10px rgba(255, 0, 162, 0.5);
+  transition: width 220ms ease;
+}
+
+.quantum-entanglement__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.34rem;
+  justify-content: center;
+  color: var(--qe-strong-pink);
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  text-align: center;
+  text-transform: lowercase;
+}
+
+.quantum-entanglement__legend span {
+  padding: 0.14rem 0.3rem;
+  border: 1px solid rgba(191, 64, 255, 0.34);
+  border-radius: 999px;
+  background: rgba(17, 4, 28, 0.5);
+}
+
+.quantum-entanglement__note {
+  padding: 0.85rem 1rem 1rem;
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  .quantum-entanglement__frame {
+    aspect-ratio: 16 / 10;
+    min-height: var(--model-frame-mobile-min-height);
+  }
+
+  .quantum-entanglement__panel {
+    grid-template-columns: 1fr;
+  }
+
+  .quantum-entanglement__actions {
+    grid-template-columns: 1fr;
+  }
+}

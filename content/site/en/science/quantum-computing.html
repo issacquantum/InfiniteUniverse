@@ -1,0 +1,741 @@
+<div class="structured-content" data-structured-content>
+  <section class="content-block">
+    <h3>Etymology</h3>
+    <p>The word <strong>quantum</strong> derives from the Latin <strong>quantus</strong>, meaning "how great" or "how
+      much." It entered scientific vocabulary in 1900 when physicist <strong>Max Planck</strong> used the term to
+      describe the smallest discrete unit of energy that could be emitted or absorbed, a fundamental "packet" of energy
+      he called a <strong>Energieelement</strong>, later formalized as a <strong>quantum</strong>. The plural,
+      <strong>quanta</strong>, became central to the theoretical framework that would eventually be known as
+      <strong>quantum mechanics</strong>.
+    </p>
+    <p>The word <strong>computing</strong> traces back to the Latin verb <strong>computare</strong>, formed from
+      <strong>com-</strong> ("together") and <strong>putare</strong> ("to reckon, to settle, to prune"). In its original
+      sense, <strong>computare</strong> meant "to sum up" or "to calculate." The term evolved through Old French into
+      Middle English, and by the mid-20th century, <strong>computing</strong> had become synonymous with the operation
+      of electronic machines capable of executing algorithmic instructions.
+    </p>
+    <p>The compound term <strong>quantum computing</strong> emerged in the early 1980s, when physicists <strong>Richard
+        Feynman</strong> and <strong>Yuri Manin</strong> independently proposed that computational systems governed by
+      quantum mechanical principles, <strong>superposition</strong>, <strong>entanglement</strong>, and
+      <strong>interference</strong>, could represent physical phenomena that classical computers could not efficiently
+      handle. The pairing of the two words thus describes a paradigm of computation built not on classical binary logic,
+      but on the discrete, probabilistic behavior of matter at the subatomic scale.
+    </p>
+    <p>That distinction matters because quantum computing is not simply a faster version of ordinary computing. It is a
+      different computational framework with different resources, different limits, and different engineering problems. The
+      challenge is not only to encode information in a new way, but to preserve fragile quantum relationships long
+      enough to shape them into a useful answer before measurement destroys them.</p>
+    <p class="source-language-note">
+      <strong>Source of etymological origin:</strong>
+      <a class="platform-link" href="https://www.etymonline.com/word/quantum" target="_blank" rel="noopener noreferrer">Online Etymology Dictionary: quantum</a>;
+      <a class="platform-link" href="https://www.etymonline.com/word/compute" target="_blank" rel="noopener noreferrer">Online Etymology Dictionary: compute</a>;
+      <a class="platform-link" href="https://s2.smu.edu/~mitch/class/5395/papers/feynman-quantum-1981.pdf" target="_blank" rel="noopener noreferrer">Feynman, <em>Simulating Physics with Computers</em></a>.
+    </p>
+  </section>
+
+<section class="content-block">
+    <h2>Qubits and Superposition</h2>
+    <p>Quantum computing is a computational paradigm that harnesses the principles of <strong>quantum mechanics</strong>
+      to process information in ways inaccessible to classical machines. Its fundamental unit is the
+      <strong>qubit</strong>, a two-level quantum system whose general state is described by the vector
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-computing-equations" data-item-id="qubit-superposition-state"
+        aria-label="Open explanation for the qubit superposition state">
+        $$
+        |\psi\rangle = \alpha|0\rangle + \beta|1\rangle
+        $$
+      </button>
+    </div>
+    <p>where \(\alpha\) and \(\beta\) are complex amplitudes subject to the normalization condition</p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-computing-equations" data-item-id="qubit-normalization-condition"
+        aria-label="Open explanation for the qubit normalization condition">
+        $$
+        |\alpha|^2 + |\beta|^2 = 1
+        $$
+      </button>
+    </div>
+    <p>Unlike a classical bit, which can only hold the value 0 or 1, a qubit exists in a <strong>coherent
+        superposition</strong> of both values until it is measured, and this ability to simultaneously hold multiple
+      possibilities is the first source of quantum computational power. When several qubits are combined, the state
+      space grows exponentially: <strong>\(n\) qubits occupy a Hilbert space of dimension \(2^n\)</strong>, allowing the
+      parallel representation and manipulation of an amount of information that scales far faster than in any equivalent
+      classical system. The essential point is not a picture of the qubit, but its amplitudes, relative phase, and
+      measurement basis.
+    </p>
+
+    <h3>Entanglement and Measurement</h3>
+    <p>The second fundamental resource is <strong>entanglement</strong>, a purely quantum correlation between qubits
+      that admits no classical description. A canonical example is the <strong>Bell state</strong>
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-computing-equations" data-item-id="bell-state-phi-plus"
+        aria-label="Open explanation for the Bell state Phi plus">
+        $$
+        |\Phi^{+}\rangle = \frac{|00\rangle + |11\rangle}{\sqrt{2}}
+        $$
+      </button>
+    </div>
+    <p>in which measuring one qubit instantly determines the outcome of the other regardless of the distance separating
+      them. This property, which Einstein famously called "spooky action at a distance," is today an operational
+      resource: without entanglement there would be no <strong>quantum teleportation</strong>, no <strong>superdense
+        coding</strong>, and none of the algorithmic advantage this technology offers. <strong>Measurement</strong>, in
+      turn, is an irreversible act that projects the state onto one of the eigenstates of the observable and returns a
+      classical outcome with probability \(|\alpha|^2\) or \(|\beta|^2\) according to the <strong>Born rule</strong>;
+      after measurement the superposition is destroyed and the system is left in the state corresponding to the obtained
+      value. This <strong>collapse</strong> imposes an essential constraint on quantum algorithm design, since all the
+      richness of the computation must be structured so that, at the moment of measurement, amplitudes interfere
+      <strong>constructively</strong> on the correct answer and <strong>destructively</strong> on the incorrect ones.
+    </p>
+
+    <h3>Quantum Gates and Circuits</h3>
+    <p>Qubit manipulation is performed through <strong>quantum gates</strong>, which are unitary operations represented
+      by matrices. The <strong>Hadamard gate</strong>
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-computing-equations" data-item-id="hadamard-gate-matrix"
+        aria-label="Open explanation for the Hadamard gate matrix">
+        $$
+        H = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}
+        $$
+      </button>
+    </div>
+    <p>transforms \(|0\rangle\) into \(\frac{|0\rangle + |1\rangle}{\sqrt{2}}\) and \(|1\rangle\) into \(\frac{|0\rangle
+      - |1\rangle}{\sqrt{2}}\), generating uniform superpositions and serving as the starting point of nearly every
+      algorithm. The <strong>Pauli gates \(X\), \(Y\), and \(Z\)</strong> transform the qubit state in distinct ways, while
+      the <strong>phase gates \(S\) and \(T\)</strong> introduce controlled phase shifts that
+      are indispensable for achieving universality. On two qubits, the <strong>CNOT (controlled-NOT (logical negation)) gate</strong> flips the target qubit
+      only when the control qubit is \(|1\rangle\), and it is the ingredient that, combined with single-qubit gates,
+      generates entanglement and proves that circuit-based quantum computation can be universal. A
+      <strong>quantum circuit</strong> is
+      essentially an ordered sequence of these gates applied to a register of initialized qubits, followed by final
+      measurements that extract the classical result.</p>
+    <p>Every ideal quantum gate must preserve the total probability of the state. Mathematically, this means the gate is
+      <strong>unitary</strong>:</p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-computing-equations" data-item-id="unitary-gate-condition"
+        aria-label="Open explanation for the unitary gate condition">
+        $$
+        U^\dagger U = I
+        $$
+      </button>
+    </div>
+    <p>This condition makes circuit evolution reversible before measurement: amplitudes can rotate, acquire phase, and
+      interfere, but their total norm cannot leak away in an ideal gate. That is also why quantum speedup should not be
+      described as simple parallelism. The useful effect comes from arranging phases so wrong paths cancel and useful
+      paths reinforce. A universal circuit model needs both single-qubit rotations and an entangling gate; in practice,
+      <strong>CNOT plus a rich set of one-qubit gates</strong> is enough to approximate arbitrary quantum circuits.</p>
+
+    <h3>From Circuits to Algorithms</h3>
+    <p>
+      Gates become algorithms when a circuit is arranged so amplitudes meet again with controlled signs. A quantum
+      computer is not useful because it simply "tries every answer at once." It is useful because paths leading to a
+      wrong outcome can be given opposite phases and cancel, while paths leading to a useful outcome can be aligned so
+      they reinforce. The final measurement then becomes biased toward the answer the circuit has amplified.
+    </p>
+    <p>
+      Grover's algorithm is the clearest example. It begins by preparing a uniform superposition, uses an
+      <strong>oracle</strong> to flip the phase of the marked answer, and then applies an
+      <strong>inversion-about-the-mean</strong> step. Those two reflections rotate the state toward the marked item:
+      the desired amplitude grows, the unmarked amplitudes shrink, and after about \(\sqrt{N}\) rounds the final
+      measurement is likely to return the target.
+    </p>
+    <p>
+      Shor's algorithm uses interference differently. It turns factoring into a <strong>period-finding</strong>
+      problem, evaluates a periodic function in superposition, and then applies the <strong>quantum Fourier
+        transform</strong>. Values consistent with the hidden period reinforce at specific frequencies, while
+      inconsistent phases cancel. Measurement does not reveal every branch; it returns structured information that
+      classical post-processing can convert into a factor.
+    </p>
+
+    <h3>Key Quantum Algorithms</h3>
+    <p>On this architecture, algorithms have been built that surpass their classical counterparts in complexity.
+      <strong>Shor's algorithm</strong>, published in 1994, factors integers in polynomial time
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-computing-equations" data-item-id="shor-algorithm-polynomial-runtime"
+        aria-label="Open explanation for Shor algorithm polynomial runtime">
+        $$
+        \mathcal{O}\!\left((\log N)^3\right)
+        $$
+      </button>
+    </div>
+    <p>while the best known classical methods require subexponential time; this difference directly threatens public-key
+      cryptography based on <strong>RSA (Rivest-Shamir-Adleman)</strong> and <strong>elliptic curves</strong>, and is the primary driver of the
+      global transition toward <strong>post-quantum cryptography</strong>. <strong>Grover's algorithm</strong>, in turn,
+      searches for a marked element in an unstructured list of \(N\) entries in
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-computing-equations" data-item-id="grover-algorithm-quadratic-runtime"
+        aria-label="Open explanation for Grover algorithm quadratic runtime">
+        $$
+        \mathcal{O}(\sqrt{N})
+        $$
+      </button>
+    </div>
+    <p>queries, offering a quadratic speedup over the classical \(\mathcal{O}(N)\) sweep and applicable to a wide family
+      of search and optimization problems. To these are added quantum algorithms for chemistry and materials,
+      variational methods such as <strong>VQE (variational quantum eigensolver)</strong> and <strong>QAOA (quantum approximate optimization algorithm)</strong> designed for
+      current-era hardware, and phase estimation and linear-system solvers like <strong>HHL (Harrow-Hassidim-Lloyd)</strong>, which promise
+      advantages in machine learning and data science.
+    </p>
+    <p>Two mechanisms are especially important inside those algorithms. <strong>Phase estimation</strong> extracts hidden
+      periodic structure and is the engine behind Shor's factoring speedup. <strong>Amplitude amplification</strong>,
+      the core of Grover's algorithm, repeatedly reflects amplitudes so the marked answer grows while unmarked answers
+      shrink. In both cases, the computer is not reading every branch; it is engineering interference so the final
+      measurement is biased toward useful information.</p>
+    <p>This is also the point at which the public conversation often becomes misleading. Quantum advantage is not a
+      universal speedup applied to every problem. It appears only when a problem can be encoded so that interference,
+      entanglement, and measurement structure the search space more efficiently than a classical method can. That is why
+      a handful of algorithm families matter so much: they reveal where quantum computation changes complexity and where
+      it does not.</p>
+
+  </section>
+
+  <section class="content-block">
+    <h2>Ewin Tang and Dequantization</h2>
+    <p>
+      <strong><a class="platform-link" href="https://breakthroughprize.org/Laureates/3/L3982" target="_blank"
+          rel="noopener noreferrer">Ewin Tang</a></strong>, recipient of the
+      <strong>2025 Maryam Mirzakhani New Frontiers Prize</strong>, helped force a more disciplined standard for claims
+      of quantum advantage. The Breakthrough Prize citation credits her with developing classical analogs of quantum
+      algorithms for machine learning and linear algebra, and with advances in quantum machine learning on quantum data.
+      Her work corrected a common methodological weakness: treating a speedup as purely quantum before checking whether
+      the input model, data access, or classical baseline already contains most of the power.
+    </p>
+    <p>
+      Tang's senior thesis was supervised by
+      <strong><a class="platform-link" href="https://www.scottaaronson.com/" target="_blank"
+      rel="noopener noreferrer">Scott Aaronson</a></strong>. In her later account, Aaronson gave her several candidate
+      problems, and she chose the Kerenidis-Prakash recommendation-systems algorithm, a <a class="platform-link"
+        href="https://help.netflix.com/en/node/100639" target="_blank" rel="noopener noreferrer">Netflix-style</a>
+      low-rank matrix problem presented as an exponential quantum machine-learning speedup. The original technical
+      target was a classical lower bound for that specific problem. Tang instead constructed a quantum-inspired
+      classical algorithm under comparable sampling and query-access assumptions, forcing the comparison to track the
+      actual resources: state preparation, access model, runtime, output format, and the strongest available classical
+      baseline.
+    </p>
+    <p>
+      The central idea behind Tang's early work is <strong>dequantization</strong>. To dequantize a quantum algorithm is
+      to rebuild the claimed speedup in a matched classical model and isolate which resource actually creates the
+      advantage. For classical data, that means counting the cost of loading the matrix or vector, the sampling access
+      being assumed, the precision demanded, and the form of the output. A quantum advantage is scientifically stronger
+      when it survives that full accounting.
+    </p>
+    <h3>Technical Terms Glossary</h3>
+    <ul class="paper-list glossary-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>CNOT gate:</strong> A two-qubit controlled-NOT gate. It flips the target qubit only when the control qubit is \(|1\rangle\), and it is the standard entangling gate used in universal circuit sets.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Rich set of one-qubit gates:</strong> A sufficiently expressive collection of single-qubit rotations and phase gates, usually combined with an entangling gate such as CNOT for universality.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Oracle:</strong> A black-box operation assumed to answer a specific query in one step.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Access model:</strong> The assumed way an algorithm can read, query, sample, or load its input data; changing it can change the claimed speedup.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Classical baseline:</strong> The strongest classical method used for comparison against a quantum algorithm.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Block-encoding:</strong> A technique that embeds a matrix inside a larger unitary operation so a quantum algorithm can transform it.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Singular value:</strong> A nonnegative scale factor describing how a matrix stretches vectors along special directions.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Sketching:</strong> A randomized classical technique that compresses a matrix or dataset while preserving enough structure for a target computation.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Sublinear algorithm:</strong> An algorithm that avoids reading the entire input, possible only under specific access assumptions.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Physical qubit:</strong> A real hardware qubit exposed to noise, control error, and decoherence.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Logical qubit:</strong> An error-protected qubit encoded across many physical qubits.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Fault-tolerance threshold:</strong> The physical error rate below which error correction can suppress logical errors by adding enough overhead.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Boson sampling:</strong> A restricted photonic sampling task used to test quantum devices, not a general-purpose computing model.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Majorana mode:</strong> A special quasiparticle-like excitation pursued in some topological quantum computing proposals.</span></li>
+    </ul>
+
+    <h3>The Fine Print: State Preparation</h3>
+    <p>
+      Many quantum machine-learning algorithms begin by assuming that a classical vector \(x\in\mathbb{C}^n\) can be
+      loaded as an amplitude-encoded quantum state,
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-computing-equations" data-item-id="amplitude-encoded-classical-vector"
+        aria-label="Open explanation for amplitude-encoded classical vector">
+        $$
+        |x\rangle=\frac{1}{\|x\|}\sum_i x_i|i\rangle
+        $$
+      </button>
+    </div>
+    <p>
+      <strong>Equation explanation:</strong> \(x_i\) is the \(i\)-th entry of the classical vector, \(|i\rangle\) is the computational-basis state
+      labeled by index \(i\), and \(\|x\|\) normalizes the amplitudes so the total probability is one.
+      This notation is compact, but the physical operation is not free. If the data originally lives in a classical
+      database, then a quantum computer needs some procedure, often imagined through <strong>QRAM (quantum random access memory)</strong> or a related
+      state-preparation oracle, to build \(|x\rangle\) quickly. If that loading step is assumed to take only
+      \(\mathrm{polylog}(n)\) time, then the quantum runtime can look exponentially better than a classical runtime that
+      has to inspect the data directly.
+    </p>
+    <p>
+      Tang's point is that this comparison can be unfair. A classical algorithm can also be given structured access to
+      the data. In the <strong>sample-and-query</strong> model, the algorithm can query selected entries and sample rows
+      or columns with probabilities proportional to squared norms. This is the classical counterpart of the way quantum
+      amplitudes naturally weight measurement probabilities. It does not represent ordinary raw access to arbitrary
+      data, but it is a cleaner comparison against quantum algorithms that assume efficient state preparation.
+    </p>
+
+    <h3>\(\ell^2\)-Norm Sampling Access</h3>
+    <p>
+      The technical access model behind Tang's dequantization is usually called <strong>\(\ell^2\)-norm
+        sampling</strong>, <strong>length-square sampling</strong>, or <strong>sample-and-query access</strong>. For a
+      nonzero vector \(x\), the sampler returns index \(i\) with probability
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-computing-equations" data-item-id="l2-norm-vector-sampling"
+        aria-label="Open explanation for L2-norm, Euclidean norm, vector sampling">
+        $$
+        \Pr[i]=\frac{|x_i|^2}{\|x\|_2^2}
+        $$
+      </button>
+    </div>
+    <p>
+      <strong>Equation explanation:</strong> \(\Pr[i]\) is the probability of returning index \(i\), \(|x_i|^2\) is the squared magnitude of that entry,
+      and the squared norm makes all probabilities add to one. The algorithm is also allowed to query
+      entries \(x_i\) and obtain \(\|x\|_2\). This is not the same as reading a vector normally. It assumes a data
+      structure that already stores enough cumulative squared-length information to sample according to this distribution
+      quickly.
+    </p>
+    <p>
+      For a matrix \(A\), the access model is layered. A classical algorithm can sample a row \(i\) with probability
+      proportional to \(\|A_{i,*}\|_2^2\), then sample a column \(j\) inside that row with probability proportional to
+      \(|A_{ij}|^2\). It can also query selected entries and row norms. In compact form:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-computing-equations" data-item-id="l2-norm-matrix-sampling"
+        aria-label="Open explanation for L2-norm, Euclidean norm, matrix sampling">
+        $$
+        \Pr[i]=\frac{\|A_{i,*}\|_2^2}{\|A\|_F^2},\qquad
+        \Pr[j\mid i]=\frac{|A_{ij}|^2}{\|A_{i,*}\|_2^2}
+        $$
+      </button>
+    </div>
+    <p>
+      <strong>Equation explanation:</strong> \(A_{i,*}\) is row \(i\), \(\|A\|_F\) is the Frobenius norm of the full matrix, and
+      \(\Pr[j\mid i]\) is the probability of choosing column \(j\) after row \(i\) has already been selected. This lets
+      the classical algorithm see the same high-energy coordinates that a quantum measurement would tend to reveal from
+      an amplitude-encoded state.
+    </p>
+    <p>
+      Measuring
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-computing-equations" data-item-id="amplitude-measurement-distribution"
+        aria-label="Open explanation for amplitude measurement distribution">
+        $$
+        |x\rangle=\frac{1}{\|x\|_2}\sum_i x_i|i\rangle
+        $$
+      </button>
+    </div>
+    <p>
+      measuring this state in the computational basis produces exactly the same distribution \(|x_i|^2/\|x\|_2^2\).
+      <strong>Equation explanation:</strong> this is the same amplitude-encoded vector as above, but written with the
+      explicit \(\ell^2\) norm. The denominator normalizes the state, and the measurement rule squares the amplitudes, which is why quantum measurement and
+      classical length-square sampling line up. So if a quantum algorithm assumes that \(|x\rangle\) can be prepared
+      efficiently from classical data, the fair classical comparison is not always plain entry-by-entry access. It may
+      be a classical data structure supporting \(\ell^2\)-norm sampling. That is the move that made Tang's result
+      possible.
+    </p>
+    <p>
+      This access model is powerful but restrictive. It is powerful because it supports randomized numerical linear
+      algebra: estimating inner products, sketching low-rank structure, and sampling from approximate matrix products in
+      time that can be sublinear or even independent of the ambient dimension. It is restrictive because the data must be
+      stored or maintained in a special way. If real data cannot support this access cheaply, then the dequantized
+      algorithm may not be practical. If both the quantum and classical algorithms assume comparable access, however,
+      then the claimed exponential quantum advantage must be judged under that fair comparison.
+    </p>
+
+    <h3>The Recommendation-Systems Result</h3>
+    <p>
+      Tang's 2018 preprint, published at STOC (Symposium on Theory of Computing) 2019 as <strong><a class="platform-link"
+          href="https://arxiv.org/pdf/1807.04271" target="_blank" rel="noopener noreferrer">A quantum-inspired
+          classical algorithm for recommendation systems</a></strong>, answered a specific claim. Kerenidis and Prakash
+      had given a quantum recommendation algorithm that was treated as one of the strongest candidates for an exponential
+      quantum speedup in machine learning. The task can be framed using an \(m\times n\) preference matrix, where the
+      goal is to sample useful recommendations from a low-rank approximation of that matrix.
+    </p>
+    <p>
+      Tang showed that, if the classical algorithm has a data structure supporting \(\ell^2\)-norm sampling, it can
+      output an \(\ell^2\)-norm sample from a rank-\(k\) approximation in roughly
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-computing-equations" data-item-id="tang-recommendation-runtime"
+        aria-label="Open explanation for Tang recommendation runtime">
+        $$
+        \mathcal{O}(\mathrm{poly}(k)\log(mn))
+        $$
+      </button>
+    </div>
+    <p>
+      only polynomially slower than the quantum algorithm. Here \(m\) and \(n\) are the dimensions of the data matrix,
+      and \(k\) is the target low-rank structure. The important result is not the exact polynomial hidden in
+      \(\mathrm{poly}(k)\). The important result is that the dependence on the huge dimensions \(m\) and \(n\) can be
+      logarithmic under a comparable access model. <strong>Equation explanation:</strong> \(\mathcal{O}\) notation describes asymptotic scaling, so the
+      equation is saying that the rank parameter \(k\) is the main polynomial cost while the matrix size enters only
+      through \(\log(mn)\). That destroys the claimed exponential separation for that particular recommendation problem.
+    </p>
+    <p>
+      The mathematical mechanism is elegant. Quantum algorithms manipulate amplitudes; Tang's classical algorithm
+      manipulates squared-length sampling distributions. A quantum measurement samples index \(i\) with probability
+      proportional to \(|x_i|^2\). A classical length-square sampler does the analogous thing without needing a quantum
+      state. Once that analogy is made precise, tools from randomized numerical linear algebra can reproduce part of the
+      behavior that had been treated as uniquely quantum.
+    </p>
+
+    <h3>Quantum PCA (principal component analysis), Clustering, and Linear Algebra</h3>
+    <p>
+      Tang extended the same logic in <strong><a class="platform-link" href="https://arxiv.org/pdf/1811.00414"
+          target="_blank" rel="noopener noreferrer">Quantum principal component analysis only achieves an exponential
+          speedup because of its state preparation assumptions</a></strong>, published in <strong>Physical Review
+        Letters</strong> in 2021. The target there was quantum principal component analysis and nearest-centroid
+      clustering. Again, the lesson was not that the quantum algorithm was wrong. The lesson was that the claimed
+      exponential speedup depended on how the input data was provided.
+    </p>
+    <p>
+      Her later work with collaborators broadened the framework. Quantum-inspired low-rank stochastic regression showed
+      how length-square sampling could mimic aspects of quantum matrix inversion for low-rank matrices. The
+      sampling-based low-rank matrix arithmetic framework generalized this direction and connected dequantization to
+      quantum singular value transformation. In 2024, work with Ainesh Bakshi improved classical singular value
+      transformation for quantum machine learning, showing that even some very modern quantum linear-algebra frameworks
+      can have close classical counterparts on structured low-rank inputs.
+    </p>
+    <p>
+      In compact form, much of this comparison is about operations like
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-computing-equations" data-item-id="polynomial-matrix-vector-transform"
+        aria-label="Open explanation for polynomial matrix-vector transform">
+        $$
+        p(A)b
+        $$
+      </button>
+    </div>
+    <p>
+      where \(A\) is a matrix, \(b\) is a vector, and \(p\) is a polynomial or matrix function. Quantum singular value
+      transformation gives quantum algorithms a powerful way to apply functions to singular values of block-encoded
+      matrices. <strong>Equation explanation:</strong> transform the matrix through \(p\), then apply the transformed matrix to \(b\).
+      Tang's line of work asks when classical sketching, sampling, and randomized linear algebra can reproduce the useful
+      output without building the corresponding quantum state.
+    </p>
+
+    <h3>Hamiltonians, Gibbs States, and Learning Quantum Systems</h3>
+    <p>
+      Tang's later work also fits quantum computing because it moves from dequantizing machine-learning speedups to the
+      problem of <strong>learning quantum systems themselves</strong>. The central object is the
+      <strong>Hamiltonian</strong> \(H\), the Hermitian operator that represents the energy and interactions of a quantum
+      system. It generates real-time evolution through
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-computing-equations" data-item-id="hamiltonian-time-evolution"
+        aria-label="Open explanation for Hamiltonian time evolution">
+        $$
+        U(t)=e^{-iHt/\hbar}
+        $$
+      </button>
+    </div>
+    <p>
+      and it also determines the system's thermal equilibrium state. <strong>Equation explanation:</strong> \(U(t)\) is the time-evolution
+      operator, \(H\) is the Hamiltonian, \(t\) is elapsed time, and \(\hbar\) is the reduced Planck constant setting the
+      quantum action scale.
+    </p>
+    <p>
+      A local many-body Hamiltonian is often written as
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-computing-equations" data-item-id="local-hamiltonian-expansion"
+        aria-label="Open explanation for local Hamiltonian expansion">
+        $$
+        H=\sum_{a=1}^{m}\lambda_a E_a
+        $$
+      </button>
+    </div>
+    <p>
+      where the \(E_a\) are known local interaction terms, often Pauli operators or few-qubit observables, and the
+      \(\lambda_a\) are the unknown interaction strengths. <strong>Equation explanation:</strong> the index \(a\) labels each local term and \(m\) is the total
+      number of terms in the model. <strong>Hamiltonian learning</strong> asks whether those coefficients, or sometimes
+      even the interaction structure itself, can be recovered from measurements. The same question appears in quantum simulation,
+      condensed-matter physics, device calibration, and verifying whether a quantum processor is really implementing the
+      dynamics it claims to implement.
+    </p>
+    <p>
+      The equilibrium object is the <strong>Gibbs state</strong>
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-computing-equations" data-item-id="gibbs-state-density-matrix"
+        aria-label="Open explanation for Gibbs state density matrix">
+        $$
+        \rho_\beta=\frac{e^{-\beta H}}{Z},\qquad Z=\mathrm{Tr}(e^{-\beta H}),\qquad \beta=\frac{1}{k_BT}
+        $$
+      </button>
+    </div>
+    <p>
+      <strong>Equation explanation:</strong> \(\rho_\beta\) is the thermal density matrix, \(Z\) is the partition function that normalizes it,
+      \(\mathrm{Tr}\) means trace, \(T\) is temperature, \(k_B\) is Boltzmann's constant, and \(\beta\) is inverse
+      temperature. High temperature means small \(\beta\), so thermal noise washes out more structure. Low temperature
+      means large \(\beta\), so the state concentrates more strongly around low-energy behavior. Learning \(H\) from
+      copies of \(\rho_\beta\) is an inverse problem: infer the hidden interaction law from the thermal state it
+      produces.
+    </p>
+    <p>
+      Haah, Kothari, and Tang studied this problem for high-temperature Gibbs states and showed that, for broad local or
+      low-intersection Hamiltonian families, the coefficients can be learned with optimal sample complexity on the order
+      of
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-computing-equations" data-item-id="gibbs-hamiltonian-sample-complexity"
+        aria-label="Open explanation for Gibbs Hamiltonian sample complexity">
+        $$
+        S=\mathcal{O}\!\left(\frac{\log N}{(\beta\varepsilon)^2}\right)
+        $$
+      </button>
+    </div>
+    <p>
+      with time linear in the sample size times system size in their setting. <strong>Equation explanation:</strong> \(S\) is the number of samples, \(N\)
+      is the system-size parameter, and \(\varepsilon\) is the target accuracy; the formula says that tighter accuracy
+      or lower effective temperature requires more samples. Later work by Bakshi, Liu, Moitra, and Tang extended
+      Hamiltonian learning from Gibbs states to any constant temperature in polynomial time. A related 2024 line showed
+      that high-temperature Gibbs states of bounded-degree local Hamiltonians become separable above a constant
+      temperature threshold and can be efficiently prepared in that regime.
+    </p>
+    <p>
+      The conceptual lesson is sharp: a Hamiltonian is the law of interaction, while a Gibbs state is the thermal
+      fingerprint left by that law. Tang's Hamiltonian-learning work asks how much of the law can be reconstructed from
+      the fingerprint. It also keeps the same disciplined theme as her dequantization work: quantum structure is real,
+      but claims about quantum power must track temperature, access model, locality, sample complexity, and classical
+      baselines with precision.
+    </p>
+
+    <h3>Hilbert-Space States, Product States, and Tomography</h3>
+    <p>
+      Tang's newer papers also connect to the basic language of <strong>Hilbert spaces</strong>. A pure quantum state is
+      a unit vector
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-computing-equations" data-item-id="pure-state-hilbert-normalization"
+        aria-label="Open explanation for pure state Hilbert normalization">
+        $$
+        |\psi\rangle\in\mathcal{H},\qquad \langle\psi|\psi\rangle=1
+        $$
+      </button>
+    </div>
+    <p>
+      <strong>Equation explanation:</strong> \(|\psi\rangle\) is a pure quantum state, \(\mathcal{H}\) is the Hilbert
+      space containing possible states, and the inner-product condition says the vector is normalized.
+      while a general mixed state is a density matrix
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-computing-equations" data-item-id="density-matrix-conditions"
+        aria-label="Open explanation for density matrix conditions">
+        $$
+        \rho\succeq 0,\qquad \mathrm{Tr}(\rho)=1
+        $$
+      </button>
+    </div>
+    <p>
+      <strong>Equation explanation:</strong> positive semidefiniteness means the density matrix gives no negative
+      probabilities, and the trace condition normalizes total probability. For \(n\) qubits, the Hilbert-space dimension is \(2^n\), so learning an arbitrary
+      state directly becomes exponentially expensive. That is why structure matters: product states, unentangled states,
+      spectra, and low-rank assumptions can turn an impossible learning problem into a tractable one.
+    </p>
+    <p>
+      A product state has the form
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-computing-equations" data-item-id="product-state-factorization"
+        aria-label="Open explanation for product state factorization">
+        $$
+        |\phi\rangle=|\phi_1\rangle\otimes|\phi_2\rangle\otimes\cdots\otimes|\phi_n\rangle
+        $$
+      </button>
+    </div>
+    <p>
+      <strong>Equation explanation:</strong> \(|\phi_1\rangle,\ldots,|\phi_n\rangle\) are subsystem states, and the tensor product symbol \(\otimes\) means the full state is built by combining subsystem states without
+      entangling them. It has no entanglement between the listed subsystems. Tang's work on learning the closest product
+      state studies how to approximate the best unentangled description of a quantum state. That is not just a technical
+      detail:
+      product-state approximations are a way to ask how much of a high-dimensional Hilbert-space object is genuinely
+      entangled, and how much can be described by simpler local pieces.
+    </p>
+    <p>
+      The tomography papers fit the same pattern. Full quantum state tomography tries to reconstruct \(\rho\) itself,
+      which is usually too expensive at large dimension. Tang's later work asks when one can learn less but still learn
+      the scientifically relevant part: spectra of unentangled states, reductions from mixed-state tomography to
+      pure-state tomography, or properties of a unitary without reconstructing everything. The connection to her
+      Gibbs-state papers is technical: both are about extracting real structure from quantum states without pretending
+      that the entire Hilbert space is cheaply accessible.
+    </p>
+
+    <h3>Scientific Scope of the Result</h3>
+    <p>
+      Tang's work does <strong>not</strong> refute quantum advantage in general. Shor's algorithm, quantum simulation,
+      quantum chemistry, cryptographic complexity, and algorithms on genuinely quantum data remain serious. Her work
+      also does not prove that quantum machine learning can never produce a major advantage. It shows something more
+      precise: some claimed exponential speedups disappear when the classical baseline is strengthened to match the
+      quantum input assumptions.
+    </p>
+    <p>
+      The scientific value is methodological. The comparison must separate genuine quantum resources from access-model
+      artifacts. A claimed advantage must survive the strongest classical challenge available. If a quantum algorithm
+      only wins because it hides the cost of loading classical data, then the result is not a reliable claim about
+      practical superiority. If it still wins after Tang-style scrutiny, the claim becomes stronger.
+    </p>
+    <p>
+      The operational standard is simple: compare models honestly, count the input assumptions, define the output, and
+      then decide whether the advantage is real.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h2>Decoherence and Error Correction</h2>
+    <p>The main obstacle to realizing these promises is <strong>decoherence</strong>: the unavoidable interaction
+      between qubits and their environment destroys the relative phases and, with them, the superposition and
+      entanglement that sustain the computation. To this are added errors in the gates themselves and in measurements,
+      which means that any deep circuit accumulates noise until the result becomes unreliable. <strong>Quantum error
+        correction</strong> solves this problem by encoding one logical qubit into many physical qubits through schemes
+      such as the <strong>Shor code</strong>, the <strong>Steane code</strong>, and especially the <strong>surface
+        code</strong>, which offers tolerable error thresholds and a geometry compatible with planar chips. The
+      <strong>fault-tolerance theorems</strong> guarantee that, below a certain physical error threshold, fidelity can
+      be amplified arbitrarily at the cost of significant qubit overhead, which explains why fault-tolerant processors
+      will require <strong>millions of physical qubits</strong> to support a few thousand useful <strong>logical
+        qubits</strong>.
+    </p>
+
+    <h3>Hardware Approaches</h3>
+    <p>On the hardware front, several competing approaches coexist. <strong>Superconducting qubits</strong>, based on
+      <strong>Josephson junctions</strong> and operated at millikelvin temperatures, are the bet of <strong><a
+          class="platform-link" href="https://www.ibm.com/quantum" target="_blank" rel="noopener noreferrer">IBM (International Business Machines)</a>,
+        <a class="platform-link" href="https://quantumai.google/" target="_blank"
+          rel="noopener noreferrer">Google</a>, and <a class="platform-link" href="https://www.rigetti.com/"
+          target="_blank" rel="noopener noreferrer">Rigetti</a></strong>, offering gate times on the order of tens of
+      nanoseconds, although with relatively short coherence. <strong>Trapped ions</strong>, used by <strong><a
+          class="platform-link" href="https://ionq.com/" target="_blank" rel="noopener noreferrer">IonQ</a> and <a
+          class="platform-link" href="https://www.quantinuum.com/" target="_blank"
+          rel="noopener noreferrer">Quantinuum</a></strong>, encode the qubit in
+      electronic levels of ions confined by electromagnetic fields and manipulated with lasers; their fidelities and
+      coherence times are outstanding, at the cost of slower operations. <strong>Photonic processors</strong>, developed
+      by <strong><a class="platform-link" href="https://www.psiquantum.com/" target="_blank"
+          rel="noopener noreferrer">PsiQuantum</a> and <a class="platform-link" href="https://www.xanadu.ai/"
+          target="_blank" rel="noopener noreferrer">Xanadu</a></strong>, take advantage of light states to transmit and process information,
+      with the natural advantage of operating at room temperature and integrating with quantum communication networks.
+      <strong>Topological approaches</strong>, explored by <strong><a class="platform-link"
+          href="https://quantum.microsoft.com/" target="_blank" rel="noopener noreferrer">Microsoft</a></strong> through
+      <strong>Majorana
+        modes</strong>, pursue qubits intrinsically protected against noise by the system's topology, although their
+      experimental demonstration is still in progress. To these families are added <strong>neutral atoms</strong>,
+      <strong>nitrogen-vacancy centers in diamond</strong>, <strong>silicon spin qubits</strong>, and hybrid proposals,
+      each with its own balance between scalability, fidelity, and connectivity.
+    </p>
+
+    <h3>Current State and Limitations</h3>
+    <p>The current state of the field sits in what John Preskill termed the <strong>NISQ (noisy intermediate-scale quantum) era</strong>,
+      characterized by noisy devices of intermediate scale with tens to a few thousand
+      physical qubits without error correction. Milestones such as the <strong>"quantum supremacy"</strong> announced by
+      <a class="platform-link" href="https://quantumai.google/" target="_blank"
+        rel="noopener noreferrer">Google</a> in 2019 with the <strong><a class="platform-link"
+          href="https://research.google/pubs/quantum-supremacy-using-a-programmable-superconducting-processor/"
+          target="_blank" rel="noopener noreferrer">Sycamore processor</a></strong>, or subsequent advances in boson sampling and narrow
+      benchmark tasks, have demonstrated that certain narrowly designed tasks already surpass classical supercomputers, but a
+      useful and reproducible <strong>"quantum advantage"</strong> for relevant industrial problems does not yet exist.
+      Current limitations include <strong>restricted qubit connectivity</strong>, the maximum circuit depth before noise
+      dominates, the bottleneck of classical readout, cryogenic and control costs, and a shortage of mature talent and
+      software. Even so, the growing maturity of cloud platforms, the standardization of languages such as
+      <strong><a class="platform-link" href="https://www.ibm.com/quantum/qiskit" target="_blank" rel="noopener noreferrer">Qiskit</a>, <a class="platform-link" href="https://quantumai.google/cirq" target="_blank" rel="noopener noreferrer">Cirq</a>, and <a class="platform-link" href="https://pennylane.ai/" target="_blank" rel="noopener noreferrer">PennyLane</a></strong>, and sustained advances in fidelity and qubit count suggest a
+      plausible path toward <strong>fault-tolerant processors</strong> within the next decade.
+    </p>
+    <p>The gap between proof of principle and broad practical deployment is therefore still large. Current machines are
+      valuable because they let researchers learn how quantum control behaves outside ideal mathematics, how noise scales
+      in real architectures, and which algorithmic ideas survive contact with hardware. In that sense, the field is no
+      longer speculative, but it is not yet mature enough to justify the inflated claim that classical computing is
+      about to be replaced.</p>
+
+
+    <p>Viewed as a whole, quantum computing rests on a delicate balance between the fragility of quantum states and the
+      power those same states offer when controlled with precision: <strong>superposition and entanglement</strong>
+      expand the computational space, <strong>unitary gates</strong> traverse it through directed interference,
+      <strong>algorithms</strong> transform that interference into meaningful answers, and <strong>error
+        correction</strong> protects the entire scaffolding against the inevitable noise of the physical world. Each
+      generation of hardware brings us closer to the threshold at which this combination will cease to be a theoretical
+      promise and become a tool of everyday impact in <strong>cryptography, chemistry, materials, optimization, and
+        artificial intelligence</strong>, redefining in the process what we understand as the limits of computation.
+    </p>
+  </section>
+  <section class="content-block glossary-section abbreviation-glossary" data-abbreviation-glossary>
+    <h3>Abbreviation Glossary</h3>
+    <p class="abbreviation-glossary__note">This glossary expands the abbreviations used in this section. The first appearance in the text includes the full wording in parentheses; later uses stay abbreviated so the section stays readable.</p>
+    <ul class="paper-list glossary-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>CNOT:</strong> controlled NOT.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>RSA:</strong> Rivest-Shamir-Adleman.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>VQE:</strong> variational quantum eigensolver.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>QAOA:</strong> quantum approximate optimization algorithm.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>HHL:</strong> Harrow-Hassidim-Lloyd.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>QRAM:</strong> quantum random access memory.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>STOC:</strong> Symposium on Theory of Computing.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>PCA:</strong> principal component analysis.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>IBM:</strong> International Business Machines.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>NISQ:</strong> noisy intermediate-scale quantum.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>URLs:</strong> Uniform Resource Locators.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>CV:</strong> curriculum vitae.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>PhD:</strong> Doctor of Philosophy.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>PDF:</strong> Portable Document Format.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>CS:</strong> computer science.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>AI:</strong> artificial intelligence.</span></li>
+    </ul>
+  </section>
+
+<section class="content-block source-papers">
+    <h3>Foundational and Modern Paper URLs (Uniform Resource Locators)</h3>
+    <ul class="paper-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://ewintang.com/" target="_blank" rel="noopener noreferrer">Ewin Tang. <em>Official Website and Publication List.</em></a> <span class="paper-note">Best starting point for her current research, talks, CV (curriculum vitae), and paper list.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.ewintang.com/assets/tang_thesis.pdf" target="_blank" rel="noopener noreferrer">Ewin Tang, 2023. <em>Quantum Machine Learning Without Any Quantum.</em></a> <span class="paper-note">PhD (Doctor of Philosophy) thesis PDF (Portable Document Format) from Tang's website.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://ewintang.com/blog/2019/01/28/an-overview-of-quantum-inspired-sampling/" target="_blank" rel="noopener noreferrer">Ewin Tang, 2019. <em>An Overview of Quantum-Inspired Classical Sampling.</em></a> <span class="paper-note">Expository note by Tang explaining the dequantization model and intuition.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.quantamagazine.org/what-is-the-true-promise-of-quantum-computing-20250403/" target="_blank" rel="noopener noreferrer">Quanta Magazine, 2025. <em>What Is the True Promise of Quantum Computing?</em></a> <span class="paper-note">Interview where Tang describes choosing the recommendation-systems problem from several options suggested by Scott Aaronson.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.quantamagazine.org/teenager-finds-classical-alternative-to-quantum-recommendation-algorithm-20180731/" target="_blank" rel="noopener noreferrer">Quanta Magazine, 2018. <em>Major Quantum Computing Advance Made Obsolete by Teenager.</em></a> <span class="paper-note">Detailed account of Tang's project with Scott Aaronson and the reversal of the original problem.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://news.cs.washington.edu/2018/12/21/ph-d-student-ewin-tang-recognized-in-forbes-30-under-30-in-science-for-taking-the-quantum-out-of-quantum-computing/" target="_blank" rel="noopener noreferrer">University of Washington Allen School, 2018. <em>Ewin Tang recognized in Forbes' 30 Under 30.</em></a> <span class="paper-note">Institutional account of Tang, Aaronson, and the recommendation-system result.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.math.cmu.edu/~af1p/Texfiles/SVD.pdf" target="_blank" rel="noopener noreferrer">Frieze, Kannan, and Vempala, 2004. <em>Fast Monte-Carlo Algorithms for Finding Low-Rank Approximations.</em></a> <span class="paper-note">Foundational randomized linear-algebra paper behind low-rank approximation with squared-length sampling.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.cambridge.org/core/journals/acta-numerica/article/abs/randomized-algorithms-in-numerical-linear-algebra/41CF2151FADE7757AA95C7FC15E43630" target="_blank" rel="noopener noreferrer">Kannan and Vempala, 2017. <em>Randomized Algorithms in Numerical Linear Algebra.</em></a> <span class="paper-note">Survey explaining squared-length row and column sampling as a central idea in fast randomized linear algebra.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://s2.smu.edu/~mitch/class/5395/papers/feynman-quantum-1981.pdf" target="_blank" rel="noopener noreferrer">Richard Feynman, 1982. <em>Simulating Physics with Computers.</em></a> <span class="paper-note">Free PDF hosted by Southern Methodist University course materials.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.cs.princeton.edu/courses/archive/fall04/cos576/papers/deutsch85.pdf" target="_blank" rel="noopener noreferrer">David Deutsch, 1985. <em>Quantum Theory, the Church-Turing Principle and the Universal Quantum Computer.</em></a> <span class="paper-note">PDF hosted by Princeton University computer science course materials.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/pdf/0811.3171" target="_blank" rel="noopener noreferrer">Harrow, Hassidim, and Lloyd, 2009. <em>Quantum Algorithm for Linear Systems of Equations.</em></a> <span class="paper-note">The HHL algorithm is central background for quantum linear algebra and later quantum machine-learning claims.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://users.cs.duke.edu/~reif/courses/randlectures/Quantum.papers/shor.factoring.pdf" target="_blank" rel="noopener noreferrer">Peter Shor, 1994. <em>Algorithms for Quantum Computation: Discrete Logarithms and Factoring.</em></a> <span class="paper-note">PDF hosted by Duke University computer science course materials.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/pdf/quant-ph/9605043" target="_blank" rel="noopener noreferrer">Lov Grover, 1996. <em>A Fast Quantum Mechanical Algorithm for Database Search.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.nature.com/articles/nphys3272" target="_blank" rel="noopener noreferrer">Scott Aaronson, 2015. <em>Read the Fine Print.</em></a> <span class="paper-note">Nature Physics commentary on why claimed exponential quantum speedups require careful input and output assumptions.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/pdf/1603.08675" target="_blank" rel="noopener noreferrer">Iordanis Kerenidis and Anupam Prakash, 2016. <em>Quantum Recommendation Systems.</em></a> <span class="paper-note">The quantum recommendation algorithm that Tang's classical result directly challenged.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/pdf/1801.00862" target="_blank" rel="noopener noreferrer">John Preskill, 2018. <em>Quantum Computing in the NISQ Era and Beyond.</em></a> <span class="paper-note">arXiv PDF of the paper.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/pdf/1807.04271" target="_blank" rel="noopener noreferrer">Ewin Tang, 2019. <em>A Quantum-Inspired Classical Algorithm for Recommendation Systems.</em></a> <span class="paper-note">arXiv PDF of the dequantization result that challenged a proposed exponential quantum machine-learning speedup.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/pdf/1811.00414" target="_blank" rel="noopener noreferrer">Ewin Tang, 2021. <em>Quantum Principal Component Analysis Only Achieves an Exponential Speedup Because of Its State Preparation Assumptions.</em></a> <span class="paper-note">arXiv PDF of the paper later published in Physical Review Letters.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/pdf/1811.04909" target="_blank" rel="noopener noreferrer">Andras Gilyen, Seth Lloyd, and Ewin Tang, 2018. <em>Quantum-Inspired Low-Rank Stochastic Regression with Logarithmic Dependence on the Dimension.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/pdf/1910.06151" target="_blank" rel="noopener noreferrer">Nai-Hui Chia, Andras Gilyen, Tongyang Li, Han-Hsuan Lin, Ewin Tang, and Chunhao Wang, 2020. <em>Sampling-Based Sublinear Low-Rank Matrix Arithmetic Framework for Dequantizing Quantum Machine Learning.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/pdf/2009.07268" target="_blank" rel="noopener noreferrer">Andras Gilyen, Zhao Song, and Ewin Tang, 2020. <em>An Improved Quantum-Inspired Algorithm for Linear Regression.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.nature.com/articles/s42254-022-00511-w" target="_blank" rel="noopener noreferrer">Ewin Tang, 2022. <em>Dequantizing Algorithms to Understand Quantum Advantage in Machine Learning.</em></a> <span class="paper-note">Nature Reviews Physics article page.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/pdf/2302.14324" target="_blank" rel="noopener noreferrer">Ewin Tang and Kevin Tian, 2024. <em>A CS (computer science) Guide to the Quantum Singular Value Transformation.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/pdf/2303.01492" target="_blank" rel="noopener noreferrer">Ainesh Bakshi and Ewin Tang, 2024. <em>An Improved Classical Singular Value Transformation for Quantum Machine Learning.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/pdf/2108.04842" target="_blank" rel="noopener noreferrer">Jeongwan Haah, Robin Kothari, and Ewin Tang, 2021. <em>Optimal Learning of Quantum Hamiltonians from High-Temperature Gibbs States.</em></a> <span class="paper-note">arXiv PDF introducing optimal high-temperature Gibbs-state Hamiltonian learning.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.nature.com/articles/s41567-023-02376-x" target="_blank" rel="noopener noreferrer">Haah, Kothari, and Tang, 2024. <em>Learning Quantum Hamiltonians from High-Temperature Gibbs States and Real-Time Evolutions.</em></a> <span class="paper-note">Nature Physics article page for the Hamiltonian-learning result.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/pdf/2310.02243" target="_blank" rel="noopener noreferrer">Bakshi, Liu, Moitra, and Tang, 2023. <em>Learning Quantum Hamiltonians at Any Temperature in Polynomial Time.</em></a> <span class="paper-note">arXiv PDF extending Gibbs-state Hamiltonian learning beyond the high-temperature regime.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/pdf/2403.16850" target="_blank" rel="noopener noreferrer">Bakshi, Liu, Moitra, and Tang, 2024. <em>High-Temperature Gibbs States Are Unentangled and Efficiently Preparable.</em></a> <span class="paper-note">arXiv PDF on separability and efficient preparation of high-temperature Gibbs states.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/pdf/2405.00082" target="_blank" rel="noopener noreferrer">Bakshi, Liu, Moitra, and Tang, 2024. <em>Structure Learning of Hamiltonians from Real-Time Evolution.</em></a> <span class="paper-note">arXiv PDF on recovering Hamiltonian structure from access to \(e^{-iHt}\).</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.nature.com/articles/s41567-021-01232-0" target="_blank" rel="noopener noreferrer">Anshu, Arunachalam, Kuwahara, and Soleimanifar, 2021. <em>Sample-Efficient Learning of Interacting Quantum Systems.</em></a> <span class="paper-note">Important earlier Nature Physics paper on learning local Hamiltonians from Gibbs states.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/pdf/2411.04283" target="_blank" rel="noopener noreferrer">Bakshi, Bostanci, Kretschmer, Landau, Li, Liu, O'Donnell, and Tang, 2024. <em>Learning the Closest Product State.</em></a> <span class="paper-note">arXiv PDF on approximating Hilbert-space states by product-state structure.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/pdf/2504.02785" target="_blank" rel="noopener noreferrer">Pelecanos, Tan, Tang, and Wright, 2025. <em>Beating Full State Tomography for Unentangled Spectrum Estimation.</em></a> <span class="paper-note">arXiv PDF on learning spectral information without full state tomography.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/pdf/2511.15806" target="_blank" rel="noopener noreferrer">Pelecanos, Spilecki, Tang, and Wright, 2025. <em>Mixed State Tomography Reduces to Pure State Tomography.</em></a> <span class="paper-note">arXiv PDF connecting mixed-state tomography to pure-state tomography.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.nature.com/articles/s41586-019-1666-5" target="_blank" rel="noopener noreferrer">Arute et al., 2019. <em>Quantum Supremacy Using a Programmable Superconducting Processor.</em></a> <span class="paper-note">Official Nature article page.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://quantumai.google/" target="_blank" rel="noopener noreferrer">Google Quantum AI (artificial intelligence)</a>, 2023. <a class="paper-link" href="https://www.nature.com/articles/s41586-022-05434-1" target="_blank" rel="noopener noreferrer"><em>Suppressing Quantum Errors by Scaling a Surface Code Logical Qubit.</em></a> <span class="paper-note">Open-access Nature article page.</span></span></li>
+    </ul>
+  </section>
+</div>

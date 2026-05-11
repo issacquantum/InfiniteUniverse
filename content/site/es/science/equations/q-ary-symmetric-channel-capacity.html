@@ -1,0 +1,22 @@
+<div class="structured-content equation-detail-page" data-structured-content>
+  <section class="content-block"><h3>Capacidad de un Canal Simétrico con Ruido</h3></section>
+  <section class="content-block">
+    <h3>Ecuación</h3>
+    <div class="equation-link-wrap">
+      <div class="glass-window equation-display">
+        $$
+        C=\log_2 q+(1-p)\log_2(1-p)+p\log_2\frac{p}{q-1}
+        $$
+      </div>
+    </div>
+  </section>
+  <section class="content-block"><h3>Lectura Literal</h3><p>La capacidad es el término del tamaño del alfabeto más los logaritmos ponderados de transmisión correcta e incorrecta.</p></section>
+  <section class="content-block"><h3>Lectura de un Físico</h3><p>Es la tasa confiable máxima para un canal simétrico con \(q\) símbolos posibles y probabilidad de error \(p\).</p></section>
+  <section class="content-block">
+    <h3>Desglose de Símbolos</h3>
+    <p><strong>\(C\)</strong>: capacidad del canal en bits por uso del canal.</p>
+    <p><strong>\(q\)</strong>: número de símbolos de entrada posibles.</p>
+    <p><strong>\(p\)</strong>: probabilidad de que el símbolo enviado cambie a uno de los otros \(q-1\) símbolos.</p>
+  </section>
+  <section class="content-block"><h3>Significado Físico</h3><p>El ruido reduce la tasa útil, pero no vuelve imposible la comunicación. Por debajo de la capacidad, códigos correctores suficientemente largos pueden hacer que la probabilidad de falla sea arbitrariamente pequeña.</p></section>
+</div>

@@ -1,0 +1,53 @@
+<div class="structured-content equation-detail-page" data-structured-content>
+  <section class="content-block">
+    <h3>Fluctuation Field Sample</h3>
+  </section>
+  <section class="content-block">
+    <h3>Equation</h3>
+    <div class="equation-link-wrap">
+      <div class="glass-window equation-display">
+        $$
+        \phi_\Lambda(\mathbf r,t)\propto
+        \sum_{\mathbf{k}}
+        \frac{e^{-(|\mathbf{k}|/\Lambda)^4}}{\sqrt{2\omega_{\mathbf{k}}}}
+        \Big[
+        (Q_{\mathbf{k}}\cos(\mathbf{k}\cdot\mathbf r)+\widetilde Q_{\mathbf{k}}\sin(\mathbf{k}\cdot\mathbf r))
+        \cos(\omega_{\mathbf{k}}t)
+        +(P_{\mathbf{k}}\cos(\mathbf{k}\cdot\mathbf r)+\widetilde P_{\mathbf{k}}\sin(\mathbf{k}\cdot\mathbf r))
+        \sin(\omega_{\mathbf{k}}t)
+        \Big],\quad
+        \omega_{\mathbf{k}}=\sqrt{|\mathbf{k}|^2+m^2},\quad m\approx\frac{1}{\xi}
+        $$
+      </div>
+    </div>
+  </section>
+  <section class="content-block">
+    <h3>Literal Reading</h3>
+    <p>The field value is built from many wave modes. Each mode is damped by a cutoff, weighted by one over the square
+      root of two omega, and given independent Gaussian position-like and momentum-like quadratures.</p>
+  </section>
+  <section class="content-block">
+    <h3>Physicist's Reading</h3>
+    <p>A physicist reads this as a finite, cutoff, visualization-level sample of a free real scalar field vacuum. It is
+      not a complete quantum field theory calculation, but its mode weighting and Gaussian quadratures match the
+      equal-time vacuum structure of a free field.</p>
+  </section>
+  <section class="content-block">
+    <h3>Symbol Breakdown</h3>
+    <p><strong>\(\phi_\Lambda(\mathbf r,t)\)</strong>: the rendered cutoff field amplitude at position
+      \(\mathbf r=(x,z)\) and time \(t\).</p>
+    <p><strong>\(\mathbf{k}\)</strong>: wave vector for a field mode.</p>
+    <p><strong>\(\Lambda\)</strong>: ultraviolet cutoff that damps short-wavelength modes for readability and stability.</p>
+    <p><strong>\(\omega_{\mathbf{k}}\)</strong>: mode angular frequency.</p>
+    <p><strong>\(m\)</strong>: mass-like parameter controlling correlation length.</p>
+    <p><strong>\(\xi\)</strong>: correlation length; larger \(\xi\) produces broader, smoother field structure.</p>
+    <p><strong>\(Q_{\mathbf{k}},\widetilde Q_{\mathbf{k}},P_{\mathbf{k}},\widetilde P_{\mathbf{k}}\)</strong>:
+      independent standard Gaussian coefficients. They select one possible vacuum sample for the finite model.</p>
+  </section>
+  <section class="content-block">
+    <h3>Physical Meaning</h3>
+    <p>The factor \(1/\sqrt{2\omega_{\mathbf{k}}}\) is the free-field ground-state amplitude scale in natural units. The
+      cosine and sine terms give the free oscillator time evolution of each mode. The site normalizes the sum visually,
+      so the model shows correlations, mode scale, and relative excursions rather than absolute field units.</p>
+  </section>
+</div>

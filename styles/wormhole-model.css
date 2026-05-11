@@ -1,0 +1,228 @@
+.wormhole-model {
+  --wm-hot-pink: #ff00a2;
+  --wm-strong-pink: #ff58d6;
+  --wm-violet: #7700ff;
+  --wm-lavender: #e098ff;
+  --wm-indigo: #210044;
+  --wm-deep: #050008;
+  --wm-glass: rgba(17, 4, 28, 0.56);
+  --wm-edge: rgba(224, 152, 255, 0.42);
+
+  display: grid;
+  gap: 0;
+  width: min(100%, var(--model-window-width));
+  max-width: var(--model-window-width);
+  margin: 1.5rem auto;
+  overflow: hidden;
+  border: 1px solid var(--wm-edge);
+  border-radius: 1rem;
+  background: var(--wm-glass);
+  box-shadow:
+    0 20px 50px rgba(var(--shadow-rgb), 0.5),
+    0 0 24px rgba(var(--glow-rgb), 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.wormhole-model__frame {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: var(--model-frame-min-height);
+  max-height: var(--model-frame-max-height);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 46%, rgba(255, 0, 162, 0.18), transparent 30%),
+    radial-gradient(circle at 50% 34%, rgba(119, 0, 255, 0.26), transparent 36%),
+    radial-gradient(circle at 50% 64%, rgba(224, 152, 255, 0.18), transparent 38%),
+    #050008;
+}
+
+.wormhole-model__canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  touch-action: none;
+}
+
+.wormhole-model__canvas:active {
+  cursor: grabbing;
+}
+
+.wormhole-model__canvas:focus-visible {
+  outline: 2px solid var(--wm-hot-pink);
+  outline-offset: -4px;
+}
+
+.wormhole-model__hud {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.48rem 0.58rem;
+  padding: clamp(0.5rem, 1.1vw, 0.68rem);
+  border-top: 1px solid var(--wm-edge);
+  background: rgba(30, 8, 48, 0.42);
+}
+
+.wormhole-model__readout {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--wm-hot-pink);
+  font-size: 0.68rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+.wormhole-model__group,
+.wormhole-model__toggle {
+  display: grid;
+  gap: 0.28rem;
+}
+
+.wormhole-model__label,
+.wormhole-model__toggle {
+  color: var(--wm-strong-pink);
+  font-size: 0.54rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.wormhole-model__label {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.45rem;
+}
+
+.wormhole-model__value {
+  color: var(--wm-hot-pink);
+  font-variant-numeric: tabular-nums;
+}
+
+.wormhole-model__range {
+  width: 100%;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(119, 0, 255, 0.34), rgba(255, 0, 162, 0.36));
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.wormhole-model__range::-webkit-slider-thumb {
+  width: 9px;
+  height: 9px;
+  border: 1px solid var(--wm-lavender);
+  border-radius: 50%;
+  background: var(--wm-hot-pink);
+  cursor: pointer;
+  box-shadow: 0 0 8px var(--wm-hot-pink), 0 0 14px rgba(119, 0, 255, 0.45);
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.wormhole-model__range::-moz-range-thumb {
+  width: 9px;
+  height: 9px;
+  border: 1px solid var(--wm-lavender);
+  border-radius: 50%;
+  background: var(--wm-hot-pink);
+  cursor: pointer;
+  box-shadow: 0 0 8px var(--wm-hot-pink), 0 0 14px rgba(119, 0, 255, 0.45);
+}
+
+.wormhole-model__toggle {
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  min-height: 1.1rem;
+  cursor: pointer;
+}
+
+.wormhole-model__toggle input {
+  width: 0.72rem;
+  height: 0.72rem;
+  accent-color: var(--wm-hot-pink);
+}
+
+.wormhole-model__button {
+  padding: 0.26rem 0.42rem;
+  border: 1px solid var(--wm-violet);
+  border-radius: 0.38rem;
+  background: rgba(var(--glow-rgb), 0.22);
+  color: var(--wm-strong-pink);
+  cursor: pointer;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition:
+    background 240ms ease,
+    box-shadow 240ms ease,
+    color 240ms ease;
+}
+
+.wormhole-model__button:hover,
+.wormhole-model__button:focus-visible {
+  background: rgba(var(--glow-rgb), 0.42);
+  color: var(--wm-hot-pink);
+  box-shadow: 0 0 15px rgba(var(--glow-rgb), 0.42);
+}
+
+.wormhole-model__hint,
+.wormhole-model__note {
+  margin: 0;
+  padding: 0 0.9rem 0.95rem;
+  color: var(--wm-strong-pink);
+  line-height: 1.35;
+  text-align: center;
+}
+
+.wormhole-model__legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.42rem;
+  padding: 0.68rem 0.8rem 0.1rem;
+  color: var(--wm-strong-pink);
+  font-size: 0.64rem;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: lowercase;
+}
+
+.wormhole-model__legend span {
+  padding: 0.12rem 0.26rem;
+  border: 1px solid rgba(224, 152, 255, 0.32);
+  border-radius: 999px;
+  background: rgba(17, 4, 28, 0.56);
+  box-shadow: 0 0 12px rgba(119, 0, 255, 0.18);
+}
+
+.wormhole-model__hint {
+  padding-top: 0.75rem;
+  padding-bottom: 0.2rem;
+  color: rgba(var(--outline-rgb), 0.68);
+  font-size: 0.76rem;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  user-select: none;
+}
+
+body[data-media-notes="on"] .wormhole-model__hint {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .wormhole-model__frame {
+    aspect-ratio: 16 / 10;
+    min-height: 190px;
+  }
+
+  .wormhole-model__hud {
+    grid-template-columns: 1fr;
+  }
+
+  .wormhole-model__button {
+    width: 100%;
+  }
+}
