@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://issactabares.com/sitemap.xml
+Sitemap: https://issacquantum.github.io/InfiniteUniverse/sitemap.xml
