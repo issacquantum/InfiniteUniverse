@@ -1,4 +1,4 @@
-import { isModelPanGesture, panTargetFromPointer } from "./model-pan.js?v=20260503-quantum-fluctuations";
+import { bindPinchZoom, isModelPanGesture, panTargetFromPointer } from "./model-pan.js?v=20260511-mobile-pinch-zoom";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
@@ -286,6 +286,20 @@ class QuantumFluctuationModel {
       this.updateCamera();
       event.preventDefault();
     }, { passive: false });
+
+    bindPinchZoom(this.canvas, {
+      getValue: () => this.state.distance,
+      setValue: (value) => {
+        this.state.distance = value;
+      },
+      min: 5.2,
+      max: 20,
+      inverted: true,
+      onStart: () => {
+        this.pointer = null;
+      },
+      onChange: () => this.updateCamera()
+    });
   }
 
   setupObservers() {

@@ -8,7 +8,7 @@ import { syncLegacyContent } from "./legacy-content.js?v=20260510-return-navigat
 import { createMusicController, syncMusicUi } from "./music.js?v=20260511-tekken-audio-delay-clean";
 import { renderSite } from "./render.js?v=20260511-equation-return-2";
 import { createState } from "./state.js";
-import { syncStructuredContent } from "./structured-content.js?v=20260510-numerical-grid";
+import { syncStructuredContent } from "./structured-content.js?v=20260511-mobile-pinch-zoom";
 
 const refs = {
   siteShell: document.querySelector(".site-shell"),

@@ -1,4 +1,4 @@
-import { isModelPanGesture } from "./model-pan.js?v=20260503-fabric-no-orbit-line";
+import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260511-mobile-pinch-zoom";
 
 const mountedSimulators = new WeakSet();
 const TWO_PI = Math.PI * 2;
@@ -37,7 +37,8 @@ class DoubleSlitInterference {
       detectorMode: false,
       showPattern: false,
       panX: 0,
-      panY: 0
+      panY: 0,
+      zoom: 1
     };
     this.pointer = null;
 
@@ -194,6 +195,18 @@ class DoubleSlitInterference {
     });
 
     this.canvas.addEventListener("contextmenu", (event) => event.preventDefault());
+
+    bindPinchZoom(this.canvas, {
+      getValue: () => this.state.zoom,
+      setValue: (value) => {
+        this.state.zoom = value;
+      },
+      min: 0.72,
+      max: 1.55,
+      onStart: () => {
+        this.pointer = null;
+      }
+    });
   }
 
   setupObservers() {
@@ -287,10 +300,12 @@ class DoubleSlitInterference {
   }
 
   getLayout() {
+    const zoom = this.state.zoom;
+    const centerX = this.width / 2;
     const centerY = this.height / 2 + this.state.panY;
-    const barrierX = this.width * 0.38 + this.state.panX;
-    const screenX = this.width * 0.86 + this.state.panX;
-    const slitDistance = scaleByHeight(this.state.slitDistance, this.height, 320);
+    const barrierX = centerX + (this.width * 0.38 - centerX) * zoom + this.state.panX;
+    const screenX = centerX + (this.width * 0.86 - centerX) * zoom + this.state.panX;
+    const slitDistance = scaleByHeight(this.state.slitDistance, this.height, 320) * zoom;
     const slitGap = Math.max(14, Math.min(24, this.height * 0.07));
     const slitA = centerY - slitDistance / 2;
     const slitB = centerY + slitDistance / 2;
@@ -303,7 +318,7 @@ class DoubleSlitInterference {
       slitGap,
       slitA,
       slitB,
-      sourceX: this.width * 0.1 + this.state.panX,
+      sourceX: centerX + (this.width * 0.1 - centerX) * zoom + this.state.panX,
       top: 18 + this.state.panY,
       bottom: this.height - 18 + this.state.panY
     };

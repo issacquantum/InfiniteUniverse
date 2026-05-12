@@ -1,3 +1,5 @@
+import { bindPinchZoom } from "./model-pan.js?v=20260511-mobile-pinch-zoom";
+
 const mountedModels = new WeakSet();
 const SYMBOL_COUNT = 4;
 const LOG2_SYMBOLS = Math.log2(SYMBOL_COUNT);
@@ -176,6 +178,18 @@ class InformationTheoryModel {
       event.preventDefault();
       this.state.zoom = clamp(this.state.zoom + (event.deltaY < 0 ? 0.08 : -0.08), 0.62, 1.65);
     }, { passive: false });
+
+    bindPinchZoom(this.canvas, {
+      getValue: () => this.state.zoom,
+      setValue: (value) => {
+        this.state.zoom = value;
+      },
+      min: 0.62,
+      max: 1.65,
+      onStart: () => {
+        this.pointer = null;
+      }
+    });
   }
 
   resize() {

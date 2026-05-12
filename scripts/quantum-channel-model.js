@@ -1,4 +1,4 @@
-import { isModelPanGesture, panObjectFromPointer } from "./model-pan.js?v=20260503-fabric-no-orbit-line";
+import { bindPinchZoom, isModelPanGesture, panObjectFromPointer } from "./model-pan.js?v=20260511-mobile-pinch-zoom";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
@@ -52,6 +52,7 @@ class QuantumChannelModel {
       time: 0,
       yaw: -0.2,
       pitch: 0.24,
+      distance: 14,
       entropyHistory: Array.from({ length: 120 }, () => 0)
     };
 
@@ -404,7 +405,7 @@ class QuantumChannelModel {
           startX: this.pointer.x,
           startY: this.pointer.y,
           event,
-          distance: 14
+          distance: this.state.distance
         });
         return;
       }
@@ -450,6 +451,26 @@ class QuantumChannelModel {
 
       this.updateCamera();
       event.preventDefault();
+    });
+
+    this.canvas.addEventListener("wheel", (event) => {
+      event.preventDefault();
+      this.state.distance = clamp(this.state.distance + Math.sign(event.deltaY) * 0.9, 9, 26);
+      this.updateCamera();
+    }, { passive: false });
+
+    bindPinchZoom(this.canvas, {
+      getValue: () => this.state.distance,
+      setValue: (value) => {
+        this.state.distance = value;
+      },
+      min: 9,
+      max: 26,
+      inverted: true,
+      onStart: () => {
+        this.pointer = null;
+      },
+      onChange: () => this.updateCamera()
     });
   }
 
@@ -722,7 +743,7 @@ class QuantumChannelModel {
       return;
     }
 
-    const distance = 14;
+    const distance = this.state.distance;
     this.camera.position.set(
       Math.sin(this.state.yaw) * Math.cos(this.state.pitch) * distance,
       Math.sin(this.state.pitch) * distance,
