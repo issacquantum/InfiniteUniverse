@@ -415,7 +415,15 @@ export function renderSite({ state, refs, content, assets }) {
       "data-item-id",
       language
     );
-  } else if (activeTopic && !activeTopic.branches) {
+  } else if (activeBranch) {
+    readerNavigation = createReaderNavigation(
+      branchSource.branches,
+      activeBranch.id,
+      "select-branch",
+      "data-branch-id",
+      language
+    );
+  } else if (activeTopic) {
     readerNavigation = createReaderNavigation(
       topics,
       activeTopic.id,
