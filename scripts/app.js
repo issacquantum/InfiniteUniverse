@@ -6,7 +6,7 @@ import { refreshIcons } from "./icons.js";
 import { pick } from "./i18n.js";
 import { syncLegacyContent } from "./legacy-content.js?v=20260510-return-navigation";
 import { createMusicController, syncMusicUi } from "./music.js";
-import { renderSite } from "./render.js?v=20260511-equation-return";
+import { renderSite } from "./render.js?v=20260511-equation-return-2";
 import { createState } from "./state.js";
 import { syncStructuredContent } from "./structured-content.js?v=20260510-numerical-grid";
 
