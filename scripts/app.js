@@ -5,7 +5,7 @@ import { initBackground } from "./background.js";
 import { refreshIcons } from "./icons.js";
 import { pick } from "./i18n.js";
 import { syncLegacyContent } from "./legacy-content.js?v=20260510-return-navigation";
-import { createMusicController, syncMusicUi } from "./music.js?v=20260511-tekken-audio-single-start";
+import { createMusicController, syncMusicUi } from "./music.js?v=20260511-tekken-audio-delay-clean";
 import { renderSite } from "./render.js?v=20260511-equation-return-2";
 import { createState } from "./state.js";
 import { syncStructuredContent } from "./structured-content.js?v=20260510-numerical-grid";
