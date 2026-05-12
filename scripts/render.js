@@ -212,7 +212,51 @@ function renderLegacyItemButtons(items, state, language, ui) {
   `;
 }
 
-function renderStructuredPanel(contentFile, language, ui) {
+function renderMobileReaderNavigation(navigation, language) {
+  if (!navigation) {
+    return "";
+  }
+
+  const labels = {
+    previous: language === "es" ? "Anterior" : "Previous",
+    all: language === "es" ? "Todas las secciones" : "All Sections",
+    next: language === "es" ? "Siguiente" : "Next"
+  };
+
+  const renderStepButton = (item, label) => {
+    if (!item) {
+      return `<span class="mobile-reader-nav__spacer" aria-hidden="true"></span>`;
+    }
+
+    return `
+      <button
+        class="glass-tab mobile-reader-nav__button"
+        type="button"
+        data-action="${escapeHtml(item.action)}"
+        ${escapeHtml(item.dataName)}="${escapeHtml(item.id)}"
+      >
+        <span class="mobile-reader-nav__direction">${escapeHtml(label)}</span>
+        <span class="mobile-reader-nav__label">${escapeHtml(item.label)}</span>
+      </button>
+    `;
+  };
+
+  return `
+    <nav class="mobile-reader-nav" aria-label="${escapeHtml(labels.all)}">
+      ${renderStepButton(navigation.previous, labels.previous)}
+      <button
+        class="glass-tab mobile-reader-nav__button mobile-reader-nav__button--all"
+        type="button"
+        data-action="show-mobile-sections"
+      >
+        ${escapeHtml(labels.all)}
+      </button>
+      ${renderStepButton(navigation.next, labels.next)}
+    </nav>
+  `;
+}
+
+function renderStructuredPanel(contentFile, language, ui, navigation = null) {
   const source = pick(contentFile, language);
 
   if (!source) {
@@ -226,6 +270,7 @@ function renderStructuredPanel(contentFile, language, ui) {
         data-structured-host
         data-source="${escapeHtml(source)}"
       ></div>
+      ${renderMobileReaderNavigation(navigation, language)}
       <div class="content-window__infinity" aria-hidden="true">∞</div>
     </article>
   `;
@@ -239,7 +284,7 @@ function renderEducationPanel(topic, language, ui) {
   return renderStructuredPanel(topic.contentFile, language, ui);
 }
 
-function renderLegacyPanel(item, language, ui) {
+function renderLegacyPanel(item, language, ui, navigation = null) {
   if (!item) {
     return "";
   }
@@ -247,9 +292,46 @@ function renderLegacyPanel(item, language, ui) {
   return `
     <article class="glass-window content-window" tabindex="0">
       <div class="legacy-content-host" data-legacy-host></div>
+      ${renderMobileReaderNavigation(navigation, language)}
       <div class="content-window__infinity" aria-hidden="true">∞</div>
     </article>
   `;
+}
+
+function createReaderNavItem(item, action, dataName, language) {
+  if (!item) {
+    return null;
+  }
+
+  return {
+    action,
+    dataName,
+    id: item.id,
+    label: pick(item.title, language)
+  };
+}
+
+function createReaderNavigation(items, activeId, action, dataName, language) {
+  if (!Array.isArray(items) || items.length < 2 || !activeId) {
+    return {
+      previous: null,
+      next: null
+    };
+  }
+
+  const activeIndex = items.findIndex((item) => item.id === activeId);
+
+  if (activeIndex === -1) {
+    return {
+      previous: null,
+      next: null
+    };
+  }
+
+  return {
+    previous: createReaderNavItem(items[activeIndex - 1], action, dataName, language),
+    next: createReaderNavItem(items[activeIndex + 1], action, dataName, language)
+  };
 }
 
 export function renderSite({ state, refs, content, assets }) {
@@ -323,19 +405,46 @@ export function renderSite({ state, refs, content, assets }) {
     : "";
 
   let activePanel = "";
+  let readerNavigation = null;
+
+  if (activeDetail) {
+    readerNavigation = createReaderNavigation(
+      legacyItems,
+      activeDetail.id,
+      "select-detail",
+      "data-item-id",
+      language
+    );
+  } else if (activeTopic && !activeTopic.branches) {
+    readerNavigation = createReaderNavigation(
+      topics,
+      activeTopic.id,
+      "select-topic",
+      "data-topic-id",
+      language
+    );
+  } else if (activeSection?.contentFile) {
+    readerNavigation = createReaderNavigation(
+      content.personalSections,
+      activeSection.id,
+      "select-section",
+      "data-section-id",
+      language
+    );
+  }
 
   if (activeDetail?.contentFile) {
-    activePanel = renderStructuredPanel(activeDetail.contentFile, language, content.ui);
+    activePanel = renderStructuredPanel(activeDetail.contentFile, language, content.ui, readerNavigation);
   } else if (activeTopic?.branches) {
     if (activeDetail) {
-      activePanel = renderLegacyPanel(activeDetail, language, content.ui);
+      activePanel = renderLegacyPanel(activeDetail, language, content.ui, readerNavigation);
     } else if (activeTopic?.contentFile) {
-      activePanel = renderStructuredPanel(activeTopic.contentFile, language, content.ui);
+      activePanel = renderStructuredPanel(activeTopic.contentFile, language, content.ui, readerNavigation);
     }
   } else if (activeTopic?.contentFile) {
-    activePanel = renderEducationPanel(activeTopic, language, content.ui);
+    activePanel = renderStructuredPanel(activeTopic.contentFile, language, content.ui, readerNavigation);
   } else if (activeSection?.contentFile) {
-    activePanel = renderStructuredPanel(activeSection.contentFile, language, content.ui);
+    activePanel = renderStructuredPanel(activeSection.contentFile, language, content.ui, readerNavigation);
   }
 
   const focusedRows = [];
@@ -403,7 +512,7 @@ export function renderSite({ state, refs, content, assets }) {
   }
 
   refs.stage.innerHTML = `
-    <div class="stage-column">
+    <div class="${classNames("stage-column", hasActivePanel && "stage-column--reader-active")}">
       ${useFocusedRows
         ? focusedRows.join("")
         : `${personalNavigation}
