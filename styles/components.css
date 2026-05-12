@@ -2202,8 +2202,8 @@ body[data-link-visibility="enhanced"] :where(.structured-content, .legacy-conten
 
   .glass-sphere,
   .dock-slot {
-    width: 2.12rem;
-    height: 2.12rem;
+    width: 1.92rem;
+    height: 1.92rem;
     font-size: 0.54rem;
   }
 
@@ -2225,13 +2225,19 @@ body[data-link-visibility="enhanced"] :where(.structured-content, .legacy-conten
   }
 
   .language-control__label {
-    font-size: 0.74rem;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
   }
 
   .site-title {
-    font-size: calc(1.18rem * var(--site-title-scale, 1));
-    gap: 0.24rem;
-    padding: 0.38rem 0.58rem;
+    max-width: calc(100vw - 8.6rem);
+    font-size: calc(1.08rem * var(--site-title-scale, 1));
+    gap: 0.2rem;
+    padding: 0.34rem 0.48rem;
     border: 1px solid rgba(var(--hover-outline-rgb), 0.42);
     border-radius: 999px;
     background:
@@ -2243,23 +2249,22 @@ body[data-link-visibility="enhanced"] :where(.structured-content, .legacy-conten
   }
 
   .site-title::after {
-    content: "Home";
-    margin-left: 0.16rem;
-    padding: 0.18rem 0.38rem;
+    content: "\2302";
+    display: inline-grid;
+    place-items: center;
+    flex: 0 0 auto;
+    width: 1.02rem;
+    height: 1.02rem;
+    margin-left: 0.08rem;
+    padding: 0;
     border: 1px solid rgba(var(--hover-outline-rgb), 0.5);
     border-radius: 999px;
     color: var(--strong);
     font-family: var(--font-ui);
-    font-size: 0.58rem;
+    font-size: 0.68rem;
     font-weight: 700;
-    letter-spacing: 0.08em;
     line-height: 1;
-    text-transform: uppercase;
     background: rgba(var(--hover-outline-rgb), 0.12);
-  }
-
-  body[data-language="es"] .site-title::after {
-    content: "Inicio";
   }
 
   .site-title__icon {
