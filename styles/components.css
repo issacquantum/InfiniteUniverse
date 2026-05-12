@@ -2231,6 +2231,35 @@ body[data-link-visibility="enhanced"] :where(.structured-content, .legacy-conten
   .site-title {
     font-size: calc(1.18rem * var(--site-title-scale, 1));
     gap: 0.24rem;
+    padding: 0.38rem 0.58rem;
+    border: 1px solid rgba(var(--hover-outline-rgb), 0.42);
+    border-radius: 999px;
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(var(--glass-rgb), 0.08)),
+      rgba(10, 0, 24, 0.2);
+    box-shadow:
+      0 0 0 1px rgba(var(--glass-rgb), 0.08) inset,
+      0 0 18px rgba(var(--glow-rgb), 0.16);
+  }
+
+  .site-title::after {
+    content: "Home";
+    margin-left: 0.16rem;
+    padding: 0.18rem 0.38rem;
+    border: 1px solid rgba(var(--hover-outline-rgb), 0.5);
+    border-radius: 999px;
+    color: var(--strong);
+    font-family: var(--font-ui);
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    text-transform: uppercase;
+    background: rgba(var(--hover-outline-rgb), 0.12);
+  }
+
+  body[data-language="es"] .site-title::after {
+    content: "Inicio";
   }
 
   .site-title__icon {

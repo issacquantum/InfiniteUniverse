@@ -218,7 +218,7 @@ function renderMobileReaderNavigation(navigation, language) {
   }
 
   const labels = {
-    back: language === "es" ? "Volver a" : "Back to",
+    back: language === "es" ? "Volver" : "Back",
     previous: language === "es" ? "Anterior" : "Previous",
     all: language === "es" ? "Todas las secciones" : "All Sections",
     next: language === "es" ? "Siguiente" : "Next"
@@ -249,8 +249,7 @@ function renderMobileReaderNavigation(navigation, language) {
         type="button"
         data-action="return-to-origin"
       >
-        <span class="mobile-reader-nav__direction">${escapeHtml(labels.back)}</span>
-        <span class="mobile-reader-nav__label">${escapeHtml(navigation.returnTo.label)}</span>
+        <span class="mobile-reader-nav__label">${escapeHtml(labels.back)}</span>
       </button>
     `
     : "";
