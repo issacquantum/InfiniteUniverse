@@ -6,7 +6,7 @@ import { refreshIcons } from "./icons.js";
 import { pick } from "./i18n.js";
 import { syncLegacyContent } from "./legacy-content.js?v=20260510-return-navigation";
 import { createMusicController, syncMusicUi } from "./music.js";
-import { renderSite } from "./render.js?v=20260511-mobile-reader-2";
+import { renderSite } from "./render.js?v=20260511-equation-return";
 import { createState } from "./state.js";
 import { syncStructuredContent } from "./structured-content.js?v=20260510-numerical-grid";
 
@@ -43,7 +43,8 @@ const store = createState({
   activeDomain: null,
   activeTopic: null,
   activeBranch: null,
-  activeDetail: null
+  activeDetail: null,
+  equationReturnTarget: null
 });
 
 function resolveMusicContext(state) {
@@ -78,6 +79,68 @@ const GALLERY_MAX_ZOOM_LEVEL = 7;
 function clearPendingReturnNavigation() {
   pendingStructuredReturn = null;
   pendingLegacyReturn = null;
+}
+
+function getReturnTargetLabel(returnTarget, language) {
+  if (!returnTarget) {
+    return "";
+  }
+
+  const section = [
+    ...siteContent.personalSections,
+    siteContent.siteNoticeSection
+  ].find((item) => item?.id === returnTarget.sectionId);
+  const domain = siteContent.educationDomains.find((item) => item.id === returnTarget.domainId);
+  const topic = domain?.topics?.find((item) => item.id === returnTarget.topicId);
+  const branchSource = topic ?? section;
+  const branch = branchSource?.branches?.find((item) => item.id === returnTarget.branchId);
+  const detail = branch?.items?.find((item) => item.id === returnTarget.detailId);
+
+  return pick(detail?.title ?? branch?.title ?? topic?.title ?? section?.title ?? { en: "", es: "" }, language);
+}
+
+function createEquationReturnTarget(state) {
+  const returnNavigation = pendingStructuredReturn ?? pendingLegacyReturn;
+
+  if (!returnNavigation) {
+    return null;
+  }
+
+  const target = {
+    domainId: returnNavigation.domainId ?? null,
+    topicId: returnNavigation.topicId ?? null,
+    sectionId: returnNavigation.sectionId ?? null,
+    branchId: returnNavigation.branchId ?? null,
+    detailId: returnNavigation.detailId ?? returnNavigation.itemId ?? null
+  };
+  const label = getReturnTargetLabel(target, state.language);
+
+  return {
+    ...target,
+    label
+  };
+}
+
+function restoreEquationReturnTarget() {
+  store.setState((state) => {
+    const target = state.equationReturnTarget;
+
+    if (!target) {
+      return state;
+    }
+
+    return {
+      ...state,
+      titleOpen: false,
+      activeSection: target.sectionId,
+      showPersonalSectionList: false,
+      activeDomain: target.domainId,
+      activeTopic: target.topicId,
+      activeBranch: target.branchId,
+      activeDetail: target.detailId,
+      equationReturnTarget: null
+    };
+  });
 }
 
 function getStructuredReturnTargets(root) {
@@ -340,7 +403,8 @@ function toggleTitle() {
       activeDomain: null,
       activeTopic: null,
       activeBranch: null,
-      activeDetail: null
+      activeDetail: null,
+      equationReturnTarget: null
     };
   });
 }
@@ -357,7 +421,8 @@ function selectSection(sectionId) {
         activeDomain: null,
         activeTopic: null,
         activeBranch: null,
-        activeDetail: null
+        activeDetail: null,
+        equationReturnTarget: null
       };
     }
 
@@ -369,7 +434,8 @@ function selectSection(sectionId) {
       activeDomain: null,
       activeTopic: null,
       activeBranch: null,
-      activeDetail: null
+      activeDetail: null,
+      equationReturnTarget: null
     };
   });
 }
@@ -386,7 +452,8 @@ function selectDomain(domainId) {
         activeDomain: null,
         activeTopic: null,
         activeBranch: null,
-        activeDetail: null
+        activeDetail: null,
+        equationReturnTarget: null
       };
     }
 
@@ -398,7 +465,8 @@ function selectDomain(domainId) {
       activeDomain: domainId,
       activeTopic: null,
       activeBranch: null,
-      activeDetail: null
+      activeDetail: null,
+      equationReturnTarget: null
     };
   });
 }
@@ -414,7 +482,8 @@ function selectTopic(topicId) {
         showPersonalSectionList: false,
         activeTopic: null,
         activeBranch: null,
-        activeDetail: null
+        activeDetail: null,
+        equationReturnTarget: null
       };
     }
 
@@ -425,7 +494,8 @@ function selectTopic(topicId) {
       showPersonalSectionList: false,
       activeTopic: topicId,
       activeBranch: null,
-      activeDetail: null
+      activeDetail: null,
+      equationReturnTarget: null
     };
   });
 }
@@ -440,7 +510,8 @@ function selectBranch(branchId) {
           titleOpen: false,
           activeSection: null,
           showPersonalSectionList: false,
-          activeDetail: null
+          activeDetail: null,
+          equationReturnTarget: null
         };
       }
 
@@ -450,7 +521,8 @@ function selectBranch(branchId) {
         activeSection: null,
         showPersonalSectionList: false,
         activeBranch: null,
-        activeDetail: null
+        activeDetail: null,
+        equationReturnTarget: null
       };
     }
 
@@ -460,7 +532,8 @@ function selectBranch(branchId) {
       activeSection: null,
       showPersonalSectionList: false,
       activeBranch: branchId,
-      activeDetail: null
+      activeDetail: null,
+      equationReturnTarget: null
     };
   });
 }
@@ -476,7 +549,8 @@ function selectDetail(itemId) {
         activeDomain: pendingStructuredReturn.domainId,
         activeTopic: pendingStructuredReturn.topicId,
         activeBranch: pendingStructuredReturn.branchId,
-        activeDetail: pendingStructuredReturn.detailId
+        activeDetail: pendingStructuredReturn.detailId,
+        equationReturnTarget: null
       };
     }
 
@@ -492,7 +566,8 @@ function selectDetail(itemId) {
         activeDomain: pendingLegacyReturn.domainId,
         activeTopic: pendingLegacyReturn.topicId,
         activeBranch: pendingLegacyReturn.branchId,
-        activeDetail: pendingLegacyReturn.itemId
+        activeDetail: pendingLegacyReturn.itemId,
+        equationReturnTarget: null
       };
     }
 
@@ -501,7 +576,8 @@ function selectDetail(itemId) {
       titleOpen: false,
       activeSection: null,
       showPersonalSectionList: false,
-      activeDetail: state.activeDetail === itemId ? null : itemId
+      activeDetail: state.activeDetail === itemId ? null : itemId,
+      equationReturnTarget: state.activeDetail === itemId ? null : state.equationReturnTarget
     };
   });
 }
@@ -512,6 +588,7 @@ function selectLegacyItem(branchId, itemId) {
       section.id === state.activeSection
       && section.branches?.some((branch) => branch.id === branchId)
     ));
+    const equationReturnTarget = createEquationReturnTarget(state);
 
     return {
       ...state,
@@ -519,7 +596,8 @@ function selectLegacyItem(branchId, itemId) {
       activeSection: sectionOwnsBranch ? state.activeSection : null,
       showPersonalSectionList: false,
       activeBranch: branchId,
-      activeDetail: itemId
+      activeDetail: itemId,
+      equationReturnTarget
     };
   });
 }
@@ -530,7 +608,8 @@ function showMobileSections() {
     if (state.activeDetail) {
       return {
         ...state,
-        activeDetail: null
+        activeDetail: null,
+        equationReturnTarget: null
       };
     }
 
@@ -539,7 +618,8 @@ function showMobileSections() {
         ...state,
         activeTopic: null,
         activeBranch: null,
-        activeDetail: null
+        activeDetail: null,
+        equationReturnTarget: null
       };
     }
 
@@ -549,7 +629,8 @@ function showMobileSections() {
         titleOpen: true,
         activeSection: null,
         activeBranch: null,
-        activeDetail: null
+        activeDetail: null,
+        equationReturnTarget: null
       };
     }
 
@@ -881,6 +962,11 @@ document.addEventListener("click", (event) => {
 
     if (action === "show-mobile-sections") {
       showMobileSections();
+      return;
+    }
+
+    if (action === "return-to-origin") {
+      restoreEquationReturnTarget();
       return;
     }
 

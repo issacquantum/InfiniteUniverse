@@ -218,6 +218,7 @@ function renderMobileReaderNavigation(navigation, language) {
   }
 
   const labels = {
+    back: language === "es" ? "Volver a" : "Back to",
     previous: language === "es" ? "Anterior" : "Previous",
     all: language === "es" ? "Todas las secciones" : "All Sections",
     next: language === "es" ? "Siguiente" : "Next"
@@ -241,17 +242,33 @@ function renderMobileReaderNavigation(navigation, language) {
     `;
   };
 
-  return `
-    <nav class="mobile-reader-nav" aria-label="${escapeHtml(labels.all)}">
-      ${renderStepButton(navigation.previous, labels.previous)}
+  const returnButton = navigation.returnTo
+    ? `
       <button
-        class="glass-tab mobile-reader-nav__button mobile-reader-nav__button--all"
+        class="glass-tab mobile-reader-nav__button mobile-reader-nav__button--return"
         type="button"
-        data-action="show-mobile-sections"
+        data-action="return-to-origin"
       >
-        ${escapeHtml(labels.all)}
+        <span class="mobile-reader-nav__direction">${escapeHtml(labels.back)}</span>
+        <span class="mobile-reader-nav__label">${escapeHtml(navigation.returnTo.label)}</span>
       </button>
-      ${renderStepButton(navigation.next, labels.next)}
+    `
+    : "";
+
+  return `
+    <nav class="${classNames("mobile-reader-nav", returnButton && "mobile-reader-nav--with-return")}" aria-label="${escapeHtml(labels.all)}">
+      ${returnButton}
+      <div class="mobile-reader-nav__steps">
+        ${renderStepButton(navigation.previous, labels.previous)}
+        <button
+          class="glass-tab mobile-reader-nav__button mobile-reader-nav__button--all"
+          type="button"
+          data-action="show-mobile-sections"
+        >
+          ${escapeHtml(labels.all)}
+        </button>
+        ${renderStepButton(navigation.next, labels.next)}
+      </div>
     </nav>
   `;
 }
@@ -415,6 +432,9 @@ export function renderSite({ state, refs, content, assets }) {
       "data-item-id",
       language
     );
+    if (state.equationReturnTarget?.label) {
+      readerNavigation.returnTo = state.equationReturnTarget;
+    }
   } else if (activeBranch) {
     readerNavigation = createReaderNavigation(
       branchSource.branches,
