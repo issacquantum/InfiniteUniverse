@@ -2000,11 +2000,11 @@ body[data-contrast="high"] .content-window {
 :where(.structured-content, .legacy-content) :where(.source-papers, .source-language-note, .paper-list) a[href] :where(strong, em),
 :where(.structured-content, .legacy-content) .paper-link,
 :where(.structured-content, .legacy-content) .paper-link :where(strong, em) {
-  color: #c084ff;
+  color: #8f35ff;
   text-decoration: none;
   text-shadow:
-    0 0 10px rgba(192, 132, 255, 0.34),
-    0 0 24px rgba(var(--glow-rgb), 0.18);
+    0 0 10px rgba(143, 53, 255, 0.48),
+    0 0 24px rgba(77, 0, 180, 0.28);
 }
 
 :where(.structured-content, .legacy-content) :where(.source-papers, .source-language-note, .paper-list) a[href]:hover,
@@ -2015,12 +2015,12 @@ body[data-contrast="high"] .content-window {
 :where(.structured-content, .legacy-content) .paper-link:focus-visible,
 :where(.structured-content, .legacy-content) .paper-link:hover :where(strong, em),
 :where(.structured-content, .legacy-content) .paper-link:focus-visible :where(strong, em) {
-  color: #e2b8ff;
+  color: #b45cff;
   text-decoration: none;
   text-shadow:
-    0 0 10px rgba(192, 132, 255, 0.72),
-    0 0 24px rgba(var(--glow-rgb), 0.38),
-    0 0 42px rgba(var(--glow-rgb), 0.18);
+    0 0 10px rgba(180, 92, 255, 0.78),
+    0 0 24px rgba(143, 53, 255, 0.48),
+    0 0 42px rgba(77, 0, 180, 0.28);
 }
 
 body[data-link-visibility="enhanced"] :where(.structured-content, .legacy-content) a[href] {
