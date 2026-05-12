@@ -1996,6 +1996,33 @@ body[data-contrast="high"] .content-window {
     0 0 42px rgba(119, 0, 255, 0.18);
 }
 
+:where(.structured-content, .legacy-content) :where(.source-papers, .source-language-note, .paper-list) a[href],
+:where(.structured-content, .legacy-content) :where(.source-papers, .source-language-note, .paper-list) a[href] :where(strong, em),
+:where(.structured-content, .legacy-content) .paper-link,
+:where(.structured-content, .legacy-content) .paper-link :where(strong, em) {
+  color: #c084ff;
+  text-decoration: none;
+  text-shadow:
+    0 0 10px rgba(192, 132, 255, 0.34),
+    0 0 24px rgba(var(--glow-rgb), 0.18);
+}
+
+:where(.structured-content, .legacy-content) :where(.source-papers, .source-language-note, .paper-list) a[href]:hover,
+:where(.structured-content, .legacy-content) :where(.source-papers, .source-language-note, .paper-list) a[href]:focus-visible,
+:where(.structured-content, .legacy-content) :where(.source-papers, .source-language-note, .paper-list) a[href]:hover :where(strong, em),
+:where(.structured-content, .legacy-content) :where(.source-papers, .source-language-note, .paper-list) a[href]:focus-visible :where(strong, em),
+:where(.structured-content, .legacy-content) .paper-link:hover,
+:where(.structured-content, .legacy-content) .paper-link:focus-visible,
+:where(.structured-content, .legacy-content) .paper-link:hover :where(strong, em),
+:where(.structured-content, .legacy-content) .paper-link:focus-visible :where(strong, em) {
+  color: #e2b8ff;
+  text-decoration: none;
+  text-shadow:
+    0 0 10px rgba(192, 132, 255, 0.72),
+    0 0 24px rgba(var(--glow-rgb), 0.38),
+    0 0 42px rgba(var(--glow-rgb), 0.18);
+}
+
 body[data-link-visibility="enhanced"] :where(.structured-content, .legacy-content) a[href] {
   text-decoration: underline;
   text-decoration-color: currentColor;
