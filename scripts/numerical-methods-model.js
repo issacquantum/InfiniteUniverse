@@ -1,4 +1,4 @@
-import { isModelPanGesture, panTargetFromPointer } from "./model-pan.js?v=20260503-fabric-no-orbit-line";
+import { bindPinchZoom, isModelPanGesture, panTargetFromPointer } from "./model-pan.js?v=20260511-mobile-pinch-zoom";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
@@ -368,6 +368,20 @@ class NumericalMethodsModel {
       this.state.distance = clamp(this.state.distance + Math.sign(event.deltaY) * 1.5, 9, 62);
       this.updateCamera();
     };
+
+    bindPinchZoom(this.canvas, {
+      getValue: () => this.state.distance,
+      setValue: (value) => {
+        this.state.distance = value;
+      },
+      min: 9,
+      max: 62,
+      inverted: true,
+      onStart: () => {
+        this.pointer = null;
+      },
+      onChange: () => this.updateCamera()
+    });
 
     this.boundKeyDown = (event) => {
       if (event.key === "ArrowLeft") {

@@ -1,3 +1,5 @@
+import { bindPinchZoom } from "./model-pan.js?v=20260511-mobile-pinch-zoom";
+
 const mountedModels = new WeakSet();
 const TWO_PI = Math.PI * 2;
 
@@ -184,6 +186,24 @@ class GravityLensingModel {
     this.canvas.addEventListener("pointerup", (event) => {
       if (this.pointer?.id === event.pointerId) {
         this.pointer = null;
+      }
+    });
+
+    bindPinchZoom(this.canvas, {
+      getValue: () => this.state.strength,
+      setValue: (value) => {
+        this.state.strength = value;
+        const input = this.container.querySelector("[data-gl-param='strength']");
+        if (input) {
+          input.value = String(value);
+        }
+        this.syncValue("strength");
+      },
+      min: 45,
+      max: 130,
+      onStart: () => {
+        this.pointer = null;
+        disableMotion();
       }
     });
 

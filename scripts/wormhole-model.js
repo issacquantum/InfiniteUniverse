@@ -1,4 +1,4 @@
-import { isModelPanGesture, panObjectFromPointer } from "./model-pan.js?v=20260503-fabric-no-orbit-line";
+import { bindPinchZoom, isModelPanGesture, panObjectFromPointer } from "./model-pan.js?v=20260511-mobile-pinch-zoom";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
@@ -706,6 +706,20 @@ class WormholeModel {
       this.camera.position.z = clamp(this.camera.position.z + Math.sign(event.deltaY) * 0.55, 7, 24);
       this.camera.lookAt(this.modelGroup.position);
     }, { passive: false });
+
+    bindPinchZoom(this.canvas, {
+      getValue: () => this.camera.position.z,
+      setValue: (value) => {
+        this.camera.position.z = value;
+      },
+      min: 7,
+      max: 24,
+      inverted: true,
+      onStart: () => {
+        this.pointer = null;
+      },
+      onChange: () => this.camera.lookAt(this.modelGroup.position)
+    });
 
     this.canvas.addEventListener("keydown", (event) => {
       switch (event.key) {

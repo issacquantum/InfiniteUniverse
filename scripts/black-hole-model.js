@@ -1,3 +1,5 @@
+import { bindPinchZoom } from "./model-pan.js?v=20260511-mobile-pinch-zoom";
+
 const mountedModels = new WeakSet();
 
 const COLORS = {
@@ -168,6 +170,23 @@ class BlackHoleModel {
       }
       event.preventDefault();
     }, { passive: false });
+
+    bindPinchZoom(this.canvas, {
+      getValue: () => this.state.mass,
+      setValue: (value) => {
+        this.state.mass = value;
+        const input = this.container.querySelector("[data-bh-param='mass']");
+        if (input) {
+          input.value = String(value);
+        }
+        this.syncValue("mass", value);
+      },
+      min: 0.7,
+      max: 1.4,
+      onStart: () => {
+        this.pointer = null;
+      }
+    });
   }
 
   setupObservers() {

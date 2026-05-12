@@ -1,4 +1,4 @@
-import { isModelPanGesture, panObjectFromPointer } from "./model-pan.js?v=20260503-fabric-no-orbit-line";
+import { bindPinchZoom, isModelPanGesture, panObjectFromPointer } from "./model-pan.js?v=20260511-mobile-pinch-zoom";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
@@ -436,6 +436,20 @@ class GravityFabricModel {
       this.camera.position.z = clamp(nextZ, 5.6, 11.5);
       this.camera.lookAt(0, -0.28, 0);
     }, { passive: false });
+
+    bindPinchZoom(this.canvas, {
+      getValue: () => this.camera.position.z,
+      setValue: (value) => {
+        this.camera.position.z = value;
+      },
+      min: 5.6,
+      max: 11.5,
+      inverted: true,
+      onStart: () => {
+        this.pointer = null;
+      },
+      onChange: () => this.camera.lookAt(0, -0.28, 0)
+    });
 
     this.canvas.addEventListener("keydown", (event) => {
       switch (event.key) {
