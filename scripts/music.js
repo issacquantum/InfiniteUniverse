@@ -374,37 +374,6 @@ export function createMusicController({ refs, assets, onStateChange }) {
   emitState();
 
   return {
-    async startTekkenEntrance() {
-      if (!tekkenPlaylist.length) {
-        emitState();
-        return;
-      }
-
-      clearTekkenAutoplayTimer();
-
-      if (activeContextId === "default") {
-        saveDefaultPlaybackState();
-        defaultAudio.pause();
-      } else {
-        tekkenAudio.pause();
-        tekkenAudio.currentTime = 0;
-      }
-
-      activeContextId = "tekken";
-      currentTrackIndex = 0;
-      if (tekkenPlaylist[0] && tekkenAudio.getAttribute("src") !== tekkenPlaylist[0].source) {
-        tekkenAudio.src = tekkenPlaylist[0].source;
-      }
-
-      setButtonAvailability();
-      if (await startTekkenCountdownPlayback()) {
-        emitState();
-        scheduleTekkenAutoplay();
-        return;
-      }
-
-      emitState();
-    },
     async setContext(contextId = "default") {
       const nextContextId = contextId === "tekken" && tekkenPlaylist.length ? "tekken" : "default";
 
