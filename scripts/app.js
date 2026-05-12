@@ -6,7 +6,7 @@ import { refreshIcons } from "./icons.js";
 import { pick } from "./i18n.js";
 import { syncLegacyContent } from "./legacy-content.js?v=20260510-return-navigation";
 import { createMusicController, syncMusicUi } from "./music.js";
-import { renderSite } from "./render.js";
+import { renderSite } from "./render.js?v=20260511-mobile-reader";
 import { createState } from "./state.js";
 import { syncStructuredContent } from "./structured-content.js?v=20260510-numerical-grid";
 
@@ -524,6 +524,39 @@ function selectLegacyItem(branchId, itemId) {
   });
 }
 
+function showMobileSections() {
+  clearPendingReturnNavigation();
+  store.setState((state) => {
+    if (state.activeDetail) {
+      return {
+        ...state,
+        activeDetail: null
+      };
+    }
+
+    if (state.activeTopic) {
+      return {
+        ...state,
+        activeTopic: null,
+        activeBranch: null,
+        activeDetail: null
+      };
+    }
+
+    if (state.activeSection) {
+      return {
+        ...state,
+        titleOpen: true,
+        activeSection: null,
+        activeBranch: null,
+        activeDetail: null
+      };
+    }
+
+    return state;
+  });
+}
+
 function toggleLanguage() {
   store.setState((state) => ({
     ...state,
@@ -843,6 +876,11 @@ document.addEventListener("click", (event) => {
     if (action === "select-legacy-item") {
       captureReturnNavigation(actionTarget);
       selectLegacyItem(actionTarget.dataset.branchId, actionTarget.dataset.itemId);
+      return;
+    }
+
+    if (action === "show-mobile-sections") {
+      showMobileSections();
       return;
     }
 
