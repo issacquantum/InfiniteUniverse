@@ -257,7 +257,7 @@ export function createMusicController({ refs, assets, onStateChange }) {
     }
   }
 
-  async function startTekkenCountdownPlayback() {
+  function startTekkenAutoplayDelay() {
     if (!tekkenPlaylist.length) {
       emitState();
       return false;
@@ -270,20 +270,10 @@ export function createMusicController({ refs, assets, onStateChange }) {
     }
 
     tekkenAudio.currentTime = 0;
-    tekkenAudio.muted = true;
+    tekkenAudio.muted = false;
     tekkenAudio.volume = 1;
     isTekkenCountdownPending = true;
-
-    try {
-      await tekkenAudio.play();
-      return true;
-    } catch (_error) {
-      isTekkenCountdownPending = false;
-      tekkenAudio.muted = false;
-      tekkenAudio.volume = 1;
-      emitState();
-      return false;
-    }
+    return true;
   }
 
   async function togglePlayback() {
@@ -299,12 +289,10 @@ export function createMusicController({ refs, assets, onStateChange }) {
     if (activeContextId === "tekken") {
       clearTekkenAutoplayTimer();
 
-      if (isTekkenCountdownPending && !tekkenAudio.paused && !tekkenAudio.ended) {
+      if (isTekkenCountdownPending) {
         isTekkenCountdownPending = false;
         tekkenAudio.currentTime = 0;
-        tekkenAudio.muted = false;
-        tekkenAudio.volume = 1;
-        emitState();
+        await playTekkenTrack();
         return;
       }
     }
@@ -342,15 +330,13 @@ export function createMusicController({ refs, assets, onStateChange }) {
     tekkenAutoplayTimer = window.setTimeout(() => {
       tekkenAutoplayTimer = null;
 
-      if (activeContextId !== "tekken" || tekkenAudio.paused || tekkenAudio.ended) {
+      if (activeContextId !== "tekken" || !isTekkenCountdownPending) {
         return;
       }
 
       isTekkenCountdownPending = false;
       tekkenAudio.currentTime = 0;
-      tekkenAudio.muted = false;
-      tekkenAudio.volume = 1;
-      emitState();
+      void playTekkenTrack();
     }, TEKKEN_AUTOPLAY_DELAY_MS);
   }
 
@@ -419,7 +405,7 @@ export function createMusicController({ refs, assets, onStateChange }) {
         tekkenAudio.src = tekkenPlaylist[0].source;
       }
       tekkenAudio.currentTime = 0;
-      if (await startTekkenCountdownPlayback()) {
+      if (startTekkenAutoplayDelay()) {
         emitState();
         scheduleTekkenAutoplay();
         return;
