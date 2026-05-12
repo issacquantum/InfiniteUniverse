@@ -5,7 +5,7 @@ import { initBackground } from "./background.js";
 import { refreshIcons } from "./icons.js";
 import { pick } from "./i18n.js";
 import { syncLegacyContent } from "./legacy-content.js?v=20260510-return-navigation";
-import { createMusicController, syncMusicUi } from "./music.js";
+import { createMusicController, syncMusicUi } from "./music.js?v=20260511-tekken-audio-single-start";
 import { renderSite } from "./render.js?v=20260511-equation-return-2";
 import { createState } from "./state.js";
 import { syncStructuredContent } from "./structured-content.js?v=20260510-numerical-grid";
@@ -925,10 +925,6 @@ document.addEventListener("click", (event) => {
 
     if (action === "select-section") {
       const nextSectionId = actionTarget.dataset.sectionId;
-
-      if ((nextSectionId === "tekken" || nextSectionId === "applied-disciplines") && store.getState().activeSection !== nextSectionId) {
-        void musicController?.startTekkenEntrance();
-      }
 
       selectSection(nextSectionId);
       return;
