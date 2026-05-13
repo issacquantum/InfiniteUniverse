@@ -4,11 +4,11 @@ import { createAccessibilityController } from "./accessibility.js?v=20260508-a11
 import { initBackground } from "./background.js";
 import { refreshIcons } from "./icons.js";
 import { pick } from "./i18n.js";
-import { syncLegacyContent } from "./legacy-content.js?v=20260510-return-navigation";
-import { createMusicController, syncMusicUi } from "./music.js?v=20260511-tekken-audio-delay-clean";
+import { syncLegacyContent } from "./legacy-content.js?v=20260513-content-order-return";
+import { createMusicController, syncMusicUi } from "./music.js?v=20260513-tekken-delayed-autoplay-unlock";
 import { renderSite } from "./render.js?v=20260511-equation-return-2";
 import { createState } from "./state.js";
-import { syncStructuredContent } from "./structured-content.js?v=20260511-mobile-pinch-zoom";
+import { syncStructuredContent } from "./structured-content.js?v=20260513-content-order-return";
 
 const refs = {
   siteShell: document.querySelector(".site-shell"),
@@ -106,12 +106,18 @@ function createEquationReturnTarget(state) {
     return null;
   }
 
+  const returnType = pendingLegacyReturn ? "legacy" : "structured";
   const target = {
+    returnType,
     domainId: returnNavigation.domainId ?? null,
     topicId: returnNavigation.topicId ?? null,
     sectionId: returnNavigation.sectionId ?? null,
     branchId: returnNavigation.branchId ?? null,
-    detailId: returnNavigation.detailId ?? returnNavigation.itemId ?? null
+    detailId: returnNavigation.detailId ?? returnNavigation.itemId ?? null,
+    itemId: returnNavigation.itemId ?? null,
+    targetItemId: returnNavigation.targetItemId ?? null,
+    triggerIndex: returnNavigation.triggerIndex ?? -1,
+    scrollTop: returnNavigation.scrollTop ?? 0
   };
   const label = getReturnTargetLabel(target, state.language);
 
@@ -127,6 +133,31 @@ function restoreEquationReturnTarget() {
 
     if (!target) {
       return state;
+    }
+
+    if (target.returnType === "legacy") {
+      pendingLegacyReturn = {
+        domainId: target.domainId,
+        topicId: target.topicId,
+        branchId: target.branchId,
+        itemId: target.detailId,
+        triggerIndex: target.triggerIndex,
+        scrollTop: target.scrollTop,
+        targetItemId: target.targetItemId
+      };
+      pendingStructuredReturn = null;
+    } else {
+      pendingStructuredReturn = {
+        domainId: target.domainId,
+        topicId: target.topicId,
+        sectionId: target.sectionId,
+        branchId: target.branchId,
+        detailId: target.detailId,
+        triggerIndex: target.triggerIndex,
+        scrollTop: target.scrollTop,
+        itemId: target.itemId
+      };
+      pendingLegacyReturn = null;
     }
 
     return {
