@@ -1,5 +1,5 @@
 import { bigBangLegacyContent } from "../data/legacy-big-bang.js";
-import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260513-gt-media-trim";
+import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260513-gt-vehicles-restore";
 import { pick } from "./i18n.js";
 
 let activeRequestToken = 0;
