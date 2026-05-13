@@ -3,7 +3,7 @@ import { siteContent } from "../data/site-content.js";
 
 const documentCache = new Map();
 const requestCache = new Map();
-const CONTENT_CACHE_VERSION = "20260513-gt-order-fix";
+const CONTENT_CACHE_VERSION = "20260513-gt-media-trim";
 const PREWARM_WORKER_LIMIT = 4;
 let prewarmScheduled = false;
 
