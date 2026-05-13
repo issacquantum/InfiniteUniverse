@@ -273,7 +273,42 @@ export function createMusicController({ refs, assets, onStateChange }) {
     tekkenAudio.muted = false;
     tekkenAudio.volume = 1;
     isTekkenCountdownPending = true;
+    unlockTekkenAudioForDelayedStart();
     return true;
+  }
+
+  function unlockTekkenAudioForDelayedStart() {
+    if (!tekkenAudio.src) {
+      return;
+    }
+
+    tekkenAudio.muted = true;
+    tekkenAudio.volume = 0;
+    const playPromise = tekkenAudio.play();
+
+    if (!playPromise || typeof playPromise.then !== "function") {
+      tekkenAudio.pause();
+      tekkenAudio.currentTime = 0;
+      tekkenAudio.muted = false;
+      tekkenAudio.volume = 1;
+      return;
+    }
+
+    playPromise
+      .then(() => {
+        if (isTekkenCountdownPending) {
+          tekkenAudio.pause();
+          tekkenAudio.currentTime = 0;
+        }
+        tekkenAudio.muted = false;
+        tekkenAudio.volume = 1;
+        emitState();
+      })
+      .catch(() => {
+        tekkenAudio.muted = false;
+        tekkenAudio.volume = 1;
+        emitState();
+      });
   }
 
   async function togglePlayback() {
