@@ -13,7 +13,7 @@ import { initInformationTheoryModels } from "./information-theory-model.js?v=202
 import { initAlgorithmVisualizerModels } from "./algorithm-visualizer-model.js?v=20260511-mobile-pinch-zoom";
 import { initQuantumFluctuationModels } from "./quantum-fluctuation-model.js?v=20260511-mobile-pinch-zoom";
 import { initBlackHoleModels } from "./black-hole-model.js?v=20260511-mobile-pinch-zoom";
-import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260513-gt-order-fix";
+import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260513-gt-media-trim";
 
 let activeRequestToken = 0;
 
