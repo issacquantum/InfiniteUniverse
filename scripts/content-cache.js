@@ -3,7 +3,7 @@ import { siteContent } from "../data/site-content.js";
 
 const documentCache = new Map();
 const requestCache = new Map();
-const CONTENT_CACHE_VERSION = "20260510-wormhole-violet";
+const CONTENT_CACHE_VERSION = "20260513-content-order-return";
 const PREWARM_WORKER_LIMIT = 4;
 let prewarmScheduled = false;
 
