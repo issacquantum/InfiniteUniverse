@@ -446,7 +446,7 @@
   }
 }
 
-@media (orientation: landscape) and (max-height: 540px) and (max-width: 1024px) and (hover: none) and (pointer: coarse) {
+@media (orientation: landscape) and (max-height: 620px) and (max-width: 1024px) and (hover: none) and (pointer: coarse) {
   .site-shell {
     height: 100dvh;
     min-height: 100dvh;
