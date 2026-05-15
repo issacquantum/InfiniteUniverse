@@ -1,6 +1,6 @@
 import { pick } from "./i18n.js";
 import { initDoubleSlitSimulators } from "./double-slit-simulator.js?v=20260511-mobile-pinch-zoom";
-import { initGravityFabricModels } from "./gravity-fabric-model.js?v=20260514-mass-sinks-with-fabric";
+import { initGravityFabricModels } from "./gravity-fabric-model.js?v=20260514-fabric-clearance-rotation";
 import { initGravityLensingModels } from "./gravity-lensing-model.js?v=20260511-mobile-pinch-zoom";
 import { initQuantumEntanglementModels } from "./quantum-entanglement-model.js?v=20260511-mobile-pinch-zoom";
 import { initQuantumChannelModels } from "./quantum-channel-model.js?v=20260511-mobile-pinch-zoom";
