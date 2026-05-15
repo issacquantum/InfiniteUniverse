@@ -6,7 +6,7 @@ import { refreshIcons } from "./icons.js";
 import { pick } from "./i18n.js";
 import { syncLegacyContent } from "./legacy-content.js?v=20260513-gt-vehicles-restore";
 import { createMusicController, syncMusicUi } from "./music.js?v=20260513-tekken-delayed-autoplay-unlock";
-import { renderSite } from "./render.js?v=20260511-equation-return-2";
+import { renderSite } from "./render.js?v=20260514-mobile-science-nav";
 import { createState } from "./state.js";
 import { syncStructuredContent } from "./structured-content.js?v=20260513-gt-vehicles-restore";
 
@@ -44,7 +44,9 @@ const store = createState({
   activeTopic: null,
   activeBranch: null,
   activeDetail: null,
-  equationReturnTarget: null
+  equationReturnTarget: null,
+  mobileScienceNavOpen: false,
+  mobileScienceNavDomain: null
 });
 
 function resolveMusicContext(state) {
@@ -422,7 +424,8 @@ function toggleTitle() {
         ...state,
         titleOpen: false,
         activeSection: null,
-        showPersonalSectionList: false
+        showPersonalSectionList: false,
+        mobileScienceNavOpen: false
       };
     }
 
@@ -435,7 +438,8 @@ function toggleTitle() {
       activeTopic: null,
       activeBranch: null,
       activeDetail: null,
-      equationReturnTarget: null
+      equationReturnTarget: null,
+      mobileScienceNavOpen: false
     };
   });
 }
@@ -453,7 +457,8 @@ function selectSection(sectionId) {
         activeTopic: null,
         activeBranch: null,
         activeDetail: null,
-        equationReturnTarget: null
+        equationReturnTarget: null,
+        mobileScienceNavOpen: false
       };
     }
 
@@ -466,7 +471,8 @@ function selectSection(sectionId) {
       activeTopic: null,
       activeBranch: null,
       activeDetail: null,
-      equationReturnTarget: null
+      equationReturnTarget: null,
+      mobileScienceNavOpen: false
     };
   });
 }
@@ -484,7 +490,9 @@ function selectDomain(domainId) {
         activeTopic: null,
         activeBranch: null,
         activeDetail: null,
-        equationReturnTarget: null
+        equationReturnTarget: null,
+        mobileScienceNavOpen: false,
+        mobileScienceNavDomain: null
       };
     }
 
@@ -497,7 +505,9 @@ function selectDomain(domainId) {
       activeTopic: null,
       activeBranch: null,
       activeDetail: null,
-      equationReturnTarget: null
+      equationReturnTarget: null,
+      mobileScienceNavOpen: false,
+      mobileScienceNavDomain: domainId
     };
   });
 }
@@ -514,7 +524,8 @@ function selectTopic(topicId) {
         activeTopic: null,
         activeBranch: null,
         activeDetail: null,
-        equationReturnTarget: null
+        equationReturnTarget: null,
+        mobileScienceNavOpen: false
       };
     }
 
@@ -526,7 +537,8 @@ function selectTopic(topicId) {
       activeTopic: topicId,
       activeBranch: null,
       activeDetail: null,
-      equationReturnTarget: null
+      equationReturnTarget: null,
+      mobileScienceNavOpen: false
     };
   });
 }
@@ -542,7 +554,8 @@ function selectBranch(branchId) {
           activeSection: null,
           showPersonalSectionList: false,
           activeDetail: null,
-          equationReturnTarget: null
+          equationReturnTarget: null,
+          mobileScienceNavOpen: false
         };
       }
 
@@ -553,7 +566,8 @@ function selectBranch(branchId) {
         showPersonalSectionList: false,
         activeBranch: null,
         activeDetail: null,
-        equationReturnTarget: null
+        equationReturnTarget: null,
+        mobileScienceNavOpen: false
       };
     }
 
@@ -564,7 +578,8 @@ function selectBranch(branchId) {
       showPersonalSectionList: false,
       activeBranch: branchId,
       activeDetail: null,
-      equationReturnTarget: null
+      equationReturnTarget: null,
+      mobileScienceNavOpen: false
     };
   });
 }
@@ -581,7 +596,8 @@ function selectDetail(itemId) {
         activeTopic: pendingStructuredReturn.topicId,
         activeBranch: pendingStructuredReturn.branchId,
         activeDetail: pendingStructuredReturn.detailId,
-        equationReturnTarget: null
+        equationReturnTarget: null,
+        mobileScienceNavOpen: false
       };
     }
 
@@ -598,7 +614,8 @@ function selectDetail(itemId) {
         activeTopic: pendingLegacyReturn.topicId,
         activeBranch: pendingLegacyReturn.branchId,
         activeDetail: pendingLegacyReturn.itemId,
-        equationReturnTarget: null
+        equationReturnTarget: null,
+        mobileScienceNavOpen: false
       };
     }
 
@@ -608,7 +625,8 @@ function selectDetail(itemId) {
       activeSection: null,
       showPersonalSectionList: false,
       activeDetail: state.activeDetail === itemId ? null : itemId,
-      equationReturnTarget: state.activeDetail === itemId ? null : state.equationReturnTarget
+      equationReturnTarget: state.activeDetail === itemId ? null : state.equationReturnTarget,
+      mobileScienceNavOpen: false
     };
   });
 }
@@ -628,7 +646,8 @@ function selectLegacyItem(branchId, itemId) {
       showPersonalSectionList: false,
       activeBranch: branchId,
       activeDetail: itemId,
-      equationReturnTarget
+      equationReturnTarget,
+      mobileScienceNavOpen: false
     };
   });
 }
@@ -640,7 +659,8 @@ function showMobileSections() {
       return {
         ...state,
         activeDetail: null,
-        equationReturnTarget: null
+        equationReturnTarget: null,
+        mobileScienceNavOpen: false
       };
     }
 
@@ -650,7 +670,8 @@ function showMobileSections() {
         activeTopic: null,
         activeBranch: null,
         activeDetail: null,
-        equationReturnTarget: null
+        equationReturnTarget: null,
+        mobileScienceNavOpen: false
       };
     }
 
@@ -661,12 +682,49 @@ function showMobileSections() {
         activeSection: null,
         activeBranch: null,
         activeDetail: null,
-        equationReturnTarget: null
+        equationReturnTarget: null,
+        mobileScienceNavOpen: false
       };
     }
 
     return state;
   });
+}
+
+function toggleMobileScienceNav() {
+  store.setState((state) => ({
+    ...state,
+    mobileScienceNavOpen: !state.mobileScienceNavOpen,
+    mobileScienceNavDomain: state.mobileScienceNavDomain
+      ?? state.activeDomain
+      ?? siteContent.educationDomains[0]?.id
+      ?? null
+  }));
+}
+
+function toggleMobileScienceDomain(domainId) {
+  store.setState((state) => ({
+    ...state,
+    mobileScienceNavOpen: true,
+    mobileScienceNavDomain: domainId
+  }));
+}
+
+function selectMobileScienceTopic(domainId, topicId) {
+  clearPendingReturnNavigation();
+  store.setState((state) => ({
+    ...state,
+    titleOpen: false,
+    activeSection: null,
+    showPersonalSectionList: false,
+    activeDomain: domainId,
+    activeTopic: topicId,
+    activeBranch: null,
+    activeDetail: null,
+    equationReturnTarget: null,
+    mobileScienceNavOpen: false,
+    mobileScienceNavDomain: domainId
+  }));
 }
 
 function toggleLanguage() {
@@ -968,6 +1026,21 @@ document.addEventListener("click", (event) => {
 
     if (action === "select-topic") {
       selectTopic(actionTarget.dataset.topicId);
+      return;
+    }
+
+    if (action === "toggle-mobile-science-nav") {
+      toggleMobileScienceNav();
+      return;
+    }
+
+    if (action === "toggle-mobile-science-domain") {
+      toggleMobileScienceDomain(actionTarget.dataset.domainId);
+      return;
+    }
+
+    if (action === "select-mobile-science-topic") {
+      selectMobileScienceTopic(actionTarget.dataset.domainId, actionTarget.dataset.topicId);
       return;
     }
 

@@ -152,6 +152,10 @@
   display: none;
 }
 
+.mobile-science-nav {
+  display: none;
+}
+
 .content-window {
   min-height: 0;
   overflow: auto;
@@ -210,6 +214,89 @@
 
   .music-control.music-control--mobile {
     display: grid;
+  }
+
+  .mobile-science-nav {
+    display: block;
+    position: fixed;
+    top: 0.62rem;
+    left: 3.78rem;
+    z-index: 40;
+  }
+
+  .mobile-science-nav__toggle {
+    width: 2.46rem;
+    height: 2.46rem;
+    display: grid;
+    place-items: center;
+    color: var(--strong);
+  }
+
+  .mobile-science-nav__toggle svg {
+    width: 1.1rem;
+    height: 1.1rem;
+  }
+
+  .mobile-science-nav__panel {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    width: min(88vw, 24rem);
+    max-height: min(72svh, 34rem);
+    padding: 0.72rem;
+    overflow: auto;
+    display: grid;
+    gap: 0.62rem;
+    border-radius: 1.1rem;
+    overscroll-behavior: contain;
+  }
+
+  .mobile-science-nav__heading {
+    color: var(--strong);
+    font-size: 0.82rem;
+    letter-spacing: 0.12em;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .mobile-science-nav__domains,
+  .mobile-science-nav__domain,
+  .mobile-science-nav__topics {
+    display: grid;
+    gap: 0.48rem;
+  }
+
+  .mobile-science-nav__domain-button,
+  .mobile-science-nav__topic-button {
+    width: 100%;
+    min-width: 0;
+    min-height: 2.52rem;
+    padding: 0.58rem 0.72rem;
+    white-space: normal;
+    line-height: 1.12;
+  }
+
+  .mobile-science-nav__domain-button {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.48rem;
+    text-align: left;
+  }
+
+  .mobile-science-nav__domain-button svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .mobile-science-nav__topic-button {
+    display: grid;
+    place-items: center;
+    margin-left: 0.46rem;
+    width: calc(100% - 0.46rem);
+    font-size: 0.86rem;
+    border-color: rgba(var(--outline-rgb), 0.58);
   }
 
   .header-actions {
@@ -350,5 +437,140 @@
     font-size: 0.82rem;
     line-height: 1.12;
     overflow-wrap: anywhere;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 540px) and (pointer: coarse) {
+  .site-shell {
+    height: 100dvh;
+    min-height: 100dvh;
+    padding: 0.42rem 0.62rem;
+    gap: 0.42rem;
+  }
+
+  .site-header,
+  .header-slot {
+    min-height: 2.5rem;
+  }
+
+  .header-slot--left {
+    display: flex;
+  }
+
+  .music-control.music-control--mobile {
+    display: grid;
+  }
+
+  .mobile-science-nav {
+    display: block;
+    position: fixed;
+    top: 0.42rem;
+    left: 3.56rem;
+    z-index: 40;
+  }
+
+  .mobile-science-nav__toggle {
+    width: 2.36rem;
+    height: 2.36rem;
+    display: grid;
+    place-items: center;
+    color: var(--strong);
+  }
+
+  .mobile-science-nav__toggle svg {
+    width: 1.05rem;
+    height: 1.05rem;
+  }
+
+  .mobile-science-nav__panel {
+    position: absolute;
+    top: calc(100% + 0.42rem);
+    left: 0;
+    width: min(58vw, 24rem);
+    max-height: calc(100dvh - 3.7rem);
+    padding: 0.62rem;
+    overflow: auto;
+    display: grid;
+    gap: 0.52rem;
+    border-radius: 1.05rem;
+    overscroll-behavior: contain;
+  }
+
+  .mobile-science-nav__heading {
+    color: var(--strong);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .mobile-science-nav__domains,
+  .mobile-science-nav__domain,
+  .mobile-science-nav__topics {
+    display: grid;
+    gap: 0.42rem;
+  }
+
+  .mobile-science-nav__domain-button,
+  .mobile-science-nav__topic-button {
+    width: 100%;
+    min-width: 0;
+    min-height: 2.36rem;
+    padding: 0.5rem 0.64rem;
+    white-space: normal;
+    line-height: 1.1;
+  }
+
+  .mobile-science-nav__domain-button {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.42rem;
+    text-align: left;
+  }
+
+  .mobile-science-nav__domain-button svg {
+    width: 0.96rem;
+    height: 0.96rem;
+  }
+
+  .mobile-science-nav__topic-button {
+    display: grid;
+    place-items: center;
+    margin-left: 0.42rem;
+    width: calc(100% - 0.42rem);
+    font-size: 0.84rem;
+  }
+
+  .site-stage {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .stage-column {
+    width: min(100%, var(--site-width));
+    height: 100%;
+    min-height: 0;
+    gap: 0.44rem;
+  }
+
+  .stage-column--reader-active {
+    flex: 1 1 auto;
+  }
+
+  .stage-column--reader-active > :is(.section-grid, .education-row, .topic-grid, .focused-path-row) {
+    display: none;
+  }
+
+  .content-window {
+    flex: 1 1 auto;
+    min-height: 0;
+    max-height: none;
+  }
+
+  .site-bottom {
+    display: none;
   }
 }

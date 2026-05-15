@@ -272,6 +272,77 @@ function renderMobileReaderNavigation(navigation, language) {
   `;
 }
 
+function renderMobileScienceNavigation(domains, state, language) {
+  const labels = {
+    toggle: language === "es" ? "Secciones científicas" : "Scientific Sections",
+    open: language === "es" ? "Abrir menú científico" : "Open science menu",
+    close: language === "es" ? "Cerrar menú científico" : "Close science menu",
+    topics: language === "es" ? "Temas" : "Topics"
+  };
+  const isOpen = Boolean(state.mobileScienceNavOpen);
+  const expandedDomainId = state.mobileScienceNavDomain
+    ?? state.activeDomain
+    ?? domains[0]?.id
+    ?? null;
+
+  return `
+    <nav class="${classNames("mobile-science-nav", isOpen && "is-open")}" aria-label="${escapeHtml(labels.toggle)}">
+      <button
+        class="glass-sphere mobile-science-nav__toggle"
+        type="button"
+        data-action="toggle-mobile-science-nav"
+        aria-expanded="${String(isOpen)}"
+        aria-controls="mobile-science-nav-panel"
+        aria-label="${escapeHtml(isOpen ? labels.close : labels.open)}"
+        title="${escapeHtml(labels.toggle)}"
+      >
+        <i data-lucide="${isOpen ? "x" : "menu"}"></i>
+      </button>
+      <div
+        class="glass-window mobile-science-nav__panel"
+        id="mobile-science-nav-panel"
+        ${isOpen ? "" : "hidden"}
+      >
+        <div class="mobile-science-nav__heading">${escapeHtml(labels.toggle)}</div>
+        <div class="mobile-science-nav__domains">
+          ${domains.map((domain) => {
+            const isExpanded = expandedDomainId === domain.id;
+            const topics = domain.topics ?? [];
+
+            return `
+              <section class="mobile-science-nav__domain">
+                <button
+                  class="${classNames("glass-tab", "mobile-science-nav__domain-button", state.activeDomain === domain.id && "is-active")}"
+                  type="button"
+                  data-action="toggle-mobile-science-domain"
+                  data-domain-id="${escapeHtml(domain.id)}"
+                  aria-expanded="${String(isExpanded)}"
+                >
+                  <span>${escapeHtml(pick(domain.title, language))}</span>
+                  <i data-lucide="${isExpanded ? "chevron-up" : "chevron-down"}"></i>
+                </button>
+                <div class="mobile-science-nav__topics" ${isExpanded ? "" : "hidden"} aria-label="${escapeHtml(labels.topics)}">
+                  ${topics.map((topic) => `
+                    <button
+                      class="${classNames("glass-tab", "mobile-science-nav__topic-button", state.activeTopic === topic.id && "is-active")}"
+                      type="button"
+                      data-action="select-mobile-science-topic"
+                      data-domain-id="${escapeHtml(domain.id)}"
+                      data-topic-id="${escapeHtml(topic.id)}"
+                    >
+                      ${escapeHtml(pick(topic.title, language))}
+                    </button>
+                  `).join("")}
+                </div>
+              </section>
+            `;
+          }).join("")}
+        </div>
+      </div>
+    </nav>
+  `;
+}
+
 function renderStructuredPanel(contentFile, language, ui, navigation = null) {
   const source = pick(contentFile, language);
 
@@ -419,6 +490,7 @@ export function renderSite({ state, refs, content, assets }) {
   const legacyItemNavigation = activeBranch && !branchSource?.hideDetailNavigation
     ? renderLegacyItemButtons(legacyItems, state, language, content.ui)
     : "";
+  const mobileScienceNavigation = renderMobileScienceNavigation(content.educationDomains, state, language);
 
   let activePanel = "";
   let readerNavigation = null;
@@ -540,6 +612,7 @@ export function renderSite({ state, refs, content, assets }) {
 
   refs.stage.innerHTML = `
     <div class="${classNames("stage-column", hasActivePanel && "stage-column--reader-active")}">
+      ${mobileScienceNavigation}
       ${useFocusedRows
         ? focusedRows.join("")
         : `${personalNavigation}
