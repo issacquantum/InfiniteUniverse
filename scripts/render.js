@@ -437,6 +437,7 @@ export function renderSite({ state, refs, content, assets }) {
   );
   const useFocusedRows = hasOpenContent;
   const hasActiveSciencePath = Boolean(activeDomain || activeTopic || activeBranch || activeDetail);
+  const mobileScienceMenuOpen = Boolean(state.mobileScienceNavOpen);
   const showPersonalNavigation = state.titleOpen && !hasActiveSciencePath && !isSiteNoticeOpen;
   const showEducationNavigation = !showPersonalNavigation && !activeSection;
 
@@ -470,9 +471,10 @@ export function renderSite({ state, refs, content, assets }) {
     ? renderSectionButtons(content.personalSections, state, language, content.ui)
     : "";
   const educationNavigation = showEducationNavigation
+    && !mobileScienceMenuOpen
     ? renderDomainButtons(content.educationDomains, state, language, content.ui)
     : "";
-  const topicNavigation = activeDomain ? renderTopicButtons(topics, state, language, content.ui) : "";
+  const topicNavigation = activeDomain && !mobileScienceMenuOpen ? renderTopicButtons(topics, state, language, content.ui) : "";
   const branchNavigation = branchSource?.branches && !branchSource.hideBranchNavigation
     ? renderBranchButtons(branchSource.branches, state, language, content.ui)
     : "";
