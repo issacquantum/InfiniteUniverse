@@ -281,24 +281,11 @@ function renderMobileScienceNavigation(domains, state, language) {
   };
   const isOpen = Boolean(state.mobileScienceNavOpen);
   const expandedDomainId = state.mobileScienceNavDomain ?? null;
-
-  return `
-    <nav class="${classNames("mobile-science-nav", isOpen && "is-open")}" aria-label="${escapeHtml(labels.toggle)}">
-      <button
-        class="glass-sphere mobile-science-nav__toggle"
-        type="button"
-        data-action="toggle-mobile-science-nav"
-        aria-expanded="${String(isOpen)}"
-        aria-controls="mobile-science-nav-panel"
-        aria-label="${escapeHtml(isOpen ? labels.close : labels.open)}"
-        title="${escapeHtml(labels.toggle)}"
-      >
-        <i data-lucide="${isOpen ? "x" : "menu"}"></i>
-      </button>
+  const panel = isOpen
+    ? `
       <div
         class="glass-window mobile-science-nav__panel"
         id="mobile-science-nav-panel"
-        ${isOpen ? "" : "hidden"}
       >
         <div class="mobile-science-nav__heading">${escapeHtml(labels.toggle)}</div>
         <div class="mobile-science-nav__domains">
@@ -336,6 +323,23 @@ function renderMobileScienceNavigation(domains, state, language) {
           }).join("")}
         </div>
       </div>
+    `
+    : "";
+
+  return `
+    <nav class="${classNames("mobile-science-nav", isOpen && "is-open")}" aria-label="${escapeHtml(labels.toggle)}">
+      <button
+        class="glass-sphere mobile-science-nav__toggle"
+        type="button"
+        data-action="toggle-mobile-science-nav"
+        aria-expanded="${String(isOpen)}"
+        aria-controls="mobile-science-nav-panel"
+        aria-label="${escapeHtml(isOpen ? labels.close : labels.open)}"
+        title="${escapeHtml(labels.toggle)}"
+      >
+        <i data-lucide="${isOpen ? "x" : "menu"}"></i>
+      </button>
+      ${panel}
     </nav>
   `;
 }
