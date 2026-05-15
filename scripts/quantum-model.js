@@ -1,5 +1,5 @@
-import { buildDensityCloud, buildCurrentCloud, advanceCurrentCloud, SCALE } from "./orbital-math.js?v=20260514-orbital-local-sync";
-import { OrbitalRenderer } from "./orbital-renderer.js?v=20260514-orbital-local-sync";
+import { buildDensityCloud, buildCurrentCloud, advanceCurrentCloud, SCALE } from "./orbital-math.js";
+import { OrbitalRenderer } from "./orbital-renderer.js";
 import { OrbitalCamera } from "./orbital-camera.js?v=20260503-fabric-no-orbit-line";
 
 const MOUNTED = new WeakSet();
@@ -20,7 +20,7 @@ function isLowPowerDevice() {
 }
 
 async function fetchShader(url) {
-  const response = await fetch(url, { cache: "reload" });
+  const response = await fetch(url, { cache: "force-cache" });
 
   if (!response.ok) {
     throw new Error(`Failed to load shader: ${url}`);
@@ -101,8 +101,8 @@ async function mountModel(host) {
   const dpr = Math.min(window.devicePixelRatio || 1, lowPower ? 1.5 : 2.0);
 
   const [vertexSource, fragmentSource] = await Promise.all([
-    fetchShader(new URL("../shaders/orbital.vert.glsl?v=20260514-orbital-local-sync", import.meta.url)),
-    fetchShader(new URL("../shaders/orbital.frag.glsl?v=20260514-orbital-local-sync", import.meta.url))
+    fetchShader(new URL("../shaders/orbital.vert.glsl", import.meta.url)),
+    fetchShader(new URL("../shaders/orbital.frag.glsl", import.meta.url))
   ]);
 
   const renderer = new OrbitalRenderer(canvas, gl);
