@@ -1,6 +1,6 @@
 import { buildDensityCloud, buildCurrentCloud, advanceCurrentCloud, SCALE } from "./orbital-math.js";
 import { OrbitalRenderer } from "./orbital-renderer.js";
-import { OrbitalCamera } from "./orbital-camera.js?v=20260514-orbital-purple-rotation";
+import { OrbitalCamera } from "./orbital-camera.js?v=20260514-orbital-violet-only";
 
 const MOUNTED = new WeakSet();
 
@@ -102,7 +102,7 @@ async function mountModel(host) {
 
   const [vertexSource, fragmentSource] = await Promise.all([
     fetchShader(new URL("../shaders/orbital.vert.glsl", import.meta.url)),
-    fetchShader(new URL("../shaders/orbital.frag.glsl?v=20260514-orbital-purple-rotation", import.meta.url))
+    fetchShader(new URL("../shaders/orbital.frag.glsl?v=20260514-orbital-violet-only", import.meta.url))
   ]);
 
   const renderer = new OrbitalRenderer(canvas, gl);
