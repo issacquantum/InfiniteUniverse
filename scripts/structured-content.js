@@ -11,7 +11,7 @@ import { initNumericalMethodsModels } from "./numerical-methods-model.js?v=20260
 import { initNeuralArchitectModels } from "./neural-architect-model.js?v=20260511-mobile-pinch-zoom";
 import { initInformationTheoryModels } from "./information-theory-model.js?v=20260511-mobile-pinch-zoom";
 import { initAlgorithmVisualizerModels } from "./algorithm-visualizer-model.js?v=20260511-mobile-pinch-zoom";
-import { initQuantumFluctuationModels } from "./quantum-fluctuation-model.js?v=20260511-mobile-pinch-zoom";
+import { initQuantumFluctuationModels } from "./quantum-fluctuation-model.js?v=20260514-fluctuation-field";
 import { initBlackHoleModels } from "./black-hole-model.js?v=20260511-mobile-pinch-zoom";
 import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260513-gt-vehicles-restore";
 

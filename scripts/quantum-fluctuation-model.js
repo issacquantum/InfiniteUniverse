@@ -127,6 +127,7 @@ class QuantumFluctuationModel {
     this.bindInteraction();
     this.setupObservers();
     this.resize();
+    updateField(this);
 
     this.render = this.render.bind(this);
     this.animationFrame = requestAnimationFrame(this.render);
@@ -358,9 +359,15 @@ class QuantumFluctuationModel {
 
   update(deltaTime) {
     if (document.body.dataset.motion === "reduced") {
+      if (!this.hasRenderedReducedMotionField) {
+        updateField(this);
+        this.hasRenderedReducedMotionField = true;
+      }
+
       return;
     }
 
+    this.hasRenderedReducedMotionField = false;
     this.time += deltaTime;
     this.stars.rotation.y += deltaTime * 0.012;
     updateField(this);
