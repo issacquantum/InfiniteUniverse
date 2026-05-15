@@ -225,9 +225,10 @@ export class OrbitalCamera {
 
   tick(deltaTime) {
     const reducedMotion = document.body.dataset.motion === "reduced";
+    const rotationSpeed = reducedMotion ? this.autoRotateSpeed * 0.38 : this.autoRotateSpeed;
 
-    if (!reducedMotion && this.idle && !this.dragging && !this.panning) {
-      this.rotationY += this.autoRotateSpeed * deltaTime;
+    if (this.idle && !this.dragging && !this.panning) {
+      this.rotationY += rotationSpeed * deltaTime;
     }
   }
 
