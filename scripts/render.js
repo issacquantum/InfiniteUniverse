@@ -280,10 +280,7 @@ function renderMobileScienceNavigation(domains, state, language) {
     topics: language === "es" ? "Temas" : "Topics"
   };
   const isOpen = Boolean(state.mobileScienceNavOpen);
-  const expandedDomainId = state.mobileScienceNavDomain
-    ?? state.activeDomain
-    ?? domains[0]?.id
-    ?? null;
+  const expandedDomainId = state.mobileScienceNavDomain ?? null;
 
   return `
     <nav class="${classNames("mobile-science-nav", isOpen && "is-open")}" aria-label="${escapeHtml(labels.toggle)}">
