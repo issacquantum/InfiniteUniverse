@@ -6,7 +6,7 @@ import { refreshIcons } from "./icons.js";
 import { pick } from "./i18n.js";
 import { syncLegacyContent } from "./legacy-content.js?v=20260513-gt-vehicles-restore";
 import { createMusicController, syncMusicUi } from "./music.js?v=20260513-tekken-delayed-autoplay-unlock";
-import { renderSite } from "./render.js?v=20260514-mobile-science-closed";
+import { renderSite } from "./render.js?v=20260514-mobile-science-header-button";
 import { createState } from "./state.js";
 import { syncStructuredContent } from "./structured-content.js?v=20260514-orbital-purple-nucleus";
 
@@ -27,6 +27,7 @@ const refs = {
     document.getElementById("music-button-mobile"),
     document.getElementById("music-button-desktop")
   ],
+  mobileScienceToggle: document.getElementById("mobile-science-toggle"),
   desktopTrackName: document.getElementById("desktop-track-name"),
   backgroundCanvas: document.getElementById("starfield-canvas"),
   galleryLightbox: document.getElementById("gallery-lightbox"),
@@ -64,6 +65,24 @@ let musicUiState = {
   isPlaying: false,
   currentTrackName: ""
 };
+
+function syncMobileScienceToggle(state) {
+  if (!refs.mobileScienceToggle) {
+    return;
+  }
+
+  const isOpen = Boolean(state.mobileScienceNavOpen);
+  const isSpanish = state.language === "es";
+  const label = isOpen
+    ? (isSpanish ? "Cerrar menú científico" : "Close science menu")
+    : (isSpanish ? "Abrir menú científico" : "Open science menu");
+  const title = isSpanish ? "Secciones científicas" : "Scientific Sections";
+
+  refs.mobileScienceToggle.setAttribute("aria-expanded", String(isOpen));
+  refs.mobileScienceToggle.setAttribute("aria-label", label);
+  refs.mobileScienceToggle.setAttribute("title", title);
+  refs.mobileScienceToggle.innerHTML = `<i data-lucide="${isOpen ? "x" : "menu"}"></i>`;
+}
 let galleryItems = [];
 let activeGalleryIndex = -1;
 let galleryTouchStartX = null;
@@ -348,6 +367,8 @@ function syncUi(state = store.getState()) {
     isPlaying: musicUiState.isPlaying,
     currentTrackName: musicUiState.currentTrackName
   });
+
+  syncMobileScienceToggle(state);
 
   syncStructuredContent({
     state,

@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="styles/tokens.css?v=20260507-contrast" />
   <link rel="stylesheet" href="styles/base.css?v=20260508-a11y-notices" />
   <link rel="stylesheet" href="styles/animations.css" />
-  <link rel="stylesheet" href="styles/layout.css?v=20260514-mobile-science-inline" />
+  <link rel="stylesheet" href="styles/layout.css?v=20260514-mobile-science-header-button" />
   <link rel="stylesheet" href="styles/components.css?v=20260511-source-link-electric-violet" />
   <link rel="stylesheet" href="styles/quantum-model.css?v=20260503-wavefunction-phase" />
   <link rel="stylesheet" href="styles/double-slit-simulator.css?v=20260503-wavefunction-phase" />
@@ -57,7 +57,7 @@
   <script src="scripts/mathjax-config.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
   <script defer src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js"></script>
-  <script type="module" src="scripts/app.js?v=20260514-mobile-science-closed"></script>
+  <script type="module" src="scripts/app.js?v=20260514-mobile-science-header-button"></script>
 </head>
 
 <body>
@@ -71,6 +71,11 @@
         <button class="glass-sphere music-control music-control--mobile" id="music-button-mobile" type="button"
           aria-label="Play site music">
           <i data-music-icon data-lucide="play"></i>
+        </button>
+        <button class="glass-sphere mobile-science-toggle" id="mobile-science-toggle" type="button"
+          data-action="toggle-mobile-science-nav" aria-expanded="false" aria-controls="mobile-science-nav-panel"
+          aria-label="Open science menu" title="Scientific Sections">
+          <i data-lucide="menu"></i>
         </button>
       </div>
 
