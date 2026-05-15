@@ -249,8 +249,11 @@ class GravityFabricModel {
     const dz = z - this.planetCenter.z;
     const radiusSquared = dx * dx + dz * dz;
     const massScale = this.state.massScale;
-    const well = 1.42 * massScale * Math.exp(-radiusSquared / 2.15);
-    const rim = 0.08 * massScale * Math.exp(-radiusSquared / 8);
+    const compactWell = 0.72 * massScale * massScale * Math.exp(-radiusSquared / 0.78);
+    const broadWell = 1.28 * massScale * Math.exp(-radiusSquared / 2.45);
+    const rim = 0.1 * massScale * Math.exp(-radiusSquared / 8.4);
+    const centralThroat = 0.34 * Math.max(0, massScale - 1) * Math.exp(-radiusSquared / 0.18);
+    const well = compactWell + broadWell + centralThroat;
     return -well + rim;
   }
 
@@ -327,7 +330,10 @@ class GravityFabricModel {
   }
 
   getPlanetSeatY() {
-    return this.fabricYOffset + this.planetBaseRadius * 0.72;
+    const localFabricHeight = this.fabricHeight(this.planetCenter.x, this.planetCenter.z);
+    const radius = this.planetBaseRadius * this.getPlanetScale();
+    const embeddedDepth = 0.34 + 0.18 * this.state.massScale;
+    return this.fabricYOffset + localFabricHeight + radius * embeddedDepth;
   }
 
   updateHeightAttribute(geometry, baseCoordinates) {
@@ -357,6 +363,7 @@ class GravityFabricModel {
       control.addEventListener("input", () => {
         this.state[key] = Number(control.value);
         this.syncValue(key);
+        this.updatePlanetPlacement();
         this.updateFabricGeometry();
       });
     });
@@ -536,6 +543,14 @@ class GravityFabricModel {
 
     this.renderer.render(this.scene, this.camera);
     this.animationFrame = requestAnimationFrame(this.render);
+  }
+
+  updatePlanetPlacement() {
+    if (!this.planet) {
+      return;
+    }
+
+    this.planet.position.y = this.getPlanetSeatY();
   }
 
   destroy() {
