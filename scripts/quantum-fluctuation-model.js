@@ -358,18 +358,11 @@ class QuantumFluctuationModel {
   }
 
   update(deltaTime) {
-    if (document.body.dataset.motion === "reduced") {
-      if (!this.hasRenderedReducedMotionField) {
-        updateField(this);
-        this.hasRenderedReducedMotionField = true;
-      }
+    const motionScale = document.body.dataset.motion === "reduced" ? 0.45 : 1;
+    const scaledDelta = deltaTime * motionScale;
 
-      return;
-    }
-
-    this.hasRenderedReducedMotionField = false;
-    this.time += deltaTime;
-    this.stars.rotation.y += deltaTime * 0.012;
+    this.time += scaledDelta;
+    this.stars.rotation.y += scaledDelta * 0.012;
     updateField(this);
   }
 
