@@ -10,8 +10,8 @@ out vec4 fragColor;
 vec3 ramp(float t) {
   vec3 outerPurple = vec3(0.34, 0.00, 0.72);
   vec3 saturatedPurple = vec3(0.56, 0.00, 0.90);
-  vec3 electricViolet = vec3(0.75, 0.16, 1.00);
-  vec3 hotPinkCore = vec3(1.00, 0.00, 0.64);
+  vec3 electricViolet = vec3(0.70, 0.12, 1.00);
+  vec3 brightViolet = vec3(0.88, 0.24, 1.00);
 
   if (t < 0.42) {
     return mix(outerPurple, saturatedPurple, smoothstep(0.0, 0.42, t));
@@ -21,7 +21,7 @@ vec3 ramp(float t) {
     return mix(saturatedPurple, electricViolet, smoothstep(0.42, 0.78, t));
   }
 
-  return mix(electricViolet, hotPinkCore, smoothstep(0.78, 1.0, t));
+  return mix(electricViolet, brightViolet, smoothstep(0.78, 1.0, t));
 }
 
 void main() {
