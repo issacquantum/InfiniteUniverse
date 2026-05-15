@@ -156,6 +156,11 @@
   display: none;
 }
 
+.mobile-science-nav__panel[hidden],
+.mobile-science-nav__topics[hidden] {
+  display: none !important;
+}
+
 .content-window {
   min-height: 0;
   overflow: auto;
@@ -245,12 +250,14 @@
     position: fixed;
     inset: 0;
     z-index: 1;
-    width: 100dvw;
+    width: auto;
+    max-width: 100%;
     height: 100dvh;
     max-height: none;
     box-sizing: border-box;
     padding: 4.35rem 0.82rem 1.05rem;
     overflow: auto;
+    overflow-x: hidden;
     display: grid;
     align-content: start;
     gap: 0.72rem;
@@ -513,12 +520,14 @@
     position: fixed;
     inset: 0;
     z-index: 1;
-    width: 100dvw;
+    width: auto;
+    max-width: 100%;
     height: 100dvh;
     max-height: none;
     box-sizing: border-box;
     padding: 3.35rem 1rem 0.9rem;
     overflow: auto;
+    overflow-x: hidden;
     display: grid;
     align-content: start;
     gap: 0.56rem;
