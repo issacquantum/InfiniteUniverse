@@ -9,10 +9,10 @@ const COLORS = {
   electric: 0xbf40ff,
   violet: 0x7700ff,
   indigo: 0x2b006d,
-  hydrogenDeepViolet: 0x2e007a,
+  hydrogenDeepPurple: 0x320064,
   hydrogenVividPurple: 0x8f00e6,
-  hydrogenElectricViolet: 0x7a1af5,
-  hydrogenElectricIndigo: 0x7700ff,
+  hydrogenSaturatedPurple: 0xa000f2,
+  hydrogenNucleusViolet: 0x7700ff,
   deep: 0x050008
 };
 
@@ -150,23 +150,23 @@ class OrbitalSelectorModel {
 
   addLights() {
     const { THREE, scene } = this;
-    scene.add(new THREE.AmbientLight(COLORS.hydrogenElectricViolet, 0.78));
+    scene.add(new THREE.AmbientLight(COLORS.hydrogenVividPurple, 0.78));
 
-    const hotLight = new THREE.PointLight(COLORS.hotPink, 1.15, 70);
-    hotLight.position.set(9, 10, 10);
-    const violetLight = new THREE.PointLight(COLORS.hydrogenElectricViolet, 2.6, 70);
+    const purpleLight = new THREE.PointLight(COLORS.hydrogenSaturatedPurple, 1.15, 70);
+    purpleLight.position.set(9, 10, 10);
+    const violetLight = new THREE.PointLight(COLORS.hydrogenNucleusViolet, 2.25, 70);
     violetLight.position.set(-10, -6, -8);
-    const indigoLight = new THREE.PointLight(COLORS.hydrogenElectricIndigo, 2.15, 70);
-    indigoLight.position.set(0, 7, -12);
-    scene.add(hotLight, violetLight, indigoLight);
+    const deepPurpleLight = new THREE.PointLight(COLORS.hydrogenDeepPurple, 2.15, 70);
+    deepPurpleLight.position.set(0, 7, -12);
+    scene.add(purpleLight, violetLight, deepPurpleLight);
   }
 
   addReferenceFrame() {
     const { THREE, rootGroup } = this;
     const axes = [
       [[-10, 0, 0], [10, 0, 0], COLORS.hydrogenVividPurple],
-      [[0, -10, 0], [0, 10, 0], COLORS.hydrogenElectricViolet],
-      [[0, 0, -10], [0, 0, 10], COLORS.hydrogenElectricIndigo]
+      [[0, -10, 0], [0, 10, 0], COLORS.hydrogenSaturatedPurple],
+      [[0, 0, -10], [0, 0, 10], COLORS.hydrogenNucleusViolet]
     ];
 
     axes.forEach(([start, end, color]) => {
@@ -183,7 +183,7 @@ class OrbitalSelectorModel {
 
     const ringGeometry = new THREE.TorusGeometry(10, 0.012, 8, 128);
     const ringMaterial = new THREE.MeshBasicMaterial({
-      color: COLORS.hydrogenDeepViolet,
+      color: COLORS.hydrogenDeepPurple,
       transparent: true,
       opacity: 0.42
     });
@@ -197,7 +197,7 @@ class OrbitalSelectorModel {
     const nucleus = new THREE.Mesh(
       new THREE.IcosahedronGeometry(0.34, 2),
       new THREE.MeshBasicMaterial({
-        color: COLORS.hotPink,
+        color: COLORS.hydrogenNucleusViolet,
         transparent: true,
         opacity: 0.96
       })
@@ -206,7 +206,7 @@ class OrbitalSelectorModel {
     const glow = new THREE.Mesh(
       new THREE.SphereGeometry(0.62, 24, 18),
       new THREE.MeshBasicMaterial({
-        color: COLORS.strongPink,
+        color: COLORS.hydrogenNucleusViolet,
         transparent: true,
         opacity: 0.18,
         blending: THREE.AdditiveBlending,
@@ -722,8 +722,8 @@ function phaseColor(THREE, state, sample, intensity) {
     return densityRampColor(THREE, intensity);
   }
 
-  const densityLow = sample.psi >= 0 ? COLORS.hydrogenVividPurple : COLORS.hydrogenDeepViolet;
-  const densityHigh = sample.psi >= 0 ? COLORS.hydrogenElectricViolet : COLORS.hydrogenElectricIndigo;
+  const densityLow = sample.psi >= 0 ? COLORS.hydrogenVividPurple : COLORS.hydrogenDeepPurple;
+  const densityHigh = sample.psi >= 0 ? COLORS.hydrogenSaturatedPurple : COLORS.hydrogenNucleusViolet;
   const signedDensityColor = new THREE.Color(densityLow).lerp(new THREE.Color(densityHigh), Math.min(1, intensity));
   const phase = phaseForSample(state, sample);
   const phaseColorValue = cyclicPhaseColor(THREE, phase);
@@ -733,9 +733,9 @@ function phaseColor(THREE, state, sample, intensity) {
 
 function densityRampColor(THREE, intensity) {
   const glow = Math.min(1, intensity);
-  const low = new THREE.Color(COLORS.hydrogenDeepViolet);
+  const low = new THREE.Color(COLORS.hydrogenDeepPurple);
   const mid = new THREE.Color(COLORS.hydrogenVividPurple);
-  const high = new THREE.Color(COLORS.hydrogenElectricViolet);
+  const high = new THREE.Color(COLORS.hydrogenSaturatedPurple);
 
   if (glow < 0.54) {
     return low.lerp(mid, smoothStep(0, 0.54, glow));
@@ -765,13 +765,13 @@ function phaseForSample(state, sample) {
 function cyclicPhaseColor(THREE, phase) {
   const t = wrapPhase(phase) / TAU;
   const stops = [
-    COLORS.hydrogenDeepViolet,
+    COLORS.hydrogenDeepPurple,
     COLORS.hydrogenVividPurple,
-    COLORS.hydrogenElectricViolet,
-    COLORS.hotPink,
-    COLORS.strongPink,
-    COLORS.hydrogenElectricIndigo,
-    COLORS.hydrogenDeepViolet
+    COLORS.hydrogenSaturatedPurple,
+    COLORS.hydrogenNucleusViolet,
+    COLORS.hydrogenSaturatedPurple,
+    COLORS.hydrogenVividPurple,
+    COLORS.hydrogenDeepPurple
   ];
   const scaled = t * (stops.length - 1);
   const index = Math.min(stops.length - 2, Math.floor(scaled));
