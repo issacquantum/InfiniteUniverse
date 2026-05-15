@@ -332,8 +332,8 @@ class GravityFabricModel {
   getPlanetSeatY() {
     const localFabricHeight = this.fabricHeight(this.planetCenter.x, this.planetCenter.z);
     const radius = this.planetBaseRadius * this.getPlanetScale();
-    const embeddedDepth = 0.34 + 0.18 * this.state.massScale;
-    return this.fabricYOffset + localFabricHeight + radius * embeddedDepth;
+    const surfaceClearance = 0.08;
+    return this.fabricYOffset + localFabricHeight + radius + surfaceClearance;
   }
 
   updateHeightAttribute(geometry, baseCoordinates) {
@@ -536,9 +536,12 @@ class GravityFabricModel {
     const deltaTime = this.lastTimestamp ? Math.min((timestamp - this.lastTimestamp) / 1000, 0.05) : 0.016;
     this.lastTimestamp = timestamp;
 
-    if (this.visible && document.body.dataset.motion !== "reduced") {
-      this.updatePlanetAndFabric(deltaTime);
-      this.starfield.rotation.y += deltaTime * 0.012;
+    if (this.visible) {
+      const motionScale = document.body.dataset.motion === "reduced" ? 0.42 : 1;
+      const scaledDelta = deltaTime * motionScale;
+
+      this.updatePlanetAndFabric(scaledDelta);
+      this.starfield.rotation.y += scaledDelta * 0.012;
     }
 
     this.renderer.render(this.scene, this.camera);
