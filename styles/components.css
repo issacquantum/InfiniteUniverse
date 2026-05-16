@@ -2206,8 +2206,8 @@ body[data-link-visibility="enhanced"] :where(.structured-content, .legacy-conten
   .legacy-content .equation-display {
     width: 100%;
     max-width: 100%;
-    min-height: 2.55rem;
-    padding: 0.56rem 0.5rem;
+    min-height: 2.85rem;
+    padding: 0.68rem 0.56rem;
   }
 
   .content-window mjx-container,
@@ -2217,7 +2217,7 @@ body[data-link-visibility="enhanced"] :where(.structured-content, .legacy-conten
   .legacy-content .equation-display mjx-container {
     max-width: 100% !important;
     overflow-x: auto !important;
-    font-size: calc(72% * var(--equation-font-scale, 1)) !important;
+    font-size: calc(80% * var(--equation-font-scale, 1)) !important;
   }
 
   .glass-window {
