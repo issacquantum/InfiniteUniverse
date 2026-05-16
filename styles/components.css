@@ -1117,7 +1117,7 @@ body[data-media-notes="on"] .media-note {
   overflow-x: auto;
   overflow-y: visible !important;
   scrollbar-width: thin;
-  font-size: 70%;
+  font-size: calc(70% * var(--equation-font-scale, 1));
 }
 
 .structured-content .equation-link mjx-container :is(mjx-math, mjx-mrow, mjx-frac, mjx-sqrt, mjx-script),
@@ -1848,11 +1848,13 @@ body[data-media-notes="on"] .media-note {
 body[data-text-size="large"] {
   --site-title-scale: 1.24;
   --nav-title-scale: 1.24;
+  --equation-font-scale: 1.14;
 }
 
 body[data-text-size="x-large"] {
   --site-title-scale: 1.42;
   --nav-title-scale: 1.42;
+  --equation-font-scale: 1.28;
 }
 
 body[data-text-size="large"] .content-window {
@@ -2195,7 +2197,7 @@ body[data-link-visibility="enhanced"] :where(.structured-content, .legacy-conten
   .structured-content .equation-link-wrap,
   .legacy-content .equation-link-wrap {
     max-width: 100%;
-    overflow-x: hidden;
+    overflow-x: auto;
   }
 
   .structured-content .equation-link,
@@ -2204,7 +2206,8 @@ body[data-link-visibility="enhanced"] :where(.structured-content, .legacy-conten
   .legacy-content .equation-display {
     width: 100%;
     max-width: 100%;
-    padding-inline: 0.42rem;
+    min-height: 2.55rem;
+    padding: 0.56rem 0.5rem;
   }
 
   .content-window mjx-container,
@@ -2213,8 +2216,8 @@ body[data-link-visibility="enhanced"] :where(.structured-content, .legacy-conten
   .legacy-content .equation-link mjx-container,
   .legacy-content .equation-display mjx-container {
     max-width: 100% !important;
-    overflow-x: hidden !important;
-    font-size: 58% !important;
+    overflow-x: auto !important;
+    font-size: calc(72% * var(--equation-font-scale, 1)) !important;
   }
 
   .glass-window {
