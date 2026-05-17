@@ -38,7 +38,7 @@
   <link rel="stylesheet" href="styles/base.css?v=20260508-a11y-notices" />
   <link rel="stylesheet" href="styles/animations.css" />
   <link rel="stylesheet" href="styles/layout.css?v=20260514-mobile-science-header-button" />
-  <link rel="stylesheet" href="styles/components.css?v=20260515-mobile-equation-natural-size" />
+  <link rel="stylesheet" href="styles/components.css?v=20260517-accessibility-gear" />
   <link rel="stylesheet" href="styles/quantum-model.css?v=20260503-wavefunction-phase" />
   <link rel="stylesheet" href="styles/double-slit-simulator.css?v=20260503-wavefunction-phase" />
   <link rel="stylesheet" href="styles/gravity-fabric-model.css?v=20260503-relativity-upgrade" />
@@ -106,12 +106,6 @@
 
       <div class="header-slot header-slot--right">
         <div class="header-actions">
-          <button class="glass-sphere accessibility-toggle" id="accessibility-toggle" type="button"
-            aria-label="Accessibility options" aria-expanded="false" aria-controls="accessibility-panel"
-            aria-haspopup="dialog">
-            <i data-lucide="sliders-horizontal"></i>
-          </button>
-
           <button class="language-control" id="language-toggle" type="button" aria-label="Toggle language">
             <span class="glass-sphere language-control__sphere" aria-hidden="true">
               <i data-lucide="globe"></i>
@@ -141,6 +135,11 @@
       </footer>
     </div>
   </div>
+
+  <button class="glass-sphere accessibility-toggle" id="accessibility-toggle" type="button"
+    aria-label="Accessibility options" aria-expanded="false" aria-controls="accessibility-panel" aria-haspopup="dialog">
+    <i data-lucide="settings"></i>
+  </button>
 
   <aside class="glass-window accessibility-panel" id="accessibility-panel" hidden aria-modal="true"
     aria-labelledby="accessibility-panel-title" aria-describedby="accessibility-panel-description" role="dialog">
