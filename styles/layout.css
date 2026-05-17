@@ -227,6 +227,15 @@
     display: grid;
   }
 
+  .accessibility-toggle {
+    position: fixed !important;
+    top: auto !important;
+    right: 0.68rem !important;
+    bottom: calc(0.68rem + env(safe-area-inset-bottom)) !important;
+    left: auto !important;
+    z-index: 60;
+  }
+
   .mobile-science-nav {
     display: none;
     position: static;
@@ -514,6 +523,15 @@
   .music-control.music-control--mobile,
   .mobile-science-toggle {
     display: grid;
+  }
+
+  .accessibility-toggle {
+    position: fixed !important;
+    top: auto !important;
+    right: 0.62rem !important;
+    bottom: calc(0.62rem + env(safe-area-inset-bottom)) !important;
+    left: auto !important;
+    z-index: 60;
   }
 
   .mobile-science-nav {
