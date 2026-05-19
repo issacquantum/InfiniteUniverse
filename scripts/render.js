@@ -438,7 +438,10 @@ export function renderSite({ state, refs, content, assets }) {
   const useFocusedRows = hasOpenContent;
   const hasActiveSciencePath = Boolean(activeDomain || activeTopic || activeBranch || activeDetail);
   const mobileScienceMenuOpen = Boolean(state.mobileScienceNavOpen);
-  const showPersonalNavigation = !hasActiveSciencePath && !isSiteNoticeOpen && (!hasActivePanel || state.titleOpen);
+  const showPersonalNavigation = !mobileScienceMenuOpen
+    && !hasActiveSciencePath
+    && !isSiteNoticeOpen
+    && (!hasActivePanel || state.titleOpen);
 
   document.documentElement.lang = language;
   document.body.dataset.language = language;

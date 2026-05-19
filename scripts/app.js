@@ -6,7 +6,7 @@ import { refreshIcons } from "./icons.js";
 import { pick } from "./i18n.js";
 import { syncLegacyContent } from "./legacy-content.js?v=20260513-gt-vehicles-restore";
 import { createMusicController, syncMusicUi } from "./music.js?v=20260513-tekken-delayed-autoplay-unlock";
-import { renderSite } from "./render.js?v=20260519-universal-science-menu";
+import { renderSite } from "./render.js?v=20260519-desktop-science-menu";
 import { createState } from "./state.js";
 import { syncStructuredContent } from "./structured-content.js?v=20260514-orbital-purple-nucleus";
 
@@ -542,11 +542,13 @@ function selectTopic(topicId) {
         titleOpen: false,
         activeSection: null,
         showPersonalSectionList: false,
+        activeDomain: null,
         activeTopic: null,
         activeBranch: null,
         activeDetail: null,
         equationReturnTarget: null,
-        mobileScienceNavOpen: false
+        mobileScienceNavOpen: false,
+        mobileScienceNavDomain: null
       };
     }
 
@@ -688,6 +690,7 @@ function showMobileSections() {
     if (state.activeTopic) {
       return {
         ...state,
+        activeDomain: null,
         activeTopic: null,
         activeBranch: null,
         activeDetail: null,
@@ -716,7 +719,7 @@ function toggleMobileScienceNav() {
   store.setState((state) => ({
     ...state,
     mobileScienceNavOpen: !state.mobileScienceNavOpen,
-    mobileScienceNavDomain: null
+    mobileScienceNavDomain: !state.mobileScienceNavOpen ? state.activeDomain : null
   }));
 }
 
@@ -730,19 +733,37 @@ function toggleMobileScienceDomain(domainId) {
 
 function selectMobileScienceTopic(domainId, topicId) {
   clearPendingReturnNavigation();
-  store.setState((state) => ({
-    ...state,
-    titleOpen: false,
-    activeSection: null,
-    showPersonalSectionList: false,
-    activeDomain: domainId,
-    activeTopic: topicId,
-    activeBranch: null,
-    activeDetail: null,
-    equationReturnTarget: null,
-    mobileScienceNavOpen: false,
-    mobileScienceNavDomain: domainId
-  }));
+  store.setState((state) => {
+    if (state.activeDomain === domainId && state.activeTopic === topicId) {
+      return {
+        ...state,
+        titleOpen: false,
+        activeSection: null,
+        showPersonalSectionList: false,
+        activeDomain: null,
+        activeTopic: null,
+        activeBranch: null,
+        activeDetail: null,
+        equationReturnTarget: null,
+        mobileScienceNavOpen: false,
+        mobileScienceNavDomain: null
+      };
+    }
+
+    return {
+      ...state,
+      titleOpen: false,
+      activeSection: null,
+      showPersonalSectionList: false,
+      activeDomain: domainId,
+      activeTopic: topicId,
+      activeBranch: null,
+      activeDetail: null,
+      equationReturnTarget: null,
+      mobileScienceNavOpen: false,
+      mobileScienceNavDomain: domainId
+    };
+  });
 }
 
 function toggleLanguage() {
