@@ -6,7 +6,7 @@ import { refreshIcons } from "./icons.js";
 import { pick } from "./i18n.js";
 import { syncLegacyContent } from "./legacy-content.js?v=20260513-gt-vehicles-restore";
 import { createMusicController, syncMusicUi } from "./music.js?v=20260513-tekken-delayed-autoplay-unlock";
-import { renderSite } from "./render.js?v=20260514-mobile-science-single-list";
+import { renderSite } from "./render.js?v=20260519-universal-science-menu";
 import { createState } from "./state.js";
 import { syncStructuredContent } from "./structured-content.js?v=20260514-orbital-purple-nucleus";
 
