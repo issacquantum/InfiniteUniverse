@@ -365,7 +365,7 @@ export const siteContent = {
   },
   siteNoticeSection: createSection("site-notices", "Site Notices & Privacy", "Avisos del sitio y privacidad"),
   personalSections: [
-    createSection("works-that-shaped-my-thinking", "My Work & Influences", "Mi obra e influencias", {
+    createSection("works-that-shaped-my-thinking", "My Work & Influences", "Mi trabajo e influencias", {
       branches: [myWorkInfluencesEquationBranch],
       hideBranchNavigation: true,
       hideDetailNavigation: true
