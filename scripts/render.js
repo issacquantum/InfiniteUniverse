@@ -292,7 +292,18 @@ function renderMobileScienceNavigation(domains, state, language) {
         class="glass-window mobile-science-nav__panel"
         id="mobile-science-nav-panel"
       >
-        <div class="mobile-science-nav__heading">${escapeHtml(labels.toggle)}</div>
+        <div class="mobile-science-nav__heading">
+          <span>${escapeHtml(labels.toggle)}</span>
+          <button
+            class="glass-sphere mobile-science-nav__close"
+            type="button"
+            data-action="toggle-mobile-science-nav"
+            aria-label="${escapeHtml(labels.close)}"
+            title="${escapeHtml(labels.close)}"
+          >
+            <i data-lucide="x"></i>
+          </button>
+        </div>
         <div class="mobile-science-nav__domains">
           ${domains.map((domain) => {
             const isExpanded = expandedDomainId === domain.id;
