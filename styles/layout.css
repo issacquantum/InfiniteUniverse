@@ -315,6 +315,85 @@
   text-align: left;
 }
 
+@media (min-width: 769px) {
+  .mobile-science-nav.is-open {
+    margin: 0 0 0.25rem;
+  }
+
+  .mobile-science-nav__panel,
+  .mobile-science-nav__panel.glass-window {
+    max-height: none;
+    overflow: visible;
+    border: 0 !important;
+    border-radius: 0;
+    background: transparent !important;
+    box-shadow: none !important;
+    backdrop-filter: none;
+  }
+
+  .mobile-science-nav__panel.glass-window::before,
+  .mobile-science-nav__panel.glass-window::after {
+    display: none !important;
+  }
+
+  .mobile-science-nav__heading {
+    display: none;
+  }
+
+  .mobile-science-nav__domains {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.7rem;
+  }
+
+  .mobile-science-nav__domain {
+    min-width: min(18rem, 30%);
+    display: grid;
+    justify-items: center;
+    gap: 0.7rem;
+  }
+
+  .mobile-science-nav__domain-button,
+  .mobile-science-nav__topic-button {
+    border: 1px solid rgba(var(--outline-rgb), 0.42);
+    border-radius: 999px;
+    background:
+      linear-gradient(135deg, rgba(var(--glass-rgb), 0.52), rgba(12, 2, 28, 0.46)),
+      radial-gradient(circle at top, rgba(var(--glow-rgb), 0.14), transparent 60%);
+    box-shadow:
+      0 0 0 1px rgba(var(--outline-rgb), 0.1) inset,
+      0 14px 32px rgba(0, 0, 0, 0.22);
+    min-height: var(--tab-height);
+    width: auto;
+    min-width: 12rem;
+    padding: 0.62rem 1rem;
+    text-align: center;
+  }
+
+  .mobile-science-nav__domain-button {
+    display: inline-grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .mobile-science-nav__topics {
+    width: 100%;
+    justify-items: center;
+    gap: 0.58rem;
+  }
+
+  .mobile-science-nav__topic-button {
+    display: inline-grid;
+    place-items: center;
+    margin-left: 0;
+    font-size: 0.86rem;
+    min-width: 11rem;
+    padding-left: 1rem;
+    text-align: center;
+  }
+}
+
 @media (max-width: 1024px) {
   .topic-grid {
     grid-template-columns: repeat(auto-fit, minmax(11.5rem, 12.5rem));
