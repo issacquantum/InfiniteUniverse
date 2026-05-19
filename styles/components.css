@@ -939,14 +939,18 @@ body[data-media-notes="on"] .media-note {
   width: min(100%, 54rem);
   margin: 1rem auto 0;
   overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
 .research-table {
   width: 100%;
+  min-width: 42rem;
   border-collapse: collapse;
   color: var(--body);
   font-size: clamp(0.84rem, 1.7vw, 0.98rem);
   line-height: 1.45;
+  table-layout: auto;
 }
 
 .research-table caption {
@@ -960,6 +964,9 @@ body[data-media-notes="on"] .media-note {
   border: 1px solid rgba(var(--outline-rgb), 0.36);
   background: rgba(var(--glass-rgb), 0.22);
   vertical-align: top;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: auto;
 }
 
 .research-table th {
@@ -2155,7 +2162,7 @@ body[data-link-visibility="enhanced"] :where(.structured-content, .legacy-conten
 
   :where(.structured-content, .legacy-content) :where(p, li, h1, h2, h3, h4, h5, h6, figcaption, a, strong, em, span) {
     max-width: 100%;
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
     word-break: normal;
   }
 
@@ -2173,21 +2180,24 @@ body[data-link-visibility="enhanced"] :where(.structured-content, .legacy-conten
   .research-table-wrap {
     width: 100%;
     max-width: 100%;
-    overflow-x: hidden;
+    overflow-x: auto;
   }
 
   .research-table {
-    table-layout: fixed;
-    width: 100%;
-    max-width: 100%;
+    table-layout: auto;
+    width: max-content;
+    min-width: 42rem;
+    max-width: none;
     font-size: 0.78rem;
   }
 
   .research-table th,
   .research-table td {
     padding: 0.5rem 0.42rem;
-    overflow-wrap: anywhere;
-    word-break: break-word;
+    min-width: 9.5rem;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: auto;
   }
 
   :where(
