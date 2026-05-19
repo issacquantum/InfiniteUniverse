@@ -602,7 +602,7 @@
     -webkit-line-clamp: 2;
     font-size: 0.82rem;
     line-height: 1.12;
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
   }
 }
 
