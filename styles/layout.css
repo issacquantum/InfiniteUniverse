@@ -429,7 +429,7 @@
 
   .header-slot--left {
     display: flex;
-    gap: 0.32rem;
+    gap: 0.86rem;
   }
 
   .music-control.music-control--mobile {
@@ -452,7 +452,6 @@
   .mobile-science-toggle {
     width: 2.46rem;
     height: 2.46rem;
-    margin-left: 0.42rem;
     place-items: center;
     color: var(--strong);
   }
@@ -622,7 +621,7 @@
 
   .header-slot--left {
     display: flex;
-    gap: 0.3rem;
+    gap: 0.76rem;
   }
 
   .music-control.music-control--mobile {
