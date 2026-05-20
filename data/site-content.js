@@ -288,7 +288,7 @@ const myWorkInfluencesEquationBranch = {
     createStructuredItem("science/equations", "time-dependent-schrodinger-equation", "Time-Dependent Schrödinger Equation", "Ecuación de Schrödinger Dependiente del Tiempo"),
     createStructuredItem("science/equations", "path-integral-kernel", "Path Integral Kernel", "Núcleo de Integral de Camino"),
     createStructuredItem("science/equations", "page-wootters-stationary-state", "Page-Wootters Stationary State", "Estado Estacionario de Page-Wootters"),
-    createStructuredItem("science/equations", "qft-microcausality", "QFT (quantum field theory) Microcausality", "Microcausalidad en QFT (quantum field theory, teoría cuántica de campos)"),
+    createStructuredItem("science/equations", "qft-microcausality", "QFT (quantum field theory) Microcausality", "Microcausalidad en teoría cuántica de campos"),
     createStructuredItem("science/equations", "feynman-propagator", "Feynman Propagator", "Propagador de Feynman"),
     createStructuredItem("science/equations", "wheeler-dewitt-equation", "Wheeler-DeWitt Equation", "Ecuación de Wheeler-DeWitt"),
     createStructuredItem("science/equations", "semiclassical-wkb-time-emergence", "Semiclassical WKB (Wentzel-Kramers-Brillouin) Time Emergence", "Emergencia Semiclásica del Tiempo WKB (Wentzel-Kramers-Brillouin)"),
