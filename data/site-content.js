@@ -373,6 +373,7 @@ export const siteContent = {
     createSection("early-life", "Early Life", "Vida temprana"),
     createSection("education", "Education", "Educación"),
     createSection("professional-career", "Professional Career", "Carrera profesional"),
+    createSection("music", "Music", "Música"),
     createSection("applied-disciplines", "Interactive Activities", "Actividades interactivas")
   ],
   educationDomains: [
