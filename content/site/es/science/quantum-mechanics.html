@@ -408,7 +408,7 @@
     </div>
     <p>
       Aquí es donde las energías permitidas emergen limpiamente de las matemáticas. Explica por
-      qué los átomos son estables, por qué los electrones ocupan orbitales y por qué la materia
+      qué los átomos son estables, por qué los electrones ocupan órbitales y por qué la materia
       ordinaria tiene estructura.
     </p>
     <p>
@@ -481,21 +481,21 @@
       naturaleza ondulatoria del estado ligado.
     </p>
     <p>
-      Las funciones de onda correspondientes, los <strong>orbitales atómicos</strong>, están
+      Las funciones de onda correspondientes, los <strong>órbitales atómicos</strong>, están
       caracterizados por tres números cuánticos \(n\), \(\ell\) y \(m_\ell\), y adoptan la
       forma general:
     </p>
     <div class="equation-link-wrap">
       <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
-        data-branch-id="quantum-mechanics-equations" data-item-id="hydrogen-orbital-wavefunction"
-        aria-label="Abrir la página de explicación de la descomposición de la función de onda orbital del hidrógeno">
+        data-branch-id="quantum-mechanics-equations" data-item-id="hydrogen-órbital-wavefunction"
+        aria-label="Abrir la página de explicación de la descomposición de la función de onda órbital del hidrógeno">
         $$
         \psi_{n\ell m}(r, \theta, \phi) = R_{n\ell}(r) \cdot Y_\ell^m(\theta, \phi)
         $$
       </button>
     </div>
     <p>
-      Estas soluciones producen las familias conocidas de orbitales atómicos y, más importante
+      Estas soluciones producen las familias conocidas de órbitales atómicos y, más importante
       aún, la arquitectura probabilística tridimensional real del átomo de hidrógeno. Las
       matemáticas producen geometría, y esa geometría es físicamente real.
     </p>
@@ -628,7 +628,7 @@
         <div class="quantum-fluctuation__diagnostics" aria-label="Diagnósticos del modelo de fluctuaciones cuánticas">
           <span>masa m <strong data-qf-metric="mass">0.71</strong></span>
           <span>modos activos <strong data-qf-metric="modes">0</strong></span>
-          <span>amplitud RMS (raiz cuadratica media) (root-mean-square, raíz cuadrática media) <strong data-qf-metric="rms">0.00</strong></span>
+          <span>amplitud RMS (raíz cuadrática media) <strong data-qf-metric="rms">0.00</strong></span>
           <button class="quantum-fluctuation__button" type="button" data-qf-action="resample">
             Nueva muestra de vacío
           </button>
@@ -732,7 +732,7 @@
     </p>
     <p>
       Los controles cambian los números cuánticos del hidrógeno. <strong>n</strong> fija el nivel de
-      energía y el tamaño general, <strong>ℓ</strong> selecciona la familia orbital y la cantidad de
+      energía y el tamaño general, <strong>ℓ</strong> selecciona la familia órbital y la cantidad de
       nodos angulares, y <strong>m</strong> selecciona la orientación o estructura de fase angular
       dentro de esa familia. Los nodos son lugares donde <strong>ψ = 0</strong>, así que el electrón
       no se detecta ahí para ese estado.
@@ -744,38 +744,38 @@
       El corte de probabilidad solo oculta regiones de baja densidad para hacer legible la forma; no
       cambia la física muestreada.
     </p>
-    <figure class="orbital-selector glass-window" data-orbital-selector-model data-language="es">
-      <div class="orbital-selector__frame" data-os-frame></div>
-      <div class="orbital-selector__panel">
-        <div class="orbital-selector__controls" aria-label="Controles del selector orbital de hidrógeno">
-          <label class="orbital-selector__group">
-            <span class="orbital-selector__label">Principal n <span class="orbital-selector__value"
+    <figure class="órbital-selector glass-window" data-órbital-selector-model data-language="es">
+      <div class="órbital-selector__frame" data-os-frame></div>
+      <div class="órbital-selector__panel">
+        <div class="órbital-selector__controls" aria-label="Controles del selector órbital de hidrógeno">
+          <label class="órbital-selector__group">
+            <span class="órbital-selector__label">Principal n <span class="órbital-selector__value"
                 data-os-value="n">3</span></span>
-            <input class="orbital-selector__range" type="range" min="1" max="5" step="1" value="3" data-os-param="n"
+            <input class="órbital-selector__range" type="range" min="1" max="5" step="1" value="3" data-os-param="n"
               aria-label="Número cuántico principal n">
           </label>
-          <label class="orbital-selector__group">
-            <span class="orbital-selector__label">Angular ℓ <span class="orbital-selector__value"
+          <label class="órbital-selector__group">
+            <span class="órbital-selector__label">Angular ℓ <span class="órbital-selector__value"
                 data-os-value="l">2</span></span>
-            <input class="orbital-selector__range" type="range" min="0" max="2" step="1" value="2" data-os-param="l"
+            <input class="órbital-selector__range" type="range" min="0" max="2" step="1" value="2" data-os-param="l"
               aria-label="Número cuántico angular l">
           </label>
-          <label class="orbital-selector__group">
-            <span class="orbital-selector__label">Magnético m <span class="orbital-selector__value"
+          <label class="órbital-selector__group">
+            <span class="órbital-selector__label">Magnético m <span class="órbital-selector__value"
                 data-os-value="m">0</span></span>
-            <input class="orbital-selector__range" type="range" min="-2" max="2" step="1" value="0" data-os-param="m"
+            <input class="órbital-selector__range" type="range" min="-2" max="2" step="1" value="0" data-os-param="m"
               aria-label="Número cuántico magnético m">
           </label>
-          <label class="orbital-selector__group">
-            <span class="orbital-selector__label">Corte de probabilidad <span class="orbital-selector__value"
+          <label class="órbital-selector__group">
+            <span class="órbital-selector__label">Corte de probabilidad <span class="órbital-selector__value"
                 data-os-value="cutoff">0.035</span></span>
-            <input class="orbital-selector__range" type="range" min="0.004" max="0.18" step="0.001" value="0.035"
+            <input class="órbital-selector__range" type="range" min="0.004" max="0.18" step="0.001" value="0.035"
               data-os-param="cutoff" aria-label="Corte de probabilidad">
           </label>
-          <label class="orbital-selector__group">
-            <span class="orbital-selector__label">Vista de fase <span class="orbital-selector__value"
+          <label class="órbital-selector__group">
+            <span class="órbital-selector__label">Vista de fase <span class="órbital-selector__value"
                 data-os-value="phaseView">fase real</span></span>
-            <select class="orbital-selector__select" data-os-param="phaseMode"
+            <select class="órbital-selector__select" data-os-param="phaseMode"
               aria-label="Vista de fase de la función de onda">
               <option value="real" selected>Signo de fase real</option>
               <option value="radial">Fase radial</option>
@@ -783,57 +783,57 @@
               <option value="density">Solo densidad</option>
             </select>
           </label>
-          <label class="orbital-selector__group">
-            <span class="orbital-selector__label">Desfase <span class="orbital-selector__value"
+          <label class="órbital-selector__group">
+            <span class="órbital-selector__label">Desfase <span class="órbital-selector__value"
                 data-os-value="phaseOffset">0°</span></span>
-            <input class="orbital-selector__range" type="range" min="0" max="360" step="5" value="0"
+            <input class="órbital-selector__range" type="range" min="0" max="360" step="5" value="0"
               data-os-param="phaseOffset" aria-label="Desfase de color">
           </label>
-          <label class="orbital-selector__group">
-            <span class="orbital-selector__label">Contraste de fase <span class="orbital-selector__value"
+          <label class="órbital-selector__group">
+            <span class="órbital-selector__label">Contraste de fase <span class="órbital-selector__value"
                 data-os-value="phaseContrast">0.72</span></span>
-            <input class="orbital-selector__range" type="range" min="0" max="1" step="0.01" value="0.72"
+            <input class="órbital-selector__range" type="range" min="0" max="1" step="0.01" value="0.72"
               data-os-param="phaseContrast" aria-label="Contraste de fase">
           </label>
-          <div class="orbital-selector__actions">
-            <button class="orbital-selector__button is-active" type="button" data-os-action="rotate"
+          <div class="órbital-selector__actions">
+            <button class="órbital-selector__button is-active" type="button" data-os-action="rotate"
               aria-pressed="true">Rotación Automática</button>
-            <button class="orbital-selector__button" type="button" data-os-action="resetView">Reiniciar Vista</button>
+            <button class="órbital-selector__button" type="button" data-os-action="resetView">Reiniciar Vista</button>
           </div>
-          <p class="orbital-selector__status" data-os-status>activo</p>
+          <p class="órbital-selector__status" data-os-status>activo</p>
         </div>
-        <div class="orbital-selector__metrics" aria-label="Métricas del selector orbital de hidrógeno">
-          <div class="orbital-selector__metric">
-            <div class="orbital-selector__metric-row">
-              <span class="orbital-selector__metric-label">Orbital</span>
-              <span class="orbital-selector__value" data-os-value="orbital">3dz2</span>
+        <div class="órbital-selector__metrics" aria-label="Métricas del selector órbital de hidrógeno">
+          <div class="órbital-selector__metric">
+            <div class="órbital-selector__metric-row">
+              <span class="órbital-selector__metric-label">Orbital</span>
+              <span class="órbital-selector__value" data-os-value="órbital">3dz2</span>
             </div>
           </div>
-          <div class="orbital-selector__metric">
-            <div class="orbital-selector__metric-row">
-              <span class="orbital-selector__metric-label">Nodos radiales</span>
-              <span class="orbital-selector__value" data-os-value="radialNodes">0</span>
+          <div class="órbital-selector__metric">
+            <div class="órbital-selector__metric-row">
+              <span class="órbital-selector__metric-label">Nodos radiales</span>
+              <span class="órbital-selector__value" data-os-value="radialNodes">0</span>
             </div>
           </div>
-          <div class="orbital-selector__metric">
-            <div class="orbital-selector__metric-row">
-              <span class="orbital-selector__metric-label">Nodos angulares</span>
-              <span class="orbital-selector__value" data-os-value="angularNodes">2</span>
+          <div class="órbital-selector__metric">
+            <div class="órbital-selector__metric-row">
+              <span class="órbital-selector__metric-label">Nodos angulares</span>
+              <span class="órbital-selector__value" data-os-value="angularNodes">2</span>
             </div>
           </div>
-          <div class="orbital-selector__metric">
-            <div class="orbital-selector__metric-row">
-              <span class="orbital-selector__metric-label">Capacidad de subcapa</span>
-              <span class="orbital-selector__value" data-os-value="capacity">10</span>
+          <div class="órbital-selector__metric">
+            <div class="órbital-selector__metric-row">
+              <span class="órbital-selector__metric-label">Capacidad de subcapa</span>
+              <span class="órbital-selector__value" data-os-value="capacity">10</span>
             </div>
           </div>
-          <div class="orbital-selector__metric">
-            <div class="orbital-selector__metric-row">
-              <span class="orbital-selector__metric-label">Puntos muestreados</span>
-              <span class="orbital-selector__value" data-os-value="points">0</span>
+          <div class="órbital-selector__metric">
+            <div class="órbital-selector__metric-row">
+              <span class="órbital-selector__metric-label">Puntos muestreados</span>
+              <span class="órbital-selector__value" data-os-value="points">0</span>
             </div>
           </div>
-          <div class="orbital-selector__legend" aria-label="Leyenda del selector orbital de hidrógeno">
+          <div class="órbital-selector__legend" aria-label="Leyenda del selector órbital de hidrógeno">
             <span>color de fase = signo/ángulo de amplitud</span>
             <span>brillo = densidad de probabilidad</span>
             <span>núcleo violeta</span>
@@ -841,7 +841,7 @@
           </div>
         </div>
       </div>
-      <figcaption class="orbital-selector__note">
+      <figcaption class="órbital-selector__note">
         Arte + física: nubes de probabilidad del hidrógeno con color de fase. Nota de diseño: la paleta recurrente de
         violeta, índigo y rosa intenso refleja mis colores favoritos.
       </figcaption>
@@ -854,16 +854,16 @@
         data-item-id="monte-carlo-probability-measure"
         aria-label="Abrir la página de explicación del muestreo de Monte Carlo">Monte Carlo</button> de ψ₃₂₀</h3>
     <figure class="quantum-model-figure">
-      <div class="quantum-model" data-quantum-model aria-label="Modelo interactivo del orbital de hidrógeno en 3D">
+      <div class="quantum-model" data-quantum-model aria-label="Modelo interactivo del órbital de hidrógeno en 3D">
         <div class="glass-window quantum-model__frame"></div>
       </div>
       <figcaption class="quantum-model__caption">
-        <div class="quantum-model__legend" aria-label="Leyenda del modelo orbital de hidrógeno">
+        <div class="quantum-model__legend" aria-label="Leyenda del modelo órbital de hidrógeno">
           <span>puntos = densidad de probabilidad \(|\psi|^2\)</span>
           <span>conos vacíos = nodos angulares</span>
-          <span>estado orbital 3d<sub>z²</sub></span>
+          <span>estado órbital 3d<sub>z²</sub></span>
         </div>
-        Visualización 3D de Monte Carlo del orbital
+        Visualización 3D de Monte Carlo del órbital
         <strong>3d<sub>z²</sub></strong> del átomo de hidrógeno,
         correspondiente al estado propio estacionario real <strong>ψ₃₂₀</strong>
         de la ecuación de Schrödinger independiente del tiempo para el hidrógeno:
@@ -930,7 +930,7 @@
       </figcaption>
     </figure>
     <p class="media-note">
-      Modelo orbital interactivo en 3D. Arrastra para rotar, usa Shift/Alt o clic derecho para mover, y desplaza o
+      Modelo órbital interactivo en 3D. Arrastra para rotar, usa Shift/Alt o clic derecho para mover, y desplaza o
       pellizca para acercar. El modelo es solo visual y no tiene audio.
     </p>
     <p>
@@ -952,20 +952,20 @@
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Mecánica matricial:</strong> La formulación de Heisenberg basada en operadores y cantidades observables, no en órbitas electrónicas visuales.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Frecuencia umbral:</strong> La frecuencia mínima de luz necesaria para expulsar electrones en el efecto fotoeléctrico.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Función de trabajo:</strong> La energía mínima necesaria para extraer un electrón de la superficie de un material.</span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Armónico esférico:</strong> Un patrón angular de onda usado para describir la forma y orientación de orbitales atómicos.</span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Fase azimutal:</strong> Estructura de fase alrededor de la coordenada angular \(\phi\), relevante para orbitales con número cuántico magnético distinto de cero.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Armónico esférico:</strong> Un patrón angular de onda usado para describir la forma y orientación de órbitales atómicos.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Fase azimutal:</strong> Estructura de fase alrededor de la coordenada angular \(\phi\), relevante para órbitales con número cuántico magnético distinto de cero.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Capacidad de subcapa:</strong> El número máximo de electrones asociado con una subcapa de momento angular, igual a \(2(2\ell+1)\).</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Corte ultravioleta:</strong> Un límite de alta frecuencia usado para mantener una visualización o modelo efectivo dentro de un rango controlado.</span></li>
     </ul>
   </section>
   <section class="content-block glossary-section abbreviation-glossary" data-abbreviation-glossary>
     <h3>Glosario de Abreviaturas</h3>
-    <p class="abbreviation-glossary__note">Este glosario expande las abreviaturas usadas en esta seccion. La primera aparicion en el texto incluye el significado completo entre parentesis; las repeticiones quedan abreviadas para mantener la lectura limpia.</p>
+    <p class="abbreviation-glossary__note">Este glosario expande las abreviaturas usadas en esta sección. La primera aparición en el texto incluye el significado completo entre paréntesis; las repeticiones quedan abreviadas para mantener la lectura limpia.</p>
     <ul class="paper-list glossary-list">
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>RMS:</strong> raiz cuadratica media.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>RMS:</strong> raíz cuadrática media.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>CC BY-SA:</strong> Creative Commons Attribution-ShareAlike, atribucion-compartir igual.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>ChatGPT:</strong> Chat Generative Pretrained Transformer, transformador generativo preentrenado conversacional.</span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>NASA:</strong> National Aeronautics and Space Administration, Administracion Nacional de Aeronautica y el Espacio.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>NASA:</strong> National Aeronautics and Space Administration, Administración Nacional de Aeronautica y el Espacio.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>NTRS:</strong> NASA Technical Reports Server, servidor de reportes tecnicos de NASA.</span></li>
     </ul>
   </section>
