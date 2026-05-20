@@ -902,11 +902,11 @@ body[data-media-notes="on"] .media-note {
 }
 
 .source-papers + .source-papers {
-  margin-top: 0;
+  margin-top: 1.45rem;
 }
 
 .source-papers + .source-papers .paper-list {
-  margin-top: 0;
+  margin-top: 0.82rem;
 }
 
 .glossary-section {
