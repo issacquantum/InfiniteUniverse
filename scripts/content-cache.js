@@ -3,7 +3,7 @@ import { siteContent } from "../data/site-content.js";
 
 const documentCache = new Map();
 const requestCache = new Map();
-const CONTENT_CACHE_VERSION = "20260513-gt-vehicles-restore";
+const CONTENT_CACHE_VERSION = "20260519-spanish-abbrev-table";
 const PREWARM_WORKER_LIMIT = 4;
 let prewarmScheduled = false;
 
