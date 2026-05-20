@@ -10,26 +10,30 @@ export function initDoubleSlitSimulators(root = document) {
     }
 
     mountedSimulators.add(container);
-    new DoubleSlitInterference(container);
+    new ElectronDiffractionSimulator(container);
   });
 }
 
-class DoubleSlitInterference {
+class ElectronDiffractionSimulator {
   constructor(container) {
     this.container = container;
     this.viewport = container.querySelector("[data-ds-viewport]") ?? container;
     this.canvas = document.createElement("canvas");
     this.ctx = this.canvas.getContext("2d", { alpha: true });
+    this.fieldCanvas = document.createElement("canvas");
+    this.fieldCtx = this.fieldCanvas.getContext("2d", { alpha: true });
     this.animationFrame = null;
     this.lastTimestamp = 0;
     this.phase = 0;
-    this.hitAccumulator = 0;
-    this.hits = [];
     this.visible = true;
     this.destroyed = false;
+    this.pointer = null;
+    this.cachedFieldKey = "";
+    this.fieldSamples = null;
+    this.scatterers = [];
     this.state = {
-      wavelength: 32,
-      slitDistance: 84,
+      wavelength: 16,
+      slitDistance: 8,
       showWavefronts: true,
       showMaxima: true,
       showScale: true,
@@ -40,11 +44,10 @@ class DoubleSlitInterference {
       panY: 0,
       zoom: 1
     };
-    this.pointer = null;
 
     this.handleResize = () => this.resize();
 
-    if (!this.ctx) {
+    if (!this.ctx || !this.fieldCtx) {
       this.viewport.replaceChildren(this.createFallback());
       return;
     }
@@ -67,40 +70,40 @@ class DoubleSlitInterference {
   copy(key) {
     const content = {
       canvasLabel: {
-        en: "Double-slit interference simulation showing wavefronts, maxima, vertical scale, and screen intensity.",
-        es: "Simulacion de interferencia de doble rendija con frentes de onda, maximos, escala vertical e intensidad en pantalla."
+        en: "Animated electron diffraction simulation with a crystal lattice and Bohr-radius axes.",
+        es: "Simulacion animada de difraccion de electrones con red cristalina y ejes en radios de Bohr."
       },
       fallback: {
-        en: "The double-slit simulation could not load in this browser.",
-        es: "La simulacion de doble rendija no pudo cargarse en este navegador."
+        en: "The electron diffraction simulation could not load in this browser.",
+        es: "La simulacion de difraccion de electrones no pudo cargarse en este navegador."
       },
       showPattern: {
-        en: "Show Interference Pattern",
-        es: "Mostrar Patron de Interferencia"
+        en: "Boost Diffraction",
+        es: "Intensificar Difraccion"
       },
       hidePattern: {
-        en: "Hide Interference Pattern",
-        es: "Ocultar Patron de Interferencia"
+        en: "Normalize Diffraction",
+        es: "Normalizar Difraccion"
       },
-      wavelength: {
-        en: "wavelength",
-        es: "longitud de onda"
+      xAxis: {
+        en: "x [Bohr radius]",
+        es: "x [radio de Bohr]"
       },
-      slitDistance: {
-        en: "slit distance",
-        es: "distancia entre rendijas"
+      yAxis: {
+        en: "y [Bohr radius]",
+        es: "y [radio de Bohr]"
       },
-      screen: {
-        en: "screen",
-        es: "pantalla"
+      source: {
+        en: "electron source",
+        es: "fuente de electrones"
       },
-      slitPlane: {
-        en: "slits",
-        es: "rendijas"
+      lattice: {
+        en: "crystal lattice",
+        es: "red cristalina"
       },
-      centralMaximum: {
-        en: "central maximum",
-        es: "maximo central"
+      bragg: {
+        en: "diffracted orders",
+        es: "ordenes difractados"
       }
     };
 
@@ -121,7 +124,7 @@ class DoubleSlitInterference {
       this.syncValue(param);
       control.addEventListener("input", () => {
         this.state[param] = Number(control.value);
-        this.hits = [];
+        this.cachedFieldKey = "";
         this.syncValue(param);
       });
     });
@@ -131,21 +134,21 @@ class DoubleSlitInterference {
       this.state[toggle] = control.checked;
       control.addEventListener("change", () => {
         this.state[toggle] = control.checked;
-        if (toggle === "detectorMode") {
-          this.hits = [];
-        }
       });
     });
 
     this.container.querySelector("[data-ds-action='pattern']")?.addEventListener("click", (event) => {
       this.state.showPattern = !this.state.showPattern;
+      this.cachedFieldKey = "";
       event.currentTarget.textContent = this.state.showPattern
         ? this.copy("hidePattern")
         : this.copy("showPattern");
     });
 
     this.container.querySelector("[data-ds-action='clearHits']")?.addEventListener("click", () => {
-      this.hits = [];
+      this.state.panX = 0;
+      this.state.panY = 0;
+      this.state.zoom = 1;
     });
   }
 
@@ -178,7 +181,7 @@ class DoubleSlitInterference {
         return;
       }
 
-      this.state.panX = clamp(this.pointer.panX + event.clientX - this.pointer.x, -this.width * 0.24, this.width * 0.12);
+      this.state.panX = clamp(this.pointer.panX + event.clientX - this.pointer.x, -this.width * 0.22, this.width * 0.22);
       this.state.panY = clamp(this.pointer.panY + event.clientY - this.pointer.y, -this.height * 0.22, this.height * 0.22);
     });
 
@@ -200,9 +203,10 @@ class DoubleSlitInterference {
       getValue: () => this.state.zoom,
       setValue: (value) => {
         this.state.zoom = value;
+        this.cachedFieldKey = "";
       },
-      min: 0.72,
-      max: 1.55,
+      min: 0.78,
+      max: 1.58,
       onStart: () => {
         this.pointer = null;
       }
@@ -245,6 +249,12 @@ class DoubleSlitInterference {
     this.dpr = dpr;
     this.canvas.width = Math.floor(width * dpr);
     this.canvas.height = Math.floor(height * dpr);
+    this.fieldScale = width < 520 ? 0.5 : 0.44;
+    this.fieldWidth = Math.max(220, Math.floor(width * this.fieldScale));
+    this.fieldHeight = Math.max(150, Math.floor(height * this.fieldScale));
+    this.fieldCanvas.width = this.fieldWidth;
+    this.fieldCanvas.height = this.fieldHeight;
+    this.cachedFieldKey = "";
   }
 
   render(timestamp) {
@@ -256,8 +266,7 @@ class DoubleSlitInterference {
     this.lastTimestamp = timestamp;
 
     if (this.visible && document.body.dataset.motion !== "reduced") {
-      this.phase = (this.phase + deltaTime * 34) % this.state.wavelength;
-      this.updateHits(deltaTime);
+      this.phase = (this.phase + deltaTime * 5.2) % TWO_PI;
     }
 
     this.draw();
@@ -274,324 +283,374 @@ class DoubleSlitInterference {
     ctx.scale(this.dpr, this.dpr);
     ctx.clearRect(0, 0, this.width, this.height);
 
-    const layout = this.getLayout();
+    const transform = this.getTransform();
     this.drawBackground(ctx);
-    this.drawIncomingWaves(ctx, layout);
+    this.drawField(ctx, transform);
+    if (this.state.showScale) {
+      this.drawAxes(ctx, transform);
+    }
     if (this.state.showWavefronts) {
-      this.drawDiffractedWavefronts(ctx, layout);
+      this.drawWavefrontContours(ctx, transform);
     }
     if (this.state.showMaxima) {
-      this.drawMaxima(ctx, layout);
+      this.drawBraggGuides(ctx, transform);
     }
-    this.drawSlitBarrier(ctx, layout);
-    this.drawScreen(ctx, layout);
     if (this.state.showHits) {
-      this.drawHits(ctx, layout);
+      this.drawCrystalLattice(ctx, transform);
     }
-    if (this.state.showPattern) {
-      this.drawInterferencePattern(ctx, layout);
-    }
-    if (this.state.showScale) {
-      this.drawScale(ctx, layout);
-    }
-    this.drawLabels(ctx, layout);
+    this.drawSource(ctx, transform);
+    this.drawLabels(ctx, transform);
 
     ctx.restore();
   }
 
-  getLayout() {
+  getTransform() {
     const zoom = this.state.zoom;
-    const centerX = this.width / 2;
-    const centerY = this.height / 2 + this.state.panY;
-    const barrierX = centerX + (this.width * 0.38 - centerX) * zoom + this.state.panX;
-    const screenX = centerX + (this.width * 0.86 - centerX) * zoom + this.state.panX;
-    const slitDistance = scaleByHeight(this.state.slitDistance, this.height, 320) * zoom;
-    const slitGap = Math.max(14, Math.min(24, this.height * 0.07));
-    const slitA = centerY - slitDistance / 2;
-    const slitB = centerY + slitDistance / 2;
+    const worldSize = 92 / zoom;
+    const scale = Math.min(this.width, this.height) / worldSize;
+    const cx = this.width / 2 + this.state.panX;
+    const cy = this.height / 2 + this.state.panY;
 
     return {
-      centerY,
-      barrierX,
-      screenX,
-      slitDistance,
-      slitGap,
-      slitA,
-      slitB,
-      sourceX: centerX + (this.width * 0.1 - centerX) * zoom + this.state.panX,
-      top: 18 + this.state.panY,
-      bottom: this.height - 18 + this.state.panY
+      scale,
+      cx,
+      cy,
+      left: -this.width / (2 * scale) - this.state.panX / scale,
+      right: this.width / (2 * scale) - this.state.panX / scale,
+      top: this.height / (2 * scale) + this.state.panY / scale,
+      bottom: -this.height / (2 * scale) + this.state.panY / scale
+    };
+  }
+
+  worldToScreen(x, y, transform) {
+    return {
+      x: transform.cx + x * transform.scale,
+      y: transform.cy - y * transform.scale
+    };
+  }
+
+  screenToWorld(x, y, transform) {
+    return {
+      x: (x - transform.cx) / transform.scale,
+      y: (transform.cy - y) / transform.scale
     };
   }
 
   drawBackground(ctx) {
     const gradient = ctx.createRadialGradient(
-      this.width * 0.52,
-      this.height * 0.5,
+      this.width * 0.58,
+      this.height * 0.48,
       0,
-      this.width * 0.52,
-      this.height * 0.5,
-      this.width * 0.68
+      this.width * 0.58,
+      this.height * 0.48,
+      this.width * 0.78
     );
-    gradient.addColorStop(0, "#120528");
-    gradient.addColorStop(0.62, "#080214");
-    gradient.addColorStop(1, "#050008");
+    gradient.addColorStop(0, "#160536");
+    gradient.addColorStop(0.46, "#080214");
+    gradient.addColorStop(1, "#030005");
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, this.width, this.height);
-  }
-
-  drawIncomingWaves(ctx, layout) {
-    ctx.save();
-    ctx.strokeStyle = "rgba(119, 0, 255, 0.16)";
-    ctx.lineWidth = 1;
-
-    for (let x = layout.sourceX; x < layout.barrierX - 10; x += this.state.wavelength) {
-      const shiftedX = x + this.phase;
-      if (shiftedX > layout.barrierX - 10) {
-        continue;
-      }
-      ctx.beginPath();
-      ctx.moveTo(shiftedX, layout.top);
-      ctx.lineTo(shiftedX, layout.bottom);
-      ctx.stroke();
-    }
-
-    ctx.restore();
-  }
-
-  drawDiffractedWavefronts(ctx, layout) {
-    const maxRadius = layout.screenX - layout.barrierX + this.height * 0.35;
 
     ctx.save();
-    ctx.lineWidth = 1.25;
-    ctx.strokeStyle = "rgba(119, 0, 255, 0.22)";
-
-    for (let radius = this.phase; radius < maxRadius; radius += this.state.wavelength) {
-      const alpha = Math.max(0.04, 0.25 * (1 - radius / maxRadius));
-      ctx.strokeStyle = `rgba(119, 0, 255, ${alpha})`;
-      this.strokeWaveArc(ctx, layout.barrierX, layout.slitA, radius);
-      this.strokeWaveArc(ctx, layout.barrierX, layout.slitB, radius);
-    }
-
-    ctx.restore();
-  }
-
-  strokeWaveArc(ctx, x, y, radius) {
-    if (radius <= 2) {
-      return;
-    }
-
-    ctx.beginPath();
-    ctx.arc(x, y, radius, -Math.PI / 2, Math.PI / 2);
-    ctx.stroke();
-  }
-
-  drawMaxima(ctx, layout) {
-    const distanceToScreen = layout.screenX - layout.barrierX;
-    const orderLimit = 5;
-
-    ctx.save();
-    ctx.lineWidth = 1.25;
-    ctx.setLineDash([6, 8]);
-
-    for (let order = -orderLimit; order <= orderLimit; order += 1) {
-      const sinTheta = order * this.state.wavelength / this.state.slitDistance;
-      if (Math.abs(sinTheta) >= 0.96) {
-        continue;
-      }
-
-      const y = layout.centerY + distanceToScreen * sinTheta / Math.sqrt(1 - sinTheta ** 2);
-      if (y < layout.top || y > layout.bottom) {
-        continue;
-      }
-
-      ctx.strokeStyle = order === 0 ? "rgba(255, 88, 214, 0.58)" : "rgba(255, 88, 214, 0.24)";
-      ctx.beginPath();
-      ctx.moveTo(layout.barrierX, layout.centerY);
-      ctx.lineTo(layout.screenX, y);
-      ctx.stroke();
-    }
-
-    ctx.restore();
-  }
-
-  drawSlitBarrier(ctx, layout) {
-    ctx.save();
-    ctx.strokeStyle = "rgba(224, 152, 255, 0.62)";
-    ctx.lineWidth = 4;
-    ctx.shadowBlur = 12;
-    ctx.shadowColor = "rgba(255, 88, 214, 0.36)";
-
-    ctx.beginPath();
-    ctx.moveTo(layout.barrierX, layout.top);
-    ctx.lineTo(layout.barrierX, layout.slitA - layout.slitGap / 2);
-    ctx.moveTo(layout.barrierX, layout.slitA + layout.slitGap / 2);
-    ctx.lineTo(layout.barrierX, layout.slitB - layout.slitGap / 2);
-    ctx.moveTo(layout.barrierX, layout.slitB + layout.slitGap / 2);
-    ctx.lineTo(layout.barrierX, layout.bottom);
-    ctx.stroke();
-
+    ctx.globalAlpha = 0.22;
     ctx.fillStyle = "#ff00a2";
-    ctx.shadowBlur = 14;
-    for (const y of [layout.slitA, layout.slitB]) {
-      ctx.beginPath();
-      ctx.arc(layout.barrierX, y, 3.8, 0, TWO_PI);
-      ctx.fill();
+    for (let i = 0; i < 90; i += 1) {
+      const x = (i * 137.5) % this.width;
+      const y = (i * 91.7) % this.height;
+      const size = 0.55 + ((i * 17) % 7) * 0.12;
+      ctx.fillRect(x, y, size, size);
     }
-
     ctx.restore();
   }
 
-  drawScreen(ctx, layout) {
+  drawField(ctx, transform) {
+    this.updateFieldImage(transform);
     ctx.save();
-    ctx.fillStyle = "rgba(224, 152, 255, 0.16)";
-    ctx.fillRect(layout.screenX, layout.top, 3, layout.bottom - layout.top);
-    ctx.strokeStyle = "rgba(255, 88, 214, 0.42)";
-    ctx.lineWidth = 1;
-    ctx.strokeRect(layout.screenX - 2, layout.top, 7, layout.bottom - layout.top);
+    ctx.imageSmoothingEnabled = true;
+    ctx.globalCompositeOperation = "lighter";
+    ctx.drawImage(this.fieldCanvas, 0, 0, this.width, this.height);
     ctx.restore();
   }
 
-  drawInterferencePattern(ctx, layout) {
-    const patternWidth = this.getPatternWidth(layout);
-    const startX = layout.screenX + 10;
+  updateFieldImage(transform) {
+    const samples = this.getFieldSamples(transform);
+    const image = this.fieldCtx.createImageData(this.fieldWidth, this.fieldHeight);
+    const data = image.data;
 
-    ctx.save();
-    for (let y = Math.ceil(layout.top); y <= layout.bottom; y += 1) {
-      const intensity = this.intensityAt(y, layout);
-      const width = Math.max(1, patternWidth * intensity);
-      const alpha = 0.14 + 0.76 * intensity;
+    for (let index = 0; index < samples.intensity.length; index += 1) {
+      const intensity = samples.intensity[index];
+      const localPhase = samples.phase[index] - this.phase;
+      const signed = Math.sin(localPhase * 2 + intensity * 4.5);
+      const edge = Math.pow(intensity, this.state.detectorMode ? 0.62 : 0.82);
+      const chroma = 0.52 + 0.48 * signed;
+      const alpha = clamp(edge * 1.18, 0, 1);
+      const pixel = index * 4;
 
-      ctx.fillStyle = `rgba(255, 0, 162, ${alpha})`;
-      ctx.fillRect(startX, y, width, 1);
+      data[pixel] = Math.floor((18 + 205 * chroma) * alpha);
+      data[pixel + 1] = Math.floor((2 + 34 * (1 - chroma)) * alpha);
+      data[pixel + 2] = Math.floor((64 + 190 * (1 - chroma * 0.35)) * alpha);
+      data[pixel + 3] = Math.floor(255 * clamp(alpha * 1.14, 0, 1));
     }
-    ctx.restore();
+
+    this.fieldCtx.putImageData(image, 0, 0);
   }
 
-  updateHits(deltaTime) {
-    if (!this.state.showHits || !this.width || !this.height) {
-      return;
+  getFieldSamples(transform) {
+    const wavelength = Math.max(7, this.state.wavelength * 0.42);
+    const spacing = Math.max(4, this.state.slitDistance * 0.58);
+    const key = [
+      this.fieldWidth,
+      this.fieldHeight,
+      this.width,
+      this.height,
+      this.state.zoom.toFixed(3),
+      this.state.panX.toFixed(1),
+      this.state.panY.toFixed(1),
+      wavelength.toFixed(2),
+      spacing.toFixed(2),
+      this.state.showPattern ? "boost" : "normal"
+    ].join(":");
+
+    if (key === this.cachedFieldKey && this.fieldSamples) {
+      return this.fieldSamples;
     }
 
-    const layout = this.getLayout();
-    this.hitAccumulator += deltaTime * (this.state.detectorMode ? 34 : 42);
+    this.scatterers = this.buildScatterers(spacing);
+    const intensitySamples = new Float32Array(this.fieldWidth * this.fieldHeight);
+    const phaseSamples = new Float32Array(this.fieldWidth * this.fieldHeight);
+    const k = TWO_PI / wavelength;
+    const sourceX = 47;
+    const sourceY = 0;
+    const boost = this.state.showPattern ? 1.28 : 1;
+    const latticeStart = 13;
 
-    while (this.hitAccumulator >= 1) {
-      this.hitAccumulator -= 1;
-      const hit = this.sampleHit(layout);
-      if (hit) {
-        this.hits.push(hit);
+    for (let py = 0; py < this.fieldHeight; py += 1) {
+      for (let px = 0; px < this.fieldWidth; px += 1) {
+        const screenX = (px + 0.5) / this.fieldWidth * this.width;
+        const screenY = (py + 0.5) / this.fieldHeight * this.height;
+        const world = this.screenToWorld(screenX, screenY, transform);
+        let real = 0;
+        let imag = 0;
+
+        const sourceEnvelope = Math.exp(-((world.y - sourceY) ** 2) / 420) * smoothstep(45, 12, world.x);
+        const incidentPhase = k * (sourceX - world.x);
+        real += Math.cos(incidentPhase) * sourceEnvelope * 0.55;
+        imag += Math.sin(incidentPhase) * sourceEnvelope * 0.55;
+
+        for (const atom of this.scatterers) {
+          const distance = Math.hypot(world.x - atom.x, world.y - atom.y);
+          const leftGate = smoothstep(latticeStart + 5, latticeStart - 8, world.x);
+          const radialEnvelope = Math.exp(-distance * 0.022) / Math.sqrt(distance + 1.2);
+          const phase = k * distance + atom.seed;
+          const amplitude = atom.weight * radialEnvelope * leftGate * boost;
+          real += Math.cos(phase) * amplitude;
+          imag += Math.sin(phase) * amplitude;
+        }
+
+        const intensity = Math.min(1, Math.sqrt(real * real + imag * imag) * 0.82);
+        const index = py * this.fieldWidth + px;
+        intensitySamples[index] = intensity;
+        phaseSamples[index] = Math.atan2(imag, real);
       }
     }
 
-    if (this.hits.length > 900) {
-      this.hits.splice(0, this.hits.length - 900);
-    }
+    this.cachedFieldKey = key;
+    this.fieldSamples = {
+      intensity: intensitySamples,
+      phase: phaseSamples
+    };
+    return this.fieldSamples;
   }
 
-  sampleHit(layout) {
-    for (let attempt = 0; attempt < 70; attempt += 1) {
-      const y = layout.top + Math.random() * (layout.bottom - layout.top);
-      if (Math.random() <= this.intensityAt(y, layout)) {
-        return {
+  buildScatterers(spacing) {
+    const points = [];
+    const columns = 5;
+    const rows = 9;
+    const startX = 16;
+    const startY = -spacing * (rows - 1) / 2;
+
+    for (let col = 0; col < columns; col += 1) {
+      for (let row = 0; row < rows; row += 1) {
+        const stagger = col % 2 ? spacing * 0.5 : 0;
+        const y = startY + row * spacing + stagger;
+        if (Math.abs(y) > 35) {
+          continue;
+        }
+
+        points.push({
+          x: startX + col * spacing * 0.95,
           y,
-          x: layout.screenX + 12 + Math.random() * Math.max(8, this.getPatternWidth(layout) - 12),
-          radius: 1.2 + Math.random() * 1.2
-        };
+          seed: (col * 0.73 + row * 0.39) % TWO_PI,
+          weight: 0.82 + 0.1 * Math.cos(row * 1.7)
+        });
       }
     }
 
-    return null;
+    return points;
   }
 
-  intensityAt(y, layout) {
-    if (this.state.detectorMode) {
-      const peakWidth = Math.max(14, this.height * 0.07);
-      const peakA = Math.exp(-((y - layout.slitA) ** 2) / (2 * peakWidth ** 2));
-      const peakB = Math.exp(-((y - layout.slitB) ** 2) / (2 * peakWidth ** 2));
-      return clamp((peakA + peakB) * 0.74, 0.02, 1);
+  drawAxes(ctx, transform) {
+    ctx.save();
+    ctx.lineWidth = 1;
+    ctx.font = "600 11px Cormorant Garamond, Georgia, serif";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "top";
+
+    for (let value = -40; value <= 40; value += 10) {
+      const verticalA = this.worldToScreen(value, -40, transform);
+      const verticalB = this.worldToScreen(value, 40, transform);
+      const horizontalA = this.worldToScreen(-40, value, transform);
+      const horizontalB = this.worldToScreen(40, value, transform);
+      const isAxis = value === 0;
+
+      ctx.strokeStyle = isAxis ? "rgba(255, 255, 255, 0.22)" : "rgba(255, 255, 255, 0.085)";
+      ctx.beginPath();
+      ctx.moveTo(verticalA.x, verticalA.y);
+      ctx.lineTo(verticalB.x, verticalB.y);
+      ctx.moveTo(horizontalA.x, horizontalA.y);
+      ctx.lineTo(horizontalB.x, horizontalB.y);
+      ctx.stroke();
+
+      if (value % 20 === 0) {
+        ctx.fillStyle = "rgba(255, 232, 252, 0.62)";
+        const xTick = this.worldToScreen(value, -40, transform);
+        const yTick = this.worldToScreen(-40, value, transform);
+        ctx.fillText(String(value), xTick.x, xTick.y + 5);
+        ctx.textAlign = "right";
+        ctx.fillText(String(value), yTick.x - 6, yTick.y - 6);
+        ctx.textAlign = "center";
+      }
     }
 
-    const offset = y - layout.centerY;
-    const distanceToScreen = layout.screenX - layout.barrierX;
-    const sinTheta = offset / Math.sqrt(offset ** 2 + distanceToScreen ** 2);
-    const phase = Math.PI * this.state.slitDistance * sinTheta / this.state.wavelength;
-    const aperture = 18;
-    const envelopeArg = Math.PI * aperture * sinTheta / this.state.wavelength;
-    const envelope = sinc(envelopeArg) ** 2;
-    return clamp(Math.cos(phase) ** 2 * envelope, 0.02, 1);
-  }
-
-  getPatternWidth(layout) {
-    return Math.min(84, this.width - layout.screenX - 24);
-  }
-
-  drawHits(ctx, layout) {
+    const xLabel = this.worldToScreen(27, -40, transform);
+    const yLabel = this.worldToScreen(-40, 34, transform);
+    ctx.fillStyle = "rgba(255, 255, 255, 0.72)";
+    ctx.fillText(this.copy("xAxis"), xLabel.x, xLabel.y + 20);
     ctx.save();
-    for (const hit of this.hits) {
-      ctx.fillStyle = this.state.detectorMode
-        ? "rgba(191, 64, 255, 0.62)"
-        : "rgba(255, 0, 162, 0.68)";
-      ctx.shadowBlur = 6;
-      ctx.shadowColor = this.state.detectorMode
-        ? "rgba(191, 64, 255, 0.5)"
-        : "rgba(255, 88, 214, 0.48)";
+    ctx.translate(yLabel.x - 28, yLabel.y);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillText(this.copy("yAxis"), 0, 0);
+    ctx.restore();
+    ctx.restore();
+  }
+
+  drawWavefrontContours(ctx, transform) {
+    const wavelength = Math.max(7, this.state.wavelength * 0.42);
+    const maxRadius = 76;
+
+    ctx.save();
+    ctx.lineWidth = Math.max(0.8, transform.scale * 0.055);
+    ctx.globalCompositeOperation = "lighter";
+
+    for (const atom of this.scatterers) {
+      const origin = this.worldToScreen(atom.x, atom.y, transform);
+      for (let radius = ((this.phase / TWO_PI) * wavelength) % wavelength; radius < maxRadius; radius += wavelength) {
+        const screenRadius = radius * transform.scale;
+        if (screenRadius < 3) {
+          continue;
+        }
+
+        const fade = clamp(1 - radius / maxRadius, 0, 1);
+        ctx.strokeStyle = `rgba(255, 0, 162, ${0.015 + 0.075 * fade})`;
+        ctx.beginPath();
+        ctx.arc(origin.x, origin.y, screenRadius, 0, TWO_PI);
+        ctx.stroke();
+      }
+    }
+
+    ctx.restore();
+  }
+
+  drawBraggGuides(ctx, transform) {
+    const origin = this.worldToScreen(15, 0, transform);
+    const length = 58 * transform.scale;
+
+    ctx.save();
+    ctx.setLineDash([8, 10]);
+    ctx.lineWidth = 1.2;
+    ctx.shadowBlur = 10;
+    ctx.shadowColor = "rgba(255, 0, 162, 0.38)";
+
+    [-0.44, -0.25, 0, 0.25, 0.44].forEach((angle, index) => {
+      const alpha = index === 2 ? 0.42 : 0.22;
+      ctx.strokeStyle = `rgba(255, 88, 214, ${alpha})`;
       ctx.beginPath();
-      ctx.arc(hit.x, hit.y, hit.radius, 0, TWO_PI);
+      ctx.moveTo(origin.x, origin.y);
+      ctx.lineTo(origin.x - Math.cos(angle) * length, origin.y - Math.sin(angle) * length);
+      ctx.stroke();
+    });
+
+    ctx.restore();
+  }
+
+  drawCrystalLattice(ctx, transform) {
+    ctx.save();
+    ctx.globalCompositeOperation = "lighter";
+
+    for (const atom of this.scatterers) {
+      const point = this.worldToScreen(atom.x, atom.y, transform);
+      const radius = clamp(transform.scale * 0.52, 2.6, 5.8);
+      const glow = ctx.createRadialGradient(point.x, point.y, 0, point.x, point.y, radius * 3.2);
+      glow.addColorStop(0, "rgba(255, 255, 255, 0.98)");
+      glow.addColorStop(0.2, "rgba(255, 232, 252, 0.92)");
+      glow.addColorStop(0.48, "rgba(255, 0, 162, 0.28)");
+      glow.addColorStop(1, "rgba(119, 0, 255, 0)");
+
+      ctx.fillStyle = glow;
+      ctx.beginPath();
+      ctx.arc(point.x, point.y, radius * 3.2, 0, TWO_PI);
+      ctx.fill();
+      ctx.fillStyle = "rgba(255, 255, 255, 0.95)";
+      ctx.beginPath();
+      ctx.arc(point.x, point.y, radius, 0, TWO_PI);
       ctx.fill();
     }
+
     ctx.restore();
   }
 
-  drawScale(ctx, layout) {
-    const x = layout.screenX - 28;
-    const tick = Math.max(20, this.height * 0.08);
+  drawSource(ctx, transform) {
+    const source = this.worldToScreen(45, 0, transform);
+    const pulse = 0.5 + 0.5 * Math.sin(this.phase * 2.4);
 
     ctx.save();
-    ctx.strokeStyle = "rgba(255, 88, 214, 0.34)";
-    ctx.fillStyle = "rgba(255, 212, 244, 0.82)";
-    ctx.lineWidth = 1;
-    ctx.font = "600 12px Cormorant Garamond, Georgia, serif";
-    ctx.textAlign = "right";
-
+    ctx.globalCompositeOperation = "lighter";
+    ctx.strokeStyle = "rgba(255, 0, 162, 0.5)";
+    ctx.fillStyle = "rgba(191, 64, 255, 0.34)";
+    ctx.lineWidth = 1.3;
+    ctx.shadowBlur = 18;
+    ctx.shadowColor = "rgba(255, 0, 162, 0.56)";
     ctx.beginPath();
-    ctx.moveTo(x, layout.top);
-    ctx.lineTo(x, layout.bottom);
+    ctx.arc(source.x, source.y, 9 + pulse * 4, 0, TWO_PI);
+    ctx.fill();
     ctx.stroke();
 
-    for (let y = layout.centerY; y >= layout.top; y -= tick) {
-      this.drawScaleTick(ctx, x, y, Math.round((layout.centerY - y) / tick));
-    }
-    for (let y = layout.centerY + tick; y <= layout.bottom; y += tick) {
-      this.drawScaleTick(ctx, x, y, -Math.round((y - layout.centerY) / tick));
-    }
-
+    ctx.strokeStyle = "rgba(255, 232, 252, 0.7)";
+    ctx.beginPath();
+    ctx.moveTo(source.x - 8, source.y);
+    ctx.lineTo(source.x - 24, source.y);
+    ctx.lineTo(source.x - 18, source.y - 5);
+    ctx.moveTo(source.x - 24, source.y);
+    ctx.lineTo(source.x - 18, source.y + 5);
+    ctx.stroke();
     ctx.restore();
   }
 
-  drawScaleTick(ctx, x, y, label) {
-    ctx.beginPath();
-    ctx.moveTo(x - 4, y);
-    ctx.lineTo(x + 4, y);
-    ctx.stroke();
-    ctx.fillText(String(label), x - 8, y + 4);
-  }
+  drawLabels(ctx, transform) {
+    const lattice = this.worldToScreen(25, -35, transform);
+    const source = this.worldToScreen(45, 8, transform);
+    const bragg = this.worldToScreen(-18, 30, transform);
 
-  drawLabels(ctx, layout) {
     ctx.save();
     ctx.font = "700 13px Cormorant Garamond, Georgia, serif";
-    ctx.fillStyle = "rgba(255, 212, 244, 0.88)";
+    ctx.fillStyle = "rgba(255, 232, 252, 0.78)";
     ctx.textAlign = "center";
-    ctx.fillText(this.copy("slitPlane"), layout.barrierX, layout.bottom + 14);
-    ctx.fillText(this.copy("screen"), layout.screenX, layout.bottom + 14);
-
+    ctx.fillText(this.copy("source"), source.x, source.y);
+    ctx.fillText(this.copy("lattice"), lattice.x, lattice.y);
     if (this.state.showMaxima) {
-      ctx.fillStyle = "#ff58d6";
-      ctx.shadowBlur = 10;
-      ctx.shadowColor = "rgba(255, 88, 214, 0.48)";
-      ctx.fillText(this.copy("centralMaximum"), (layout.barrierX + layout.screenX) / 2, layout.centerY - 10);
+      ctx.fillStyle = "rgba(255, 88, 214, 0.82)";
+      ctx.fillText(this.copy("bragg"), bragg.x, bragg.y);
     }
-
     ctx.restore();
   }
 
@@ -610,12 +669,9 @@ class DoubleSlitInterference {
   }
 }
 
-function scaleByHeight(value, height, baseHeight) {
-  return value * Math.max(0.75, Math.min(1.35, height / baseHeight));
-}
-
-function sinc(value) {
-  return Math.abs(value) < 0.0001 ? 1 : Math.sin(value) / value;
+function smoothstep(edge0, edge1, value) {
+  const t = clamp((value - edge0) / (edge1 - edge0), 0, 1);
+  return t * t * (3 - 2 * t);
 }
 
 function clamp(value, min, max) {

@@ -82,55 +82,55 @@
   </section>
 
   <section class="content-block">
-    <h3>Simulación de Interferencia de Doble Rendija</h3>
+    <h3>Simulación de Difracción Electrónica de Davisson-Germer</h3>
     <p>
-      Esta simulación se enfoca en la geometría ondulatoria del experimento de doble rendija. Ajusta la
-      <strong>longitud de onda</strong> y la <strong>distancia entre rendijas</strong>, y después muestra los frentes
-      de onda, los máximos brillantes, la escala vertical o el patrón de interferencia en la pantalla.
+      Este modelo bidimensional de onda electrónica está inspirado en el <strong>experimento de Davisson-Germer</strong>.
+      Un paquete de onda entra desde la derecha, se dispersa en una
+      red cristalina y forma franjas de difracción mediante emisión secundaria desde los nodos atómicos.
     </p>
     <div class="double-slit-simulator glass-window" data-double-slit-simulator data-language="es">
       <div class="ds-viewport" data-ds-viewport></div>
       <div class="ds-controls">
         <label class="ds-group">
-          <span class="ds-label">Longitud de onda <span class="ds-value" data-ds-value="wavelength">32</span></span>
-          <input class="ds-range" type="range" min="18" max="58" value="32" data-ds-param="wavelength"
-            aria-label="Longitud de onda">
+          <span class="ds-label">Longitud de onda electrónica <span class="ds-value" data-ds-value="wavelength">16</span></span>
+          <input class="ds-range" type="range" min="12" max="28" value="16" data-ds-param="wavelength"
+            aria-label="Longitud de onda electrónica">
         </label>
         <label class="ds-group">
-          <span class="ds-label">Distancia entre rendijas <span class="ds-value"
-              data-ds-value="slitDistance">84</span></span>
-          <input class="ds-range" type="range" min="44" max="132" value="84" data-ds-param="slitDistance"
-            aria-label="Distancia entre rendijas">
+          <span class="ds-label">Espaciado de red <span class="ds-value"
+              data-ds-value="slitDistance">8</span></span>
+          <input class="ds-range" type="range" min="6" max="12" value="8" data-ds-param="slitDistance"
+            aria-label="Espaciado de red">
         </label>
         <label class="ds-toggle">
           <input type="checkbox" checked data-ds-toggle="showWavefronts">
-          <span>Mostrar frentes de onda</span>
+          <span>Mostrar ondas secundarias</span>
         </label>
         <label class="ds-toggle">
           <input type="checkbox" checked data-ds-toggle="showMaxima">
-          <span>Mostrar máximos</span>
+          <span>Mostrar órdenes difractados</span>
         </label>
         <label class="ds-toggle">
           <input type="checkbox" checked data-ds-toggle="showScale">
-          <span>Mostrar escala vertical</span>
+          <span>Mostrar ejes en radios de Bohr</span>
         </label>
         <label class="ds-toggle">
           <input type="checkbox" checked data-ds-toggle="showHits">
-          <span>Mostrar acumulación</span>
+          <span>Mostrar red atómica</span>
         </label>
         <label class="ds-toggle">
           <input type="checkbox" data-ds-toggle="detectorMode">
-          <span>Modo detector</span>
+          <span>Contraste más definido</span>
         </label>
         <div class="ds-actions">
-          <button class="ds-btn" type="button" data-ds-action="pattern">Mostrar Patrón de Interferencia</button>
-          <button class="ds-btn" type="button" data-ds-action="clearHits">Limpiar impactos</button>
+          <button class="ds-btn" type="button" data-ds-action="pattern">Intensificar Difracción</button>
+          <button class="ds-btn" type="button" data-ds-action="clearHits">Restablecer Vista</button>
         </div>
       </div>
       <p class="ds-note">
-        Este es un modelo ondulatorio educativo basado en la condición estándar de interferencia para bandas brillantes.
-        La acumulación muestra cómo aparece el patrón en la pantalla; el modo detector elimina la interferencia y deja
-        dos bandas clásicas.
+        Esta es una simulación ondulatoria educativa, no una reconstrucción de detector. Los nodos de la red actúan como
+        emisores secundarios coherentes y producen interferencia constructiva y destructiva hacia el lado izquierdo del
+        gráfico.
       </p>
     </div>
   </section>
