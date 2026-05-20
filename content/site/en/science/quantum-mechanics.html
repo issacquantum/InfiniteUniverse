@@ -80,51 +80,51 @@
   </section>
 
   <section class="content-block">
-    <h3>Davisson-Germer Electron Diffraction Simulation</h3>
+    <h3>Double-Slit Interference Simulation</h3>
     <p>
-      This two-dimensional electron-wave model is inspired by the <strong>Davisson-Germer experiment</strong>. An
-      electron wave packet enters from the right, scatters from a
-      crystal lattice, and forms diffraction fringes through secondary wave emission from the atomic nodes.
+      This simulation focuses on the wave-optics geometry of the double-slit experiment. Adjust the
+      <strong>wavelength</strong> and <strong>slit distance</strong>, then show the wavefronts, bright maxima, vertical
+      scale, or the interference pattern on the screen.
     </p>
     <div class="double-slit-simulator glass-window" data-double-slit-simulator data-language="en">
       <div class="ds-viewport" data-ds-viewport></div>
       <div class="ds-controls">
         <label class="ds-group">
-          <span class="ds-label">Electron wavelength <span class="ds-value" data-ds-value="wavelength">16</span></span>
-          <input class="ds-range" type="range" min="12" max="28" value="16" data-ds-param="wavelength" aria-label="Electron wavelength">
+          <span class="ds-label">Wavelength <span class="ds-value" data-ds-value="wavelength">32</span></span>
+          <input class="ds-range" type="range" min="18" max="58" value="32" data-ds-param="wavelength" aria-label="Wavelength">
         </label>
         <label class="ds-group">
-          <span class="ds-label">Lattice spacing <span class="ds-value" data-ds-value="slitDistance">8</span></span>
-          <input class="ds-range" type="range" min="6" max="12" value="8" data-ds-param="slitDistance" aria-label="Lattice spacing">
+          <span class="ds-label">Slit distance <span class="ds-value" data-ds-value="slitDistance">84</span></span>
+          <input class="ds-range" type="range" min="44" max="132" value="84" data-ds-param="slitDistance" aria-label="Slit distance">
         </label>
         <label class="ds-toggle">
           <input type="checkbox" checked data-ds-toggle="showWavefronts">
-          <span>Show secondary waves</span>
+          <span>Show wavefronts</span>
         </label>
         <label class="ds-toggle">
           <input type="checkbox" checked data-ds-toggle="showMaxima">
-          <span>Show diffracted orders</span>
+          <span>Show maxima</span>
         </label>
         <label class="ds-toggle">
           <input type="checkbox" checked data-ds-toggle="showScale">
-          <span>Show Bohr-radius axes</span>
+          <span>Show vertical scale</span>
         </label>
         <label class="ds-toggle">
           <input type="checkbox" checked data-ds-toggle="showHits">
-          <span>Show atomic lattice</span>
+          <span>Show hit build-up</span>
         </label>
         <label class="ds-toggle">
           <input type="checkbox" data-ds-toggle="detectorMode">
-          <span>Sharper contrast</span>
+          <span>Detector mode</span>
         </label>
         <div class="ds-actions">
-          <button class="ds-btn" type="button" data-ds-action="pattern">Boost Diffraction</button>
-          <button class="ds-btn" type="button" data-ds-action="clearHits">Reset View</button>
+          <button class="ds-btn" type="button" data-ds-action="pattern">Show Interference Pattern</button>
+          <button class="ds-btn" type="button" data-ds-action="clearHits">Clear Hits</button>
         </div>
       </div>
       <p class="ds-note">
-        This is an educational wave simulation, not a detector reconstruction. The lattice nodes act as coherent
-        secondary emitters, producing constructive and destructive interference across the left side of the plot.
+        This is an educational wave model based on the standard bright-band interference condition. Hit build-up shows
+        how the screen pattern emerges; detector mode removes the interference structure and leaves two classical bands.
       </p>
     </div>
   </section>
