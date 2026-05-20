@@ -2188,14 +2188,16 @@ body[data-link-visibility="enhanced"] :where(.structured-content, .legacy-conten
     table-layout: fixed;
     width: 100%;
     max-width: 100%;
-    font-size: 0.78rem;
+    font-size: clamp(0.7rem, 2.35vw, 0.78rem);
   }
 
   .research-table th,
   .research-table td {
-    padding: 0.5rem 0.42rem;
-    overflow-wrap: anywhere;
-    word-break: break-word;
+    padding: 0.5rem 0.34rem;
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: auto;
+    text-wrap: pretty;
   }
 
   :where(
