@@ -192,7 +192,7 @@
     <p>consultas, ofreciendo una aceleración cuadrática frente al barrido clásico \(\mathcal{O}(N)\) y aplicable a una
       amplia familia de problemas de búsqueda y optimización. A estos se suman algoritmos cuánticos para química y
       materiales, métodos variacionales como <strong>VQE (solucionador cuántico variacional de autovalores)</strong> y
-      <strong>QAOA (algoritmo cuántico aproximado de optimización)</strong> diseñados para el hardware de la era actual, y técnicas de estimación de fase y resolución
+      <strong>QAOA (algoritmo cuántico aproximado de optimización)</strong> diseñados para los dispositivos cuánticos actuales, y técnicas de estimación de fase y resolución
       de sistemas lineales como <strong>HHL (Harrow-Hassidim-Lloyd)</strong>, que prometen ventajas en aprendizaje automático y ciencia de
       datos.
     </p>
@@ -243,18 +243,18 @@
     </p>
     <h3>Glosario de Términos Técnicos</h3>
     <ul class="paper-list glossary-list">
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Compuerta CNOT:</strong> Una compuerta controlled-NOT de dos qubits. Invierte el qubit objetivo solo cuando el qubit de control vale \(|1\rangle\), y es una compuerta entrelazante estándar en conjuntos universales de circuitos.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Compuerta CNOT:</strong> Una compuerta NOT controlada de dos qubits. Invierte el qubit objetivo solo cuando el qubit de control vale \(|1\rangle\), y es una compuerta entrelazante estándar en conjuntos universales de circuitos.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Conjunto rico de compuertas de un qubit:</strong> Una colección suficientemente expresiva de rotaciones y compuertas de fase de un solo qubit, normalmente combinada con una compuerta entrelazante como CNOT para lograr universalidad.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Oráculo:</strong> Una operación de caja negra que se asume capaz de responder una consulta específica en un paso.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Modelo de acceso:</strong> La forma asumida en que un algoritmo puede leer, consultar, muestrear o cargar sus datos de entrada.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Línea base clásica:</strong> El método clásico más fuerte usado como comparación contra un algoritmo cuántico.</span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Block-encoding:</strong> Una técnica que inserta una matriz dentro de una operación unitaria más grande para que un algoritmo cuántico pueda transformarla.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Codificación por bloques:</strong> Una técnica que inserta una matriz dentro de una operación unitaria más grande para que un algoritmo cuántico pueda transformarla.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Valor singular:</strong> Un factor de escala no negativo que describe cómo una matriz estira vectores en direcciones especiales.</span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Sketching:</strong> Técnica clásica aleatorizada que comprime una matriz o conjunto de datos conservando suficiente estructura para un cálculo objetivo.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Bosquejo aleatorizado:</strong> Técnica clásica que comprime una matriz o conjunto de datos conservando suficiente estructura para un cálculo objetivo.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Algoritmo sublineal:</strong> Un algoritmo que evita leer toda la entrada, posible solo bajo supuestos específicos de acceso.</span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Qubit físico:</strong> Un qubit real de hardware expuesto a ruido, errores de control y decoherencia.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Qubit físico:</strong> Un qubit real implementado en un dispositivo, expuesto a ruido, errores de control y decoherencia.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Qubit lógico:</strong> Un qubit protegido contra errores y codificado sobre muchos qubits físicos.</span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Umbral de tolerancia a fallos:</strong> La tasa de error físico por debajo de la cual la corrección de errores puede suprimir errores lógicos añadiendo suficiente sobrecoste.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Umbral de tolerancia a fallos:</strong> La tasa de error físico por debajo de la cual la corrección de errores puede suprimir errores lógicos añadiendo suficiente costo adicional.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Muestreo de bosones:</strong> Una tarea fotónica restringida usada para probar dispositivos cuánticos, no un modelo general de computación.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Modo de Majorana:</strong> Una excitación especial tipo cuasipartícula perseguida en algunas propuestas de computación cuántica topológica.</span></li>
     </ul>
@@ -358,7 +358,7 @@
     </p>
     <p>
       Este modelo de acceso es poderoso pero restrictivo. Es poderoso porque sostiene álgebra lineal numérica
-      aleatorizada: estimación de productos internos, sketching de estructura de bajo rango y muestreo desde productos
+      aleatorizada: estimación de productos internos, bosquejo aleatorizado de estructura de bajo rango y muestreo desde productos
       matriciales aproximados en tiempo sublineal o incluso independiente de la dimensión ambiente. Es restrictivo
       porque los datos deben almacenarse o mantenerse de una manera especial. Si los datos reales no permiten este acceso
       de forma barata, el algoritmo decuantizado puede no ser práctico. Pero si los algoritmos cuánticos y clásicos
@@ -368,7 +368,7 @@
 
     <h3>El Resultado de Sistemas de Recomendación</h3>
     <p>
-      El preprint de Tang de 2018, publicado en STOC (Symposium on Theory of Computing, Simposio sobre Teoría de la Computación) 2019 como <strong><a class="platform-link"
+      El manuscrito de Tang de 2018, publicado en STOC (Symposium on Theory of Computing, Simposio sobre Teoría de la Computación) 2019 como <strong><a class="platform-link"
           href="https://arxiv.org/pdf/1807.04271" target="_blank" rel="noopener noreferrer">A quantum-inspired
           classical algorithm for recommendation systems</a></strong>, respondió a una afirmación concreta. Kerenidis y
       Prakash habían dado un algoritmo cuántico de recomendación que era tratado como uno de los candidatos más fuertes
@@ -406,12 +406,12 @@
       aleatorizada pueden reproducir parte del comportamiento que se había tratado como exclusivamente cuántico.
     </p>
 
-    <h3>Q-PCA (analisis de componentes principales) (quantum principal component analysis, análisis de componentes principales cuántico), Clustering y Álgebra Lineal</h3>
+    <h3>Q-PCA, Agrupamiento y Álgebra Lineal</h3>
     <p>
       Tang extendió la misma lógica en <strong><a class="platform-link" href="https://arxiv.org/pdf/1811.00414"
           target="_blank" rel="noopener noreferrer">Quantum principal component analysis only achieves an exponential
           speedup because of its state preparation assumptions</a></strong>, publicado en <strong>Physical Review
-        Letters</strong> en 2021. El objetivo ahí era el análisis de componentes principales cuántico y el clustering de
+        Letters</strong> en 2021. El objetivo ahí era el análisis de componentes principales cuántico (Q-PCA) y el agrupamiento de
       centroides cercanos. De nuevo, la lección no fue que el algoritmo cuántico estuviera mal. La lección fue que la
       aceleración exponencial reclamada dependía de cómo se entregaban los datos de entrada.
     </p>
@@ -440,7 +440,7 @@
       donde \(A\) es una matriz, \(b\) es un vector y \(p\) es un polinomio o función matricial. La transformación
       cuántica de valores singulares da a los algoritmos cuánticos una forma poderosa de aplicar funciones a los valores
       singulares de matrices codificadas por bloques. <strong>Explicación de la ecuación:</strong> transformar la matriz mediante \(p\), y
-      después aplicar esa matriz transformada al vector \(b\). La línea de trabajo de Tang pregunta cuándo el sketching
+      después aplicar esa matriz transformada al vector \(b\). La línea de trabajo de Tang pregunta cuándo el bosquejo aleatorizado
       clásico, el muestreo y el álgebra lineal aleatorizada pueden reproducir la salida útil sin construir el estado
       cuántico correspondiente.
     </p>
@@ -524,7 +524,7 @@
       con tiempo lineal en el tamaño de muestra por el tamaño del sistema dentro de su marco. <strong>Explicación de la ecuación:</strong> \(S\) es el número de
       muestras, \(N\) es el parámetro de tamaño del sistema, y \(\varepsilon\) es la precisión deseada; la fórmula dice
       que una precisión más estricta o una temperatura efectiva más baja exige más muestras. Trabajo posterior de
-      Bakshi, Liu, Moitra y Tang extendió el aprendizaje de Hamiltonianos desde estados de Gibbs a cualquier temperatura
+      Bakshi, Liu, Moitra y Tang extendieron el aprendizaje de Hamiltonianos desde estados de Gibbs a cualquier temperatura
       constante en tiempo polinomial. Una línea relacionada de 2024 mostró que los estados de Gibbs de alta temperatura
       de Hamiltonianos locales de grado acotado se vuelven separables por encima de un umbral constante de temperatura y
       pueden prepararse eficientemente en ese régimen.
@@ -567,7 +567,7 @@
       </button>
     </div>
     <p>
-      <strong>Explicación de la ecuación:</strong> la semidefinición positiva significa que la matriz de densidad no
+      <strong>Explicación de la ecuación:</strong> que la matriz sea semidefinida positiva significa que no
       produce probabilidades negativas, y la condición de traza normaliza la probabilidad total. Para \(n\) qubits, la dimensión del espacio de Hilbert es
       \(2^n\), así que aprender un estado arbitrario directamente se vuelve exponencialmente costoso. Por eso importa la
       estructura: estados producto, estados no entrelazados, espectros y supuestos de bajo rango pueden convertir un
@@ -638,8 +638,8 @@
         qubits físicos</strong> para soportar unos pocos miles de <strong>qubits lógicos</strong> útiles.
     </p>
 
-    <h3>Enfoques de hardware</h3>
-    <p>En el plano del hardware coexisten varios enfoques competitivos. Los <strong>qubits superconductores</strong>,
+    <h3>Enfoques de Implementación Física</h3>
+    <p>En el plano de la implementación física coexisten varios enfoques competitivos. Los <strong>qubits superconductores</strong>,
       basados en <strong>uniones Josephson</strong> y operados a temperaturas de milikelvin, son la apuesta de
       <strong><a class="platform-link" href="https://www.ibm.com/quantum" target="_blank"
           rel="noopener noreferrer">IBM (International Business Machines)</a>, <a class="platform-link" href="https://quantumai.google/" target="_blank"
@@ -676,7 +676,7 @@
       supercomputadores clásicos, pero todavía no existe una <strong>"ventaja cuántica"</strong> útil y reproducible
       para problemas industriales relevantes. Las limitaciones actuales incluyen la <strong>conectividad restringida
         entre qubits</strong>, la profundidad máxima de los circuitos antes de que el ruido domine, el cuello de
-      botella de la lectura clásica, los costes criogénicos y de control, y la escasez de talento y software maduro.
+      botella de la lectura clásica, los costos criogénicos y de control, y la escasez de herramientas de software maduras.
       Aun así, la madurez creciente de las plataformas en la nube, la estandarización de lenguajes como
       <strong><a class="platform-link" href="https://www.ibm.com/quantum/qiskit" target="_blank" rel="noopener noreferrer">Qiskit</a>, <a class="platform-link" href="https://quantumai.google/cirq" target="_blank" rel="noopener noreferrer">Cirq</a> y <a class="platform-link" href="https://pennylane.ai/" target="_blank" rel="noopener noreferrer">PennyLane</a></strong>, y los avances sostenidos en fidelidad y número de qubits sugieren un
       camino verosímil hacia <strong>procesadores tolerantes a fallos</strong> en la próxima década.
@@ -684,7 +684,7 @@
     <p>La distancia entre la prueba de principio y un despliegue práctico amplio sigue siendo, por tanto, considerable.
       Las máquinas actuales son valiosas porque permiten aprender cómo se comporta el control cuántico fuera de las
       matemáticas ideales, cómo escala el ruido en arquitecturas reales y qué ideas algorítmicas sobreviven al contacto
-      con el hardware. En ese sentido, el campo ya no es especulativo, pero tampoco está lo bastante maduro como para
+      con dispositivos reales. En ese sentido, el campo ya no es especulativo, pero tampoco está lo bastante maduro como para
       justificar la idea inflada de que la computación clásica está a punto de ser reemplazada.</p>
 
 
@@ -693,7 +693,7 @@
       <strong>superposición y el entrelazamiento</strong> amplían el espacio de cómputo, las <strong>compuertas
         unitarias</strong> lo recorren mediante interferencia dirigida, los <strong>algoritmos</strong> transforman esa
       interferencia en respuestas con sentido, y la <strong>corrección de errores</strong> protege todo ese andamiaje
-      frente al ruido inevitable del mundo físico. Cada generación de hardware nos acerca un poco más al umbral en el
+      frente al ruido inevitable del mundo físico. Cada generación de dispositivos nos acerca un poco más al umbral en el
       que esta combinación dejará de ser una promesa teórica para convertirse en una herramienta de impacto cotidiano
       en <strong>criptografía, química, materiales, optimización e inteligencia artificial</strong>, redefiniendo en el
       proceso lo que entendemos por límites del cálculo.
@@ -712,7 +712,6 @@
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>STOC:</strong> Symposium on Theory of Computing, Simposio sobre Teoría de la Computación.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>IBM:</strong> International Business Machines.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>NISQ:</strong> cuántica ruidosa de escala intermedia.</span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>CV:</strong> curriculum vitae.</span></li>
     </ul>
   </section>
 
@@ -720,12 +719,6 @@
     <h3>Enlaces de Artículos Fundamentales y Modernos</h3>
     <p class="source-language-note">Incluyo estas fuentes en inglés porque ese fue el idioma en que las leí originalmente.</p>
     <ul class="paper-list">
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://ewintang.com/" target="_blank" rel="noopener noreferrer">Ewin Tang. <em>Official Website and Publication List.</em></a> <span class="paper-note">Mejor punto de inicio para su investigación actual, conferencias, CV (curriculum vitae) y lista de artículos.</span></span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.ewintang.com/assets/tang_thesis.pdf" target="_blank" rel="noopener noreferrer">Ewin Tang, 2023. <em>Quantum Machine Learning Without Any Quantum.</em></a> <span class="paper-note">PDF de su tesis doctoral desde el sitio de Tang.</span></span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://ewintang.com/blog/2019/01/28/an-overview-of-quantum-inspired-sampling/" target="_blank" rel="noopener noreferrer">Ewin Tang, 2019. <em>An Overview of Quantum-Inspired Classical Sampling.</em></a> <span class="paper-note">Nota expositiva de Tang sobre el modelo de decuantización y la intuición técnica.</span></span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.quantamagazine.org/what-is-the-true-promise-of-quantum-computing-20250403/" target="_blank" rel="noopener noreferrer">Quanta Magazine, 2025. <em>What Is the True Promise of Quantum Computing?</em></a> <span class="paper-note">Entrevista donde Tang describe que eligió el problema de sistemas de recomendación entre varias opciones sugeridas por Scott Aaronson.</span></span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.quantamagazine.org/teenager-finds-classical-alternative-to-quantum-recommendation-algorithm-20180731/" target="_blank" rel="noopener noreferrer">Quanta Magazine, 2018. <em>Major Quantum Computing Advance Made Obsolete by Teenager.</em></a> <span class="paper-note">Relato detallado del proyecto de Tang con Scott Aaronson y la inversión del problema original.</span></span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://news.cs.washington.edu/2018/12/21/ph-d-student-ewin-tang-recognized-in-forbes-30-under-30-in-science-for-taking-the-quantum-out-of-quantum-computing/" target="_blank" rel="noopener noreferrer">University of Washington Allen School, 2018. <em>Ewin Tang recognized in Forbes' 30 Under 30.</em></a> <span class="paper-note">Relato institucional sobre Tang, Aaronson y el resultado de sistemas de recomendación.</span></span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.math.cmu.edu/~af1p/Texfiles/SVD.pdf" target="_blank" rel="noopener noreferrer">Frieze, Kannan, and Vempala, 2004. <em>Fast Monte-Carlo Algorithms for Finding Low-Rank Approximations.</em></a> <span class="paper-note">Artículo fundamental de álgebra lineal aleatorizada detrás de la aproximación de bajo rango con muestreo por longitudes al cuadrado.</span></span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.cambridge.org/core/journals/acta-numerica/article/abs/randomized-algorithms-in-numerical-linear-algebra/41CF2151FADE7757AA95C7FC15E43630" target="_blank" rel="noopener noreferrer">Kannan and Vempala, 2017. <em>Randomized Algorithms in Numerical Linear Algebra.</em></a> <span class="paper-note">Revisión que explica el muestreo de filas y columnas por longitudes al cuadrado como una idea central del álgebra lineal aleatorizada rápida.</span></span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://s2.smu.edu/~mitch/class/5395/papers/feynman-quantum-1981.pdf" target="_blank" rel="noopener noreferrer">Richard Feynman, 1982. <em>Simulating Physics with Computers.</em></a> <span class="paper-note">PDF gratuito alojado en materiales de curso de Southern Methodist University.</span></span></li>
@@ -740,19 +733,13 @@
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/pdf/1811.00414" target="_blank" rel="noopener noreferrer">Ewin Tang, 2021. <em>Quantum Principal Component Analysis Only Achieves an Exponential Speedup Because of Its State Preparation Assumptions.</em></a> <span class="paper-note">PDF de arXiv del artículo publicado después en Physical Review Letters.</span></span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/pdf/1811.04909" target="_blank" rel="noopener noreferrer">Andras Gilyen, Seth Lloyd, and Ewin Tang, 2018. <em>Quantum-Inspired Low-Rank Stochastic Regression with Logarithmic Dependence on the Dimension.</em></a></span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/pdf/1910.06151" target="_blank" rel="noopener noreferrer">Nai-Hui Chia, Andras Gilyen, Tongyang Li, Han-Hsuan Lin, Ewin Tang, and Chunhao Wang, 2020. <em>Sampling-Based Sublinear Low-Rank Matrix Arithmetic Framework for Dequantizing Quantum Machine Learning.</em></a></span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/pdf/2009.07268" target="_blank" rel="noopener noreferrer">Andras Gilyen, Zhao Song, and Ewin Tang, 2020. <em>An Improved Quantum-Inspired Algorithm for Linear Regression.</em></a></span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.nature.com/articles/s42254-022-00511-w" target="_blank" rel="noopener noreferrer">Ewin Tang, 2022. <em>Dequantizing Algorithms to Understand Quantum Advantage in Machine Learning.</em></a> <span class="paper-note">Página del artículo en Nature Reviews Physics.</span></span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/pdf/2302.14324" target="_blank" rel="noopener noreferrer">Ewin Tang and Kevin Tian, 2024. <em>A CS Guide to the Quantum Singular Value Transformation.</em></a></span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/pdf/2303.01492" target="_blank" rel="noopener noreferrer">Ainesh Bakshi and Ewin Tang, 2024. <em>An Improved Classical Singular Value Transformation for Quantum Machine Learning.</em></a></span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/pdf/2108.04842" target="_blank" rel="noopener noreferrer">Jeongwan Haah, Robin Kothari, and Ewin Tang, 2021. <em>Optimal Learning of Quantum Hamiltonians from High-Temperature Gibbs States.</em></a> <span class="paper-note">PDF de arXiv que introduce aprendizaje óptimo de Hamiltonianos desde estados de Gibbs de alta temperatura.</span></span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.nature.com/articles/s41567-023-02376-x" target="_blank" rel="noopener noreferrer">Haah, Kothari, and Tang, 2024. <em>Learning Quantum Hamiltonians from High-Temperature Gibbs States and Real-Time Evolutions.</em></a> <span class="paper-note">Página de Nature Physics del resultado de aprendizaje de Hamiltonianos.</span></span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/pdf/2310.02243" target="_blank" rel="noopener noreferrer">Bakshi, Liu, Moitra, and Tang, 2023. <em>Learning Quantum Hamiltonians at Any Temperature in Polynomial Time.</em></a> <span class="paper-note">PDF de arXiv que extiende el aprendizaje de Hamiltonianos desde estados de Gibbs más allá del régimen de alta temperatura.</span></span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/pdf/2403.16850" target="_blank" rel="noopener noreferrer">Bakshi, Liu, Moitra, and Tang, 2024. <em>High-Temperature Gibbs States Are Unentangled and Efficiently Preparable.</em></a> <span class="paper-note">PDF de arXiv sobre separabilidad y preparación eficiente de estados de Gibbs de alta temperatura.</span></span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/pdf/2405.00082" target="_blank" rel="noopener noreferrer">Bakshi, Liu, Moitra, and Tang, 2024. <em>Structure Learning of Hamiltonians from Real-Time Evolution.</em></a> <span class="paper-note">PDF de arXiv sobre recuperación de estructura Hamiltoniana desde acceso a \(e^{-iHt}\).</span></span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.nature.com/articles/s41567-021-01232-0" target="_blank" rel="noopener noreferrer">Anshu, Arunachalam, Kuwahara, and Soleimanifar, 2021. <em>Sample-Efficient Learning of Interacting Quantum Systems.</em></a> <span class="paper-note">Artículo anterior importante de Nature Physics sobre aprendizaje de Hamiltonianos locales desde estados de Gibbs.</span></span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/pdf/2411.04283" target="_blank" rel="noopener noreferrer">Bakshi, Bostanci, Kretschmer, Landau, Li, Liu, O'Donnell, and Tang, 2024. <em>Learning the Closest Product State.</em></a> <span class="paper-note">PDF de arXiv sobre aproximar estados de Hilbert mediante estructura de estados producto.</span></span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/pdf/2504.02785" target="_blank" rel="noopener noreferrer">Pelecanos, Tan, Tang, and Wright, 2025. <em>Beating Full State Tomography for Unentangled Spectrum Estimation.</em></a> <span class="paper-note">PDF de arXiv sobre aprender información espectral sin tomografía completa de estados.</span></span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/pdf/2511.15806" target="_blank" rel="noopener noreferrer">Pelecanos, Spilecki, Tang, and Wright, 2025. <em>Mixed State Tomography Reduces to Pure State Tomography.</em></a> <span class="paper-note">PDF de arXiv que conecta tomografía de estados mixtos con tomografía de estados puros.</span></span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.nature.com/articles/s41586-019-1666-5" target="_blank" rel="noopener noreferrer">Arute et al., 2019. <em>Quantum Supremacy Using a Programmable Superconducting Processor.</em></a> <span class="paper-note">Página oficial del artículo en Nature.</span></span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://quantumai.google/" target="_blank" rel="noopener noreferrer">Google Quantum AI</a>, 2023. <a class="paper-link" href="https://www.nature.com/articles/s41586-022-05434-1" target="_blank" rel="noopener noreferrer"><em>Suppressing Quantum Errors by Scaling a Surface Code Logical Qubit.</em></a> <span class="paper-note">Página de acceso abierto en Nature.</span></span></li>
     </ul>
