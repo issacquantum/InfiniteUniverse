@@ -901,6 +901,10 @@ body[data-media-notes="on"] .media-note {
   margin-top: 2.4rem;
 }
 
+.source-papers + .source-papers {
+  margin-top: 0;
+}
+
 .glossary-section {
   margin-top: 2.4rem;
 }
