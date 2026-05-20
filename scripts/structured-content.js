@@ -1,5 +1,5 @@
 import { pick } from "./i18n.js";
-import { initDoubleSlitSimulators } from "./double-slit-simulator.js?v=20260520-electron-diffraction";
+import { initDoubleSlitSimulators } from "./double-slit-simulator.js?v=20260511-mobile-pinch-zoom";
 import { initGravityFabricModels } from "./gravity-fabric-model.js?v=20260514-fabric-clearance-rotation";
 import { initGravityLensingModels } from "./gravity-lensing-model.js?v=20260511-mobile-pinch-zoom";
 import { initQuantumEntanglementModels } from "./quantum-entanglement-model.js?v=20260511-mobile-pinch-zoom";
@@ -13,7 +13,7 @@ import { initInformationTheoryModels } from "./information-theory-model.js?v=202
 import { initAlgorithmVisualizerModels } from "./algorithm-visualizer-model.js?v=20260511-mobile-pinch-zoom";
 import { initQuantumFluctuationModels } from "./quantum-fluctuation-model.js?v=20260514-fluctuation-animates";
 import { initBlackHoleModels } from "./black-hole-model.js?v=20260511-mobile-pinch-zoom";
-import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260520-electron-diffraction";
+import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260519-source-language-clean";
 
 let activeRequestToken = 0;
 
