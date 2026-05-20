@@ -452,6 +452,7 @@
   .mobile-science-toggle {
     width: 2.46rem;
     height: 2.46rem;
+    margin-left: 0.42rem;
     place-items: center;
     color: var(--strong);
   }
