@@ -244,7 +244,7 @@ const programmingAlgorithmsEquationBranch = {
     createStructuredItem("science/equations", "comparison-sort-lower-bound", "Comparison Sort Lower Bound", "Límite Inferior de Ordenamiento por Comparación"),
     createStructuredItem("science/equations", "dijkstra-priority-queue-complexity", "Dijkstra Priority Queue Complexity", "Complejidad de Dijkstra con Cola de Prioridad"),
     createStructuredItem("science/equations", "dynamic-programming-recurrence", "Dynamic Programming Recurrence", "Recurrencia de Programación Dinámica"),
-    createStructuredItem("science/equations", "p-np-definitions", "P and NP (nondeterministic polynomial time) Definitions", "Definiciones de P y NP (nondeterministic polynomial time, tiempo polinomial no determinista)")
+    createStructuredItem("science/equations", "p-np-definitions", "P and NP (nondeterministic polynomial time) Definitions", "Definiciones de P y NP (tiempo polinomial no determinista)")
   ]
 };
 
