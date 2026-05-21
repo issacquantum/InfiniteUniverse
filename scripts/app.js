@@ -1,14 +1,14 @@
 import { siteAssets } from "../data/site-assets.js";
-import { siteContent } from "../data/site-content.js?v=20260519-source-language-clean";
+import { siteContent } from "../data/site-content.js?v=20260520-equation-pages";
 import { createAccessibilityController } from "./accessibility.js?v=20260508-a11y-notices";
 import { initBackground } from "./background.js";
 import { refreshIcons } from "./icons.js";
 import { pick } from "./i18n.js";
-import { syncLegacyContent } from "./legacy-content.js?v=20260519-source-language-clean";
+import { syncLegacyContent } from "./legacy-content.js?v=20260520-equation-pages";
 import { createMusicController, syncMusicUi } from "./music.js?v=20260513-tekken-delayed-autoplay-unlock";
 import { renderSite } from "./render.js?v=20260519-phone-science-close";
 import { createState } from "./state.js";
-import { syncStructuredContent } from "./structured-content.js?v=20260519-source-language-clean";
+import { syncStructuredContent } from "./structured-content.js?v=20260520-equation-pages";
 
 const refs = {
   siteShell: document.querySelector(".site-shell"),
