@@ -365,16 +365,16 @@ export const siteContent = {
   },
   siteNoticeSection: createSection("site-notices", "Site Notices & Privacy", "Avisos del sitio y privacidad"),
   personalSections: [
+    createSection("early-life", "Early Life", "Vida temprana"),
+    createSection("education", "Education", "Educación"),
+    createSection("music", "Music", "Música"),
+    createSection("professional-career", "Professional Career", "Carrera profesional"),
+    createSection("applied-disciplines", "Interactive Activities", "Actividades interactivas"),
     createSection("works-that-shaped-my-thinking", "My Work & Influences", "Mi trabajo e influencias", {
       branches: [myWorkInfluencesEquationBranch],
       hideBranchNavigation: true,
       hideDetailNavigation: true
-    }),
-    createSection("early-life", "Early Life", "Vida temprana"),
-    createSection("education", "Education", "Educación"),
-    createSection("professional-career", "Professional Career", "Carrera profesional"),
-    createSection("music", "Music", "Música"),
-    createSection("applied-disciplines", "Interactive Activities", "Actividades interactivas")
+    })
   ],
   educationDomains: [
     {

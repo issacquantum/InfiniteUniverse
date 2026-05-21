@@ -115,6 +115,10 @@
   gap: 0.7rem;
 }
 
+.section-grid .section-button:last-child {
+  grid-column: 3 / 4;
+}
+
 .education-row,
 .topic-grid {
   display: flex;
@@ -487,6 +491,7 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .section-grid .section-button:nth-child(5),
   .section-grid .section-button:last-child {
     grid-column: 1 / -1;
   }
