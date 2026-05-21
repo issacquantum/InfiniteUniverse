@@ -3,7 +3,7 @@ import { siteContent } from "../data/site-content.js";
 
 const documentCache = new Map();
 const requestCache = new Map();
-const CONTENT_CACHE_VERSION = "20260520-spanish-personal-wording";
+const CONTENT_CACHE_VERSION = "20260520-education-secret-wording";
 const PREWARM_WORKER_LIMIT = 4;
 let prewarmScheduled = false;
 
