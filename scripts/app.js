@@ -1,5 +1,5 @@
 import { siteAssets } from "../data/site-assets.js";
-import { siteContent } from "../data/site-content.js?v=20260520-personal-nav-order";
+import { siteContent } from "../data/site-content.js?v=20260520-science-nav-tabs";
 import { createAccessibilityController } from "./accessibility.js?v=20260508-a11y-notices";
 import { initBackground } from "./background.js";
 import { refreshIcons } from "./icons.js";
@@ -716,11 +716,29 @@ function showMobileSections() {
 }
 
 function toggleMobileScienceNav() {
-  store.setState((state) => ({
-    ...state,
-    mobileScienceNavOpen: !state.mobileScienceNavOpen,
-    mobileScienceNavDomain: !state.mobileScienceNavOpen ? state.activeDomain : null
-  }));
+  store.setState((state) => {
+    const opening = !state.mobileScienceNavOpen;
+
+    if (!opening) {
+      return {
+        ...state,
+        mobileScienceNavOpen: false,
+        mobileScienceNavDomain: null
+      };
+    }
+
+    return {
+      ...state,
+      titleOpen: false,
+      activeSection: null,
+      showPersonalSectionList: false,
+      activeBranch: null,
+      activeDetail: null,
+      equationReturnTarget: null,
+      mobileScienceNavOpen: true,
+      mobileScienceNavDomain: state.activeDomain
+    };
+  });
 }
 
 function toggleMobileScienceDomain(domainId) {
