@@ -1,5 +1,5 @@
 import { bigBangLegacyContent } from "../data/legacy-big-bang.js";
-import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260520-core-questions";
+import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260520-irreversible-time-example";
 import { pick } from "./i18n.js";
 
 let activeRequestToken = 0;
