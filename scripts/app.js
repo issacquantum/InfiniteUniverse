@@ -4,11 +4,11 @@ import { createAccessibilityController } from "./accessibility.js?v=20260508-a11
 import { initBackground } from "./background.js";
 import { refreshIcons } from "./icons.js";
 import { pick } from "./i18n.js";
-import { syncLegacyContent } from "./legacy-content.js?v=20260520-irreversible-time-example";
+import { syncLegacyContent } from "./legacy-content.js?v=20260520-spanish-language-audit";
 import { createMusicController, syncMusicUi } from "./music.js?v=20260513-tekken-delayed-autoplay-unlock";
 import { renderSite } from "./render.js?v=20260519-phone-science-close";
 import { createState } from "./state.js";
-import { syncStructuredContent } from "./structured-content.js?v=20260520-irreversible-time-example";
+import { syncStructuredContent } from "./structured-content.js?v=20260520-spanish-language-audit";
 
 const refs = {
   siteShell: document.querySelector(".site-shell"),
