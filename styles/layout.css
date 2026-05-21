@@ -295,10 +295,10 @@
 .mobile-science-nav__topic-button {
   width: 100%;
   min-width: 0;
-  min-height: 3.65rem;
-  padding: 0.88rem 1.04rem;
+  min-height: var(--tab-height);
+  padding: 0.62rem 1rem;
   white-space: normal;
-  line-height: 1.12;
+  line-height: 1.16;
 }
 
 .mobile-science-nav__domain-button {
@@ -338,7 +338,7 @@
 
 @media (min-width: 769px) {
   .mobile-science-nav.is-open {
-    margin: 0 0 0.25rem;
+    margin: 0 0 0.35rem;
   }
 
   .mobile-science-nav__panel,
@@ -362,15 +362,14 @@
   }
 
   .mobile-science-nav__domains {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
     justify-content: center;
     align-items: flex-start;
     gap: 0.7rem;
   }
 
   .mobile-science-nav__domain {
-    min-width: min(18rem, 30%);
     display: grid;
     justify-items: center;
     gap: 0.7rem;
@@ -378,6 +377,16 @@
 
   .mobile-science-nav__domain-button,
   .mobile-science-nav__topic-button {
+    min-height: var(--tab-height);
+    width: 100%;
+    min-width: 0;
+    padding: 0.62rem 1rem;
+    text-align: center;
+  }
+
+  .mobile-science-nav__domain-button {
+    display: inline-grid;
+    grid-template-columns: minmax(0, 1fr) auto;
     border: 1px solid rgba(var(--outline-rgb), 0.42);
     border-radius: 999px;
     background:
@@ -386,16 +395,6 @@
     box-shadow:
       0 0 0 1px rgba(var(--outline-rgb), 0.1) inset,
       0 14px 32px rgba(0, 0, 0, 0.22);
-    min-height: var(--tab-height);
-    width: auto;
-    min-width: 12rem;
-    padding: 0.62rem 1rem;
-    text-align: center;
-  }
-
-  .mobile-science-nav__domain-button {
-    display: inline-grid;
-    grid-template-columns: minmax(0, 1fr) auto;
   }
 
   .mobile-science-nav__topics {
@@ -409,8 +408,16 @@
     place-items: center;
     margin-left: 0;
     font-size: 0.86rem;
-    min-width: 11rem;
+    min-width: 0;
     padding-left: 1rem;
+    border: 1px solid rgba(var(--outline-rgb), 0.32);
+    border-radius: 999px;
+    background:
+      linear-gradient(135deg, rgba(var(--glass-rgb), 0.42), rgba(12, 2, 28, 0.38)),
+      radial-gradient(circle at top, rgba(var(--glow-rgb), 0.1), transparent 60%);
+    box-shadow:
+      0 0 0 1px rgba(var(--outline-rgb), 0.08) inset,
+      0 12px 24px rgba(0, 0, 0, 0.18);
     text-align: center;
   }
 }
