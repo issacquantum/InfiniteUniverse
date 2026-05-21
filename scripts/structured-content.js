@@ -13,7 +13,7 @@ import { initInformationTheoryModels } from "./information-theory-model.js?v=202
 import { initAlgorithmVisualizerModels } from "./algorithm-visualizer-model.js?v=20260511-mobile-pinch-zoom";
 import { initQuantumFluctuationModels } from "./quantum-fluctuation-model.js?v=20260514-fluctuation-animates";
 import { initBlackHoleModels } from "./black-hole-model.js?v=20260511-mobile-pinch-zoom";
-import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260520-spanish-importa-wording";
+import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260520-nurburgring-no-brand-list";
 
 let activeRequestToken = 0;
 
