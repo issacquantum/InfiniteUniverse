@@ -224,20 +224,24 @@ function renderMobileReaderNavigation(navigation, language) {
     next: language === "es" ? "Siguiente" : "Next"
   };
 
-  const renderStepButton = (item, label) => {
+  const renderStepButton = (item, label, direction) => {
     if (!item) {
       return `<span class="mobile-reader-nav__spacer" aria-hidden="true"></span>`;
     }
 
+    const icon = direction === "previous" ? "arrow-left" : "arrow-right";
+    const ariaLabel = `${label}: ${item.label}`;
+
     return `
       <button
-        class="glass-tab mobile-reader-nav__button"
+        class="${classNames("glass-tab", "mobile-reader-nav__button", "mobile-reader-nav__button--step", `mobile-reader-nav__button--${direction}`)}"
         type="button"
         data-action="${escapeHtml(item.action)}"
         ${escapeHtml(item.dataName)}="${escapeHtml(item.id)}"
+        aria-label="${escapeHtml(ariaLabel)}"
+        title="${escapeHtml(ariaLabel)}"
       >
-        <span class="mobile-reader-nav__direction">${escapeHtml(label)}</span>
-        <span class="mobile-reader-nav__label">${escapeHtml(item.label)}</span>
+        <i data-lucide="${icon}" aria-hidden="true"></i>
       </button>
     `;
   };
@@ -258,7 +262,7 @@ function renderMobileReaderNavigation(navigation, language) {
     <nav class="${classNames("mobile-reader-nav", returnButton && "mobile-reader-nav--with-return")}" aria-label="${escapeHtml(labels.all)}">
       ${returnButton}
       <div class="mobile-reader-nav__steps">
-        ${renderStepButton(navigation.previous, labels.previous)}
+        ${renderStepButton(navigation.previous, labels.previous, "previous")}
         <button
           class="glass-tab mobile-reader-nav__button mobile-reader-nav__button--all"
           type="button"
@@ -266,8 +270,49 @@ function renderMobileReaderNavigation(navigation, language) {
         >
           ${escapeHtml(labels.all)}
         </button>
-        ${renderStepButton(navigation.next, labels.next)}
+        ${renderStepButton(navigation.next, labels.next, "next")}
       </div>
+    </nav>
+  `;
+}
+
+function renderMobileReaderTopNavigation(navigation, language) {
+  if (!navigation?.previous && !navigation?.next) {
+    return "";
+  }
+
+  const labels = {
+    previous: language === "es" ? "Anterior" : "Previous",
+    next: language === "es" ? "Siguiente" : "Next"
+  };
+
+  const renderTopButton = (item, label, direction) => {
+    if (!item) {
+      return `<span class="mobile-reader-top-nav__spacer" aria-hidden="true"></span>`;
+    }
+
+    const icon = direction === "previous" ? "arrow-left" : "arrow-right";
+    const ariaLabel = `${label}: ${item.label}`;
+
+    return `
+      <button
+        class="${classNames("glass-sphere", "mobile-reader-top-nav__button", `mobile-reader-top-nav__button--${direction}`)}"
+        type="button"
+        data-action="${escapeHtml(item.action)}"
+        ${escapeHtml(item.dataName)}="${escapeHtml(item.id)}"
+        aria-label="${escapeHtml(ariaLabel)}"
+        title="${escapeHtml(ariaLabel)}"
+      >
+        <i data-lucide="${icon}" aria-hidden="true"></i>
+      </button>
+    `;
+  };
+
+  return `
+    <nav class="mobile-reader-top-nav" aria-label="${escapeHtml(language === "es" ? "Navegación de lectura" : "Reader navigation")}">
+      ${renderTopButton(navigation.previous, labels.previous, "previous")}
+      <span class="mobile-reader-top-nav__center" aria-hidden="true"></span>
+      ${renderTopButton(navigation.next, labels.next, "next")}
     </nav>
   `;
 }
@@ -352,6 +397,7 @@ function renderStructuredPanel(contentFile, language, ui, navigation = null) {
 
   return `
     <article class="glass-window content-window" tabindex="0">
+      ${renderMobileReaderTopNavigation(navigation, language)}
       <div
         class="structured-content-host"
         data-structured-host
@@ -378,6 +424,7 @@ function renderLegacyPanel(item, language, ui, navigation = null) {
 
   return `
     <article class="glass-window content-window" tabindex="0">
+      ${renderMobileReaderTopNavigation(navigation, language)}
       <div class="legacy-content-host" data-legacy-host></div>
       ${renderMobileReaderNavigation(navigation, language)}
       <div class="content-window__infinity" aria-hidden="true">∞</div>
