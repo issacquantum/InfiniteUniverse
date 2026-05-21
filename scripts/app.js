@@ -1,5 +1,5 @@
 import { siteAssets } from "../data/site-assets.js";
-import { siteContent } from "../data/site-content.js?v=20260520-equation-pages";
+import { siteContent } from "../data/site-content.js?v=20260520-personal-nav-order";
 import { createAccessibilityController } from "./accessibility.js?v=20260508-a11y-notices";
 import { initBackground } from "./background.js";
 import { refreshIcons } from "./icons.js";
