@@ -26,8 +26,8 @@ export const siteAssets = {
   cv: {
     id: "cv",
     label: {
-      en: "Professional Profile",
-      es: "Perfil profesional"
+      en: "Work Record",
+      es: "Registro de trabajo"
     },
     path: {
       en: "Assets2/Professional_Resume2026.pdf",

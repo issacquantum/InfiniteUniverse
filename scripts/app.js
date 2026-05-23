@@ -74,9 +74,9 @@ function syncMobileScienceToggle(state) {
   const isOpen = Boolean(state.mobileScienceNavOpen);
   const isSpanish = state.language === "es";
   const label = isOpen
-    ? (isSpanish ? "Cerrar menú científico" : "Close science menu")
-    : (isSpanish ? "Abrir menú científico" : "Open science menu");
-  const title = isSpanish ? "Secciones científicas" : "Scientific Sections";
+    ? (isSpanish ? "Cerrar mundos de conocimiento" : "Close Knowledge Worlds")
+    : (isSpanish ? "Abrir mundos de conocimiento" : "Open Knowledge Worlds");
+  const title = isSpanish ? "Mundos de conocimiento" : "Knowledge Worlds";
 
   refs.mobileScienceToggle.setAttribute("aria-expanded", String(isOpen));
   refs.mobileScienceToggle.setAttribute("aria-label", label);

@@ -319,9 +319,9 @@ function renderMobileReaderTopNavigation(navigation, language) {
 
 function renderMobileScienceNavigation(domains, state, language) {
   const labels = {
-    toggle: language === "es" ? "Secciones científicas" : "Scientific Sections",
-    open: language === "es" ? "Abrir menú científico" : "Open science menu",
-    close: language === "es" ? "Cerrar menú científico" : "Close science menu",
+    toggle: language === "es" ? "Mundos de conocimiento" : "Knowledge Worlds",
+    open: language === "es" ? "Abrir mundos de conocimiento" : "Open Knowledge Worlds",
+    close: language === "es" ? "Cerrar mundos de conocimiento" : "Close Knowledge Worlds",
     topics: language === "es" ? "Temas" : "Topics"
   };
   const isOpen = Boolean(state.mobileScienceNavOpen);

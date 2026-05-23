@@ -308,11 +308,11 @@ export const siteContent = {
   ui: {
     languageLabel: { en: "EN/ES", es: "EN/ES" },
     skipToContent: { en: "Skip to content", es: "Saltar al contenido" },
-    accessibilityButtonLabel: { en: "Accessibility options", es: "Opciones de accesibilidad" },
-    accessibilityTitle: { en: "Accessibility", es: "Accesibilidad" },
+    accessibilityButtonLabel: { en: "Reading settings", es: "Ajustes de lectura" },
+    accessibilityTitle: { en: "Reading Settings", es: "Ajustes de lectura" },
     accessibilityDescription: {
-      en: "Adjust reading comfort, motion, contrast, and media notes without changing the core design.",
-      es: "Ajusta la lectura, el movimiento, el contraste y las notas de medios sin cambiar el diseño principal."
+      en: "Adjust reading comfort without changing the site's identity.",
+      es: "Ajusta la comodidad de lectura sin cambiar la identidad del sitio."
     },
     accessibilityTextSizeLabel: { en: "Text Size", es: "Tamaño del Texto" },
     accessibilityTextSizeDefault: { en: "Default", es: "Normal" },
@@ -328,7 +328,7 @@ export const siteContent = {
     musicLabelPlaceholder: { en: "SONG NAME HERE", es: "NOMBRE DE LA CANCIÓN AQUÍ" },
     socialAriaLabel: { en: "Social links", es: "Enlaces sociales" },
     personalSectionsAria: { en: "Personal sections", es: "Secciones personales" },
-    educationDomainsAria: { en: "Education domains", es: "Dominios educativos" },
+    educationDomainsAria: { en: "Knowledge Worlds", es: "Mundos de conocimiento" },
     topicNavigationAria: { en: "Topic navigation", es: "Navegación de temas" },
     branchNavigationAria: { en: "Cosmology branches", es: "Ramas de cosmología" },
     legacyItemNavigationAria: { en: "Detailed legacy topics", es: "Temas detallados" },
@@ -363,14 +363,14 @@ export const siteContent = {
       es: "Todos los derechos reservados."
     }
   },
-  siteNoticeSection: createSection("site-notices", "Site Notices & Privacy", "Avisos del sitio y privacidad"),
+  siteNoticeSection: createSection("site-notices", "Site Purpose, Notices & Privacy", "Propósito del sitio, avisos y privacidad"),
   personalSections: [
-    createSection("early-life", "Early Life", "Vida temprana"),
-    createSection("education", "Education", "Educación"),
+    createSection("early-life", "Origins", "Orígenes"),
+    createSection("education", "Learning Path", "Camino de aprendizaje"),
     createSection("music", "Music", "Música"),
-    createSection("professional-career", "Professional Career", "Carrera profesional"),
-    createSection("applied-disciplines", "Interactive Activities", "Actividades interactivas"),
-    createSection("works-that-shaped-my-thinking", "My Work & Influences", "Mi trabajo e influencias", {
+    createSection("professional-career", "Systems Work", "Trabajo con sistemas"),
+    createSection("applied-disciplines", "Practice Worlds", "Mundos de práctica"),
+    createSection("works-that-shaped-my-thinking", "Personal Cosmology", "Cosmología personal", {
       branches: [myWorkInfluencesEquationBranch],
       hideBranchNavigation: true,
       hideDetailNavigation: true
