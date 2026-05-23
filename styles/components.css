@@ -140,6 +140,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.32rem;
+  font-family: var(--font-desktop);
   font-size: calc(clamp(1.3rem, 2vw, 1.7rem) * var(--site-title-scale, 1));
   line-height: 1;
   cursor: pointer;
@@ -675,16 +676,43 @@
   .content-window {
     font-family: var(--font-content-desktop);
   }
+}
 
-  .content-window h1,
-  .content-window h2,
-  .content-window h3,
-  .content-window h4,
-  .content-window h5,
-  .content-window h6,
-  .content-window__eyebrow {
-    font-family: var(--font-desktop);
-  }
+.content-window h1,
+.content-window h2,
+.content-window h3,
+.content-window h4,
+.content-window h5,
+.content-window h6,
+.content-window__eyebrow,
+.local-dock__title,
+.mobile-science-nav__heading,
+.mobile-science-nav__domain-button,
+.mobile-science-nav__topic-button,
+.section-grid .glass-tab,
+.education-row .glass-tab,
+.topic-grid .glass-tab,
+.branch-grid .glass-tab,
+.legacy-item-grid .glass-tab,
+.focused-path-tab {
+  font-family: var(--font-desktop);
+}
+
+body[data-readable-font="on"] .site-title,
+body[data-readable-font="on"] .content-window :is(h1, h2, h3, h4, h5, h6),
+body[data-readable-font="on"] .content-window :is(h1, h2, h3, h4, h5, h6) :is(a, span, strong, em),
+body[data-readable-font="on"] .content-window__eyebrow,
+body[data-readable-font="on"] .local-dock__title,
+body[data-readable-font="on"] .mobile-science-nav__heading,
+body[data-readable-font="on"] .mobile-science-nav__domain-button,
+body[data-readable-font="on"] .mobile-science-nav__topic-button,
+body[data-readable-font="on"] .section-grid .glass-tab,
+body[data-readable-font="on"] .education-row .glass-tab,
+body[data-readable-font="on"] .topic-grid .glass-tab,
+body[data-readable-font="on"] .branch-grid .glass-tab,
+body[data-readable-font="on"] .legacy-item-grid .glass-tab,
+body[data-readable-font="on"] .focused-path-tab {
+  font-family: var(--font-desktop);
 }
 
 body[data-readable-font="on"] .content-window h1,
@@ -696,7 +724,7 @@ body[data-readable-font="on"] .content-window h6,
 body[data-readable-font="on"] .content-window__eyebrow,
 body[data-readable-font="on"] .accessibility-panel h2,
 body[data-readable-font="on"] .accessibility-panel h3 {
-  font-family: var(--font-content-desktop);
+  font-family: var(--font-desktop);
 }
 
 .content-window__header h2 {
@@ -1861,7 +1889,7 @@ body[data-media-notes="on"] .media-note {
 
   .accessibility-panel h2,
   .accessibility-panel h3 {
-    font-family: var(--font-mobile);
+    font-family: var(--font-desktop);
   }
 
   .accessibility-panel__description {
