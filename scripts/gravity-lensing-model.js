@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260524-single-notice-update-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260524-gt7-weather-copy-v1";
 
 const mountedModels = new WeakSet();
 const TWO_PI = Math.PI * 2;
