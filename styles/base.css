@@ -176,7 +176,7 @@ body[data-motion="reduced"] *::after {
 
 @media (max-width: 768px) {
   body {
-    font-family: var(--font-content-phone);
+    font-family: var(--font-content-phone) !important;
   }
 
   p,
@@ -185,7 +185,7 @@ body[data-motion="reduced"] *::after {
   dt,
   blockquote,
   figcaption {
-    font-family: var(--font-content-phone);
+    font-family: var(--font-content-phone) !important;
   }
 
   h1,
@@ -194,7 +194,7 @@ body[data-motion="reduced"] *::after {
   h4,
   h5,
   h6 {
-    font-family: var(--font-title);
+    font-family: var(--font-title) !important;
   }
 
   h1 :is(a, span, strong, em),
@@ -203,7 +203,7 @@ body[data-motion="reduced"] *::after {
   h4 :is(a, span, strong, em),
   h5 :is(a, span, strong, em),
   h6 :is(a, span, strong, em) {
-    font-family: var(--font-title);
+    font-family: var(--font-title) !important;
   }
 
   body[data-readable-font="on"],
@@ -212,6 +212,6 @@ body[data-motion="reduced"] *::after {
   body[data-readable-font="on"] input,
   body[data-readable-font="on"] select,
   body[data-readable-font="on"] textarea {
-    font-family: var(--font-content-phone);
+    font-family: var(--font-content-phone) !important;
   }
 }
