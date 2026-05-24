@@ -451,7 +451,7 @@
     display: grid;
   }
 
-  .accessibility-toggle {
+  .reading-settings-toggle {
     position: fixed !important;
     top: auto !important;
     right: 0.68rem !important;
@@ -703,7 +703,7 @@
     display: grid;
   }
 
-  .accessibility-toggle {
+  .reading-settings-toggle {
     position: fixed !important;
     top: auto !important;
     right: 0.62rem !important;

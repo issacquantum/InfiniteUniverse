@@ -1,6 +1,6 @@
-import { pick } from "./i18n.js?v=20260524-reading-usability-report-v1";
+import { pick } from "./i18n.js?v=20260524-integrity-naming-audit-v1";
 
-const STORAGE_KEY = "issac-tabares-accessibility";
+const STORAGE_KEY = "issac-tabares-reading-settings";
 
 function prefersReducedMotion() {
   return Boolean(window.matchMedia?.("(prefers-reduced-motion: reduce)").matches);
@@ -76,14 +76,14 @@ function syncControlState(panel, preferences) {
     return;
   }
 
-  panel.querySelectorAll("[data-accessibility-setting='textSize']").forEach((button) => {
+  panel.querySelectorAll("[data-reading-settings-setting='textSize']").forEach((button) => {
     const isActive = button.dataset.value === preferences.textSize;
     button.classList.toggle("is-active", isActive);
     button.setAttribute("aria-pressed", String(isActive));
   });
 
-  panel.querySelectorAll("[data-accessibility-toggle-setting]").forEach((button) => {
-    const key = button.dataset.accessibilityToggleSetting;
+  panel.querySelectorAll("[data-reading-settings-toggle-setting]").forEach((button) => {
+    const key = button.dataset.readingSettingsToggleSetting;
     const isActive = Boolean(preferences[key]);
     button.classList.toggle("is-active", isActive);
     button.setAttribute("aria-pressed", String(isActive));
@@ -92,7 +92,7 @@ function syncControlState(panel, preferences) {
 
 function syncCopy(toggleButton, panel, ui, language) {
   if (toggleButton) {
-    toggleButton.setAttribute("aria-label", pick(ui.accessibilityButtonLabel, language));
+    toggleButton.setAttribute("aria-label", pick(ui.readingSettingsButtonLabel, language));
   }
 
   document.getElementById("skip-link")?.replaceChildren(document.createTextNode(pick(ui.skipToContent, language)));
@@ -102,23 +102,23 @@ function syncCopy(toggleButton, panel, ui, language) {
   }
 
   const copyMap = {
-    title: ui.accessibilityTitle,
-    description: ui.accessibilityDescription,
-    textSizeLabel: ui.accessibilityTextSizeLabel,
-    textSizeDefault: ui.accessibilityTextSizeDefault,
-    textSizeLarge: ui.accessibilityTextSizeLarge,
-    textSizeXLarge: ui.accessibilityTextSizeXLarge,
-    readingModeLabel: ui.accessibilityReadingModeLabel,
-    reducedMotionLabel: ui.accessibilityReducedMotionLabel,
-    highContrastLabel: ui.accessibilityHighContrastLabel,
-    mediaNotesLabel: ui.accessibilityMediaNotesLabel,
-    readableFontLabel: ui.accessibilityReadableFontLabel,
-    linkVisibilityLabel: ui.accessibilityLinkVisibilityLabel,
-    resetLabel: ui.accessibilityResetLabel
+    title: ui.readingSettingsTitle,
+    description: ui.readingSettingsDescription,
+    textSizeLabel: ui.readingSettingsTextSizeLabel,
+    textSizeDefault: ui.readingSettingsTextSizeDefault,
+    textSizeLarge: ui.readingSettingsTextSizeLarge,
+    textSizeXLarge: ui.readingSettingsTextSizeXLarge,
+    readingModeLabel: ui.readingSettingsReadingModeLabel,
+    reducedMotionLabel: ui.readingSettingsReducedMotionLabel,
+    highContrastLabel: ui.readingSettingsHighContrastLabel,
+    mediaNotesLabel: ui.readingSettingsMediaNotesLabel,
+    readableFontLabel: ui.readingSettingsReadableFontLabel,
+    linkVisibilityLabel: ui.readingSettingsLinkVisibilityLabel,
+    resetLabel: ui.readingSettingsResetLabel
   };
 
-  panel.querySelectorAll("[data-accessibility-copy]").forEach((node) => {
-    const key = node.dataset.accessibilityCopy;
+  panel.querySelectorAll("[data-reading-settings-copy]").forEach((node) => {
+    const key = node.dataset.readingSettingsCopy;
     const value = copyMap[key];
 
     if (!value) {
@@ -171,19 +171,19 @@ function trapFocus(event, container) {
 }
 
 function announce(refs, message) {
-  if (!refs.a11yStatus || !message) {
+  if (!refs.statusAnnouncer || !message) {
     return;
   }
 
-  refs.a11yStatus.textContent = "";
+  refs.statusAnnouncer.textContent = "";
   requestAnimationFrame(() => {
-    refs.a11yStatus.textContent = message;
+    refs.statusAnnouncer.textContent = message;
   });
 }
 
-export function createAccessibilityController({ refs, content, language }) {
-  const toggleButton = refs.accessibilityToggle;
-  const panel = refs.accessibilityPanel;
+export function createReadingSettingsController({ refs, content, language }) {
+  const toggleButton = refs.readingSettingsToggle;
+  const panel = refs.readingSettingsPanel;
 
   if (!toggleButton || !panel) {
     return {
@@ -252,7 +252,7 @@ export function createAccessibilityController({ refs, content, language }) {
       return;
     }
 
-    const sizeButton = event.target.closest("[data-accessibility-setting='textSize']");
+    const sizeButton = event.target.closest("[data-reading-settings-setting='textSize']");
 
     if (sizeButton) {
       event.preventDefault();
@@ -263,11 +263,11 @@ export function createAccessibilityController({ refs, content, language }) {
       return;
     }
 
-    const toggleSettingButton = event.target.closest("[data-accessibility-toggle-setting]");
+    const toggleSettingButton = event.target.closest("[data-reading-settings-toggle-setting]");
 
     if (toggleSettingButton) {
       event.preventDefault();
-      const key = toggleSettingButton.dataset.accessibilityToggleSetting;
+      const key = toggleSettingButton.dataset.readingSettingsToggleSetting;
       const nextValue = !preferences[key];
       updatePreferences({
         ...preferences,
@@ -276,7 +276,7 @@ export function createAccessibilityController({ refs, content, language }) {
       return;
     }
 
-    if (event.target.closest("[data-accessibility-reset]")) {
+    if (event.target.closest("[data-reading-settings-reset]")) {
       event.preventDefault();
       updatePreferences(getDefaultPreferences(), event.target.textContent.trim());
     }

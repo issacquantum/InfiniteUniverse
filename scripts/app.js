@@ -1,28 +1,28 @@
-import { siteAssets } from "../data/site-assets.js?v=20260524-reading-usability-report-v1";
-import { siteContent } from "../data/site-content.js?v=20260524-reading-usability-report-v1";
-import { createAccessibilityController } from "./accessibility.js?v=20260524-reading-usability-report-v1";
-import { initBackground } from "./background.js?v=20260524-reading-usability-report-v1";
-import { refreshIcons } from "./icons.js?v=20260524-reading-usability-report-v1";
-import { pick } from "./i18n.js?v=20260524-reading-usability-report-v1";
-import { syncLegacyContent } from "./legacy-content.js?v=20260524-reading-usability-report-v1";
-import { createMusicController, syncMusicUi } from "./music.js?v=20260524-reading-usability-report-v1";
-import { renderSite } from "./render.js?v=20260524-reading-usability-report-v1";
-import { createState } from "./state.js?v=20260524-reading-usability-report-v1";
-import { syncStructuredContent } from "./structured-content.js?v=20260524-reading-usability-report-v1";
+import { siteAssets } from "../data/site-assets.js?v=20260524-integrity-naming-audit-v1";
+import { siteContent } from "../data/site-content.js?v=20260524-integrity-naming-audit-v1";
+import { createReadingSettingsController } from "./reading-settings.js?v=20260524-integrity-naming-audit-v1";
+import { initBackground } from "./background.js?v=20260524-integrity-naming-audit-v1";
+import { refreshIcons } from "./icons.js?v=20260524-integrity-naming-audit-v1";
+import { pick } from "./i18n.js?v=20260524-integrity-naming-audit-v1";
+import { syncLegacyContent } from "./legacy-content.js?v=20260524-integrity-naming-audit-v1";
+import { createMusicController, syncMusicUi } from "./music.js?v=20260524-integrity-naming-audit-v1";
+import { renderSite } from "./render.js?v=20260524-integrity-naming-audit-v1";
+import { createState } from "./state.js?v=20260524-integrity-naming-audit-v1";
+import { syncStructuredContent } from "./structured-content.js?v=20260524-integrity-naming-audit-v1";
 
 const refs = {
   siteShell: document.querySelector(".site-shell"),
   titleButton: document.getElementById("site-title"),
   languageToggle: document.getElementById("language-toggle"),
   languageLabel: document.getElementById("language-label"),
-  accessibilityToggle: document.getElementById("accessibility-toggle"),
-  accessibilityPanel: document.getElementById("accessibility-panel"),
-  a11yStatus: document.getElementById("a11y-status"),
+  readingSettingsToggle: document.getElementById("reading-settings-toggle"),
+  readingSettingsPanel: document.getElementById("reading-settings-panel"),
+  statusAnnouncer: document.getElementById("status-announcer"),
   stage: document.getElementById("site-stage"),
   siteInfinity: document.getElementById("site-infinity"),
   socialDock: document.getElementById("social-dock"),
   copyright: document.getElementById("site-copyright"),
-  siteNoticesLink: document.getElementById("site-notices-link"),
+  sitePurposeLink: document.getElementById("site-purpose-link"),
   musicButtons: [
     document.getElementById("music-button-mobile"),
     document.getElementById("music-button-desktop")
@@ -59,7 +59,7 @@ function resolveMusicContext(state) {
 }
 
 let musicController = null;
-let accessibilityController = null;
+let readingSettingsController = null;
 let activeMusicContext = resolveMusicContext(store.getState());
 let musicUiState = {
   isPlaying: false,
@@ -138,7 +138,7 @@ function getReturnTargetLabel(returnTarget, language) {
 
   const section = [
     ...siteContent.personalSections,
-    siteContent.siteNoticeSection
+    siteContent.sitePurposeSection
   ].find((item) => item?.id === returnTarget.sectionId);
   const domain = siteContent.knowledgeWorlds.find((item) => item.id === returnTarget.domainId);
   const topic = domain?.topics?.find((item) => item.id === returnTarget.topicId);
@@ -419,14 +419,14 @@ function syncUi(state = store.getState()) {
     onScrollRestorationApplied: clearPendingReaderScrollRestoration
   });
 
-  accessibilityController?.syncLanguage(state.language);
+  readingSettingsController?.syncLanguage(state.language);
   refreshIcons();
 }
 
 function getActiveLabel(state) {
   const activeSection = [
     ...siteContent.personalSections,
-    siteContent.siteNoticeSection
+    siteContent.sitePurposeSection
   ].find((section) => section?.id === state.activeSection);
 
   const activeDomain = siteContent.knowledgeWorlds.find((domain) => domain.id === state.activeDomain);
@@ -447,7 +447,7 @@ function getActiveLabel(state) {
 }
 
 function announceNavigation(state) {
-  if (!refs.a11yStatus) {
+  if (!refs.statusAnnouncer) {
     return;
   }
 
@@ -464,9 +464,9 @@ function announceNavigation(state) {
   }
 
   lastAnnouncement = message;
-  refs.a11yStatus.textContent = "";
+  refs.statusAnnouncer.textContent = "";
   requestAnimationFrame(() => {
-    refs.a11yStatus.textContent = message;
+    refs.statusAnnouncer.textContent = message;
   });
 }
 
@@ -828,12 +828,13 @@ function toggleLanguage() {
 function openExternal(id) {
   const isMobileDevice = navigator.userAgentData?.mobile
     ?? /Android|iPhone|iPad|iPod/i.test(navigator.userAgent || "");
+  const hasUrl = (value) => typeof value === "string" && value.trim() !== "";
 
   if (id === "cv" || id === "researchEssay") {
     const documentAsset = id === "cv" ? siteAssets.cv : siteAssets.researchEssay;
     const cvPath = pick(documentAsset.path, store.getState().language);
 
-    if (cvPath !== "PATH_HERE") {
+    if (hasUrl(cvPath)) {
       window.open(cvPath, "_blank", "noopener,noreferrer");
     }
 
@@ -842,7 +843,7 @@ function openExternal(id) {
 
   const asset = siteAssets.social.find((item) => item.id === id);
 
-  if (asset && asset.url !== "URL_HERE") {
+  if (asset && hasUrl(asset.url)) {
     if (isMobileDevice) {
       // Use same-tab navigation on phones so iOS/Android can hand off the HTTPS
       // URL to the installed app without leaving behind a blank extra tab.
@@ -1333,7 +1334,7 @@ musicController = createMusicController({
   onStateChange: updateMusicState
 });
 
-accessibilityController = createAccessibilityController({
+readingSettingsController = createReadingSettingsController({
   refs,
   content: siteContent,
   language: store.getState().language
