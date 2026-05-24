@@ -1,6 +1,6 @@
-import { buildDensityCloud, buildCurrentCloud, advanceCurrentCloud, SCALE } from "./orbital-math.js?v=20260524-cosmology-language-scroll-v1";
-import { OrbitalRenderer } from "./orbital-renderer.js?v=20260524-cosmology-language-scroll-v1";
-import { OrbitalCamera } from "./orbital-camera.js?v=20260524-cosmology-language-scroll-v1";
+import { buildDensityCloud, buildCurrentCloud, advanceCurrentCloud, SCALE } from "./orbital-math.js?v=20260524-single-notice-update-v1";
+import { OrbitalRenderer } from "./orbital-renderer.js?v=20260524-single-notice-update-v1";
+import { OrbitalCamera } from "./orbital-camera.js?v=20260524-single-notice-update-v1";
 
 const MOUNTED = new WeakSet();
 
@@ -102,7 +102,7 @@ async function mountModel(host) {
 
   const [vertexSource, fragmentSource] = await Promise.all([
     fetchShader(new URL("../shaders/orbital.vert.glsl", import.meta.url)),
-    fetchShader(new URL("../shaders/orbital.frag.glsl?v=20260524-cosmology-language-scroll-v1", import.meta.url))
+    fetchShader(new URL("../shaders/orbital.frag.glsl?v=20260524-single-notice-update-v1", import.meta.url))
   ]);
 
   const renderer = new OrbitalRenderer(canvas, gl);
