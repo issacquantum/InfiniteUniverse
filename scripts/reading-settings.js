@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260524-remove-quantum-circuit-model-v1";
+import { pick } from "./i18n.js?v=20260524-ideal-clock-explanation-v1";
 
 const STORAGE_KEY = "issac-tabares-reading-settings";
 
