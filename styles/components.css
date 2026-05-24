@@ -956,6 +956,79 @@ body[data-media-notes="on"] .media-note {
   margin-top: 2.4rem;
 }
 
+.glossary-disclosure {
+  width: 100%;
+  text-align: center;
+}
+
+.glossary-disclosure__summary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.56rem;
+  max-width: 100%;
+  color: var(--heading);
+  cursor: pointer;
+  list-style: none;
+  text-align: center;
+}
+
+.glossary-disclosure__summary::-webkit-details-marker {
+  display: none;
+}
+
+.glossary-disclosure__summary::marker {
+  content: "";
+}
+
+.glossary-disclosure__summary::after {
+  content: "+";
+  display: inline-grid;
+  width: 1.28rem;
+  height: 1.28rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgba(var(--outline-rgb), 0.42);
+  border-radius: 999px;
+  color: var(--strong);
+  font-family: var(--font-content-desktop);
+  font-size: 0.95rem;
+  line-height: 1;
+  box-shadow:
+    0 0 10px rgba(var(--glow-rgb), 0.26),
+    inset 0 0 10px rgba(var(--glass-rgb), 0.18);
+}
+
+.glossary-disclosure[open] > .glossary-disclosure__summary::after {
+  content: "-";
+}
+
+.glossary-disclosure__summary:focus-visible {
+  outline: 2px solid rgba(var(--outline-rgb), 0.92);
+  outline-offset: 0.22rem;
+}
+
+.structured-content .glossary-disclosure__heading {
+  margin: 0;
+}
+
+.glossary-disclosure__body {
+  display: grid;
+  width: 100%;
+  gap: 0.72rem;
+  justify-items: center;
+  margin-top: 0.82rem;
+}
+
+.glossary-disclosure:not([open]) > .glossary-disclosure__body {
+  display: none;
+}
+
+.glossary-disclosure__body > .paper-list:first-child,
+.glossary-disclosure__body > .abbreviation-glossary__note:first-child {
+  margin-top: 0;
+}
+
 .abbreviation-glossary__note {
   width: min(100%, 54rem);
   margin: 0.42rem auto 0;

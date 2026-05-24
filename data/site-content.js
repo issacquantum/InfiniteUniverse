@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-practice-worlds-porsche-nurburgring-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-collapsible-glossaries-v1";
 
 function htmlSource(group, id) {
   return {

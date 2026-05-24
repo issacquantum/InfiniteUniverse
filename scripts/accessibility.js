@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260524-practice-worlds-porsche-nurburgring-v1";
+import { pick } from "./i18n.js?v=20260524-collapsible-glossaries-v1";
 
 const STORAGE_KEY = "issac-tabares-accessibility";
 
