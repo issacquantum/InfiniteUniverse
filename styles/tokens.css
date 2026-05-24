@@ -18,7 +18,6 @@
   --panel-outline: rgba(255, 255, 255, 0.08);
   --font-title: "Dancing Script", cursive;
   --font-content-desktop: "Cormorant Garamond", "EB Garamond", Georgia, serif;
-  --font-content-phone: var(--font-content-desktop);
   --font-ui: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --site-width: min(74rem, 100%);
   --model-window-width: 840px;
