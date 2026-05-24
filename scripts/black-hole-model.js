@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260524-reading-settings-notices-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260524-cosmology-language-scroll-v1";
 
 const mountedModels = new WeakSet();
 
