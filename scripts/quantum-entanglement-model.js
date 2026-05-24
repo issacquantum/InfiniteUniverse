@@ -1,4 +1,4 @@
-import { bindPinchZoom, isModelPanGesture, panObjectFromPointer } from "./model-pan.js?v=20260511-mobile-pinch-zoom";
+import { bindPinchZoom, isModelPanGesture, panObjectFromPointer } from "./model-pan.js?v=20260524-audit-clean-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
@@ -11,6 +11,10 @@ const COLORS = {
   indigo: 0x2b006d,
   deep: 0x050008
 };
+
+function getCanvasContentFont() {
+  return getComputedStyle(document.body).fontFamily || "serif";
+}
 
 const SPIN_COLORS = {
   PLUS: COLORS.hotPink,
@@ -438,7 +442,7 @@ class QuantumEntanglementModel {
     canvas.height = 64;
     const ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.font = "700 30px Cormorant Garamond, Georgia, serif";
+    ctx.font = `700 30px ${getCanvasContentFont()}`;
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.shadowBlur = 14;

@@ -3,6 +3,9 @@
   --bg: #05020a;
   --heading: #ff00a2;
   --text: #9f5cff;
+  --body: var(--text);
+  --body-muted: rgba(224, 196, 255, 0.78);
+  --color-text: var(--text);
   --strong: #ff58d6;
   --glow-rgb: 119, 0, 255;
   --outline-rgb: 255, 88, 214;
@@ -16,6 +19,7 @@
   --font-title: "Dancing Script", cursive;
   --font-content-desktop: "Cormorant Garamond", "EB Garamond", Georgia, serif;
   --font-content-phone: "Apple Chancery", cursive;
+  --font-ui: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --site-width: min(74rem, 100%);
   --model-window-width: 840px;
   --model-frame-min-height: 220px;
@@ -23,4 +27,5 @@
   --model-frame-mobile-min-height: 200px;
   --header-height: 3rem;
   --footer-gap: 0.75rem;
+  --tab-height: 2.7rem;
 }

@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260511-mobile-pinch-zoom";
+import { bindPinchZoom } from "./model-pan.js?v=20260524-audit-clean-v1";
 
 const mountedModels = new WeakSet();
 const SYMBOL_COUNT = 4;
@@ -14,6 +14,10 @@ const COLORS = {
   indigo: "#2b006d",
   text: "#ff8ae5"
 };
+
+function getCanvasContentFont() {
+  return getComputedStyle(document.body).fontFamily || "serif";
+}
 
 export function initInformationTheoryModels(root = document) {
   root.querySelectorAll("[data-information-theory-model]").forEach((container) => {
@@ -453,7 +457,7 @@ function drawHud(ctx, width, height, metrics) {
   ctx.fill();
   ctx.stroke();
   ctx.fillStyle = COLORS.text;
-  ctx.font = "700 11px Cormorant Garamond, serif";
+  ctx.font = `700 11px ${getCanvasContentFont()}`;
   ctx.fillText(`H(X) ${metrics.entropy.toFixed(3)} bits`, 26, 36);
   ctx.fillText(`I(X;Y) ${metrics.mutualInformation.toFixed(3)} bits`, 26, 57);
   ctx.fillText(`Capacity ${metrics.capacity.toFixed(3)} bits/use`, 26, 78);
@@ -561,7 +565,7 @@ function drawLabel(ctx, x, y, text, size = 10) {
   ctx.fillStyle = COLORS.text;
   ctx.shadowColor = COLORS.pink;
   ctx.shadowBlur = 8;
-  ctx.font = `700 ${size}px Cormorant Garamond, serif`;
+  ctx.font = `700 ${size}px ${getCanvasContentFont()}`;
   ctx.textAlign = "center";
   ctx.fillText(text, x, y);
   ctx.restore();
