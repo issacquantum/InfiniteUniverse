@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260524-authorized-text-colors-v1";
+import { pick } from "./i18n.js?v=20260524-desktop-reader-arrows-v1";
 
 function escapeHtml(value) {
   return String(value)
@@ -317,6 +317,50 @@ function renderMobileReaderTopNavigation(navigation, language) {
   `;
 }
 
+function renderDesktopReaderNavigation(navigation, language, position) {
+  if (!navigation?.previous && !navigation?.next) {
+    return "";
+  }
+
+  const labels = {
+    previous: language === "es" ? "Anterior" : "Previous",
+    next: language === "es" ? "Siguiente" : "Next"
+  };
+
+  const renderArrowButton = (item, label, direction) => {
+    if (!item) {
+      return `<span class="desktop-reader-nav__spacer" aria-hidden="true"></span>`;
+    }
+
+    const icon = direction === "previous" ? "arrow-left" : "arrow-right";
+    const ariaLabel = `${label}: ${item.label}`;
+
+    return `
+      <button
+        class="${classNames("glass-sphere", "desktop-reader-nav__button", `desktop-reader-nav__button--${direction}`)}"
+        type="button"
+        data-action="${escapeHtml(item.action)}"
+        ${escapeHtml(item.dataName)}="${escapeHtml(item.id)}"
+        aria-label="${escapeHtml(ariaLabel)}"
+        title="${escapeHtml(ariaLabel)}"
+      >
+        <i data-lucide="${icon}" aria-hidden="true"></i>
+      </button>
+    `;
+  };
+
+  return `
+    <nav
+      class="${classNames("desktop-reader-nav", `desktop-reader-nav--${position}`)}"
+      aria-label="${escapeHtml(language === "es" ? "Navegación de lectura" : "Reader navigation")}"
+    >
+      ${renderArrowButton(navigation.previous, labels.previous, "previous")}
+      <span class="desktop-reader-nav__center" aria-hidden="true"></span>
+      ${renderArrowButton(navigation.next, labels.next, "next")}
+    </nav>
+  `;
+}
+
 function renderMobileKnowledgeNavigation(domains, state, language) {
   const labels = {
     toggle: language === "es" ? "Menú de ciencia" : "Science menu",
@@ -397,11 +441,13 @@ function renderStructuredPanel(contentFile, language, ui, navigation = null) {
   return `
     <article class="glass-window content-window" tabindex="0">
       ${renderMobileReaderTopNavigation(navigation, language)}
+      ${renderDesktopReaderNavigation(navigation, language, "top")}
       <div
         class="structured-content-host"
         data-structured-host
         data-source="${escapeHtml(source)}"
       ></div>
+      ${renderDesktopReaderNavigation(navigation, language, "bottom")}
       ${renderMobileReaderNavigation(navigation, language)}
       <div class="content-window__infinity" aria-hidden="true">∞</div>
     </article>
@@ -424,7 +470,9 @@ function renderLegacyPanel(item, language, ui, navigation = null) {
   return `
     <article class="glass-window content-window" tabindex="0">
       ${renderMobileReaderTopNavigation(navigation, language)}
+      ${renderDesktopReaderNavigation(navigation, language, "top")}
       <div class="legacy-content-host" data-legacy-host></div>
+      ${renderDesktopReaderNavigation(navigation, language, "bottom")}
       ${renderMobileReaderNavigation(navigation, language)}
       <div class="content-window__infinity" aria-hidden="true">∞</div>
     </article>

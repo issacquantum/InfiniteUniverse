@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260524-authorized-text-colors-v1";
+import { pick } from "./i18n.js?v=20260524-desktop-reader-arrows-v1";
 
 const STORAGE_KEY = "issac-tabares-reading-settings";
 

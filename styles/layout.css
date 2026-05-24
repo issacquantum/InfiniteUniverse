@@ -161,6 +161,10 @@
   display: none;
 }
 
+.desktop-reader-nav {
+  display: none;
+}
+
 .mobile-knowledge-nav {
   display: none;
   position: static;
@@ -334,6 +338,51 @@
 }
 
 @media (min-width: 769px) {
+  .desktop-reader-nav {
+    display: grid;
+    grid-template-columns: 2.9rem minmax(0, 1fr) 2.9rem;
+    align-items: center;
+    width: 100%;
+    min-height: 2.9rem;
+    pointer-events: none;
+  }
+
+  .desktop-reader-nav--top {
+    margin: 0 0 0.72rem;
+  }
+
+  .desktop-reader-nav--bottom {
+    margin: 1rem 0 0.1rem;
+  }
+
+  .desktop-reader-nav__button,
+  .desktop-reader-nav__spacer {
+    width: 2.55rem;
+    height: 2.55rem;
+  }
+
+  .desktop-reader-nav__button {
+    pointer-events: auto;
+    color: var(--heading);
+    box-shadow:
+      0 0 0 1px rgba(var(--outline-rgb), 0.2) inset,
+      0 0 18px rgba(var(--outline-rgb), 0.28),
+      0 0 30px rgba(var(--glow-rgb), 0.22);
+  }
+
+  .desktop-reader-nav__button--previous {
+    justify-self: start;
+  }
+
+  .desktop-reader-nav__button--next {
+    justify-self: end;
+  }
+
+  .desktop-reader-nav__button svg {
+    width: 1.28rem;
+    height: 1.28rem;
+  }
+
   .mobile-knowledge-nav.is-open {
     margin: 0 0 0.35rem;
   }
