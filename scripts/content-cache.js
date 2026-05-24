@@ -3,7 +3,7 @@ import { siteContent } from "../data/site-content.js";
 
 const documentCache = new Map();
 const requestCache = new Map();
-const CONTENT_CACHE_VERSION = "20260524-phone-serif-v1";
+const CONTENT_CACHE_VERSION = "20260524-font-cascade-clean-v1";
 const PREWARM_WORKER_LIMIT = 4;
 let prewarmScheduled = false;
 
