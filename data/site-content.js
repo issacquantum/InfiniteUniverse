@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-single-notice-update-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-gt7-weather-copy-v1";
 
 function htmlSource(group, id) {
   return {

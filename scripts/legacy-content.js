@@ -1,6 +1,6 @@
-import { bigBangLegacyContent } from "../data/legacy-big-bang.js?v=20260524-single-notice-update-v1";
-import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260524-single-notice-update-v1";
-import { pick } from "./i18n.js?v=20260524-single-notice-update-v1";
+import { bigBangLegacyContent } from "../data/legacy-big-bang.js?v=20260524-gt7-weather-copy-v1";
+import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260524-gt7-weather-copy-v1";
+import { pick } from "./i18n.js?v=20260524-gt7-weather-copy-v1";
 
 let activeRequestToken = 0;
 
