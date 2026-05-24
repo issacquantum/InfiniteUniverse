@@ -1,4 +1,4 @@
-import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260524-gravity-lensing-controls-v1";
+import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260524-authorized-text-colors-v1";
 
 const mountedSimulators = new WeakSet();
 const TWO_PI = Math.PI * 2;
@@ -618,7 +618,7 @@ class DoubleSlitInterference {
 
     ctx.save();
     ctx.strokeStyle = "rgba(255, 88, 214, 0.34)";
-    ctx.fillStyle = "rgba(255, 212, 244, 0.82)";
+    ctx.fillStyle = "rgba(159, 92, 255, 0.92)";
     ctx.lineWidth = 1;
     ctx.font = `600 12px ${getCanvasContentFont()}`;
     ctx.textAlign = "right";
@@ -649,7 +649,7 @@ class DoubleSlitInterference {
   drawLabels(ctx, layout) {
     ctx.save();
     ctx.font = `700 13px ${getCanvasContentFont()}`;
-    ctx.fillStyle = "rgba(255, 212, 244, 0.88)";
+    ctx.fillStyle = "rgba(159, 92, 255, 0.94)";
     ctx.textAlign = "center";
     ctx.fillText(this.copy("slitPlane"), layout.barrierX, layout.bottom + 14);
     ctx.fillText(this.copy("screen"), layout.screenX, layout.bottom + 14);

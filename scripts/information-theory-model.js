@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260524-gravity-lensing-controls-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260524-authorized-text-colors-v1";
 
 const mountedModels = new WeakSet();
 const SYMBOL_COUNT = 4;
@@ -12,7 +12,7 @@ const COLORS = {
   pink: "#ff00a2",
   softPink: "#ff58d6",
   indigo: "#2b006d",
-  text: "#ff8ae5"
+  text: "#ff58d6"
 };
 
 function getCanvasContentFont() {

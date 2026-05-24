@@ -8,7 +8,7 @@ const COLORS = {
   cyan: "#60e7ff",
   amber: "#ffd36a",
   lavender: "#d6a2ff",
-  text: "#ff8ae5"
+  text: "#ff58d6"
 };
 
 export function initQuantumCircuitModels(root = document) {
@@ -468,7 +468,7 @@ function drawCircuitScene(ctx, x, y, width, height, lastGate, lastPairAction, ti
   drawGateBlock(ctx, cnotX - width * 0.12, railB, "H", hActive, time);
   drawCnotGlyph(ctx, cnotX, railA, railB, cnotActive, time);
 
-  ctx.fillStyle = "rgba(214, 162, 255, 0.78)";
+  ctx.fillStyle = "rgba(159, 92, 255, 0.9)";
   ctx.font = `700 ${Math.max(10, width * 0.022)}px ${getCanvasFont()}`;
   ctx.textAlign = "left";
   ctx.fillText("q0", startX - 26, railA + 4);
@@ -488,7 +488,7 @@ function drawPanelPlate(ctx, x, y, width, height, title) {
   ctx.strokeStyle = "rgba(191, 64, 255, 0.22)";
   ctx.lineWidth = 1;
   ctx.stroke();
-  ctx.fillStyle = "rgba(255, 138, 229, 0.92)";
+  ctx.fillStyle = COLORS.text;
   ctx.font = `700 ${Math.max(11, width * 0.032)}px ${getCanvasFont()}`;
   ctx.textAlign = "left";
   ctx.textBaseline = "alphabetic";
@@ -603,7 +603,7 @@ function drawGateBlock(ctx, cx, cy, label, active, time) {
   ctx.fill();
   ctx.strokeStyle = active ? "rgba(255, 255, 255, 0.62)" : "rgba(214, 162, 255, 0.34)";
   ctx.stroke();
-  ctx.fillStyle = "white";
+  ctx.fillStyle = COLORS.text;
   ctx.font = `800 13px ${getCanvasFont()}`;
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";

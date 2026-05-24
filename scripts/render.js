@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260524-gravity-lensing-controls-v1";
+import { pick } from "./i18n.js?v=20260524-authorized-text-colors-v1";
 
 function escapeHtml(value) {
   return String(value)
