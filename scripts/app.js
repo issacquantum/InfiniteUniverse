@@ -1,14 +1,14 @@
 import { siteAssets } from "../data/site-assets.js";
-import { siteContent } from "../data/site-content.js?v=20260524-audit-clean-v1";
-import { createAccessibilityController } from "./accessibility.js?v=20260524-audit-clean-v1";
+import { siteContent } from "../data/site-content.js?v=20260524-phone-serif-v1";
+import { createAccessibilityController } from "./accessibility.js?v=20260524-phone-serif-v1";
 import { initBackground } from "./background.js";
 import { refreshIcons } from "./icons.js";
 import { pick } from "./i18n.js";
-import { syncLegacyContent } from "./legacy-content.js?v=20260524-audit-clean-v1";
-import { createMusicController, syncMusicUi } from "./music.js?v=20260524-audit-clean-v1";
-import { renderSite } from "./render.js?v=20260524-audit-clean-v1";
+import { syncLegacyContent } from "./legacy-content.js?v=20260524-phone-serif-v1";
+import { createMusicController, syncMusicUi } from "./music.js?v=20260524-phone-serif-v1";
+import { renderSite } from "./render.js?v=20260524-phone-serif-v1";
 import { createState } from "./state.js";
-import { syncStructuredContent } from "./structured-content.js?v=20260524-audit-clean-v1";
+import { syncStructuredContent } from "./structured-content.js?v=20260524-phone-serif-v1";
 
 const refs = {
   siteShell: document.querySelector(".site-shell"),
