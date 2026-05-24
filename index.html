@@ -34,35 +34,35 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="styles/tokens.css?v=20260524-reading-usability-report-v1" />
-  <link rel="stylesheet" href="styles/base.css?v=20260524-reading-usability-report-v1" />
-  <link rel="stylesheet" href="styles/animations.css?v=20260524-reading-usability-report-v1" />
-  <link rel="stylesheet" href="styles/layout.css?v=20260524-reading-usability-report-v1" />
-  <link rel="stylesheet" href="styles/components.css?v=20260524-reading-usability-report-v1" />
-  <link rel="stylesheet" href="styles/quantum-model.css?v=20260524-reading-usability-report-v1" />
-  <link rel="stylesheet" href="styles/double-slit-simulator.css?v=20260524-reading-usability-report-v1" />
-  <link rel="stylesheet" href="styles/gravity-fabric-model.css?v=20260524-reading-usability-report-v1" />
-  <link rel="stylesheet" href="styles/gravity-lensing-model.css?v=20260524-reading-usability-report-v1" />
-  <link rel="stylesheet" href="styles/wormhole-model.css?v=20260524-reading-usability-report-v1" />
-  <link rel="stylesheet" href="styles/quantum-channel-model.css?v=20260524-reading-usability-report-v1" />
-  <link rel="stylesheet" href="styles/orbital-selector-model.css?v=20260524-reading-usability-report-v1" />
-  <link rel="stylesheet" href="styles/quantum-entanglement-model.css?v=20260524-reading-usability-report-v1" />
-  <link rel="stylesheet" href="styles/numerical-methods-model.css?v=20260524-reading-usability-report-v1" />
-  <link rel="stylesheet" href="styles/neural-architect-model.css?v=20260524-reading-usability-report-v1" />
-  <link rel="stylesheet" href="styles/information-theory-model.css?v=20260524-reading-usability-report-v1" />
-  <link rel="stylesheet" href="styles/algorithm-visualizer-model.css?v=20260524-reading-usability-report-v1" />
-  <link rel="stylesheet" href="styles/quantum-fluctuation-model.css?v=20260524-reading-usability-report-v1" />
-  <link rel="stylesheet" href="styles/black-hole-model.css?v=20260524-reading-usability-report-v1" />
-  <link rel="stylesheet" href="styles/liquid-glass-effects.css?v=20260524-reading-usability-report-v1" />
-  <script src="scripts/mathjax-config.js?v=20260524-reading-usability-report-v1"></script>
+  <link rel="stylesheet" href="styles/tokens.css?v=20260524-integrity-naming-audit-v1" />
+  <link rel="stylesheet" href="styles/base.css?v=20260524-integrity-naming-audit-v1" />
+  <link rel="stylesheet" href="styles/animations.css?v=20260524-integrity-naming-audit-v1" />
+  <link rel="stylesheet" href="styles/layout.css?v=20260524-integrity-naming-audit-v1" />
+  <link rel="stylesheet" href="styles/components.css?v=20260524-integrity-naming-audit-v1" />
+  <link rel="stylesheet" href="styles/quantum-model.css?v=20260524-integrity-naming-audit-v1" />
+  <link rel="stylesheet" href="styles/double-slit-simulator.css?v=20260524-integrity-naming-audit-v1" />
+  <link rel="stylesheet" href="styles/gravity-fabric-model.css?v=20260524-integrity-naming-audit-v1" />
+  <link rel="stylesheet" href="styles/gravity-lensing-model.css?v=20260524-integrity-naming-audit-v1" />
+  <link rel="stylesheet" href="styles/wormhole-model.css?v=20260524-integrity-naming-audit-v1" />
+  <link rel="stylesheet" href="styles/quantum-channel-model.css?v=20260524-integrity-naming-audit-v1" />
+  <link rel="stylesheet" href="styles/orbital-selector-model.css?v=20260524-integrity-naming-audit-v1" />
+  <link rel="stylesheet" href="styles/quantum-entanglement-model.css?v=20260524-integrity-naming-audit-v1" />
+  <link rel="stylesheet" href="styles/numerical-methods-model.css?v=20260524-integrity-naming-audit-v1" />
+  <link rel="stylesheet" href="styles/neural-architect-model.css?v=20260524-integrity-naming-audit-v1" />
+  <link rel="stylesheet" href="styles/information-theory-model.css?v=20260524-integrity-naming-audit-v1" />
+  <link rel="stylesheet" href="styles/algorithm-visualizer-model.css?v=20260524-integrity-naming-audit-v1" />
+  <link rel="stylesheet" href="styles/quantum-fluctuation-model.css?v=20260524-integrity-naming-audit-v1" />
+  <link rel="stylesheet" href="styles/black-hole-model.css?v=20260524-integrity-naming-audit-v1" />
+  <link rel="stylesheet" href="styles/liquid-glass-effects.css?v=20260524-integrity-naming-audit-v1" />
+  <script src="scripts/mathjax-config.js?v=20260524-integrity-naming-audit-v1"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
   <script defer src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js"></script>
-  <script type="module" src="scripts/app.js?v=20260524-reading-usability-report-v1"></script>
+  <script type="module" src="scripts/app.js?v=20260524-integrity-naming-audit-v1"></script>
 </head>
 
 <body>
   <a class="skip-link" href="#site-stage" id="skip-link">Skip to content</a>
-  <div id="a11y-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+  <div id="status-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
   <canvas id="starfield-canvas" class="site-background" aria-hidden="true"></canvas>
 
   <div class="site-shell">
@@ -136,75 +136,75 @@
     </div>
   </div>
 
-  <button class="glass-sphere accessibility-toggle" id="accessibility-toggle" type="button"
-    aria-label="Reading settings" aria-expanded="false" aria-controls="accessibility-panel" aria-haspopup="dialog">
+  <button class="glass-sphere reading-settings-toggle" id="reading-settings-toggle" type="button"
+    aria-label="Reading settings" aria-expanded="false" aria-controls="reading-settings-panel" aria-haspopup="dialog">
     <i data-lucide="settings"></i>
   </button>
 
-  <aside class="glass-window accessibility-panel" id="accessibility-panel" hidden aria-modal="true"
-    aria-labelledby="accessibility-panel-title" aria-describedby="accessibility-panel-description" role="dialog">
-    <div class="accessibility-panel__header">
-      <h2 id="accessibility-panel-title" data-accessibility-copy="title">Reading Settings</h2>
-      <p class="accessibility-panel__description" id="accessibility-panel-description"
-        data-accessibility-copy="description">
+  <aside class="glass-window reading-settings-panel" id="reading-settings-panel" hidden aria-modal="true"
+    aria-labelledby="reading-settings-panel-title" aria-describedby="reading-settings-panel-description" role="dialog">
+    <div class="reading-settings-panel__header">
+      <h2 id="reading-settings-panel-title" data-reading-settings-copy="title">Reading Settings</h2>
+      <p class="reading-settings-panel__description" id="reading-settings-panel-description"
+        data-reading-settings-copy="description">
         Adjust reading comfort without changing the site's identity.
       </p>
     </div>
 
-    <section class="accessibility-panel__group" aria-labelledby="accessibility-text-size-label">
-      <h3 id="accessibility-text-size-label" data-accessibility-copy="textSizeLabel">Text Size</h3>
-      <div class="accessibility-panel__choices" role="group" aria-labelledby="accessibility-text-size-label">
-        <button class="glass-tab accessibility-panel__choice" type="button" data-accessibility-setting="textSize"
+    <section class="reading-settings-panel__group" aria-labelledby="reading-settings-text-size-label">
+      <h3 id="reading-settings-text-size-label" data-reading-settings-copy="textSizeLabel">Text Size</h3>
+      <div class="reading-settings-panel__choices" role="group" aria-labelledby="reading-settings-text-size-label">
+        <button class="glass-tab reading-settings-panel__choice" type="button" data-reading-settings-setting="textSize"
           data-value="default" aria-pressed="false">
-          <span data-accessibility-copy="textSizeDefault">Default</span>
+          <span data-reading-settings-copy="textSizeDefault">Default</span>
         </button>
-        <button class="glass-tab accessibility-panel__choice" type="button" data-accessibility-setting="textSize"
+        <button class="glass-tab reading-settings-panel__choice" type="button" data-reading-settings-setting="textSize"
           data-value="large" aria-pressed="false">
-          <span data-accessibility-copy="textSizeLarge">Large</span>
+          <span data-reading-settings-copy="textSizeLarge">Large</span>
         </button>
-        <button class="glass-tab accessibility-panel__choice" type="button" data-accessibility-setting="textSize"
+        <button class="glass-tab reading-settings-panel__choice" type="button" data-reading-settings-setting="textSize"
           data-value="x-large" aria-pressed="false">
-          <span data-accessibility-copy="textSizeXLarge">Largest</span>
+          <span data-reading-settings-copy="textSizeXLarge">Largest</span>
         </button>
       </div>
     </section>
 
-    <section class="accessibility-panel__group">
-      <div class="accessibility-panel__toggles">
-        <button class="glass-tab accessibility-panel__switch" type="button"
-          data-accessibility-toggle-setting="readingMode" aria-pressed="false">
-          <span data-accessibility-copy="readingModeLabel">Reading Mode</span>
+    <section class="reading-settings-panel__group">
+      <div class="reading-settings-panel__toggles">
+        <button class="glass-tab reading-settings-panel__switch" type="button"
+          data-reading-settings-toggle-setting="readingMode" aria-pressed="false">
+          <span data-reading-settings-copy="readingModeLabel">Reading Mode</span>
         </button>
-        <button class="glass-tab accessibility-panel__switch" type="button"
-          data-accessibility-toggle-setting="reducedMotion" aria-pressed="false">
-          <span data-accessibility-copy="reducedMotionLabel">Reduced Motion</span>
+        <button class="glass-tab reading-settings-panel__switch" type="button"
+          data-reading-settings-toggle-setting="reducedMotion" aria-pressed="false">
+          <span data-reading-settings-copy="reducedMotionLabel">Reduced Motion</span>
         </button>
-        <button class="glass-tab accessibility-panel__switch" type="button"
-          data-accessibility-toggle-setting="highContrast" aria-pressed="false">
-          <span data-accessibility-copy="highContrastLabel">Higher Contrast</span>
+        <button class="glass-tab reading-settings-panel__switch" type="button"
+          data-reading-settings-toggle-setting="highContrast" aria-pressed="false">
+          <span data-reading-settings-copy="highContrastLabel">Higher Contrast</span>
         </button>
-        <button class="glass-tab accessibility-panel__switch" type="button"
-          data-accessibility-toggle-setting="mediaNotes" aria-pressed="false">
-          <span data-accessibility-copy="mediaNotesLabel">Media Notes</span>
+        <button class="glass-tab reading-settings-panel__switch" type="button"
+          data-reading-settings-toggle-setting="mediaNotes" aria-pressed="false">
+          <span data-reading-settings-copy="mediaNotesLabel">Media Notes</span>
         </button>
-        <button class="glass-tab accessibility-panel__switch" type="button"
-          data-accessibility-toggle-setting="readableFont" aria-pressed="false">
-          <span data-accessibility-copy="readableFontLabel">Readable Font</span>
+        <button class="glass-tab reading-settings-panel__switch" type="button"
+          data-reading-settings-toggle-setting="readableFont" aria-pressed="false">
+          <span data-reading-settings-copy="readableFontLabel">Readable Font</span>
         </button>
-        <button class="glass-tab accessibility-panel__switch" type="button"
-          data-accessibility-toggle-setting="linkVisibility" aria-pressed="false">
-          <span data-accessibility-copy="linkVisibilityLabel">Visible Links</span>
+        <button class="glass-tab reading-settings-panel__switch" type="button"
+          data-reading-settings-toggle-setting="linkVisibility" aria-pressed="false">
+          <span data-reading-settings-copy="linkVisibilityLabel">Visible Links</span>
         </button>
       </div>
     </section>
 
-    <button class="glass-tab accessibility-panel__reset" type="button" data-accessibility-reset>
-      <span data-accessibility-copy="resetLabel">Reset</span>
+    <button class="glass-tab reading-settings-panel__reset" type="button" data-reading-settings-reset>
+      <span data-reading-settings-copy="resetLabel">Reset</span>
     </button>
 
-    <div class="accessibility-panel__utility">
-      <button class="glass-tab accessibility-panel__notice-link" id="site-notices-link" type="button"
-        data-action="select-section" data-section-id="site-notices" data-close-reading-settings>Site Purpose, Notices
+    <div class="reading-settings-panel__utility">
+      <button class="glass-tab reading-settings-panel__purpose-link" id="site-purpose-link" type="button"
+        data-action="select-section" data-section-id="site-purpose-notices-privacy" data-close-reading-settings>Site Purpose, Notices
         &amp; Privacy</button>
     </div>
   </aside>

@@ -1,9 +1,9 @@
-import { bigBangLegacyContent } from "../data/legacy-big-bang.js?v=20260524-reading-usability-report-v1";
-import { siteContent } from "../data/site-content.js?v=20260524-reading-usability-report-v1";
+import { bigBangLegacyContent } from "../data/legacy-big-bang.js?v=20260524-integrity-naming-audit-v1";
+import { siteContent } from "../data/site-content.js?v=20260524-integrity-naming-audit-v1";
 
 const documentCache = new Map();
 const requestCache = new Map();
-const CONTENT_CACHE_VERSION = "20260524-reading-usability-report-v1";
+const CONTENT_CACHE_VERSION = "20260524-integrity-naming-audit-v1";
 const PREWARM_WORKER_LIMIT = 4;
 let prewarmScheduled = false;
 
@@ -91,7 +91,7 @@ function addLocalizedFile(fileSet, source) {
 }
 
 function collectStructuredFiles(fileSet) {
-  addLocalizedFile(fileSet, siteContent.siteNoticeSection?.contentFile);
+  addLocalizedFile(fileSet, siteContent.sitePurposeSection?.contentFile);
   siteContent.personalSections.forEach((section) => addLocalizedFile(fileSet, section.contentFile));
 
   siteContent.knowledgeWorlds.forEach((domain) => {

@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260524-reading-usability-report-v1";
+import { pick } from "./i18n.js?v=20260524-integrity-naming-audit-v1";
 
 function escapeHtml(value) {
   return String(value)
@@ -13,15 +13,15 @@ function classNames(...values) {
   return values.filter(Boolean).join(" ");
 }
 
-function hasConfiguredValue(value, placeholder) {
-  return typeof value === "string" && value.trim() !== "" && value !== placeholder;
+function hasConfiguredValue(value) {
+  return typeof value === "string" && value.trim() !== "";
 }
 
 function resolveSocialIconSource(assets, item) {
   const folder = assets.socialIconFolder;
   const fileName = item.iconFileName;
 
-  if (!hasConfiguredValue(folder, "PATH_HERE") || !hasConfiguredValue(fileName, "FILE_NAME_HERE")) {
+  if (!hasConfiguredValue(folder) || !hasConfiguredValue(fileName)) {
     return "";
   }
 
@@ -470,12 +470,12 @@ function createReaderNavigation(items, activeId, action, dataName, language) {
 
 export function renderSite({ state, refs, content, assets }) {
   const language = state.language;
-  const siteNoticeSection = content.siteNoticeSection ?? null;
+  const sitePurposeSection = content.sitePurposeSection ?? null;
   const activeSection = [
     ...content.personalSections,
-    siteNoticeSection
+    sitePurposeSection
   ].find((section) => section?.id === state.activeSection) ?? null;
-  const isSiteNoticeOpen = Boolean(siteNoticeSection && activeSection?.id === siteNoticeSection.id);
+  const isSitePurposeOpen = Boolean(sitePurposeSection && activeSection?.id === sitePurposeSection.id);
   const activeDomain = content.knowledgeWorlds.find((domain) => domain.id === state.activeDomain) ?? null;
   const topics = activeDomain?.topics ?? [];
   const activeTopic = topics.find((topic) => topic.id === state.activeTopic) ?? null;
@@ -498,7 +498,7 @@ export function renderSite({ state, refs, content, assets }) {
   const mobileKnowledgeMenuOpen = Boolean(state.mobileKnowledgeNavOpen);
   const showPersonalNavigation = !mobileKnowledgeMenuOpen
     && !hasActiveSciencePath
-    && !isSiteNoticeOpen
+    && !isSitePurposeOpen
     && (!hasActivePanel || state.titleOpen);
 
   document.documentElement.lang = language;
@@ -514,11 +514,11 @@ export function renderSite({ state, refs, content, assets }) {
 
   const year = new Date().getFullYear();
   refs.copyright.textContent = `© ${year} Issac Tabares. ${pick(content.ui.copyright, language)}`;
-  if (refs.siteNoticesLink && siteNoticeSection) {
-    const label = pick(siteNoticeSection.title, language);
-    refs.siteNoticesLink.textContent = label;
-    refs.siteNoticesLink.setAttribute("aria-label", label);
-    refs.siteNoticesLink.classList.toggle("is-active", isSiteNoticeOpen);
+  if (refs.sitePurposeLink && sitePurposeSection) {
+    const label = pick(sitePurposeSection.title, language);
+    refs.sitePurposeLink.textContent = label;
+    refs.sitePurposeLink.setAttribute("aria-label", label);
+    refs.sitePurposeLink.classList.toggle("is-active", isSitePurposeOpen);
   }
 
   refs.socialDock.innerHTML = renderDockItems({

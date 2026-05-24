@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-reading-usability-report-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-integrity-naming-audit-v1";
 
 function htmlSource(group, id) {
   return {
@@ -266,7 +266,7 @@ const simulationModelsEquationBranch = {
   ]
 };
 
-const myWorkInfluencesEquationBranch = {
+const personalCosmologyEquationBranch = {
   id: "my-work-influences-equations",
   title: { en: "Equations", es: "Ecuaciones" },
   hidden: true,
@@ -310,24 +310,23 @@ export const siteContent = {
   ui: {
     languageLabel: { en: "EN/ES", es: "EN/ES" },
     skipToContent: { en: "Skip to content", es: "Saltar al contenido" },
-    accessibilityButtonLabel: { en: "Reading settings", es: "Ajustes de lectura" },
-    accessibilityTitle: { en: "Reading Settings", es: "Ajustes de lectura" },
-    accessibilityDescription: {
+    readingSettingsButtonLabel: { en: "Reading settings", es: "Ajustes de lectura" },
+    readingSettingsTitle: { en: "Reading Settings", es: "Ajustes de lectura" },
+    readingSettingsDescription: {
       en: "Adjust reading comfort without changing the site's identity.",
       es: "Ajusta la comodidad de lectura sin cambiar la identidad del sitio."
     },
-    accessibilityTextSizeLabel: { en: "Text Size", es: "Tamaño del Texto" },
-    accessibilityTextSizeDefault: { en: "Default", es: "Normal" },
-    accessibilityTextSizeLarge: { en: "Large", es: "Grande" },
-    accessibilityTextSizeXLarge: { en: "Largest", es: "Máximo" },
-    accessibilityReadingModeLabel: { en: "Reading Mode", es: "Modo de Lectura" },
-    accessibilityReducedMotionLabel: { en: "Reduced Motion", es: "Movimiento Reducido" },
-    accessibilityHighContrastLabel: { en: "Higher Contrast", es: "Mayor Contraste" },
-    accessibilityMediaNotesLabel: { en: "Media Notes", es: "Notas de Medios" },
-    accessibilityReadableFontLabel: { en: "Readable Font", es: "Tipografía Legible" },
-    accessibilityLinkVisibilityLabel: { en: "Visible Links", es: "Enlaces Visibles" },
-    accessibilityResetLabel: { en: "Reset", es: "Restablecer" },
-    musicLabelPlaceholder: { en: "SONG NAME HERE", es: "NOMBRE DE LA CANCIÓN AQUÍ" },
+    readingSettingsTextSizeLabel: { en: "Text Size", es: "Tamaño del Texto" },
+    readingSettingsTextSizeDefault: { en: "Default", es: "Normal" },
+    readingSettingsTextSizeLarge: { en: "Large", es: "Grande" },
+    readingSettingsTextSizeXLarge: { en: "Largest", es: "Máximo" },
+    readingSettingsReadingModeLabel: { en: "Reading Mode", es: "Modo de Lectura" },
+    readingSettingsReducedMotionLabel: { en: "Reduced Motion", es: "Movimiento Reducido" },
+    readingSettingsHighContrastLabel: { en: "Higher Contrast", es: "Mayor Contraste" },
+    readingSettingsMediaNotesLabel: { en: "Media Notes", es: "Notas de Medios" },
+    readingSettingsReadableFontLabel: { en: "Readable Font", es: "Tipografía Legible" },
+    readingSettingsLinkVisibilityLabel: { en: "Visible Links", es: "Enlaces Visibles" },
+    readingSettingsResetLabel: { en: "Reset", es: "Restablecer" },
     socialAriaLabel: { en: "Social links", es: "Enlaces sociales" },
     personalSectionsAria: { en: "Personal sections", es: "Secciones personales" },
     knowledgeWorldsAria: { en: "Knowledge Worlds", es: "Mundos de conocimiento" },
@@ -365,16 +364,15 @@ export const siteContent = {
       es: "Todos los derechos reservados."
     }
   },
-  siteNoticeSection: createSection("site-notices", "Site Purpose, Notices & Privacy", "Propósito del sitio, avisos y privacidad"),
+  sitePurposeSection: createSection("site-purpose-notices-privacy", "Site Purpose, Notices & Privacy", "Propósito del sitio, avisos y privacidad"),
   personalSections: [
-    createSection("origins", "Origins", "Orígenes", { contentId: "early-life" }),
-    createSection("learning-path", "Learning Path", "Camino de aprendizaje", { contentId: "education" }),
+    createSection("origins", "Origins", "Orígenes"),
+    createSection("learning-path", "Learning Path", "Camino de aprendizaje"),
     createSection("music", "Music", "Música"),
-    createSection("systems-work", "Systems Work", "Trabajo con sistemas", { contentId: "professional-career" }),
-    createSection("practice-worlds", "Practice Worlds", "Mundos de práctica", { contentId: "applied-disciplines" }),
+    createSection("systems-work", "Systems Work", "Trabajo con sistemas"),
+    createSection("practice-worlds", "Practice Worlds", "Mundos de práctica"),
     createSection("personal-cosmology", "Personal Cosmology", "Cosmología personal", {
-      contentId: "works-that-shaped-my-thinking",
-      branches: [myWorkInfluencesEquationBranch],
+      branches: [personalCosmologyEquationBranch],
       hideBranchNavigation: true,
       hideDetailNavigation: true
     })
