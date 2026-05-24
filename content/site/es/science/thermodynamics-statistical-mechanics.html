@@ -13,14 +13,34 @@
   </section>
 
   <section class="content-block">
+    <div class="model-teaching-card">
+      <p><strong>Tipo de modelo:</strong> Modelo conceptual.</p>
+      <p><strong>Qué muestra:</strong> Muchas partículas moviéndose en una caja, destacando el movimiento microscópico detrás de cantidades macroscópicas estables.</p>
+      <p><strong>Qué no muestra:</strong> Colisiones moleculares reales, cálculo exacto de presión, estadística cuántica o una simulación termodinámica completa.</p>
+      <p><strong>Ecuación / principio:</strong> \(S_B=k_B\log W\) conecta la entropía con el número de microestados compatibles.</p>
+      <p><strong>Qué representa el modelo:</strong> Orden macroscópico emergiendo de muchos grados de libertad microscópicos.</p>
+    </div>
+    <figure class="foundation-model glass-window" data-foundation-model="thermodynamics" data-language="es">
+      <div class="foundation-model__frame" data-foundation-model-frame></div>
+      <figcaption class="foundation-model__caption">Las partículas son marcadores visuales de microestados, no un cálculo de dinámica molecular.</figcaption>
+    </figure>
+  </section>
+
+  <section class="content-block">
     <h3>Estado termodinámico</h3>
     <p>
       Un estado termodinámico se describe con cantidades macroscópicas como temperatura, presión, volumen, energía y
       entropía. La primera ley organiza la contabilidad de energía:
     </p>
-    \[
-      dU=\delta Q-\delta W.
-    \]
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="thermodynamics-statistical-mechanics-equations" data-item-id="first-law-thermodynamics"
+        aria-label="Abrir la explicación de la primera ley de la termodinámica">
+        $$
+        dU=\delta Q-\delta W
+        $$
+      </button>
+    </div>
     <p>
       Separa energía añadida como calor de energía transferida como trabajo. Por sí sola no explica por qué los procesos
       tienen una dirección preferida.
@@ -33,9 +53,15 @@
       La mecánica estadística conecta la entropía con el número de arreglos microscópicos compatibles con una misma
       descripción macroscópica:
     </p>
-    \[
-      S_B=k_B\log W.
-    \]
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="thermodynamics-statistical-mechanics-equations" data-item-id="boltzmann-entropy"
+        aria-label="Abrir la explicación de la entropía de Boltzmann">
+        $$
+        S_B=k_B\log W
+        $$
+      </button>
+    </div>
     <p>
       Un gas expandiéndose por una habitación no es misterioso porque las partículas quieran desorden. Es probable
       porque hay muchísimos más microestados que corresponden al macroestado extendido.

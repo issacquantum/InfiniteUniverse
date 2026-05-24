@@ -46,6 +46,8 @@ This file documents the project layout for `https://issacquantum.github.io/Infin
 5. Keep model labels clear: physical model, toy physical model, conceptual model, analogy model, artistic scientific visualization, or speculative conceptual model.
 6. Register the model in the Model Lab page in both English and Spanish.
 
+The shared foundation-topic model initializer is `scripts/foundation-models.js`; its shared visual rules are in `styles/foundation-models.css`.
+
 ## Deployment
 
 Canonical public URL: `https://issacquantum.github.io/InfiniteUniverse/`

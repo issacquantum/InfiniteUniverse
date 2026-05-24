@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-foundation-topics-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-foundation-models-v1";
 
 function htmlSource(group, id) {
   return {
@@ -266,6 +266,84 @@ const simulationModelsEquationBranch = {
   ]
 };
 
+const classicalMechanicsEquationBranch = {
+  id: "classical-mechanics-equations",
+  title: { en: "Equations", es: "Ecuaciones" },
+  items: [
+    createStructuredItem("science/equations", "newton-second-law", "Newton's Second Law", "Segunda Ley de Newton"),
+    createStructuredItem("science/equations", "classical-action-principle", "Classical Action Principle", "Principio de Acción Clásico")
+  ]
+};
+
+const electromagnetismEquationBranch = {
+  id: "electromagnetism-equations",
+  title: { en: "Equations", es: "Ecuaciones" },
+  items: [
+    createStructuredItem("science/equations", "lorentz-force-law", "Lorentz Force Law", "Ley de Fuerza de Lorentz"),
+    createStructuredItem("science/equations", "electromagnetic-wave-speed", "Electromagnetic Wave Speed", "Velocidad de Onda Electromagnética")
+  ]
+};
+
+const thermodynamicsEquationBranch = {
+  id: "thermodynamics-statistical-mechanics-equations",
+  title: { en: "Equations", es: "Ecuaciones" },
+  items: [
+    createStructuredItem("science/equations", "first-law-thermodynamics", "First Law of Thermodynamics", "Primera Ley de la Termodinámica"),
+    createStructuredItem("science/equations", "boltzmann-entropy", "Boltzmann Entropy", "Entropía de Boltzmann")
+  ]
+};
+
+const mathematicalFoundationsEquationBranch = {
+  id: "mathematical-foundations-equations",
+  title: { en: "Equations", es: "Ecuaciones" },
+  items: [
+    createStructuredItem("science/equations", "derivative-notation", "Derivative Notation", "Notación de Derivada"),
+    createStructuredItem("science/equations", "definite-integral", "Definite Integral", "Integral Definida"),
+    createStructuredItem("science/equations", "bayes-theorem", "Bayes' Theorem", "Teorema de Bayes")
+  ]
+};
+
+const quantumFieldTheoryEquationBranch = {
+  id: "quantum-field-theory-equations",
+  title: { en: "Equations", es: "Ecuaciones" },
+  items: [
+    createStructuredItem("science/equations", "scalar-field-lagrangian", "Scalar Field Lagrangian", "Lagrangiano de Campo Escalar"),
+    createStructuredItem("science/equations", "renormalization-group-equation", "Renormalization Group Equation", "Ecuación del Grupo de Renormalización")
+  ]
+};
+
+const neuroscienceConsciousnessEquationBranch = {
+  id: "neuroscience-consciousness-equations",
+  title: { en: "Equations", es: "Ecuaciones" },
+  items: [
+    createStructuredItem("science/equations", "recurrent-state-update", "Recurrent State Update", "Actualización Recurrente de Estado")
+  ]
+};
+
+const complexSystemsEquationBranch = {
+  id: "complex-systems-emergence-equations",
+  title: { en: "Equations", es: "Ecuaciones" },
+  items: [
+    createStructuredItem("science/equations", "dynamical-system-equation", "Dynamical System Equation", "Ecuación de Sistema Dinámico")
+  ]
+};
+
+const chemistryMolecularStructureEquationBranch = {
+  id: "chemistry-molecular-structure-equations",
+  title: { en: "Equations", es: "Ecuaciones" },
+  items: [
+    createStructuredItem("science/equations", "gibbs-free-energy", "Gibbs Free Energy", "Energía Libre de Gibbs")
+  ]
+};
+
+const biologyLifeSystemsEquationBranch = {
+  id: "biology-life-systems-equations",
+  title: { en: "Equations", es: "Ecuaciones" },
+  items: [
+    createStructuredItem("science/equations", "central-dogma-flow", "Central Dogma Flow", "Flujo del Dogma Central")
+  ]
+};
+
 const personalCosmologyEquationBranch = {
   id: "my-work-influences-equations",
   title: { en: "Equations", es: "Ecuaciones" },
@@ -389,10 +467,30 @@ export const siteContent = {
       id: "physical-foundations",
       title: { en: "Physical Foundations", es: "Fundamentos físicos" },
       topics: [
-        createTopic("classical-mechanics", "Classical Mechanics", "Mecánica clásica"),
-        createTopic("electromagnetism", "Electromagnetism", "Electromagnetismo"),
-        createTopic("thermodynamics-statistical-mechanics", "Thermodynamics & Statistical Mechanics", "Termodinámica y mecánica estadística"),
-        createTopic("mathematical-foundations", "Mathematical Foundations", "Fundamentos matemáticos")
+        createTopic("classical-mechanics", "Classical Mechanics", "Mecánica clásica", {
+          contentFile: htmlSource("science", "classical-mechanics"),
+          branches: [classicalMechanicsEquationBranch],
+          hideBranchNavigation: true,
+          hideDetailNavigation: true
+        }),
+        createTopic("electromagnetism", "Electromagnetism", "Electromagnetismo", {
+          contentFile: htmlSource("science", "electromagnetism"),
+          branches: [electromagnetismEquationBranch],
+          hideBranchNavigation: true,
+          hideDetailNavigation: true
+        }),
+        createTopic("thermodynamics-statistical-mechanics", "Thermodynamics & Statistical Mechanics", "Termodinámica y mecánica estadística", {
+          contentFile: htmlSource("science", "thermodynamics-statistical-mechanics"),
+          branches: [thermodynamicsEquationBranch],
+          hideBranchNavigation: true,
+          hideDetailNavigation: true
+        }),
+        createTopic("mathematical-foundations", "Mathematical Foundations", "Fundamentos matemáticos", {
+          contentFile: htmlSource("science", "mathematical-foundations"),
+          branches: [mathematicalFoundationsEquationBranch],
+          hideBranchNavigation: true,
+          hideDetailNavigation: true
+        })
       ]
     },
     {
@@ -429,10 +527,30 @@ export const siteContent = {
       id: "matter-life-mind",
       title: { en: "Matter, Life & Mind", es: "Materia, vida y mente" },
       topics: [
-        createTopic("quantum-field-theory", "Quantum Field Theory", "Teoría cuántica de campos"),
-        createTopic("chemistry-molecular-structure", "Chemistry & Molecular Structure", "Química y estructura molecular"),
-        createTopic("biology-life-systems", "Biology & Life Systems", "Biología y sistemas vivos"),
-        createTopic("neuroscience-consciousness", "Neuroscience of Consciousness", "Neurociencia de la conciencia")
+        createTopic("quantum-field-theory", "Quantum Field Theory", "Teoría cuántica de campos", {
+          contentFile: htmlSource("science", "quantum-field-theory"),
+          branches: [quantumFieldTheoryEquationBranch],
+          hideBranchNavigation: true,
+          hideDetailNavigation: true
+        }),
+        createTopic("chemistry-molecular-structure", "Chemistry & Molecular Structure", "Química y estructura molecular", {
+          contentFile: htmlSource("science", "chemistry-molecular-structure"),
+          branches: [chemistryMolecularStructureEquationBranch],
+          hideBranchNavigation: true,
+          hideDetailNavigation: true
+        }),
+        createTopic("biology-life-systems", "Biology & Life Systems", "Biología y sistemas vivos", {
+          contentFile: htmlSource("science", "biology-life-systems"),
+          branches: [biologyLifeSystemsEquationBranch],
+          hideBranchNavigation: true,
+          hideDetailNavigation: true
+        }),
+        createTopic("neuroscience-consciousness", "Neuroscience of Consciousness", "Neurociencia de la conciencia", {
+          contentFile: htmlSource("science", "neuroscience-consciousness"),
+          branches: [neuroscienceConsciousnessEquationBranch],
+          hideBranchNavigation: true,
+          hideDetailNavigation: true
+        })
       ]
     },
     {
@@ -499,7 +617,12 @@ export const siteContent = {
       id: "systems-method",
       title: { en: "Systems & Method", es: "Sistemas y método" },
       topics: [
-        createTopic("complex-systems-emergence", "Complex Systems & Emergence", "Sistemas complejos y emergencia"),
+        createTopic("complex-systems-emergence", "Complex Systems & Emergence", "Sistemas complejos y emergencia", {
+          contentFile: htmlSource("science", "complex-systems-emergence"),
+          branches: [complexSystemsEquationBranch],
+          hideBranchNavigation: true,
+          hideDetailNavigation: true
+        }),
         createTopic("philosophy-science", "Philosophy of Science", "Filosofía de la ciencia")
       ]
     }

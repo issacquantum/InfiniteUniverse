@@ -12,14 +12,34 @@
   </section>
 
   <section class="content-block">
+    <div class="model-teaching-card">
+      <p><strong>Model type:</strong> Conceptual model.</p>
+      <p><strong>What this shows:</strong> Many moving particles in a box, emphasizing microscopic motion behind stable macroscopic quantities.</p>
+      <p><strong>What this does not show:</strong> Real molecular collisions, exact pressure calculation, quantum statistics, or a full thermodynamic simulation.</p>
+      <p><strong>Equation / principle:</strong> \(S_B=k_B\log W\) links entropy to the number of compatible microstates.</p>
+      <p><strong>What the model represents:</strong> Macroscopic order emerging from many microscopic degrees of freedom.</p>
+    </div>
+    <figure class="foundation-model glass-window" data-foundation-model="thermodynamics" data-language="en">
+      <div class="foundation-model__frame" data-foundation-model-frame></div>
+      <figcaption class="foundation-model__caption">The particles are visual markers for microstates, not a molecular-dynamics calculation.</figcaption>
+    </figure>
+  </section>
+
+  <section class="content-block">
     <h3>Thermodynamic State</h3>
     <p>
       A thermodynamic state is described by macroscopic quantities such as temperature, pressure, volume, energy, and
       entropy. The first law organizes energy accounting:
     </p>
-    \[
-      dU=\delta Q-\delta W.
-    \]
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="thermodynamics-statistical-mechanics-equations" data-item-id="first-law-thermodynamics"
+        aria-label="Open the explanation page for the first law of thermodynamics">
+        $$
+        dU=\delta Q-\delta W
+        $$
+      </button>
+    </div>
     <p>
       It separates energy added as heat from energy transferred as work. It does not by itself explain why processes
       have a preferred direction.
@@ -32,9 +52,15 @@
       Statistical mechanics connects entropy to the number of microscopic arrangements compatible with the same
       macroscopic description:
     </p>
-    \[
-      S_B=k_B\log W.
-    \]
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="thermodynamics-statistical-mechanics-equations" data-item-id="boltzmann-entropy"
+        aria-label="Open the explanation page for Boltzmann entropy">
+        $$
+        S_B=k_B\log W
+        $$
+      </button>
+    </div>
     <p>
       A gas spreading through a room is not mysterious because particles want disorder. It is likely because vastly more
       microstates correspond to the spread-out macrostate.

@@ -17,13 +17,33 @@
   </section>
 
   <section class="content-block">
+    <div class="model-teaching-card">
+      <p><strong>Model type:</strong> Toy physical model.</p>
+      <p><strong>What this shows:</strong> A body moving around a center with velocity and inward force directions shown as vectors.</p>
+      <p><strong>What this does not show:</strong> A full numerical orbit solver, air resistance, relativity, or quantum behavior.</p>
+      <p><strong>Equation / principle:</strong> \(\mathbf{F}=m\mathbf{a}\) and the action principle organize classical motion.</p>
+      <p><strong>What the model represents:</strong> Classical motion as geometry plus changing vectors, not just a static formula.</p>
+    </div>
+    <figure class="foundation-model glass-window" data-foundation-model="mechanics" data-language="en">
+      <div class="foundation-model__frame" data-foundation-model-frame></div>
+      <figcaption class="foundation-model__caption">Drag to rotate. The pink vector points inward as the force direction; the violet vector shows tangent motion.</figcaption>
+    </figure>
+  </section>
+
+  <section class="content-block">
     <h3>Newtonian Core</h3>
     <p>
       The most direct form is Newton's second law:
     </p>
-    \[
-      \mathbf{F}=m\mathbf{a}.
-    \]
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="classical-mechanics-equations" data-item-id="newton-second-law"
+        aria-label="Open the explanation page for Newton's second law">
+        $$
+        \mathbf{F}=m\mathbf{a}
+        $$
+      </button>
+    </div>
     <p>
       It says that force changes motion. The statement is simple, but it becomes powerful because it turns a physical
       cause into a differential equation. Given forces and initial conditions, the motion can be predicted within the
@@ -46,9 +66,15 @@
     <p>
       The Lagrangian view organizes motion through the action:
     </p>
-    \[
-      S=\int L(q,\dot q,t)\,dt.
-    \]
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="classical-mechanics-equations" data-item-id="classical-action-principle"
+        aria-label="Open the explanation page for the classical action principle">
+        $$
+        S=\int L(q,\dot q,t)\,dt
+        $$
+      </button>
+    </div>
     <p>
       The actual path is the one that makes the action stationary. This is not only elegant; it becomes the bridge to
       field theory, relativity, quantum path integrals, and numerical simulation.

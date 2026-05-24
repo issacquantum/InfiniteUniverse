@@ -12,6 +12,20 @@
   </section>
 
   <section class="content-block">
+    <div class="model-teaching-card">
+      <p><strong>Model type:</strong> Conceptual model.</p>
+      <p><strong>What this shows:</strong> A small network with signals moving between connected nodes.</p>
+      <p><strong>What this does not show:</strong> Real neural anatomy, spike timing, neurotransmitters, or a theory that explains consciousness by itself.</p>
+      <p><strong>Equation / principle:</strong> \(h_{t+1}=f(W h_t+Ux_t+b)\) sketches state updating with memory and input.</p>
+      <p><strong>What the model represents:</strong> Conscious processing as organized activity over connected systems, not a single isolated point.</p>
+    </div>
+    <figure class="foundation-model glass-window" data-foundation-model="neuroscience" data-language="en">
+      <div class="foundation-model__frame" data-foundation-model-frame></div>
+      <figcaption class="foundation-model__caption">The moving pulses represent information flow in a simplified network, not literal biological spikes.</figcaption>
+    </figure>
+  </section>
+
+  <section class="content-block">
     <h3>Brain, Body, and World</h3>
     <p>
       The brain is not an isolated thinking box. It regulates a body, receives sensory input, predicts consequences,
@@ -26,9 +40,15 @@
       Attention selects information for stronger processing. Working memory keeps selected information available for
       reasoning and action. A simplified way to write recurrent updating is
     </p>
-    \[
-      h_{t+1}=f(W h_t+Ux_t+b).
-    \]
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="neuroscience-consciousness-equations" data-item-id="recurrent-state-update"
+        aria-label="Open the explanation page for recurrent state updating">
+        $$
+        h_{t+1}=f(W h_t+Ux_t+b)
+        $$
+      </button>
+    </div>
     <p>
       The equation is only a modeling sketch, but it captures the idea that current state, new input, and system
       structure jointly shape the next state.

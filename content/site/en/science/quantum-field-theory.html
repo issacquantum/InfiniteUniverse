@@ -12,6 +12,20 @@
   </section>
 
   <section class="content-block">
+    <div class="model-teaching-card">
+      <p><strong>Model type:</strong> Toy physical model.</p>
+      <p><strong>What this shows:</strong> A fluctuating scalar field drawn as a moving lattice of field amplitudes.</p>
+      <p><strong>What this does not show:</strong> Real particle creation, detector events, renormalized scattering amplitudes, or a numerical quantum-field simulation.</p>
+      <p><strong>Equation / principle:</strong> \(\mathcal{L}=\frac{1}{2}\partial_\mu\phi\,\partial^\mu\phi-\frac{1}{2}m^2\phi^2\) is the free scalar-field starting point.</p>
+      <p><strong>What the model represents:</strong> A field value at many locations, not little particles popping out of nothing.</p>
+    </div>
+    <figure class="foundation-model glass-window" data-foundation-model="qft" data-language="en">
+      <div class="foundation-model__frame" data-foundation-model-frame></div>
+      <figcaption class="foundation-model__caption">The height of the lattice is a visual field amplitude. It is a teaching picture, not a full quantum field calculation.</figcaption>
+    </figure>
+  </section>
+
+  <section class="content-block">
     <h3>Fields Before Particles</h3>
     <p>
       In ordinary quantum mechanics, one often starts with a particle state. In quantum field theory, the deeper object
@@ -20,9 +34,15 @@
     <p>
       A simple scalar field is described by a Lagrangian density such as
     </p>
-    \[
-      \mathcal{L}=\frac{1}{2}\partial_\mu\phi\,\partial^\mu\phi-\frac{1}{2}m^2\phi^2.
-    \]
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-field-theory-equations" data-item-id="scalar-field-lagrangian"
+        aria-label="Open the explanation page for the scalar field Lagrangian">
+        $$
+        \mathcal{L}=\frac{1}{2}\partial_\mu\phi\,\partial^\mu\phi-\frac{1}{2}m^2\phi^2
+        $$
+      </button>
+    </div>
   </section>
 
   <section class="content-block">
@@ -55,9 +75,15 @@
       Quantum field theory often produces divergent intermediate expressions. Renormalization separates physical
       predictions from cutoff-dependent artifacts and explains why parameters depend on scale:
     </p>
-    \[
-      \mu\frac{dg}{d\mu}=\beta(g).
-    \]
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-field-theory-equations" data-item-id="renormalization-group-equation"
+        aria-label="Open the explanation page for the renormalization group equation">
+        $$
+        \mu\frac{dg}{d\mu}=\beta(g)
+        $$
+      </button>
+    </div>
     <p>
       The effective-field-theory view is disciplined: a theory can be extremely accurate inside its domain without being
       the final description at every possible energy.

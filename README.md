@@ -60,6 +60,8 @@ http://localhost:4175/
 5. Label each model with exactly one type: physical model, toy physical model, conceptual model, analogy model, artistic scientific visualization, or speculative conceptual model.
 6. Add the model to `content/site/*/science/model-lab.html` so the central Model Lab stays complete.
 
+The shared foundation-topic models use `scripts/foundation-models.js` and `styles/foundation-models.css`.
+
 ## Deployment Notes
 
 - Canonical site references belong in `index.html`, `robots.txt`, and `sitemap.xml`.
