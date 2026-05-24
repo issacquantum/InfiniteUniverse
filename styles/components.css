@@ -1879,21 +1879,21 @@ body[data-media-notes="on"] .media-note {
     right: 0.68rem;
     bottom: calc(4.25rem + env(safe-area-inset-bottom));
     width: min(calc(100vw - 1.36rem), 22rem);
-    font-family: var(--font-content-phone);
+    font-family: var(--font-content-phone) !important;
   }
 
   .content-window,
   .structured-content,
   .legacy-content,
   .accessibility-panel {
-    font-family: var(--font-content-phone);
+    font-family: var(--font-content-phone) !important;
   }
 
   .content-window :is(p, li, dd, dt, blockquote, figcaption),
   .structured-content :is(p, li, dd, dt, blockquote, figcaption),
   .legacy-content :is(p, li, dd, dt, blockquote, figcaption),
   .accessibility-panel :is(p, li, dd, dt, blockquote, figcaption) {
-    font-family: var(--font-content-phone);
+    font-family: var(--font-content-phone) !important;
   }
 
   .accessibility-toggle {
@@ -1905,7 +1905,7 @@ body[data-media-notes="on"] .media-note {
 
   .accessibility-panel h2,
   .accessibility-panel h3 {
-    font-family: var(--font-title);
+    font-family: var(--font-title) !important;
   }
 
   h1,
@@ -1926,13 +1926,13 @@ body[data-media-notes="on"] .media-note {
   .branch-grid .glass-tab,
   .legacy-item-grid .glass-tab,
   .focused-path-tab {
-    font-family: var(--font-title);
+    font-family: var(--font-title) !important;
   }
 
   .content-window :is(h1, h2, h3, h4, h5, h6) :is(a, span, strong, em),
   .structured-content :is(h1, h2, h3, h4, h5, h6) :is(a, span, strong, em),
   .legacy-content :is(h1, h2, h3, h4, h5, h6) :is(a, span, strong, em) {
-    font-family: var(--font-title);
+    font-family: var(--font-title) !important;
   }
 
   body[data-readable-font="on"] .site-title,
@@ -1949,7 +1949,7 @@ body[data-media-notes="on"] .media-note {
   body[data-readable-font="on"] .branch-grid .glass-tab,
   body[data-readable-font="on"] .legacy-item-grid .glass-tab,
   body[data-readable-font="on"] .focused-path-tab {
-    font-family: var(--font-title);
+    font-family: var(--font-title) !important;
   }
 
   .accessibility-panel__description {
