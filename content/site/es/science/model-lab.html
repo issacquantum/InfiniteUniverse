@@ -1,0 +1,189 @@
+<div class="structured-content" data-structured-content>
+  <section class="content-block">
+    <h3>Laboratorio de modelos</h3>
+    <p>
+      Esta sección reúne los modelos interactivos en un solo lugar. Cada modelo sigue perteneciendo a su página
+      científica original, donde el texto alrededor le da contexto. Esta página funciona como mapa: explica para qué
+      sirve cada modelo, qué no debe interpretarse a partir de él y qué conviene probar primero.
+    </p>
+    <p>
+      El objetivo es claridad educativa. Un modelo visual fuerte no debe obligar al visitante a adivinar qué está viendo.
+      Debe nombrar la idea, marcar el límite, señalar el principio que lo sostiene y ofrecer una forma segura de explorarlo.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Tipos de modelo</h3>
+    <div class="model-lab-grid" aria-label="Guía de tipos de modelo">
+      <article class="model-lab-card">
+        <h4>Modelo físico</h4>
+        <p>Está estrechamente ligado a una ecuación real o a un sistema físico real.</p>
+      </article>
+      <article class="model-lab-card">
+        <h4>Modelo físico simplificado</h4>
+        <p>Reduce detalles, pero conserva ideas físicas reales.</p>
+      </article>
+      <article class="model-lab-card">
+        <h4>Modelo conceptual</h4>
+        <p>Enseña relaciones y estructura más que una simulación exacta.</p>
+      </article>
+      <article class="model-lab-card">
+        <h4>Modelo de analogía</h4>
+        <p>Es una imagen útil para aprender, no un objeto físico literal.</p>
+      </article>
+      <article class="model-lab-card">
+        <h4>Visualización científica artística</h4>
+        <p>Está inspirada en ciencia, pero no es una simulación numérica ni un conjunto de datos observacionales.</p>
+      </article>
+      <article class="model-lab-card">
+        <h4>Modelo conceptual especulativo</h4>
+        <p>Parte de ideas serias, pero no representa realidad física establecida.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="content-block">
+    <h3>Modelos interactivos</h3>
+    <div class="model-lab-grid model-lab-grid--catalog" aria-label="Catálogo de modelos interactivos">
+      <article class="model-lab-card">
+        <h4>Interferencia de doble rendija</h4>
+        <p><strong>Tipo:</strong> Modelo físico simplificado.</p>
+        <p><strong>Muestra:</strong> Cómo la longitud de onda, la separación entre rendijas y la distancia a la pantalla cambian las bandas brillantes.</p>
+        <p><strong>No muestra:</strong> Un detector completo de laboratorio ni una teoría completa de medición.</p>
+        <p><strong>Principio:</strong> \(y_m \approx m\lambda L/d\).</p>
+        <p><strong>Prueba:</strong> Cambia una variable a la vez y observa cómo se mueve la primera banda brillante.</p>
+        <button class="glass-tab model-lab-card__link" type="button" data-action="select-topic" data-topic-id="quantum-mechanics">Abrir Mecánica cuántica</button>
+      </article>
+
+      <article class="model-lab-card">
+        <h4>Campo de fluctuaciones cuánticas</h4>
+        <p><strong>Tipo:</strong> Modelo físico simplificado.</p>
+        <p><strong>Muestra:</strong> Una muestra cambiante de campo tomada de una distribución aleatoria controlada.</p>
+        <p><strong>No muestra:</strong> Partículas apareciendo desde la nada.</p>
+        <p><strong>Principio:</strong> Varianza del vacío y correlación de dos puntos.</p>
+        <p><strong>Prueba:</strong> Pausa el campo, cambia la semilla y compara el histograma.</p>
+        <button class="glass-tab model-lab-card__link" type="button" data-action="select-topic" data-topic-id="quantum-mechanics">Abrir Mecánica cuántica</button>
+      </article>
+
+      <article class="model-lab-card">
+        <h4>Selector orbital del hidrógeno</h4>
+        <p><strong>Tipo:</strong> Modelo físico.</p>
+        <p><strong>Muestra:</strong> Densidad de probabilidad \(|\psi|^2\) para números cuánticos permitidos.</p>
+        <p><strong>No muestra:</strong> Una trayectoria planetaria del electrón.</p>
+        <p><strong>Principio:</strong> \(0 \leq \ell < n\) y \(-\ell \leq m \leq \ell\).</p>
+        <p><strong>Prueba:</strong> Empieza con configuraciones predefinidas y compara densidad con fase.</p>
+        <button class="glass-tab model-lab-card__link" type="button" data-action="select-topic" data-topic-id="quantum-mechanics">Abrir Mecánica cuántica</button>
+      </article>
+
+      <article class="model-lab-card">
+        <h4>Caso 3d<sub>z²</sub> del hidrógeno</h4>
+        <p><strong>Tipo:</strong> Modelo físico.</p>
+        <p><strong>Muestra:</strong> Un estado orbital trabajado, muestreado desde su densidad de probabilidad.</p>
+        <p><strong>No muestra:</strong> Una teoría separada del selector orbital.</p>
+        <p><strong>Principio:</strong> \(dP = |\psi_{320}|^2 r^2\sin\theta\,dr\,d\theta\,d\phi\).</p>
+        <p><strong>Prueba:</strong> Compáralo con la configuración 3d<sub>z²</sub> del selector.</p>
+        <button class="glass-tab model-lab-card__link" type="button" data-action="select-topic" data-topic-id="quantum-mechanics">Abrir Mecánica cuántica</button>
+      </article>
+
+      <article class="model-lab-card">
+        <h4>Entrelazamiento singlete de Bell</h4>
+        <p><strong>Tipo:</strong> Modelo físico.</p>
+        <p><strong>Muestra:</strong> Aleatoriedad local y correlación estadística después de muchos ensayos.</p>
+        <p><strong>No muestra:</strong> Mensajes más rápidos que la luz.</p>
+        <p><strong>Principio:</strong> \(E(a,b)=-\cos\theta_{ab}\) y comparación CHSH.</p>
+        <p><strong>Prueba:</strong> Cambia los ángulos de los detectores y observa cómo se acumula la correlación.</p>
+        <button class="glass-tab model-lab-card__link" type="button" data-action="select-topic" data-topic-id="quantum-entanglement">Abrir Entrelazamiento cuántico</button>
+      </article>
+
+      <article class="model-lab-card">
+        <h4>Canal cuántico y decoherencia</h4>
+        <p><strong>Tipo:</strong> Modelo físico simplificado.</p>
+        <p><strong>Muestra:</strong> Cómo cambia una matriz de densidad de un qubit bajo canales simples de ruido.</p>
+        <p><strong>No muestra:</strong> Una red cuántica completa ni calibración de hardware real.</p>
+        <p><strong>Principio:</strong> \(\rho'=\mathcal{E}(\rho)=\sum_i K_i\rho K_i^\dagger\).</p>
+        <p><strong>Prueba:</strong> Compara matrices antes y después mientras aumentas el ruido.</p>
+        <button class="glass-tab model-lab-card__link" type="button" data-action="select-topic" data-topic-id="quantum-information">Abrir Información cuántica</button>
+      </article>
+
+      <article class="model-lab-card">
+        <h4>Tela gravitacional</h4>
+        <p><strong>Tipo:</strong> Modelo de analogía.</p>
+        <p><strong>Muestra:</strong> Una imagen didáctica para pensar cómo la masa modifica la geometría.</p>
+        <p><strong>No muestra:</strong> Una tela literal ni una dirección real hacia abajo.</p>
+        <p><strong>Principio:</strong> La geometría responde a energía y momento en relatividad general.</p>
+        <p><strong>Prueba:</strong> Aumenta la fuerza de masa sin olvidar que es una analogía.</p>
+        <button class="glass-tab model-lab-card__link" type="button" data-action="select-topic" data-topic-id="relativity-spacetime">Abrir Relatividad</button>
+      </article>
+
+      <article class="model-lab-card">
+        <h4>Lente gravitacional</h4>
+        <p><strong>Tipo:</strong> Modelo físico simplificado.</p>
+        <p><strong>Muestra:</strong> Desplazamientos aparentes, imágenes múltiples y un caso tipo anillo de Einstein.</p>
+        <p><strong>No muestra:</strong> Trazado relativista completo de rayos ni datos de telescopio.</p>
+        <p><strong>Principio:</strong> \(\beta = \theta - \theta_E^2/\theta\).</p>
+        <p><strong>Prueba:</strong> Usa el caso de anillo y compara el campo fuente con las posiciones lentes.</p>
+        <button class="glass-tab model-lab-card__link" type="button" data-action="select-topic" data-topic-id="relativity-spacetime">Abrir Relatividad</button>
+      </article>
+
+      <article class="model-lab-card">
+        <h4>Sombra de agujero negro</h4>
+        <p><strong>Tipo:</strong> Visualización científica artística.</p>
+        <p><strong>Muestra:</strong> Sombra, brillo tipo anillo de fotones, asimetría del disco, inclinación y giro.</p>
+        <p><strong>No muestra:</strong> Datos de telescopio, relatividad numérica, turbulencia de plasma ni el interior.</p>
+        <p><strong>Principio:</strong> La gravedad intensa curva trayectorias nulas cerca de objetos compactos.</p>
+        <p><strong>Prueba:</strong> Cambia inclinación y giro para comparar la asimetría del disco.</p>
+        <button class="glass-tab model-lab-card__link" type="button" data-action="select-topic" data-topic-id="black-holes">Abrir Agujeros negros</button>
+      </article>
+
+      <article class="model-lab-card">
+        <h4>Geometría de agujero de gusano</h4>
+        <p><strong>Tipo:</strong> Modelo conceptual especulativo.</p>
+        <p><strong>Muestra:</strong> Garganta, bocas, apertura, señal de corrimiento y señal de esfuerzo exótico.</p>
+        <p><strong>No muestra:</strong> Una simulación de viaje ni evidencia de agujeros de gusano transitables a escala humana.</p>
+        <p><strong>Principio:</strong> La transitabilidad exigiría restricciones geométricas y energéticas severas.</p>
+        <p><strong>Prueba:</strong> Cambia el radio de garganta y el esfuerzo, tratando el marcador como guía visual.</p>
+        <button class="glass-tab model-lab-card__link" type="button" data-action="select-topic" data-topic-id="wormholes">Abrir Agujeros de gusano</button>
+      </article>
+
+      <article class="model-lab-card">
+        <h4>Arquitectura neuronal</h4>
+        <p><strong>Tipo:</strong> Modelo conceptual.</p>
+        <p><strong>Muestra:</strong> Flujo de red, pesos de atención y optimización por gradiente como lecciones separadas.</p>
+        <p><strong>No muestra:</strong> Un modelo de lenguaje real, datos reales de entrenamiento ni pesos aprendidos reales.</p>
+        <p><strong>Principio:</strong> Transformaciones vectoriales, atención y descenso de gradiente.</p>
+        <p><strong>Prueba:</strong> Usa un modo a la vez antes de combinar las ideas.</p>
+        <button class="glass-tab model-lab-card__link" type="button" data-action="select-topic" data-topic-id="artificial-intelligence">Abrir Inteligencia artificial</button>
+      </article>
+
+      <article class="model-lab-card">
+        <h4>Canal de entropía</h4>
+        <p><strong>Tipo:</strong> Modelo conceptual.</p>
+        <p><strong>Muestra:</strong> Cómo las probabilidades de fuente y el ruido del canal afectan entropía e información mutua.</p>
+        <p><strong>No muestra:</strong> Un módem real ni un código completo de corrección de errores.</p>
+        <p><strong>Principio:</strong> \(H(X)=-\sum p\log_2p\) e \(I(X;Y)=H(X)-H(X|Y)\).</p>
+        <p><strong>Prueba:</strong> Compara un canal limpio con un canal ruidoso.</p>
+        <button class="glass-tab model-lab-card__link" type="button" data-action="select-topic" data-topic-id="information-theory">Abrir Teoría de la información</button>
+      </article>
+
+      <article class="model-lab-card">
+        <h4>Visualizador 3D de algoritmos</h4>
+        <p><strong>Tipo:</strong> Modelo conceptual.</p>
+        <p><strong>Muestra:</strong> Estado del algoritmo, operación actual y crecimiento del costo computacional.</p>
+        <p><strong>No muestra:</strong> Código de producción ni pruebas de velocidad de hardware.</p>
+        <p><strong>Principio:</strong> Relajación de Dijkstra, ordenamiento por comparación y crecimiento Big O.</p>
+        <p><strong>Prueba:</strong> Avanza paso a paso antes de ejecutar la animación.</p>
+        <button class="glass-tab model-lab-card__link" type="button" data-action="select-topic" data-topic-id="programming-algorithms">Abrir Programación</button>
+      </article>
+
+      <article class="model-lab-card">
+        <h4>Banco de pruebas de métodos numéricos</h4>
+        <p><strong>Tipo:</strong> Modelo físico simplificado.</p>
+        <p><strong>Muestra:</strong> Pasos temporales, error de muestreo y estabilidad de una red de calor.</p>
+        <p><strong>No muestra:</strong> Un solucionador completo de ingeniería ni simulación exacta de clima o fluidos.</p>
+        <p><strong>Principio:</strong> Euler, RK4, error de Monte Carlo y estabilidad de la ecuación de calor.</p>
+        <p><strong>Prueba:</strong> Compara Euler con RK4 y luego acerca la difusión al límite de estabilidad.</p>
+        <button class="glass-tab model-lab-card__link" type="button" data-action="select-topic" data-topic-id="simulation-models">Abrir Simulación</button>
+      </article>
+    </div>
+  </section>
+</div>

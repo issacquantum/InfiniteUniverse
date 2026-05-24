@@ -1,14 +1,14 @@
-import { siteAssets } from "../data/site-assets.js?v=20260524-ideal-clock-explanation-v1";
-import { siteContent } from "../data/site-content.js?v=20260524-ideal-clock-explanation-v1";
-import { createReadingSettingsController } from "./reading-settings.js?v=20260524-ideal-clock-explanation-v1";
-import { initBackground } from "./background.js?v=20260524-ideal-clock-explanation-v1";
-import { refreshIcons } from "./icons.js?v=20260524-ideal-clock-explanation-v1";
-import { pick } from "./i18n.js?v=20260524-ideal-clock-explanation-v1";
-import { syncLegacyContent } from "./legacy-content.js?v=20260524-ideal-clock-explanation-v1";
-import { createMusicController, syncMusicUi } from "./music.js?v=20260524-ideal-clock-explanation-v1";
-import { renderSite } from "./render.js?v=20260524-ideal-clock-explanation-v1";
-import { createState } from "./state.js?v=20260524-ideal-clock-explanation-v1";
-import { syncStructuredContent } from "./structured-content.js?v=20260524-ideal-clock-explanation-v1";
+import { siteAssets } from "../data/site-assets.js?v=20260524-model-lab-v1";
+import { siteContent } from "../data/site-content.js?v=20260524-model-lab-v1";
+import { createReadingSettingsController } from "./reading-settings.js?v=20260524-model-lab-v1";
+import { initBackground } from "./background.js?v=20260524-model-lab-v1";
+import { refreshIcons } from "./icons.js?v=20260524-model-lab-v1";
+import { pick } from "./i18n.js?v=20260524-model-lab-v1";
+import { syncLegacyContent } from "./legacy-content.js?v=20260524-model-lab-v1";
+import { createMusicController, syncMusicUi } from "./music.js?v=20260524-model-lab-v1";
+import { renderSite } from "./render.js?v=20260524-model-lab-v1";
+import { createState } from "./state.js?v=20260524-model-lab-v1";
+import { syncStructuredContent } from "./structured-content.js?v=20260524-model-lab-v1";
 
 const refs = {
   siteShell: document.querySelector(".site-shell"),
@@ -592,6 +592,13 @@ function findDomainIdForTopic(topicId) {
   ))?.id ?? null;
 }
 
+function domainContainsTopic(domainId, topicId) {
+  return Boolean(siteContent.knowledgeWorlds.find((domain) => (
+    domain.id === domainId
+    && domain.topics?.some((topic) => topic.id === topicId)
+  )));
+}
+
 function returnToKnowledgeDomain(state, domainId, { openMobileMenu = false } = {}) {
   const nextDomainId = domainId ?? state.activeDomain ?? state.mobileKnowledgeNavDomain ?? null;
 
@@ -613,7 +620,9 @@ function returnToKnowledgeDomain(state, domainId, { openMobileMenu = false } = {
 function selectTopic(topicId) {
   clearPendingReturnNavigation();
   store.setState((state) => {
-    const domainId = state.activeDomain ?? findDomainIdForTopic(topicId);
+    const domainId = domainContainsTopic(state.activeDomain, topicId)
+      ? state.activeDomain
+      : findDomainIdForTopic(topicId);
 
     if (state.activeTopic === topicId) {
       return returnToKnowledgeDomain(state, domainId, {

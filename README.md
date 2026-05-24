@@ -43,10 +43,12 @@ http://localhost:4175/
    - What this does not show
    - Equation / principle
    - Try changing
+   - What the model represents, when needed for interpretation
 2. Add one model script under `scripts/`.
 3. Import and initialize the model from `scripts/structured-content.js`.
 4. Add a focused stylesheet under `styles/` only when shared styles are not enough.
 5. Label each model with exactly one type: physical model, toy physical model, conceptual model, analogy model, artistic scientific visualization, or speculative conceptual model.
+6. Add the model to `content/site/*/science/model-lab.html` so the central Model Lab stays complete.
 
 ## Deployment Notes
 
