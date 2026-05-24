@@ -745,6 +745,19 @@ body[data-readable-font="on"] .accessibility-panel h3 {
   font-size: calc(1.12rem * var(--content-title-scale));
 }
 
+.structured-content .content-subarea-title {
+  width: min(100%, 42rem);
+  margin: 1.65rem auto 0.1rem;
+  color: var(--heading);
+  font-size: calc(clamp(1.35rem, 2.7vw, 1.9rem) * var(--content-title-scale));
+  line-height: 1.12;
+  text-align: center;
+}
+
+.structured-content section.content-block > .content-subarea-title:first-child {
+  margin-top: 0.35rem;
+}
+
 .content-block--ewgf {
   gap: 0;
 }
