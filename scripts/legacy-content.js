@@ -1,6 +1,6 @@
-import { bigBangLegacyContent } from "../data/legacy-big-bang.js?v=20260524-reading-settings-notices-v1";
-import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260524-reading-settings-notices-v1";
-import { pick } from "./i18n.js?v=20260524-reading-settings-notices-v1";
+import { bigBangLegacyContent } from "../data/legacy-big-bang.js?v=20260524-cosmology-language-scroll-v1";
+import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260524-cosmology-language-scroll-v1";
+import { pick } from "./i18n.js?v=20260524-cosmology-language-scroll-v1";
 
 let activeRequestToken = 0;
 
@@ -470,6 +470,38 @@ function restoreReturnNavigation(host, state, returnNavigation) {
   return true;
 }
 
+function matchesReaderState(state, scrollRestoration) {
+  return Boolean(scrollRestoration)
+    && (state.activeSection ?? null) === scrollRestoration.activeSection
+    && (state.activeDomain ?? null) === scrollRestoration.activeDomain
+    && (state.activeTopic ?? null) === scrollRestoration.activeTopic
+    && (state.activeBranch ?? null) === scrollRestoration.activeBranch
+    && (state.activeDetail ?? null) === scrollRestoration.activeDetail;
+}
+
+function restoreReaderScroll(host, state, scrollRestoration) {
+  if (!matchesReaderState(state, scrollRestoration)) {
+    return false;
+  }
+
+  const contentWindow = host.closest(".content-window");
+
+  if (!contentWindow) {
+    return false;
+  }
+
+  const maxScrollTop = Math.max(contentWindow.scrollHeight - contentWindow.clientHeight, 0);
+  const fallbackScrollTop = maxScrollTop * (scrollRestoration.scrollRatio ?? 0);
+  const targetScrollTop = scrollRestoration.scrollTop ?? fallbackScrollTop;
+
+  requestAnimationFrame(() => {
+    const nextMaxScrollTop = Math.max(contentWindow.scrollHeight - contentWindow.clientHeight, 0);
+    contentWindow.scrollTop = Math.min(Math.max(targetScrollTop, 0), nextMaxScrollTop);
+  });
+
+  return true;
+}
+
 function commitLegacyDocument({
   documentNode,
   legacyItem,
@@ -478,7 +510,9 @@ function commitLegacyDocument({
   content,
   requestToken,
   returnNavigation,
-  onReturnNavigationApplied
+  onReturnNavigationApplied,
+  scrollRestoration,
+  onScrollRestorationApplied
 }) {
   if (requestToken !== activeRequestToken) {
     return false;
@@ -501,6 +535,8 @@ function commitLegacyDocument({
 
   if (restored) {
     onReturnNavigationApplied?.();
+  } else if (restoreReaderScroll(host, state, scrollRestoration)) {
+    onScrollRestorationApplied?.();
   } else {
     focusLoadedContent(host);
   }
@@ -521,7 +557,9 @@ export async function syncLegacyContent({
   refs,
   content,
   returnNavigation = null,
-  onReturnNavigationApplied = null
+  onReturnNavigationApplied = null,
+  scrollRestoration = null,
+  onScrollRestorationApplied = null
 }) {
   const host = refs.stage.querySelector("[data-legacy-host]");
 
@@ -550,7 +588,9 @@ export async function syncLegacyContent({
       content,
       requestToken,
       returnNavigation,
-      onReturnNavigationApplied
+      onReturnNavigationApplied,
+      scrollRestoration,
+      onScrollRestorationApplied
     });
     return;
   }
@@ -593,7 +633,9 @@ export async function syncLegacyContent({
       content,
       requestToken,
       returnNavigation,
-      onReturnNavigationApplied
+      onReturnNavigationApplied,
+      scrollRestoration,
+      onScrollRestorationApplied
     });
   } catch (_error) {
     if (requestToken !== activeRequestToken) {
