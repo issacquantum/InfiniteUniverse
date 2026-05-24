@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260524-personal-cosmology-subareas-v1";
+import { pick } from "./i18n.js?v=20260524-practice-worlds-porsche-nurburgring-v1";
 
 function escapeHtml(value) {
   return String(value)
