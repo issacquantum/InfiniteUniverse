@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260524-desktop-home-button-v1";
+import { pick } from "./i18n.js?v=20260524-revert-quantum-circuit-v1";
 
 const STORAGE_KEY = "issac-tabares-reading-settings";
 
