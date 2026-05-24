@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260524-integrity-naming-audit-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260524-mobile-science-menu-v1";
 
 const mountedModels = new WeakSet();
 const TWO_PI = Math.PI * 2;

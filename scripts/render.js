@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260524-integrity-naming-audit-v1";
+import { pick } from "./i18n.js?v=20260524-mobile-science-menu-v1";
 
 function escapeHtml(value) {
   return String(value)
@@ -319,9 +319,9 @@ function renderMobileReaderTopNavigation(navigation, language) {
 
 function renderMobileKnowledgeNavigation(domains, state, language) {
   const labels = {
-    toggle: language === "es" ? "Mundos de conocimiento" : "Knowledge Worlds",
-    open: language === "es" ? "Abrir mundos de conocimiento" : "Open Knowledge Worlds",
-    close: language === "es" ? "Cerrar mundos de conocimiento" : "Close Knowledge Worlds",
+    toggle: language === "es" ? "Menú de ciencia" : "Science menu",
+    open: language === "es" ? "Abrir menú de ciencia" : "Open science menu",
+    close: language === "es" ? "Cerrar menú de ciencia" : "Close science menu",
     topics: language === "es" ? "Temas" : "Topics"
   };
   const isOpen = Boolean(state.mobileKnowledgeNavOpen);
@@ -338,7 +338,6 @@ function renderMobileKnowledgeNavigation(domains, state, language) {
         id="mobile-knowledge-nav-panel"
       >
         <div class="mobile-knowledge-nav__heading">
-          <span>${escapeHtml(labels.toggle)}</span>
           <button
             class="glass-sphere mobile-knowledge-nav__close"
             type="button"
