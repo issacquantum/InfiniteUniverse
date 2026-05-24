@@ -140,7 +140,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.32rem;
-  font-family: var(--font-desktop);
+  font-family: var(--font-title);
   font-size: calc(clamp(1.3rem, 2vw, 1.7rem) * var(--site-title-scale, 1));
   line-height: 1;
   cursor: pointer;
@@ -381,7 +381,7 @@
 
 .accessibility-panel h2,
 .accessibility-panel h3 {
-  font-family: var(--font-desktop);
+  font-family: var(--font-title);
 }
 
 .accessibility-panel__header {
@@ -696,7 +696,7 @@
   .branch-grid .glass-tab,
   .legacy-item-grid .glass-tab,
   .focused-path-tab {
-    font-family: var(--font-desktop);
+    font-family: var(--font-title);
   }
 
   body[data-readable-font="on"] .site-title,
@@ -713,7 +713,7 @@
   body[data-readable-font="on"] .branch-grid .glass-tab,
   body[data-readable-font="on"] .legacy-item-grid .glass-tab,
   body[data-readable-font="on"] .focused-path-tab {
-    font-family: var(--font-desktop);
+    font-family: var(--font-title);
   }
 }
 
@@ -726,7 +726,7 @@ body[data-readable-font="on"] .content-window h6,
 body[data-readable-font="on"] .content-window__eyebrow,
 body[data-readable-font="on"] .accessibility-panel h2,
 body[data-readable-font="on"] .accessibility-panel h3 {
-  font-family: var(--font-desktop);
+  font-family: var(--font-title);
 }
 
 .content-window__header h2 {
@@ -1879,7 +1879,7 @@ body[data-media-notes="on"] .media-note {
     right: 0.68rem;
     bottom: calc(4.25rem + env(safe-area-inset-bottom));
     width: min(calc(100vw - 1.36rem), 22rem);
-    font-family: var(--font-mobile);
+    font-family: var(--font-content-phone);
   }
 
   .accessibility-toggle {
@@ -1891,7 +1891,7 @@ body[data-media-notes="on"] .media-note {
 
   .accessibility-panel h2,
   .accessibility-panel h3 {
-    font-family: var(--font-mobile);
+    font-family: var(--font-title);
   }
 
   h1,
@@ -1912,7 +1912,7 @@ body[data-media-notes="on"] .media-note {
   .branch-grid .glass-tab,
   .legacy-item-grid .glass-tab,
   .focused-path-tab {
-    font-family: var(--font-mobile);
+    font-family: var(--font-title);
   }
 
   body[data-readable-font="on"] .site-title,
@@ -1929,7 +1929,7 @@ body[data-media-notes="on"] .media-note {
   body[data-readable-font="on"] .branch-grid .glass-tab,
   body[data-readable-font="on"] .legacy-item-grid .glass-tab,
   body[data-readable-font="on"] .focused-path-tab {
-    font-family: var(--font-mobile);
+    font-family: var(--font-title);
   }
 
   .accessibility-panel__description {
