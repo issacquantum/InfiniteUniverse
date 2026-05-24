@@ -1,5 +1,5 @@
 function hasConfiguredPath(value) {
-  return typeof value === "string" && value.trim() !== "" && value !== "PATH_HERE";
+  return typeof value === "string" && value.trim() !== "";
 }
 
 function normalizeFolder(folder) {
