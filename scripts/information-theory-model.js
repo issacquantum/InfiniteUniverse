@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260524-equation-spacing-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260524-quantum-circuit-3d-v1";
 
 const mountedModels = new WeakSet();
 const SYMBOL_COUNT = 4;
