@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260524-equation-spacing-v1";
+import { pick } from "./i18n.js?v=20260524-quantum-circuit-3d-v1";
 
 const STORAGE_KEY = "issac-tabares-reading-settings";
 
