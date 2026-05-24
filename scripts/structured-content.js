@@ -1,19 +1,19 @@
-import { pick } from "./i18n.js?v=20260524-practice-worlds-porsche-nurburgring-v1";
-import { initDoubleSlitSimulators } from "./double-slit-simulator.js?v=20260524-practice-worlds-porsche-nurburgring-v1";
-import { initGravityFabricModels } from "./gravity-fabric-model.js?v=20260524-practice-worlds-porsche-nurburgring-v1";
-import { initGravityLensingModels } from "./gravity-lensing-model.js?v=20260524-practice-worlds-porsche-nurburgring-v1";
-import { initQuantumEntanglementModels } from "./quantum-entanglement-model.js?v=20260524-practice-worlds-porsche-nurburgring-v1";
-import { initQuantumChannelModels } from "./quantum-channel-model.js?v=20260524-practice-worlds-porsche-nurburgring-v1";
-import { initQuantumModels } from "./quantum-model.js?v=20260524-practice-worlds-porsche-nurburgring-v1";
-import { initOrbitalSelectorModels } from "./orbital-selector-model.js?v=20260524-practice-worlds-porsche-nurburgring-v1";
-import { initWormholeModels } from "./wormhole-model.js?v=20260524-practice-worlds-porsche-nurburgring-v1";
-import { initNumericalMethodsModels } from "./numerical-methods-model.js?v=20260524-practice-worlds-porsche-nurburgring-v1";
-import { initNeuralArchitectModels } from "./neural-architect-model.js?v=20260524-practice-worlds-porsche-nurburgring-v1";
-import { initInformationTheoryModels } from "./information-theory-model.js?v=20260524-practice-worlds-porsche-nurburgring-v1";
-import { initAlgorithmVisualizerModels } from "./algorithm-visualizer-model.js?v=20260524-practice-worlds-porsche-nurburgring-v1";
-import { initQuantumFluctuationModels } from "./quantum-fluctuation-model.js?v=20260524-practice-worlds-porsche-nurburgring-v1";
-import { initBlackHoleModels } from "./black-hole-model.js?v=20260524-practice-worlds-porsche-nurburgring-v1";
-import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260524-practice-worlds-porsche-nurburgring-v1";
+import { pick } from "./i18n.js?v=20260524-collapsible-glossaries-v1";
+import { initDoubleSlitSimulators } from "./double-slit-simulator.js?v=20260524-collapsible-glossaries-v1";
+import { initGravityFabricModels } from "./gravity-fabric-model.js?v=20260524-collapsible-glossaries-v1";
+import { initGravityLensingModels } from "./gravity-lensing-model.js?v=20260524-collapsible-glossaries-v1";
+import { initQuantumEntanglementModels } from "./quantum-entanglement-model.js?v=20260524-collapsible-glossaries-v1";
+import { initQuantumChannelModels } from "./quantum-channel-model.js?v=20260524-collapsible-glossaries-v1";
+import { initQuantumModels } from "./quantum-model.js?v=20260524-collapsible-glossaries-v1";
+import { initOrbitalSelectorModels } from "./orbital-selector-model.js?v=20260524-collapsible-glossaries-v1";
+import { initWormholeModels } from "./wormhole-model.js?v=20260524-collapsible-glossaries-v1";
+import { initNumericalMethodsModels } from "./numerical-methods-model.js?v=20260524-collapsible-glossaries-v1";
+import { initNeuralArchitectModels } from "./neural-architect-model.js?v=20260524-collapsible-glossaries-v1";
+import { initInformationTheoryModels } from "./information-theory-model.js?v=20260524-collapsible-glossaries-v1";
+import { initAlgorithmVisualizerModels } from "./algorithm-visualizer-model.js?v=20260524-collapsible-glossaries-v1";
+import { initQuantumFluctuationModels } from "./quantum-fluctuation-model.js?v=20260524-collapsible-glossaries-v1";
+import { initBlackHoleModels } from "./black-hole-model.js?v=20260524-collapsible-glossaries-v1";
+import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260524-collapsible-glossaries-v1";
 
 let activeRequestToken = 0;
 
@@ -167,6 +167,41 @@ function sanitizeStructuredContent(sourceNode) {
   return imported;
 }
 
+function makeGlossariesCollapsible(root, state) {
+  if (state.activeSection === "personal-cosmology") {
+    return;
+  }
+
+  root.querySelectorAll("section.glossary-section").forEach((section) => {
+    if (section.querySelector(":scope > .glossary-disclosure")) {
+      return;
+    }
+
+    const heading = section.querySelector(":scope > h2, :scope > h3, :scope > h4, :scope > h5, :scope > h6");
+
+    if (!heading) {
+      return;
+    }
+
+    const details = document.createElement("details");
+    const summary = document.createElement("summary");
+    const body = document.createElement("div");
+
+    details.className = "glossary-disclosure";
+    summary.className = "glossary-disclosure__summary";
+    body.className = "glossary-disclosure__body";
+    heading.classList.add("glossary-disclosure__heading");
+
+    heading.replaceWith(details);
+    summary.append(heading);
+    details.append(summary, body);
+
+    while (details.nextSibling) {
+      body.append(details.nextSibling);
+    }
+  });
+}
+
 async function renderMath(host) {
   if (!window.MathJax?.typesetPromise) {
     return;
@@ -264,6 +299,7 @@ function commitStructuredDocument({
 
   const imported = sanitizeStructuredContent(extracted);
   imported.lang = state.language;
+  makeGlossariesCollapsible(imported, state);
 
   host.replaceChildren(imported);
   host.setAttribute("aria-busy", "false");
