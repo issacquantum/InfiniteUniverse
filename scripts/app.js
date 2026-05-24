@@ -1,14 +1,14 @@
-import { siteAssets } from "../data/site-assets.js?v=20260524-revert-quantum-circuit-v1";
-import { siteContent } from "../data/site-content.js?v=20260524-revert-quantum-circuit-v1";
-import { createReadingSettingsController } from "./reading-settings.js?v=20260524-revert-quantum-circuit-v1";
-import { initBackground } from "./background.js?v=20260524-revert-quantum-circuit-v1";
-import { refreshIcons } from "./icons.js?v=20260524-revert-quantum-circuit-v1";
-import { pick } from "./i18n.js?v=20260524-revert-quantum-circuit-v1";
-import { syncLegacyContent } from "./legacy-content.js?v=20260524-revert-quantum-circuit-v1";
-import { createMusicController, syncMusicUi } from "./music.js?v=20260524-revert-quantum-circuit-v1";
-import { renderSite } from "./render.js?v=20260524-revert-quantum-circuit-v1";
-import { createState } from "./state.js?v=20260524-revert-quantum-circuit-v1";
-import { syncStructuredContent } from "./structured-content.js?v=20260524-revert-quantum-circuit-v1";
+import { siteAssets } from "../data/site-assets.js?v=20260524-science-menu-reset-v1";
+import { siteContent } from "../data/site-content.js?v=20260524-science-menu-reset-v1";
+import { createReadingSettingsController } from "./reading-settings.js?v=20260524-science-menu-reset-v1";
+import { initBackground } from "./background.js?v=20260524-science-menu-reset-v1";
+import { refreshIcons } from "./icons.js?v=20260524-science-menu-reset-v1";
+import { pick } from "./i18n.js?v=20260524-science-menu-reset-v1";
+import { syncLegacyContent } from "./legacy-content.js?v=20260524-science-menu-reset-v1";
+import { createMusicController, syncMusicUi } from "./music.js?v=20260524-science-menu-reset-v1";
+import { renderSite } from "./render.js?v=20260524-science-menu-reset-v1";
+import { createState } from "./state.js?v=20260524-science-menu-reset-v1";
+import { syncStructuredContent } from "./structured-content.js?v=20260524-science-menu-reset-v1";
 
 const refs = {
   siteShell: document.querySelector(".site-shell"),
@@ -774,6 +774,10 @@ function showMobileSections() {
 function toggleMobileKnowledgeNav() {
   store.setState((state) => {
     const opening = !state.mobileKnowledgeNavOpen;
+    const activeScienceDomainId = state.activeDomain
+      ?? findDomainIdForTopic(state.activeTopic)
+      ?? state.mobileKnowledgeNavDomain
+      ?? null;
 
     if (!opening) {
       return {
@@ -788,11 +792,13 @@ function toggleMobileKnowledgeNav() {
       titleOpen: false,
       activeSection: null,
       showPersonalSectionList: false,
+      activeDomain: activeScienceDomainId,
+      activeTopic: null,
       activeBranch: null,
       activeDetail: null,
       equationReturnTarget: null,
       mobileKnowledgeNavOpen: true,
-      mobileKnowledgeNavDomain: state.activeDomain
+      mobileKnowledgeNavDomain: activeScienceDomainId
     };
   });
 }

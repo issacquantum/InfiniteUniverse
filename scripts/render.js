@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260524-revert-quantum-circuit-v1";
+import { pick } from "./i18n.js?v=20260524-science-menu-reset-v1";
 
 function escapeHtml(value) {
   return String(value)

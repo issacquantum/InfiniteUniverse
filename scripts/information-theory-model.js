@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260524-revert-quantum-circuit-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260524-science-menu-reset-v1";
 
 const mountedModels = new WeakSet();
 const SYMBOL_COUNT = 4;
