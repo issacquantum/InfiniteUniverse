@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-gravity-fabric-fit-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-desktop-home-only-v1";
 
 function htmlSource(group, id) {
   return {

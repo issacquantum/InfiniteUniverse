@@ -236,7 +236,7 @@
 }
 
 .desktop-home-toggle {
-  display: grid;
+  display: none;
   width: 2.52rem;
   height: 2.52rem;
   place-items: center;
@@ -348,6 +348,12 @@
     linear-gradient(135deg, rgba(var(--glass-rgb), 0.42), rgba(12, 2, 28, 0.38)),
     radial-gradient(circle at top, rgba(var(--glow-rgb), 0.1), transparent 60%);
   text-align: center;
+}
+
+@media (min-width: 769px) and (hover: hover) and (pointer: fine) {
+  .desktop-home-toggle {
+    display: grid;
+  }
 }
 
 @media (min-width: 769px) {
