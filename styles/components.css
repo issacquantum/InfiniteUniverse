@@ -1892,6 +1892,27 @@ body[data-media-notes="on"] .media-note {
     font-family: var(--font-desktop);
   }
 
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .site-title,
+  .content-window__eyebrow,
+  .local-dock__title,
+  .mobile-science-nav__heading,
+  .mobile-science-nav__domain-button,
+  .mobile-science-nav__topic-button,
+  .section-grid .glass-tab,
+  .education-row .glass-tab,
+  .topic-grid .glass-tab,
+  .branch-grid .glass-tab,
+  .legacy-item-grid .glass-tab,
+  .focused-path-tab {
+    font-family: var(--font-desktop);
+  }
+
   .accessibility-panel__description {
     font-size: 0.92rem;
   }
