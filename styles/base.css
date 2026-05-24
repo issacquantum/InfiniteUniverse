@@ -16,7 +16,7 @@ body {
   overflow: hidden;
   background: var(--bg);
   color: var(--text);
-  font-family: var(--font-desktop);
+  font-family: var(--font-content-desktop);
 }
 
 body[data-contrast="high"] {
@@ -176,6 +176,15 @@ body[data-motion="reduced"] *::after {
 
 @media (max-width: 768px) {
   body {
+    font-family: var(--font-mobile);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-mobile);
   }
 
