@@ -1,14 +1,14 @@
-import { siteAssets } from "../data/site-assets.js?v=20260524-square-list-markers-v1";
-import { siteContent } from "../data/site-content.js?v=20260524-square-list-markers-v1";
-import { createReadingSettingsController } from "./reading-settings.js?v=20260524-square-list-markers-v1";
-import { initBackground } from "./background.js?v=20260524-square-list-markers-v1";
-import { refreshIcons } from "./icons.js?v=20260524-square-list-markers-v1";
-import { pick } from "./i18n.js?v=20260524-square-list-markers-v1";
-import { syncLegacyContent } from "./legacy-content.js?v=20260524-square-list-markers-v1";
-import { createMusicController, syncMusicUi } from "./music.js?v=20260524-square-list-markers-v1";
-import { renderSite } from "./render.js?v=20260524-square-list-markers-v1";
-import { createState } from "./state.js?v=20260524-square-list-markers-v1";
-import { syncStructuredContent } from "./structured-content.js?v=20260524-square-list-markers-v1";
+import { siteAssets } from "../data/site-assets.js?v=20260524-desktop-home-button-v1";
+import { siteContent } from "../data/site-content.js?v=20260524-desktop-home-button-v1";
+import { createReadingSettingsController } from "./reading-settings.js?v=20260524-desktop-home-button-v1";
+import { initBackground } from "./background.js?v=20260524-desktop-home-button-v1";
+import { refreshIcons } from "./icons.js?v=20260524-desktop-home-button-v1";
+import { pick } from "./i18n.js?v=20260524-desktop-home-button-v1";
+import { syncLegacyContent } from "./legacy-content.js?v=20260524-desktop-home-button-v1";
+import { createMusicController, syncMusicUi } from "./music.js?v=20260524-desktop-home-button-v1";
+import { renderSite } from "./render.js?v=20260524-desktop-home-button-v1";
+import { createState } from "./state.js?v=20260524-desktop-home-button-v1";
+import { syncStructuredContent } from "./structured-content.js?v=20260524-desktop-home-button-v1";
 
 const refs = {
   siteShell: document.querySelector(".site-shell"),
@@ -28,6 +28,7 @@ const refs = {
     document.getElementById("music-button-desktop")
   ],
   mobileKnowledgeToggle: document.getElementById("mobile-knowledge-toggle"),
+  desktopHomeToggle: document.getElementById("desktop-home-toggle"),
   desktopTrackName: document.getElementById("desktop-track-name"),
   backgroundCanvas: document.getElementById("starfield-canvas"),
   galleryLightbox: document.getElementById("gallery-lightbox"),
@@ -83,6 +84,18 @@ function syncMobileKnowledgeToggle(state) {
   refs.mobileKnowledgeToggle.setAttribute("title", title);
   refs.mobileKnowledgeToggle.innerHTML = `<i data-lucide="${isOpen ? "x" : "menu"}"></i>`;
 }
+
+function syncDesktopHomeToggle(state) {
+  if (!refs.desktopHomeToggle) {
+    return;
+  }
+
+  const label = state.language === "es" ? "Inicio" : "Home";
+
+  refs.desktopHomeToggle.setAttribute("aria-label", label);
+  refs.desktopHomeToggle.setAttribute("title", label);
+}
+
 let galleryItems = [];
 let activeGalleryIndex = -1;
 let galleryTouchStartX = null;
@@ -398,6 +411,7 @@ function syncUi(state = store.getState()) {
   });
 
   syncMobileKnowledgeToggle(state);
+  syncDesktopHomeToggle(state);
 
   syncStructuredContent({
     state,
@@ -496,6 +510,22 @@ function toggleTitle() {
       mobileKnowledgeNavOpen: false
     };
   });
+}
+
+function showHome() {
+  clearPendingReturnNavigation();
+  store.setState((state) => ({
+    ...state,
+    titleOpen: true,
+    activeSection: null,
+    showPersonalSectionList: false,
+    activeDomain: null,
+    activeTopic: null,
+    activeBranch: null,
+    activeDetail: null,
+    equationReturnTarget: null,
+    mobileKnowledgeNavOpen: false
+  }));
 }
 
 function selectSection(sectionId) {
@@ -1106,6 +1136,11 @@ document.addEventListener("click", (event) => {
 
     if (action === "toggle-mobile-knowledge-nav") {
       toggleMobileKnowledgeNav();
+      return;
+    }
+
+    if (action === "show-home") {
+      showHome();
       return;
     }
 

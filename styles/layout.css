@@ -235,6 +235,19 @@
   height: 1.12rem;
 }
 
+.desktop-home-toggle {
+  display: grid;
+  width: 2.52rem;
+  height: 2.52rem;
+  place-items: center;
+  color: var(--strong);
+}
+
+.desktop-home-toggle svg {
+  width: 1.12rem;
+  height: 1.12rem;
+}
+
 .mobile-knowledge-nav__panel {
   position: relative;
   width: 100%;
@@ -518,6 +531,10 @@
     height: 1.1rem;
   }
 
+  .desktop-home-toggle {
+    display: none;
+  }
+
   .mobile-knowledge-nav__panel {
     max-height: calc(100dvh - 5.8rem);
   }
@@ -768,6 +785,10 @@
   .mobile-knowledge-toggle svg {
     width: 1.05rem;
     height: 1.05rem;
+  }
+
+  .desktop-home-toggle {
+    display: none;
   }
 
   .mobile-knowledge-nav__panel {
