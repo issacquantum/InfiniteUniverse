@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260524-brother-wording-v1";
+import { pick } from "./i18n.js?v=20260524-porsche-gallery-center-v1";
 
 const STORAGE_KEY = "issac-tabares-accessibility";
 
