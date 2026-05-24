@@ -1,20 +1,20 @@
-import { pick } from "./i18n.js?v=20260524-foundation-models-v1";
-import { initDoubleSlitSimulators } from "./double-slit-simulator.js?v=20260524-foundation-models-v1";
-import { initGravityFabricModels } from "./gravity-fabric-model.js?v=20260524-foundation-models-v1";
-import { initGravityLensingModels } from "./gravity-lensing-model.js?v=20260524-foundation-models-v1";
-import { initQuantumEntanglementModels } from "./quantum-entanglement-model.js?v=20260524-foundation-models-v1";
-import { initQuantumChannelModels } from "./quantum-channel-model.js?v=20260524-foundation-models-v1";
-import { initQuantumModels } from "./quantum-model.js?v=20260524-foundation-models-v1";
-import { initOrbitalSelectorModels } from "./orbital-selector-model.js?v=20260524-foundation-models-v1";
-import { initWormholeModels } from "./wormhole-model.js?v=20260524-foundation-models-v1";
-import { initNumericalMethodsModels } from "./numerical-methods-model.js?v=20260524-foundation-models-v1";
-import { initNeuralArchitectModels } from "./neural-architect-model.js?v=20260524-foundation-models-v1";
-import { initInformationTheoryModels } from "./information-theory-model.js?v=20260524-foundation-models-v1";
-import { initAlgorithmVisualizerModels } from "./algorithm-visualizer-model.js?v=20260524-foundation-models-v1";
-import { initQuantumFluctuationModels } from "./quantum-fluctuation-model.js?v=20260524-foundation-models-v1";
-import { initBlackHoleModels } from "./black-hole-model.js?v=20260524-foundation-models-v1";
-import { initFoundationModels } from "./foundation-models.js?v=20260524-foundation-models-v1";
-import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260524-foundation-models-v1";
+import { pick } from "./i18n.js?v=20260524-model-lab-targets-v1";
+import { initDoubleSlitSimulators } from "./double-slit-simulator.js?v=20260524-model-lab-targets-v1";
+import { initGravityFabricModels } from "./gravity-fabric-model.js?v=20260524-model-lab-targets-v1";
+import { initGravityLensingModels } from "./gravity-lensing-model.js?v=20260524-model-lab-targets-v1";
+import { initQuantumEntanglementModels } from "./quantum-entanglement-model.js?v=20260524-model-lab-targets-v1";
+import { initQuantumChannelModels } from "./quantum-channel-model.js?v=20260524-model-lab-targets-v1";
+import { initQuantumModels } from "./quantum-model.js?v=20260524-model-lab-targets-v1";
+import { initOrbitalSelectorModels } from "./orbital-selector-model.js?v=20260524-model-lab-targets-v1";
+import { initWormholeModels } from "./wormhole-model.js?v=20260524-model-lab-targets-v1";
+import { initNumericalMethodsModels } from "./numerical-methods-model.js?v=20260524-model-lab-targets-v1";
+import { initNeuralArchitectModels } from "./neural-architect-model.js?v=20260524-model-lab-targets-v1";
+import { initInformationTheoryModels } from "./information-theory-model.js?v=20260524-model-lab-targets-v1";
+import { initAlgorithmVisualizerModels } from "./algorithm-visualizer-model.js?v=20260524-model-lab-targets-v1";
+import { initQuantumFluctuationModels } from "./quantum-fluctuation-model.js?v=20260524-model-lab-targets-v1";
+import { initBlackHoleModels } from "./black-hole-model.js?v=20260524-model-lab-targets-v1";
+import { initFoundationModels } from "./foundation-models.js?v=20260524-model-lab-targets-v1";
+import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260524-model-lab-targets-v1";
 
 let activeRequestToken = 0;
 
@@ -237,6 +237,52 @@ function focusLoadedContent(host) {
   });
 }
 
+function cssEscape(value) {
+  return window.CSS?.escape
+    ? window.CSS.escape(value)
+    : String(value).replace(/["\\]/g, "\\$&");
+}
+
+function matchesModelScrollTarget(state, modelScrollTarget) {
+  return Boolean(
+    modelScrollTarget?.targetId
+    && state.activeTopic === modelScrollTarget.topicId
+    && !state.activeDetail
+  );
+}
+
+function applyModelScrollTarget(host, state, modelScrollTarget) {
+  if (!matchesModelScrollTarget(state, modelScrollTarget)) {
+    return false;
+  }
+
+  const target = host.querySelector(`[data-model-target="${cssEscape(modelScrollTarget.targetId)}"]`);
+  const contentWindow = host.closest(".content-window");
+
+  if (!target || !contentWindow) {
+    return false;
+  }
+
+  if (!target.hasAttribute("tabindex")) {
+    target.setAttribute("tabindex", "-1");
+  }
+
+  requestAnimationFrame(() => {
+    const targetBounds = target.getBoundingClientRect();
+    const windowBounds = contentWindow.getBoundingClientRect();
+    const topOffset = targetBounds.top - windowBounds.top + contentWindow.scrollTop;
+    const breathingRoom = Math.max(48, contentWindow.clientHeight * 0.14);
+
+    contentWindow.scrollTo({
+      top: Math.max(topOffset - breathingRoom, 0),
+      behavior: "auto"
+    });
+    target.focus({ preventScroll: true });
+  });
+
+  return true;
+}
+
 function getStructuredReturnTargets(root) {
   if (!root) {
     return [];
@@ -318,7 +364,9 @@ function commitStructuredDocument({
   returnNavigation,
   onReturnNavigationApplied,
   scrollRestoration,
-  onScrollRestorationApplied
+  onScrollRestorationApplied,
+  modelScrollTarget,
+  onModelScrollApplied
 }) {
   if (requestToken !== activeRequestToken) {
     return false;
@@ -339,12 +387,13 @@ function commitStructuredDocument({
   host.replaceChildren(imported);
   host.setAttribute("aria-busy", "false");
   const restored = restoreReturnNavigation(host, state, returnNavigation);
+  const shouldApplyModelScroll = matchesModelScrollTarget(state, modelScrollTarget);
 
   if (restored) {
     onReturnNavigationApplied?.();
-  } else if (restoreReaderScroll(host, state, scrollRestoration)) {
+  } else if (!shouldApplyModelScroll && restoreReaderScroll(host, state, scrollRestoration)) {
     onScrollRestorationApplied?.();
-  } else {
+  } else if (!shouldApplyModelScroll) {
     focusLoadedContent(host);
   }
 
@@ -368,7 +417,22 @@ function commitStructuredDocument({
     initBlackHoleModels(host);
     initQuantumModels(host);
     initFoundationModels(host);
-    void renderMath(host).catch(() => null);
+    const mathReady = renderMath(host).catch(() => null);
+
+    if (shouldApplyModelScroll) {
+      void mathReady.then(() => {
+        if (requestToken !== activeRequestToken) {
+          return;
+        }
+
+        if (applyModelScrollTarget(host, state, modelScrollTarget)) {
+          onModelScrollApplied?.();
+        } else {
+          onModelScrollApplied?.();
+          focusLoadedContent(host);
+        }
+      });
+    }
   });
 
   return true;
@@ -381,7 +445,9 @@ export async function syncStructuredContent({
   returnNavigation = null,
   onReturnNavigationApplied = null,
   scrollRestoration = null,
-  onScrollRestorationApplied = null
+  onScrollRestorationApplied = null,
+  modelScrollTarget = null,
+  onModelScrollApplied = null
 }) {
   const host = refs.stage.querySelector("[data-structured-host]");
 
@@ -411,7 +477,9 @@ export async function syncStructuredContent({
       returnNavigation,
       onReturnNavigationApplied,
       scrollRestoration,
-      onScrollRestorationApplied
+      onScrollRestorationApplied,
+      modelScrollTarget,
+      onModelScrollApplied
     });
     return;
   }
@@ -455,7 +523,9 @@ export async function syncStructuredContent({
       returnNavigation,
       onReturnNavigationApplied,
       scrollRestoration,
-      onScrollRestorationApplied
+      onScrollRestorationApplied,
+      modelScrollTarget,
+      onModelScrollApplied
     });
   } catch (_error) {
     if (requestToken !== activeRequestToken) {

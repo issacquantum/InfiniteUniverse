@@ -1,14 +1,14 @@
-import { siteAssets } from "../data/site-assets.js?v=20260524-foundation-models-v1";
-import { siteContent } from "../data/site-content.js?v=20260524-foundation-models-v1";
-import { createReadingSettingsController } from "./reading-settings.js?v=20260524-foundation-models-v1";
-import { initBackground } from "./background.js?v=20260524-foundation-models-v1";
-import { refreshIcons } from "./icons.js?v=20260524-foundation-models-v1";
-import { pick } from "./i18n.js?v=20260524-foundation-models-v1";
-import { syncLegacyContent } from "./legacy-content.js?v=20260524-foundation-models-v1";
-import { createMusicController, syncMusicUi } from "./music.js?v=20260524-foundation-models-v1";
-import { renderSite } from "./render.js?v=20260524-foundation-models-v1";
-import { createState } from "./state.js?v=20260524-foundation-models-v1";
-import { syncStructuredContent } from "./structured-content.js?v=20260524-foundation-models-v1";
+import { siteAssets } from "../data/site-assets.js?v=20260524-model-lab-targets-v1";
+import { siteContent } from "../data/site-content.js?v=20260524-model-lab-targets-v1";
+import { createReadingSettingsController } from "./reading-settings.js?v=20260524-model-lab-targets-v1";
+import { initBackground } from "./background.js?v=20260524-model-lab-targets-v1";
+import { refreshIcons } from "./icons.js?v=20260524-model-lab-targets-v1";
+import { pick } from "./i18n.js?v=20260524-model-lab-targets-v1";
+import { syncLegacyContent } from "./legacy-content.js?v=20260524-model-lab-targets-v1";
+import { createMusicController, syncMusicUi } from "./music.js?v=20260524-model-lab-targets-v1";
+import { renderSite } from "./render.js?v=20260524-model-lab-targets-v1";
+import { createState } from "./state.js?v=20260524-model-lab-targets-v1";
+import { syncStructuredContent } from "./structured-content.js?v=20260524-model-lab-targets-v1";
 
 const refs = {
   siteShell: document.querySelector(".site-shell"),
@@ -109,16 +109,22 @@ let lastAnnouncement = "";
 let pendingStructuredReturn = null;
 let pendingLegacyReturn = null;
 let pendingReaderScrollRestoration = null;
+let pendingModelScrollTarget = null;
 const GALLERY_MAX_ZOOM_LEVEL = 7;
 
 function clearPendingReturnNavigation() {
   pendingStructuredReturn = null;
   pendingLegacyReturn = null;
   pendingReaderScrollRestoration = null;
+  pendingModelScrollTarget = null;
 }
 
 function clearPendingReaderScrollRestoration() {
   pendingReaderScrollRestoration = null;
+}
+
+function clearPendingModelScrollTarget() {
+  pendingModelScrollTarget = null;
 }
 
 function captureReaderScrollRestoration() {
@@ -420,7 +426,9 @@ function syncUi(state = store.getState()) {
     returnNavigation: pendingStructuredReturn,
     onReturnNavigationApplied: clearPendingReturnNavigation,
     scrollRestoration: pendingReaderScrollRestoration,
-    onScrollRestorationApplied: clearPendingReaderScrollRestoration
+    onScrollRestorationApplied: clearPendingReaderScrollRestoration,
+    modelScrollTarget: pendingModelScrollTarget,
+    onModelScrollApplied: clearPendingModelScrollTarget
   });
 
   syncLegacyContent({
@@ -617,14 +625,21 @@ function returnToKnowledgeDomain(state, domainId, { openMobileMenu = false } = {
   };
 }
 
-function selectTopic(topicId) {
+function selectTopic(topicId, modelTarget = null) {
   clearPendingReturnNavigation();
+  pendingModelScrollTarget = modelTarget
+    ? {
+      topicId,
+      targetId: modelTarget
+    }
+    : null;
+
   store.setState((state) => {
     const domainId = domainContainsTopic(state.activeDomain, topicId)
       ? state.activeDomain
       : findDomainIdForTopic(topicId);
 
-    if (state.activeTopic === topicId) {
+    if (state.activeTopic === topicId && !modelTarget) {
       return returnToKnowledgeDomain(state, domainId, {
         openMobileMenu: true
       });
@@ -1145,7 +1160,7 @@ document.addEventListener("click", (event) => {
     }
 
     if (action === "select-topic") {
-      selectTopic(actionTarget.dataset.topicId);
+      selectTopic(actionTarget.dataset.topicId, actionTarget.dataset.modelTarget ?? null);
       return;
     }
 
