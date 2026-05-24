@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-model-lab-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-foundation-topics-v1";
 
 function htmlSource(group, id) {
   return {
@@ -386,6 +386,16 @@ export const siteContent = {
       ]
     },
     {
+      id: "physical-foundations",
+      title: { en: "Physical Foundations", es: "Fundamentos físicos" },
+      topics: [
+        createTopic("classical-mechanics", "Classical Mechanics", "Mecánica clásica"),
+        createTopic("electromagnetism", "Electromagnetism", "Electromagnetismo"),
+        createTopic("thermodynamics-statistical-mechanics", "Thermodynamics & Statistical Mechanics", "Termodinámica y mecánica estadística"),
+        createTopic("mathematical-foundations", "Mathematical Foundations", "Fundamentos matemáticos")
+      ]
+    },
+    {
       id: "quantum-foundations",
       title: { en: "Quantum Foundations", es: "Fundamentos cuánticos" },
       topics: [
@@ -413,6 +423,16 @@ export const siteContent = {
           hideBranchNavigation: true,
           hideDetailNavigation: true
         })
+      ]
+    },
+    {
+      id: "matter-life-mind",
+      title: { en: "Matter, Life & Mind", es: "Materia, vida y mente" },
+      topics: [
+        createTopic("quantum-field-theory", "Quantum Field Theory", "Teoría cuántica de campos"),
+        createTopic("chemistry-molecular-structure", "Chemistry & Molecular Structure", "Química y estructura molecular"),
+        createTopic("biology-life-systems", "Biology & Life Systems", "Biología y sistemas vivos"),
+        createTopic("neuroscience-consciousness", "Neuroscience of Consciousness", "Neurociencia de la conciencia")
       ]
     },
     {
@@ -473,6 +493,14 @@ export const siteContent = {
           hideBranchNavigation: true,
           hideDetailNavigation: true
         })
+      ]
+    },
+    {
+      id: "systems-method",
+      title: { en: "Systems & Method", es: "Sistemas y método" },
+      topics: [
+        createTopic("complex-systems-emergence", "Complex Systems & Emergence", "Sistemas complejos y emergencia"),
+        createTopic("philosophy-science", "Philosophy of Science", "Filosofía de la ciencia")
       ]
     }
   ]
