@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-active-science-title-menu-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-gravity-fabric-fit-v1";
 
 function htmlSource(group, id) {
   return {
