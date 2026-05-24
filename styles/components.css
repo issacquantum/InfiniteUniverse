@@ -1220,7 +1220,7 @@ body[data-media-notes="on"] .media-note {
   display: flex;
   justify-content: center;
   width: 100%;
-  margin: 0;
+  margin: clamp(1.15rem, 2.3vw, 1.95rem) 0;
   min-width: 0;
   padding: 0.1rem 0;
   overflow-x: auto;
@@ -2457,6 +2457,7 @@ body[data-link-visibility="enhanced"] :where(.structured-content, .legacy-conten
   .structured-content .equation-link-wrap,
   .legacy-content .equation-link-wrap {
     max-width: 100%;
+    margin-block: 1.45rem;
     overflow-x: auto;
   }
 
