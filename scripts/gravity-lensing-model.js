@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260524-science-return-nav-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260524-gravity-lensing-controls-v1";
 
 const mountedModels = new WeakSet();
 const TWO_PI = Math.PI * 2;
@@ -89,7 +89,7 @@ class GravityLensingModel {
       },
       imageArc: {
         en: "apparent images",
-        es: "imagenes aparentes"
+        es: "imágenes aparentes"
       },
       rayGuide: {
         en: "bent light paths",
@@ -97,11 +97,11 @@ class GravityLensingModel {
       },
       beta: {
         en: "β source angle",
-        es: "β angulo fuente"
+        es: "β ángulo fuente"
       },
       theta: {
         en: "θ image angles",
-        es: "θ angulos imagen"
+        es: "θ ángulos imagen"
       },
       thetaE: {
         en: "θ_E Einstein radius",
