@@ -1,7 +1,11 @@
-import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260511-mobile-pinch-zoom";
+import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260524-audit-clean-v1";
 
 const mountedSimulators = new WeakSet();
 const TWO_PI = Math.PI * 2;
+
+function getCanvasContentFont() {
+  return getComputedStyle(document.body).fontFamily || "serif";
+}
 
 export function initDoubleSlitSimulators(root = document) {
   root.querySelectorAll("[data-double-slit-simulator]").forEach((container) => {
@@ -551,7 +555,7 @@ class DoubleSlitInterference {
     ctx.strokeStyle = "rgba(255, 88, 214, 0.34)";
     ctx.fillStyle = "rgba(255, 212, 244, 0.82)";
     ctx.lineWidth = 1;
-    ctx.font = "600 12px Cormorant Garamond, Georgia, serif";
+    ctx.font = `600 12px ${getCanvasContentFont()}`;
     ctx.textAlign = "right";
 
     ctx.beginPath();
@@ -579,7 +583,7 @@ class DoubleSlitInterference {
 
   drawLabels(ctx, layout) {
     ctx.save();
-    ctx.font = "700 13px Cormorant Garamond, Georgia, serif";
+    ctx.font = `700 13px ${getCanvasContentFont()}`;
     ctx.fillStyle = "rgba(255, 212, 244, 0.88)";
     ctx.textAlign = "center";
     ctx.fillText(this.copy("slitPlane"), layout.barrierX, layout.bottom + 14);

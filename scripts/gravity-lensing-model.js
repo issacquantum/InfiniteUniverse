@@ -1,7 +1,11 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260511-mobile-pinch-zoom";
+import { bindPinchZoom } from "./model-pan.js?v=20260524-audit-clean-v1";
 
 const mountedModels = new WeakSet();
 const TWO_PI = Math.PI * 2;
+
+function getCanvasContentFont() {
+  return getComputedStyle(document.body).fontFamily || "serif";
+}
 
 export function initGravityLensingModels(root = document) {
   root.querySelectorAll("[data-gravity-lensing-model]").forEach((container) => {
@@ -502,12 +506,12 @@ class GravityLensingModel {
   drawLabels(ctx, lens, thetaE) {
     ctx.save();
     ctx.fillStyle = "rgba(255, 88, 214, 0.82)";
-    ctx.font = "600 13px Cormorant Garamond, Georgia, serif";
+    ctx.font = `600 13px ${getCanvasContentFont()}`;
     ctx.textAlign = "center";
     ctx.fillText(this.copy("lens"), lens.x, Math.max(18, lens.y - thetaE * 0.42));
     ctx.fillText(this.copy("source"), this.width * 0.14, this.height - 18);
     ctx.fillText(this.copy("imageArc"), this.width * 0.82, this.height - 18);
-    ctx.font = "600 11px Cormorant Garamond, Georgia, serif";
+    ctx.font = `600 11px ${getCanvasContentFont()}`;
     ctx.fillStyle = "rgba(191, 64, 255, 0.8)";
     ctx.fillText(this.copy("thetaE"), lens.x + thetaE * 0.78, lens.y + 14);
     ctx.fillText(this.copy("beta"), this.width * 0.18, this.height * 0.18);

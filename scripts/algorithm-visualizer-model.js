@@ -1,4 +1,4 @@
-import { bindPinchZoom, isModelPanGesture, panTargetFromPointer } from "./model-pan.js?v=20260511-mobile-pinch-zoom";
+import { bindPinchZoom, isModelPanGesture, panTargetFromPointer } from "./model-pan.js?v=20260524-audit-clean-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
@@ -15,6 +15,10 @@ const COLORS = {
   electricIndigo: 0x7700ff,
   deep: 0x050008
 };
+
+function getCanvasContentFont() {
+  return getComputedStyle(document.body).fontFamily || "serif";
+}
 
 const GRAPH_COLUMNS = 13;
 const GRAPH_ROWS = 9;
@@ -648,7 +652,7 @@ class AlgorithmVisualizerModel {
     const ctx = canvas.getContext("2d");
     const hex = `#${color.toString(16).padStart(6, "0")}`;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.font = "700 34px Cormorant Garamond, Georgia, serif";
+    ctx.font = `700 34px ${getCanvasContentFont()}`;
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.shadowBlur = 14;

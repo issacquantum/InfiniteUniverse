@@ -1,19 +1,19 @@
 import { pick } from "./i18n.js";
-import { initDoubleSlitSimulators } from "./double-slit-simulator.js?v=20260511-mobile-pinch-zoom";
-import { initGravityFabricModels } from "./gravity-fabric-model.js?v=20260514-fabric-clearance-rotation";
-import { initGravityLensingModels } from "./gravity-lensing-model.js?v=20260511-mobile-pinch-zoom";
-import { initQuantumEntanglementModels } from "./quantum-entanglement-model.js?v=20260511-mobile-pinch-zoom";
-import { initQuantumChannelModels } from "./quantum-channel-model.js?v=20260511-mobile-pinch-zoom";
-import { initQuantumModels } from "./quantum-model.js?v=20260514-orbital-purple-nucleus";
-import { initOrbitalSelectorModels } from "./orbital-selector-model.js?v=20260514-orbital-purple-nucleus";
-import { initWormholeModels } from "./wormhole-model.js?v=20260511-mobile-pinch-zoom";
-import { initNumericalMethodsModels } from "./numerical-methods-model.js?v=20260511-mobile-pinch-zoom";
-import { initNeuralArchitectModels } from "./neural-architect-model.js?v=20260511-mobile-pinch-zoom";
-import { initInformationTheoryModels } from "./information-theory-model.js?v=20260511-mobile-pinch-zoom";
-import { initAlgorithmVisualizerModels } from "./algorithm-visualizer-model.js?v=20260511-mobile-pinch-zoom";
-import { initQuantumFluctuationModels } from "./quantum-fluctuation-model.js?v=20260514-fluctuation-animates";
-import { initBlackHoleModels } from "./black-hole-model.js?v=20260511-mobile-pinch-zoom";
-import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260521-gt7-traction-clean";
+import { initDoubleSlitSimulators } from "./double-slit-simulator.js?v=20260524-audit-clean-v1";
+import { initGravityFabricModels } from "./gravity-fabric-model.js?v=20260524-audit-clean-v1";
+import { initGravityLensingModels } from "./gravity-lensing-model.js?v=20260524-audit-clean-v1";
+import { initQuantumEntanglementModels } from "./quantum-entanglement-model.js?v=20260524-audit-clean-v1";
+import { initQuantumChannelModels } from "./quantum-channel-model.js?v=20260524-audit-clean-v1";
+import { initQuantumModels } from "./quantum-model.js?v=20260524-audit-clean-v1";
+import { initOrbitalSelectorModels } from "./orbital-selector-model.js?v=20260524-audit-clean-v1";
+import { initWormholeModels } from "./wormhole-model.js?v=20260524-audit-clean-v1";
+import { initNumericalMethodsModels } from "./numerical-methods-model.js?v=20260524-audit-clean-v1";
+import { initNeuralArchitectModels } from "./neural-architect-model.js?v=20260524-audit-clean-v1";
+import { initInformationTheoryModels } from "./information-theory-model.js?v=20260524-audit-clean-v1";
+import { initAlgorithmVisualizerModels } from "./algorithm-visualizer-model.js?v=20260524-audit-clean-v1";
+import { initQuantumFluctuationModels } from "./quantum-fluctuation-model.js?v=20260524-audit-clean-v1";
+import { initBlackHoleModels } from "./black-hole-model.js?v=20260524-audit-clean-v1";
+import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260524-audit-clean-v1";
 
 let activeRequestToken = 0;
 

@@ -315,7 +315,7 @@
 .quantum-channel__matrix,
 .quantum-channel__status {
   color: var(--qc-electric);
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: inherit;
   font-size: 0.76rem;
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.04em;

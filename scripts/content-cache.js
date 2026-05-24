@@ -3,7 +3,7 @@ import { siteContent } from "../data/site-content.js";
 
 const documentCache = new Map();
 const requestCache = new Map();
-const CONTENT_CACHE_VERSION = "20260521-gt7-traction-clean";
+const CONTENT_CACHE_VERSION = "20260524-audit-clean-v1";
 const PREWARM_WORKER_LIMIT = 4;
 let prewarmScheduled = false;
 
