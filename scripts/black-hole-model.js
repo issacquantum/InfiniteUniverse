@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260511-mobile-pinch-zoom";
+import { bindPinchZoom } from "./model-pan.js?v=20260524-audit-clean-v1";
 
 const mountedModels = new WeakSet();
 
@@ -11,6 +11,10 @@ const COLORS = {
   deep: "#050008",
   void: "#020004"
 };
+
+function getCanvasContentFont() {
+  return getComputedStyle(document.body).fontFamily || "serif";
+}
 
 export function initBlackHoleModels(root = document) {
   root.querySelectorAll("[data-black-hole-model]").forEach((container) => {
@@ -386,7 +390,7 @@ class BlackHoleModel {
 
   drawLabels(ctx, cx, cy, base) {
     ctx.save();
-    ctx.font = "700 11px 'Cormorant Garamond', serif";
+    ctx.font = `700 11px ${getCanvasContentFont()}`;
     ctx.fillStyle = "rgba(255, 88, 214, 0.86)";
     ctx.shadowColor = COLORS.violet;
     ctx.shadowBlur = 8;
