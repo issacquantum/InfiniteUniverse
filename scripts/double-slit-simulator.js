@@ -1,4 +1,4 @@
-import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260524-revert-quantum-circuit-v1";
+import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260524-science-menu-reset-v1";
 
 const mountedSimulators = new WeakSet();
 const TWO_PI = Math.PI * 2;
