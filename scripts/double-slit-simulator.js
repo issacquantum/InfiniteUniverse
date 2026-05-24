@@ -1,4 +1,4 @@
-import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260524-collapsible-glossaries-v1";
+import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260524-reading-settings-notices-v1";
 
 const mountedSimulators = new WeakSet();
 const TWO_PI = Math.PI * 2;

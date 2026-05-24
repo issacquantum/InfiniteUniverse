@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260524-collapsible-glossaries-v1";
+import { pick } from "./i18n.js?v=20260524-reading-settings-notices-v1";
 
 const STORAGE_KEY = "issac-tabares-accessibility";
 
@@ -195,12 +195,15 @@ export function createAccessibilityController({ refs, content, language }) {
   let isOpen = false;
   let lastFocusedElement = null;
 
-  function closePanel() {
+  function closePanel({ restoreFocus = true } = {}) {
     isOpen = false;
     panel.hidden = true;
     toggleButton.setAttribute("aria-expanded", "false");
     if (refs.siteShell) {
       refs.siteShell.inert = false;
+    }
+    if (!restoreFocus) {
+      return;
     }
     const focusTarget = lastFocusedElement && document.contains(lastFocusedElement)
       ? lastFocusedElement
@@ -244,6 +247,11 @@ export function createAccessibilityController({ refs, content, language }) {
   });
 
   panel.addEventListener("click", (event) => {
+    if (event.target.closest("[data-close-reading-settings]")) {
+      closePanel({ restoreFocus: false });
+      return;
+    }
+
     const sizeButton = event.target.closest("[data-accessibility-setting='textSize']");
 
     if (sizeButton) {
