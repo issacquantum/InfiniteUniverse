@@ -1,6 +1,6 @@
-import { bigBangLegacyContent } from "../data/legacy-big-bang.js";
-import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260524-font-cascade-clean-v1";
-import { pick } from "./i18n.js";
+import { bigBangLegacyContent } from "../data/legacy-big-bang.js?v=20260524-naming-cache-clean-v1";
+import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260524-naming-cache-clean-v1";
+import { pick } from "./i18n.js?v=20260524-naming-cache-clean-v1";
 
 let activeRequestToken = 0;
 
@@ -14,7 +14,7 @@ function escapeHtml(value) {
 }
 
 function getActiveLegacyItem(content, state) {
-  const domain = content.educationDomains.find((entry) => entry.id === state.activeDomain);
+  const domain = content.knowledgeWorlds.find((entry) => entry.id === state.activeDomain);
   const topic = domain?.topics?.find((entry) => entry.id === state.activeTopic);
   const branch = topic?.branches?.find((entry) => entry.id === state.activeBranch);
   const item = branch?.items?.find((entry) => entry.id === state.activeDetail);

@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js";
+import { pick } from "./i18n.js?v=20260524-naming-cache-clean-v1";
 
 function escapeHtml(value) {
   return String(value)
@@ -140,7 +140,7 @@ function renderFocusedPathRow({
 
 function renderDomainButtons(domains, state, language, ui) {
   return `
-    <div class="tab-row education-row" role="group" aria-label="${escapeHtml(pick(ui.educationDomainsAria, language))}">
+    <div class="tab-row knowledge-worlds-row" role="group" aria-label="${escapeHtml(pick(ui.knowledgeWorldsAria, language))}">
       ${domains.map((domain) => `
         <button
           class="${classNames("glass-tab", state.activeDomain === domain.id && "is-active")}"
@@ -317,61 +317,61 @@ function renderMobileReaderTopNavigation(navigation, language) {
   `;
 }
 
-function renderMobileScienceNavigation(domains, state, language) {
+function renderMobileKnowledgeNavigation(domains, state, language) {
   const labels = {
     toggle: language === "es" ? "Mundos de conocimiento" : "Knowledge Worlds",
     open: language === "es" ? "Abrir mundos de conocimiento" : "Open Knowledge Worlds",
     close: language === "es" ? "Cerrar mundos de conocimiento" : "Close Knowledge Worlds",
     topics: language === "es" ? "Temas" : "Topics"
   };
-  const isOpen = Boolean(state.mobileScienceNavOpen);
-  const expandedDomainId = state.mobileScienceNavDomain ?? null;
+  const isOpen = Boolean(state.mobileKnowledgeNavOpen);
+  const expandedDomainId = state.mobileKnowledgeNavDomain ?? null;
 
   if (!isOpen) {
     return "";
   }
 
   return `
-    <nav class="mobile-science-nav is-open" aria-label="${escapeHtml(labels.toggle)}">
+    <nav class="mobile-knowledge-nav is-open" aria-label="${escapeHtml(labels.toggle)}">
       <div
-        class="glass-window mobile-science-nav__panel"
-        id="mobile-science-nav-panel"
+        class="glass-window mobile-knowledge-nav__panel"
+        id="mobile-knowledge-nav-panel"
       >
-        <div class="mobile-science-nav__heading">
+        <div class="mobile-knowledge-nav__heading">
           <span>${escapeHtml(labels.toggle)}</span>
           <button
-            class="glass-sphere mobile-science-nav__close"
+            class="glass-sphere mobile-knowledge-nav__close"
             type="button"
-            data-action="toggle-mobile-science-nav"
+            data-action="toggle-mobile-knowledge-nav"
             aria-label="${escapeHtml(labels.close)}"
             title="${escapeHtml(labels.close)}"
           >
             <i data-lucide="x"></i>
           </button>
         </div>
-        <div class="mobile-science-nav__domains">
+        <div class="mobile-knowledge-nav__domains">
           ${domains.map((domain) => {
             const isExpanded = expandedDomainId === domain.id;
             const topics = domain.topics ?? [];
 
             return `
-              <section class="mobile-science-nav__domain">
+              <section class="mobile-knowledge-nav__domain">
                 <button
-                  class="${classNames("glass-tab", "mobile-science-nav__domain-button", state.activeDomain === domain.id && "is-active")}"
+                  class="${classNames("glass-tab", "mobile-knowledge-nav__domain-button", state.activeDomain === domain.id && "is-active")}"
                   type="button"
-                  data-action="toggle-mobile-science-domain"
+                  data-action="toggle-mobile-knowledge-domain"
                   data-domain-id="${escapeHtml(domain.id)}"
                   aria-expanded="${String(isExpanded)}"
                 >
                   <span>${escapeHtml(pick(domain.title, language))}</span>
                   <i data-lucide="${isExpanded ? "chevron-up" : "chevron-down"}"></i>
                 </button>
-                <div class="mobile-science-nav__topics" ${isExpanded ? "" : "hidden"} aria-label="${escapeHtml(labels.topics)}">
+                <div class="mobile-knowledge-nav__topics" ${isExpanded ? "" : "hidden"} aria-label="${escapeHtml(labels.topics)}">
                   ${topics.map((topic) => `
                     <button
-                      class="${classNames("glass-tab", "mobile-science-nav__topic-button", state.activeTopic === topic.id && "is-active")}"
+                      class="${classNames("glass-tab", "mobile-knowledge-nav__topic-button", state.activeTopic === topic.id && "is-active")}"
                       type="button"
-                      data-action="select-mobile-science-topic"
+                      data-action="select-mobile-knowledge-topic"
                       data-domain-id="${escapeHtml(domain.id)}"
                       data-topic-id="${escapeHtml(topic.id)}"
                     >
@@ -476,7 +476,7 @@ export function renderSite({ state, refs, content, assets }) {
     siteNoticeSection
   ].find((section) => section?.id === state.activeSection) ?? null;
   const isSiteNoticeOpen = Boolean(siteNoticeSection && activeSection?.id === siteNoticeSection.id);
-  const activeDomain = content.educationDomains.find((domain) => domain.id === state.activeDomain) ?? null;
+  const activeDomain = content.knowledgeWorlds.find((domain) => domain.id === state.activeDomain) ?? null;
   const topics = activeDomain?.topics ?? [];
   const activeTopic = topics.find((topic) => topic.id === state.activeTopic) ?? null;
   const branchSource = activeTopic ?? activeSection;
@@ -495,8 +495,8 @@ export function renderSite({ state, refs, content, assets }) {
   );
   const useFocusedRows = hasOpenContent;
   const hasActiveSciencePath = Boolean(activeDomain || activeTopic || activeBranch || activeDetail);
-  const mobileScienceMenuOpen = Boolean(state.mobileScienceNavOpen);
-  const showPersonalNavigation = !mobileScienceMenuOpen
+  const mobileKnowledgeMenuOpen = Boolean(state.mobileKnowledgeNavOpen);
+  const showPersonalNavigation = !mobileKnowledgeMenuOpen
     && !hasActiveSciencePath
     && !isSiteNoticeOpen
     && (!hasActivePanel || state.titleOpen);
@@ -530,15 +530,15 @@ export function renderSite({ state, refs, content, assets }) {
   const personalNavigation = showPersonalNavigation
     ? renderSectionButtons(content.personalSections, state, language, content.ui)
     : "";
-  const educationNavigation = "";
-  const topicNavigation = activeDomain && !mobileScienceMenuOpen ? renderTopicButtons(topics, state, language, content.ui) : "";
+  const knowledgeNavigation = "";
+  const topicNavigation = activeDomain && !mobileKnowledgeMenuOpen ? renderTopicButtons(topics, state, language, content.ui) : "";
   const branchNavigation = branchSource?.branches && !branchSource.hideBranchNavigation
     ? renderBranchButtons(branchSource.branches, state, language, content.ui)
     : "";
   const legacyItemNavigation = activeBranch && !branchSource?.hideDetailNavigation
     ? renderLegacyItemButtons(legacyItems, state, language, content.ui)
     : "";
-  const mobileScienceNavigation = renderMobileScienceNavigation(content.educationDomains, state, language);
+  const mobileKnowledgeNavigation = renderMobileKnowledgeNavigation(content.knowledgeWorlds, state, language);
 
   let activePanel = "";
   let readerNavigation = null;
@@ -619,7 +619,7 @@ export function renderSite({ state, refs, content, assets }) {
       }
     } else if (activeDomain && activeTopic) {
       focusedRows.push(renderFocusedPathRow({
-        ariaLabel: pick(content.ui.educationDomainsAria, language),
+        ariaLabel: pick(content.ui.knowledgeWorldsAria, language),
         action: "select-domain",
         dataName: "data-domain-id",
         id: activeDomain.id,
@@ -660,11 +660,11 @@ export function renderSite({ state, refs, content, assets }) {
 
   refs.stage.innerHTML = `
     <div class="${classNames("stage-column", hasActivePanel && "stage-column--reader-active")}">
-      ${mobileScienceNavigation}
+      ${mobileKnowledgeNavigation}
       ${useFocusedRows
         ? focusedRows.join("")
         : `${personalNavigation}
-      ${educationNavigation}
+      ${knowledgeNavigation}
       ${topicNavigation}
       ${branchNavigation}
       ${legacyItemNavigation}`}
