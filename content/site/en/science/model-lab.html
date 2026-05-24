@@ -1,0 +1,189 @@
+<div class="structured-content" data-structured-content>
+  <section class="content-block">
+    <h3>Model Lab</h3>
+    <p>
+      This section gathers the interactive models in one place. Each model still belongs to its original science page,
+      where the surrounding explanation gives it context. This page is the map: it tells you what each model is for,
+      what it should not be taken to mean, and what to try changing first.
+    </p>
+    <p>
+      The purpose is educational clarity. A strong visual model should not ask the visitor to guess what is being shown.
+      It should identify the idea, the boundary, the principle behind it, and the safest way to explore it.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Model Types</h3>
+    <div class="model-lab-grid" aria-label="Model type guide">
+      <article class="model-lab-card">
+        <h4>Physical model</h4>
+        <p>Closely tied to a real equation or physical system.</p>
+      </article>
+      <article class="model-lab-card">
+        <h4>Toy physical model</h4>
+        <p>Simplified, but still built from real physical ideas.</p>
+      </article>
+      <article class="model-lab-card">
+        <h4>Conceptual model</h4>
+        <p>Teaches relationships and structure more than exact physics.</p>
+      </article>
+      <article class="model-lab-card">
+        <h4>Analogy model</h4>
+        <p>A useful teaching picture, not a literal physical object.</p>
+      </article>
+      <article class="model-lab-card">
+        <h4>Artistic scientific visualization</h4>
+        <p>Inspired by science, but not a numerical simulation or observational dataset.</p>
+      </article>
+      <article class="model-lab-card">
+        <h4>Speculative conceptual model</h4>
+        <p>Based on serious ideas, but not established physical reality.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="content-block">
+    <h3>Interactive Models</h3>
+    <div class="model-lab-grid model-lab-grid--catalog" aria-label="Interactive model catalog">
+      <article class="model-lab-card">
+        <h4>Double-Slit Interference</h4>
+        <p><strong>Type:</strong> Toy physical model.</p>
+        <p><strong>Shows:</strong> How wavelength, slit spacing, and screen distance affect bright-band spacing.</p>
+        <p><strong>Does not show:</strong> A full laboratory detector or a complete measurement theory.</p>
+        <p><strong>Principle:</strong> \(y_m \approx m\lambda L/d\).</p>
+        <p><strong>Try:</strong> Increase one variable at a time and watch the first bright band move.</p>
+        <button class="glass-tab model-lab-card__link" type="button" data-action="select-topic" data-topic-id="quantum-mechanics">Open Quantum Mechanics</button>
+      </article>
+
+      <article class="model-lab-card">
+        <h4>Quantum Fluctuation Field</h4>
+        <p><strong>Type:</strong> Toy physical model.</p>
+        <p><strong>Shows:</strong> A changing field sample drawn from a controlled random distribution.</p>
+        <p><strong>Does not show:</strong> Particles appearing from nothing.</p>
+        <p><strong>Principle:</strong> Vacuum variance and two-point correlation.</p>
+        <p><strong>Try:</strong> Pause the field, change the seed, and compare the histogram.</p>
+        <button class="glass-tab model-lab-card__link" type="button" data-action="select-topic" data-topic-id="quantum-mechanics">Open Quantum Mechanics</button>
+      </article>
+
+      <article class="model-lab-card">
+        <h4>Hydrogen Orbital Selector</h4>
+        <p><strong>Type:</strong> Physical model.</p>
+        <p><strong>Shows:</strong> Hydrogen probability density \(|\psi|^2\) for allowed quantum numbers.</p>
+        <p><strong>Does not show:</strong> A planet-like electron path.</p>
+        <p><strong>Principle:</strong> \(0 \leq \ell < n\) and \(-\ell \leq m \leq \ell\).</p>
+        <p><strong>Try:</strong> Start with presets, then compare density view with phase view.</p>
+        <button class="glass-tab model-lab-card__link" type="button" data-action="select-topic" data-topic-id="quantum-mechanics">Open Quantum Mechanics</button>
+      </article>
+
+      <article class="model-lab-card">
+        <h4>Hydrogen 3d<sub>z²</sub> Case Study</h4>
+        <p><strong>Type:</strong> Physical model.</p>
+        <p><strong>Shows:</strong> One worked orbital state sampled from its probability density.</p>
+        <p><strong>Does not show:</strong> A separate theory from the orbital selector.</p>
+        <p><strong>Principle:</strong> \(dP = |\psi_{320}|^2 r^2\sin\theta\,dr\,d\theta\,d\phi\).</p>
+        <p><strong>Try:</strong> Compare this detailed case with the 3d<sub>z²</sub> preset.</p>
+        <button class="glass-tab model-lab-card__link" type="button" data-action="select-topic" data-topic-id="quantum-mechanics">Open Quantum Mechanics</button>
+      </article>
+
+      <article class="model-lab-card">
+        <h4>Bell Singlet Entanglement</h4>
+        <p><strong>Type:</strong> Physical model.</p>
+        <p><strong>Shows:</strong> Local randomness and statistical correlation across many trials.</p>
+        <p><strong>Does not show:</strong> Faster-than-light messaging.</p>
+        <p><strong>Principle:</strong> \(E(a,b)=-\cos\theta_{ab}\) and CHSH comparison.</p>
+        <p><strong>Try:</strong> Change detector angles and watch correlations build statistically.</p>
+        <button class="glass-tab model-lab-card__link" type="button" data-action="select-topic" data-topic-id="quantum-entanglement">Open Quantum Entanglement</button>
+      </article>
+
+      <article class="model-lab-card">
+        <h4>Quantum Channel and Decoherence</h4>
+        <p><strong>Type:</strong> Toy physical model.</p>
+        <p><strong>Shows:</strong> How a one-qubit density matrix changes under simple noise channels.</p>
+        <p><strong>Does not show:</strong> A full quantum network or real hardware calibration.</p>
+        <p><strong>Principle:</strong> \(\rho'=\mathcal{E}(\rho)=\sum_i K_i\rho K_i^\dagger\).</p>
+        <p><strong>Try:</strong> Compare before and after matrices while increasing noise.</p>
+        <button class="glass-tab model-lab-card__link" type="button" data-action="select-topic" data-topic-id="quantum-information">Open Quantum Information</button>
+      </article>
+
+      <article class="model-lab-card">
+        <h4>Gravity Fabric</h4>
+        <p><strong>Type:</strong> Analogy model.</p>
+        <p><strong>Shows:</strong> A teaching picture for mass changing geometry.</p>
+        <p><strong>Does not show:</strong> A literal fabric or hidden downward direction.</p>
+        <p><strong>Principle:</strong> Geometry responds to stress-energy in general relativity.</p>
+        <p><strong>Try:</strong> Increase mass strength while keeping the analogy boundary in mind.</p>
+        <button class="glass-tab model-lab-card__link" type="button" data-action="select-topic" data-topic-id="relativity-spacetime">Open Relativity</button>
+      </article>
+
+      <article class="model-lab-card">
+        <h4>Gravitational Lensing</h4>
+        <p><strong>Type:</strong> Toy physical model.</p>
+        <p><strong>Shows:</strong> Apparent position shifts, multiple-image behavior, and an Einstein-ring case.</p>
+        <p><strong>Does not show:</strong> Full relativistic ray tracing or telescope data.</p>
+        <p><strong>Principle:</strong> \(\beta = \theta - \theta_E^2/\theta\).</p>
+        <p><strong>Try:</strong> Use the ring preset, then compare source and lensed positions.</p>
+        <button class="glass-tab model-lab-card__link" type="button" data-action="select-topic" data-topic-id="relativity-spacetime">Open Relativity</button>
+      </article>
+
+      <article class="model-lab-card">
+        <h4>Black Hole Shadow</h4>
+        <p><strong>Type:</strong> Artistic scientific visualization.</p>
+        <p><strong>Shows:</strong> Shadow, photon-ring-like glow, disk asymmetry, inclination, and spin cues.</p>
+        <p><strong>Does not show:</strong> Telescope data, numerical relativity, plasma turbulence, or the interior.</p>
+        <p><strong>Principle:</strong> Strong gravity bends null paths near compact objects.</p>
+        <p><strong>Try:</strong> Change inclination and spin to compare the disk asymmetry.</p>
+        <button class="glass-tab model-lab-card__link" type="button" data-action="select-topic" data-topic-id="black-holes">Open Black Holes</button>
+      </article>
+
+      <article class="model-lab-card">
+        <h4>Wormhole Geometry</h4>
+        <p><strong>Type:</strong> Speculative conceptual model.</p>
+        <p><strong>Shows:</strong> Throat, mouths, flare-out shape, redshift cue, and exotic-stress cue.</p>
+        <p><strong>Does not show:</strong> A travel simulation or evidence for human-scale traversable wormholes.</p>
+        <p><strong>Principle:</strong> Traversability would require severe geometry and energy-condition constraints.</p>
+        <p><strong>Try:</strong> Change throat radius and stress while treating the marker as visual only.</p>
+        <button class="glass-tab model-lab-card__link" type="button" data-action="select-topic" data-topic-id="wormholes">Open Wormholes</button>
+      </article>
+
+      <article class="model-lab-card">
+        <h4>Neural Architecture</h4>
+        <p><strong>Type:</strong> Conceptual model.</p>
+        <p><strong>Shows:</strong> Network flow, attention weights, and gradient-based optimization as separate lessons.</p>
+        <p><strong>Does not show:</strong> A real language model, real training data, or actual learned weights.</p>
+        <p><strong>Principle:</strong> Vector transformations, attention, and gradient descent.</p>
+        <p><strong>Try:</strong> Use one mode at a time before combining the ideas.</p>
+        <button class="glass-tab model-lab-card__link" type="button" data-action="select-topic" data-topic-id="artificial-intelligence">Open Artificial Intelligence</button>
+      </article>
+
+      <article class="model-lab-card">
+        <h4>Entropy Channel</h4>
+        <p><strong>Type:</strong> Conceptual model.</p>
+        <p><strong>Shows:</strong> How source probabilities and channel noise affect entropy and mutual information.</p>
+        <p><strong>Does not show:</strong> A real modem or a complete error-correcting code.</p>
+        <p><strong>Principle:</strong> \(H(X)=-\sum p\log_2p\) and \(I(X;Y)=H(X)-H(X|Y)\).</p>
+        <p><strong>Try:</strong> Compare a clean channel with a noisy channel.</p>
+        <button class="glass-tab model-lab-card__link" type="button" data-action="select-topic" data-topic-id="information-theory">Open Information Theory</button>
+      </article>
+
+      <article class="model-lab-card">
+        <h4>3D Algorithm Visualizer</h4>
+        <p><strong>Type:</strong> Conceptual model.</p>
+        <p><strong>Shows:</strong> Algorithm state, current operation, and growth of computational cost.</p>
+        <p><strong>Does not show:</strong> Production code or hardware benchmarking.</p>
+        <p><strong>Principle:</strong> Dijkstra relaxation, sorting by comparison, and Big O growth.</p>
+        <p><strong>Try:</strong> Step slowly before running the animation.</p>
+        <button class="glass-tab model-lab-card__link" type="button" data-action="select-topic" data-topic-id="programming-algorithms">Open Programming</button>
+      </article>
+
+      <article class="model-lab-card">
+        <h4>Numerical Methods Sandbox</h4>
+        <p><strong>Type:</strong> Toy physical model.</p>
+        <p><strong>Shows:</strong> Time stepping, sampling error, and heat-grid stability.</p>
+        <p><strong>Does not show:</strong> A full engineering solver or exact climate/fluid simulation.</p>
+        <p><strong>Principle:</strong> Euler, RK4, Monte Carlo error, and heat-equation stability.</p>
+        <p><strong>Try:</strong> Compare Euler vs RK4, then push heat diffusion near the stability limit.</p>
+        <button class="glass-tab model-lab-card__link" type="button" data-action="select-topic" data-topic-id="simulation-models">Open Simulation</button>
+      </article>
+    </div>
+  </section>
+</div>

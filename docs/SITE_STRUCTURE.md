@@ -18,6 +18,7 @@ This file documents the project layout for `https://issacquantum.github.io/Infin
 - `scripts/structured-content.js` loads structured HTML fragments and initializes models inside the loaded section.
 - Science and personal pages live under `content/site/en/` and `content/site/es/`.
 - Equation explainer pages live under `content/site/*/science/equations/`.
+- The centralized model index lives at `content/site/*/science/model-lab.html`; models still remain embedded in their original science pages.
 
 ## Adding A Content Page
 
@@ -33,6 +34,7 @@ This file documents the project layout for `https://issacquantum.github.io/Infin
 3. Import and call that initializer from `scripts/structured-content.js`.
 4. Add a model-specific stylesheet only if existing component styles are not enough.
 5. Keep model labels clear: physical model, toy physical model, conceptual model, analogy model, artistic scientific visualization, or speculative conceptual model.
+6. Register the model in the Model Lab page in both English and Spanish.
 
 ## Deployment
 
