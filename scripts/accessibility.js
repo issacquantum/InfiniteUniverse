@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260524-reading-settings-notices-v1";
+import { pick } from "./i18n.js?v=20260524-cosmology-language-scroll-v1";
 
 const STORAGE_KEY = "issac-tabares-accessibility";
 

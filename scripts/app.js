@@ -1,14 +1,14 @@
-import { siteAssets } from "../data/site-assets.js?v=20260524-reading-settings-notices-v1";
-import { siteContent } from "../data/site-content.js?v=20260524-reading-settings-notices-v1";
-import { createAccessibilityController } from "./accessibility.js?v=20260524-reading-settings-notices-v1";
-import { initBackground } from "./background.js?v=20260524-reading-settings-notices-v1";
-import { refreshIcons } from "./icons.js?v=20260524-reading-settings-notices-v1";
-import { pick } from "./i18n.js?v=20260524-reading-settings-notices-v1";
-import { syncLegacyContent } from "./legacy-content.js?v=20260524-reading-settings-notices-v1";
-import { createMusicController, syncMusicUi } from "./music.js?v=20260524-reading-settings-notices-v1";
-import { renderSite } from "./render.js?v=20260524-reading-settings-notices-v1";
-import { createState } from "./state.js?v=20260524-reading-settings-notices-v1";
-import { syncStructuredContent } from "./structured-content.js?v=20260524-reading-settings-notices-v1";
+import { siteAssets } from "../data/site-assets.js?v=20260524-cosmology-language-scroll-v1";
+import { siteContent } from "../data/site-content.js?v=20260524-cosmology-language-scroll-v1";
+import { createAccessibilityController } from "./accessibility.js?v=20260524-cosmology-language-scroll-v1";
+import { initBackground } from "./background.js?v=20260524-cosmology-language-scroll-v1";
+import { refreshIcons } from "./icons.js?v=20260524-cosmology-language-scroll-v1";
+import { pick } from "./i18n.js?v=20260524-cosmology-language-scroll-v1";
+import { syncLegacyContent } from "./legacy-content.js?v=20260524-cosmology-language-scroll-v1";
+import { createMusicController, syncMusicUi } from "./music.js?v=20260524-cosmology-language-scroll-v1";
+import { renderSite } from "./render.js?v=20260524-cosmology-language-scroll-v1";
+import { createState } from "./state.js?v=20260524-cosmology-language-scroll-v1";
+import { syncStructuredContent } from "./structured-content.js?v=20260524-cosmology-language-scroll-v1";
 
 const refs = {
   siteShell: document.querySelector(".site-shell"),
@@ -95,11 +95,40 @@ let lastGalleryTrigger = null;
 let lastAnnouncement = "";
 let pendingStructuredReturn = null;
 let pendingLegacyReturn = null;
+let pendingReaderScrollRestoration = null;
 const GALLERY_MAX_ZOOM_LEVEL = 7;
 
 function clearPendingReturnNavigation() {
   pendingStructuredReturn = null;
   pendingLegacyReturn = null;
+  pendingReaderScrollRestoration = null;
+}
+
+function clearPendingReaderScrollRestoration() {
+  pendingReaderScrollRestoration = null;
+}
+
+function captureReaderScrollRestoration() {
+  const contentWindow = refs.stage.querySelector(".content-window");
+
+  if (!contentWindow) {
+    pendingReaderScrollRestoration = null;
+    return;
+  }
+
+  const state = store.getState();
+  const scrollTop = contentWindow.scrollTop;
+  const maxScrollTop = Math.max(contentWindow.scrollHeight - contentWindow.clientHeight, 0);
+
+  pendingReaderScrollRestoration = {
+    activeSection: state.activeSection ?? null,
+    activeDomain: state.activeDomain ?? null,
+    activeTopic: state.activeTopic ?? null,
+    activeBranch: state.activeBranch ?? null,
+    activeDetail: state.activeDetail ?? null,
+    scrollTop,
+    scrollRatio: maxScrollTop > 0 ? scrollTop / maxScrollTop : 0
+  };
 }
 
 function getReturnTargetLabel(returnTarget, language) {
@@ -375,7 +404,9 @@ function syncUi(state = store.getState()) {
     refs,
     content: siteContent,
     returnNavigation: pendingStructuredReturn,
-    onReturnNavigationApplied: clearPendingReturnNavigation
+    onReturnNavigationApplied: clearPendingReturnNavigation,
+    scrollRestoration: pendingReaderScrollRestoration,
+    onScrollRestorationApplied: clearPendingReaderScrollRestoration
   });
 
   syncLegacyContent({
@@ -383,7 +414,9 @@ function syncUi(state = store.getState()) {
     refs,
     content: siteContent,
     returnNavigation: pendingLegacyReturn,
-    onReturnNavigationApplied: clearPendingReturnNavigation
+    onReturnNavigationApplied: clearPendingReturnNavigation,
+    scrollRestoration: pendingReaderScrollRestoration,
+    onScrollRestorationApplied: clearPendingReaderScrollRestoration
   });
 
   accessibilityController?.syncLanguage(state.language);
@@ -785,6 +818,7 @@ function selectMobileKnowledgeTopic(domainId, topicId) {
 }
 
 function toggleLanguage() {
+  captureReaderScrollRestoration();
   store.setState((state) => ({
     ...state,
     language: state.language === "en" ? "es" : "en"

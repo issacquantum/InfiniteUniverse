@@ -1,19 +1,19 @@
-import { pick } from "./i18n.js?v=20260524-reading-settings-notices-v1";
-import { initDoubleSlitSimulators } from "./double-slit-simulator.js?v=20260524-reading-settings-notices-v1";
-import { initGravityFabricModels } from "./gravity-fabric-model.js?v=20260524-reading-settings-notices-v1";
-import { initGravityLensingModels } from "./gravity-lensing-model.js?v=20260524-reading-settings-notices-v1";
-import { initQuantumEntanglementModels } from "./quantum-entanglement-model.js?v=20260524-reading-settings-notices-v1";
-import { initQuantumChannelModels } from "./quantum-channel-model.js?v=20260524-reading-settings-notices-v1";
-import { initQuantumModels } from "./quantum-model.js?v=20260524-reading-settings-notices-v1";
-import { initOrbitalSelectorModels } from "./orbital-selector-model.js?v=20260524-reading-settings-notices-v1";
-import { initWormholeModels } from "./wormhole-model.js?v=20260524-reading-settings-notices-v1";
-import { initNumericalMethodsModels } from "./numerical-methods-model.js?v=20260524-reading-settings-notices-v1";
-import { initNeuralArchitectModels } from "./neural-architect-model.js?v=20260524-reading-settings-notices-v1";
-import { initInformationTheoryModels } from "./information-theory-model.js?v=20260524-reading-settings-notices-v1";
-import { initAlgorithmVisualizerModels } from "./algorithm-visualizer-model.js?v=20260524-reading-settings-notices-v1";
-import { initQuantumFluctuationModels } from "./quantum-fluctuation-model.js?v=20260524-reading-settings-notices-v1";
-import { initBlackHoleModels } from "./black-hole-model.js?v=20260524-reading-settings-notices-v1";
-import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260524-reading-settings-notices-v1";
+import { pick } from "./i18n.js?v=20260524-cosmology-language-scroll-v1";
+import { initDoubleSlitSimulators } from "./double-slit-simulator.js?v=20260524-cosmology-language-scroll-v1";
+import { initGravityFabricModels } from "./gravity-fabric-model.js?v=20260524-cosmology-language-scroll-v1";
+import { initGravityLensingModels } from "./gravity-lensing-model.js?v=20260524-cosmology-language-scroll-v1";
+import { initQuantumEntanglementModels } from "./quantum-entanglement-model.js?v=20260524-cosmology-language-scroll-v1";
+import { initQuantumChannelModels } from "./quantum-channel-model.js?v=20260524-cosmology-language-scroll-v1";
+import { initQuantumModels } from "./quantum-model.js?v=20260524-cosmology-language-scroll-v1";
+import { initOrbitalSelectorModels } from "./orbital-selector-model.js?v=20260524-cosmology-language-scroll-v1";
+import { initWormholeModels } from "./wormhole-model.js?v=20260524-cosmology-language-scroll-v1";
+import { initNumericalMethodsModels } from "./numerical-methods-model.js?v=20260524-cosmology-language-scroll-v1";
+import { initNeuralArchitectModels } from "./neural-architect-model.js?v=20260524-cosmology-language-scroll-v1";
+import { initInformationTheoryModels } from "./information-theory-model.js?v=20260524-cosmology-language-scroll-v1";
+import { initAlgorithmVisualizerModels } from "./algorithm-visualizer-model.js?v=20260524-cosmology-language-scroll-v1";
+import { initQuantumFluctuationModels } from "./quantum-fluctuation-model.js?v=20260524-cosmology-language-scroll-v1";
+import { initBlackHoleModels } from "./black-hole-model.js?v=20260524-cosmology-language-scroll-v1";
+import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260524-cosmology-language-scroll-v1";
 
 let activeRequestToken = 0;
 
@@ -276,6 +276,38 @@ function restoreReturnNavigation(host, state, returnNavigation) {
   return true;
 }
 
+function matchesReaderState(state, scrollRestoration) {
+  return Boolean(scrollRestoration)
+    && (state.activeSection ?? null) === scrollRestoration.activeSection
+    && (state.activeDomain ?? null) === scrollRestoration.activeDomain
+    && (state.activeTopic ?? null) === scrollRestoration.activeTopic
+    && (state.activeBranch ?? null) === scrollRestoration.activeBranch
+    && (state.activeDetail ?? null) === scrollRestoration.activeDetail;
+}
+
+function restoreReaderScroll(host, state, scrollRestoration) {
+  if (!matchesReaderState(state, scrollRestoration)) {
+    return false;
+  }
+
+  const contentWindow = host.closest(".content-window");
+
+  if (!contentWindow) {
+    return false;
+  }
+
+  const maxScrollTop = Math.max(contentWindow.scrollHeight - contentWindow.clientHeight, 0);
+  const fallbackScrollTop = maxScrollTop * (scrollRestoration.scrollRatio ?? 0);
+  const targetScrollTop = scrollRestoration.scrollTop ?? fallbackScrollTop;
+
+  requestAnimationFrame(() => {
+    const nextMaxScrollTop = Math.max(contentWindow.scrollHeight - contentWindow.clientHeight, 0);
+    contentWindow.scrollTop = Math.min(Math.max(targetScrollTop, 0), nextMaxScrollTop);
+  });
+
+  return true;
+}
+
 function commitStructuredDocument({
   documentNode,
   host,
@@ -283,7 +315,9 @@ function commitStructuredDocument({
   content,
   requestToken,
   returnNavigation,
-  onReturnNavigationApplied
+  onReturnNavigationApplied,
+  scrollRestoration,
+  onScrollRestorationApplied
 }) {
   if (requestToken !== activeRequestToken) {
     return false;
@@ -307,6 +341,8 @@ function commitStructuredDocument({
 
   if (restored) {
     onReturnNavigationApplied?.();
+  } else if (restoreReaderScroll(host, state, scrollRestoration)) {
+    onScrollRestorationApplied?.();
   } else {
     focusLoadedContent(host);
   }
@@ -341,7 +377,9 @@ export async function syncStructuredContent({
   refs,
   content,
   returnNavigation = null,
-  onReturnNavigationApplied = null
+  onReturnNavigationApplied = null,
+  scrollRestoration = null,
+  onScrollRestorationApplied = null
 }) {
   const host = refs.stage.querySelector("[data-structured-host]");
 
@@ -369,7 +407,9 @@ export async function syncStructuredContent({
       content,
       requestToken,
       returnNavigation,
-      onReturnNavigationApplied
+      onReturnNavigationApplied,
+      scrollRestoration,
+      onScrollRestorationApplied
     });
     return;
   }
@@ -411,7 +451,9 @@ export async function syncStructuredContent({
       content,
       requestToken,
       returnNavigation,
-      onReturnNavigationApplied
+      onReturnNavigationApplied,
+      scrollRestoration,
+      onScrollRestorationApplied
     });
   } catch (_error) {
     if (requestToken !== activeRequestToken) {
