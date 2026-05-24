@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260524-model-teaching-os-v1";
+import { pick } from "./i18n.js?v=20260524-model-layout-fix-v1";
 
 function escapeHtml(value) {
   return String(value)

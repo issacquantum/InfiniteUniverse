@@ -785,13 +785,18 @@ body[data-readable-font="on"] .reading-settings-panel h3 {
 
 .model-teaching-card {
   width: min(100%, 42rem);
-  margin: 0.35rem auto 0.75rem;
-  padding: 0.88rem 1rem;
-  border: 1px solid rgba(var(--outline-rgb), 0.28);
-  border-radius: 1rem;
-  background: rgba(var(--glass-rgb), 0.18);
-  box-shadow: 0 0 0 1px rgba(var(--outline-rgb), 0.08) inset;
+  margin: 1.15rem auto 1.45rem;
+  padding: 0 0 0 0.95rem;
+  border-left: 2px solid rgba(var(--outline-rgb), 0.58);
   text-align: left;
+}
+
+.equation-link-wrap + .model-teaching-card,
+.model-teaching-card + figure,
+.model-teaching-card + .double-slit-simulator,
+.model-teaching-card + .gravity-fabric,
+.model-teaching-card + .wormhole-model {
+  margin-top: 1.25rem;
 }
 
 .model-teaching-card p {
