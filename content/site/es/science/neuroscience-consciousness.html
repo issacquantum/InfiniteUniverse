@@ -13,6 +13,20 @@
   </section>
 
   <section class="content-block">
+    <div class="model-teaching-card">
+      <p><strong>Tipo de modelo:</strong> Modelo conceptual.</p>
+      <p><strong>Qué muestra:</strong> Una red pequeña con señales moviéndose entre nodos conectados.</p>
+      <p><strong>Qué no muestra:</strong> Anatomía neuronal real, tiempos de disparo, neurotransmisores o una teoría que explique la conciencia por sí sola.</p>
+      <p><strong>Ecuación / principio:</strong> \(h_{t+1}=f(W h_t+Ux_t+b)\) esquematiza actualización de estado con memoria y entrada.</p>
+      <p><strong>Qué representa el modelo:</strong> El procesamiento consciente como actividad organizada en sistemas conectados, no como un punto aislado.</p>
+    </div>
+    <figure class="foundation-model glass-window" data-foundation-model="neuroscience" data-language="es">
+      <div class="foundation-model__frame" data-foundation-model-frame></div>
+      <figcaption class="foundation-model__caption">Los pulsos móviles representan flujo de información en una red simplificada, no disparos biológicos literales.</figcaption>
+    </figure>
+  </section>
+
+  <section class="content-block">
     <h3>Cerebro, cuerpo y mundo</h3>
     <p>
       El cerebro no es una caja de pensamiento aislada. Regula un cuerpo, recibe información sensorial, predice
@@ -27,9 +41,15 @@
       La atención selecciona información para procesarla con mayor fuerza. La memoria de trabajo mantiene información
       seleccionada disponible para razonar y actuar. Una forma simplificada de escribir una actualización recurrente es
     </p>
-    \[
-      h_{t+1}=f(W h_t+Ux_t+b).
-    \]
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="neuroscience-consciousness-equations" data-item-id="recurrent-state-update"
+        aria-label="Abrir la explicación de la actualización recurrente de estado">
+        $$
+        h_{t+1}=f(W h_t+Ux_t+b)
+        $$
+      </button>
+    </div>
     <p>
       La ecuación es solo un esquema de modelado, pero expresa la idea de que el estado actual, la nueva entrada y la
       estructura del sistema moldean juntos el siguiente estado.

@@ -14,6 +14,20 @@
   </section>
 
   <section class="content-block">
+    <div class="model-teaching-card">
+      <p><strong>Tipo de modelo:</strong> Modelo físico simplificado.</p>
+      <p><strong>Qué muestra:</strong> Una onda electromagnética con direcciones de campo eléctrico y magnético perpendiculares a la dirección de avance.</p>
+      <p><strong>Qué no muestra:</strong> Un solucionador completo de ecuaciones de Maxwell, respuesta de materiales, geometría de antenas o fotones cuánticos.</p>
+      <p><strong>Ecuación / principio:</strong> \(c=1/\sqrt{\mu_0\epsilon_0}\) conecta las constantes del campo con la velocidad de la luz en el vacío.</p>
+      <p><strong>Qué representa el modelo:</strong> La luz como estructura acoplada de campos eléctricos y magnéticos, no como onda mecánica en una cuerda.</p>
+    </div>
+    <figure class="foundation-model glass-window" data-foundation-model="electromagnetism" data-language="es">
+      <div class="foundation-model__frame" data-foundation-model-frame></div>
+      <figcaption class="foundation-model__caption">Las ondas rosa y violeta son componentes de campo perpendiculares que avanzan juntas por el espacio.</figcaption>
+    </figure>
+  </section>
+
+  <section class="content-block">
     <h3>Campos</h3>
     <p>
       El electromagnetismo reemplaza la acción a distancia por campos. Una carga eléctrica modifica el campo a su
@@ -23,9 +37,15 @@
     <p>
       La fuerza de Lorentz resume cómo actúan los campos sobre una carga:
     </p>
-    \[
-      \mathbf{F}=q(\mathbf{E}+\mathbf{v}\times\mathbf{B}).
-    \]
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="electromagnetism-equations" data-item-id="lorentz-force-law"
+        aria-label="Abrir la explicación de la ley de fuerza de Lorentz">
+        $$
+        \mathbf{F}=q(\mathbf{E}+\mathbf{v}\times\mathbf{B})
+        $$
+      </button>
+    </div>
   </section>
 
   <section class="content-block">
@@ -34,9 +54,15 @@
       Las ecuaciones de Maxwell conectan carga, corriente, campos eléctricos, campos magnéticos y ondas
       electromagnéticas. En el vacío implican ondas que se mueven a velocidad:
     </p>
-    \[
-      c=\frac{1}{\sqrt{\mu_0\epsilon_0}}.
-    \]
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="electromagnetism-equations" data-item-id="electromagnetic-wave-speed"
+        aria-label="Abrir la explicación de la velocidad de onda electromagnética">
+        $$
+        c=\frac{1}{\sqrt{\mu_0\epsilon_0}}
+        $$
+      </button>
+    </div>
     <p>
       Ese resultado convirtió la luz en parte de una teoría de campos y produjo la crisis que llevó a la relatividad
       especial.
