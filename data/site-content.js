@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-gt7-weather-copy-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-reading-usability-report-v1";
 
 function htmlSource(group, id) {
   return {
