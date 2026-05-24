@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260524-collapsible-glossaries-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260524-reading-settings-notices-v1";
 
 const mountedModels = new WeakSet();
 const SYMBOL_COUNT = 4;
