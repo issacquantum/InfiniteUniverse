@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-square-list-markers-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-desktop-home-button-v1";
 
 function htmlSource(group, id) {
   return {
