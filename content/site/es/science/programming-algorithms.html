@@ -221,6 +221,13 @@
       <strong>Ordenamiento</strong> muestra comparaciones e intercambios paso a paso. <strong>Big O</strong> compara
       cómo las curvas de costo se separan cuando crece la entrada.
     </p>
+    <div class="model-teaching-card" aria-label="Notas educativas del visualizador de algoritmos">
+      <p><strong>Tipo de modelo:</strong> Modelo conceptual.</p>
+      <p><strong>Qué muestra:</strong> El estado del algoritmo: qué elemento está activo, qué comparación o relajación ocurre y cómo crece el costo.</p>
+      <p><strong>Qué no muestra:</strong> Código de producción, cada detalle de estructura de datos o una prueba de velocidad en hardware real.</p>
+      <p><strong>Ecuación / principio:</strong> Relajación de Dijkstra \(d[v] > d[u]+w(u,v)\), ordenamiento por comparación y crecimiento Big O.</p>
+      <p><strong>Qué probar:</strong> Avanza paso a paso en cada modo antes de usar Ejecutar; mira el panel de estado para entender por qué ocurre el movimiento.</p>
+    </div>
     <figure class="algorithm-visualizer glass-window" data-algorithm-visualizer-model data-language="es">
       <div class="algorithm-visualizer__frame" data-av-frame></div>
       <div class="algorithm-visualizer__panel">
@@ -260,6 +267,24 @@
               <div class="algorithm-visualizer__metric-row">
                 <span class="algorithm-visualizer__metric-label">Estado</span>
                 <span class="algorithm-visualizer__value" data-av-value="metric">listo</span>
+              </div>
+            </div>
+            <div class="algorithm-visualizer__metric">
+              <div class="algorithm-visualizer__metric-row">
+                <span class="algorithm-visualizer__metric-label">Foco</span>
+                <span class="algorithm-visualizer__value" data-av-value="focus">Nodo actual: N1</span>
+              </div>
+            </div>
+            <div class="algorithm-visualizer__metric">
+              <div class="algorithm-visualizer__metric-row">
+                <span class="algorithm-visualizer__metric-label">Operación</span>
+                <span class="algorithm-visualizer__value" data-av-value="operation">Relajar aristas vecinas</span>
+              </div>
+            </div>
+            <div class="algorithm-visualizer__metric">
+              <div class="algorithm-visualizer__metric-row">
+                <span class="algorithm-visualizer__metric-label">Clave de lectura</span>
+                <span class="algorithm-visualizer__value" data-av-value="axis">Tabla: nodo, distancia, previo, estado</span>
               </div>
             </div>
             <div class="algorithm-visualizer__legend" aria-label="Leyenda del visualizador de algoritmos">

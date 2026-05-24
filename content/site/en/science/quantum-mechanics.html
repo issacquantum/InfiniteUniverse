@@ -86,6 +86,13 @@
       <strong>wavelength</strong> and <strong>slit distance</strong>, then show the wavefronts, bright maxima, vertical
       scale, or the interference pattern on the screen.
     </p>
+    <div class="model-teaching-card" aria-label="Double-slit model teaching notes">
+      <p><strong>Model type:</strong> Toy physical model.</p>
+      <p><strong>What this shows:</strong> How wavelength, slit spacing, and screen distance change the spacing of bright interference bands.</p>
+      <p><strong>What it does not show:</strong> A full laboratory apparatus, photon-by-photon detector electronics, or a complete quantum measurement theory.</p>
+      <p><strong>Equation / principle:</strong> \(y_m \approx m\lambda L/d\), where larger \(\lambda\) or \(L\) widens the bands and larger \(d\) narrows them.</p>
+      <p><strong>Try changing:</strong> Increase wavelength, increase slit distance, then increase screen distance and compare which way the first bright band moves.</p>
+    </div>
     <div class="double-slit-simulator glass-window" data-double-slit-simulator data-language="en">
       <div class="ds-viewport" data-ds-viewport></div>
       <div class="ds-controls">
@@ -96,6 +103,10 @@
         <label class="ds-group">
           <span class="ds-label">Slit distance <span class="ds-value" data-ds-value="slitDistance">84</span></span>
           <input class="ds-range" type="range" min="44" max="132" value="84" data-ds-param="slitDistance" aria-label="Slit distance">
+        </label>
+        <label class="ds-group">
+          <span class="ds-label">Screen distance L <span class="ds-value" data-ds-value="screenDistance">220</span></span>
+          <input class="ds-range" type="range" min="150" max="300" value="220" data-ds-param="screenDistance" aria-label="Screen distance L">
         </label>
         <label class="ds-toggle">
           <input type="checkbox" checked data-ds-toggle="showWavefronts">
@@ -121,6 +132,7 @@
           <button class="ds-btn" type="button" data-ds-action="pattern">Show Interference Pattern</button>
           <button class="ds-btn" type="button" data-ds-action="clearHits">Clear Hits</button>
         </div>
+        <p class="ds-note" data-ds-equation>First bright band: y1 ≈ 84.0 model units from center.</p>
       </div>
       <p class="ds-note">
         This is an educational wave model based on the standard bright-band interference condition. Hit build-up shows
@@ -595,6 +607,13 @@
     </div>
 
     <figure class="quantum-fluctuation glass-window" data-quantum-fluctuation-model data-language="en">
+      <div class="model-teaching-card" aria-label="Quantum fluctuation model teaching notes">
+        <p><strong>Model type:</strong> Toy physical model.</p>
+        <p><strong>What this shows:</strong> A changing field sample with peaks and valleys drawn from a controlled random distribution.</p>
+        <p><strong>What it does not show:</strong> Particles popping out of empty space or energy appearing from nothing.</p>
+        <p><strong>Equation / principle:</strong> Vacuum variance and the two-point correlation describe field spread and correlation, not little objects.</p>
+        <p><strong>Try changing:</strong> Pause the motion, change the random seed, then compare the histogram and RMS amplitude.</p>
+      </div>
       <div class="quantum-fluctuation__frame" data-qf-frame></div>
       <div class="quantum-fluctuation__controls" aria-label="Quantum fluctuation model controls">
         <label class="quantum-fluctuation__group">
@@ -619,10 +638,16 @@
           <span>mass m <strong data-qf-metric="mass">0.71</strong></span>
           <span>active modes <strong data-qf-metric="modes">0</strong></span>
           <span>RMS (root-mean-square) amplitude <strong data-qf-metric="rms">0.00</strong></span>
+          <span>seed <strong data-qf-metric="seed">1900</strong></span>
           <button class="quantum-fluctuation__button" type="button" data-qf-action="resample">
             New vacuum sample
           </button>
+          <button class="quantum-fluctuation__button" type="button" data-qf-action="pause" aria-pressed="false">
+            Pause
+          </button>
+          <span>recent seeds <strong data-qf-metric="history">1900</strong></span>
         </div>
+        <div class="quantum-fluctuation__histogram" data-qf-histogram aria-label="Field amplitude histogram"></div>
       </div>
       <figcaption class="quantum-fluctuation__note">
         Physics-guided finite model: a Gaussian equal-time sample of a free real scalar field. The controls change
@@ -732,9 +757,28 @@
       cutoff only hides low-density regions for readability; it does not change the physics being sampled.
     </p>
     <figure class="orbital-selector glass-window" data-orbital-selector-model data-language="en">
+      <div class="model-teaching-card" aria-label="Orbital selector teaching notes">
+        <p><strong>Model type:</strong> Physical model.</p>
+        <p><strong>What this shows:</strong> Hydrogen probability density \(|\psi|^2\) and optional phase coloring for allowed quantum numbers.</p>
+        <p><strong>What it does not show:</strong> A planet-like electron orbit or a video of the electron moving around the nucleus.</p>
+        <p><strong>Equation / principle:</strong> Allowed values obey \(0 \leq \ell < n\) and \(-\ell \leq m \leq \ell\).</p>
+        <p><strong>Try changing:</strong> Start with a preset, then switch to advanced view and compare density-only against phase view.</p>
+      </div>
       <div class="orbital-selector__frame" data-os-frame></div>
       <div class="orbital-selector__panel">
         <div class="orbital-selector__controls" aria-label="Hydrogen orbital selector controls">
+          <div class="orbital-selector__actions" aria-label="Orbital presets">
+            <button class="orbital-selector__button" type="button" data-os-preset="1,0,0,density">1s</button>
+            <button class="orbital-selector__button" type="button" data-os-preset="2,1,0,density">2p</button>
+            <button class="orbital-selector__button" type="button" data-os-preset="3,2,1,real">3d</button>
+            <button class="orbital-selector__button" type="button" data-os-preset="3,2,0,real">3dz²</button>
+            <button class="orbital-selector__button" type="button" data-os-preset="4,3,0,real">4f</button>
+          </div>
+          <div class="orbital-selector__actions" aria-label="Orbital learning level">
+            <button class="orbital-selector__button" type="button" data-os-view="beginner">Beginner: density</button>
+            <button class="orbital-selector__button is-active" type="button" data-os-view="advanced">Advanced</button>
+          </div>
+          <p class="orbital-selector__status">Allowed values: 0 ≤ ℓ &lt; n and −ℓ ≤ m ≤ ℓ.</p>
           <label class="orbital-selector__group">
             <span class="orbital-selector__label">Principal n <span class="orbital-selector__value" data-os-value="n">3</span></span>
             <input class="orbital-selector__range" type="range" min="1" max="5" step="1" value="3"
@@ -755,7 +799,7 @@
             <input class="orbital-selector__range" type="range" min="0.004" max="0.18" step="0.001" value="0.035"
               data-os-param="cutoff" aria-label="Probability cutoff">
           </label>
-          <label class="orbital-selector__group">
+          <label class="orbital-selector__group" data-os-advanced>
             <span class="orbital-selector__label">Phase view <span class="orbital-selector__value" data-os-value="phaseView">real phase</span></span>
             <select class="orbital-selector__select" data-os-param="phaseMode" aria-label="Wave function phase view">
               <option value="real" selected>Real phase sign</option>
@@ -764,12 +808,12 @@
               <option value="density">Density only</option>
             </select>
           </label>
-          <label class="orbital-selector__group">
+          <label class="orbital-selector__group" data-os-advanced>
             <span class="orbital-selector__label">Phase offset <span class="orbital-selector__value" data-os-value="phaseOffset">0°</span></span>
             <input class="orbital-selector__range" type="range" min="0" max="360" step="5" value="0"
               data-os-param="phaseOffset" aria-label="Phase color offset">
           </label>
-          <label class="orbital-selector__group">
+          <label class="orbital-selector__group" data-os-advanced>
             <span class="orbital-selector__label">Phase contrast <span class="orbital-selector__value" data-os-value="phaseContrast">0.72</span></span>
             <input class="orbital-selector__range" type="range" min="0" max="1" step="0.01" value="0.72"
               data-os-param="phaseContrast" aria-label="Phase color contrast">
@@ -828,10 +872,20 @@
   </section>
 
   <section class="content-block">
-    <h3>Hydrogen 3D<sub>z²</sub> Orbital: <button class="inline-detail-link" type="button"
+    <h3>Featured Orbital Case Study: ψ₃₂₀</h3>
+    <div class="model-teaching-card" aria-label="Hydrogen 3dz2 case study teaching notes">
+      <p><strong>Model type:</strong> Physical model.</p>
+      <p><strong>What this shows:</strong> One worked hydrogen state, \(3d_{z^2}\), sampled from its probability density.</p>
+      <p><strong>What it does not show:</strong> A separate theory from the orbital selector or a literal electron path.</p>
+      <p><strong>Equation / principle:</strong> The cloud samples \(dP = |\psi_{320}|^2 r^2\sin\theta\,dr\,d\theta\,d\phi\).</p>
+      <p><strong>Try changing:</strong> Use this as the detailed case, then return to the selector and compare it with the 3dz² preset.</p>
+    </div>
+    <p>
+      This case study uses <button class="inline-detail-link" type="button"
         data-action="select-legacy-item" data-branch-id="quantum-mechanics-equations"
         data-item-id="monte-carlo-probability-measure"
-        aria-label="Open the explanation page for Monte Carlo sampling">Monte Carlo</button> Visualization of ψ₃₂₀</h3>
+        aria-label="Open the explanation page for Monte Carlo sampling">Monte Carlo</button> sampling to make ψ₃₂₀ readable as a probability cloud.
+    </p>
     <figure class="quantum-model-figure">
       <div class="quantum-model" data-quantum-model aria-label="Interactive 3D hydrogen orbital model">
         <div class="glass-window quantum-model__frame"></div>

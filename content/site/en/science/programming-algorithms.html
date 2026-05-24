@@ -219,6 +219,13 @@
       <strong>Sorting</strong> shows comparisons and swaps one step at a time. <strong>Big O</strong> compares how cost
       curves separate as input size grows.
     </p>
+    <div class="model-teaching-card" aria-label="Algorithm visualizer teaching notes">
+      <p><strong>Model type:</strong> Conceptual model.</p>
+      <p><strong>What this shows:</strong> Algorithm state: which item is current, what comparison or relaxation is happening, and how cost grows.</p>
+      <p><strong>What it does not show:</strong> Production code, every data structure detail, or a benchmark of real hardware speed.</p>
+      <p><strong>Equation / principle:</strong> Dijkstra relaxation \(d[v] > d[u]+w(u,v)\), comparison sorting, and Big O growth.</p>
+      <p><strong>Try changing:</strong> Step slowly through each mode before using Run; watch the state panel explain why the motion happens.</p>
+    </div>
     <figure class="algorithm-visualizer glass-window" data-algorithm-visualizer-model data-language="en">
       <div class="algorithm-visualizer__frame" data-av-frame></div>
       <div class="algorithm-visualizer__panel">
@@ -258,6 +265,24 @@
               <div class="algorithm-visualizer__metric-row">
                 <span class="algorithm-visualizer__metric-label">State</span>
                 <span class="algorithm-visualizer__value" data-av-value="metric">ready</span>
+              </div>
+            </div>
+            <div class="algorithm-visualizer__metric">
+              <div class="algorithm-visualizer__metric-row">
+                <span class="algorithm-visualizer__metric-label">Focus</span>
+                <span class="algorithm-visualizer__value" data-av-value="focus">Current node: N1</span>
+              </div>
+            </div>
+            <div class="algorithm-visualizer__metric">
+              <div class="algorithm-visualizer__metric-row">
+                <span class="algorithm-visualizer__metric-label">Operation</span>
+                <span class="algorithm-visualizer__value" data-av-value="operation">Relax neighboring edges</span>
+              </div>
+            </div>
+            <div class="algorithm-visualizer__metric">
+              <div class="algorithm-visualizer__metric-row">
+                <span class="algorithm-visualizer__metric-label">Reading key</span>
+                <span class="algorithm-visualizer__value" data-av-value="axis">Table idea: node, distance, previous, status</span>
               </div>
             </div>
             <div class="algorithm-visualizer__legend" aria-label="Algorithm visualizer legend">

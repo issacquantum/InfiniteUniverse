@@ -88,6 +88,13 @@
       <strong>longitud de onda</strong> y la <strong>distancia entre rendijas</strong>, y después muestra los frentes
       de onda, los máximos brillantes, la escala vertical o el patrón de interferencia en la pantalla.
     </p>
+    <div class="model-teaching-card" aria-label="Notas educativas del modelo de doble rendija">
+      <p><strong>Tipo de modelo:</strong> Modelo físico simplificado.</p>
+      <p><strong>Qué muestra:</strong> Cómo la longitud de onda, la separación entre rendijas y la distancia a la pantalla cambian la separación entre bandas brillantes.</p>
+      <p><strong>Qué no muestra:</strong> Un aparato completo de laboratorio, la electrónica del detector o una teoría completa de la medición cuántica.</p>
+      <p><strong>Ecuación / principio:</strong> \(y_m \approx m\lambda L/d\): una \(\lambda\) o \(L\) mayor abre las bandas, y un \(d\) mayor las acerca.</p>
+      <p><strong>Prueba cambiar:</strong> Aumenta la longitud de onda, luego la distancia entre rendijas y después la distancia a la pantalla.</p>
+    </div>
     <div class="double-slit-simulator glass-window" data-double-slit-simulator data-language="es">
       <div class="ds-viewport" data-ds-viewport></div>
       <div class="ds-controls">
@@ -101,6 +108,11 @@
               data-ds-value="slitDistance">84</span></span>
           <input class="ds-range" type="range" min="44" max="132" value="84" data-ds-param="slitDistance"
             aria-label="Distancia entre rendijas">
+        </label>
+        <label class="ds-group">
+          <span class="ds-label">Distancia a pantalla L <span class="ds-value" data-ds-value="screenDistance">220</span></span>
+          <input class="ds-range" type="range" min="150" max="300" value="220" data-ds-param="screenDistance"
+            aria-label="Distancia a la pantalla L">
         </label>
         <label class="ds-toggle">
           <input type="checkbox" checked data-ds-toggle="showWavefronts">
@@ -126,6 +138,7 @@
           <button class="ds-btn" type="button" data-ds-action="pattern">Mostrar Patrón de Interferencia</button>
           <button class="ds-btn" type="button" data-ds-action="clearHits">Limpiar impactos</button>
         </div>
+        <p class="ds-note" data-ds-equation>Primera banda brillante: y1 ≈ 84.0 unidades del modelo desde el centro.</p>
       </div>
       <p class="ds-note">
         Este es un modelo ondulatorio educativo basado en la condición estándar de interferencia para bandas brillantes.
@@ -605,6 +618,13 @@
     </div>
 
     <figure class="quantum-fluctuation glass-window" data-quantum-fluctuation-model data-language="es">
+      <div class="model-teaching-card" aria-label="Notas educativas del modelo de fluctuaciones cuánticas">
+        <p><strong>Tipo de modelo:</strong> Modelo físico simplificado.</p>
+        <p><strong>Qué muestra:</strong> Una muestra cambiante de campo con picos y valles tomados de una distribución aleatoria controlada.</p>
+        <p><strong>Qué no muestra:</strong> Partículas saliendo de la nada ni energía apareciendo desde el vacío absoluto.</p>
+        <p><strong>Ecuación / principio:</strong> La varianza del vacío y la correlación de dos puntos describen dispersión y correlación del campo, no objetos pequeños.</p>
+        <p><strong>Prueba cambiar:</strong> Pausa el movimiento, cambia la muestra y compara el histograma con la amplitud RMS.</p>
+      </div>
       <div class="quantum-fluctuation__frame" data-qf-frame></div>
       <div class="quantum-fluctuation__controls" aria-label="Controles del modelo de fluctuaciones cuánticas">
         <label class="quantum-fluctuation__group">
@@ -629,10 +649,16 @@
           <span>masa m <strong data-qf-metric="mass">0.71</strong></span>
           <span>modos activos <strong data-qf-metric="modes">0</strong></span>
           <span>amplitud RMS (raíz cuadrática media) <strong data-qf-metric="rms">0.00</strong></span>
+          <span>semilla <strong data-qf-metric="seed">1900</strong></span>
           <button class="quantum-fluctuation__button" type="button" data-qf-action="resample">
             Nueva muestra de vacío
           </button>
+          <button class="quantum-fluctuation__button" type="button" data-qf-action="pause" aria-pressed="false">
+            Pausar
+          </button>
+          <span>semillas recientes <strong data-qf-metric="history">1900</strong></span>
         </div>
+        <div class="quantum-fluctuation__histogram" data-qf-histogram aria-label="Histograma de amplitudes del campo"></div>
       </div>
       <figcaption class="quantum-fluctuation__note">
         Modelo finito guiado por física: una muestra gaussiana a tiempo fijo de un campo escalar real libre. Los
@@ -745,9 +771,28 @@
       cambia la física muestreada.
     </p>
     <figure class="orbital-selector glass-window" data-orbital-selector-model data-language="es">
+      <div class="model-teaching-card" aria-label="Notas educativas del selector orbital">
+        <p><strong>Tipo de modelo:</strong> Modelo físico.</p>
+        <p><strong>Qué muestra:</strong> Densidad de probabilidad \(|\psi|^2\) del hidrógeno y color de fase opcional para números cuánticos permitidos.</p>
+        <p><strong>Qué no muestra:</strong> Un electrón orbitando como planeta ni un video del electrón moviéndose alrededor del núcleo.</p>
+        <p><strong>Ecuación / principio:</strong> Los valores permitidos cumplen \(0 \leq \ell < n\) y \(-\ell \leq m \leq \ell\).</p>
+        <p><strong>Prueba cambiar:</strong> Empieza con un preset, luego usa vista avanzada y compara solo densidad contra vista de fase.</p>
+      </div>
       <div class="orbital-selector__frame" data-os-frame></div>
       <div class="orbital-selector__panel">
         <div class="orbital-selector__controls" aria-label="Controles del selector orbital de hidrógeno">
+          <div class="orbital-selector__actions" aria-label="Presets orbitales">
+            <button class="orbital-selector__button" type="button" data-os-preset="1,0,0,density">1s</button>
+            <button class="orbital-selector__button" type="button" data-os-preset="2,1,0,density">2p</button>
+            <button class="orbital-selector__button" type="button" data-os-preset="3,2,1,real">3d</button>
+            <button class="orbital-selector__button" type="button" data-os-preset="3,2,0,real">3dz²</button>
+            <button class="orbital-selector__button" type="button" data-os-preset="4,3,0,real">4f</button>
+          </div>
+          <div class="orbital-selector__actions" aria-label="Nivel de lectura orbital">
+            <button class="orbital-selector__button" type="button" data-os-view="beginner">Principiante: densidad</button>
+            <button class="orbital-selector__button is-active" type="button" data-os-view="advanced">Avanzado</button>
+          </div>
+          <p class="orbital-selector__status">Valores permitidos: 0 ≤ ℓ &lt; n y −ℓ ≤ m ≤ ℓ.</p>
           <label class="orbital-selector__group">
             <span class="orbital-selector__label">Principal n <span class="orbital-selector__value"
                 data-os-value="n">3</span></span>
@@ -772,7 +817,7 @@
             <input class="orbital-selector__range" type="range" min="0.004" max="0.18" step="0.001" value="0.035"
               data-os-param="cutoff" aria-label="Corte de probabilidad">
           </label>
-          <label class="orbital-selector__group">
+          <label class="orbital-selector__group" data-os-advanced>
             <span class="orbital-selector__label">Vista de fase <span class="orbital-selector__value"
                 data-os-value="phaseView">fase real</span></span>
             <select class="orbital-selector__select" data-os-param="phaseMode"
@@ -783,13 +828,13 @@
               <option value="density">Solo densidad</option>
             </select>
           </label>
-          <label class="orbital-selector__group">
+          <label class="orbital-selector__group" data-os-advanced>
             <span class="orbital-selector__label">Desfase <span class="orbital-selector__value"
                 data-os-value="phaseOffset">0°</span></span>
             <input class="orbital-selector__range" type="range" min="0" max="360" step="5" value="0"
               data-os-param="phaseOffset" aria-label="Desfase de color">
           </label>
-          <label class="orbital-selector__group">
+          <label class="orbital-selector__group" data-os-advanced>
             <span class="orbital-selector__label">Contraste de fase <span class="orbital-selector__value"
                 data-os-value="phaseContrast">0.72</span></span>
             <input class="orbital-selector__range" type="range" min="0" max="1" step="0.01" value="0.72"
@@ -849,10 +894,20 @@
   </section>
 
   <section class="content-block">
-    <h3>Orbital 3D<sub>z²</sub> del Hidrógeno: Visualización <button class="inline-detail-link" type="button"
+    <h3>Estudio de Caso Orbital: ψ₃₂₀</h3>
+    <div class="model-teaching-card" aria-label="Notas educativas del caso orbital 3dz2">
+      <p><strong>Tipo de modelo:</strong> Modelo físico.</p>
+      <p><strong>Qué muestra:</strong> Un estado trabajado del hidrógeno, \(3d_{z^2}\), muestreado desde su densidad de probabilidad.</p>
+      <p><strong>Qué no muestra:</strong> Una teoría separada del selector orbital ni una trayectoria literal del electrón.</p>
+      <p><strong>Ecuación / principio:</strong> La nube muestrea \(dP = |\psi_{320}|^2 r^2\sin\theta\,dr\,d\theta\,d\phi\).</p>
+      <p><strong>Prueba cambiar:</strong> Usa este caso como ejemplo detallado y después compáralo con el preset 3dz² del selector.</p>
+    </div>
+    <p>
+      Este caso usa muestreo <button class="inline-detail-link" type="button"
         data-action="select-legacy-item" data-branch-id="quantum-mechanics-equations"
         data-item-id="monte-carlo-probability-measure"
-        aria-label="Abrir la página de explicación del muestreo de Monte Carlo">Monte Carlo</button> de ψ₃₂₀</h3>
+        aria-label="Abrir la página de explicación del muestreo de Monte Carlo">Monte Carlo</button> para hacer ψ₃₂₀ legible como nube de probabilidad.
+    </p>
     <figure class="quantum-model-figure">
       <div class="quantum-model" data-quantum-model aria-label="Modelo interactivo del orbital de hidrógeno en 3D">
         <div class="glass-window quantum-model__frame"></div>

@@ -310,6 +310,13 @@
       direction is not a hidden fifth dimension. It is a teaching diagram for the idea that <strong>mass changes
       geometry</strong>.
     </p>
+    <div class="model-teaching-card" aria-label="Gravity fabric model teaching notes">
+      <p><strong>Model type:</strong> Analogy model.</p>
+      <p><strong>What this shows:</strong> A visual way to think about mass changing geometry.</p>
+      <p><strong>What it does not show:</strong> A literal fabric, a hidden downward direction, or the full Einstein field equations.</p>
+      <p><strong>Equation / principle:</strong> General relativity connects geometry and stress-energy through \(G_{\mu\nu}=8\pi G T_{\mu\nu}/c^4\) in simplified form.</p>
+      <p><strong>Try changing:</strong> Increase mass strength and watch the dip become deeper. The dip is a teaching picture, not a real direction gravity pulls spacetime into.</p>
+    </div>
     <div class="gravity-fabric" data-gravity-fabric-model data-language="en">
       <div class="gravity-fabric__frame glass-window" data-gravity-fabric-frame></div>
       <div class="gravity-fabric__controls" aria-label="Gravity fabric controls">
@@ -338,6 +345,13 @@
       \(\theta_E\), which separates the <strong>apparent image angles</strong>, \(\theta\), farther from the true source position,
       \(\beta\).
     </p>
+    <div class="model-teaching-card" aria-label="Gravitational lensing model teaching notes">
+      <p><strong>Model type:</strong> Toy physical model.</p>
+      <p><strong>What this shows:</strong> A compact mass bending apparent star positions and producing multiple-image behavior.</p>
+      <p><strong>What it does not show:</strong> A full relativistic ray-tracing simulation, real telescope data, or every lensing geometry.</p>
+      <p><strong>Equation / principle:</strong> Thin lensing uses \(\beta = \theta - \theta_E^2/\theta\).</p>
+      <p><strong>Try changing:</strong> Move the lens, use the Einstein ring preset, and compare the source field with the lensed image positions.</p>
+    </div>
     <figure class="gravity-lensing glass-window" data-gravity-lensing-model data-language="en">
       <div class="gravity-lensing__frame" data-gravity-lensing-frame></div>
       <div class="gravity-lensing__controls">
@@ -354,9 +368,14 @@
           <span>Light-path guides</span>
         </label>
         <label class="gravity-lensing__toggle">
+          <input type="checkbox" data-gl-toggle="showUnlensed">
+          <span>Show source field</span>
+        </label>
+        <label class="gravity-lensing__toggle">
           <input type="checkbox" data-gl-toggle="motion">
           <span>Motion control</span>
         </label>
+        <button class="gravity-lensing__button" type="button" data-gl-action="ring">Einstein Ring Preset</button>
         <button class="gravity-lensing__button" type="button" data-gl-action="reset">Reset Lens</button>
       </div>
       <figcaption class="gravity-lensing__note">

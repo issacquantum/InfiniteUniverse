@@ -135,6 +135,27 @@
   font-variant-numeric: tabular-nums;
 }
 
+.quantum-fluctuation__histogram {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(7, 1fr);
+  align-items: end;
+  min-height: 4.2rem;
+  gap: 0.28rem;
+  padding: 0.45rem;
+  border: 1px solid rgba(191, 64, 255, 0.3);
+  border-radius: 0.85rem;
+  background: rgba(9, 0, 18, 0.28);
+}
+
+.quantum-fluctuation__histogram span {
+  display: block;
+  min-height: 0.5rem;
+  border-radius: 999px 999px 0.25rem 0.25rem;
+  background: linear-gradient(180deg, var(--qf-hot-pink), var(--qf-electric));
+  box-shadow: 0 0 12px rgba(191, 64, 255, 0.26);
+}
+
 .quantum-fluctuation__button {
   cursor: pointer;
   font-family: inherit;

@@ -1,4 +1,4 @@
-import { bindPinchZoom, isModelPanGesture, panTargetFromPointer } from "./model-pan.js?v=20260524-mobile-science-menu-v1";
+import { bindPinchZoom, isModelPanGesture, panTargetFromPointer } from "./model-pan.js?v=20260524-model-teaching-os-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
@@ -790,6 +790,14 @@ class NumericalMethodsModel {
   updateOdeMetrics(eulerError, rk4Error) {
     this.setValue("eulerError", eulerError.toFixed(3));
     this.setValue("rk4Error", rk4Error.toFixed(4));
+    const ratio = rk4Error > 1e-8 ? eulerError / rk4Error : 0;
+    if (ratio > 0) {
+      this.setValue("convergence", ratio > 1
+        ? (this.isSpanish ? `Euler ≈ ${ratio.toFixed(1)}x mayor` : `Euler ≈ ${ratio.toFixed(1)}x larger`)
+        : (this.isSpanish ? "Errores similares en este paso" : "Errors are similar at this step"));
+    } else {
+      this.setValue("convergence", this.isSpanish ? "Esperando datos" : "Waiting for data");
+    }
   }
 
   resetMonteCarlo() {
@@ -945,8 +953,12 @@ class NumericalMethodsModel {
 
   updateMonteCarloMetrics() {
     const pi = this.mc?.total ? 4 * this.mc.inside / this.mc.total : 0;
+    const p = this.mc?.total ? this.mc.inside / this.mc.total : 0;
+    const standardError = this.mc?.total ? 4 * Math.sqrt(Math.max(p * (1 - p), 0) / this.mc.total) : 0;
+    const interval = standardError ? 1.96 * standardError : 0;
     this.setValue("pi", pi ? pi.toFixed(5) : "0.00000");
     this.setValue("mcError", pi ? Math.abs(pi - Math.PI).toFixed(5) : "0.00000");
+    this.setValue("mcCi", interval ? `±${interval.toFixed(4)}` : "±0.0000");
     this.setValue("samples", String(this.mc?.total ?? 0));
   }
 
@@ -1118,6 +1130,9 @@ class NumericalMethodsModel {
     this.setValue("heatAvg", (total / (n * n)).toFixed(2));
     this.setValue("alpha", this.state.alpha.toFixed(2));
     this.setValue("stability", `${this.state.alpha.toFixed(2)} / 0.25`);
+    this.setValue("stabilityNote", this.state.alpha <= 0.25
+      ? (this.isSpanish ? "estable para este paso explícito" : "stable for this explicit step")
+      : (this.isSpanish ? "fuera del rango estable" : "outside stable range"));
   }
 
   injectHeatFromPointer(event, intensity = 185) {

@@ -1,4 +1,4 @@
-import { bindPinchZoom, isModelPanGesture, panTargetFromPointer } from "./model-pan.js?v=20260524-mobile-science-menu-v1";
+import { bindPinchZoom, isModelPanGesture, panTargetFromPointer } from "./model-pan.js?v=20260524-model-teaching-os-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
@@ -44,11 +44,13 @@ class QuantumFluctuationModel {
       yaw: -0.72,
       pitch: 0.42,
       distance: 10.4,
-      target: { x: 0, y: 0, z: 0 }
+      target: { x: 0, y: 0, z: 0 },
+      paused: false
     };
 
     this.pointer = null;
     this.sampleSeed = 1900;
+    this.sampleHistory = [this.sampleSeed];
     this.readoutCache = {};
     this.visible = true;
     this.destroyed = false;
@@ -221,10 +223,20 @@ class QuantumFluctuationModel {
 
     this.container.querySelector("[data-qf-action='resample']")?.addEventListener("click", () => {
       this.sampleSeed += 101;
+      this.sampleHistory.unshift(this.sampleSeed);
+      this.sampleHistory = this.sampleHistory.slice(0, 4);
       this.modes = createModes(this.sampleSeed);
       this.time = 0;
       updateField(this);
       this.updateReadout();
+    });
+
+    this.container.querySelector("[data-qf-action='pause']")?.addEventListener("click", (event) => {
+      this.state.paused = !this.state.paused;
+      event.currentTarget.textContent = this.state.paused
+        ? (this.isSpanish ? "Reanudar" : "Resume")
+        : (this.isSpanish ? "Pausar" : "Pause");
+      event.currentTarget.setAttribute("aria-pressed", String(this.state.paused));
     });
   }
 
@@ -361,7 +373,9 @@ class QuantumFluctuationModel {
     const motionScale = document.body.dataset.motion === "reduced" ? 0.45 : 1;
     const scaledDelta = deltaTime * motionScale;
 
-    this.time += scaledDelta;
+    if (!this.state.paused) {
+      this.time += scaledDelta;
+    }
     this.stars.rotation.y += scaledDelta * 0.012;
     updateField(this);
   }
@@ -398,7 +412,9 @@ class QuantumFluctuationModel {
     const values = {
       mass: this.metrics.mass.toFixed(2),
       modes: String(this.metrics.activeModes),
-      rms: this.metrics.rms.toFixed(2)
+      rms: this.metrics.rms.toFixed(2),
+      seed: String(this.sampleSeed),
+      history: this.sampleHistory.join(", ")
     };
 
     Object.entries(values).forEach(([key, value]) => {
@@ -412,6 +428,23 @@ class QuantumFluctuationModel {
         this.readoutCache[key] = value;
       }
     });
+
+    this.updateHistogram();
+  }
+
+  updateHistogram() {
+    const target = this.container.querySelector("[data-qf-histogram]");
+    if (!target || !this.metrics?.histogram) {
+      return;
+    }
+
+    const max = Math.max(1, ...this.metrics.histogram);
+    target.replaceChildren(...this.metrics.histogram.map((count, index) => {
+      const bar = document.createElement("span");
+      bar.style.height = `${Math.max(8, count / max * 100)}%`;
+      bar.title = `${this.isSpanish ? "rango" : "bin"} ${index + 1}: ${count}`;
+      return bar;
+    }));
   }
 
   destroy() {
@@ -548,8 +581,11 @@ function updateField(model) {
   }
 
   const colorScale = Math.max(0.001, maxAbs);
+  const histogram = new Array(7).fill(0);
   for (let i = 0; i < position.count; i += 1) {
     const t = clamp(Math.abs(heights[i]) / colorScale, 0, 1);
+    const bin = clamp(Math.floor(((heights[i] / colorScale) + 1) * 0.5 * histogram.length), 0, histogram.length - 1);
+    histogram[bin] += 1;
     if (heights[i] < 0) {
       color.lerpColors(low, mid, t);
     } else {
@@ -565,7 +601,8 @@ function updateField(model) {
   model.metrics = {
     mass,
     activeModes: countActiveModes(modes, state.cutoff),
-    rms: Math.sqrt(squaredHeightSum / position.count)
+    rms: Math.sqrt(squaredHeightSum / position.count),
+    histogram
   };
   model.updateReadout();
 }

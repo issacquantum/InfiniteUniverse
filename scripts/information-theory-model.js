@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260524-mobile-science-menu-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260524-model-teaching-os-v1";
 
 const mountedModels = new WeakSet();
 const SYMBOL_COUNT = 4;
@@ -128,8 +128,43 @@ class InformationTheoryModel {
       this.state.panY = 0;
     });
 
+    this.container.querySelectorAll("[data-it-preset]").forEach((button) => {
+      button.addEventListener("click", () => {
+        this.applyPreset(button.dataset.itPreset);
+      });
+    });
+
     this.setValue("status", this.copy("status"));
     this.syncReadout();
+  }
+
+  applyPreset(preset) {
+    const presets = {
+      uniform: { focus: 0.0, noise: 0.16, redundancy: 0.35 },
+      predictable: { focus: 0.86, noise: 0.16, redundancy: 0.35 },
+      clean: { focus: 0.18, noise: 0.02, redundancy: 0.25 },
+      noisy: { focus: 0.18, noise: 0.58, redundancy: 0.2 },
+      redundant: { focus: 0.18, noise: 0.42, redundancy: 0.86 }
+    };
+    const next = presets[preset];
+    if (!next) {
+      return;
+    }
+
+    this.state.focus = next.focus;
+    this.state.noise = next.noise;
+    this.state.redundancy = next.redundancy;
+    this.syncControls();
+    this.syncReadout();
+  }
+
+  syncControls() {
+    this.container.querySelectorAll("[data-it-param]").forEach((control) => {
+      const key = control.dataset.itParam;
+      if (Object.hasOwn(this.state, key)) {
+        control.value = String(this.state[key]);
+      }
+    });
   }
 
   bindCanvas() {
@@ -307,6 +342,7 @@ class InformationTheoryModel {
     this.setValue("mutual", metrics.mutualInformation.toFixed(3));
     this.setValue("capacity", metrics.capacity.toFixed(3));
     this.setValue("error", metrics.effectiveNoise.toFixed(3));
+    this.setValue("matrix", `diag ${(1 - metrics.effectiveNoise).toFixed(3)} / off ${(metrics.effectiveNoise / (SYMBOL_COUNT - 1)).toFixed(3)}`);
   }
 
   setValue(key, value) {

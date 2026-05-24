@@ -1,4 +1,4 @@
-import { bindPinchZoom, isModelPanGesture, panTargetFromPointer } from "./model-pan.js?v=20260524-mobile-science-menu-v1";
+import { bindPinchZoom, isModelPanGesture, panTargetFromPointer } from "./model-pan.js?v=20260524-model-teaching-os-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
@@ -675,6 +675,10 @@ class AlgorithmVisualizerModel {
     this.setValue("speed", `${this.state.speed.toFixed(1)}x`);
     this.setValue("step", String(this.activeStep()));
     this.setValue("metric", this.activeMetric());
+    const details = this.activeTeachingDetails();
+    this.setValue("focus", details.focus);
+    this.setValue("operation", details.operation);
+    this.setValue("axis", details.axis);
 
     if (this.statusNode) {
       const key = this.state.mode === "path" ? "pathStatus" : this.state.mode === "sort" ? "sortStatus" : "bigOStatus";
@@ -712,6 +716,39 @@ class AlgorithmVisualizerModel {
       return state.swapped ? "swap" : "compare";
     }
     return `n = ${this.bigOStep + 1}`;
+  }
+
+  activeTeachingDetails() {
+    if (this.state.mode === "path") {
+      const state = this.pathStates[this.pathStep] ?? this.pathStates[0];
+      const current = GRAPH_NODES[state.current]?.id ?? "N1";
+      return {
+        focus: this.isSpanish ? `Nodo actual: ${current}` : `Current node: ${current}`,
+        operation: state.finalPath.length
+          ? (this.isSpanish ? "Camino final marcado" : "Final path marked")
+          : (this.isSpanish ? "Relajar aristas vecinas" : "Relax neighboring edges"),
+        axis: this.isSpanish ? "Tabla: nodo, distancia, previo, estado" : "Table idea: node, distance, previous, status"
+      };
+    }
+
+    if (this.state.mode === "sort") {
+      const state = this.sortSteps[this.sortStep] ?? this.sortSteps[0];
+      const pair = state.compare.length ? `${state.compare[0] + 1}-${state.compare[1] + 1}` : "-";
+      return {
+        focus: this.isSpanish ? "Algoritmo: bubble sort" : "Algorithm: bubble sort",
+        operation: state.swapped
+          ? (this.isSpanish ? `Comparacion ${pair}: intercambiar` : `Comparison ${pair}: swap`)
+          : (this.isSpanish ? `Comparacion ${pair}: sin intercambio` : `Comparison ${pair}: no swap`),
+        axis: this.isSpanish ? "Las barras ordenadas se fijan al final" : "Sorted bars lock at the end"
+      };
+    }
+
+    const n = this.bigOStep + 1;
+    return {
+      focus: this.isSpanish ? `Tamano de entrada n = ${n}` : `Input size n = ${n}`,
+      operation: this.isSpanish ? "Compara crecimiento de operaciones" : "Compare operation growth",
+      axis: this.isSpanish ? "x: n, y: operaciones relativas" : "x-axis: n, y-axis: relative operations"
+    };
   }
 
   setValue(key, value) {

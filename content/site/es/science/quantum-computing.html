@@ -138,6 +138,42 @@
       rotaciones de un qubit y una compuerta entrelazante; en la práctica, <strong>CNOT junto con un conjunto rico de
         compuertas de un qubit</strong> permite aproximar circuitos cuánticos arbitrarios.</p>
 
+    <div class="model-teaching-card" aria-label="Notas educativas del modelo de circuito cuántico">
+      <p><strong>Tipo de modelo:</strong> Modelo físico simplificado.</p>
+      <p><strong>Qué muestra:</strong> Compuertas de un qubit cambiando amplitudes, probabilidades de medición y una ruta CNOT de dos qubits hacia un estado de Bell.</p>
+      <p><strong>Qué no muestra:</strong> Hardware cuántico real, ruido, corrección de errores, compilación completa de circuitos o algoritmos de gran escala.</p>
+      <p><strong>Ecuación / principio:</strong> \(|\psi\rangle=\alpha|0\rangle+\beta|1\rangle\), \(P(0)=|\alpha|^2\), y las compuertas unitarias conservan la probabilidad total.</p>
+      <p><strong>Qué probar:</strong> Presiona H, luego Z y luego H otra vez; en el demo de dos qubits presiona H en control y después CNOT.</p>
+    </div>
+    <figure class="quantum-circuit-model glass-window" data-quantum-circuit-model data-language="es">
+      <div class="quantum-circuit-model__frame" data-qcm-frame></div>
+      <div class="quantum-circuit-model__panel">
+        <div class="quantum-circuit-model__actions" aria-label="Compuertas de un qubit">
+          <button class="quantum-circuit-model__button" type="button" data-qcm-gate="h">H</button>
+          <button class="quantum-circuit-model__button" type="button" data-qcm-gate="x">X</button>
+          <button class="quantum-circuit-model__button" type="button" data-qcm-gate="y">Y</button>
+          <button class="quantum-circuit-model__button" type="button" data-qcm-gate="z">Z</button>
+          <button class="quantum-circuit-model__button" type="button" data-qcm-gate="s">S</button>
+          <button class="quantum-circuit-model__button" type="button" data-qcm-gate="t">T</button>
+          <button class="quantum-circuit-model__button" type="button" data-qcm-gate="measure">Medir</button>
+          <button class="quantum-circuit-model__button" type="button" data-qcm-gate="reset">Reiniciar qubit</button>
+        </div>
+        <div class="quantum-circuit-model__actions" aria-label="Demo CNOT de dos qubits">
+          <button class="quantum-circuit-model__button" type="button" data-qcm-pair-action="h-control">H en control</button>
+          <button class="quantum-circuit-model__button" type="button" data-qcm-pair-action="cnot">CNOT</button>
+          <button class="quantum-circuit-model__button" type="button" data-qcm-pair-action="reset">Reiniciar par</button>
+        </div>
+        <div class="quantum-circuit-model__metrics" aria-label="Lectura del circuito cuántico">
+          <span class="quantum-circuit-model__metric"><strong>Estado:</strong> <span data-qcm-value="state">1.00|0> + 0.00|1></span></span>
+          <span class="quantum-circuit-model__metric"><strong>P(0):</strong> <span data-qcm-value="prob0">100%</span></span>
+          <span class="quantum-circuit-model__metric"><strong>P(1):</strong> <span data-qcm-value="prob1">0%</span></span>
+          <span class="quantum-circuit-model__metric"><strong>Bloch:</strong> <span data-qcm-value="bloch">x 0.00, y 0.00, z 1.00</span></span>
+          <span class="quantum-circuit-model__metric"><strong>Par:</strong> <span data-qcm-value="pair">1.00|00></span></span>
+        </div>
+        <p class="quantum-circuit-model__note">La ruta H en control seguida de CNOT crea el patrón de estado de Bell \((|00\rangle+|11\rangle)/\sqrt2\).</p>
+      </div>
+    </figure>
+
     <h3>De Circuitos a Algoritmos</h3>
     <p>
       Las compuertas se convierten en algoritmos cuando un circuito se organiza para que las amplitudes vuelvan a

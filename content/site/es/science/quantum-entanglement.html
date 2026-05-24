@@ -218,6 +218,13 @@
       sigue un patrón coseno, así que distintas <strong>direcciones de detector</strong> producen estadísticas distintas de resultados
       iguales u opuestos, aunque cada resultado local siga siendo aleatorio.
     </p>
+    <div class="model-teaching-card" aria-label="Notas educativas del modelo de singlete de Bell">
+      <p><strong>Tipo de modelo:</strong> Modelo físico.</p>
+      <p><strong>Qué muestra:</strong> Resultados locales aleatorios que producen correlaciones no clásicas cuando se comparan muchos ensayos.</p>
+      <p><strong>Qué no muestra:</strong> Un mensaje instantáneo, control sobre el resultado de Bob o comunicación más rápida que la luz.</p>
+      <p><strong>Ecuación / principio:</strong> Para el singlete, \(E(a,b)=-\cos\theta_{ab}\); CHSH compara el límite clásico \(S\le2\) con el límite cuántico \(S\le2\sqrt2\).</p>
+      <p><strong>Qué probar:</strong> Cambia los ángulos, ejecuta ensayos y usa CHSH para ver que las distribuciones locales siguen cerca de 50/50.</p>
+    </div>
     <figure class="quantum-entanglement glass-window" data-quantum-entanglement-model data-language="es">
       <div class="quantum-entanglement__frame" data-qe-frame>
         <p class="quantum-entanglement__prompt" data-qe-prompt>Haz clic en cualquier punto de una esfera o presiona Medir Par.</p>
@@ -227,6 +234,7 @@
           <div class="quantum-entanglement__actions">
             <button class="quantum-entanglement__button" type="button" data-qe-action="measure">Medir Par</button>
             <button class="quantum-entanglement__button" type="button" data-qe-action="run-trials">Ejecutar 256 Ensayos</button>
+            <button class="quantum-entanglement__button" type="button" data-qe-action="run-chsh">Demo CHSH</button>
             <button class="quantum-entanglement__button" type="button" data-qe-action="reset">Reentrelazar</button>
           </div>
           <label class="quantum-entanglement__group">
@@ -251,6 +259,8 @@
             <span>violeta eléctrico = resultado -n</span>
             <span>capa punteada = ejes posibles</span>
             <span>clic en la esfera = elegir eje</span>
+            <span>límite clásico CHSH: S ≤ 2</span>
+            <span>límite cuántico: S ≤ 2√2</span>
             <span>rotación manual solamente</span>
           </div>
         </div>
@@ -320,6 +330,24 @@
               <span class="quantum-entanglement__metric-label">E esperada / medida</span>
               <span class="quantum-entanglement__value"><span data-qe-value="expectedE">-0.707</span> / <span
                   data-qe-value="empiricalE">0.000</span></span>
+            </div>
+          </div>
+          <div class="quantum-entanglement__metric">
+            <div class="quantum-entanglement__metric-row">
+              <span class="quantum-entanglement__metric-label">A local +</span>
+              <span class="quantum-entanglement__value" data-qe-value="aliceLocal">50%</span>
+            </div>
+          </div>
+          <div class="quantum-entanglement__metric">
+            <div class="quantum-entanglement__metric-row">
+              <span class="quantum-entanglement__metric-label">B local +</span>
+              <span class="quantum-entanglement__value" data-qe-value="bobLocal">50%</span>
+            </div>
+          </div>
+          <div class="quantum-entanglement__metric">
+            <div class="quantum-entanglement__metric-row">
+              <span class="quantum-entanglement__metric-label">CHSH S</span>
+              <span class="quantum-entanglement__value" data-qe-value="chsh">sin ejecutar</span>
             </div>
           </div>
         </div>

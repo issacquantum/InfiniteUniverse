@@ -777,6 +777,36 @@ body[data-readable-font="on"] .reading-settings-panel h3 {
   line-height: 1.28;
 }
 
+.static-fallback {
+  align-self: center;
+  width: min(100%, 48rem);
+  margin-inline: auto;
+}
+
+.model-teaching-card {
+  width: min(100%, 42rem);
+  margin: 0.35rem auto 0.75rem;
+  padding: 0.88rem 1rem;
+  border: 1px solid rgba(var(--outline-rgb), 0.28);
+  border-radius: 1rem;
+  background: rgba(var(--glass-rgb), 0.18);
+  box-shadow: 0 0 0 1px rgba(var(--outline-rgb), 0.08) inset;
+  text-align: left;
+}
+
+.model-teaching-card p {
+  margin: 0;
+  text-align: left;
+}
+
+.model-teaching-card p + p {
+  margin-top: 0.42rem;
+}
+
+.model-teaching-card strong {
+  color: var(--strong);
+}
+
 .site-infinity,
 .content-window__infinity {
   color: var(--text);

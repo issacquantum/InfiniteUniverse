@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260524-mobile-science-menu-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260524-model-teaching-os-v1";
 
 const mountedModels = new WeakSet();
 
