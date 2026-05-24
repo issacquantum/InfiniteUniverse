@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-naming-cache-clean-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-brother-wording-v1";
 
 function htmlSource(group, id) {
   return {
