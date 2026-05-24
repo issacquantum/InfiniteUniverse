@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-foundation-models-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-model-lab-targets-v1";
 
 function htmlSource(group, id) {
   return {
