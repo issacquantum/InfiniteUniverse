@@ -1,14 +1,14 @@
-import { siteAssets } from "../data/site-assets.js?v=20260524-quantum-circuit-3d-v1";
-import { siteContent } from "../data/site-content.js?v=20260524-quantum-circuit-3d-v1";
-import { createReadingSettingsController } from "./reading-settings.js?v=20260524-quantum-circuit-3d-v1";
-import { initBackground } from "./background.js?v=20260524-quantum-circuit-3d-v1";
-import { refreshIcons } from "./icons.js?v=20260524-quantum-circuit-3d-v1";
-import { pick } from "./i18n.js?v=20260524-quantum-circuit-3d-v1";
-import { syncLegacyContent } from "./legacy-content.js?v=20260524-quantum-circuit-3d-v1";
-import { createMusicController, syncMusicUi } from "./music.js?v=20260524-quantum-circuit-3d-v1";
-import { renderSite } from "./render.js?v=20260524-quantum-circuit-3d-v1";
-import { createState } from "./state.js?v=20260524-quantum-circuit-3d-v1";
-import { syncStructuredContent } from "./structured-content.js?v=20260524-quantum-circuit-3d-v1";
+import { siteAssets } from "../data/site-assets.js?v=20260524-science-return-nav-v1";
+import { siteContent } from "../data/site-content.js?v=20260524-science-return-nav-v1";
+import { createReadingSettingsController } from "./reading-settings.js?v=20260524-science-return-nav-v1";
+import { initBackground } from "./background.js?v=20260524-science-return-nav-v1";
+import { refreshIcons } from "./icons.js?v=20260524-science-return-nav-v1";
+import { pick } from "./i18n.js?v=20260524-science-return-nav-v1";
+import { syncLegacyContent } from "./legacy-content.js?v=20260524-science-return-nav-v1";
+import { createMusicController, syncMusicUi } from "./music.js?v=20260524-science-return-nav-v1";
+import { renderSite } from "./render.js?v=20260524-science-return-nav-v1";
+import { createState } from "./state.js?v=20260524-science-return-nav-v1";
+import { syncStructuredContent } from "./structured-content.js?v=20260524-science-return-nav-v1";
 
 const refs = {
   siteShell: document.querySelector(".site-shell"),
@@ -535,19 +535,9 @@ function selectDomain(domainId) {
   clearPendingReturnNavigation();
   store.setState((state) => {
     if (state.activeDomain === domainId) {
-      return {
-        ...state,
-        titleOpen: false,
-        activeSection: null,
-        showPersonalSectionList: false,
-        activeDomain: null,
-        activeTopic: null,
-        activeBranch: null,
-        activeDetail: null,
-        equationReturnTarget: null,
-        mobileKnowledgeNavOpen: false,
-        mobileKnowledgeNavDomain: null
-      };
+      return returnToKnowledgeDomain(state, domainId, {
+        openMobileMenu: state.mobileKnowledgeNavOpen
+      });
     }
 
     return {
@@ -566,23 +556,39 @@ function selectDomain(domainId) {
   });
 }
 
+function findDomainIdForTopic(topicId) {
+  return siteContent.knowledgeWorlds.find((domain) => (
+    domain.topics?.some((topic) => topic.id === topicId)
+  ))?.id ?? null;
+}
+
+function returnToKnowledgeDomain(state, domainId, { openMobileMenu = false } = {}) {
+  const nextDomainId = domainId ?? state.activeDomain ?? state.mobileKnowledgeNavDomain ?? null;
+
+  return {
+    ...state,
+    titleOpen: false,
+    activeSection: null,
+    showPersonalSectionList: false,
+    activeDomain: nextDomainId,
+    activeTopic: null,
+    activeBranch: null,
+    activeDetail: null,
+    equationReturnTarget: null,
+    mobileKnowledgeNavOpen: openMobileMenu,
+    mobileKnowledgeNavDomain: nextDomainId
+  };
+}
+
 function selectTopic(topicId) {
   clearPendingReturnNavigation();
   store.setState((state) => {
+    const domainId = state.activeDomain ?? findDomainIdForTopic(topicId);
+
     if (state.activeTopic === topicId) {
-      return {
-        ...state,
-        titleOpen: false,
-        activeSection: null,
-        showPersonalSectionList: false,
-        activeDomain: null,
-        activeTopic: null,
-        activeBranch: null,
-        activeDetail: null,
-        equationReturnTarget: null,
-        mobileKnowledgeNavOpen: false,
-        mobileKnowledgeNavDomain: null
-      };
+      return returnToKnowledgeDomain(state, domainId, {
+        openMobileMenu: state.mobileKnowledgeNavOpen
+      });
     }
 
     return {
@@ -590,11 +596,13 @@ function selectTopic(topicId) {
       titleOpen: false,
       activeSection: null,
       showPersonalSectionList: false,
+      activeDomain: domainId,
       activeTopic: topicId,
       activeBranch: null,
       activeDetail: null,
       equationReturnTarget: null,
-      mobileKnowledgeNavOpen: false
+      mobileKnowledgeNavOpen: false,
+      mobileKnowledgeNavDomain: domainId ?? state.mobileKnowledgeNavDomain
     };
   });
 }
@@ -711,25 +719,10 @@ function selectLegacyItem(branchId, itemId) {
 function showMobileSections() {
   clearPendingReturnNavigation();
   store.setState((state) => {
-    if (state.activeDetail) {
-      return {
-        ...state,
-        activeDetail: null,
-        equationReturnTarget: null,
-        mobileKnowledgeNavOpen: false
-      };
-    }
-
-    if (state.activeTopic) {
-      return {
-        ...state,
-        activeDomain: null,
-        activeTopic: null,
-        activeBranch: null,
-        activeDetail: null,
-        equationReturnTarget: null,
-        mobileKnowledgeNavOpen: false
-      };
+    if (state.activeDomain || state.activeTopic) {
+      return returnToKnowledgeDomain(state, state.activeDomain ?? findDomainIdForTopic(state.activeTopic), {
+        openMobileMenu: true
+      });
     }
 
     if (state.activeSection) {
@@ -786,19 +779,9 @@ function selectMobileKnowledgeTopic(domainId, topicId) {
   clearPendingReturnNavigation();
   store.setState((state) => {
     if (state.activeDomain === domainId && state.activeTopic === topicId) {
-      return {
-        ...state,
-        titleOpen: false,
-        activeSection: null,
-        showPersonalSectionList: false,
-        activeDomain: null,
-        activeTopic: null,
-        activeBranch: null,
-        activeDetail: null,
-        equationReturnTarget: null,
-        mobileKnowledgeNavOpen: false,
-        mobileKnowledgeNavDomain: null
-      };
+      return returnToKnowledgeDomain(state, domainId, {
+        openMobileMenu: true
+      });
     }
 
     return {

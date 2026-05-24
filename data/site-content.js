@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-quantum-circuit-3d-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-science-return-nav-v1";
 
 function htmlSource(group, id) {
   return {
