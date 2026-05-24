@@ -1,4 +1,4 @@
-import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260524-desktop-home-only-v1";
+import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260524-phone-home-hidden-v1";
 
 const mountedSimulators = new WeakSet();
 const TWO_PI = Math.PI * 2;

@@ -350,9 +350,15 @@
   text-align: center;
 }
 
-@media (min-width: 769px) and (hover: hover) and (pointer: fine) {
+@media (min-width: 1025px) and (hover: hover) and (pointer: fine) and (any-pointer: fine) {
   .desktop-home-toggle {
     display: grid;
+  }
+}
+
+@media (max-width: 1024px), (hover: none), (pointer: coarse), (any-pointer: coarse) {
+  .desktop-home-toggle {
+    display: none !important;
   }
 }
 
