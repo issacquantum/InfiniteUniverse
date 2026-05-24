@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260524-cosmology-language-scroll-v1";
+import { pick } from "./i18n.js?v=20260524-single-notice-update-v1";
 
 function escapeHtml(value) {
   return String(value)

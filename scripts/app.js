@@ -1,14 +1,14 @@
-import { siteAssets } from "../data/site-assets.js?v=20260524-cosmology-language-scroll-v1";
-import { siteContent } from "../data/site-content.js?v=20260524-cosmology-language-scroll-v1";
-import { createAccessibilityController } from "./accessibility.js?v=20260524-cosmology-language-scroll-v1";
-import { initBackground } from "./background.js?v=20260524-cosmology-language-scroll-v1";
-import { refreshIcons } from "./icons.js?v=20260524-cosmology-language-scroll-v1";
-import { pick } from "./i18n.js?v=20260524-cosmology-language-scroll-v1";
-import { syncLegacyContent } from "./legacy-content.js?v=20260524-cosmology-language-scroll-v1";
-import { createMusicController, syncMusicUi } from "./music.js?v=20260524-cosmology-language-scroll-v1";
-import { renderSite } from "./render.js?v=20260524-cosmology-language-scroll-v1";
-import { createState } from "./state.js?v=20260524-cosmology-language-scroll-v1";
-import { syncStructuredContent } from "./structured-content.js?v=20260524-cosmology-language-scroll-v1";
+import { siteAssets } from "../data/site-assets.js?v=20260524-single-notice-update-v1";
+import { siteContent } from "../data/site-content.js?v=20260524-single-notice-update-v1";
+import { createAccessibilityController } from "./accessibility.js?v=20260524-single-notice-update-v1";
+import { initBackground } from "./background.js?v=20260524-single-notice-update-v1";
+import { refreshIcons } from "./icons.js?v=20260524-single-notice-update-v1";
+import { pick } from "./i18n.js?v=20260524-single-notice-update-v1";
+import { syncLegacyContent } from "./legacy-content.js?v=20260524-single-notice-update-v1";
+import { createMusicController, syncMusicUi } from "./music.js?v=20260524-single-notice-update-v1";
+import { renderSite } from "./render.js?v=20260524-single-notice-update-v1";
+import { createState } from "./state.js?v=20260524-single-notice-update-v1";
+import { syncStructuredContent } from "./structured-content.js?v=20260524-single-notice-update-v1";
 
 const refs = {
   siteShell: document.querySelector(".site-shell"),
