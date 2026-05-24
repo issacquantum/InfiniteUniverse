@@ -1882,6 +1882,20 @@ body[data-media-notes="on"] .media-note {
     font-family: var(--font-content-phone);
   }
 
+  .content-window,
+  .structured-content,
+  .legacy-content,
+  .accessibility-panel {
+    font-family: var(--font-content-phone);
+  }
+
+  .content-window :is(p, li, dd, dt, blockquote, figcaption),
+  .structured-content :is(p, li, dd, dt, blockquote, figcaption),
+  .legacy-content :is(p, li, dd, dt, blockquote, figcaption),
+  .accessibility-panel :is(p, li, dd, dt, blockquote, figcaption) {
+    font-family: var(--font-content-phone);
+  }
+
   .accessibility-toggle {
     right: 0.68rem;
     bottom: calc(0.68rem + env(safe-area-inset-bottom));
@@ -1912,6 +1926,12 @@ body[data-media-notes="on"] .media-note {
   .branch-grid .glass-tab,
   .legacy-item-grid .glass-tab,
   .focused-path-tab {
+    font-family: var(--font-title);
+  }
+
+  .content-window :is(h1, h2, h3, h4, h5, h6) :is(a, span, strong, em),
+  .structured-content :is(h1, h2, h3, h4, h5, h6) :is(a, span, strong, em),
+  .legacy-content :is(h1, h2, h3, h4, h5, h6) :is(a, span, strong, em) {
     font-family: var(--font-title);
   }
 

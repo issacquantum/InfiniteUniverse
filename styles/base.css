@@ -179,12 +179,30 @@ body[data-motion="reduced"] *::after {
     font-family: var(--font-content-phone);
   }
 
+  p,
+  li,
+  dd,
+  dt,
+  blockquote,
+  figcaption {
+    font-family: var(--font-content-phone);
+  }
+
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
+    font-family: var(--font-title);
+  }
+
+  h1 :is(a, span, strong, em),
+  h2 :is(a, span, strong, em),
+  h3 :is(a, span, strong, em),
+  h4 :is(a, span, strong, em),
+  h5 :is(a, span, strong, em),
+  h6 :is(a, span, strong, em) {
     font-family: var(--font-title);
   }
 
