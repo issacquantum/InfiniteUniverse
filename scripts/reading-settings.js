@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260524-model-lab-v1";
+import { pick } from "./i18n.js?v=20260524-foundation-topics-v1";
 
 const STORAGE_KEY = "issac-tabares-reading-settings";
 

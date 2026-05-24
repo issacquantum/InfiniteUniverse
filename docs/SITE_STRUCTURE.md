@@ -20,6 +20,16 @@ This file documents the project layout for `https://issacquantum.github.io/Infin
 - Equation explainer pages live under `content/site/*/science/equations/`.
 - The centralized model index lives at `content/site/*/science/model-lab.html`; models still remain embedded in their original science pages.
 
+## Knowledge World Domains
+
+- `model-lab`: central model index.
+- `physical-foundations`: classical mechanics, electromagnetism, thermodynamics/statistical mechanics, mathematical foundations.
+- `quantum-foundations`: quantum mechanics, quantum entanglement, quantum information, quantum computing.
+- `matter-life-mind`: quantum field theory, chemistry and molecular structure, biology and life systems, neuroscience of consciousness.
+- `spacetime-cosmos`: relativity and spacetime, black holes, wormholes, cosmology and the early universe.
+- `intelligence-computation`: artificial intelligence, information theory, programming and algorithms, simulation and models.
+- `systems-method`: complex systems and emergence, philosophy of science.
+
 ## Adding A Content Page
 
 1. Add the English and Spanish HTML fragments under the matching `content/site/` paths.

@@ -35,6 +35,16 @@ http://localhost:4175/
 3. Keep visible labels, IDs, file names, and content paths aligned.
 4. Avoid adding duplicate public labels for the same section.
 
+## Knowledge Worlds
+
+- `model-lab`: centralized discovery page for interactive models.
+- `physical-foundations`: classical mechanics, electromagnetism, thermodynamics/statistical mechanics, and mathematical foundations.
+- `quantum-foundations`: quantum mechanics, entanglement, quantum information, and quantum computing.
+- `matter-life-mind`: quantum field theory, chemistry, biology, and neuroscience of consciousness.
+- `spacetime-cosmos`: relativity, black holes, wormholes, and cosmology.
+- `intelligence-computation`: artificial intelligence, information theory, programming, and simulations.
+- `systems-method`: complex systems and philosophy of science.
+
 ## Adding Interactive Models
 
 1. Add one teaching card before the model:
