@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260524-model-lab-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260524-foundation-topics-v1";
 
 const mountedModels = new WeakSet();
 
