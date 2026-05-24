@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260524-gravity-lensing-controls-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260524-authorized-text-colors-v1";
 
 const mountedModels = new WeakSet();
 
