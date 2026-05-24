@@ -1,6 +1,6 @@
-import { bigBangLegacyContent } from "../data/legacy-big-bang.js?v=20260524-active-science-title-menu-v1";
-import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260524-active-science-title-menu-v1";
-import { pick } from "./i18n.js?v=20260524-active-science-title-menu-v1";
+import { bigBangLegacyContent } from "../data/legacy-big-bang.js?v=20260524-gravity-fabric-fit-v1";
+import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260524-gravity-fabric-fit-v1";
+import { pick } from "./i18n.js?v=20260524-gravity-fabric-fit-v1";
 
 let activeRequestToken = 0;
 

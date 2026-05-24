@@ -1,4 +1,4 @@
-import { bindPinchZoom, isModelPanGesture, panObjectFromPointer } from "./model-pan.js?v=20260524-active-science-title-menu-v1";
+import { bindPinchZoom, isModelPanGesture, panObjectFromPointer } from "./model-pan.js?v=20260524-gravity-fabric-fit-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
@@ -84,9 +84,11 @@ class GravityFabricModel {
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
 
-    this.camera = new THREE.PerspectiveCamera(42, 1, 0.1, 80);
-    this.camera.position.set(0, 5.0, 9.4);
-    this.camera.lookAt(0, -0.28, 0);
+    this.camera = new THREE.PerspectiveCamera(44, 1, 0.1, 80);
+    this.cameraLookAt = new THREE.Vector3(0, -0.46, 0);
+    this.cameraZoomRange = { min: 6.4, max: 12.2 };
+    this.camera.position.set(0, 5.05, 9.9);
+    this.syncCameraLookAt();
 
     this.modelGroup = new THREE.Group();
     this.modelGroup.rotation.y = -0.42;
@@ -254,7 +256,10 @@ class GravityFabricModel {
     const rim = 0.1 * massScale * Math.exp(-radiusSquared / 8.4);
     const centralThroat = 0.34 * Math.max(0, massScale - 1) * Math.exp(-radiusSquared / 0.18);
     const well = compactWell + broadWell + centralThroat;
-    return -well + rim;
+    const maxVisibleDepth = 3.05;
+    const boundedWell = maxVisibleDepth * Math.tanh(well / maxVisibleDepth);
+
+    return -boundedWell + rim;
   }
 
   addPlanet() {
@@ -440,8 +445,8 @@ class GravityFabricModel {
     this.canvas.addEventListener("wheel", (event) => {
       event.preventDefault();
       const nextZ = this.camera.position.z + Math.sign(event.deltaY) * 0.45;
-      this.camera.position.z = clamp(nextZ, 5.6, 11.5);
-      this.camera.lookAt(0, -0.28, 0);
+      this.camera.position.z = clamp(nextZ, this.cameraZoomRange.min, this.cameraZoomRange.max);
+      this.syncCameraLookAt();
     }, { passive: false });
 
     bindPinchZoom(this.canvas, {
@@ -449,13 +454,13 @@ class GravityFabricModel {
       setValue: (value) => {
         this.camera.position.z = value;
       },
-      min: 5.6,
-      max: 11.5,
+      min: this.cameraZoomRange.min,
+      max: this.cameraZoomRange.max,
       inverted: true,
       onStart: () => {
         this.pointer = null;
       },
-      onChange: () => this.camera.lookAt(0, -0.28, 0)
+      onChange: () => this.syncCameraLookAt()
     });
 
     this.canvas.addEventListener("keydown", (event) => {
@@ -474,13 +479,21 @@ class GravityFabricModel {
           break;
         case "+":
         case "=":
-          this.camera.position.z = clamp(this.camera.position.z - 0.45, 5.6, 11.5);
-          this.camera.lookAt(0, -0.28, 0);
+          this.camera.position.z = clamp(
+            this.camera.position.z - 0.45,
+            this.cameraZoomRange.min,
+            this.cameraZoomRange.max
+          );
+          this.syncCameraLookAt();
           break;
         case "-":
         case "_":
-          this.camera.position.z = clamp(this.camera.position.z + 0.45, 5.6, 11.5);
-          this.camera.lookAt(0, -0.28, 0);
+          this.camera.position.z = clamp(
+            this.camera.position.z + 0.45,
+            this.cameraZoomRange.min,
+            this.cameraZoomRange.max
+          );
+          this.syncCameraLookAt();
           break;
         default:
           return;
@@ -526,6 +539,10 @@ class GravityFabricModel {
     this.renderer.setSize(width, height, false);
     this.camera.aspect = width / height;
     this.camera.updateProjectionMatrix();
+  }
+
+  syncCameraLookAt() {
+    this.camera.lookAt(this.cameraLookAt);
   }
 
   render(timestamp) {

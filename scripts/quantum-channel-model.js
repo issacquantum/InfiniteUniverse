@@ -1,4 +1,4 @@
-import { bindPinchZoom, isModelPanGesture, panObjectFromPointer } from "./model-pan.js?v=20260524-active-science-title-menu-v1";
+import { bindPinchZoom, isModelPanGesture, panObjectFromPointer } from "./model-pan.js?v=20260524-gravity-fabric-fit-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
