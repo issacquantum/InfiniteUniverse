@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260524-gravity-fabric-fit-v1";
+import { pick } from "./i18n.js?v=20260524-desktop-home-only-v1";
 
 function escapeHtml(value) {
   return String(value)
