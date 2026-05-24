@@ -217,6 +217,13 @@
       entropía, información mutua y capacidad. Barras fuente más altas significan símbolos más probables. La intensidad
       del flujo muestra cuánta probabilidad cruza el canal. Más ruido dispersa probabilidad hacia salidas incorrectas.
     </p>
+    <div class="model-teaching-card" aria-label="Notas educativas del modelo de teoría de la información">
+      <p><strong>Tipo de modelo:</strong> Modelo conceptual.</p>
+      <p><strong>Qué muestra:</strong> Cómo probabilidades de fuente y ruido del canal determinan entropía, información mutua, capacidad y error.</p>
+      <p><strong>Qué no muestra:</strong> Un módem real, un código completo de corrección de errores o todos los canales posibles de comunicación.</p>
+      <p><strong>Ecuación / principio:</strong> \(H(X)=-\sum p\log_2p\) e \(I(X;Y)=H(X)-H(X|Y)\).</p>
+      <p><strong>Qué probar:</strong> Usa primero los presets; luego cambia ruido y redundancia para ver cómo sobrevive la información.</p>
+    </div>
     <figure class="information-theory-model glass-window" data-information-theory-model data-language="es">
       <div class="information-theory-model__frame" data-it-frame></div>
       <div class="information-theory-model__panel">
@@ -239,6 +246,13 @@
           <div class="information-theory-model__actions">
             <button class="information-theory-model__button" type="button" data-it-action="randomize">Aleatorio</button>
             <button class="information-theory-model__button" type="button" data-it-action="center">Centrar</button>
+          </div>
+          <div class="information-theory-model__actions" aria-label="Presets de teoría de la información">
+            <button class="information-theory-model__button" type="button" data-it-preset="uniform">Fuente uniforme</button>
+            <button class="information-theory-model__button" type="button" data-it-preset="predictable">Fuente predecible</button>
+            <button class="information-theory-model__button" type="button" data-it-preset="clean">Canal limpio</button>
+            <button class="information-theory-model__button" type="button" data-it-preset="noisy">Canal ruidoso</button>
+            <button class="information-theory-model__button" type="button" data-it-preset="redundant">Alta redundancia</button>
           </div>
         </div>
         <div class="information-theory-model__metrics">
@@ -265,6 +279,12 @@
             <div class="information-theory-model__metric-row">
               <span class="information-theory-model__metric-label">Error efectivo</span>
               <span class="information-theory-model__value" data-it-value="error">0.000</span>
+            </div>
+          </div>
+          <div class="information-theory-model__metric">
+            <div class="information-theory-model__metric-row">
+              <span class="information-theory-model__metric-label">Matriz de canal P(Y|X)</span>
+              <span class="information-theory-model__value" data-it-value="matrix">diag 0.840 / off 0.053</span>
             </div>
           </div>
           <div class="information-theory-model__legend" aria-label="Leyenda del modelo de información">

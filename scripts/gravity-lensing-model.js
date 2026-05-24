@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260524-mobile-science-menu-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260524-model-teaching-os-v1";
 
 const mountedModels = new WeakSet();
 const TWO_PI = Math.PI * 2;
@@ -34,6 +34,7 @@ class GravityLensingModel {
     this.state = {
       coloredStars: true,
       showRays: true,
+      showUnlensed: false,
       motion: false,
       strength: 82
     };
@@ -143,6 +144,21 @@ class GravityLensingModel {
       if (motionToggle) {
         motionToggle.checked = false;
       }
+      this.targetLens = { x: 0.5, y: 0.5 };
+    });
+
+    this.container.querySelector("[data-gl-action='ring']")?.addEventListener("click", () => {
+      this.state.motion = false;
+      const motionToggle = this.container.querySelector("[data-gl-toggle='motion']");
+      if (motionToggle) {
+        motionToggle.checked = false;
+      }
+      this.state.strength = 110;
+      const strengthInput = this.container.querySelector("[data-gl-param='strength']");
+      if (strengthInput) {
+        strengthInput.value = String(this.state.strength);
+      }
+      this.syncValue("strength");
       this.targetLens = { x: 0.5, y: 0.5 };
     });
   }
@@ -325,6 +341,9 @@ class GravityLensingModel {
     if (this.state.showRays) {
       this.drawRayGuides(ctx, lens, thetaE);
     }
+    if (this.state.showUnlensed) {
+      this.drawSourceStars(ctx);
+    }
     this.drawLensedStars(ctx, lens, thetaE);
     this.drawEinsteinRing(ctx, lens, thetaE);
     this.drawLens(ctx, lens, thetaE);
@@ -408,6 +427,16 @@ class GravityLensingModel {
     }
 
     return star.color;
+  }
+
+  drawSourceStars(ctx) {
+    for (const star of this.stars) {
+      const point = {
+        x: star.x * this.width,
+        y: star.y * this.height
+      };
+      this.drawStarImage(ctx, point, star.size * 0.72, this.getStarColor(star), 0.18, 0, 1);
+    }
   }
 
   drawStarImage(ctx, point, size, color, alpha, angle, stretch) {

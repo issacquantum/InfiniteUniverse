@@ -210,6 +210,13 @@
       cosine pattern, so different <strong>detector directions</strong> produce different <strong>same/opposite statistics</strong> even though each local
       result remains random.
     </p>
+    <div class="model-teaching-card" aria-label="Bell singlet model teaching notes">
+      <p><strong>Model type:</strong> Physical model.</p>
+      <p><strong>What this shows:</strong> Local results stay random, while paired results build a nonclassical correlation after many trials.</p>
+      <p><strong>What it does not show:</strong> A controllable faster-than-light signal or hidden messages traveling between the two systems.</p>
+      <p><strong>Equation / principle:</strong> The singlet correlation is \(E(a,b)=-\cos\theta_{ab}\); a CHSH test compares four such correlations.</p>
+      <p><strong>Try changing:</strong> Move the detector angles, run trials, and watch the expected and measured correlation approach each other statistically.</p>
+    </div>
     <figure class="quantum-entanglement glass-window" data-quantum-entanglement-model data-language="en">
       <div class="quantum-entanglement__frame" data-qe-frame>
         <p class="quantum-entanglement__prompt" data-qe-prompt>Click any point on either sphere or press Measure Pair.</p>
@@ -219,6 +226,7 @@
           <div class="quantum-entanglement__actions">
             <button class="quantum-entanglement__button" type="button" data-qe-action="measure">Measure Pair</button>
             <button class="quantum-entanglement__button" type="button" data-qe-action="run-trials">Run 256 Trials</button>
+            <button class="quantum-entanglement__button" type="button" data-qe-action="run-chsh">CHSH Demo</button>
             <button class="quantum-entanglement__button" type="button" data-qe-action="reset">Re-Entangle</button>
           </div>
           <label class="quantum-entanglement__group">
@@ -313,6 +321,29 @@
               <span class="quantum-entanglement__value"><span data-qe-value="expectedE">-0.707</span> / <span
                   data-qe-value="empiricalE">0.000</span></span>
             </div>
+          </div>
+          <div class="quantum-entanglement__metric">
+            <div class="quantum-entanglement__metric-row">
+              <span class="quantum-entanglement__metric-label">Alice local +</span>
+              <span class="quantum-entanglement__value" data-qe-value="aliceLocal">50%</span>
+            </div>
+          </div>
+          <div class="quantum-entanglement__metric">
+            <div class="quantum-entanglement__metric-row">
+              <span class="quantum-entanglement__metric-label">Bob local +</span>
+              <span class="quantum-entanglement__value" data-qe-value="bobLocal">50%</span>
+            </div>
+          </div>
+          <div class="quantum-entanglement__metric">
+            <div class="quantum-entanglement__metric-row">
+              <span class="quantum-entanglement__metric-label">CHSH S</span>
+              <span class="quantum-entanglement__value" data-qe-value="chsh">not run</span>
+            </div>
+          </div>
+          <div class="quantum-entanglement__legend" aria-label="CHSH reference markers">
+            <span>classical limit S ≤ 2</span>
+            <span>quantum bound S ≤ 2√2</span>
+            <span>local results stay near 50/50</span>
           </div>
         </div>
       </div>

@@ -323,6 +323,13 @@
       no es el espaciotiempo literal, y la dirección hacia abajo no es una quinta dimensión escondida. Es un diagrama
       didáctico para la idea de que <strong>la masa cambia la geometría</strong>.
     </p>
+    <div class="model-teaching-card" aria-label="Notas educativas del modelo de tela gravitacional">
+      <p><strong>Tipo de modelo:</strong> Modelo de analogía.</p>
+      <p><strong>Qué muestra:</strong> Una imagen didáctica de curvatura: la masa cambia las trayectorias posibles.</p>
+      <p><strong>Qué no muestra:</strong> Una dirección real hacia abajo, una quinta dimensión física o la métrica completa de la relatividad general.</p>
+      <p><strong>Ecuación / principio:</strong> La materia y la geometría se relacionan mediante las ecuaciones de campo de Einstein.</p>
+      <p><strong>Qué probar:</strong> Cambia la fuerza de masa y recuerda que la depresión es una imagen didáctica, no una dirección literal de caída.</p>
+    </div>
     <div class="gravity-fabric" data-gravity-fabric-model data-language="es">
       <div class="gravity-fabric__frame glass-window" data-gravity-fabric-frame></div>
       <div class="gravity-fabric__controls" aria-label="Controles del modelo de tela gravitacional">
@@ -352,6 +359,13 @@
       \(\theta_E\), separando más los ángulos de imagen aparentes, \(\theta\), de la posición real de la fuente,
       \(\beta\).
     </p>
+    <div class="model-teaching-card" aria-label="Notas educativas del modelo de lente gravitacional">
+      <p><strong>Tipo de modelo:</strong> Modelo físico simplificado.</p>
+      <p><strong>Qué muestra:</strong> Cómo una masa compacta puede desplazar posiciones aparentes y producir imágenes múltiples o un anillo de Einstein.</p>
+      <p><strong>Qué no muestra:</strong> Trazado completo de rayos en una métrica realista, datos de telescopio o todos los efectos de una galaxia lente.</p>
+      <p><strong>Ecuación / principio:</strong> \(\beta=\theta-\theta_E^2/\theta\).</p>
+      <p><strong>Qué probar:</strong> Usa el preset de anillo y compara las posiciones antes y después de activar la lente.</p>
+    </div>
     <figure class="gravity-lensing glass-window" data-gravity-lensing-model data-language="es">
       <div class="gravity-lensing__frame" data-gravity-lensing-frame></div>
       <div class="gravity-lensing__controls">
@@ -368,10 +382,15 @@
           <span>Guías de luz</span>
         </label>
         <label class="gravity-lensing__toggle">
+          <input type="checkbox" data-gl-toggle="showUnlensed">
+          <span>Mostrar campo fuente</span>
+        </label>
+        <label class="gravity-lensing__toggle">
           <input type="checkbox" data-gl-toggle="motion">
           <span>Movimiento automático</span>
         </label>
         <button class="gravity-lensing__button" type="button" data-gl-action="reset">Reiniciar Lente</button>
+        <button class="gravity-lensing__button" type="button" data-gl-action="ring">Preset Anillo de Einstein</button>
       </div>
       <figcaption class="gravity-lensing__note">
         Arte + física: desviación real de la luz, guías de rayos e imágenes múltiples. Nota de diseño: la paleta

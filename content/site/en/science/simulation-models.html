@@ -184,6 +184,13 @@
       Drag to rotate, use the wheel to zoom, and use <strong>Shift-drag</strong> or right-drag to move the view. In heat
       mode, click or drag directly on the grid to inject heat.
     </p>
+    <div class="model-teaching-card" aria-label="Numerical methods teaching notes">
+      <p><strong>Model type:</strong> Toy physical model.</p>
+      <p><strong>What this shows:</strong> How numerical step size, sampling, and stability affect an approximate calculation.</p>
+      <p><strong>What it does not show:</strong> A full engineering solver, exact climate or fluid simulation, or a guarantee that every attractive simulation is accurate.</p>
+      <p><strong>Equation / principle:</strong> Euler and RK4 time stepping, Monte Carlo error shrinking with samples, and the heat-equation stability limit.</p>
+      <p><strong>Try changing:</strong> Increase step size in Euler vs RK4, increase Monte Carlo samples, then test heat diffusion near the stability limit.</p>
+    </div>
     <figure class="numerical-methods glass-window" data-numerical-methods-model data-language="en">
       <div class="numerical-methods__frame" data-nm-frame></div>
       <div class="numerical-methods__panel">
@@ -260,6 +267,12 @@
                   <span class="numerical-methods__value" data-nm-value="rk4Error">0.0000</span>
                 </div>
               </div>
+              <div class="numerical-methods__metric">
+                <div class="numerical-methods__metric-row">
+                  <span class="numerical-methods__metric-label">Convergence read</span>
+                  <span class="numerical-methods__value" data-nm-value="convergence">Waiting for data</span>
+                </div>
+              </div>
             </div>
             <div class="numerical-methods__metric-group is-hidden" data-nm-metrics="mc">
               <div class="numerical-methods__metric">
@@ -280,6 +293,12 @@
                   <span class="numerical-methods__value" data-nm-value="samples">0</span>
                 </div>
               </div>
+              <div class="numerical-methods__metric">
+                <div class="numerical-methods__metric-row">
+                  <span class="numerical-methods__metric-label">95% interval</span>
+                  <span class="numerical-methods__value" data-nm-value="mcCi">±0.0000</span>
+                </div>
+              </div>
             </div>
             <div class="numerical-methods__metric-group is-hidden" data-nm-metrics="heat">
               <div class="numerical-methods__metric">
@@ -298,6 +317,12 @@
                 <div class="numerical-methods__metric-row">
                   <span class="numerical-methods__metric-label">Boundary</span>
                   <span class="numerical-methods__value" data-nm-value="boundary">insulated</span>
+                </div>
+              </div>
+              <div class="numerical-methods__metric">
+                <div class="numerical-methods__metric-row">
+                  <span class="numerical-methods__metric-label">Stability note</span>
+                  <span class="numerical-methods__value" data-nm-value="stabilityNote">stable for this explicit step</span>
                 </div>
               </div>
             </div>

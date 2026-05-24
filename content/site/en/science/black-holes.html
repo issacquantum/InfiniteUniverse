@@ -468,6 +468,13 @@
           rel="noopener noreferrer">NASA Scientific Visualization Studio</a>.
       </figcaption>
     </figure>
+    <div class="model-teaching-card" aria-label="Black hole shadow model teaching notes">
+      <p><strong>Model type:</strong> Artistic scientific visualization.</p>
+      <p><strong>What this shows:</strong> A custom visual inspired by shadow, photon-ring-like glow, disk asymmetry, inclination, and spin cues.</p>
+      <p><strong>What it does not show:</strong> Telescope data, numerical relativity, plasma turbulence, Hawking radiation, or the black hole interior.</p>
+      <p><strong>Equation / principle:</strong> Light near a compact object follows curved paths; the photon sphere and shadow are optical consequences of strong gravity.</p>
+      <p><strong>Try changing:</strong> Raise inclination and spin, then compare the shadow, ring-like glow, and one-sided disk brightness.</p>
+    </div>
     <figure class="black-hole-model glass-window" data-black-hole-model data-language="en">
       <div class="black-hole-model__frame" data-bh-frame></div>
       <div class="black-hole-model__controls" aria-label="Black hole model controls">
@@ -488,6 +495,9 @@
           <input class="black-hole-model__range" id="bh-brightness-en" data-bh-param="brightness" type="range" min="0.4" max="1.6" step="0.01" value="1">
         </div>
         <button class="black-hole-model__button" type="button" data-bh-reset>Reset view</button>
+      </div>
+      <div class="black-hole-model__note">
+        Visual labels: shadow = central dark region; photon-ring-like glow = bright inner rim; disk asymmetry = one side brighter; inclination = viewing tilt; spin cue = rotational distortion.
       </div>
       <figcaption class="black-hole-model__note">
         Custom artistic animation inspired by black-hole optics. It represents the central shadow, a photon-ring-like

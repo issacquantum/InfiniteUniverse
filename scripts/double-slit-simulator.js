@@ -1,4 +1,4 @@
-import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260524-mobile-science-menu-v1";
+import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260524-model-teaching-os-v1";
 
 const mountedSimulators = new WeakSet();
 const TWO_PI = Math.PI * 2;
@@ -34,6 +34,7 @@ class DoubleSlitInterference {
     this.state = {
       wavelength: 32,
       slitDistance: 84,
+      screenDistance: 220,
       showWavefronts: true,
       showMaxima: true,
       showScale: true,
@@ -94,6 +95,14 @@ class DoubleSlitInterference {
         en: "slit distance",
         es: "distancia entre rendijas"
       },
+      firstBand: {
+        en: "First bright band",
+        es: "Primera banda brillante"
+      },
+      modelUnits: {
+        en: "model units from center",
+        es: "unidades del modelo desde el centro"
+      },
       screen: {
         en: "screen",
         es: "pantalla"
@@ -127,6 +136,7 @@ class DoubleSlitInterference {
         this.state[param] = Number(control.value);
         this.hits = [];
         this.syncValue(param);
+        this.syncEquation();
       });
     });
 
@@ -151,6 +161,8 @@ class DoubleSlitInterference {
     this.container.querySelector("[data-ds-action='clearHits']")?.addEventListener("click", () => {
       this.hits = [];
     });
+
+    this.syncEquation();
   }
 
   syncValue(param) {
@@ -158,6 +170,16 @@ class DoubleSlitInterference {
     if (target) {
       target.textContent = this.state[param].toFixed(0);
     }
+  }
+
+  syncEquation() {
+    const target = this.container.querySelector("[data-ds-equation]");
+    if (!target) {
+      return;
+    }
+
+    const firstBand = this.state.wavelength * this.state.screenDistance / Math.max(1, this.state.slitDistance);
+    target.textContent = `${this.copy("firstBand")}: y1 ≈ ${firstBand.toFixed(1)} ${this.copy("modelUnits")}.`;
   }
 
   bindCanvas() {
@@ -308,7 +330,8 @@ class DoubleSlitInterference {
     const centerX = this.width / 2;
     const centerY = this.height / 2 + this.state.panY;
     const barrierX = centerX + (this.width * 0.38 - centerX) * zoom + this.state.panX;
-    const screenX = centerX + (this.width * 0.86 - centerX) * zoom + this.state.panX;
+    const screenDistance = scaleByHeight(this.state.screenDistance, this.height, 320) * zoom;
+    const screenX = clamp(barrierX + screenDistance, barrierX + this.width * 0.22, this.width - 86);
     const slitDistance = scaleByHeight(this.state.slitDistance, this.height, 320) * zoom;
     const slitGap = Math.max(14, Math.min(24, this.height * 0.07));
     const slitA = centerY - slitDistance / 2;
