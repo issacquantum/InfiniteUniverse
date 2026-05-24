@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-brother-wording-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-porsche-gallery-center-v1";
 
 function htmlSource(group, id) {
   return {
