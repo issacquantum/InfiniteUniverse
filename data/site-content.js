@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-cosmology-language-scroll-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-single-notice-update-v1";
 
 function htmlSource(group, id) {
   return {
