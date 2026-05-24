@@ -1,4 +1,4 @@
-import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260524-model-teaching-os-v1";
+import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260524-model-layout-fix-v1";
 
 const mountedSimulators = new WeakSet();
 const TWO_PI = Math.PI * 2;
@@ -281,8 +281,9 @@ class DoubleSlitInterference {
     const deltaTime = this.lastTimestamp ? Math.min((timestamp - this.lastTimestamp) / 1000, 0.05) : 0.016;
     this.lastTimestamp = timestamp;
 
-    if (this.visible && document.body.dataset.motion !== "reduced") {
-      this.phase = (this.phase + deltaTime * 34) % this.state.wavelength;
+    if (this.visible) {
+      const motionFactor = document.body.dataset.motion === "reduced" ? 0.35 : 1;
+      this.phase = (this.phase + deltaTime * 34 * motionFactor) % this.state.wavelength;
       this.updateHits(deltaTime);
     }
 
@@ -304,6 +305,7 @@ class DoubleSlitInterference {
     this.drawBackground(ctx);
     this.drawIncomingWaves(ctx, layout);
     if (this.state.showWavefronts) {
+      this.drawInterferenceWaveField(ctx, layout);
       this.drawDiffractedWavefronts(ctx, layout);
     }
     if (this.state.showMaxima) {
@@ -398,6 +400,46 @@ class DoubleSlitInterference {
       ctx.strokeStyle = `rgba(119, 0, 255, ${alpha})`;
       this.strokeWaveArc(ctx, layout.barrierX, layout.slitA, radius);
       this.strokeWaveArc(ctx, layout.barrierX, layout.slitB, radius);
+    }
+
+    ctx.restore();
+  }
+
+  drawInterferenceWaveField(ctx, layout) {
+    const wavelength = Math.max(8, this.state.wavelength);
+    const k = TWO_PI / wavelength;
+    const startX = layout.barrierX + 12;
+    const endX = layout.screenX - 8;
+    const step = Math.max(6, Math.min(10, this.width / 80));
+
+    if (endX <= startX) {
+      return;
+    }
+
+    ctx.save();
+    ctx.globalCompositeOperation = "lighter";
+
+    for (let x = startX; x <= endX; x += step) {
+      for (let y = layout.top + step; y <= layout.bottom - step; y += step) {
+        const r1 = Math.hypot(x - layout.barrierX, y - layout.slitA);
+        const r2 = Math.hypot(x - layout.barrierX, y - layout.slitB);
+        const waveA = Math.sin(k * (r1 - this.phase * 1.8));
+        const waveB = Math.sin(k * (r2 - this.phase * 1.8));
+        const combined = (waveA + waveB) * 0.5;
+        const brightness = Math.abs(combined);
+
+        if (brightness < 0.28) {
+          continue;
+        }
+
+        const alpha = 0.035 + brightness * 0.13;
+        ctx.fillStyle = combined >= 0
+          ? `rgba(255, 0, 162, ${alpha})`
+          : `rgba(191, 64, 255, ${alpha})`;
+        ctx.beginPath();
+        ctx.arc(x, y, 1.2 + brightness * 1.8, 0, TWO_PI);
+        ctx.fill();
+      }
     }
 
     ctx.restore();

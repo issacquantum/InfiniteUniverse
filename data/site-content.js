@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-model-teaching-os-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-model-layout-fix-v1";
 
 function htmlSource(group, id) {
   return {
