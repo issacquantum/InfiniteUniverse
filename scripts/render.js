@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260524-model-layout-fix-v1";
+import { pick } from "./i18n.js?v=20260524-equation-spacing-v1";
 
 function escapeHtml(value) {
   return String(value)
