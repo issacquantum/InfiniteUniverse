@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260524-phone-home-hidden-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260524-remove-quantum-circuit-model-v1";
 
 const mountedModels = new WeakSet();
 
