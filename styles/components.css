@@ -867,6 +867,42 @@ body[data-readable-font="on"] .reading-settings-panel h3 {
   word-break: normal;
 }
 
+:where(.structured-content, .legacy-content) :where(ul, ol) {
+  width: min(100%, 54rem);
+  padding: 0;
+  margin: 1rem auto 0;
+  list-style: none;
+}
+
+:where(.structured-content, .legacy-content) :where(ul, ol) > li {
+  list-style: none;
+}
+
+:where(.structured-content, .legacy-content) :where(ul, ol) > li::marker {
+  content: "";
+}
+
+:where(.structured-content, .legacy-content) :where(ul:not(.paper-list), ol:not(.paper-list)) > li {
+  position: relative;
+  padding-left: 1.18rem;
+  color: var(--body);
+  text-align: left;
+}
+
+:where(.structured-content, .legacy-content) :where(ul:not(.paper-list), ol:not(.paper-list)) > li::before {
+  content: "";
+  position: absolute;
+  left: 0.1rem;
+  top: 0.72em;
+  width: 0.34rem;
+  height: 0.34rem;
+  border: 1px solid rgba(var(--outline-rgb), 0.84);
+  background: rgba(var(--outline-rgb), 0.32);
+  box-shadow:
+    0 0 8px rgba(var(--outline-rgb), 0.44),
+    0 0 14px rgba(var(--glow-rgb), 0.24);
+}
+
 .structured-content p+p,
 .structured-content p+figure {
   margin-top: var(--content-paragraph-gap);
@@ -1139,23 +1175,43 @@ body[data-media-notes="on"] .media-note {
 
 .paper-list li {
   display: grid;
-  grid-template-columns: 1.25rem minmax(0, 1fr);
+  grid-template-columns: 0.42rem minmax(0, 1fr);
   align-items: start;
-  gap: 0.62rem;
+  gap: 0.72rem;
   color: var(--body);
   line-height: 1.48;
   text-align: left;
+  list-style: none;
+}
+
+.paper-list li::marker {
+  content: "";
 }
 
 .paper-icon {
   display: inline-flex;
-  width: 1.25rem;
+  width: 0.42rem;
   justify-content: center;
-  color: var(--text);
+  color: transparent;
+  font-size: 0;
   line-height: 1.48;
+  text-shadow: none;
+}
+
+.paper-icon::before {
+  content: "";
+  display: block;
+  width: 0.34rem;
+  height: 0.34rem;
+  margin-top: 0.58em;
+  border: 1px solid rgba(var(--outline-rgb), 0.84);
+  background: rgba(var(--outline-rgb), 0.32);
   text-shadow:
     0 0 10px rgba(var(--glow-rgb), 0.52),
     0 0 24px rgba(var(--glow-rgb), 0.28);
+  box-shadow:
+    0 0 8px rgba(var(--outline-rgb), 0.44),
+    0 0 14px rgba(var(--glow-rgb), 0.24);
 }
 
 .paper-list em {
