@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-authorized-text-colors-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-desktop-reader-arrows-v1";
 
 function htmlSource(group, id) {
   return {
