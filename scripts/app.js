@@ -1,14 +1,14 @@
-import { siteAssets } from "../data/site-assets.js";
-import { siteContent } from "../data/site-content.js?v=20260524-font-cascade-clean-v1";
-import { createAccessibilityController } from "./accessibility.js?v=20260524-font-cascade-clean-v1";
-import { initBackground } from "./background.js";
-import { refreshIcons } from "./icons.js";
-import { pick } from "./i18n.js";
-import { syncLegacyContent } from "./legacy-content.js?v=20260524-font-cascade-clean-v1";
-import { createMusicController, syncMusicUi } from "./music.js?v=20260524-font-cascade-clean-v1";
-import { renderSite } from "./render.js?v=20260524-font-cascade-clean-v1";
-import { createState } from "./state.js";
-import { syncStructuredContent } from "./structured-content.js?v=20260524-font-cascade-clean-v1";
+import { siteAssets } from "../data/site-assets.js?v=20260524-naming-cache-clean-v1";
+import { siteContent } from "../data/site-content.js?v=20260524-naming-cache-clean-v1";
+import { createAccessibilityController } from "./accessibility.js?v=20260524-naming-cache-clean-v1";
+import { initBackground } from "./background.js?v=20260524-naming-cache-clean-v1";
+import { refreshIcons } from "./icons.js?v=20260524-naming-cache-clean-v1";
+import { pick } from "./i18n.js?v=20260524-naming-cache-clean-v1";
+import { syncLegacyContent } from "./legacy-content.js?v=20260524-naming-cache-clean-v1";
+import { createMusicController, syncMusicUi } from "./music.js?v=20260524-naming-cache-clean-v1";
+import { renderSite } from "./render.js?v=20260524-naming-cache-clean-v1";
+import { createState } from "./state.js?v=20260524-naming-cache-clean-v1";
+import { syncStructuredContent } from "./structured-content.js?v=20260524-naming-cache-clean-v1";
 
 const refs = {
   siteShell: document.querySelector(".site-shell"),
@@ -27,7 +27,7 @@ const refs = {
     document.getElementById("music-button-mobile"),
     document.getElementById("music-button-desktop")
   ],
-  mobileScienceToggle: document.getElementById("mobile-science-toggle"),
+  mobileKnowledgeToggle: document.getElementById("mobile-knowledge-toggle"),
   desktopTrackName: document.getElementById("desktop-track-name"),
   backgroundCanvas: document.getElementById("starfield-canvas"),
   galleryLightbox: document.getElementById("gallery-lightbox"),
@@ -46,12 +46,12 @@ const store = createState({
   activeBranch: null,
   activeDetail: null,
   equationReturnTarget: null,
-  mobileScienceNavOpen: false,
-  mobileScienceNavDomain: null
+  mobileKnowledgeNavOpen: false,
+  mobileKnowledgeNavDomain: null
 });
 
 function resolveMusicContext(state) {
-  if (state.activeSection === "tekken" || state.activeSection === "applied-disciplines") {
+  if (state.activeSection === "tekken" || state.activeSection === "practice-worlds") {
     return "tekken";
   }
 
@@ -66,22 +66,22 @@ let musicUiState = {
   currentTrackName: ""
 };
 
-function syncMobileScienceToggle(state) {
-  if (!refs.mobileScienceToggle) {
+function syncMobileKnowledgeToggle(state) {
+  if (!refs.mobileKnowledgeToggle) {
     return;
   }
 
-  const isOpen = Boolean(state.mobileScienceNavOpen);
+  const isOpen = Boolean(state.mobileKnowledgeNavOpen);
   const isSpanish = state.language === "es";
   const label = isOpen
     ? (isSpanish ? "Cerrar mundos de conocimiento" : "Close Knowledge Worlds")
     : (isSpanish ? "Abrir mundos de conocimiento" : "Open Knowledge Worlds");
   const title = isSpanish ? "Mundos de conocimiento" : "Knowledge Worlds";
 
-  refs.mobileScienceToggle.setAttribute("aria-expanded", String(isOpen));
-  refs.mobileScienceToggle.setAttribute("aria-label", label);
-  refs.mobileScienceToggle.setAttribute("title", title);
-  refs.mobileScienceToggle.innerHTML = `<i data-lucide="${isOpen ? "x" : "menu"}"></i>`;
+  refs.mobileKnowledgeToggle.setAttribute("aria-expanded", String(isOpen));
+  refs.mobileKnowledgeToggle.setAttribute("aria-label", label);
+  refs.mobileKnowledgeToggle.setAttribute("title", title);
+  refs.mobileKnowledgeToggle.innerHTML = `<i data-lucide="${isOpen ? "x" : "menu"}"></i>`;
 }
 let galleryItems = [];
 let activeGalleryIndex = -1;
@@ -111,7 +111,7 @@ function getReturnTargetLabel(returnTarget, language) {
     ...siteContent.personalSections,
     siteContent.siteNoticeSection
   ].find((item) => item?.id === returnTarget.sectionId);
-  const domain = siteContent.educationDomains.find((item) => item.id === returnTarget.domainId);
+  const domain = siteContent.knowledgeWorlds.find((item) => item.id === returnTarget.domainId);
   const topic = domain?.topics?.find((item) => item.id === returnTarget.topicId);
   const branchSource = topic ?? section;
   const branch = branchSource?.branches?.find((item) => item.id === returnTarget.branchId);
@@ -368,7 +368,7 @@ function syncUi(state = store.getState()) {
     currentTrackName: musicUiState.currentTrackName
   });
 
-  syncMobileScienceToggle(state);
+  syncMobileKnowledgeToggle(state);
 
   syncStructuredContent({
     state,
@@ -396,7 +396,7 @@ function getActiveLabel(state) {
     siteContent.siteNoticeSection
   ].find((section) => section?.id === state.activeSection);
 
-  const activeDomain = siteContent.educationDomains.find((domain) => domain.id === state.activeDomain);
+  const activeDomain = siteContent.knowledgeWorlds.find((domain) => domain.id === state.activeDomain);
   const activeTopic = activeDomain?.topics?.find((topic) => topic.id === state.activeTopic);
   const activeBranch = (
     activeTopic?.branches?.find((branch) => branch.id === state.activeBranch)
@@ -446,7 +446,7 @@ function toggleTitle() {
         titleOpen: false,
         activeSection: null,
         showPersonalSectionList: false,
-        mobileScienceNavOpen: false
+        mobileKnowledgeNavOpen: false
       };
     }
 
@@ -460,7 +460,7 @@ function toggleTitle() {
       activeBranch: null,
       activeDetail: null,
       equationReturnTarget: null,
-      mobileScienceNavOpen: false
+      mobileKnowledgeNavOpen: false
     };
   });
 }
@@ -479,7 +479,7 @@ function selectSection(sectionId) {
         activeBranch: null,
         activeDetail: null,
         equationReturnTarget: null,
-        mobileScienceNavOpen: false
+        mobileKnowledgeNavOpen: false
       };
     }
 
@@ -493,7 +493,7 @@ function selectSection(sectionId) {
       activeBranch: null,
       activeDetail: null,
       equationReturnTarget: null,
-      mobileScienceNavOpen: false
+      mobileKnowledgeNavOpen: false
     };
   });
 }
@@ -512,8 +512,8 @@ function selectDomain(domainId) {
         activeBranch: null,
         activeDetail: null,
         equationReturnTarget: null,
-        mobileScienceNavOpen: false,
-        mobileScienceNavDomain: null
+        mobileKnowledgeNavOpen: false,
+        mobileKnowledgeNavDomain: null
       };
     }
 
@@ -527,8 +527,8 @@ function selectDomain(domainId) {
       activeBranch: null,
       activeDetail: null,
       equationReturnTarget: null,
-      mobileScienceNavOpen: false,
-      mobileScienceNavDomain: domainId
+      mobileKnowledgeNavOpen: false,
+      mobileKnowledgeNavDomain: domainId
     };
   });
 }
@@ -547,8 +547,8 @@ function selectTopic(topicId) {
         activeBranch: null,
         activeDetail: null,
         equationReturnTarget: null,
-        mobileScienceNavOpen: false,
-        mobileScienceNavDomain: null
+        mobileKnowledgeNavOpen: false,
+        mobileKnowledgeNavDomain: null
       };
     }
 
@@ -561,7 +561,7 @@ function selectTopic(topicId) {
       activeBranch: null,
       activeDetail: null,
       equationReturnTarget: null,
-      mobileScienceNavOpen: false
+      mobileKnowledgeNavOpen: false
     };
   });
 }
@@ -578,7 +578,7 @@ function selectBranch(branchId) {
           showPersonalSectionList: false,
           activeDetail: null,
           equationReturnTarget: null,
-          mobileScienceNavOpen: false
+          mobileKnowledgeNavOpen: false
         };
       }
 
@@ -590,7 +590,7 @@ function selectBranch(branchId) {
         activeBranch: null,
         activeDetail: null,
         equationReturnTarget: null,
-        mobileScienceNavOpen: false
+        mobileKnowledgeNavOpen: false
       };
     }
 
@@ -602,7 +602,7 @@ function selectBranch(branchId) {
       activeBranch: branchId,
       activeDetail: null,
       equationReturnTarget: null,
-      mobileScienceNavOpen: false
+      mobileKnowledgeNavOpen: false
     };
   });
 }
@@ -620,7 +620,7 @@ function selectDetail(itemId) {
         activeBranch: pendingStructuredReturn.branchId,
         activeDetail: pendingStructuredReturn.detailId,
         equationReturnTarget: null,
-        mobileScienceNavOpen: false
+        mobileKnowledgeNavOpen: false
       };
     }
 
@@ -638,7 +638,7 @@ function selectDetail(itemId) {
         activeBranch: pendingLegacyReturn.branchId,
         activeDetail: pendingLegacyReturn.itemId,
         equationReturnTarget: null,
-        mobileScienceNavOpen: false
+        mobileKnowledgeNavOpen: false
       };
     }
 
@@ -649,7 +649,7 @@ function selectDetail(itemId) {
       showPersonalSectionList: false,
       activeDetail: state.activeDetail === itemId ? null : itemId,
       equationReturnTarget: state.activeDetail === itemId ? null : state.equationReturnTarget,
-      mobileScienceNavOpen: false
+      mobileKnowledgeNavOpen: false
     };
   });
 }
@@ -670,7 +670,7 @@ function selectLegacyItem(branchId, itemId) {
       activeBranch: branchId,
       activeDetail: itemId,
       equationReturnTarget,
-      mobileScienceNavOpen: false
+      mobileKnowledgeNavOpen: false
     };
   });
 }
@@ -683,7 +683,7 @@ function showMobileSections() {
         ...state,
         activeDetail: null,
         equationReturnTarget: null,
-        mobileScienceNavOpen: false
+        mobileKnowledgeNavOpen: false
       };
     }
 
@@ -695,7 +695,7 @@ function showMobileSections() {
         activeBranch: null,
         activeDetail: null,
         equationReturnTarget: null,
-        mobileScienceNavOpen: false
+        mobileKnowledgeNavOpen: false
       };
     }
 
@@ -707,7 +707,7 @@ function showMobileSections() {
         activeBranch: null,
         activeDetail: null,
         equationReturnTarget: null,
-        mobileScienceNavOpen: false
+        mobileKnowledgeNavOpen: false
       };
     }
 
@@ -715,15 +715,15 @@ function showMobileSections() {
   });
 }
 
-function toggleMobileScienceNav() {
+function toggleMobileKnowledgeNav() {
   store.setState((state) => {
-    const opening = !state.mobileScienceNavOpen;
+    const opening = !state.mobileKnowledgeNavOpen;
 
     if (!opening) {
       return {
         ...state,
-        mobileScienceNavOpen: false,
-        mobileScienceNavDomain: null
+        mobileKnowledgeNavOpen: false,
+        mobileKnowledgeNavDomain: null
       };
     }
 
@@ -735,21 +735,21 @@ function toggleMobileScienceNav() {
       activeBranch: null,
       activeDetail: null,
       equationReturnTarget: null,
-      mobileScienceNavOpen: true,
-      mobileScienceNavDomain: state.activeDomain
+      mobileKnowledgeNavOpen: true,
+      mobileKnowledgeNavDomain: state.activeDomain
     };
   });
 }
 
-function toggleMobileScienceDomain(domainId) {
+function toggleMobileKnowledgeDomain(domainId) {
   store.setState((state) => ({
     ...state,
-    mobileScienceNavOpen: true,
-    mobileScienceNavDomain: state.mobileScienceNavDomain === domainId ? null : domainId
+    mobileKnowledgeNavOpen: true,
+    mobileKnowledgeNavDomain: state.mobileKnowledgeNavDomain === domainId ? null : domainId
   }));
 }
 
-function selectMobileScienceTopic(domainId, topicId) {
+function selectMobileKnowledgeTopic(domainId, topicId) {
   clearPendingReturnNavigation();
   store.setState((state) => {
     if (state.activeDomain === domainId && state.activeTopic === topicId) {
@@ -763,8 +763,8 @@ function selectMobileScienceTopic(domainId, topicId) {
         activeBranch: null,
         activeDetail: null,
         equationReturnTarget: null,
-        mobileScienceNavOpen: false,
-        mobileScienceNavDomain: null
+        mobileKnowledgeNavOpen: false,
+        mobileKnowledgeNavDomain: null
       };
     }
 
@@ -778,8 +778,8 @@ function selectMobileScienceTopic(domainId, topicId) {
       activeBranch: null,
       activeDetail: null,
       equationReturnTarget: null,
-      mobileScienceNavOpen: false,
-      mobileScienceNavDomain: domainId
+      mobileKnowledgeNavOpen: false,
+      mobileKnowledgeNavDomain: domainId
     };
   });
 }
@@ -1086,18 +1086,18 @@ document.addEventListener("click", (event) => {
       return;
     }
 
-    if (action === "toggle-mobile-science-nav") {
-      toggleMobileScienceNav();
+    if (action === "toggle-mobile-knowledge-nav") {
+      toggleMobileKnowledgeNav();
       return;
     }
 
-    if (action === "toggle-mobile-science-domain") {
-      toggleMobileScienceDomain(actionTarget.dataset.domainId);
+    if (action === "toggle-mobile-knowledge-domain") {
+      toggleMobileKnowledgeDomain(actionTarget.dataset.domainId);
       return;
     }
 
-    if (action === "select-mobile-science-topic") {
-      selectMobileScienceTopic(actionTarget.dataset.domainId, actionTarget.dataset.topicId);
+    if (action === "select-mobile-knowledge-topic") {
+      selectMobileKnowledgeTopic(actionTarget.dataset.domainId, actionTarget.dataset.topicId);
       return;
     }
 

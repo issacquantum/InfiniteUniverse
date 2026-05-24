@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-naming-cache-clean-v1";
 
 function htmlSource(group, id) {
   return {
@@ -8,11 +8,13 @@ function htmlSource(group, id) {
 }
 
 function createSection(id, enTitle, esTitle, extra = {}) {
+  const { contentId = id, ...sectionExtra } = extra;
+
   return {
     id,
     title: { en: enTitle, es: esTitle },
-    contentFile: htmlSource("personal", id),
-    ...extra
+    contentFile: htmlSource("personal", contentId),
+    ...sectionExtra
   };
 }
 
@@ -328,7 +330,7 @@ export const siteContent = {
     musicLabelPlaceholder: { en: "SONG NAME HERE", es: "NOMBRE DE LA CANCIÓN AQUÍ" },
     socialAriaLabel: { en: "Social links", es: "Enlaces sociales" },
     personalSectionsAria: { en: "Personal sections", es: "Secciones personales" },
-    educationDomainsAria: { en: "Knowledge Worlds", es: "Mundos de conocimiento" },
+    knowledgeWorldsAria: { en: "Knowledge Worlds", es: "Mundos de conocimiento" },
     topicNavigationAria: { en: "Topic navigation", es: "Navegación de temas" },
     branchNavigationAria: { en: "Cosmology branches", es: "Ramas de cosmología" },
     legacyItemNavigationAria: { en: "Detailed legacy topics", es: "Temas detallados" },
@@ -365,18 +367,19 @@ export const siteContent = {
   },
   siteNoticeSection: createSection("site-notices", "Site Purpose, Notices & Privacy", "Propósito del sitio, avisos y privacidad"),
   personalSections: [
-    createSection("early-life", "Origins", "Orígenes"),
-    createSection("education", "Learning Path", "Camino de aprendizaje"),
+    createSection("origins", "Origins", "Orígenes", { contentId: "early-life" }),
+    createSection("learning-path", "Learning Path", "Camino de aprendizaje", { contentId: "education" }),
     createSection("music", "Music", "Música"),
-    createSection("professional-career", "Systems Work", "Trabajo con sistemas"),
-    createSection("applied-disciplines", "Practice Worlds", "Mundos de práctica"),
-    createSection("works-that-shaped-my-thinking", "Personal Cosmology", "Cosmología personal", {
+    createSection("systems-work", "Systems Work", "Trabajo con sistemas", { contentId: "professional-career" }),
+    createSection("practice-worlds", "Practice Worlds", "Mundos de práctica", { contentId: "applied-disciplines" }),
+    createSection("personal-cosmology", "Personal Cosmology", "Cosmología personal", {
+      contentId: "works-that-shaped-my-thinking",
       branches: [myWorkInfluencesEquationBranch],
       hideBranchNavigation: true,
       hideDetailNavigation: true
     })
   ],
-  educationDomains: [
+  knowledgeWorlds: [
     {
       id: "quantum-foundations",
       title: { en: "Quantum Foundations", es: "Fundamentos cuánticos" },
