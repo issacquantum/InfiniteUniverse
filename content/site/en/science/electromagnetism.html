@@ -14,6 +14,20 @@
   </section>
 
   <section class="content-block">
+    <div class="model-teaching-card">
+      <p><strong>Model type:</strong> Toy physical model.</p>
+      <p><strong>What this shows:</strong> An electromagnetic wave with electric and magnetic field directions perpendicular to the direction of travel.</p>
+      <p><strong>What this does not show:</strong> A full Maxwell-equation solver, material response, antenna geometry, or quantum photons.</p>
+      <p><strong>Equation / principle:</strong> \(c=1/\sqrt{\mu_0\epsilon_0}\) connects field constants to light speed in vacuum.</p>
+      <p><strong>What the model represents:</strong> Light as coupled electric and magnetic field structure, not as a mechanical string wave.</p>
+    </div>
+    <figure class="foundation-model glass-window" data-foundation-model="electromagnetism" data-language="en">
+      <div class="foundation-model__frame" data-foundation-model-frame></div>
+      <figcaption class="foundation-model__caption">The pink and violet waves are perpendicular field components moving together through space.</figcaption>
+    </figure>
+  </section>
+
+  <section class="content-block">
     <h3>Fields</h3>
     <p>
       Electromagnetism replaces action-at-a-distance with fields. An electric charge changes the field around it, and
@@ -22,9 +36,15 @@
     <p>
       The Lorentz force summarizes how fields act on a charge:
     </p>
-    \[
-      \mathbf{F}=q(\mathbf{E}+\mathbf{v}\times\mathbf{B}).
-    \]
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="electromagnetism-equations" data-item-id="lorentz-force-law"
+        aria-label="Open the explanation page for the Lorentz force law">
+        $$
+        \mathbf{F}=q(\mathbf{E}+\mathbf{v}\times\mathbf{B})
+        $$
+      </button>
+    </div>
   </section>
 
   <section class="content-block">
@@ -33,9 +53,15 @@
       Maxwell's equations connect charge, current, electric fields, magnetic fields, and electromagnetic waves. In
       vacuum, they imply waves moving at speed:
     </p>
-    \[
-      c=\frac{1}{\sqrt{\mu_0\epsilon_0}}.
-    \]
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="electromagnetism-equations" data-item-id="electromagnetic-wave-speed"
+        aria-label="Open the explanation page for electromagnetic wave speed">
+        $$
+        c=\frac{1}{\sqrt{\mu_0\epsilon_0}}
+        $$
+      </button>
+    </div>
     <p>
       That result made light part of field theory and created the crisis that led to special relativity.
     </p>

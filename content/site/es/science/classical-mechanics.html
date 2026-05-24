@@ -16,13 +16,33 @@
   </section>
 
   <section class="content-block">
+    <div class="model-teaching-card">
+      <p><strong>Tipo de modelo:</strong> Modelo físico simplificado.</p>
+      <p><strong>Qué muestra:</strong> Un cuerpo moviéndose alrededor de un centro, con direcciones de velocidad y fuerza hacia adentro mostradas como vectores.</p>
+      <p><strong>Qué no muestra:</strong> Un solucionador numérico completo de órbitas, resistencia del aire, relatividad o comportamiento cuántico.</p>
+      <p><strong>Ecuación / principio:</strong> \(\mathbf{F}=m\mathbf{a}\) y el principio de acción organizan el movimiento clásico.</p>
+      <p><strong>Qué representa el modelo:</strong> El movimiento clásico como geometría más vectores cambiantes, no solo como fórmula estática.</p>
+    </div>
+    <figure class="foundation-model glass-window" data-foundation-model="mechanics" data-language="es">
+      <div class="foundation-model__frame" data-foundation-model-frame></div>
+      <figcaption class="foundation-model__caption">Arrastra para rotar. El vector rosa apunta hacia adentro como dirección de fuerza; el vector violeta muestra el movimiento tangente.</figcaption>
+    </figure>
+  </section>
+
+  <section class="content-block">
     <h3>Núcleo newtoniano</h3>
     <p>
       La forma más directa es la segunda ley de Newton:
     </p>
-    \[
-      \mathbf{F}=m\mathbf{a}.
-    \]
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="classical-mechanics-equations" data-item-id="newton-second-law"
+        aria-label="Abrir la explicación de la segunda ley de Newton">
+        $$
+        \mathbf{F}=m\mathbf{a}
+        $$
+      </button>
+    </div>
     <p>
       Dice que una fuerza cambia el movimiento. La frase es simple, pero se vuelve poderosa porque convierte una causa
       física en una ecuación diferencial. Con fuerzas y condiciones iniciales, el movimiento puede predecirse dentro del
@@ -45,9 +65,15 @@
     <p>
       La formulación lagrangiana organiza el movimiento mediante la acción:
     </p>
-    \[
-      S=\int L(q,\dot q,t)\,dt.
-    \]
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="classical-mechanics-equations" data-item-id="classical-action-principle"
+        aria-label="Abrir la explicación del principio de acción clásico">
+        $$
+        S=\int L(q,\dot q,t)\,dt
+        $$
+      </button>
+    </div>
     <p>
       La trayectoria real es la que hace estacionaria la acción. No es solo una forma elegante: es el puente hacia teoría
       de campos, relatividad, integrales de camino cuánticas y simulación numérica.
