@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260524-desktop-reader-arrows-v1";
+import { pick } from "./i18n.js?v=20260524-square-list-markers-v1";
 
 function escapeHtml(value) {
   return String(value)
