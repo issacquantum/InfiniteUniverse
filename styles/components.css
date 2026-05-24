@@ -812,6 +812,62 @@ body[data-readable-font="on"] .reading-settings-panel h3 {
   color: var(--strong);
 }
 
+.model-lab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 0.85rem;
+  width: min(100%, 58rem);
+  margin: 0.35rem auto 0;
+}
+
+.model-lab-grid--catalog {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: 1rem;
+}
+
+.model-lab-card {
+  display: grid;
+  gap: 0.38rem;
+  align-content: start;
+  padding: 1rem;
+  border: 1px solid rgba(var(--outline-rgb), 0.34);
+  border-radius: 1.1rem;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(var(--outline-rgb), 0.1), transparent 44%),
+    rgba(var(--glass-rgb), 0.16);
+  box-shadow: 0 0 18px rgba(var(--glow-rgb), 0.14);
+  text-align: left;
+}
+
+.model-lab-card h4,
+.model-lab-card p {
+  margin: 0;
+  text-align: left;
+}
+
+.model-lab-card h4 {
+  color: var(--heading);
+  font-size: calc(1.15rem * var(--content-title-scale));
+  line-height: 1.15;
+}
+
+.model-lab-card p {
+  font-size: calc(var(--content-font-size) * 0.9);
+  line-height: 1.35;
+}
+
+.model-lab-card strong {
+  color: var(--strong);
+}
+
+.model-lab-card__link {
+  justify-self: start;
+  width: auto;
+  min-height: 2.25rem;
+  margin-top: 0.35rem;
+  padding-inline: 1rem;
+}
+
 .site-infinity,
 .content-window__infinity {
   color: var(--text);

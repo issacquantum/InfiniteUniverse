@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-ideal-clock-explanation-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-model-lab-v1";
 
 function htmlSource(group, id) {
   return {
@@ -378,6 +378,13 @@ export const siteContent = {
     })
   ],
   knowledgeWorlds: [
+    {
+      id: "model-lab",
+      title: { en: "Model Lab", es: "Laboratorio de modelos" },
+      topics: [
+        createTopic("model-lab", "Interactive Models", "Modelos interactivos")
+      ]
+    },
     {
       id: "quantum-foundations",
       title: { en: "Quantum Foundations", es: "Fundamentos cuánticos" },
