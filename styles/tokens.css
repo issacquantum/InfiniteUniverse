@@ -13,9 +13,9 @@
   --edge-violet: rgba(224, 152, 255, 0.42);
   --panel-fill: rgba(17, 4, 28, 0.56);
   --panel-outline: rgba(255, 255, 255, 0.08);
-  --font-desktop: "Dancing Script", cursive;
+  --font-title: "Dancing Script", cursive;
   --font-content-desktop: "Cormorant Garamond", "EB Garamond", Georgia, serif;
-  --font-mobile: "Apple Chancery", cursive;
+  --font-content-phone: "Apple Chancery", cursive;
   --site-width: min(74rem, 100%);
   --model-window-width: 840px;
   --model-frame-min-height: 220px;

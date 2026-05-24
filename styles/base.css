@@ -71,7 +71,7 @@ h5,
 h6 {
   margin: 0;
   color: var(--heading);
-  font-family: var(--font-desktop);
+  font-family: var(--font-title);
   font-weight: 500;
   text-shadow:
     0 0 8px rgba(var(--outline-rgb), 0.22),
@@ -176,7 +176,7 @@ body[data-motion="reduced"] *::after {
 
 @media (max-width: 768px) {
   body {
-    font-family: var(--font-mobile);
+    font-family: var(--font-content-phone);
   }
 
   h1,
@@ -185,10 +185,15 @@ body[data-motion="reduced"] *::after {
   h4,
   h5,
   h6 {
-    font-family: var(--font-mobile);
+    font-family: var(--font-title);
   }
 
-  body[data-readable-font="on"] {
-    font-family: var(--font-content-desktop);
+  body[data-readable-font="on"],
+  body[data-readable-font="on"] button,
+  body[data-readable-font="on"] a,
+  body[data-readable-font="on"] input,
+  body[data-readable-font="on"] select,
+  body[data-readable-font="on"] textarea {
+    font-family: var(--font-content-phone);
   }
 }
