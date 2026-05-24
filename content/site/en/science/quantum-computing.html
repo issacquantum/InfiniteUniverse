@@ -132,6 +132,42 @@
       paths reinforce. A universal circuit model needs both single-qubit rotations and an entangling gate; in practice,
       <strong>CNOT plus a rich set of one-qubit gates</strong> is enough to approximate arbitrary quantum circuits.</p>
 
+    <div class="model-teaching-card" aria-label="Quantum circuit model teaching notes">
+      <p><strong>Model type:</strong> Toy physical model.</p>
+      <p><strong>What this shows:</strong> Single-qubit gates changing amplitudes, measurement probabilities, and a two-qubit CNOT path toward a Bell state.</p>
+      <p><strong>What it does not show:</strong> Real quantum hardware, noise, error correction, full circuit compilation, or large-scale algorithms.</p>
+      <p><strong>Equation / principle:</strong> \(|\psi\rangle=\alpha|0\rangle+\beta|1\rangle\), \(P(0)=|\alpha|^2\), and unitary gates preserve total probability.</p>
+      <p><strong>Try changing:</strong> Press H, then Z, then H again; in the two-qubit demo press H on control, then CNOT.</p>
+    </div>
+    <figure class="quantum-circuit-model glass-window" data-quantum-circuit-model data-language="en">
+      <div class="quantum-circuit-model__frame" data-qcm-frame></div>
+      <div class="quantum-circuit-model__panel">
+        <div class="quantum-circuit-model__actions" aria-label="Single qubit gates">
+          <button class="quantum-circuit-model__button" type="button" data-qcm-gate="h">H</button>
+          <button class="quantum-circuit-model__button" type="button" data-qcm-gate="x">X</button>
+          <button class="quantum-circuit-model__button" type="button" data-qcm-gate="y">Y</button>
+          <button class="quantum-circuit-model__button" type="button" data-qcm-gate="z">Z</button>
+          <button class="quantum-circuit-model__button" type="button" data-qcm-gate="s">S</button>
+          <button class="quantum-circuit-model__button" type="button" data-qcm-gate="t">T</button>
+          <button class="quantum-circuit-model__button" type="button" data-qcm-gate="measure">Measure</button>
+          <button class="quantum-circuit-model__button" type="button" data-qcm-gate="reset">Reset qubit</button>
+        </div>
+        <div class="quantum-circuit-model__actions" aria-label="Two qubit CNOT demo">
+          <button class="quantum-circuit-model__button" type="button" data-qcm-pair-action="h-control">H on control</button>
+          <button class="quantum-circuit-model__button" type="button" data-qcm-pair-action="cnot">CNOT</button>
+          <button class="quantum-circuit-model__button" type="button" data-qcm-pair-action="reset">Reset pair</button>
+        </div>
+        <div class="quantum-circuit-model__metrics" aria-label="Quantum circuit readout">
+          <span class="quantum-circuit-model__metric"><strong>State:</strong> <span data-qcm-value="state">1.00|0> + 0.00|1></span></span>
+          <span class="quantum-circuit-model__metric"><strong>P(0):</strong> <span data-qcm-value="prob0">100%</span></span>
+          <span class="quantum-circuit-model__metric"><strong>P(1):</strong> <span data-qcm-value="prob1">0%</span></span>
+          <span class="quantum-circuit-model__metric"><strong>Bloch:</strong> <span data-qcm-value="bloch">x 0.00, y 0.00, z 1.00</span></span>
+          <span class="quantum-circuit-model__metric"><strong>Pair:</strong> <span data-qcm-value="pair">1.00|00></span></span>
+        </div>
+        <p class="quantum-circuit-model__note">The two-qubit path H on control followed by CNOT creates the Bell-state pattern \((|00\rangle+|11\rangle)/\sqrt2\).</p>
+      </div>
+    </figure>
+
     <h3>From Circuits to Algorithms</h3>
     <p>
       Gates become algorithms when a circuit is arranged so amplitudes meet again with controlled signs. A quantum

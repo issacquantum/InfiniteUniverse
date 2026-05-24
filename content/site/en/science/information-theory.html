@@ -212,6 +212,13 @@
       entropy, mutual information, and capacity. Taller source bars mean more probable symbols. Flow intensity shows
       how much probability crosses the channel. More noise spreads probability across wrong outputs.
     </p>
+    <div class="model-teaching-card" aria-label="Information theory model teaching notes">
+      <p><strong>Model type:</strong> Conceptual model.</p>
+      <p><strong>What this shows:</strong> How source probabilities and channel noise determine entropy, mutual information, capacity, and error.</p>
+      <p><strong>What it does not show:</strong> A real modem, a complete error-correcting code, or every possible communication channel.</p>
+      <p><strong>Equation / principle:</strong> \(H(X)=-\sum p\log_2p\) and \(I(X;Y)=H(X)-H(X|Y)\).</p>
+      <p><strong>Try changing:</strong> Use the presets first, then change noise and redundancy to see how information survives the channel.</p>
+    </div>
     <figure class="information-theory-model glass-window" data-information-theory-model data-language="en">
       <div class="information-theory-model__frame" data-it-frame></div>
       <div class="information-theory-model__panel">
@@ -234,6 +241,13 @@
           <div class="information-theory-model__actions">
             <button class="information-theory-model__button" type="button" data-it-action="randomize">Randomize</button>
             <button class="information-theory-model__button" type="button" data-it-action="center">Center</button>
+          </div>
+          <div class="information-theory-model__actions" aria-label="Information theory presets">
+            <button class="information-theory-model__button" type="button" data-it-preset="uniform">Uniform source</button>
+            <button class="information-theory-model__button" type="button" data-it-preset="predictable">Predictable source</button>
+            <button class="information-theory-model__button" type="button" data-it-preset="clean">Clean channel</button>
+            <button class="information-theory-model__button" type="button" data-it-preset="noisy">Noisy channel</button>
+            <button class="information-theory-model__button" type="button" data-it-preset="redundant">High redundancy</button>
           </div>
         </div>
         <div class="information-theory-model__metrics">
@@ -260,6 +274,12 @@
             <div class="information-theory-model__metric-row">
               <span class="information-theory-model__metric-label">Effective error</span>
               <span class="information-theory-model__value" data-it-value="error">0.000</span>
+            </div>
+          </div>
+          <div class="information-theory-model__metric">
+            <div class="information-theory-model__metric-row">
+              <span class="information-theory-model__metric-label">Channel matrix P(Y|X)</span>
+              <span class="information-theory-model__value" data-it-value="matrix">diag 0.840 / off 0.053</span>
             </div>
           </div>
           <div class="information-theory-model__legend" aria-label="Information model legend">

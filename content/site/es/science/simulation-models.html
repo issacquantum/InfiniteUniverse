@@ -186,6 +186,13 @@
       Arrastra para rotar, usa la rueda para acercar o alejar, y usa <strong>Shift-arrastrar</strong> o clic derecho para
       mover la vista. En modo calor, haz clic o arrastra directamente sobre la red para inyectar calor.
     </p>
+    <div class="model-teaching-card" aria-label="Notas educativas de métodos numéricos">
+      <p><strong>Tipo de modelo:</strong> Modelo físico simplificado.</p>
+      <p><strong>Qué muestra:</strong> Cómo el tamaño de paso, el muestreo y la estabilidad afectan un cálculo aproximado.</p>
+      <p><strong>Qué no muestra:</strong> Un solucionador completo de ingeniería, una simulación exacta de clima o fluidos, ni una garantía de que toda simulación atractiva sea correcta.</p>
+      <p><strong>Ecuación / principio:</strong> Pasos temporales de Euler y RK4, error de Monte Carlo que baja con más muestras y límite de estabilidad de la ecuación de calor.</p>
+      <p><strong>Qué probar:</strong> Aumenta el paso en Euler vs RK4, aumenta las muestras de Monte Carlo y prueba la difusión de calor cerca del límite de estabilidad.</p>
+    </div>
     <figure class="numerical-methods glass-window" data-numerical-methods-model data-language="es">
       <div class="numerical-methods__frame" data-nm-frame></div>
       <div class="numerical-methods__panel">
@@ -262,6 +269,12 @@
                   <span class="numerical-methods__value" data-nm-value="rk4Error">0.0000</span>
                 </div>
               </div>
+              <div class="numerical-methods__metric">
+                <div class="numerical-methods__metric-row">
+                  <span class="numerical-methods__metric-label">Lectura de convergencia</span>
+                  <span class="numerical-methods__value" data-nm-value="convergence">Esperando datos</span>
+                </div>
+              </div>
             </div>
             <div class="numerical-methods__metric-group is-hidden" data-nm-metrics="mc">
               <div class="numerical-methods__metric">
@@ -282,6 +295,12 @@
                   <span class="numerical-methods__value" data-nm-value="samples">0</span>
                 </div>
               </div>
+              <div class="numerical-methods__metric">
+                <div class="numerical-methods__metric-row">
+                  <span class="numerical-methods__metric-label">Intervalo 95%</span>
+                  <span class="numerical-methods__value" data-nm-value="mcCi">±0.0000</span>
+                </div>
+              </div>
             </div>
             <div class="numerical-methods__metric-group is-hidden" data-nm-metrics="heat">
               <div class="numerical-methods__metric">
@@ -300,6 +319,12 @@
                 <div class="numerical-methods__metric-row">
                   <span class="numerical-methods__metric-label">Frontera</span>
                   <span class="numerical-methods__value" data-nm-value="boundary">aislada</span>
+                </div>
+              </div>
+              <div class="numerical-methods__metric">
+                <div class="numerical-methods__metric-row">
+                  <span class="numerical-methods__metric-label">Nota de estabilidad</span>
+                  <span class="numerical-methods__value" data-nm-value="stabilityNote">estable para este paso explícito</span>
                 </div>
               </div>
             </div>

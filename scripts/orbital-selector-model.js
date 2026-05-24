@@ -1,4 +1,4 @@
-import { bindPinchZoom, isModelPanGesture, panObjectFromPointer } from "./model-pan.js?v=20260524-mobile-science-menu-v1";
+import { bindPinchZoom, isModelPanGesture, panObjectFromPointer } from "./model-pan.js?v=20260524-model-teaching-os-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
@@ -51,6 +51,7 @@ class OrbitalSelectorModel {
       phaseMode: "real",
       phaseOffset: 0,
       phaseContrast: 0.72,
+      learningView: "advanced",
       autoRotate: true,
       yaw: -0.42,
       pitch: 0.24,
@@ -259,6 +260,29 @@ class OrbitalSelectorModel {
       this.state.distance = 25;
       this.updateCamera();
     });
+
+    this.container.querySelectorAll("[data-os-preset]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const [n, l, m, phaseMode] = button.dataset.osPreset.split(",");
+        this.state.n = Number(n);
+        this.state.l = Number(l);
+        this.state.m = Number(m);
+        this.state.phaseMode = phaseMode || this.state.phaseMode;
+        this.syncControlsFromState();
+        this.queueGeneration();
+      });
+    });
+
+    this.container.querySelectorAll("[data-os-view]").forEach((button) => {
+      button.addEventListener("click", () => {
+        this.state.learningView = button.dataset.osView;
+        if (this.state.learningView === "beginner") {
+          this.state.phaseMode = "density";
+        }
+        this.syncControlsFromState();
+        this.queueGeneration();
+      });
+    });
   }
 
   readControls() {
@@ -300,6 +324,37 @@ class OrbitalSelectorModel {
     this.syncValue("radialNodes", String(this.state.n - this.state.l - 1));
     this.syncValue("angularNodes", String(this.state.l));
     this.syncValue("capacity", String(2 * (2 * this.state.l + 1)));
+
+    if (this.nControl) {
+      this.nControl.value = String(this.state.n);
+    }
+    if (this.lControl) {
+      this.lControl.max = String(this.state.n - 1);
+      this.lControl.value = String(this.state.l);
+    }
+    if (this.mControl) {
+      this.mControl.min = String(-this.state.l);
+      this.mControl.max = String(this.state.l);
+      this.mControl.value = String(this.state.m);
+    }
+    if (this.phaseModeControl) {
+      this.phaseModeControl.value = this.state.phaseMode;
+    }
+    if (this.phaseOffsetControl) {
+      this.phaseOffsetControl.value = String(this.state.phaseOffset);
+    }
+    if (this.phaseContrastControl) {
+      this.phaseContrastControl.value = String(this.state.phaseContrast);
+    }
+
+    this.container.querySelectorAll("[data-os-advanced]").forEach((element) => {
+      element.hidden = this.state.learningView === "beginner";
+    });
+    this.container.querySelectorAll("[data-os-view]").forEach((button) => {
+      const active = button.dataset.osView === this.state.learningView;
+      button.classList.toggle("is-active", active);
+      button.setAttribute("aria-pressed", String(active));
+    });
   }
 
   syncValue(key, value) {

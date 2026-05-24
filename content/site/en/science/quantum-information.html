@@ -358,6 +358,13 @@
       It is a simplified artistic/physics visualizer of one-<strong>qubit</strong> density matrices and decoherence, not a full quantum
       communication simulator.
     </p>
+    <div class="model-teaching-card" aria-label="Quantum channel model teaching notes">
+      <p><strong>Model type:</strong> Toy physical model.</p>
+      <p><strong>What this shows:</strong> How a one-qubit density matrix changes under simple noise channels.</p>
+      <p><strong>What it does not show:</strong> A full quantum network, error-correcting code, or laboratory calibration data.</p>
+      <p><strong>Equation / principle:</strong> A channel transforms the state as \(\rho'=\mathcal{E}(\rho)=\sum_i K_i\rho K_i^\dagger\).</p>
+      <p><strong>Try changing:</strong> Switch the noise channel, increase noise intensity, and compare the before/after matrix with entropy and coherence.</p>
+    </div>
     <figure class="quantum-channel glass-window" data-quantum-channel-model data-language="en">
       <div class="quantum-channel__frame" data-qc-frame></div>
       <div class="quantum-channel__panel">
@@ -434,6 +441,15 @@
                 y:<span data-qc-bloch="y">0.000</span>
                 z:<span data-qc-bloch="z">0.000</span>
               </span>
+            </div>
+            <div class="quantum-channel__readout-row">
+              <span class="quantum-channel__readout-label">Before \(\rho_0\)</span>
+              <div class="quantum-channel__matrix" aria-label="Initial density matrix values">
+                <span data-qc-initial-matrix="00">0.50</span>
+                <span data-qc-initial-matrix="01">0.50</span>
+                <span data-qc-initial-matrix="10">0.50</span>
+                <span data-qc-initial-matrix="11">0.50</span>
+              </div>
             </div>
             <div class="quantum-channel__readout-row">
               <span class="quantum-channel__readout-label">Density Matrix \(\rho\)</span>

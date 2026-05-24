@@ -371,6 +371,13 @@
       y
       decoherencia, no un simulador completo de comunicación cuántica.
     </p>
+    <div class="model-teaching-card" aria-label="Notas educativas del canal cuántico">
+      <p><strong>Tipo de modelo:</strong> Modelo físico simplificado.</p>
+      <p><strong>Qué muestra:</strong> Cómo un canal transforma una matriz de densidad y cómo cambian pureza, coherencia, entropía y fidelidad.</p>
+      <p><strong>Qué no muestra:</strong> Un canal de comunicación completo, corrección de errores completa o hardware cuántico real.</p>
+      <p><strong>Ecuación / principio:</strong> \(\rho'=\mathcal{E}(\rho)=\sum_k E_k\rho E_k^\dagger\).</p>
+      <p><strong>Qué probar:</strong> Compara el antes y después de \(\rho\), cambia el canal y aumenta el ruido lentamente.</p>
+    </div>
     <figure class="quantum-channel glass-window" data-quantum-channel-model data-language="es">
       <div class="quantum-channel__frame" data-qc-frame></div>
       <div class="quantum-channel__panel">
@@ -447,6 +454,15 @@
                 y:<span data-qc-bloch="y">0.000</span>
                 z:<span data-qc-bloch="z">0.000</span>
               </span>
+            </div>
+            <div class="quantum-channel__readout-row">
+              <span class="quantum-channel__readout-label">Antes \(\rho_0\)</span>
+              <div class="quantum-channel__matrix" aria-label="Valores iniciales de la matriz de densidad">
+                <span data-qc-initial-matrix="00">0.00</span>
+                <span data-qc-initial-matrix="01">0.00</span>
+                <span data-qc-initial-matrix="10">0.00</span>
+                <span data-qc-initial-matrix="11">0.00</span>
+              </div>
             </div>
             <div class="quantum-channel__readout-row">
               <span class="quantum-channel__readout-label">Matriz de Densidad \(\rho\)</span>

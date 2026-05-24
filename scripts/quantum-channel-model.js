@@ -1,4 +1,4 @@
-import { bindPinchZoom, isModelPanGesture, panObjectFromPointer } from "./model-pan.js?v=20260524-mobile-science-menu-v1";
+import { bindPinchZoom, isModelPanGesture, panObjectFromPointer } from "./model-pan.js?v=20260524-model-teaching-os-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
@@ -602,6 +602,13 @@ class QuantumChannelModel {
 
   updateReadout() {
     const vector = densityBlochVector(this.state.rho);
+    const initialRho = densityFromInitialState(this.state.initialState);
+    const initialMatrix = {
+      "00": formatReal(initialRho.r00, 2),
+      "01": formatComplex(initialRho.re, initialRho.im),
+      "10": formatComplex(initialRho.re, -initialRho.im),
+      "11": formatReal(initialRho.r11, 2)
+    };
     const matrix = {
       "00": formatReal(this.state.rho.r00, 2),
       "01": formatComplex(this.state.rho.re, this.state.rho.im),
@@ -618,6 +625,13 @@ class QuantumChannelModel {
 
     Object.entries(matrix).forEach(([key, value]) => {
       const target = this.container.querySelector(`[data-qc-matrix='${key}']`);
+      if (target) {
+        target.textContent = value;
+      }
+    });
+
+    Object.entries(initialMatrix).forEach(([key, value]) => {
+      const target = this.container.querySelector(`[data-qc-initial-matrix='${key}']`);
       if (target) {
         target.textContent = value;
       }

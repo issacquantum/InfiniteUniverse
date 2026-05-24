@@ -1,4 +1,4 @@
-import { bindPinchZoom, isModelPanGesture, panObjectFromPointer } from "./model-pan.js?v=20260524-mobile-science-menu-v1";
+import { bindPinchZoom, isModelPanGesture, panObjectFromPointer } from "./model-pan.js?v=20260524-model-teaching-os-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
@@ -61,6 +61,9 @@ class QuantumEntanglementModel {
       sameAxisResults: 0,
       oppositeAxisResults: 0,
       correlationSum: 0,
+      bellAlicePlus: 0,
+      bellBobPlus: 0,
+      chshValue: null,
       measurementAxis: null
     };
 
@@ -471,6 +474,10 @@ class QuantumEntanglementModel {
       this.runBellTrials(256);
     });
 
+    this.container.querySelector("[data-qe-action='run-chsh']")?.addEventListener("click", () => {
+      this.runChshDemo();
+    });
+
     this.container.querySelector("[data-qe-action='reset']")?.addEventListener("click", () => {
       this.resetPair();
       this.setStatus(this.copy("reset"));
@@ -709,6 +716,12 @@ class QuantumEntanglementModel {
       const b = same ? a : -a;
       this.state.bellTrials += 1;
       this.state.correlationSum += a * b;
+      if (a > 0) {
+        this.state.bellAlicePlus += 1;
+      }
+      if (b > 0) {
+        this.state.bellBobPlus += 1;
+      }
 
       if (same) {
         this.state.sameAxisResults += 1;
@@ -726,11 +739,52 @@ class QuantumEntanglementModel {
     this.syncUi();
   }
 
+  runChshDemo() {
+    const settings = [
+      [0, Math.PI / 4, 1],
+      [0, -Math.PI / 4, 1],
+      [Math.PI / 2, Math.PI / 4, 1],
+      [Math.PI / 2, -Math.PI / 4, -1]
+    ];
+    const estimates = settings.map(([angleA, angleB]) => this.sampleCorrelation(angleA, angleB, 512));
+    this.state.chshValue = Math.abs(estimates.reduce((sum, value, index) => sum + value * settings[index][2], 0));
+    this.state.detectorAngleA = 0;
+    this.state.detectorAngleB = Math.PI / 4;
+    const angleAControl = this.container.querySelector("[data-qe-angle='detectorAngleA']");
+    const angleBControl = this.container.querySelector("[data-qe-angle='detectorAngleB']");
+    if (angleAControl) {
+      angleAControl.value = String(this.state.detectorAngleA);
+    }
+    if (angleBControl) {
+      angleBControl.value = String(this.state.detectorAngleB);
+    }
+    this.setStatus(`CHSH S = ${this.state.chshValue.toFixed(3)}`);
+    this.syncUi();
+  }
+
+  sampleCorrelation(angleA, angleB, count) {
+    const expected = -Math.cos(angleA - angleB);
+    const sameProbability = clamp((1 + expected) / 2, 0, 1);
+    let total = 0;
+
+    for (let trial = 0; trial < count; trial += 1) {
+      const a = Math.random() < 0.5 ? 1 : -1;
+      const same = Math.random() < sameProbability;
+      const b = same ? a : -a;
+      total += a * b;
+    }
+
+    return total / count;
+  }
+
   resetBellStats() {
     this.state.bellTrials = 0;
     this.state.sameAxisResults = 0;
     this.state.oppositeAxisResults = 0;
     this.state.correlationSum = 0;
+    this.state.bellAlicePlus = 0;
+    this.state.bellBobPlus = 0;
+    this.state.chshValue = null;
     this.resetPair();
   }
 
@@ -786,6 +840,8 @@ class QuantumEntanglementModel {
     const bellTotal = this.state.bellTrials;
     const samePct = bellTotal ? Math.round(this.state.sameAxisResults / bellTotal * 100) : 0;
     const oppositePct = bellTotal ? Math.round(this.state.oppositeAxisResults / bellTotal * 100) : 0;
+    const aliceLocalPct = bellTotal ? Math.round(this.state.bellAlicePlus / bellTotal * 100) : 50;
+    const bobLocalPct = bellTotal ? Math.round(this.state.bellBobPlus / bellTotal * 100) : 50;
     const expected = -Math.cos(this.state.detectorAngleA - this.state.detectorAngleB);
     this.syncValue("state", this.state.measured ? this.copy("measured") : this.copy("entangled"));
     this.syncValue("upDown", `${upPct}%`);
@@ -800,6 +856,9 @@ class QuantumEntanglementModel {
     this.syncValue("opposite", `${oppositePct}%`);
     this.syncValue("expectedE", expected.toFixed(3));
     this.syncValue("empiricalE", this.empiricalCorrelation().toFixed(3));
+    this.syncValue("aliceLocal", `${aliceLocalPct}%`);
+    this.syncValue("bobLocal", `${bobLocalPct}%`);
+    this.syncValue("chsh", this.state.chshValue === null ? (this.isSpanish ? "sin ejecutar" : "not run") : this.state.chshValue.toFixed(3));
     this.syncBar("upDown", upPct);
     this.syncBar("downUp", downPct);
     this.syncBar("same", samePct);
