@@ -1,26 +1,11 @@
 <div class="structured-content equation-detail-page" data-structured-content>
   <section class="content-block"><h3>RLHF (reinforcement learning from human feedback) Objective</h3></section>
-  <section class="content-block">
-    <h3>Equation</h3>
-    <div class="equation-link-wrap"><div class="glass-window equation-display">$$ \max_\theta\;\mathbb{E}[r_\phi(x,y)]-\beta D_{\rm KL}(\pi_\theta(y|x)\|\pi_{\rm ref}(y|x)) $$</div></div>
-  </section>
-  <section class="content-block"><h3>What the Formula Says</h3><p>Maximize reward-model score while penalizing deviation from a reference policy.</p></section>
-  <section class="content-block"><h3>What It Means in Practice</h3><p>RLHF pushes a language model toward outputs humans prefer, while a KL (Kullback-Leibler) penalty prevents the policy from drifting too far from the base model.</p></section>
-  <section class="content-block">
-    <h3>Symbols</h3>
-    <p><strong>\(r_\phi(x,y)\)</strong>: learned reward model score for prompt \(x\) and output \(y\).</p>
+  <section class="content-block"><h3>Equation</h3><div class="equation-link-wrap"><div class="glass-window equation-display">$$ \max_\theta\;\mathbb{E}[r_\phi(x,y)]-\beta D_{\rm KL}(\pi_\theta(y|x)\|\pi_{\rm ref}(y|x)) $$</div></div></section>
+  <section class="content-block"><h3>Literal Reading</h3><p>Maximize reward-model score while penalizing deviation from a reference policy.</p></section>
+  <section class="content-block"><h3>Common Reading</h3><p>A short way to say it: RLHF pushes a language model toward outputs humans prefer, while a KL (Kullback-Leibler) penalty prevents the policy from drifting too far from the base model.</p></section>
+  <section class="content-block"><h3>Symbols</h3><p><strong>\(r_\phi(x,y)\)</strong>: learned reward model score for prompt \(x\) and output \(y\).</p>
     <p><strong>\(\pi_\theta\)</strong>: tuned policy.</p>
     <p><strong>\(\pi_{\rm ref}\)</strong>: reference model.</p>
-    <p><strong>\(\beta\)</strong>: strength of the KL penalty.</p>
-  </section>
-  <section class="content-block"><h3>Equation Meaning</h3><p>This is alignment pressure, not guaranteed truth. The reward model captures preferences imperfectly, so evaluation remains necessary.</p></section>
-
-  <section class="content-block glossary-section abbreviation-glossary" data-abbreviation-glossary>
-    <h3>Abbreviation Glossary</h3>
-    <p class="abbreviation-glossary__note">This glossary expands the abbreviations used in this section. The first appearance in the text includes the full wording in parentheses; later uses stay abbreviated so the section stays readable.</p>
-    <ul class="paper-list glossary-list">
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>RLHF:</strong> reinforcement learning from human feedback.</span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>KL:</strong> Kullback-Leibler.</span></li>
-    </ul>
-  </section>
+    <p><strong>\(\beta\)</strong>: strength of the KL penalty.</p></section>
+  <section class="content-block"><h3>Meaning of the Equation</h3><p>RLHF pushes a language model toward outputs humans prefer, while a KL (Kullback-Leibler) penalty prevents the policy from drifting too far from the base model.</p></section>
 </div>
