@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260524-model-lab-targets-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260524-electromagnetism-wave-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
@@ -227,6 +227,7 @@ class FoundationModel {
     const eLine = new THREE.Line(eGeometry, new THREE.LineBasicMaterial({ color: COLORS.pink, linewidth: 2 }));
     const bLine = new THREE.Line(bGeometry, new THREE.LineBasicMaterial({ color: COLORS.electric, linewidth: 2 }));
     const arrows = [];
+    const phaseFronts = [];
 
     eGeometry.setAttribute("position", new THREE.BufferAttribute(ePositions, 3));
     bGeometry.setAttribute("position", new THREE.BufferAttribute(bPositions, 3));
@@ -244,6 +245,22 @@ class FoundationModel {
       const bArrow = new THREE.ArrowHelper(new THREE.Vector3(0, 0, 1), new THREE.Vector3(x, 0, 0), 0.4, COLORS.electric, 0.1, 0.045);
       arrows.push({ x, eArrow, bArrow });
       modelGroup.add(eArrow, bArrow);
+    }
+
+    const frontMaterial = new THREE.MeshBasicMaterial({
+      color: COLORS.strongPink,
+      transparent: true,
+      opacity: 0.7,
+      depthWrite: false
+    });
+    const frontGeometry = new THREE.TorusGeometry(0.72, 0.012, 12, 64);
+
+    for (let i = 0; i < 3; i += 1) {
+      const front = new THREE.Mesh(frontGeometry, frontMaterial.clone());
+      front.rotation.y = Math.PI / 2;
+      front.userData.offset = i / 3;
+      phaseFronts.push(front);
+      modelGroup.add(front);
     }
 
     this.dynamic = (time) => {
@@ -270,6 +287,15 @@ class FoundationModel {
         bArrow.position.set(x, 0, 0);
         bArrow.setDirection(new THREE.Vector3(0, 0, Math.sign(wave) || 1));
         bArrow.setLength(length, 0.1, 0.045);
+      });
+
+      phaseFronts.forEach((front) => {
+        const travel = (time * 0.18 + front.userData.offset) % 1;
+        const x = -3.2 + travel * 6.4;
+        const wave = Math.sin(x * 2.6 - time * 2.2);
+        front.position.set(x, wave * 0.18, wave * 0.18);
+        front.scale.setScalar(0.78 + Math.abs(wave) * 0.16);
+        front.material.opacity = 0.32 + (1 - travel) * 0.42;
       });
     };
   }
@@ -617,7 +643,8 @@ class FoundationModel {
 
     if (this.visible) {
       const reduced = document.body.dataset.motion === "reduced";
-      this.dynamic?.(reduced ? 0 : time, reduced ? 0 : delta);
+      const motionScale = reduced ? 0.35 : 1;
+      this.dynamic?.(time * motionScale, delta * motionScale);
       this.updateCamera();
       this.renderer.render(this.scene, this.camera);
     }
