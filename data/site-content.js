@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-equation-meaning-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-equation-symbol-lists-v1";
 
 function htmlSource(group, id) {
   return {

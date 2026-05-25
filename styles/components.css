@@ -965,14 +965,14 @@ body[data-readable-font="on"] .reading-settings-panel h3 {
   content: "";
 }
 
-:where(.structured-content, .legacy-content) :where(ul:not(.paper-list), ol:not(.paper-list)) > li {
+:where(.structured-content, .legacy-content) :where(ul:not(.paper-list):not(.equation-symbol-list), ol:not(.paper-list):not(.equation-symbol-list)) > li {
   position: relative;
   padding-left: 1.18rem;
   color: var(--body);
   text-align: left;
 }
 
-:where(.structured-content, .legacy-content) :where(ul:not(.paper-list), ol:not(.paper-list)) > li::before {
+:where(.structured-content, .legacy-content) :where(ul:not(.paper-list):not(.equation-symbol-list), ol:not(.paper-list):not(.equation-symbol-list)) > li::before {
   content: "";
   position: absolute;
   left: 0.1rem;
@@ -984,6 +984,32 @@ body[data-readable-font="on"] .reading-settings-panel h3 {
   box-shadow:
     0 0 8px rgba(var(--outline-rgb), 0.44),
     0 0 14px rgba(var(--glow-rgb), 0.24);
+}
+
+.equation-symbol-list {
+  display: grid;
+  gap: 0.68rem;
+  width: min(100%, 54rem);
+  padding: 0;
+  margin: 1rem auto 0;
+  list-style: none;
+  text-align: left;
+}
+
+.equation-symbol-list > li {
+  color: var(--body);
+  line-height: 1.48;
+  list-style: none;
+}
+
+.equation-symbol-list > li::marker,
+.equation-symbol-list > li::before {
+  content: "";
+  display: none;
+}
+
+.equation-symbol-list strong {
+  color: var(--heading);
 }
 
 .structured-content p+p,
