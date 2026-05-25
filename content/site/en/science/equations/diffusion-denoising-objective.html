@@ -1,17 +1,11 @@
 <div class="structured-content equation-detail-page" data-structured-content>
   <section class="content-block"><h3>Diffusion Denoising Objective</h3></section>
-  <section class="content-block">
-    <h3>Equation</h3>
-    <div class="equation-link-wrap"><div class="glass-window equation-display">$$ L_{\rm simple}=\mathbb{E}_{t,x_0,\epsilon}\!\left[\|\epsilon-\epsilon_\theta(x_t,t)\|^2\right] $$</div></div>
-  </section>
-  <section class="content-block"><h3>What the Formula Says</h3><p>The model minimizes the squared difference between the noise that was added and the noise it predicts.</p></section>
-  <section class="content-block"><h3>What It Means in Practice</h3><p>A diffusion model learns to reverse a gradual noising process by predicting how to denoise each intermediate state.</p></section>
-  <section class="content-block">
-    <h3>Symbols</h3>
-    <p><strong>\(x_0\)</strong>: original clean data.</p>
+  <section class="content-block"><h3>Equation</h3><div class="equation-link-wrap"><div class="glass-window equation-display">$$ L_{\rm simple}=\mathbb{E}_{t,x_0,\epsilon}\!\left[\|\epsilon-\epsilon_\theta(x_t,t)\|^2\right] $$</div></div></section>
+  <section class="content-block"><h3>Literal Reading</h3><p>The model minimizes the squared difference between the noise that was added and the noise it predicts.</p></section>
+  <section class="content-block"><h3>Common Reading</h3><p>A short way to say it: A diffusion model learns to reverse a gradual noising process by predicting how to denoise each intermediate state.</p></section>
+  <section class="content-block"><h3>Symbols</h3><p><strong>\(x_0\)</strong>: original clean data.</p>
     <p><strong>\(x_t\)</strong>: noised data at timestep \(t\).</p>
     <p><strong>\(\epsilon\)</strong>: sampled noise.</p>
-    <p><strong>\(\epsilon_\theta\)</strong>: neural network prediction of that noise.</p>
-  </section>
-  <section class="content-block"><h3>Equation Meaning</h3><p>The model does not create from nothing. It learns a controlled reverse process from noise toward structure.</p></section>
+    <p><strong>\(\epsilon_\theta\)</strong>: neural network prediction of that noise.</p></section>
+  <section class="content-block"><h3>Meaning of the Equation</h3><p>A diffusion model learns to reverse a gradual noising process by predicting how to denoise each intermediate state.</p></section>
 </div>

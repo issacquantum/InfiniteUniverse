@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-science-depth-pass-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-equation-reading-structure-v1";
 
 function htmlSource(group, id) {
   return {
