@@ -1,11 +1,11 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260524-electromagnetism-wave-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260524-model-purple-palette-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
 
 const COLORS = {
-  pink: 0xff00a2,
-  strongPink: 0xff58d6,
+  brightViolet: 0x8a2be2,
+  luminousViolet: 0xbf40ff,
   violet: 0x7700ff,
   electric: 0xbf40ff,
   indigo: 0x2b006d,
@@ -110,7 +110,7 @@ class FoundationModel {
   addLights() {
     const { THREE, scene } = this;
     scene.add(new THREE.AmbientLight(0x9f5cff, 0.88));
-    const key = new THREE.PointLight(COLORS.pink, 2.2, 28);
+    const key = new THREE.PointLight(COLORS.brightViolet, 2.2, 28);
     key.position.set(3.5, 4.2, 5);
     scene.add(key);
     const fill = new THREE.PointLight(COLORS.electric, 1.5, 22);
@@ -132,7 +132,7 @@ class FoundationModel {
     const geometry = new THREE.BufferGeometry();
     geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
     const material = new THREE.PointsMaterial({
-      color: COLORS.strongPink,
+      color: COLORS.luminousViolet,
       size: 0.025,
       transparent: true,
       opacity: 0.78
@@ -185,13 +185,13 @@ class FoundationModel {
 
     const center = new THREE.Mesh(
       new THREE.SphereGeometry(0.28, 32, 16),
-      this.material(COLORS.pink, 0.38)
+      this.material(COLORS.brightViolet, 0.38)
     );
     modelGroup.add(center);
 
     const orbit = new THREE.Mesh(
       new THREE.TorusGeometry(1.95, 0.012, 12, 96),
-      this.material(COLORS.strongPink, 0.34)
+      this.material(COLORS.luminousViolet, 0.34)
     );
     orbit.rotation.x = Math.PI / 2;
     modelGroup.add(orbit);
@@ -202,8 +202,8 @@ class FoundationModel {
     );
     modelGroup.add(body);
 
-    const forceArrow = new THREE.ArrowHelper(new THREE.Vector3(-1, 0, 0), new THREE.Vector3(), 0.9, COLORS.pink, 0.16, 0.08);
-    const velocityArrow = new THREE.ArrowHelper(new THREE.Vector3(0, 0, 1), new THREE.Vector3(), 0.85, COLORS.strongPink, 0.16, 0.08);
+    const forceArrow = new THREE.ArrowHelper(new THREE.Vector3(-1, 0, 0), new THREE.Vector3(), 0.9, COLORS.brightViolet, 0.16, 0.08);
+    const velocityArrow = new THREE.ArrowHelper(new THREE.Vector3(0, 0, 1), new THREE.Vector3(), 0.85, COLORS.luminousViolet, 0.16, 0.08);
     modelGroup.add(forceArrow, velocityArrow);
 
     this.dynamic = (time) => {
@@ -224,7 +224,7 @@ class FoundationModel {
     const samples = 96;
     const ePositions = new Float32Array(samples * 3);
     const bPositions = new Float32Array(samples * 3);
-    const eLine = new THREE.Line(eGeometry, new THREE.LineBasicMaterial({ color: COLORS.pink, linewidth: 2 }));
+    const eLine = new THREE.Line(eGeometry, new THREE.LineBasicMaterial({ color: COLORS.brightViolet, linewidth: 2 }));
     const bLine = new THREE.Line(bGeometry, new THREE.LineBasicMaterial({ color: COLORS.electric, linewidth: 2 }));
     const arrows = [];
     const phaseFronts = [];
@@ -235,20 +235,20 @@ class FoundationModel {
 
     const axis = new THREE.Line(
       new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(-3.2, 0, 0), new THREE.Vector3(3.2, 0, 0)]),
-      new THREE.LineBasicMaterial({ color: COLORS.strongPink, transparent: true, opacity: 0.42 })
+      new THREE.LineBasicMaterial({ color: COLORS.luminousViolet, transparent: true, opacity: 0.42 })
     );
     modelGroup.add(axis);
 
     for (let i = 0; i < 11; i += 1) {
       const x = -3 + i * 0.6;
-      const eArrow = new THREE.ArrowHelper(new THREE.Vector3(0, 1, 0), new THREE.Vector3(x, 0, 0), 0.4, COLORS.pink, 0.1, 0.045);
+      const eArrow = new THREE.ArrowHelper(new THREE.Vector3(0, 1, 0), new THREE.Vector3(x, 0, 0), 0.4, COLORS.brightViolet, 0.1, 0.045);
       const bArrow = new THREE.ArrowHelper(new THREE.Vector3(0, 0, 1), new THREE.Vector3(x, 0, 0), 0.4, COLORS.electric, 0.1, 0.045);
       arrows.push({ x, eArrow, bArrow });
       modelGroup.add(eArrow, bArrow);
     }
 
     const frontMaterial = new THREE.MeshBasicMaterial({
-      color: COLORS.strongPink,
+      color: COLORS.luminousViolet,
       transparent: true,
       opacity: 0.7,
       depthWrite: false
@@ -312,7 +312,7 @@ class FoundationModel {
     for (let i = 0; i < 34; i += 1) {
       const particle = new THREE.Mesh(
         new THREE.SphereGeometry(0.055, 12, 8),
-        this.material(i % 3 === 0 ? COLORS.pink : COLORS.electric, 0.24)
+        this.material(i % 3 === 0 ? COLORS.brightViolet : COLORS.electric, 0.24)
       );
       particle.position.set((Math.random() - 0.5) * 3, (Math.random() - 0.5) * 1.8, (Math.random() - 0.5) * 1.8);
       particle.userData.velocity = new THREE.Vector3(
@@ -340,7 +340,7 @@ class FoundationModel {
   addMathematicsModel() {
     const { THREE, modelGroup } = this;
     const original = new THREE.ArrowHelper(new THREE.Vector3(1, 0.4, 0.25).normalize(), new THREE.Vector3(-1.5, -0.6, 0), 1.3, COLORS.electric, 0.16, 0.08);
-    const transformed = new THREE.ArrowHelper(new THREE.Vector3(0.45, 1, 0.35).normalize(), new THREE.Vector3(0.4, -0.6, 0), 1.75, COLORS.pink, 0.18, 0.09);
+    const transformed = new THREE.ArrowHelper(new THREE.Vector3(0.45, 1, 0.35).normalize(), new THREE.Vector3(0.4, -0.6, 0), 1.75, COLORS.brightViolet, 0.18, 0.09);
     modelGroup.add(original, transformed);
 
     const grid = this.addGrid(4.6, 10, -0.85);
@@ -364,7 +364,7 @@ class FoundationModel {
     const positions = new Float32Array(segmentCount * 2 * 3);
     const geometry = new THREE.BufferGeometry();
     geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-    const lattice = new THREE.LineSegments(geometry, new THREE.LineBasicMaterial({ color: COLORS.strongPink, transparent: true, opacity: 0.62 }));
+    const lattice = new THREE.LineSegments(geometry, new THREE.LineBasicMaterial({ color: COLORS.luminousViolet, transparent: true, opacity: 0.62 }));
     modelGroup.add(lattice);
 
     this.dynamic = (time) => {
@@ -395,7 +395,7 @@ class FoundationModel {
 
   addChemistryModel() {
     const { THREE, modelGroup } = this;
-    const central = this.atom(0.24, COLORS.pink);
+    const central = this.atom(0.24, COLORS.brightViolet);
     modelGroup.add(central);
     const positions = [
       new THREE.Vector3(1, 1, 1),
@@ -405,7 +405,7 @@ class FoundationModel {
     ].map((point) => point.normalize().multiplyScalar(1.22));
 
     positions.forEach((position, index) => {
-      const atom = this.atom(0.14, index % 2 ? COLORS.electric : COLORS.strongPink);
+      const atom = this.atom(0.14, index % 2 ? COLORS.electric : COLORS.luminousViolet);
       atom.position.copy(position);
       modelGroup.add(atom);
       modelGroup.add(this.bond(new THREE.Vector3(), position));
@@ -431,16 +431,16 @@ class FoundationModel {
       rightPoints.push(new THREE.Vector3(Math.cos(t + Math.PI) * 0.72, y, Math.sin(t + Math.PI) * 0.72));
     }
 
-    modelGroup.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(leftPoints), new THREE.LineBasicMaterial({ color: COLORS.pink })));
+    modelGroup.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(leftPoints), new THREE.LineBasicMaterial({ color: COLORS.brightViolet })));
     modelGroup.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(rightPoints), new THREE.LineBasicMaterial({ color: COLORS.electric })));
 
     for (let i = 0; i < steps; i += 4) {
       const rung = new THREE.Line(
         new THREE.BufferGeometry().setFromPoints([leftPoints[i], rightPoints[i]]),
-        new THREE.LineBasicMaterial({ color: COLORS.strongPink, transparent: true, opacity: 0.7 })
+        new THREE.LineBasicMaterial({ color: COLORS.luminousViolet, transparent: true, opacity: 0.7 })
       );
       modelGroup.add(rung);
-      const beadA = this.atom(0.055, COLORS.pink);
+      const beadA = this.atom(0.055, COLORS.brightViolet);
       const beadB = this.atom(0.055, COLORS.electric);
       beadA.position.copy(leftPoints[i]);
       beadB.position.copy(rightPoints[i]);
@@ -462,7 +462,7 @@ class FoundationModel {
     const pulses = [];
 
     nodes.forEach((position, index) => {
-      const node = this.atom(index === 2 ? 0.18 : 0.13, index % 2 ? COLORS.electric : COLORS.pink);
+      const node = this.atom(index === 2 ? 0.18 : 0.13, index % 2 ? COLORS.electric : COLORS.brightViolet);
       node.position.copy(position);
       modelGroup.add(node);
     });
@@ -471,7 +471,7 @@ class FoundationModel {
         new THREE.BufferGeometry().setFromPoints([nodes[a], nodes[b]]),
         new THREE.LineBasicMaterial({ color: COLORS.violet, transparent: true, opacity: 0.56 })
       ));
-      const pulse = this.atom(0.055, COLORS.strongPink);
+      const pulse = this.atom(0.055, COLORS.luminousViolet);
       pulse.userData = { a: nodes[a], b: nodes[b], offset: index / edges.length };
       pulses.push(pulse);
       modelGroup.add(pulse);
@@ -496,7 +496,7 @@ class FoundationModel {
       const center = new THREE.Vector3((cluster - 1) * 1.55, Math.sin(cluster) * 0.3, Math.cos(cluster) * 0.35);
       const position = center.add(new THREE.Vector3(Math.cos(angle) * 0.65, Math.sin(angle * 1.7) * 0.52, Math.sin(angle) * 0.65));
       nodes.push(position);
-      const node = this.atom(i % 7 === 0 ? 0.13 : 0.08, i % 2 ? COLORS.electric : COLORS.pink);
+      const node = this.atom(i % 7 === 0 ? 0.13 : 0.08, i % 2 ? COLORS.electric : COLORS.brightViolet);
       node.position.copy(position);
       modelGroup.add(node);
     }

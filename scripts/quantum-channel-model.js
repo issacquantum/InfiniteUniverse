@@ -1,11 +1,11 @@
-import { bindPinchZoom, isModelPanGesture, panObjectFromPointer } from "./model-pan.js?v=20260524-electromagnetism-wave-v1";
+import { bindPinchZoom, isModelPanGesture, panObjectFromPointer } from "./model-pan.js?v=20260524-model-purple-palette-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
 
 const COLORS = {
-  hotPink: 0xff00a2,
-  strongPink: 0xff58d6,
+  brightViolet: 0x8a2be2,
+  luminousViolet: 0xbf40ff,
   electric: 0xbf40ff,
   violet: 0x7700ff,
   indigo: 0x2b006d,
@@ -142,11 +142,11 @@ class QuantumChannelModel {
     this.camera.position.set(0, 5.4, 14);
 
     this.scene.add(new THREE.AmbientLight(COLORS.electric, 0.75));
-    const pinkLight = new THREE.PointLight(COLORS.hotPink, 1.4, 70);
-    pinkLight.position.set(9, 10, 10);
+    const brightVioletLight = new THREE.PointLight(COLORS.brightViolet, 1.4, 70);
+    brightVioletLight.position.set(9, 10, 10);
     const violetLight = new THREE.PointLight(COLORS.violet, 1.1, 70);
     violetLight.position.set(-10, -4, -10);
-    this.scene.add(pinkLight, violetLight);
+    this.scene.add(brightVioletLight, violetLight);
 
     this.rootGroup = new THREE.Group();
     this.scene.add(this.rootGroup);
@@ -211,8 +211,8 @@ class QuantumChannelModel {
     rootGroup.add(this.blochSphere);
 
     const axes = [
-      [[-6, 0, 0], [6, 0, 0], COLORS.hotPink],
-      [[0, -6, 0], [0, 6, 0], COLORS.strongPink],
+      [[-6, 0, 0], [6, 0, 0], COLORS.brightViolet],
+      [[0, -6, 0], [0, 6, 0], COLORS.luminousViolet],
       [[0, 0, -6], [0, 0, 6], COLORS.violet]
     ];
 
@@ -238,7 +238,7 @@ class QuantumChannelModel {
         uTime: { value: 0 },
         uPurity: { value: 1 },
         uNoise: { value: 0 },
-        uPrimary: { value: new THREE.Color(COLORS.hotPink) },
+        uPrimary: { value: new THREE.Color(COLORS.brightViolet) },
         uSecondary: { value: new THREE.Color(COLORS.electric) }
       },
       vertexShader: `
@@ -290,7 +290,7 @@ class QuantumChannelModel {
     const headGeometry = new THREE.ConeGeometry(0.22, 0.68, 24);
     headGeometry.rotateZ(-Math.PI / 2);
     const material = new THREE.MeshBasicMaterial({
-      color: COLORS.strongPink,
+      color: COLORS.luminousViolet,
       transparent: true,
       opacity: 0.94
     });
@@ -317,7 +317,7 @@ class QuantumChannelModel {
     const geometry = new THREE.BufferGeometry();
     geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
     const material = new THREE.PointsMaterial({
-      color: COLORS.hotPink,
+      color: COLORS.brightViolet,
       size: 0.17,
       transparent: true,
       opacity: 0,
@@ -738,10 +738,10 @@ class QuantumChannelModel {
         ctx.lineTo(x, y);
       }
     });
-    ctx.strokeStyle = "#ff00a2";
+    ctx.strokeStyle = "#8a2be2";
     ctx.lineWidth = 2;
     ctx.shadowBlur = 10;
-    ctx.shadowColor = "#ff58d6";
+    ctx.shadowColor = "#bf40ff";
     ctx.stroke();
     ctx.shadowBlur = 0;
 

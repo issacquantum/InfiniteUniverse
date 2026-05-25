@@ -1,6 +1,6 @@
 .black-hole-model {
-  --bh-hot-pink: #ff00a2;
-  --bh-strong-pink: #ff58d6;
+  --bh-bright-violet: #8a2be2;
+  --bh-luminous-violet: #bf40ff;
   --bh-electric: #bf40ff;
   --bh-violet: #7700ff;
   --bh-indigo: #2b006d;
@@ -28,13 +28,13 @@
   background:
     linear-gradient(90deg,
       transparent 0 10%,
-      rgba(255, 0, 162, 0.58) 16% 19%,
+      rgba(138, 43, 226, 0.58) 16% 19%,
       transparent 25% 76%,
       rgba(191, 64, 255, 0.5) 82% 85%,
       transparent 92%),
     linear-gradient(180deg,
       transparent 0 11%,
-      rgba(255, 88, 214, 0.38) 17% 20%,
+      rgba(191, 64, 255, 0.38) 17% 20%,
       transparent 26% 82%,
       rgba(119, 0, 255, 0.35) 88% 91%,
       transparent 100%);
@@ -74,7 +74,7 @@
 .black-hole-model__canvas:focus-visible {
   box-shadow:
     inset 0 0 0 2px rgba(191, 64, 255, 0.62),
-    inset 0 0 18px rgba(255, 0, 162, 0.3);
+    inset 0 0 18px rgba(138, 43, 226, 0.3);
 }
 
 .black-hole-model__hint {
@@ -82,7 +82,7 @@
   right: 0.72rem;
   bottom: 0.56rem;
   left: 0.72rem;
-  color: rgba(255, 88, 214, 0.78);
+  color: rgba(191, 64, 255, 0.78);
   font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -109,7 +109,7 @@
 
 .black-hole-model__label,
 .black-hole-model__button {
-  color: var(--bh-strong-pink);
+  color: var(--bh-luminous-violet);
   font-size: 0.6rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -123,7 +123,7 @@
 }
 
 .black-hole-model__value {
-  color: var(--bh-hot-pink);
+  color: var(--bh-bright-violet);
   font-variant-numeric: tabular-nums;
 }
 
@@ -131,7 +131,7 @@
   width: 100%;
   height: 2px;
   border-radius: 999px;
-  background: linear-gradient(90deg, rgba(119, 0, 255, 0.34), rgba(255, 0, 162, 0.38));
+  background: linear-gradient(90deg, rgba(119, 0, 255, 0.34), rgba(138, 43, 226, 0.38));
   outline: none;
   appearance: none;
   -webkit-appearance: none;
@@ -140,12 +140,12 @@
 .black-hole-model__range::-webkit-slider-thumb {
   width: 10px;
   height: 10px;
-  border: 1px solid var(--bh-hot-pink);
+  border: 1px solid var(--bh-bright-violet);
   border-radius: 50%;
   background: var(--bh-electric);
   cursor: pointer;
   box-shadow:
-    0 0 8px var(--bh-hot-pink),
+    0 0 8px var(--bh-bright-violet),
     0 0 14px rgba(119, 0, 255, 0.52);
   appearance: none;
   -webkit-appearance: none;
@@ -154,12 +154,12 @@
 .black-hole-model__range::-moz-range-thumb {
   width: 10px;
   height: 10px;
-  border: 1px solid var(--bh-hot-pink);
+  border: 1px solid var(--bh-bright-violet);
   border-radius: 50%;
   background: var(--bh-electric);
   cursor: pointer;
   box-shadow:
-    0 0 8px var(--bh-hot-pink),
+    0 0 8px var(--bh-bright-violet),
     0 0 14px rgba(119, 0, 255, 0.52);
 }
 
@@ -174,7 +174,7 @@
 .black-hole-model__button:hover,
 .black-hole-model__button:focus-visible {
   border-color: rgba(191, 64, 255, 0.88);
-  color: var(--bh-hot-pink);
+  color: var(--bh-bright-violet);
   box-shadow: 0 0 16px rgba(119, 0, 255, 0.32);
 }
 

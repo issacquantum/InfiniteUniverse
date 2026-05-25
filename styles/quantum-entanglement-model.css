@@ -1,6 +1,6 @@
 .quantum-entanglement {
-  --qe-hot-pink: #ff00a2;
-  --qe-strong-pink: #ff58d6;
+  --qe-bright-violet: #8a2be2;
+  --qe-luminous-violet: #bf40ff;
   --qe-electric: #bf40ff;
   --qe-violet: #7700ff;
   --qe-indigo: #2b006d;
@@ -28,13 +28,13 @@
   background:
     linear-gradient(90deg,
       transparent 0 9%,
-      rgba(255, 0, 162, 0.72) 14% 18%,
+      rgba(138, 43, 226, 0.72) 14% 18%,
       transparent 24% 77%,
       rgba(191, 64, 255, 0.48) 82% 86%,
       transparent 92%),
     linear-gradient(180deg,
       transparent 0 10%,
-      rgba(255, 88, 214, 0.44) 15% 18%,
+      rgba(191, 64, 255, 0.44) 15% 18%,
       transparent 24% 82%,
       rgba(119, 0, 255, 0.34) 88% 91%,
       transparent 100%);
@@ -42,8 +42,8 @@
 
 .quantum-entanglement.glass-window::after {
   box-shadow:
-    0 0 0 1px rgba(255, 0, 162, 0.82),
-    0 0 24px rgba(255, 88, 214, 0.54),
+    0 0 0 1px rgba(138, 43, 226, 0.82),
+    0 0 24px rgba(191, 64, 255, 0.54),
     0 0 44px rgba(119, 0, 255, 0.74),
     0 0 72px rgba(191, 64, 255, 0.34);
 }
@@ -56,7 +56,7 @@
   max-height: var(--model-frame-max-height);
   overflow: hidden;
   background:
-    radial-gradient(circle at 29% 48%, rgba(255, 0, 162, 0.18), transparent 33%),
+    radial-gradient(circle at 29% 48%, rgba(138, 43, 226, 0.18), transparent 33%),
     radial-gradient(circle at 72% 45%, rgba(191, 64, 255, 0.24), transparent 36%),
     radial-gradient(circle at center, var(--qe-indigo) 0%, var(--qe-deep) 100%);
 }
@@ -76,7 +76,7 @@
 
 .quantum-entanglement__canvas:focus-visible {
   box-shadow:
-    inset 0 0 0 2px rgba(255, 0, 162, 0.68),
+    inset 0 0 0 2px rgba(138, 43, 226, 0.68),
     inset 0 0 24px rgba(119, 0, 255, 0.34);
 }
 
@@ -88,10 +88,10 @@
   max-width: min(90%, 30rem);
   margin: 0;
   padding: 0.22rem 0.42rem;
-  border: 1px solid rgba(255, 88, 214, 0.34);
+  border: 1px solid rgba(191, 64, 255, 0.34);
   border-radius: 0.42rem;
   background: rgba(17, 4, 28, 0.62);
-  color: var(--qe-strong-pink);
+  color: var(--qe-luminous-violet);
   font-size: 0.64rem;
   letter-spacing: 0.08em;
   text-align: center;
@@ -126,9 +126,9 @@
   border: 1px solid var(--qe-violet);
   border-radius: 0.38rem;
   background:
-    radial-gradient(circle at 30% 18%, rgba(255, 0, 162, 0.16), transparent 40%),
+    radial-gradient(circle at 30% 18%, rgba(138, 43, 226, 0.16), transparent 40%),
     rgba(var(--glow-rgb), 0.22);
-  color: var(--qe-strong-pink);
+  color: var(--qe-luminous-violet);
   cursor: pointer;
   font: inherit;
   font-size: 0.64rem;
@@ -147,9 +147,9 @@
 .quantum-entanglement__button:focus-visible,
 .quantum-entanglement__button.is-active {
   background:
-    radial-gradient(circle at 50% 20%, rgba(255, 88, 214, 0.24), transparent 42%),
+    radial-gradient(circle at 50% 20%, rgba(191, 64, 255, 0.24), transparent 42%),
     rgba(var(--glow-rgb), 0.42);
-  color: var(--qe-hot-pink);
+  color: var(--qe-bright-violet);
   box-shadow: 0 0 15px rgba(var(--glow-rgb), 0.42);
   transform: translate3d(0, -1px, 0);
 }
@@ -165,19 +165,19 @@
 
 .quantum-entanglement__range {
   width: 100%;
-  accent-color: var(--qe-hot-pink);
+  accent-color: var(--qe-bright-violet);
 }
 
 .quantum-entanglement__status,
 .quantum-entanglement__note {
   margin: 0;
-  color: var(--qe-strong-pink);
+  color: var(--qe-luminous-violet);
   line-height: 1.35;
 }
 
 .quantum-entanglement__status {
   min-height: 1.3rem;
-  color: rgba(var(--outline-rgb), 0.84);
+  color: rgba(191, 64, 255, 0.84);
   font-size: 0.68rem;
 }
 
@@ -190,7 +190,7 @@
 .quantum-entanglement__metric-label,
 .quantum-entanglement__label,
 .quantum-entanglement__basis {
-  color: var(--qe-strong-pink);
+  color: var(--qe-luminous-violet);
   font-size: 0.6rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -212,7 +212,7 @@
 }
 
 .quantum-entanglement__value {
-  color: var(--qe-hot-pink);
+  color: var(--qe-bright-violet);
   font-variant-numeric: tabular-nums;
 }
 
@@ -231,8 +231,8 @@
   height: 100%;
   border-radius: inherit;
   background:
-    linear-gradient(90deg, var(--qe-violet), var(--qe-electric), var(--qe-hot-pink));
-  box-shadow: 0 0 10px rgba(255, 0, 162, 0.5);
+    linear-gradient(90deg, var(--qe-violet), var(--qe-electric), var(--qe-bright-violet));
+  box-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
   transition: width 220ms ease;
 }
 
@@ -241,7 +241,7 @@
   flex-wrap: wrap;
   gap: 0.34rem;
   justify-content: center;
-  color: var(--qe-strong-pink);
+  color: var(--qe-luminous-violet);
   font-size: 0.6rem;
   letter-spacing: 0.06em;
   text-align: center;

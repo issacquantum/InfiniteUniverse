@@ -21,7 +21,7 @@
   box-shadow:
     0 20px 50px rgba(var(--shadow-rgb), 0.5),
     0 0 28px rgba(var(--glow-rgb), 0.22),
-    inset 0 0 28px rgba(255, 0, 162, 0.08);
+    inset 0 0 28px rgba(138, 43, 226, 0.08);
 }
 
 .gravity-fabric__canvas {
@@ -38,7 +38,7 @@
 
 .gravity-fabric__hint {
   margin: 0;
-  color: rgba(var(--outline-rgb), 0.68);
+  color: rgba(191, 64, 255, 0.68);
   font-size: 0.78rem;
   letter-spacing: 0.06em;
   text-align: center;
@@ -60,7 +60,7 @@
 .gravity-fabric__group {
   display: grid;
   gap: 0.28rem;
-  color: #ff58d6;
+  color: #bf40ff;
   font-size: 0.72rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -83,7 +83,7 @@
   justify-content: center;
   gap: 0.55rem;
   margin: 0;
-  color: #ff58d6;
+  color: #bf40ff;
   font-size: 0.72rem;
   letter-spacing: 0.06em;
   text-align: center;

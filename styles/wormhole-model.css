@@ -1,6 +1,6 @@
 .wormhole-model {
-  --wm-hot-pink: #ff00a2;
-  --wm-strong-pink: #ff58d6;
+  --wm-bright-violet: #8a2be2;
+  --wm-luminous-violet: #bf40ff;
   --wm-violet: #7700ff;
   --wm-lavender: #e098ff;
   --wm-indigo: #210044;
@@ -31,7 +31,7 @@
   max-height: var(--model-frame-max-height);
   overflow: hidden;
   background:
-    radial-gradient(circle at 50% 46%, rgba(255, 0, 162, 0.18), transparent 30%),
+    radial-gradient(circle at 50% 46%, rgba(138, 43, 226, 0.18), transparent 30%),
     radial-gradient(circle at 50% 34%, rgba(119, 0, 255, 0.26), transparent 36%),
     radial-gradient(circle at 50% 64%, rgba(224, 152, 255, 0.18), transparent 38%),
     #050008;
@@ -50,7 +50,7 @@
 }
 
 .wormhole-model__canvas:focus-visible {
-  outline: 2px solid var(--wm-hot-pink);
+  outline: 2px solid var(--wm-bright-violet);
   outline-offset: -4px;
 }
 
@@ -66,7 +66,7 @@
 .wormhole-model__readout {
   grid-column: 1 / -1;
   margin: 0;
-  color: var(--wm-hot-pink);
+  color: var(--wm-bright-violet);
   font-size: 0.68rem;
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.05em;
@@ -81,7 +81,7 @@
 
 .wormhole-model__label,
 .wormhole-model__toggle {
-  color: var(--wm-strong-pink);
+  color: var(--wm-luminous-violet);
   font-size: 0.54rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -95,7 +95,7 @@
 }
 
 .wormhole-model__value {
-  color: var(--wm-hot-pink);
+  color: var(--wm-bright-violet);
   font-variant-numeric: tabular-nums;
 }
 
@@ -103,7 +103,7 @@
   width: 100%;
   height: 2px;
   border-radius: 999px;
-  background: linear-gradient(90deg, rgba(119, 0, 255, 0.34), rgba(255, 0, 162, 0.36));
+  background: linear-gradient(90deg, rgba(119, 0, 255, 0.34), rgba(138, 43, 226, 0.36));
   outline: none;
   appearance: none;
   -webkit-appearance: none;
@@ -114,9 +114,9 @@
   height: 9px;
   border: 1px solid var(--wm-lavender);
   border-radius: 50%;
-  background: var(--wm-hot-pink);
+  background: var(--wm-bright-violet);
   cursor: pointer;
-  box-shadow: 0 0 8px var(--wm-hot-pink), 0 0 14px rgba(119, 0, 255, 0.45);
+  box-shadow: 0 0 8px var(--wm-bright-violet), 0 0 14px rgba(119, 0, 255, 0.45);
   appearance: none;
   -webkit-appearance: none;
 }
@@ -126,9 +126,9 @@
   height: 9px;
   border: 1px solid var(--wm-lavender);
   border-radius: 50%;
-  background: var(--wm-hot-pink);
+  background: var(--wm-bright-violet);
   cursor: pointer;
-  box-shadow: 0 0 8px var(--wm-hot-pink), 0 0 14px rgba(119, 0, 255, 0.45);
+  box-shadow: 0 0 8px var(--wm-bright-violet), 0 0 14px rgba(119, 0, 255, 0.45);
 }
 
 .wormhole-model__toggle {
@@ -141,7 +141,7 @@
 .wormhole-model__toggle input {
   width: 0.72rem;
   height: 0.72rem;
-  accent-color: var(--wm-hot-pink);
+  accent-color: var(--wm-bright-violet);
 }
 
 .wormhole-model__button {
@@ -149,7 +149,7 @@
   border: 1px solid var(--wm-violet);
   border-radius: 0.38rem;
   background: rgba(var(--glow-rgb), 0.22);
-  color: var(--wm-strong-pink);
+  color: var(--wm-luminous-violet);
   cursor: pointer;
   font-size: 0.58rem;
   font-weight: 700;
@@ -164,7 +164,7 @@
 .wormhole-model__button:hover,
 .wormhole-model__button:focus-visible {
   background: rgba(var(--glow-rgb), 0.42);
-  color: var(--wm-hot-pink);
+  color: var(--wm-bright-violet);
   box-shadow: 0 0 15px rgba(var(--glow-rgb), 0.42);
 }
 
@@ -172,7 +172,7 @@
 .wormhole-model__note {
   margin: 0;
   padding: 0 0.9rem 0.95rem;
-  color: var(--wm-strong-pink);
+  color: var(--wm-luminous-violet);
   line-height: 1.35;
   text-align: center;
 }
@@ -183,7 +183,7 @@
   justify-content: center;
   gap: 0.42rem;
   padding: 0.68rem 0.8rem 0.1rem;
-  color: var(--wm-strong-pink);
+  color: var(--wm-luminous-violet);
   font-size: 0.64rem;
   letter-spacing: 0.05em;
   text-align: center;
@@ -201,7 +201,7 @@
 .wormhole-model__hint {
   padding-top: 0.75rem;
   padding-bottom: 0.2rem;
-  color: rgba(var(--outline-rgb), 0.68);
+  color: rgba(191, 64, 255, 0.68);
   font-size: 0.76rem;
   letter-spacing: 0.06em;
   text-transform: lowercase;

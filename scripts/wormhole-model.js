@@ -1,4 +1,4 @@
-import { bindPinchZoom, isModelPanGesture, panObjectFromPointer } from "./model-pan.js?v=20260524-electromagnetism-wave-v1";
+import { bindPinchZoom, isModelPanGesture, panObjectFromPointer } from "./model-pan.js?v=20260524-model-purple-palette-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
@@ -131,11 +131,11 @@ class WormholeModel {
     const { THREE, scene } = this;
     scene.add(new THREE.AmbientLight(0xe0c4ff, 0.7));
 
-    const keyLight = new THREE.DirectionalLight(0xff58d6, 2.2);
+    const keyLight = new THREE.DirectionalLight(0xbf40ff, 2.2);
     keyLight.position.set(3.5, 6, 5);
     scene.add(keyLight);
 
-    this.throatLight = new THREE.PointLight(0xff00a2, 4.8, 22);
+    this.throatLight = new THREE.PointLight(0x8a2be2, 4.8, 22);
     this.throatLight.position.set(0, 0, 0);
     scene.add(this.throatLight);
 
@@ -194,7 +194,7 @@ class WormholeModel {
 
     this.throatMaterial = new THREE.MeshStandardMaterial({
       color: 0xbf40ff,
-      emissive: 0xff00a2,
+      emissive: 0x8a2be2,
       emissiveIntensity: 0.72,
       roughness: 0.38,
       metalness: 0.18,
@@ -204,13 +204,13 @@ class WormholeModel {
     });
 
     this.throatGridMaterial = new THREE.LineBasicMaterial({
-      color: 0xff58d6,
+      color: 0xbf40ff,
       transparent: true,
       opacity: 0.72
     });
 
     this.glowMaterial = new THREE.MeshBasicMaterial({
-      color: 0xff00a2,
+      color: 0x8a2be2,
       transparent: true,
       opacity: 0.18,
       blending: THREE.AdditiveBlending,
@@ -225,8 +225,8 @@ class WormholeModel {
     this.throatGrid = new THREE.LineSegments(this.createThroatGridGeometry(), this.throatGridMaterial);
     this.centerGlow = new THREE.Mesh(this.createGlowGeometry(), this.glowMaterial);
 
-    this.topMouthRing = this.createGuideRing(1, 0xff00a2, 0.9, 1);
-    this.bottomMouthRing = this.createGuideRing(1, 0xff00a2, 0.9, -1);
+    this.topMouthRing = this.createGuideRing(1, 0x8a2be2, 0.9, 1);
+    this.bottomMouthRing = this.createGuideRing(1, 0x8a2be2, 0.9, -1);
     this.topOuterRing = this.createGuideRing(2, 0xe098ff, 0.46, 1);
     this.bottomOuterRing = this.createGuideRing(2, 0xe098ff, 0.46, -1);
 
@@ -521,7 +521,7 @@ class WormholeModel {
     const geometry = new THREE.SphereGeometry(0.13, 24, 24);
     const material = new THREE.MeshStandardMaterial({
       color: 0xbf40ff,
-      emissive: 0xff00a2,
+      emissive: 0x8a2be2,
       emissiveIntensity: 0.95,
       roughness: 0.32,
       metalness: 0.08

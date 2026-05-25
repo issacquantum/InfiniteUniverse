@@ -1,6 +1,6 @@
 .numerical-methods {
-  --nm-hot-pink: #ff00a2;
-  --nm-strong-pink: #ff58d6;
+  --nm-bright-violet: #8a2be2;
+  --nm-luminous-violet: #bf40ff;
   --nm-electric: #bf40ff;
   --nm-violet: #7700ff;
   --nm-indigo: #2b006d;
@@ -60,7 +60,7 @@
   max-height: var(--model-frame-max-height);
   overflow: hidden;
   background:
-    radial-gradient(circle at 20% 20%, rgba(255, 0, 162, 0.1), transparent 24%),
+    radial-gradient(circle at 20% 20%, rgba(138, 43, 226, 0.1), transparent 24%),
     radial-gradient(circle at 72% 52%, rgba(122, 26, 245, 0.2), transparent 36%),
     linear-gradient(135deg, rgba(46, 0, 122, 0.18), transparent 38%),
     radial-gradient(circle at center, var(--nm-deep-violet) 0%, var(--nm-deep) 100%);
@@ -100,7 +100,7 @@
 
 .numerical-methods__canvas:focus-visible {
   box-shadow:
-    inset 0 0 0 2px rgba(255, 0, 162, 0.68),
+    inset 0 0 0 2px rgba(138, 43, 226, 0.68),
     inset 0 0 24px rgba(119, 0, 255, 0.34);
 }
 
@@ -140,7 +140,7 @@
 .numerical-methods__label,
 .numerical-methods__metric-label,
 .numerical-methods__legend-label {
-  color: var(--nm-strong-pink);
+  color: var(--nm-luminous-violet);
   font-size: 0.56rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -155,7 +155,7 @@
 }
 
 .numerical-methods__value {
-  color: var(--nm-hot-pink);
+  color: var(--nm-bright-violet);
   font-variant-numeric: tabular-nums;
 }
 
@@ -170,15 +170,15 @@
   border: 1px solid rgba(191, 64, 255, 0.42);
   border-radius: 0.38rem;
   background: rgba(5, 0, 8, 0.74);
-  color: var(--nm-strong-pink);
+  color: var(--nm-luminous-violet);
   font: inherit;
   outline: none;
 }
 
 .numerical-methods__select:focus-visible {
-  border-color: var(--nm-hot-pink);
+  border-color: var(--nm-bright-violet);
   box-shadow:
-    0 0 0 2px rgba(255, 0, 162, 0.24),
+    0 0 0 2px rgba(138, 43, 226, 0.24),
     0 0 18px rgba(119, 0, 255, 0.34);
 }
 
@@ -194,19 +194,19 @@
 
 .numerical-methods__range:focus-visible {
   box-shadow:
-    0 0 0 2px rgba(255, 0, 162, 0.34),
+    0 0 0 2px rgba(138, 43, 226, 0.34),
     0 0 14px rgba(191, 64, 255, 0.44);
 }
 
 .numerical-methods__range::-webkit-slider-thumb {
   width: 10px;
   height: 10px;
-  border: 1px solid var(--nm-hot-pink);
+  border: 1px solid var(--nm-bright-violet);
   border-radius: 50%;
   background: var(--nm-electric-violet);
   cursor: pointer;
   box-shadow:
-    0 0 8px var(--nm-hot-pink),
+    0 0 8px var(--nm-bright-violet),
     0 0 14px rgba(119, 0, 255, 0.52);
   appearance: none;
   -webkit-appearance: none;
@@ -215,12 +215,12 @@
 .numerical-methods__range::-moz-range-thumb {
   width: 10px;
   height: 10px;
-  border: 1px solid var(--nm-hot-pink);
+  border: 1px solid var(--nm-bright-violet);
   border-radius: 50%;
   background: var(--nm-electric-violet);
   cursor: pointer;
   box-shadow:
-    0 0 8px var(--nm-hot-pink),
+    0 0 8px var(--nm-bright-violet),
     0 0 14px rgba(119, 0, 255, 0.52);
 }
 
@@ -229,9 +229,9 @@
   border: 1px solid var(--nm-violet);
   border-radius: 0.4rem;
   background:
-    radial-gradient(circle at 30% 18%, rgba(255, 0, 162, 0.16), transparent 40%),
+    radial-gradient(circle at 30% 18%, rgba(138, 43, 226, 0.16), transparent 40%),
     rgba(var(--glow-rgb), 0.22);
-  color: var(--nm-strong-pink);
+  color: var(--nm-luminous-violet);
   cursor: pointer;
   font: inherit;
   font-size: 0.58rem;
@@ -252,7 +252,7 @@
   background:
     radial-gradient(circle at 50% 20%, rgba(191, 64, 255, 0.24), transparent 42%),
     rgba(var(--glow-rgb), 0.42);
-  color: var(--nm-hot-pink);
+  color: var(--nm-bright-violet);
   box-shadow: 0 0 13px rgba(191, 64, 255, 0.42);
   transform: translate3d(0, -1px, 0);
 }
@@ -264,7 +264,7 @@
 .numerical-methods__status,
 .numerical-methods__hint {
   margin: 0;
-  color: rgba(var(--outline-rgb), 0.82);
+  color: rgba(191, 64, 255, 0.82);
   font-size: 0.62rem;
   line-height: 1.22;
 }
@@ -279,7 +279,7 @@
   flex-wrap: wrap;
   gap: 0.34rem;
   justify-content: center;
-  color: var(--nm-strong-pink);
+  color: var(--nm-luminous-violet);
   font-size: 0.56rem;
   letter-spacing: 0.06em;
   text-align: center;
@@ -296,7 +296,7 @@
 
 .numerical-methods figcaption {
   padding: 0 0.74rem 0.74rem;
-  color: rgba(var(--outline-rgb), 0.74);
+  color: rgba(191, 64, 255, 0.74);
   font-size: 0.7rem;
   letter-spacing: 0.04em;
   line-height: 1.35;

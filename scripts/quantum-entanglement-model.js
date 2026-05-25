@@ -1,11 +1,11 @@
-import { bindPinchZoom, isModelPanGesture, panObjectFromPointer } from "./model-pan.js?v=20260524-electromagnetism-wave-v1";
+import { bindPinchZoom, isModelPanGesture, panObjectFromPointer } from "./model-pan.js?v=20260524-model-purple-palette-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
 
 const COLORS = {
-  hotPink: 0xff00a2,
-  strongPink: 0xff58d6,
+  brightViolet: 0x8a2be2,
+  luminousViolet: 0xbf40ff,
   electric: 0xbf40ff,
   violet: 0x7700ff,
   indigo: 0x2b006d,
@@ -17,7 +17,7 @@ function getCanvasContentFont() {
 }
 
 const SPIN_COLORS = {
-  PLUS: COLORS.hotPink,
+  PLUS: COLORS.brightViolet,
   MINUS: COLORS.electric
 };
 
@@ -158,7 +158,7 @@ class QuantumEntanglementModel {
     this.addLights();
     this.addBackgroundField();
     this.addReferenceGrid();
-    this.particleA = this.createParticle("A", -PARTICLE_OFFSET, COLORS.hotPink);
+    this.particleA = this.createParticle("A", -PARTICLE_OFFSET, COLORS.brightViolet);
     this.particleB = this.createParticle("B", PARTICLE_OFFSET, COLORS.electric);
     this.bindControls();
     this.bindCanvas();
@@ -175,11 +175,11 @@ class QuantumEntanglementModel {
     const { THREE, scene } = this;
     scene.add(new THREE.AmbientLight(COLORS.electric, 0.74));
 
-    const hotLight = new THREE.PointLight(COLORS.hotPink, 2.3, 70);
-    hotLight.position.set(-8, 8, 8);
+    const brightVioletLight = new THREE.PointLight(COLORS.brightViolet, 2.3, 70);
+    brightVioletLight.position.set(-8, 8, 8);
     const violetLight = new THREE.PointLight(COLORS.violet, 2.1, 70);
     violetLight.position.set(9, 6, -9);
-    scene.add(hotLight, violetLight);
+    scene.add(brightVioletLight, violetLight);
   }
 
   addBackgroundField() {
@@ -188,8 +188,8 @@ class QuantumEntanglementModel {
     const positions = new Float32Array(count * 3);
     const colors = new Float32Array(count * 3);
     const palette = [
-      new THREE.Color(COLORS.hotPink),
-      new THREE.Color(COLORS.strongPink),
+      new THREE.Color(COLORS.brightViolet),
+      new THREE.Color(COLORS.luminousViolet),
       new THREE.Color(COLORS.electric),
       new THREE.Color(COLORS.violet),
       new THREE.Color(COLORS.indigo)
@@ -277,8 +277,8 @@ class QuantumEntanglementModel {
     group.add(shell);
 
     [
-      [0, 0, 0, COLORS.hotPink],
-      [Math.PI / 2, 0, 0, COLORS.strongPink],
+      [0, 0, 0, COLORS.brightViolet],
+      [Math.PI / 2, 0, 0, COLORS.luminousViolet],
       [0, Math.PI / 2, 0, COLORS.violet]
     ].forEach(([x, y, z, color]) => {
       const ring = new THREE.Mesh(
@@ -380,7 +380,7 @@ class QuantumEntanglementModel {
       new THREE.Color(COLORS.violet),
       new THREE.Color(COLORS.electric),
       new THREE.Color(COLORS.indigo),
-      new THREE.Color(COLORS.strongPink)
+      new THREE.Color(COLORS.luminousViolet)
     ];
 
     for (let index = 0; index < POSSIBLE_DIRECTION_COUNT; index += 1) {
@@ -416,7 +416,7 @@ class QuantumEntanglementModel {
     const { THREE } = this;
     const group = new THREE.Group();
     const outcomeMaterial = new THREE.MeshBasicMaterial({
-      color: COLORS.hotPink,
+      color: COLORS.brightViolet,
       transparent: true,
       opacity: 0.96
     });
@@ -803,7 +803,7 @@ class QuantumEntanglementModel {
     particle.axisMarker.group.visible = true;
     particle.axisMarker.group.quaternion.copy(particle.targetQuaternion);
     particle.axisMarker.outcomeMaterial.color.setHex(color);
-    particle.axisMarker.oppositeMaterial.color.setHex(outcome === "PLUS" ? COLORS.electric : COLORS.hotPink);
+    particle.axisMarker.oppositeMaterial.color.setHex(outcome === "PLUS" ? COLORS.electric : COLORS.brightViolet);
   }
 
   resetPair() {
