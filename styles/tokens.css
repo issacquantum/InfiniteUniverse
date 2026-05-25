@@ -7,6 +7,8 @@
   --body-muted: rgba(159, 92, 255, 0.84);
   --color-text: var(--text);
   --strong: #ff58d6;
+  --science-active-text: #c084ff;
+  --science-group-text: #ad63ff;
   --glow-rgb: 119, 0, 255;
   --outline-rgb: 255, 88, 214;
   --hover-outline-rgb: 157, 0, 255;
