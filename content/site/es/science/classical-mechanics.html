@@ -136,6 +136,56 @@
   </section>
 
   <section class="content-block">
+    <h3>Marcos, Restricciones y Coordenadas</h3>
+    <p>
+      Un problema clásico nunca es solo un objeto y una fuerza. También necesita un marco de referencia, una elección de
+      coordenadas y una descripción clara de las restricciones. Una cuenta deslizándose sobre un alambre, un péndulo fijo
+      en un extremo, una rueda que rueda sin resbalar y una nave siguiendo una órbita de transferencia son distintos porque
+      sus movimientos permitidos son distintos. La buena mecánica empieza diciendo qué puede moverse, qué no puede moverse
+      y qué cantidades describen el estado sin redundancia.
+    </p>
+    <p>
+      Las coordenadas generalizadas sirven porque dejan que las matemáticas sigan el movimiento natural del sistema. Un
+      péndulo se describe mejor con un ángulo que con dos coordenadas cartesianas independientes más una ecuación de
+      restricción. Por eso las formas lagrangiana y hamiltoniana no son adornos de las leyes de Newton. Son lenguajes más
+      limpios para sistemas complicados, especialmente cuando no conviene seguir una por una las fuerzas de restricción.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Muchos Cuerpos y Medios Continuos</h3>
+    <p>
+      Los sistemas reales suelen tener demasiadas partes para seguirlas manualmente. Un gas, un puente, un flujo líquido,
+      un instrumento vibrante, la suspensión de un vehículo o una galaxia no se entienden solo como una masa aislada. La
+      mecánica clásica se extiende entonces hacia dinámica de muchos cuerpos, movimiento de cuerpos rígidos, elasticidad,
+      mecánica de fluidos y modelos de medios continuos. Los principios de momento, energía y estabilidad siguen presentes,
+      pero el estado se vuelve un campo o una gran colección de grados de libertad acoplados.
+    </p>
+    <p>
+      Aquí la aproximación también se vuelve parte de la ciencia. La fricción puede modelarse como un término simple de
+      arrastre, un fluido puede tratarse como continuo aunque sea molecular, y una estructura flexible puede reducirse a
+      unos cuantos modos dominantes. Esas aproximaciones no son fallas cuando su dominio está declarado. Son la razón por
+      la que la mecánica clásica puede convertirse en ingeniería útil y no en un inventario imposible de cada átomo.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Disciplina de Simulación</h3>
+    <p>
+      Una simulación no es correcta automáticamente porque se vea suave. El movimiento clásico tiene estructura geométrica:
+      energía, momento, volumen de espacio de fases y restricciones pueden desviarse si el método numérico es descuidado.
+      Un integrador básico puede verse aceptable durante unos segundos y aun así crear energía falsa a tiempos más largos.
+      Los métodos simplécticos importan porque conservan mejor la estructura del espacio de fases en sistemas hamiltonianos.
+    </p>
+    <p>
+      La lección práctica es directa: motores de física, solucionadores orbitales, modelos de vehículos y sistemas de
+      animación necesitan revisión de error, control del paso temporal y conciencia de dominio. La mecánica clásica se
+      vuelve más fuerte cuando la ecuación, el modelo y la implementación numérica se tratan como cosas separadas que deben
+      concordar dentro de límites declarados.
+    </p>
+  </section>
+
+  <section class="content-block">
     <h3>Frontera Moderna</h3>
     <p>
       La mecánica clásica sigue siendo central en navegación espacial, robótica, teoría de control, simulación de
