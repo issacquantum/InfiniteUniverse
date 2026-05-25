@@ -4,16 +4,16 @@
     <h3>Equation</h3>
     <div class="equation-link-wrap"><div class="glass-window equation-display">$$ \max_\theta\;\mathbb{E}[r_\phi(x,y)]-\beta D_{\rm KL}(\pi_\theta(y|x)\|\pi_{\rm ref}(y|x)) $$</div></div>
   </section>
-  <section class="content-block"><h3>Literal Reading</h3><p>Maximize reward-model score while penalizing deviation from a reference policy.</p></section>
-  <section class="content-block"><h3>Physicist's Reading</h3><p>RLHF pushes a language model toward outputs humans prefer, while a KL (Kullback-Leibler) penalty prevents the policy from drifting too far from the base model.</p></section>
+  <section class="content-block"><h3>What the Formula Says</h3><p>Maximize reward-model score while penalizing deviation from a reference policy.</p></section>
+  <section class="content-block"><h3>What It Means in Practice</h3><p>RLHF pushes a language model toward outputs humans prefer, while a KL (Kullback-Leibler) penalty prevents the policy from drifting too far from the base model.</p></section>
   <section class="content-block">
-    <h3>Symbol Breakdown</h3>
+    <h3>Symbols</h3>
     <p><strong>\(r_\phi(x,y)\)</strong>: learned reward model score for prompt \(x\) and output \(y\).</p>
     <p><strong>\(\pi_\theta\)</strong>: tuned policy.</p>
     <p><strong>\(\pi_{\rm ref}\)</strong>: reference model.</p>
     <p><strong>\(\beta\)</strong>: strength of the KL penalty.</p>
   </section>
-  <section class="content-block"><h3>Physical Meaning</h3><p>This is alignment pressure, not guaranteed truth. The reward model captures preferences imperfectly, so evaluation remains necessary.</p></section>
+  <section class="content-block"><h3>Why It Matters</h3><p>This is alignment pressure, not guaranteed truth. The reward model captures preferences imperfectly, so evaluation remains necessary.</p></section>
 
   <section class="content-block glossary-section abbreviation-glossary" data-abbreviation-glossary>
     <h3>Abbreviation Glossary</h3>
