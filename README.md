@@ -23,16 +23,16 @@ https://issacquantum.github.io/InfiniteUniverse/
 From the project folder:
 
 ```sh
-python3 -m http.server 4175
+python3 -m http.server 4175 --bind 127.0.0.1
 ```
 
 Then open:
 
 ```text
-http://localhost:4175/
+http://127.0.0.1:4175/
 ```
 
-That address is only for local testing on my machine.
+That address is only for local testing on my machine. Binding to `127.0.0.1` keeps the preview server limited to this computer instead of exposing the project folder to other devices on the network.
 
 ## Content Notes
 
