@@ -130,6 +130,55 @@
   </section>
 
   <section class="content-block">
+    <h3>Frames, Constraints, and Coordinates</h3>
+    <p>
+      A classical problem is never only an object plus a force. It also needs a reference frame, a choice of coordinates,
+      and a clear statement of constraints. A bead sliding on a wire, a pendulum fixed at one end, a wheel rolling without
+      slipping, and a spacecraft following a transfer orbit are all different because their allowed motions are different.
+      Good mechanics begins by saying what can move, what cannot move, and which quantities describe the state without
+      redundancy.
+    </p>
+    <p>
+      Generalized coordinates are useful because they let the mathematics follow the natural motion of the system. A
+      pendulum is easier to describe by an angle than by two independent Cartesian coordinates plus a constraint equation.
+      This is why the Lagrangian and Hamiltonian forms are not decorative alternatives to Newton's laws. They are cleaner
+      languages for complicated systems, especially when forces of constraint should not be tracked one by one.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Many-Body and Continuum Mechanics</h3>
+    <p>
+      Real systems often contain too many parts to follow by hand. A gas, bridge, liquid flow, vibrating instrument,
+      vehicle suspension, or galaxy cannot be understood only as one isolated mass. Classical mechanics therefore expands
+      into many-body dynamics, rigid-body motion, elasticity, fluid mechanics, and continuum models. The same principles of
+      momentum, energy, and stability remain, but the state becomes a field or a large collection of coupled degrees of
+      freedom.
+    </p>
+    <p>
+      This is also where approximation becomes part of the science. Friction may be modeled as a simple drag term, a fluid
+      may be treated as continuous even though it is molecular, and a flexible structure may be reduced to a few dominant
+      modes. These approximations are not failures when their domain is stated. They are the reason classical mechanics can
+      become usable engineering instead of an impossible inventory of every atom.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Simulation Discipline</h3>
+    <p>
+      A simulation is not automatically correct because it looks smooth. Classical motion has geometric structure: energy,
+      momentum, phase-space volume, and constraints can drift if the numerical method is careless. A basic integrator may
+      look acceptable for a few seconds and still create false energy over longer times. Symplectic methods matter because
+      they preserve the phase-space structure of Hamiltonian systems more faithfully.
+    </p>
+    <p>
+      The practical lesson is direct: physics engines, orbital solvers, vehicle models, and animation systems need error
+      checks, timestep control, and domain awareness. Classical mechanics becomes strongest when the equation, the model,
+      and the numerical implementation are all treated as separate things that must agree within stated limits.
+    </p>
+  </section>
+
+  <section class="content-block">
     <h3>Modern Frontier</h3>
     <p>
       Classical mechanics remains central in spacecraft navigation, robotics, control theory, vehicle simulation,

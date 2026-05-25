@@ -1,6 +1,6 @@
-import { bigBangLegacyContent } from "../data/legacy-big-bang.js?v=20260524-equation-context-meaning-v1";
-import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260524-equation-context-meaning-v1";
-import { pick } from "./i18n.js?v=20260524-equation-context-meaning-v1";
+import { bigBangLegacyContent } from "../data/legacy-big-bang.js?v=20260524-science-depth-pass-v1";
+import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260524-science-depth-pass-v1";
+import { pick } from "./i18n.js?v=20260524-science-depth-pass-v1";
 
 let activeRequestToken = 0;
 
