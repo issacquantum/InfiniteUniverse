@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-science-nav-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-source-markers-v1";
 
 function htmlSource(group, id) {
   return {
