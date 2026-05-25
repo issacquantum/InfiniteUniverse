@@ -603,6 +603,33 @@
     0 0 42px rgba(119, 0, 255, 0.18);
 }
 
+.knowledge-worlds-row .glass-tab.is-active,
+.topic-grid .topic-button--science-member,
+.mobile-knowledge-nav__domain-button.is-active > span,
+.mobile-knowledge-nav__topic-button--domain-member,
+.focused-path-tab--science {
+  color: var(--science-group-text);
+  font-weight: 600;
+  text-shadow:
+    0 0 10px rgba(160, 92, 255, 0.72),
+    0 0 24px rgba(119, 0, 255, 0.42),
+    0 0 42px rgba(87, 0, 180, 0.22);
+}
+
+.knowledge-worlds-row .glass-tab.is-active,
+.topic-grid .topic-button--science-member.is-active,
+.mobile-knowledge-nav__domain-button.is-active > span,
+.mobile-knowledge-nav__topic-button--domain-member.is-active,
+.focused-path-tab--science.is-active {
+  color: var(--science-active-text);
+  font-weight: 700;
+}
+
+.mobile-knowledge-nav__domain-button.is-active > i {
+  color: var(--text);
+  text-shadow: none;
+}
+
 .glass-sphere:hover,
 .glass-sphere:focus-visible {
   color: rgb(var(--glow-rgb));
