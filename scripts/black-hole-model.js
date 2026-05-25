@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260524-equation-symbol-lists-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260524-equation-context-meaning-v1";
 
 const mountedModels = new WeakSet();
 
