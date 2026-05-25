@@ -1,4 +1,4 @@
-import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260524-science-nav-v1";
+import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260524-source-markers-v1";
 
 const mountedSimulators = new WeakSet();
 const TWO_PI = Math.PI * 2;
