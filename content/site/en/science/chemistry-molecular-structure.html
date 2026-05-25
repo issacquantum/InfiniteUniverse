@@ -69,6 +69,58 @@
     </p>
   </section>
 
+  <section class="content-block">
+    <h3>Bonding, Orbitals, and Electron Density</h3>
+    <p>
+      Chemical bonds are not tiny sticks between hard spheres. They are stable patterns of electron density and nuclear
+      attraction. Lewis structures and ball-and-stick models are useful because they make connectivity visible, but the
+      deeper story is quantum: electrons occupy molecular orbitals, and molecular shape follows from energy, symmetry,
+      charge distribution, and Pauli exclusion.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Equilibrium and Reaction Direction</h3>
+    <p>
+      Reactions do not simply go to completion because an equation is written with an arrow. Many reactions settle into
+      equilibrium, where forward and reverse processes continue but the macroscopic concentrations stop changing. A
+      simplified equilibrium relation is
+    </p>
+    <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item" data-branch-id="chemistry-molecular-structure-equations" data-item-id="chemical-equilibrium-constant" aria-label="Open the explanation page for the chemical equilibrium constant">$$K=\frac{\prod_i a_{\mathrm{products},i}^{\nu_i}}{\prod_j a_{\mathrm{reactants},j}^{\nu_j}}$$</button></div>
+    <p>
+      The equilibrium constant says which side is favored at equilibrium, not how fast the reaction gets there.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Kinetics and Activation Barriers</h3>
+    <p>
+      Thermodynamics says what is favored. Kinetics says how fast it happens. A reaction can be thermodynamically favored
+      and still be slow if it has a large activation barrier. The Arrhenius form summarizes the temperature dependence
+      of many reaction rates:
+    </p>
+    <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item" data-branch-id="chemistry-molecular-structure-equations" data-item-id="arrhenius-equation" aria-label="Open the explanation page for the Arrhenius equation">$$k=Ae^{-E_a/(RT)}$$</button></div>
+    <p>
+      Catalysts work by changing the pathway and lowering the effective barrier; they do not change the basic conservation
+      laws or magically create energy.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Computational Chemistry and Modern Structure Prediction</h3>
+    <p>
+      Exact many-electron calculations are usually impossible for large molecules, so chemistry uses controlled
+      approximations. Density functional theory is one of the most important practical frameworks. Its Kohn-Sham form
+      replaces the hard interacting-electron problem with an auxiliary system that is easier to compute:
+    </p>
+    <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item" data-branch-id="chemistry-molecular-structure-equations" data-item-id="kohn-sham-equations" aria-label="Open the explanation page for the Kohn-Sham equations">$$\left[-\frac{\hbar^2}{2m}\nabla^2+V_{\mathrm{eff}}(\mathbf{r})\right]\psi_i=\epsilon_i\psi_i$$</button></div>
+    <p>
+      Modern AI tools such as AlphaFold changed structural biology by predicting many protein structures and interactions,
+      but prediction is not the same as experimental proof. Chemistry still needs measurement, uncertainty estimates,
+      and physical validation.
+    </p>
+  </section>
+
   <section class="content-block glossary-section">
     <h3>Technical Terms Glossary</h3>
     <ul class="paper-list glossary-list">
@@ -86,6 +138,6 @@
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://webbook.nist.gov/chemistry/" target="_blank" rel="noopener noreferrer">NIST Chemistry WebBook.</a> <span class="paper-note">Reference data for chemical species.</span></span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://openstax.org/details/books/chemistry-2e" target="_blank" rel="noopener noreferrer">OpenStax. <em>Chemistry 2e.</em></a> <span class="paper-note">Open educational textbook.</span></span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://global.oup.com/academic/product/chemical-bonding-9780198768110" target="_blank" rel="noopener noreferrer">Mark J. Winter. <em>Chemical Bonding.</em></a> <span class="paper-note">Modern bonding reference.</span></span></li>
-    </ul>
+    <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://journals.aps.org/pr/abstract/10.1103/PhysRev.140.A1133" target="_blank" rel="noopener noreferrer">Kohn and Sham, 1965. <em>Self-Consistent Equations Including Exchange and Correlation Effects.</em></a> <span class="paper-note">Foundational density-functional-theory reference.</span></span></li><li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.nature.com/articles/s41586-021-03819-2" target="_blank" rel="noopener noreferrer">Jumper et al., 2021. <em>Highly accurate protein structure prediction with AlphaFold.</em></a> <span class="paper-note">Modern protein-structure prediction reference.</span></span></li><li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.nature.com/articles/s41586-024-07487-w" target="_blank" rel="noopener noreferrer">Abramson et al., 2024. <em>Accurate structure prediction of biomolecular interactions with AlphaFold 3.</em></a> <span class="paper-note">Modern biomolecular interaction prediction reference.</span></span></li></ul>
   </section>
 </div>

@@ -8,7 +8,8 @@
     </p>
     <p>
       It is not obsolete. It is the working language behind projectiles, planets, vehicles, structures, oscillators,
-      control systems, simulations, and the first layer of almost every physical model.
+      robotics, control systems, orbital calculations, game physics, and the first approximation behind many
+      simulations.
     </p>
     <p class="source-language-note">
       <strong>Source of etymological origin:</strong>
@@ -22,7 +23,7 @@
       <p><strong>What this shows:</strong> A body moving around a center with velocity and inward force directions shown as vectors.</p>
       <p><strong>What this does not show:</strong> A full numerical orbit solver, air resistance, relativity, or quantum behavior.</p>
       <p><strong>Equation / principle:</strong> \(\mathbf{F}=m\mathbf{a}\) and the action principle organize classical motion.</p>
-      <p><strong>What the model represents:</strong> Classical motion as geometry plus changing vectors, not just a static formula.</p>
+      <p><strong>What the model represents:</strong> Classical motion as position plus changing vectors, not just an object moving in a circle.</p>
     </div>
     <figure class="foundation-model glass-window" data-foundation-model="mechanics" data-model-target="classical-motion-vectors" data-language="en">
       <div class="foundation-model__frame" data-foundation-model-frame></div>
@@ -32,9 +33,7 @@
 
   <section class="content-block">
     <h3>Newtonian Core</h3>
-    <p>
-      The most direct form is Newton's second law:
-    </p>
+    <p>The most direct form is Newton's second law:</p>
     <div class="equation-link-wrap">
       <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
         data-branch-id="classical-mechanics-equations" data-item-id="newton-second-law"
@@ -45,27 +44,33 @@
       </button>
     </div>
     <p>
-      It says that force changes motion. The statement is simple, but it becomes powerful because it turns a physical
-      cause into a differential equation. Given forces and initial conditions, the motion can be predicted within the
-      domain where classical assumptions hold.
+      It says that force changes motion. Given the forces and the starting state, the motion can be predicted inside
+      the classical domain. The law is local: it tells how acceleration changes now, and solving the motion requires
+      following that change over time.
+    </p>
+    <p>
+      Newtonian mechanics also contains gravity, momentum, circular motion, oscillation, and collisions. It works
+      extremely well for large objects moving much slower than light, from falling objects to planetary orbits.
     </p>
   </section>
 
   <section class="content-block">
-    <h3>Conservation Laws</h3>
+    <h3>Energy, Momentum, and Symmetry</h3>
     <p>
       Classical mechanics is deeper than force diagrams. Momentum, angular momentum, and energy reveal what remains
-      stable when a system changes. Conservation laws are not just bookkeeping. They are tied to symmetries: translation
-      symmetry gives momentum conservation, rotation symmetry gives angular momentum conservation, and time-translation
-      symmetry gives energy conservation.
+      stable while a system changes. Conservation laws are tied to symmetries: translation symmetry gives momentum
+      conservation, rotation symmetry gives angular momentum conservation, and time-translation symmetry gives energy
+      conservation.
+    </p>
+    <p>
+      This is why the same mechanics can describe a pendulum, a satellite, a billiard collision, and a numerical
+      simulation. The visible objects differ, but the conserved structure gives the calculation discipline.
     </p>
   </section>
 
   <section class="content-block">
     <h3>Lagrangian and Hamiltonian Views</h3>
-    <p>
-      The Lagrangian view organizes motion through the action:
-    </p>
+    <p>The Lagrangian view organizes motion through the action:</p>
     <div class="equation-link-wrap">
       <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
         data-branch-id="classical-mechanics-equations" data-item-id="classical-action-principle"
@@ -76,21 +81,51 @@
       </button>
     </div>
     <p>
-      The actual path is the one that makes the action stationary. This is not only elegant; it becomes the bridge to
-      field theory, relativity, quantum path integrals, and numerical simulation.
+      The actual path is the one that makes the action stationary. That sounds abstract, but the practical meaning is
+      simple: instead of tracking every force directly, one writes the energy structure of the system and derives the
+      motion from it.
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="classical-mechanics-equations" data-item-id="euler-lagrange-equation"
+        aria-label="Open the explanation page for the Euler Lagrange equation">
+        $$
+        \frac{d}{dt}\frac{\partial L}{\partial \dot q}-\frac{\partial L}{\partial q}=0
+        $$
+      </button>
+    </div>
+    <p>The Hamiltonian view shifts attention to coordinates and momenta:</p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="classical-mechanics-equations" data-item-id="hamilton-equations"
+        aria-label="Open the explanation page for Hamilton's equations">
+        $$
+        \dot q=\frac{\partial H}{\partial p},\qquad \dot p=-\frac{\partial H}{\partial q}
+        $$
+      </button>
+    </div>
+    <p>This form becomes the bridge to phase space, statistical mechanics, canonical transformations, quantum mechanics, and symplectic numerical methods.</p>
+  </section>
+
+  <section class="content-block">
+    <h3>Oscillations, Stability, and Chaos</h3>
+    <p>
+      Springs, pendulums, vibrating strings, mechanical resonances, orbital perturbations, and control systems all show
+      why mechanics is not just about straight-line motion. Near stable equilibrium, many systems behave approximately
+      like harmonic oscillators. Farther away, nonlinear effects can produce resonance, instability, or chaos.
     </p>
     <p>
-      The Hamiltonian view shifts attention to coordinates and momenta. It makes energy, phase space, canonical
-      structure, and later quantum mechanics easier to connect.
+      Chaos does not mean there is no law. It means small differences in initial conditions can grow so fast that
+      long-term prediction becomes limited even when the equations are deterministic.
     </p>
   </section>
 
   <section class="content-block">
     <h3>Limits</h3>
     <p>
-      Classical mechanics is extremely accurate for large, slow systems where quantum discreteness and relativistic
-      effects are negligible. It fails as a final framework when speeds approach light, when action scales approach
-      \(\hbar\), or when fields and particles require quantum treatment.
+      Classical mechanics is accurate for large, slow systems where quantum discreteness and relativistic effects are
+      negligible. It fails as a final framework when speeds approach light, when action scales approach \(\hbar\), when
+      fields must be quantized, or when gravity requires spacetime curvature rather than a force inside fixed space.
     </p>
   </section>
 
@@ -109,8 +144,8 @@
     <ul class="paper-list">
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.gutenberg.org/ebooks/28233" target="_blank" rel="noopener noreferrer">Isaac Newton. <em>The Mathematical Principles of Natural Philosophy.</em></a> <span class="paper-note">Project Gutenberg edition.</span></span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.feynmanlectures.caltech.edu/I_toc.html" target="_blank" rel="noopener noreferrer">Feynman, Leighton, and Sands. <em>The Feynman Lectures on Physics, Volume I.</em></a> <span class="paper-note">Caltech online edition.</span></span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://mitpress.mit.edu/9780262028967/structure-and-interpretation-of-classical-mechanics/" target="_blank" rel="noopener noreferrer">Sussman and Wisdom. <em>Structure and Interpretation of Classical Mechanics.</em></a> <span class="paper-note">Official MIT Press page.</span></span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://press.princeton.edu/books/hardcover/9780691177793/noethers-theorem" target="_blank" rel="noopener noreferrer">Dwight E. Neuenschwander. <em>Noether's Theorem in the Classroom.</em></a> <span class="paper-note">Modern symmetry-focused reference.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://mitpress.mit.edu/9780262028967/structure-and-interpretation-of-classical-mechanics/" target="_blank" rel="noopener noreferrer">Sussman and Wisdom. <em>Structure and Interpretation of Classical Mechanics.</em></a> <span class="paper-note">Modern computational mechanics reference.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://press.princeton.edu/books/hardcover/9780691177793/noethers-theorem" target="_blank" rel="noopener noreferrer">Dwight E. Neuenschwander. <em>Noether's Theorem in the Classroom.</em></a> <span class="paper-note">Symmetry and conservation reference.</span></span></li>
     </ul>
   </section>
 </div>

@@ -2,15 +2,17 @@
   <section class="content-block">
     <h3>Etimología</h3>
     <p>
-      <strong>Mecánica</strong> viene de palabras antiguas relacionadas con máquinas, dispositivos y movimiento práctico.
-      En física, la mecánica clásica estudia el movimiento antes de que sea necesario usar mecánica cuántica o relatividad.
+      <strong>Mecánica</strong> viene de palabras antiguas relacionadas con máquinas, dispositivos y movimiento
+      práctico. En física, la mecánica clásica es el estudio disciplinado del movimiento antes de que la mecánica
+      cuántica o la relatividad sean necesarias.
     </p>
     <p>
-      No está obsoleta. Sigue siendo el lenguaje de proyectiles, planetas, vehículos, estructuras, osciladores, sistemas
-      de control, simulaciones y la primera capa de casi cualquier modelo físico.
+      No está obsoleta. Es el lenguaje de trabajo detrás de proyectiles, planetas, vehículos, estructuras, osciladores,
+      robótica, sistemas de control, cálculos orbitales, física de videojuegos y la primera aproximación detrás de
+      muchas simulaciones.
     </p>
     <p class="source-language-note">
-      <strong>Fuente del origen etimológico:</strong> Incluyo esta fuente en inglés porque ese fue el idioma en que la leí originalmente.
+      <strong>Fuente de origen etimológico:</strong>
       <a class="platform-link" href="https://www.etymonline.com/word/mechanics" target="_blank" rel="noopener noreferrer">Online Etymology Dictionary: mechanics</a>.
     </p>
   </section>
@@ -18,22 +20,20 @@
   <section class="content-block">
     <div class="model-teaching-card">
       <p><strong>Tipo de modelo:</strong> Modelo físico simplificado.</p>
-      <p><strong>Qué muestra:</strong> Un cuerpo moviéndose alrededor de un centro, con direcciones de velocidad y fuerza hacia adentro mostradas como vectores.</p>
-      <p><strong>Qué no muestra:</strong> Un solucionador numérico completo de órbitas, resistencia del aire, relatividad o comportamiento cuántico.</p>
+      <p><strong>Qué muestra:</strong> Un cuerpo moviéndose alrededor de un centro, con vectores de velocidad y fuerza hacia dentro.</p>
+      <p><strong>Qué no muestra:</strong> Un solucionador orbital completo, resistencia del aire, relatividad o comportamiento cuántico.</p>
       <p><strong>Ecuación / principio:</strong> \(\mathbf{F}=m\mathbf{a}\) y el principio de acción organizan el movimiento clásico.</p>
-      <p><strong>Qué representa el modelo:</strong> El movimiento clásico como geometría más vectores cambiantes, no solo como fórmula estática.</p>
+      <p><strong>Qué representa el modelo:</strong> Movimiento clásico como posición más vectores cambiantes, no solo un objeto girando.</p>
     </div>
     <figure class="foundation-model glass-window" data-foundation-model="mechanics" data-model-target="classical-motion-vectors" data-language="es">
       <div class="foundation-model__frame" data-foundation-model-frame></div>
-      <figcaption class="foundation-model__caption">Arrastra para rotar. El vector violeta brillante apunta hacia adentro como dirección de fuerza; el vector violeta muestra el movimiento tangente.</figcaption>
+      <figcaption class="foundation-model__caption">Arrastra para rotar. El vector violeta brillante apunta hacia dentro como dirección de fuerza; el vector violeta muestra el movimiento tangente.</figcaption>
     </figure>
   </section>
 
   <section class="content-block">
-    <h3>Núcleo newtoniano</h3>
-    <p>
-      La forma más directa es la segunda ley de Newton:
-    </p>
+    <h3>Núcleo Newtoniano</h3>
+    <p>La forma más directa es la segunda ley de Newton:</p>
     <div class="equation-link-wrap">
       <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
         data-branch-id="classical-mechanics-equations" data-item-id="newton-second-law"
@@ -44,27 +44,34 @@
       </button>
     </div>
     <p>
-      Dice que una fuerza cambia el movimiento. La frase es simple, pero se vuelve poderosa porque convierte una causa
-      física en una ecuación diferencial. Con fuerzas y condiciones iniciales, el movimiento puede predecirse dentro del
-      dominio donde las suposiciones clásicas son válidas.
+      Dice que la fuerza cambia el movimiento. Dadas las fuerzas y el estado inicial, el movimiento puede predecirse
+      dentro del dominio clásico. La ley es local: dice cómo cambia la aceleración ahora, y resolver el movimiento
+      requiere seguir ese cambio en el tiempo.
+    </p>
+    <p>
+      La mecánica newtoniana también contiene gravedad, momento, movimiento circular, oscilación y colisiones. Funciona
+      muy bien para objetos grandes que se mueven mucho más lento que la luz, desde cuerpos que caen hasta órbitas
+      planetarias.
     </p>
   </section>
 
   <section class="content-block">
-    <h3>Leyes de conservación</h3>
+    <h3>Energía, Momento y Simetría</h3>
     <p>
-      La mecánica clásica es más profunda que diagramas de fuerzas. Momento, momento angular y energía muestran qué se
-      mantiene estable mientras un sistema cambia. Las leyes de conservación no son solo contabilidad: están ligadas a
-      simetrías. La simetría de traslación conserva el momento, la simetría de rotación conserva el momento angular y la
-      simetría temporal conserva la energía.
+      La mecánica clásica es más profunda que los diagramas de fuerzas. El momento, el momento angular y la energía
+      muestran qué permanece estable mientras un sistema cambia. Las leyes de conservación están ligadas a simetrías:
+      la simetría de traslación da conservación del momento, la simetría de rotación da conservación del momento
+      angular y la simetría temporal da conservación de la energía.
+    </p>
+    <p>
+      Por eso la misma mecánica puede describir un péndulo, un satélite, una colisión de billar y una simulación
+      numérica. Los objetos visibles cambian, pero la estructura conservada disciplina el cálculo.
     </p>
   </section>
 
   <section class="content-block">
-    <h3>Formas lagrangiana y hamiltoniana</h3>
-    <p>
-      La formulación lagrangiana organiza el movimiento mediante la acción:
-    </p>
+    <h3>Vistas Lagrangiana y Hamiltoniana</h3>
+    <p>La vista lagrangiana organiza el movimiento mediante la acción:</p>
     <div class="equation-link-wrap">
       <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
         data-branch-id="classical-mechanics-equations" data-item-id="classical-action-principle"
@@ -75,42 +82,76 @@
       </button>
     </div>
     <p>
-      La trayectoria real es la que hace estacionaria la acción. No es solo una forma elegante: es el puente hacia teoría
-      de campos, relatividad, integrales de camino cuánticas y simulación numérica.
+      La trayectoria real es la que hace estacionaria la acción. Suena abstracto, pero el significado práctico es
+      simple: en lugar de seguir cada fuerza directamente, se escribe la estructura energética del sistema y se deriva
+      el movimiento a partir de ella.
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="classical-mechanics-equations" data-item-id="euler-lagrange-equation"
+        aria-label="Abrir la explicación de la ecuación de Euler-Lagrange">
+        $$
+        \frac{d}{dt}\frac{\partial L}{\partial \dot q}-\frac{\partial L}{\partial q}=0
+        $$
+      </button>
+    </div>
+    <p>La vista hamiltoniana mueve la atención a coordenadas y momentos:</p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="classical-mechanics-equations" data-item-id="hamilton-equations"
+        aria-label="Abrir la explicación de las ecuaciones de Hamilton">
+        $$
+        \dot q=\frac{\partial H}{\partial p},\qquad \dot p=-\frac{\partial H}{\partial q}
+        $$
+      </button>
+    </div>
+    <p>
+      Esta forma se vuelve puente hacia espacio de fases, mecánica estadística, transformaciones canónicas, mecánica
+      cuántica y métodos numéricos simplécticos.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Oscilaciones, Estabilidad y Caos</h3>
+    <p>
+      Resortes, péndulos, cuerdas vibrantes, resonancias mecánicas, perturbaciones orbitales y sistemas de control
+      muestran que la mecánica no trata solo de movimiento en línea recta. Cerca del equilibrio estable, muchos
+      sistemas se comportan aproximadamente como osciladores armónicos. Más lejos, los efectos no lineales pueden
+      producir resonancia, inestabilidad o caos.
     </p>
     <p>
-      La formulación hamiltoniana cambia el foco hacia coordenadas y momentos. Hace más claro el vínculo con energía,
-      espacio de fases, estructura canónica y, después, mecánica cuántica.
+      Caos no significa ausencia de ley. Significa que pequeñas diferencias en condiciones iniciales pueden crecer tan
+      rápido que la predicción a largo plazo queda limitada aunque las ecuaciones sean deterministas.
     </p>
   </section>
 
   <section class="content-block">
     <h3>Límites</h3>
     <p>
-      La mecánica clásica es extremadamente precisa para sistemas grandes y lentos, donde la discreción cuántica y los
-      efectos relativistas son despreciables. Deja de ser un marco final cuando las velocidades se acercan a la luz, la
-      acción se acerca a la escala de \(\hbar\), o los campos y partículas requieren tratamiento cuántico.
+      La mecánica clásica es precisa para sistemas grandes y lentos donde la discreción cuántica y los efectos
+      relativistas son despreciables. Falla como marco final cuando las velocidades se acercan a la luz, cuando las
+      escalas de acción se acercan a \(\hbar\), cuando los campos deben cuantizarse o cuando la gravedad requiere
+      curvatura del espaciotiempo en lugar de una fuerza dentro de un espacio fijo.
     </p>
   </section>
 
   <section class="content-block glossary-section">
-    <h3>Glosario de Términos Técnicos</h3>
+    <h3>Glosario Técnico</h3>
     <ul class="paper-list glossary-list">
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Marco inercial:</strong> Marco donde un objeto libre se mueve con velocidad constante si no actúa una fuerza.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Marco inercial:</strong> Marco donde un objeto libre se mueve con velocidad constante salvo que actúe una fuerza.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Espacio de fases:</strong> Espacio de posiciones y momentos usado para describir el estado de un sistema.</span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Acción:</strong> Cantidad integrada sobre una trayectoria cuyo valor estacionario produce las ecuaciones de movimiento.</span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Momento canónico:</strong> Momento definido desde el lagrangiano; no siempre coincide con masa por velocidad.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Acción:</strong> Cantidad integrada sobre una trayectoria cuyo valor estacionario da las ecuaciones de movimiento.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Momento canónico:</strong> Momento definido desde el Lagrangiano; no siempre es idéntico a masa por velocidad.</span></li>
     </ul>
   </section>
 
   <section class="content-block source-papers">
-    <h3>Enlaces de Fuentes Fundamentales y Modernas</h3>
-    <p class="source-language-note">Incluyo estas fuentes en inglés porque ese fue el idioma en que las leí originalmente.</p>
+    <h3>Fuentes Fundamentales y Modernas</h3>
     <ul class="paper-list">
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.gutenberg.org/ebooks/28233" target="_blank" rel="noopener noreferrer">Isaac Newton. <em>The Mathematical Principles of Natural Philosophy.</em></a> <span class="paper-note">Edición de Project Gutenberg.</span></span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.feynmanlectures.caltech.edu/I_toc.html" target="_blank" rel="noopener noreferrer">Feynman, Leighton y Sands. <em>The Feynman Lectures on Physics, Volume I.</em></a> <span class="paper-note">Edición en línea de Caltech.</span></span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://mitpress.mit.edu/9780262028967/structure-and-interpretation-of-classical-mechanics/" target="_blank" rel="noopener noreferrer">Sussman y Wisdom. <em>Structure and Interpretation of Classical Mechanics.</em></a> <span class="paper-note">Página oficial de MIT Press.</span></span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://press.princeton.edu/books/hardcover/9780691177793/noethers-theorem" target="_blank" rel="noopener noreferrer">Dwight E. Neuenschwander. <em>Noether's Theorem in the Classroom.</em></a> <span class="paper-note">Referencia moderna centrada en simetrías.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://mitpress.mit.edu/9780262028967/structure-and-interpretation-of-classical-mechanics/" target="_blank" rel="noopener noreferrer">Sussman y Wisdom. <em>Structure and Interpretation of Classical Mechanics.</em></a> <span class="paper-note">Referencia moderna de mecánica computacional.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://press.princeton.edu/books/hardcover/9780691177793/noethers-theorem" target="_blank" rel="noopener noreferrer">Dwight E. Neuenschwander. <em>Noether's Theorem in the Classroom.</em></a> <span class="paper-note">Referencia sobre simetría y conservación.</span></span></li>
     </ul>
   </section>
 </div>

@@ -1,8 +1,8 @@
 <div class="structured-content equation-detail-page" data-structured-content>
   <section class="content-block"><h3>Recurrent State Update</h3></section>
   <section class="content-block"><h3>Equation</h3><div class="equation-link-wrap"><div class="glass-window equation-display">$$h_{t+1}=f(W h_t+Ux_t+b)$$</div></div></section>
-  <section class="content-block"><h3>Literal Reading</h3><p>The next internal state is a function of the current state, the new input, and a bias term.</p></section>
-  <section class="content-block"><h3>Model Reading</h3><p>This is a simplified mathematical sketch of recurrent updating, not a full biological neuron model.</p></section>
-  <section class="content-block"><h3>Symbol Breakdown</h3><p><strong>\(h_t\)</strong>: current internal state.</p><p><strong>\(x_t\)</strong>: current input.</p><p><strong>\(W,U\)</strong>: weighting matrices.</p><p><strong>\(b\)</strong>: bias term.</p><p><strong>\(f\)</strong>: nonlinear update function.</p></section>
-  <section class="content-block"><h3>Meaning</h3><p>The equation captures memory-like dependence: the next state depends on both present input and prior state.</p></section>
+  <section class="content-block"><h3>Plain Meaning</h3><p>The next internal state depends on the current state, the new input, and learned or fixed weights.</p></section>
+  <section class="content-block"><h3>Symbols</h3><ul class="paper-list glossary-list"><li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>\(h_t\)</strong>: current internal state.</span></li><li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>\(x_t\)</strong>: current input.</span></li><li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>\(W,U\)</strong>: weighting matrices.</span></li><li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>\(b\)</strong>: bias term.</span></li><li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>\(f\)</strong>: nonlinear update function.</span></li></ul></section>
+  <section class="content-block"><h3>How to Read It</h3><p>Read it as a memory-like update rule. Past state and present input jointly shape what comes next.</p></section>
+  <section class="content-block"><h3>What It Does Not Say</h3><p>It is not a biological brain equation by itself. It is a simplified recurrent-model sketch.</p></section>
 </div>
