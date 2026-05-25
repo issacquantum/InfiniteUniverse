@@ -1,10 +1,6 @@
 <div class="structured-content equation-detail-page" data-structured-content>
-  <section class="content-block">
-    <h3>Muestreo de Monte Carlo</h3>
-  </section>
-  <section class="content-block">
-    <h3>Ecuación</h3>
-    <div class="equation-link-wrap">
+  <section class="content-block"><h3>Muestreo de Monte Carlo</h3></section>
+  <section class="content-block"><h3>Ecuación</h3><div class="equation-link-wrap">
       <div class="glass-window equation-display">
         $$
         \mu = \mathbb{E}_p[f(X)] = \int f(x)\,p(x)\,dx
@@ -17,20 +13,11 @@
         \hat{\mu}_N = \frac{1}{N}\sum_{k=1}^{N} f(X_k), \qquad X_k \sim p(x)
         $$
       </div>
-    </div>
-  </section>
-  <section class="content-block">
-    <h3>Lo Que Dice la Fórmula</h3>
-    <p>Mu es igual a la esperanza bajo p de f de X, que es igual a la integral de f de x por p de x d x.</p>
-    <p>Mu sombrero sub N es igual a uno sobre N por la suma desde k igual a uno hasta N de f de X sub k, donde X sub k se muestrea de acuerdo con p de x.</p>
-  </section>
-  <section class="content-block">
-    <h3>Qué Significa en la Práctica</h3>
-    <p>Esto significa que Monte Carlo estima una integral o un valor esperado extrayendo muchas muestras aleatorias de la distribución objetivo y promediando los resultados.</p>
-  </section>
-  <section class="content-block">
-    <h3>Símbolos</h3>
-    <p><strong>\(\mu\)</strong>: la cantidad exacta que se quiere estimar. En lenguaje probabilístico, es el valor esperado verdadero.</p>
+    </div></section>
+  <section class="content-block"><h3>Lectura Literal</h3><p>Mu es igual a la esperanza bajo p de f de X, que es igual a la integral de f de x por p de x d x.</p>
+    <p>Mu sombrero sub N es igual a uno sobre N por la suma desde k igual a uno hasta N de f de X sub k, donde X sub k se muestrea de acuerdo con p de x.</p></section>
+  <section class="content-block"><h3>Lectura Común</h3><p>Lectura breve: Monte Carlo estima una integral o un valor esperado extrayendo muchas muestras aleatorias de la distribución objetivo y promediando los resultados.</p></section>
+  <section class="content-block"><h3>Símbolos</h3><p><strong>\(\mu\)</strong>: la cantidad exacta que se quiere estimar. En lenguaje probabilístico, es el valor esperado verdadero.</p>
     <p><strong>\(\mathbb{E}_p[\cdot]\)</strong>: la esperanza tomada con respecto a la distribución de probabilidad \(p\).</p>
     <p><strong>\(f(X)\)</strong>: la cantidad evaluada en cada muestra aleatoria. Puede ser una coordenada, una contribución de energía o cualquier observable construido a partir de la variable muestreada.</p>
     <p><strong>\(p(x)\)</strong>: la densidad de probabilidad usada para generar las muestras. Indica qué regiones deben muestrearse con mayor frecuencia y cuáles con menor frecuencia.</p>
@@ -39,78 +26,6 @@
     <p><strong>\(N\)</strong>: el número total de muestras. Es un entero positivo elegido por la implementación.</p>
     <p><strong>\(\sum_{k=1}^{N}\)</strong>: la suma sobre todos los ensayos muestreados, desde la primera muestra hasta la muestra \(N\).</p>
     <p><strong>\(X_k\)</strong>: la \(k\)-ésima variable aleatoria muestreada.</p>
-    <p><strong>\(X_k \sim p(x)\)</strong>: la afirmación de que cada muestra se extrae según la distribución \(p(x)\).</p>
-  </section>
-  <section class="content-block">
-    <h3>Significado de la Ecuación</h3>
-    <p>El muestreo de Monte Carlo es un método numérico para aproximar cantidades que de otro modo requerirían integración exacta sobre un espacio continuo. En lugar de evaluar cada punto de ese espacio, el método extrae muchas muestras representativas de la distribución relevante y deja que el promedio de esas muestras sustituya a la integral completa.</p>
-    <p>La idea es simple pero poderosa. Si una distribución asigna alta probabilidad a ciertas regiones y baja probabilidad a otras, entonces muestrear aleatoriamente desde esa distribución hace que el algoritmo pase automáticamente más tiempo donde la contribución tiene más peso. En ese sentido, Monte Carlo no es una adivinanza aleatoria. Es estimación estadística estructurada.</p>
-  </section>
-  <section class="content-block">
-    <h3>Origen Histórico</h3>
-    <p>El método de Monte Carlo fue desarrollado en la década de 1940 en trabajos asociados con <strong>Stanislaw Ulam</strong>, <strong>John von Neumann</strong> y <strong>Nicholas Metropolis</strong>. Surgió a partir de problemas de transporte de neutrones y física estadística durante el Proyecto Manhattan, donde las soluciones analíticas directas solían ser imposibles.</p>
-    <p>El nombre proviene del casino de Monte Carlo en Mónaco, porque el método depende de ensayos aleatorios repetidos. Las matemáticas son rigurosas, pero el nombre reconoce abiertamente el papel de la probabilidad y del muestreo repetido.</p>
-    <p class="source-language-note">
-      <strong>Fuente del origen del nombre:</strong> Incluyo esta fuente en inglés porque ese fue el idioma en que la leí originalmente.
-      <a class="platform-link" href="https://www.osti.gov/biblio/1898112" target="_blank" rel="noopener noreferrer">Los Alamos / OSTI (Office of Scientific and Technical Information): historia de Monte Carlo y MCNP (Monte Carlo N-Particle Transport Code)</a>.
-    </p>
-  </section>
-  <section class="content-block">
-    <h3>Convergencia</h3>
-    <div class="equation-link-wrap">
-      <div class="glass-window equation-display">
-        $$
-        \hat{\mu}_N \to \mu \qquad \text{a medida que } N \to \infty
-        $$
-      </div>
-    </div>
-    <div class="equation-link-wrap">
-      <div class="glass-window equation-display">
-        $$
-        \operatorname{SE}(\hat{\mu}_N) = \frac{\sigma_f}{\sqrt{N}}
-        $$
-      </div>
-    </div>
-    <p>La primera ecuación expresa la ley de los grandes números. A medida que aumenta el número de muestras, el estimador tiende al valor verdadero. La segunda ecuación da el error estándar del estimador. Aquí, \(\sigma_f\) es la desviación estándar de la cantidad muestreada \(f\).</p>
-    <p>Esta es una de las características más importantes de los métodos de Monte Carlo. La incertidumbre no suele disminuir linealmente con el número de muestras. Disminuye como \(1/\sqrt{N}\). Para reducir el error a la mitad, en general se necesitan alrededor de cuatro veces más muestras.</p>
-  </section>
-  <section class="content-block">
-    <h3>Aplicación A Mi Modelo</h3>
-    <div class="equation-link-wrap">
-      <div class="glass-window equation-display">
-        $$
-        dP = |\psi_{320}|^2\, r^2 \sin\theta\, dr\, d\theta\, d\phi
-        $$
-      </div>
-    </div>
-    <div class="equation-link-wrap">
-      <div class="glass-window equation-display">
-        $$
-        \langle A \rangle \approx \frac{1}{N}\sum_{k=1}^{N} A(r_k,\theta_k,\phi_k)
-        $$
-      </div>
-    </div>
-    <p>En el modelo orbital, la distribución objetivo es la medida de probabilidad del estado de hidrógeno \(3d_{z^2}\) escrita en coordenadas esféricas. El factor \(|\psi_{320}|^2\) da la densidad de probabilidad cuántica, y el factor \(r^2 \sin\theta\) proviene de la geometría de las coordenadas esféricas.</p>
-    <p>Cada punto visualizado en la nube es una posición muestreada \((r_k,\theta_k,\phi_k)\) extraída de esa medida. Por eso el orbital visible no es una carcasa dibujada a mano. Es una aproximación muestreada de la distribución continua de probabilidad predicha por la ecuación de Schrödinger.</p>
-    <p>Para estimar algún observable \(A\) sobre esa distribución, la segunda ecuación dice que se evalúa \(A\) en cada punto muestreado y se promedia el resultado. Esa es la lógica más general de Monte Carlo detrás de la visualización.</p>
-  </section>
-  <section class="content-block">
-    <h3>Límites Del Modelo</h3>
-    <p>Este modelo no representa una trayectoria literal del electrón, una órbita clásica ni un camino de partícula en movimiento. Representa posiciones muestreadas de una distribución estacionaria de probabilidad.</p>
-    <p>Este modelo tampoco reproduce toda la riqueza de un explorador orbital profesional. No expone controles generales para \(n\), \(\ell\) y \(m\), herramientas de recorte, bases orbitales alternativas ni la visualización interactiva más profunda que existe en implementaciones más avanzadas.</p>
-    <p>Esta es una visualización educativa simplificada, no un simulador integral de nivel de investigación. Es honesta respecto al estado que representa, pero no debe tratarse como un modelo físico completo.</p>
-  </section>
-  <section class="content-block">
-    <h3>Referencia Inspiradora</h3>
-    <p>Una inspiración importante para este trabajo fue <a href="https://www.kavang.com/atom" target="_blank" rel="noopener noreferrer">el visor orbital de Kavan</a>. Este modelo no afirma reproducir cada parte de la implementación de Kavan. Se reconoce directamente como una referencia e inspiración importante.</p>
-  </section>
-
-  <section class="content-block glossary-section abbreviation-glossary" data-abbreviation-glossary>
-    <h3>Glosario de Abreviaturas</h3>
-    <p class="abbreviation-glossary__note">Este glosario expande las abreviaturas usadas en esta sección. La primera aparición en el texto incluye el significado completo entre paréntesis; las repeticiones quedan abreviadas para mantener la lectura limpia.</p>
-    <ul class="paper-list glossary-list">
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>OSTI:</strong> Office of Scientific and Technical Information, Oficina de Información Científica y Técnica.</span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>MCNP:</strong> Monte Carlo N-Particle Transport Code.</span></li>
-    </ul>
-  </section>
+    <p><strong>\(X_k \sim p(x)\)</strong>: la afirmación de que cada muestra se extrae según la distribución \(p(x)\).</p></section>
+  <section class="content-block"><h3>Significado de la Ecuación</h3><p>Monte Carlo estima una integral o un valor esperado extrayendo muchas muestras aleatorias de la distribución objetivo y promediando los resultados.</p></section>
 </div>
