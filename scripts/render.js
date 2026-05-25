@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260524-science-audit-v1";
+import { pick } from "./i18n.js?v=20260524-science-nav-v1";
 
 function escapeHtml(value) {
   return String(value)
@@ -114,15 +114,16 @@ function renderFocusedPathRow({
   dataName,
   id,
   label,
+  scope,
   closeHint,
   closeAria
 }) {
   const buttonLabel = closeAria ? `${label}. ${closeAria}` : label;
 
   return `
-    <div class="focused-path-row" role="group" aria-label="${escapeHtml(ariaLabel)}">
+    <div class="${classNames("focused-path-row", scope === "science" && "focused-path-row--science")}" role="group" aria-label="${escapeHtml(ariaLabel)}">
       <button
-        class="${classNames("glass-tab", "focused-path-tab", "is-active", closeHint && "focused-path-tab--closable")}"
+        class="${classNames("glass-tab", "focused-path-tab", "is-active", scope === "science" && "focused-path-tab--science", closeHint && "focused-path-tab--closable")}"
         type="button"
         data-action="${escapeHtml(action)}"
         ${escapeHtml(dataName)}="${escapeHtml(id)}"
@@ -161,7 +162,7 @@ function renderTopicButtons(topics, state, language, ui) {
     <div class="topic-grid" role="group" aria-label="${escapeHtml(pick(ui.topicNavigationAria, language))}">
       ${topics.map((topic) => `
         <button
-          class="${classNames("glass-tab", "topic-button", state.activeTopic === topic.id && "is-active")}"
+          class="${classNames("glass-tab", "topic-button", "topic-button--science-member", state.activeTopic === topic.id && "is-active")}"
           type="button"
           data-action="select-topic"
           data-topic-id="${escapeHtml(topic.id)}"
@@ -176,12 +177,13 @@ function renderTopicButtons(topics, state, language, ui) {
 
 function renderBranchButtons(branches, state, language, ui) {
   const visibleBranches = branches.filter((branch) => !branch.hidden);
+  const isScienceBranchGroup = Boolean(state.activeTopic);
 
   return `
     <div class="topic-grid branch-grid" role="group" aria-label="${escapeHtml(pick(ui.branchNavigationAria, language))}">
       ${visibleBranches.map((branch) => `
         <button
-          class="${classNames("glass-tab", "topic-button", state.activeBranch === branch.id && "is-active")}"
+          class="${classNames("glass-tab", "topic-button", isScienceBranchGroup && "topic-button--science-member", state.activeBranch === branch.id && "is-active")}"
           type="button"
           data-action="select-branch"
           data-branch-id="${escapeHtml(branch.id)}"
@@ -195,11 +197,13 @@ function renderBranchButtons(branches, state, language, ui) {
 }
 
 function renderLegacyItemButtons(items, state, language, ui) {
+  const isScienceItemGroup = Boolean(state.activeTopic);
+
   return `
     <div class="topic-grid legacy-item-grid" role="group" aria-label="${escapeHtml(pick(ui.legacyItemNavigationAria, language))}">
       ${items.map((item) => `
         <button
-          class="${classNames("glass-tab", "topic-button", state.activeDetail === item.id && "is-active")}"
+          class="${classNames("glass-tab", "topic-button", isScienceItemGroup && "topic-button--science-member", state.activeDetail === item.id && "is-active")}"
           type="button"
           data-action="select-detail"
           data-item-id="${escapeHtml(item.id)}"
@@ -412,7 +416,7 @@ function renderMobileKnowledgeNavigation(domains, state, language) {
                 <div class="mobile-knowledge-nav__topics" ${isExpanded ? "" : "hidden"} aria-label="${escapeHtml(labels.topics)}">
                   ${topics.map((topic) => `
                     <button
-                      class="${classNames("glass-tab", "mobile-knowledge-nav__topic-button", state.activeTopic === topic.id && "is-active")}"
+                      class="${classNames("glass-tab", "mobile-knowledge-nav__topic-button", isExpanded && "mobile-knowledge-nav__topic-button--domain-member", state.activeTopic === topic.id && "is-active")}"
                       type="button"
                       data-action="select-mobile-knowledge-topic"
                       data-domain-id="${escapeHtml(domain.id)}"
@@ -670,7 +674,8 @@ export function renderSite({ state, refs, content, assets }) {
         action: "select-domain",
         dataName: "data-domain-id",
         id: activeDomain.id,
-        label: pick(activeDomain.title, language)
+        label: pick(activeDomain.title, language),
+        scope: "science"
       }));
 
       focusedRows.push(renderFocusedPathRow({
@@ -678,7 +683,8 @@ export function renderSite({ state, refs, content, assets }) {
         action: "select-topic",
         dataName: "data-topic-id",
         id: activeTopic.id,
-        label: pick(activeTopic.title, language)
+        label: pick(activeTopic.title, language),
+        scope: "science"
       }));
 
       if (activeBranch) {
@@ -687,7 +693,8 @@ export function renderSite({ state, refs, content, assets }) {
           action: "select-branch",
           dataName: "data-branch-id",
           id: activeBranch.id,
-          label: pick(activeBranch.title, language)
+          label: pick(activeBranch.title, language),
+          scope: "science"
         }));
       }
 
@@ -698,6 +705,7 @@ export function renderSite({ state, refs, content, assets }) {
           dataName: "data-item-id",
           id: activeDetail.id,
           label: pick(activeDetail.title, language),
+          scope: "science",
           closeHint: pick(content.ui.focusedPathCloseHint, language),
           closeAria: pick(content.ui.focusedPathCloseAria, language)
         }));
