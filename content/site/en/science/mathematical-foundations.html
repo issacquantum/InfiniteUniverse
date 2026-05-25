@@ -2,9 +2,15 @@
   <section class="content-block">
     <h3>Purpose</h3>
     <p>
-      This section is not a separate math textbook. It is the toolkit behind the rest of the site: calculus for change,
-      linear algebra for states and transformations, probability for uncertainty, differential equations for dynamics,
-      tensors for geometry, and complex numbers for waves and quantum mechanics.
+      Mathematical foundations are the working language underneath the rest of the science sections. This is not a
+      separate math textbook. It is a map of the tools that keep appearing whenever physics, computation, simulation,
+      probability, geometry, and data analysis become precise.
+    </p>
+    <p>
+      The central idea is that mathematics lets us track structure without depending only on intuition. A changing
+      quantity becomes a derivative. Accumulated change becomes an integral. A direction or state becomes a vector. A
+      transformation becomes a matrix. Uncertainty becomes a probability distribution. Curvature becomes geometry. A
+      physical law becomes an equation that can be tested, solved, approximated, or simulated.
     </p>
   </section>
 
@@ -13,20 +19,28 @@
       <p><strong>Model type:</strong> Conceptual model.</p>
       <p><strong>What this shows:</strong> A vector and a transformed vector inside a distorted coordinate grid.</p>
       <p><strong>What this does not show:</strong> A full linear-algebra engine, exact tensor calculus, or proof-level mathematics.</p>
-      <p><strong>Equation / principle:</strong> Derivatives, integrals, vectors, and transformations are the shared toolkit behind the science sections.</p>
-      <p><strong>What the model represents:</strong> Mathematics as structure-preserving transformation, not decorative notation.</p>
+      <p><strong>Equation / principle:</strong> \(\mathbf{v}'=A\mathbf{v}\) is the simplest way to say that a rule transforms one vector into another.</p>
+      <p><strong>What the model represents:</strong> A coordinate transformation: the object changes in a controlled way, and the grid helps you see what changed.</p>
     </div>
     <figure class="foundation-model glass-window" data-foundation-model="mathematics" data-model-target="mathematical-transformations" data-language="en">
       <div class="foundation-model__frame" data-foundation-model-frame></div>
       <figcaption class="foundation-model__caption">The second vector is a transformed version of the first; the warped grid shows how coordinates can change while structure remains trackable.</figcaption>
     </figure>
+    <p>
+      Read the model as a visual grammar lesson for mathematics. The arrow is a vector: a direction, state, or piece of
+      data. The grid is the coordinate frame used to describe it. The transformation changes the vector in a controlled
+      way, like rotating it, stretching it, compressing it, or mixing its components. The point is not that space is
+      literally bending in this model; the point is that mathematics can track how a structure changes without losing
+      the object being described.
+    </p>
   </section>
 
   <section class="content-block">
-    <h3>Calculus and Change</h3>
+    <h3>Calculus: Change and Accumulation</h3>
     <p>
-      Calculus turns motion, growth, decay, curvature, flow, and accumulation into precise language. A derivative
-      measures local change:
+      Calculus is the language of quantities that change. Velocity is change in position. Acceleration is change in
+      velocity. Growth, decay, heating, cooling, motion, curvature, and wave propagation all require a way to describe
+      local change. A derivative does that:
     </p>
     <div class="equation-link-wrap">
       <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
@@ -38,7 +52,8 @@
       </button>
     </div>
     <p>
-      An integral measures accumulation:
+      An integral goes the other direction: it adds many tiny pieces into a whole. Distance from velocity, work from
+      force, probability from density, mass from density, and action from a Lagrangian are all accumulation ideas:
     </p>
     <div class="equation-link-wrap">
       <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
@@ -52,19 +67,52 @@
   </section>
 
   <section class="content-block">
-    <h3>Linear Algebra</h3>
+    <h3>Linear Algebra: States and Transformations</h3>
     <p>
-      Vectors, matrices, eigenvalues, inner products, and bases appear everywhere: vibrations, rotations, data analysis,
-      quantum states, neural networks, and numerical methods. Linear algebra is the language of structured
-      transformation.
+      Linear algebra is the language of vectors, spaces, projections, rotations, matrices, eigenvectors, and bases. It
+      is why the same mathematical pattern appears in graphics, quantum mechanics, vibrations, orbital models, machine
+      learning, and numerical simulation.
+    </p>
+    <p>
+      A vector transformation can be written as
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="mathematical-foundations-equations" data-item-id="matrix-vector-transformation"
+        aria-label="Open the explanation page for matrix vector transformation">
+        $$
+        \mathbf{v}'=A\mathbf{v}
+        $$
+      </button>
+    </div>
+    <p>
+      Some vectors keep their direction under a transformation and only change scale. Those are eigenvectors, and the
+      scale factors are eigenvalues:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="mathematical-foundations-equations" data-item-id="eigenvalue-equation"
+        aria-label="Open the explanation page for the eigenvalue equation">
+        $$
+        A\mathbf{v}=\lambda\mathbf{v}
+        $$
+      </button>
+    </div>
+    <p>
+      Eigenvalue problems explain normal modes, stable patterns, quantum energy levels, principal components in data,
+      and why some directions in a system matter more than others.
     </p>
   </section>
 
   <section class="content-block">
-    <h3>Probability and Inference</h3>
+    <h3>Probability, Evidence, and Inference</h3>
     <p>
-      Probability is not only gambling language. It is how physics and computation handle uncertainty, ensembles,
-      measurement outcomes, noisy data, and statistical learning. Bayes' rule organizes evidence:
+      Probability is not only about chance. It is the disciplined language for limited information. In physics, it
+      appears in statistical mechanics, quantum measurement, noisy signals, and uncertainty. In computation, it appears
+      in machine learning, randomized algorithms, simulation, and data analysis.
+    </p>
+    <p>
+      Bayes' theorem shows how evidence updates a belief or model:
     </p>
     <div class="equation-link-wrap">
       <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
@@ -75,13 +123,22 @@
         $$
       </button>
     </div>
+    <p>
+      The important lesson is not that Bayes solves every problem automatically. The lesson is that evidence has to be
+      connected to assumptions. If the assumptions are wrong, the update can be precise and still misleading.
+    </p>
   </section>
 
   <section class="content-block">
-    <h3>Geometry and Tensors</h3>
+    <h3>Geometry, Tensors, and Coordinate Independence</h3>
     <p>
-      Geometry describes shape and distance. Tensors make geometric and physical statements independent of a particular
-      coordinate choice. That is why they become essential in relativity and modern field theory.
+      Geometry describes distance, angle, curvature, and shape. Tensor language lets a physical statement remain valid
+      even when coordinates change. That is why tensors become central in general relativity: the geometry is physical,
+      while the coordinate labels are a choice.
+    </p>
+    <p>
+      This matters across the site because many scientific mistakes come from confusing a representation with the thing
+      represented. A graph, coordinate system, simulation, or model can be useful without being literal in every detail.
     </p>
   </section>
 
@@ -89,9 +146,11 @@
     <h3>Technical Terms Glossary</h3>
     <ul class="paper-list glossary-list">
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Derivative:</strong> A local rate of change.</span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Eigenvalue:</strong> A scale factor for a vector whose direction is preserved by a linear transformation.</span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Differential equation:</strong> An equation involving a quantity and its rates of change.</span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Tensor:</strong> A mathematical object whose components change consistently across coordinate systems.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Integral:</strong> A way to add many small contributions into one total quantity.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Vector:</strong> A mathematical object with components, often used for direction, state, or data.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Matrix:</strong> A structured array that can represent a transformation or a system of relationships.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Eigenvalue:</strong> The scale factor for a direction that a transformation preserves.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Tensor:</strong> A mathematical object whose components change consistently when coordinates change.</span></li>
     </ul>
   </section>
 
@@ -101,7 +160,7 @@
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/" target="_blank" rel="noopener noreferrer">Gilbert Strang. <em>MIT 18.06 Linear Algebra.</em></a> <span class="paper-note">MIT OpenCourseWare page.</span></span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/" target="_blank" rel="noopener noreferrer">MIT OpenCourseWare. <em>Single Variable Calculus.</em></a> <span class="paper-note">Structured calculus course.</span></span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://projects.iq.harvard.edu/stat110/home" target="_blank" rel="noopener noreferrer">Joseph Blitzstein. <em>Statistics 110: Probability.</em></a> <span class="paper-note">Harvard course site.</span></span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://link.springer.com/book/10.1007/978-3-031-41026-0" target="_blank" rel="noopener noreferrer">Sheldon Axler. <em>Linear Algebra Done Right.</em></a> <span class="paper-note">Official Springer page.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.math.uci.edu/~rvershyn/teaching/hdp/hdp.html" target="_blank" rel="noopener noreferrer">Roman Vershynin. <em>High-Dimensional Probability.</em></a> <span class="paper-note">Modern probability reference for data science and theoretical work.</span></span></li>
     </ul>
   </section>
 </div>

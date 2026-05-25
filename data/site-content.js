@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-model-purple-palette-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260524-science-depth-v1";
 
 function htmlSource(group, id) {
   return {
@@ -271,7 +271,9 @@ const classicalMechanicsEquationBranch = {
   title: { en: "Equations", es: "Ecuaciones" },
   items: [
     createStructuredItem("science/equations", "newton-second-law", "Newton's Second Law", "Segunda Ley de Newton"),
-    createStructuredItem("science/equations", "classical-action-principle", "Classical Action Principle", "Principio de Acción Clásico")
+    createStructuredItem("science/equations", "classical-action-principle", "Classical Action Principle", "Principio de Acción Clásico"),
+    createStructuredItem("science/equations", "euler-lagrange-equation", "Euler-Lagrange Equation", "Ecuación de Euler-Lagrange"),
+    createStructuredItem("science/equations", "hamilton-equations", "Hamilton's Equations", "Ecuaciones de Hamilton")
   ]
 };
 
@@ -280,7 +282,10 @@ const electromagnetismEquationBranch = {
   title: { en: "Equations", es: "Ecuaciones" },
   items: [
     createStructuredItem("science/equations", "lorentz-force-law", "Lorentz Force Law", "Ley de Fuerza de Lorentz"),
-    createStructuredItem("science/equations", "electromagnetic-wave-speed", "Electromagnetic Wave Speed", "Velocidad de Onda Electromagnética")
+    createStructuredItem("science/equations", "electromagnetic-wave-speed", "Electromagnetic Wave Speed", "Velocidad de Onda Electromagnética"),
+    createStructuredItem("science/equations", "maxwell-equations-differential", "Maxwell's Equations", "Ecuaciones de Maxwell"),
+    createStructuredItem("science/equations", "electromagnetic-wave-equation", "Electromagnetic Wave Equation", "Ecuación de Onda Electromagnética"),
+    createStructuredItem("science/equations", "poynting-vector", "Poynting Vector", "Vector de Poynting")
   ]
 };
 
@@ -289,7 +294,10 @@ const thermodynamicsEquationBranch = {
   title: { en: "Equations", es: "Ecuaciones" },
   items: [
     createStructuredItem("science/equations", "first-law-thermodynamics", "First Law of Thermodynamics", "Primera Ley de la Termodinámica"),
-    createStructuredItem("science/equations", "boltzmann-entropy", "Boltzmann Entropy", "Entropía de Boltzmann")
+    createStructuredItem("science/equations", "boltzmann-entropy", "Boltzmann Entropy", "Entropía de Boltzmann"),
+    createStructuredItem("science/equations", "second-law-entropy-inequality", "Second Law Entropy Inequality", "Desigualdad Entrópica de la Segunda Ley"),
+    createStructuredItem("science/equations", "gibbs-state-density-matrix", "Gibbs State Density Matrix", "Matriz de Densidad de Estado de Gibbs"),
+    createStructuredItem("science/equations", "jarzynski-equality", "Jarzynski Equality", "Igualdad de Jarzynski")
   ]
 };
 
@@ -299,6 +307,8 @@ const mathematicalFoundationsEquationBranch = {
   items: [
     createStructuredItem("science/equations", "derivative-notation", "Derivative Notation", "Notación de Derivada"),
     createStructuredItem("science/equations", "definite-integral", "Definite Integral", "Integral Definida"),
+    createStructuredItem("science/equations", "matrix-vector-transformation", "Matrix-Vector Transformation", "Transformación Matriz-Vector"),
+    createStructuredItem("science/equations", "eigenvalue-equation", "Eigenvalue Equation", "Ecuación de Autovalor"),
     createStructuredItem("science/equations", "bayes-theorem", "Bayes' Theorem", "Teorema de Bayes")
   ]
 };
@@ -308,7 +318,10 @@ const quantumFieldTheoryEquationBranch = {
   title: { en: "Equations", es: "Ecuaciones" },
   items: [
     createStructuredItem("science/equations", "scalar-field-lagrangian", "Scalar Field Lagrangian", "Lagrangiano de Campo Escalar"),
-    createStructuredItem("science/equations", "renormalization-group-equation", "Renormalization Group Equation", "Ecuación del Grupo de Renormalización")
+    createStructuredItem("science/equations", "renormalization-group-equation", "Renormalization Group Equation", "Ecuación del Grupo de Renormalización"),
+    createStructuredItem("science/equations", "qft-microcausality", "QFT Microcausality", "Microcausalidad en Teoría Cuántica de Campos"),
+    createStructuredItem("science/equations", "feynman-propagator", "Feynman Propagator", "Propagador de Feynman"),
+    createStructuredItem("science/equations", "vacuum-energy-integral", "Vacuum Energy Integral", "Integral de Energía del Vacío")
   ]
 };
 
@@ -316,7 +329,8 @@ const neuroscienceConsciousnessEquationBranch = {
   id: "neuroscience-consciousness-equations",
   title: { en: "Equations", es: "Ecuaciones" },
   items: [
-    createStructuredItem("science/equations", "recurrent-state-update", "Recurrent State Update", "Actualización Recurrente de Estado")
+    createStructuredItem("science/equations", "recurrent-state-update", "Recurrent State Update", "Actualización Recurrente de Estado"),
+    createStructuredItem("science/equations", "leaky-integrate-fire-neuron", "Leaky Integrate-and-Fire Neuron", "Neurona de Integración y Disparo con Fuga")
   ]
 };
 
@@ -324,7 +338,9 @@ const complexSystemsEquationBranch = {
   id: "complex-systems-emergence-equations",
   title: { en: "Equations", es: "Ecuaciones" },
   items: [
-    createStructuredItem("science/equations", "dynamical-system-equation", "Dynamical System Equation", "Ecuación de Sistema Dinámico")
+    createStructuredItem("science/equations", "dynamical-system-equation", "Dynamical System Equation", "Ecuación de Sistema Dinámico"),
+    createStructuredItem("science/equations", "logistic-map-equation", "Logistic Map", "Mapa Logístico"),
+    createStructuredItem("science/equations", "graph-adjacency-matrix", "Graph Adjacency Matrix", "Matriz de Adyacencia de Grafo")
   ]
 };
 
@@ -332,7 +348,10 @@ const chemistryMolecularStructureEquationBranch = {
   id: "chemistry-molecular-structure-equations",
   title: { en: "Equations", es: "Ecuaciones" },
   items: [
-    createStructuredItem("science/equations", "gibbs-free-energy", "Gibbs Free Energy", "Energía Libre de Gibbs")
+    createStructuredItem("science/equations", "gibbs-free-energy", "Gibbs Free Energy", "Energía Libre de Gibbs"),
+    createStructuredItem("science/equations", "chemical-equilibrium-constant", "Chemical Equilibrium Constant", "Constante de Equilibrio Químico"),
+    createStructuredItem("science/equations", "arrhenius-equation", "Arrhenius Equation", "Ecuación de Arrhenius"),
+    createStructuredItem("science/equations", "kohn-sham-equations", "Kohn-Sham Equations", "Ecuaciones de Kohn-Sham")
   ]
 };
 
@@ -340,7 +359,9 @@ const biologyLifeSystemsEquationBranch = {
   id: "biology-life-systems-equations",
   title: { en: "Equations", es: "Ecuaciones" },
   items: [
-    createStructuredItem("science/equations", "central-dogma-flow", "Central Dogma Flow", "Flujo del Dogma Central")
+    createStructuredItem("science/equations", "central-dogma-flow", "Central Dogma Flow", "Flujo del Dogma Central"),
+    createStructuredItem("science/equations", "logistic-growth-equation", "Logistic Growth", "Crecimiento Logístico"),
+    createStructuredItem("science/equations", "hardy-weinberg-equilibrium", "Hardy-Weinberg Equilibrium", "Equilibrio de Hardy-Weinberg")
   ]
 };
 

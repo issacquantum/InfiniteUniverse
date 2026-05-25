@@ -2,9 +2,16 @@
   <section class="content-block">
     <h3>Propósito</h3>
     <p>
-      Esta sección no es un libro de matemáticas separado. Es la caja de herramientas detrás del sitio: cálculo para el
-      cambio, álgebra lineal para estados y transformaciones, probabilidad para incertidumbre, ecuaciones diferenciales
-      para dinámica, tensores para geometría y números complejos para ondas y mecánica cuántica.
+      Los fundamentos matemáticos son el lenguaje de trabajo debajo del resto de las secciones científicas. Esta sección
+      no intenta ser un libro de matemáticas aparte. Es un mapa de las herramientas que aparecen una y otra vez cuando la
+      física, la computación, la simulación, la probabilidad, la geometría y el análisis de datos se vuelven precisos.
+    </p>
+    <p>
+      La idea central es que las matemáticas permiten seguir la estructura sin depender solo de la intuición. Una
+      cantidad que cambia se vuelve una derivada. Un cambio acumulado se vuelve una integral. Una dirección o un estado
+      se vuelve un vector. Una transformación se vuelve una matriz. La incertidumbre se vuelve una distribución de
+      probabilidad. La curvatura se vuelve geometría. Una ley física se vuelve una ecuación que puede probarse,
+      resolverse, aproximarse o simularse.
     </p>
   </section>
 
@@ -13,20 +20,28 @@
       <p><strong>Tipo de modelo:</strong> Modelo conceptual.</p>
       <p><strong>Qué muestra:</strong> Un vector y un vector transformado dentro de una cuadrícula de coordenadas deformada.</p>
       <p><strong>Qué no muestra:</strong> Un motor completo de álgebra lineal, cálculo tensorial exacto o matemáticas a nivel de demostración formal.</p>
-      <p><strong>Ecuación / principio:</strong> Derivadas, integrales, vectores y transformaciones son la caja de herramientas compartida detrás de las secciones científicas.</p>
-      <p><strong>Qué representa el modelo:</strong> Las matemáticas como transformación que conserva estructura, no como notación decorativa.</p>
+      <p><strong>Ecuación / principio:</strong> \(\mathbf{v}'=A\mathbf{v}\) es la forma más simple de decir que una regla transforma un vector en otro.</p>
+      <p><strong>Qué representa el modelo:</strong> Una transformación de coordenadas: el objeto cambia de manera controlada, y la cuadrícula ayuda a ver qué cambió.</p>
     </div>
     <figure class="foundation-model glass-window" data-foundation-model="mathematics" data-model-target="mathematical-transformations" data-language="es">
       <div class="foundation-model__frame" data-foundation-model-frame></div>
-      <figcaption class="foundation-model__caption">El segundo vector es una versión transformada del primero; la cuadrícula deformada muestra cómo pueden cambiar las coordenadas mientras la estructura sigue siendo rastreable.</figcaption>
+      <figcaption class="foundation-model__caption">El segundo vector es una versión transformada del primero; la cuadrícula deformada muestra cómo pueden cambiar las coordenadas sin perder el seguimiento de la estructura.</figcaption>
     </figure>
+    <p>
+      Lee el modelo como una lección visual de gramática matemática. La flecha es un vector: una dirección, un estado o
+      una pieza de datos. La cuadrícula es el marco de coordenadas usado para describirlo. La transformación cambia el
+      vector de forma controlada, como rotarlo, estirarlo, comprimirlo o mezclar sus componentes. El punto no es que el
+      espacio se esté doblando literalmente en este modelo; el punto es que la matemática puede seguir cómo cambia una
+      estructura sin perder el objeto que se está describiendo.
+    </p>
   </section>
 
   <section class="content-block">
-    <h3>Cálculo y cambio</h3>
+    <h3>Cálculo: Cambio y Acumulación</h3>
     <p>
-      El cálculo convierte movimiento, crecimiento, decaimiento, curvatura, flujo y acumulación en lenguaje preciso. Una
-      derivada mide cambio local:
+      El cálculo es el lenguaje de las cantidades que cambian. La velocidad es cambio de posición. La aceleración es
+      cambio de velocidad. Crecimiento, decaimiento, calentamiento, enfriamiento, movimiento, curvatura y propagación de
+      ondas requieren una forma de describir cambio local. Una derivada hace eso:
     </p>
     <div class="equation-link-wrap">
       <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
@@ -38,7 +53,9 @@
       </button>
     </div>
     <p>
-      Una integral mide acumulación:
+      Una integral hace el movimiento contrario: suma muchas piezas pequeñas para formar un total. Distancia a partir de
+      velocidad, trabajo a partir de fuerza, probabilidad a partir de densidad, masa a partir de densidad y acción a
+      partir de un Lagrangiano son ideas de acumulación:
     </p>
     <div class="equation-link-wrap">
       <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
@@ -52,19 +69,52 @@
   </section>
 
   <section class="content-block">
-    <h3>Álgebra lineal</h3>
+    <h3>Álgebra Lineal: Estados y Transformaciones</h3>
     <p>
-      Vectores, matrices, valores propios, productos internos y bases aparecen en todas partes: vibraciones, rotaciones,
-      análisis de datos, estados cuánticos, redes neuronales y métodos numéricos. El álgebra lineal es el lenguaje de la
-      transformación estructurada.
+      El álgebra lineal es el lenguaje de vectores, espacios, proyecciones, rotaciones, matrices, autovectores y bases.
+      Por eso el mismo patrón matemático aparece en gráficos, mecánica cuántica, vibraciones, modelos orbitales,
+      aprendizaje automático y simulación numérica.
+    </p>
+    <p>
+      Una transformación vectorial puede escribirse como
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="mathematical-foundations-equations" data-item-id="matrix-vector-transformation"
+        aria-label="Abrir la explicación de transformación matriz-vector">
+        $$
+        \mathbf{v}'=A\mathbf{v}
+        $$
+      </button>
+    </div>
+    <p>
+      Algunos vectores conservan su dirección bajo una transformación y solo cambian de escala. Esos son autovectores, y
+      los factores de escala son autovalores:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="mathematical-foundations-equations" data-item-id="eigenvalue-equation"
+        aria-label="Abrir la explicación de la ecuación de autovalor">
+        $$
+        A\mathbf{v}=\lambda\mathbf{v}
+        $$
+      </button>
+    </div>
+    <p>
+      Los problemas de autovalores explican modos normales, patrones estables, niveles de energía cuánticos, componentes
+      principales en datos y por qué algunas direcciones de un sistema importan más que otras.
     </p>
   </section>
 
   <section class="content-block">
-    <h3>Probabilidad e inferencia</h3>
+    <h3>Probabilidad, Evidencia e Inferencia</h3>
     <p>
-      La probabilidad no es solo lenguaje de apuestas. Es la forma en que física y computación manejan incertidumbre,
-      ensambles, resultados de medición, datos ruidosos y aprendizaje estadístico. La regla de Bayes organiza evidencia:
+      La probabilidad no trata solo del azar. Es el lenguaje disciplinado para información limitada. En física aparece
+      en mecánica estadística, medición cuántica, señales con ruido e incertidumbre. En computación aparece en
+      aprendizaje automático, algoritmos aleatorios, simulación y análisis de datos.
+    </p>
+    <p>
+      El teorema de Bayes muestra cómo la evidencia actualiza una creencia o un modelo:
     </p>
     <div class="equation-link-wrap">
       <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
@@ -75,35 +125,45 @@
         $$
       </button>
     </div>
+    <p>
+      La lección importante no es que Bayes resuelva todo automáticamente. La lección es que la evidencia debe estar
+      conectada con supuestos. Si los supuestos son incorrectos, la actualización puede ser precisa y aun así engañosa.
+    </p>
   </section>
 
   <section class="content-block">
-    <h3>Geometría y tensores</h3>
+    <h3>Geometría, Tensores e Independencia de Coordenadas</h3>
     <p>
-      La geometría describe forma y distancia. Los tensores permiten expresar relaciones geométricas y físicas sin
-      depender de una elección particular de coordenadas. Por eso se vuelven esenciales en relatividad y teoría moderna
-      de campos.
+      La geometría describe distancia, ángulo, curvatura y forma. El lenguaje tensorial permite que una afirmación
+      física siga siendo válida aunque cambien las coordenadas. Por eso los tensores son centrales en relatividad
+      general: la geometría es física, mientras que las etiquetas de coordenadas son una elección.
+    </p>
+    <p>
+      Esto importa en todo el sitio porque muchos errores científicos vienen de confundir una representación con lo
+      representado. Una gráfica, un sistema de coordenadas, una simulación o un modelo puede ser útil sin ser literal en
+      cada detalle.
     </p>
   </section>
 
   <section class="content-block glossary-section">
-    <h3>Glosario de Términos Técnicos</h3>
+    <h3>Glosario Técnico</h3>
     <ul class="paper-list glossary-list">
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Derivada:</strong> Tasa local de cambio.</span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Valor propio:</strong> Factor de escala de un vector cuya dirección se conserva bajo una transformación lineal.</span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Ecuación diferencial:</strong> Ecuación que involucra una cantidad y sus tasas de cambio.</span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Tensor:</strong> Objeto matemático cuyos componentes cambian de forma consistente entre sistemas de coordenadas.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Derivada:</strong> Una tasa local de cambio.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Integral:</strong> Una forma de sumar muchas contribuciones pequeñas en una cantidad total.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Vector:</strong> Un objeto matemático con componentes, usado a menudo para dirección, estado o datos.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Matriz:</strong> Un arreglo estructurado que puede representar una transformación o un sistema de relaciones.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Autovalor:</strong> El factor de escala para una dirección que una transformación preserva.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Tensor:</strong> Un objeto matemático cuyas componentes cambian de forma consistente cuando cambian las coordenadas.</span></li>
     </ul>
   </section>
 
   <section class="content-block source-papers">
-    <h3>Enlaces de Fuentes Fundamentales y Modernas</h3>
-    <p class="source-language-note">Incluyo estas fuentes en inglés porque ese fue el idioma en que las leí originalmente.</p>
+    <h3>Fuentes Fundamentales y Modernas</h3>
     <ul class="paper-list">
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/" target="_blank" rel="noopener noreferrer">Gilbert Strang. <em>MIT 18.06 Linear Algebra.</em></a> <span class="paper-note">Página de MIT OpenCourseWare.</span></span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/" target="_blank" rel="noopener noreferrer">MIT OpenCourseWare. <em>Single Variable Calculus.</em></a> <span class="paper-note">Curso estructurado de cálculo.</span></span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://projects.iq.harvard.edu/stat110/home" target="_blank" rel="noopener noreferrer">Joseph Blitzstein. <em>Statistics 110: Probability.</em></a> <span class="paper-note">Sitio del curso de Harvard.</span></span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://link.springer.com/book/10.1007/978-3-031-41026-0" target="_blank" rel="noopener noreferrer">Sheldon Axler. <em>Linear Algebra Done Right.</em></a> <span class="paper-note">Página oficial de Springer.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.math.uci.edu/~rvershyn/teaching/hdp/hdp.html" target="_blank" rel="noopener noreferrer">Roman Vershynin. <em>High-Dimensional Probability.</em></a> <span class="paper-note">Referencia moderna de probabilidad para ciencia de datos y trabajo teórico.</span></span></li>
     </ul>
   </section>
 </div>
