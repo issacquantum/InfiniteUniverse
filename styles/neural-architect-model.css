@@ -1,6 +1,6 @@
 .neural-architect {
-  --na-hot-pink: #ff00a2;
-  --na-strong-pink: #ff58d6;
+  --na-bright-violet: #8a2be2;
+  --na-luminous-violet: #bf40ff;
   --na-electric: #bf40ff;
   --na-violet: #7700ff;
   --na-indigo: #2b006d;
@@ -32,13 +32,13 @@
   background:
     linear-gradient(90deg,
       transparent 0 8%,
-      rgba(255, 0, 162, 0.62) 14% 18%,
+      rgba(138, 43, 226, 0.62) 14% 18%,
       transparent 25% 76%,
       rgba(122, 26, 245, 0.52) 82% 86%,
       transparent 92%),
     linear-gradient(180deg,
       transparent 0 10%,
-      rgba(255, 88, 214, 0.38) 15% 18%,
+      rgba(191, 64, 255, 0.38) 15% 18%,
       transparent 24% 82%,
       rgba(98, 0, 255, 0.42) 88% 91%,
       transparent 100%);
@@ -79,7 +79,7 @@
 
 .neural-architect__canvas:focus-visible {
   box-shadow:
-    inset 0 0 0 2px rgba(255, 0, 162, 0.68),
+    inset 0 0 0 2px rgba(138, 43, 226, 0.68),
     inset 0 0 24px rgba(119, 0, 255, 0.34);
 }
 
@@ -118,7 +118,7 @@
 
 .neural-architect__label,
 .neural-architect__metric-label {
-  color: var(--na-strong-pink);
+  color: var(--na-luminous-violet);
   font-size: 0.54rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -133,7 +133,7 @@
 }
 
 .neural-architect__value {
-  color: var(--na-hot-pink);
+  color: var(--na-bright-violet);
   font-variant-numeric: tabular-nums;
 }
 
@@ -148,15 +148,15 @@
   border: 1px solid rgba(191, 64, 255, 0.42);
   border-radius: 0.38rem;
   background: rgba(5, 0, 8, 0.74);
-  color: var(--na-strong-pink);
+  color: var(--na-luminous-violet);
   font: inherit;
   outline: none;
 }
 
 .neural-architect__select:focus-visible {
-  border-color: var(--na-hot-pink);
+  border-color: var(--na-bright-violet);
   box-shadow:
-    0 0 0 2px rgba(255, 0, 162, 0.24),
+    0 0 0 2px rgba(138, 43, 226, 0.24),
     0 0 18px rgba(119, 0, 255, 0.34);
 }
 
@@ -172,19 +172,19 @@
 
 .neural-architect__range:focus-visible {
   box-shadow:
-    0 0 0 2px rgba(255, 0, 162, 0.34),
+    0 0 0 2px rgba(138, 43, 226, 0.34),
     0 0 14px rgba(191, 64, 255, 0.44);
 }
 
 .neural-architect__range::-webkit-slider-thumb {
   width: 9px;
   height: 9px;
-  border: 1px solid var(--na-hot-pink);
+  border: 1px solid var(--na-bright-violet);
   border-radius: 50%;
   background: var(--na-electric-violet);
   cursor: pointer;
   box-shadow:
-    0 0 8px var(--na-hot-pink),
+    0 0 8px var(--na-bright-violet),
     0 0 14px rgba(119, 0, 255, 0.52);
   appearance: none;
   -webkit-appearance: none;
@@ -193,12 +193,12 @@
 .neural-architect__range::-moz-range-thumb {
   width: 9px;
   height: 9px;
-  border: 1px solid var(--na-hot-pink);
+  border: 1px solid var(--na-bright-violet);
   border-radius: 50%;
   background: var(--na-electric-violet);
   cursor: pointer;
   box-shadow:
-    0 0 8px var(--na-hot-pink),
+    0 0 8px var(--na-bright-violet),
     0 0 14px rgba(119, 0, 255, 0.52);
 }
 
@@ -213,9 +213,9 @@
   border: 1px solid var(--na-violet);
   border-radius: 0.38rem;
   background:
-    radial-gradient(circle at 30% 18%, rgba(255, 0, 162, 0.16), transparent 40%),
+    radial-gradient(circle at 30% 18%, rgba(138, 43, 226, 0.16), transparent 40%),
     rgba(var(--glow-rgb), 0.22);
-  color: var(--na-strong-pink);
+  color: var(--na-luminous-violet);
   cursor: pointer;
   font: inherit;
   font-size: 0.56rem;
@@ -234,9 +234,9 @@
 .neural-architect__button:focus-visible,
 .neural-architect__button.is-active {
   background:
-    radial-gradient(circle at 50% 20%, rgba(255, 88, 214, 0.24), transparent 42%),
+    radial-gradient(circle at 50% 20%, rgba(191, 64, 255, 0.24), transparent 42%),
     rgba(var(--glow-rgb), 0.42);
-  color: var(--na-hot-pink);
+  color: var(--na-bright-violet);
   box-shadow: 0 0 15px rgba(var(--glow-rgb), 0.42);
   transform: translate3d(0, -1px, 0);
 }
@@ -247,7 +247,7 @@
 
 .neural-architect__status {
   margin: 0;
-  color: rgba(var(--outline-rgb), 0.82);
+  color: rgba(191, 64, 255, 0.82);
   font-size: 0.62rem;
   line-height: 1.35;
 }
@@ -262,7 +262,7 @@
   flex-wrap: wrap;
   gap: 0.34rem;
   justify-content: center;
-  color: var(--na-strong-pink);
+  color: var(--na-luminous-violet);
   font-size: 0.56rem;
   letter-spacing: 0.05em;
   text-align: center;
@@ -279,7 +279,7 @@
 
 .neural-architect figcaption {
   padding: 0 0.86rem 0.86rem;
-  color: rgba(var(--outline-rgb), 0.74);
+  color: rgba(191, 64, 255, 0.74);
   font-size: 0.72rem;
   letter-spacing: 0.04em;
   line-height: 1.35;

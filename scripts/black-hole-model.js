@@ -1,10 +1,10 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260524-electromagnetism-wave-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260524-model-purple-palette-v1";
 
 const mountedModels = new WeakSet();
 
 const COLORS = {
-  hotPink: "#ff00a2",
-  strongPink: "#ff58d6",
+  brightViolet: "#8a2be2",
+  luminousViolet: "#bf40ff",
   electric: "#bf40ff",
   violet: "#7700ff",
   indigo: "#2b006d",
@@ -331,8 +331,8 @@ class BlackHoleModel {
 
       const nearSide = backHalf ? 0.42 : 0.78;
       const doppler = 0.34 + Math.max(0, Math.cos(this.state.angle + spinShift)) * 0.46;
-      ctx.strokeStyle = `rgba(${layer % 2 ? "191, 64, 255" : "255, 0, 162"}, ${Math.min(0.95, nearSide * brightness * (0.64 + doppler))})`;
-      ctx.shadowColor = layer % 2 ? COLORS.electric : COLORS.hotPink;
+      ctx.strokeStyle = `rgba(${layer % 2 ? "191, 64, 255" : "138, 43, 226"}, ${Math.min(0.95, nearSide * brightness * (0.64 + doppler))})`;
+      ctx.shadowColor = layer % 2 ? COLORS.electric : COLORS.brightViolet;
       ctx.shadowBlur = base * (backHalf ? 0.05 : 0.11) * brightness;
       ctx.stroke();
     }
@@ -345,7 +345,7 @@ class BlackHoleModel {
         const y = Math.sin(t) * diskY * layer;
         const size = base * (0.012 + ((i * 7) % 9) * 0.001);
         ctx.globalAlpha = 0.32 + ((i * 11) % 17) / 46;
-        ctx.fillStyle = i % 3 ? COLORS.strongPink : COLORS.electric;
+        ctx.fillStyle = i % 3 ? COLORS.luminousViolet : COLORS.electric;
         ctx.beginPath();
         ctx.arc(x, y, size, 0, Math.PI * 2);
         ctx.fill();
@@ -362,7 +362,7 @@ class BlackHoleModel {
     glow.addColorStop(0, "rgba(2, 0, 4, 1)");
     glow.addColorStop(0.58, "rgba(2, 0, 4, 0.98)");
     glow.addColorStop(0.72, "rgba(119, 0, 255, 0.62)");
-    glow.addColorStop(0.86, "rgba(255, 0, 162, 0.42)");
+    glow.addColorStop(0.86, "rgba(138, 43, 226, 0.42)");
     glow.addColorStop(1, "rgba(191, 64, 255, 0)");
 
     ctx.save();
@@ -379,8 +379,8 @@ class BlackHoleModel {
 
     ctx.globalCompositeOperation = "lighter";
     ctx.lineWidth = Math.max(1.3, radius * 0.034);
-    ctx.strokeStyle = "rgba(255, 0, 162, 0.72)";
-    ctx.shadowColor = COLORS.hotPink;
+    ctx.strokeStyle = "rgba(138, 43, 226, 0.72)";
+    ctx.shadowColor = COLORS.brightViolet;
     ctx.shadowBlur = radius * 0.22;
     ctx.beginPath();
     ctx.arc(cx + offset, cy, ringRadius, 0, Math.PI * 2);
@@ -391,7 +391,7 @@ class BlackHoleModel {
   drawLabels(ctx, cx, cy, base) {
     ctx.save();
     ctx.font = `700 11px ${getCanvasContentFont()}`;
-    ctx.fillStyle = "rgba(255, 88, 214, 0.86)";
+    ctx.fillStyle = "rgba(191, 64, 255, 0.86)";
     ctx.shadowColor = COLORS.violet;
     ctx.shadowBlur = 8;
     ctx.fillText(this.copy("shadow"), cx + base * 0.88, cy - base * 0.18);
@@ -417,7 +417,7 @@ function createStars(count) {
     size: 0.45 + rng() * 1.35,
     alpha: 0.15 + rng() * 0.5,
     speed: 0.002 + rng() * 0.006,
-    color: index % 3 === 0 ? COLORS.hotPink : index % 3 === 1 ? COLORS.electric : COLORS.violet
+    color: index % 3 === 0 ? COLORS.brightViolet : index % 3 === 1 ? COLORS.electric : COLORS.violet
   }));
 }
 

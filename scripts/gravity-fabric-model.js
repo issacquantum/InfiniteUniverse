@@ -1,4 +1,4 @@
-import { bindPinchZoom, isModelPanGesture, panObjectFromPointer } from "./model-pan.js?v=20260524-electromagnetism-wave-v1";
+import { bindPinchZoom, isModelPanGesture, panObjectFromPointer } from "./model-pan.js?v=20260524-model-purple-palette-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
@@ -119,7 +119,7 @@ class GravityFabricModel {
     const { THREE, scene } = this;
     scene.add(new THREE.AmbientLight(0x9b67ff, 0.72));
 
-    const keyLight = new THREE.PointLight(0xff58d6, 4.2, 28);
+    const keyLight = new THREE.PointLight(0xbf40ff, 4.2, 28);
     keyLight.position.set(-3.5, 5, 4.8);
     scene.add(keyLight);
 
@@ -146,7 +146,7 @@ class GravityFabricModel {
     geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
 
     const material = new THREE.PointsMaterial({
-      color: 0xff58d6,
+      color: 0xbf40ff,
       size: 0.035,
       transparent: true,
       opacity: 0.72,
@@ -290,7 +290,7 @@ class GravityFabricModel {
     const ctx = canvas.getContext("2d");
 
     const gradient = ctx.createRadialGradient(size * 0.34, size * 0.28, 8, size * 0.5, size * 0.5, size * 0.72);
-    gradient.addColorStop(0, "#f0d7ff");
+    gradient.addColorStop(0, "#c79bff");
     gradient.addColorStop(0.28, "#c46cff");
     gradient.addColorStop(0.7, "#8f24ff");
     gradient.addColorStop(1, "#5a009e");
@@ -299,7 +299,7 @@ class GravityFabricModel {
 
     for (let y = 0; y < size; y += 1) {
       const band = Math.sin(y * 0.055) * 0.5 + 0.5;
-      ctx.fillStyle = `rgba(255, 88, 214, ${0.035 + band * 0.035})`;
+      ctx.fillStyle = `rgba(191, 64, 255, ${0.035 + band * 0.035})`;
       ctx.fillRect(0, y, size, 1);
     }
 

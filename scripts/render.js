@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260524-electromagnetism-wave-v1";
+import { pick } from "./i18n.js?v=20260524-model-purple-palette-v1";
 
 function escapeHtml(value) {
   return String(value)

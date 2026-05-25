@@ -1,6 +1,6 @@
 .gravity-lensing {
-  --gl-hot-pink: #ff00a2;
-  --gl-strong-pink: #ff58d6;
+  --gl-bright-violet: #8a2be2;
+  --gl-luminous-violet: #bf40ff;
   --gl-violet: #7700ff;
   --gl-electric: #bf40ff;
   --gl-indigo: #2b006d;
@@ -29,13 +29,13 @@
   background:
     linear-gradient(90deg,
       transparent 0 9%,
-      rgba(255, 0, 162, 0.72) 14% 18%,
+      rgba(138, 43, 226, 0.72) 14% 18%,
       transparent 24% 77%,
       rgba(191, 64, 255, 0.48) 82% 86%,
       transparent 92%),
     linear-gradient(180deg,
       transparent 0 10%,
-      rgba(255, 88, 214, 0.44) 15% 18%,
+      rgba(191, 64, 255, 0.44) 15% 18%,
       transparent 24% 82%,
       rgba(119, 0, 255, 0.34) 88% 91%,
       transparent 100%);
@@ -48,8 +48,8 @@
 
 .gravity-lensing.glass-window::after {
   box-shadow:
-    0 0 0 1px rgba(255, 0, 162, 0.82),
-    0 0 24px rgba(255, 88, 214, 0.54),
+    0 0 0 1px rgba(138, 43, 226, 0.82),
+    0 0 24px rgba(191, 64, 255, 0.54),
     0 0 44px rgba(119, 0, 255, 0.74),
     0 0 72px rgba(191, 64, 255, 0.34);
 }
@@ -62,7 +62,7 @@
   overflow: hidden;
   background:
     radial-gradient(circle at 70% 20%, rgba(191, 64, 255, 0.2), transparent 38%),
-    radial-gradient(circle at 38% 62%, rgba(255, 0, 162, 0.12), transparent 42%),
+    radial-gradient(circle at 38% 62%, rgba(138, 43, 226, 0.12), transparent 42%),
     radial-gradient(circle at center, var(--gl-indigo) 0%, var(--gl-deep) 100%);
 }
 
@@ -77,7 +77,7 @@
 
 .gravity-lensing__canvas:focus-visible {
   box-shadow:
-    inset 0 0 0 2px rgba(255, 0, 162, 0.68),
+    inset 0 0 0 2px rgba(138, 43, 226, 0.68),
     inset 0 0 24px rgba(119, 0, 255, 0.34);
 }
 
@@ -91,7 +91,7 @@
   padding: clamp(0.6rem, 1.35vw, 0.78rem);
   border-top: 1px solid var(--gl-edge);
   background:
-    linear-gradient(180deg, rgba(255, 0, 162, 0.04), transparent 46%),
+    linear-gradient(180deg, rgba(138, 43, 226, 0.04), transparent 46%),
     rgba(30, 8, 48, 0.42);
   box-sizing: border-box;
 }
@@ -109,7 +109,7 @@
 
 .gravity-lensing__label,
 .gravity-lensing__toggle {
-  color: var(--gl-strong-pink);
+  color: var(--gl-luminous-violet);
   font-size: 0.6rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -123,7 +123,7 @@
 }
 
 .gravity-lensing__value {
-  color: var(--gl-hot-pink);
+  color: var(--gl-bright-violet);
   font-variant-numeric: tabular-nums;
 }
 
@@ -132,7 +132,7 @@
   height: 2px;
   border-radius: 999px;
   background:
-    linear-gradient(90deg, rgba(119, 0, 255, 0.26), rgba(255, 0, 162, 0.34));
+    linear-gradient(90deg, rgba(119, 0, 255, 0.26), rgba(138, 43, 226, 0.34));
   outline: none;
   appearance: none;
   -webkit-appearance: none;
@@ -140,19 +140,19 @@
 
 .gravity-lensing__range:focus-visible {
   box-shadow:
-    0 0 0 2px rgba(255, 0, 162, 0.34),
+    0 0 0 2px rgba(138, 43, 226, 0.34),
     0 0 14px rgba(191, 64, 255, 0.44);
 }
 
 .gravity-lensing__range::-webkit-slider-thumb {
   width: 10px;
   height: 10px;
-  border: 1px solid var(--gl-hot-pink);
+  border: 1px solid var(--gl-bright-violet);
   border-radius: 50%;
   background: var(--gl-electric);
   cursor: pointer;
   box-shadow:
-    0 0 8px var(--gl-hot-pink),
+    0 0 8px var(--gl-bright-violet),
     0 0 14px rgba(119, 0, 255, 0.52);
   appearance: none;
   -webkit-appearance: none;
@@ -161,12 +161,12 @@
 .gravity-lensing__range::-moz-range-thumb {
   width: 10px;
   height: 10px;
-  border: 1px solid var(--gl-hot-pink);
+  border: 1px solid var(--gl-bright-violet);
   border-radius: 50%;
   background: var(--gl-electric);
   cursor: pointer;
   box-shadow:
-    0 0 8px var(--gl-hot-pink),
+    0 0 8px var(--gl-bright-violet),
     0 0 14px rgba(119, 0, 255, 0.52);
 }
 
@@ -187,7 +187,7 @@
 
 .gravity-lensing__toggle:hover,
 .gravity-lensing__toggle:focus-within {
-  border-color: rgba(255, 0, 162, 0.42);
+  border-color: rgba(138, 43, 226, 0.42);
   background: rgba(43, 0, 109, 0.24);
   box-shadow: 0 0 14px rgba(119, 0, 255, 0.18);
 }
@@ -196,7 +196,7 @@
   width: 0.82rem;
   height: 0.82rem;
   margin: 0;
-  border: 1px solid var(--gl-strong-pink);
+  border: 1px solid var(--gl-luminous-violet);
   border-radius: 0.25rem;
   background:
     radial-gradient(circle at center, rgba(119, 0, 255, 0.36), rgba(43, 0, 109, 0.72));
@@ -209,17 +209,17 @@
 }
 
 .gravity-lensing__toggle input:checked {
-  border-color: var(--gl-hot-pink);
+  border-color: var(--gl-bright-violet);
   background:
-    radial-gradient(circle at center, var(--gl-hot-pink) 0 34%, var(--gl-electric) 36% 58%, var(--gl-indigo) 62%);
+    radial-gradient(circle at center, var(--gl-bright-violet) 0 34%, var(--gl-electric) 36% 58%, var(--gl-indigo) 62%);
   box-shadow:
-    0 0 0 1px rgba(255, 0, 162, 0.36),
-    0 0 14px rgba(255, 0, 162, 0.54),
+    0 0 0 1px rgba(138, 43, 226, 0.36),
+    0 0 14px rgba(138, 43, 226, 0.54),
     0 0 24px rgba(119, 0, 255, 0.34);
 }
 
 .gravity-lensing__toggle input:focus-visible {
-  outline: 2px solid var(--gl-hot-pink);
+  outline: 2px solid var(--gl-bright-violet);
   outline-offset: 3px;
 }
 
@@ -234,7 +234,7 @@
   border: 1px solid var(--gl-violet);
   border-radius: 0.38rem;
   background: rgba(var(--glow-rgb), 0.22);
-  color: var(--gl-strong-pink);
+  color: var(--gl-luminous-violet);
   cursor: pointer;
   font-size: 0.64rem;
   font-weight: 700;
@@ -252,14 +252,14 @@
 .gravity-lensing__button:hover,
 .gravity-lensing__button:focus-visible {
   background: rgba(var(--glow-rgb), 0.42);
-  color: var(--gl-hot-pink);
+  color: var(--gl-bright-violet);
   box-shadow: 0 0 15px rgba(var(--glow-rgb), 0.42);
 }
 
 .gravity-lensing__note {
   margin: 0;
   padding: 0 0.9rem 0.95rem;
-  color: var(--gl-strong-pink);
+  color: var(--gl-luminous-violet);
   line-height: 1.35;
   text-align: center;
 }
