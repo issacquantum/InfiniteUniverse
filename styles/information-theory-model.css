@@ -1,6 +1,6 @@
 .information-theory-model {
-  --it-hot-pink: #ff00a2;
-  --it-soft-pink: #ff58d6;
+  --it-bright-violet: #8a2be2;
+  --it-soft-violet: #bf40ff;
   --it-electric: #bf40ff;
   --it-violet: #7700ff;
   --it-indigo: #2b006d;
@@ -34,7 +34,7 @@
       transparent 92%),
     linear-gradient(180deg,
       transparent 0 12%,
-      rgba(255, 88, 214, 0.4) 18% 20%,
+      rgba(191, 64, 255, 0.4) 18% 20%,
       transparent 26% 80%,
       rgba(191, 64, 255, 0.36) 88% 91%,
       transparent 100%);
@@ -55,7 +55,7 @@
   overflow: hidden;
   background:
     radial-gradient(circle at 50% 40%, rgba(191, 64, 255, 0.16), transparent 34%),
-    radial-gradient(circle at 74% 28%, rgba(255, 0, 162, 0.14), transparent 38%),
+    radial-gradient(circle at 74% 28%, rgba(138, 43, 226, 0.14), transparent 38%),
     var(--it-deep);
 }
 
@@ -75,7 +75,7 @@
 .information-theory-model__canvas:focus-visible {
   box-shadow:
     inset 0 0 0 2px rgba(191, 64, 255, 0.72),
-    inset 0 0 22px rgba(255, 0, 162, 0.24);
+    inset 0 0 22px rgba(138, 43, 226, 0.24);
 }
 
 .information-theory-model__panel {
@@ -97,7 +97,7 @@
 .information-theory-model__label,
 .information-theory-model__metric-label,
 .information-theory-model__status {
-  color: var(--it-soft-pink);
+  color: var(--it-soft-violet);
   font-size: 0.6rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -111,7 +111,7 @@
 }
 
 .information-theory-model__value {
-  color: var(--it-hot-pink);
+  color: var(--it-bright-violet);
   font-variant-numeric: tabular-nums;
 }
 
@@ -119,7 +119,7 @@
   width: 100%;
   height: 2px;
   border-radius: 999px;
-  background: linear-gradient(90deg, rgba(119, 0, 255, 0.34), rgba(255, 0, 162, 0.4));
+  background: linear-gradient(90deg, rgba(119, 0, 255, 0.34), rgba(138, 43, 226, 0.4));
   outline: none;
   appearance: none;
   -webkit-appearance: none;
@@ -128,18 +128,18 @@
 .information-theory-model__range:focus-visible {
   box-shadow:
     0 0 0 2px rgba(191, 64, 255, 0.36),
-    0 0 14px rgba(255, 0, 162, 0.32);
+    0 0 14px rgba(138, 43, 226, 0.32);
 }
 
 .information-theory-model__range::-webkit-slider-thumb {
   width: 10px;
   height: 10px;
-  border: 1px solid var(--it-hot-pink);
+  border: 1px solid var(--it-bright-violet);
   border-radius: 50%;
   background: var(--it-electric);
   cursor: pointer;
   box-shadow:
-    0 0 8px var(--it-hot-pink),
+    0 0 8px var(--it-bright-violet),
     0 0 14px rgba(119, 0, 255, 0.5);
   appearance: none;
   -webkit-appearance: none;
@@ -148,12 +148,12 @@
 .information-theory-model__range::-moz-range-thumb {
   width: 10px;
   height: 10px;
-  border: 1px solid var(--it-hot-pink);
+  border: 1px solid var(--it-bright-violet);
   border-radius: 50%;
   background: var(--it-electric);
   cursor: pointer;
   box-shadow:
-    0 0 8px var(--it-hot-pink),
+    0 0 8px var(--it-bright-violet),
     0 0 14px rgba(119, 0, 255, 0.5);
 }
 
@@ -168,7 +168,7 @@
   border: 1px solid var(--it-violet);
   border-radius: 0.38rem;
   background: rgba(var(--glow-rgb), 0.2);
-  color: var(--it-soft-pink);
+  color: var(--it-soft-violet);
   cursor: pointer;
   font: inherit;
   font-size: 0.64rem;
@@ -180,7 +180,7 @@
 .information-theory-model__button:hover,
 .information-theory-model__button:focus-visible {
   border-color: var(--it-electric);
-  color: var(--it-hot-pink);
+  color: var(--it-bright-violet);
   box-shadow: 0 0 15px rgba(119, 0, 255, 0.46);
   outline: none;
 }
@@ -200,7 +200,7 @@
 
 .information-theory-model__status {
   margin: 0;
-  color: rgba(var(--outline-rgb), 0.78);
+  color: rgba(191, 64, 255, 0.78);
   font-size: 0.58rem;
   line-height: 1.22;
   text-transform: none;
@@ -210,7 +210,7 @@
 .information-theory-model__legend {
   display: grid;
   gap: 0.22rem;
-  color: rgba(var(--outline-rgb), 0.72);
+  color: rgba(191, 64, 255, 0.72);
   font-size: 0.62rem;
   line-height: 1.2;
 }
@@ -227,8 +227,8 @@
 }
 
 .information-theory-model__legend span:nth-child(2)::before {
-  background: var(--it-hot-pink);
-  box-shadow: 0 0 8px var(--it-hot-pink);
+  background: var(--it-bright-violet);
+  box-shadow: 0 0 8px var(--it-bright-violet);
 }
 
 .information-theory-model__legend span:nth-child(3)::before {
@@ -238,7 +238,7 @@
 
 .information-theory-model figcaption {
   padding: 0.52rem 0.72rem 0.7rem;
-  color: var(--it-soft-pink);
+  color: var(--it-soft-violet);
   font-size: 0.82rem;
   line-height: 1.25;
   text-align: center;

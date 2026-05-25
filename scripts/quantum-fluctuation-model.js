@@ -1,11 +1,11 @@
-import { bindPinchZoom, isModelPanGesture, panTargetFromPointer } from "./model-pan.js?v=20260524-electromagnetism-wave-v1";
+import { bindPinchZoom, isModelPanGesture, panTargetFromPointer } from "./model-pan.js?v=20260524-model-purple-palette-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
 
 const COLORS = {
-  hotPink: 0xff00a2,
-  strongPink: 0xff58d6,
+  brightViolet: 0x8a2be2,
+  luminousViolet: 0xbf40ff,
   electric: 0xbf40ff,
   violet: 0x7700ff,
   indigo: 0x2b006d,
@@ -139,7 +139,7 @@ class QuantumFluctuationModel {
     const { THREE, scene } = this;
     scene.add(new THREE.AmbientLight(0x8f00e6, 0.82));
 
-    const key = new THREE.PointLight(COLORS.hotPink, 5.8, 34);
+    const key = new THREE.PointLight(COLORS.brightViolet, 5.8, 34);
     key.position.set(-4.6, 5.8, 4.4);
     scene.add(key);
 
@@ -165,7 +165,7 @@ class QuantumFluctuationModel {
     const geometry = new THREE.BufferGeometry();
     geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
     const material = new THREE.PointsMaterial({
-      color: COLORS.strongPink,
+      color: COLORS.luminousViolet,
       size: 0.032,
       transparent: true,
       opacity: 0.56,
@@ -543,7 +543,7 @@ function updateField(model) {
   const colors = geometry.attributes.color;
   const low = new THREE.Color(COLORS.indigo);
   const mid = new THREE.Color(COLORS.electric);
-  const high = new THREE.Color(COLORS.hotPink);
+  const high = new THREE.Color(COLORS.brightViolet);
   const color = new THREE.Color();
   const heights = new Float32Array(position.count);
   let maxAbs = 0;

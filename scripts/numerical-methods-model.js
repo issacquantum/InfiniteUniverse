@@ -1,12 +1,12 @@
-import { bindPinchZoom, isModelPanGesture, panTargetFromPointer } from "./model-pan.js?v=20260524-electromagnetism-wave-v1";
+import { bindPinchZoom, isModelPanGesture, panTargetFromPointer } from "./model-pan.js?v=20260524-model-purple-palette-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
 
 const COLORS = {
-  hotPink: 0xff00a2,
-  strongPink: 0xff58d6,
-  softPink: 0xff8ce8,
+  brightViolet: 0x8a2be2,
+  luminousViolet: 0xbf40ff,
+  softLavender: 0xc79bff,
   lavender: 0xe098ff,
   electric: 0xbf40ff,
   violet: 0x7700ff,
@@ -160,15 +160,15 @@ class NumericalMethodsModel {
     const { THREE, scene } = this;
     scene.add(new THREE.AmbientLight(COLORS.hydrogenElectricViolet, 0.54));
 
-    const hotLight = new THREE.PointLight(COLORS.hotPink, 2.1, 95);
-    hotLight.position.set(-11, 12, 10);
+    const brightVioletLight = new THREE.PointLight(COLORS.brightViolet, 2.1, 95);
+    brightVioletLight.position.set(-11, 12, 10);
     const violetLight = new THREE.PointLight(COLORS.hydrogenElectricViolet, 3.2, 95);
     violetLight.position.set(12, 8, -10);
     const indigoLight = new THREE.PointLight(COLORS.hydrogenElectricIndigo, 2.2, 95);
     indigoLight.position.set(0, -5, 13);
-    const rimLight = new THREE.DirectionalLight(COLORS.softPink, 1.1);
+    const rimLight = new THREE.DirectionalLight(COLORS.softLavender, 1.1);
     rimLight.position.set(-7, 8, 14);
-    scene.add(hotLight, violetLight, indigoLight, rimLight);
+    scene.add(brightVioletLight, violetLight, indigoLight, rimLight);
   }
 
   addBackdrop() {
@@ -187,7 +187,7 @@ class NumericalMethodsModel {
     const starGeometry = new THREE.BufferGeometry();
     starGeometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
     this.starfield = new THREE.Points(starGeometry, new THREE.PointsMaterial({
-      color: COLORS.strongPink,
+      color: COLORS.luminousViolet,
       size: 0.04,
       transparent: true,
       opacity: 0.62,
@@ -527,10 +527,10 @@ class NumericalMethodsModel {
       rk4: model.initial.slice()
     };
 
-    this.ode.referenceLine = this.createLine(COLORS.strongPink, 0.78);
+    this.ode.referenceLine = this.createLine(COLORS.luminousViolet, 0.78);
     this.ode.eulerLine = this.createLine(COLORS.hydrogenVividPurple, 0.82);
     this.ode.rk4Line = this.createLine(COLORS.hydrogenElectricIndigo, 0.92);
-    this.ode.errorSegment = this.createSegment(COLORS.hotPink, 0.56);
+    this.ode.errorSegment = this.createSegment(COLORS.brightViolet, 0.56);
     this.odeGroup.add(
       this.createGrid(25, 32, -0.04, 0.24),
       this.createEquationHalo(),
@@ -540,7 +540,7 @@ class NumericalMethodsModel {
       this.ode.errorSegment
     );
 
-    this.ode.referenceMarker = this.createMarker(COLORS.strongPink, 0.14);
+    this.ode.referenceMarker = this.createMarker(COLORS.luminousViolet, 0.14);
     this.ode.eulerMarker = this.createMarker(COLORS.hydrogenVividPurple, 0.18);
     this.ode.rk4Marker = this.createMarker(COLORS.hydrogenElectricIndigo, 0.2);
     this.odeGroup.add(this.ode.referenceMarker, this.ode.eulerMarker, this.ode.rk4Marker);
@@ -645,7 +645,7 @@ class NumericalMethodsModel {
     const rings = [
       { radius: 7.5, color: COLORS.hydrogenElectricViolet, opacity: 0.24 },
       { radius: 10.6, color: COLORS.hydrogenDeepViolet, opacity: 0.18 },
-      { radius: 13.2, color: COLORS.hotPink, opacity: 0.1 }
+      { radius: 13.2, color: COLORS.brightViolet, opacity: 0.1 }
     ];
 
     rings.forEach(({ radius, color, opacity }, index) => {
@@ -691,10 +691,10 @@ class NumericalMethodsModel {
       canvas.height = 96;
       const context = canvas.getContext("2d");
       const gradient = context.createRadialGradient(48, 48, 0, 48, 48, 48);
-      gradient.addColorStop(0, "rgba(255,255,255,1)");
-      gradient.addColorStop(0.28, "rgba(255,255,255,0.7)");
-      gradient.addColorStop(0.62, "rgba(255,255,255,0.18)");
-      gradient.addColorStop(1, "rgba(255,255,255,0)");
+      gradient.addColorStop(0, "rgba(199,155,255,1)");
+      gradient.addColorStop(0.28, "rgba(199,155,255,0.7)");
+      gradient.addColorStop(0.62, "rgba(199,155,255,0.18)");
+      gradient.addColorStop(1, "rgba(199,155,255,0)");
       context.fillStyle = gradient;
       context.fillRect(0, 0, 96, 96);
       this.glowTexture = new THREE.CanvasTexture(canvas);
@@ -856,7 +856,7 @@ class NumericalMethodsModel {
     const circle = new THREE.Mesh(
       new THREE.CircleGeometry(4, 128),
       new THREE.MeshBasicMaterial({
-        color: COLORS.hotPink,
+        color: COLORS.brightViolet,
         transparent: true,
         opacity: 0.085,
         side: THREE.DoubleSide,
@@ -903,7 +903,7 @@ class NumericalMethodsModel {
     return new THREE.LineSegments(
       new THREE.BufferGeometry().setFromPoints(points),
       new THREE.LineBasicMaterial({
-        color: COLORS.hotPink,
+        color: COLORS.brightViolet,
         transparent: true,
         opacity: 0.56
       })
@@ -915,7 +915,7 @@ class NumericalMethodsModel {
       return;
     }
 
-    const insideColor = new this.THREE.Color(COLORS.hotPink);
+    const insideColor = new this.THREE.Color(COLORS.brightViolet);
     const insideAltColor = new this.THREE.Color(COLORS.hydrogenElectricViolet);
     const outsideColor = new this.THREE.Color(COLORS.hydrogenDeepViolet);
     const outsideAltColor = new this.THREE.Color(COLORS.indigo);
@@ -991,7 +991,7 @@ class NumericalMethodsModel {
     this.heat.brush = new THREE.Mesh(
       new THREE.TorusGeometry(HEAT_CELL_SPACING * 3.8, 0.018, 8, 96),
       new THREE.MeshBasicMaterial({
-        color: COLORS.hotPink,
+        color: COLORS.brightViolet,
         transparent: true,
         opacity: 0,
         blending: THREE.AdditiveBlending,
@@ -1253,7 +1253,7 @@ class NumericalMethodsModel {
     grid.add(
       createLayer(minorPositions, COLORS.lavender, Math.max(opacity, 0.42)),
       createLayer(majorPositions, COLORS.electric, Math.max(opacity + 0.18, 0.62)),
-      createLayer(axisPositions, COLORS.hotPink, Math.max(opacity + 0.28, 0.76))
+      createLayer(axisPositions, COLORS.brightViolet, Math.max(opacity + 0.28, 0.76))
     );
     return grid;
   }
@@ -1369,7 +1369,7 @@ function setHeatColor(target, t, THREE) {
     [0.36, COLORS.hydrogenDeepViolet],
     [0.62, COLORS.hydrogenElectricIndigo],
     [0.82, COLORS.hydrogenElectricViolet],
-    [1, COLORS.hotPink]
+    [1, COLORS.brightViolet]
   ];
 
   for (let i = 0; i < stops.length - 1; i += 1) {
@@ -1383,7 +1383,7 @@ function setHeatColor(target, t, THREE) {
     }
   }
 
-  target.setHex(COLORS.hotPink);
+  target.setHex(COLORS.brightViolet);
 }
 
 function clamp(value, min, max) {

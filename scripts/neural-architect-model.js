@@ -1,11 +1,11 @@
-import { bindPinchZoom, isModelPanGesture, panTargetFromPointer } from "./model-pan.js?v=20260524-electromagnetism-wave-v1";
+import { bindPinchZoom, isModelPanGesture, panTargetFromPointer } from "./model-pan.js?v=20260524-model-purple-palette-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
 
 const COLORS = {
-  hotPink: 0xff00a2,
-  strongPink: 0xff58d6,
+  brightViolet: 0x8a2be2,
+  luminousViolet: 0xbf40ff,
   electric: 0xbf40ff,
   violet: 0x7700ff,
   indigo: 0x2b006d,
@@ -17,7 +17,7 @@ const COLORS = {
   attentionViolet: 0x7700ff,
   attentionPurple: 0xbf40ff,
   attentionMagenta: 0xd32dff,
-  attentionPink: 0xff58d6,
+  attentionViolet: 0xbf40ff,
   deep: 0x050008
 };
 
@@ -164,13 +164,13 @@ class NeuralArchitectModel {
     const { THREE, scene } = this;
     scene.add(new THREE.AmbientLight(COLORS.hydrogenElectricViolet, 0.78));
 
-    const hotLight = new THREE.PointLight(COLORS.hotPink, 1.25, 80);
-    hotLight.position.set(-8, 10, 9);
+    const brightVioletLight = new THREE.PointLight(COLORS.brightViolet, 1.25, 80);
+    brightVioletLight.position.set(-8, 10, 9);
     const violetLight = new THREE.PointLight(COLORS.hydrogenElectricViolet, 2.35, 80);
     violetLight.position.set(9, 6, -8);
     const indigoLight = new THREE.PointLight(COLORS.hydrogenElectricIndigo, 2.1, 80);
     indigoLight.position.set(0, -5, 12);
-    scene.add(hotLight, violetLight, indigoLight);
+    scene.add(brightVioletLight, violetLight, indigoLight);
   }
 
   addBackdrop() {
@@ -188,7 +188,7 @@ class NeuralArchitectModel {
     const geometry = new THREE.BufferGeometry();
     geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
     this.starfield = new THREE.Points(geometry, new THREE.PointsMaterial({
-      color: COLORS.strongPink,
+      color: COLORS.luminousViolet,
       size: 0.034,
       transparent: true,
       opacity: 0.5,
@@ -508,7 +508,7 @@ class NeuralArchitectModel {
       opacity: 0.92
     });
     const activeMaterial = new THREE.MeshBasicMaterial({
-      color: COLORS.hotPink,
+      color: COLORS.brightViolet,
       transparent: true,
       opacity: 0.95
     });
@@ -545,7 +545,7 @@ class NeuralArchitectModel {
     }
 
     const pulseMaterial = new THREE.MeshBasicMaterial({
-      color: COLORS.hotPink,
+      color: COLORS.brightViolet,
       transparent: true,
       opacity: 0.9
     });
@@ -650,7 +650,7 @@ class NeuralArchitectModel {
       }
 
       pulse.mesh.position.lerpVectors(pulse.connection.fromNode.position, pulse.connection.toNode.position, pulse.phase);
-      pulse.mesh.material.color.setHex(pulse.phase > 0.78 ? COLORS.hotPink : COLORS.hydrogenElectricViolet);
+      pulse.mesh.material.color.setHex(pulse.phase > 0.78 ? COLORS.brightViolet : COLORS.hydrogenElectricViolet);
       pulse.mesh.material.opacity = 0.38 + Math.sin(pulse.phase * Math.PI) * 0.54;
       pulse.mesh.scale.setScalar(0.85 + Math.sin(pulse.phase * Math.PI) * 0.55);
     });
@@ -700,7 +700,7 @@ class NeuralArchitectModel {
     this.attentionGroup.add(this.attention.mesh);
 
     const edgeMaterial = new THREE.MeshBasicMaterial({
-      color: COLORS.attentionPink,
+      color: COLORS.attentionViolet,
       wireframe: true,
       transparent: true,
       opacity: 0.28,
@@ -712,7 +712,7 @@ class NeuralArchitectModel {
     this.attentionGroup.add(this.attention.edgeMesh);
 
     const tokenMaterial = new THREE.MeshBasicMaterial({
-      color: COLORS.attentionPink,
+      color: COLORS.attentionViolet,
       transparent: true,
       opacity: 0.94
     });
@@ -906,7 +906,7 @@ class NeuralArchitectModel {
     if (!this.landscapeBall) {
       this.landscapeBall = new THREE.Mesh(
         new THREE.SphereGeometry(0.18, 22, 16),
-        new THREE.MeshBasicMaterial({ color: COLORS.hotPink })
+        new THREE.MeshBasicMaterial({ color: COLORS.brightViolet })
       );
       this.landscapeTrail = this.createTrailLine();
       this.landscapeGroup.add(this.landscapeTrail, this.landscapeBall);
@@ -921,7 +921,7 @@ class NeuralArchitectModel {
     geometry.setAttribute("position", new THREE.BufferAttribute(new Float32Array(180 * 3), 3));
     geometry.setDrawRange(0, 0);
     return new THREE.Line(geometry, new THREE.LineBasicMaterial({
-      color: COLORS.hotPink,
+      color: COLORS.brightViolet,
       transparent: true,
       opacity: 0.72
     }));
@@ -1107,7 +1107,7 @@ function setRampColor(target, t, THREE) {
     [0.28, COLORS.hydrogenDeepViolet],
     [0.55, COLORS.hydrogenElectricIndigo],
     [0.78, COLORS.hydrogenElectricViolet],
-    [1, COLORS.hotPink]
+    [1, COLORS.brightViolet]
   ];
 
   for (let i = 0; i < stops.length - 1; i += 1) {
@@ -1120,7 +1120,7 @@ function setRampColor(target, t, THREE) {
     }
   }
 
-  target.setHex(COLORS.hotPink);
+  target.setHex(COLORS.brightViolet);
 }
 
 function setAttentionColor(target, t, THREE) {
@@ -1129,8 +1129,8 @@ function setAttentionColor(target, t, THREE) {
     [0.28, COLORS.attentionViolet],
     [0.58, COLORS.attentionPurple],
     [0.82, COLORS.attentionMagenta],
-    [0.96, COLORS.attentionPink],
-    [1, COLORS.hotPink]
+    [0.96, COLORS.attentionViolet],
+    [1, COLORS.brightViolet]
   ];
 
   for (let i = 0; i < stops.length - 1; i += 1) {
@@ -1144,7 +1144,7 @@ function setAttentionColor(target, t, THREE) {
     }
   }
 
-  target.setHex(COLORS.hotPink);
+  target.setHex(COLORS.brightViolet);
 }
 
 function createAttentionVectors(count, dim, seed, pattern, kind) {

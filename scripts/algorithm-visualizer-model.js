@@ -1,11 +1,11 @@
-import { bindPinchZoom, isModelPanGesture, panTargetFromPointer } from "./model-pan.js?v=20260524-electromagnetism-wave-v1";
+import { bindPinchZoom, isModelPanGesture, panTargetFromPointer } from "./model-pan.js?v=20260524-model-purple-palette-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
 
 const COLORS = {
-  hotPink: 0xff00a2,
-  strongPink: 0xff58d6,
+  brightViolet: 0x8a2be2,
+  luminousViolet: 0xbf40ff,
   electric: 0xbf40ff,
   violet: 0x7700ff,
   indigo: 0x2b006d,
@@ -27,11 +27,11 @@ const GRAPH_EDGES = createDijkstraEdges(GRAPH_NODES);
 
 const SORT_VALUES = [14, 4, 19, 7, 22, 11, 3, 17, 9, 20, 6, 15, 2, 13, 8, 18];
 const BIG_O_SERIES = [
-  { key: "constant", label: "O(1)", color: COLORS.strongPink, z: -3.2, fn: () => 1.8 },
+  { key: "constant", label: "O(1)", color: COLORS.luminousViolet, z: -3.2, fn: () => 1.8 },
   { key: "log", label: "O(log n)", color: COLORS.electric, z: -1.6, fn: (n) => Math.log2(n + 1) * 1.05 },
   { key: "linear", label: "O(n)", color: COLORS.violet, z: 0, fn: (n) => n * 0.23 },
   { key: "nlogn", label: "O(n log n)", color: COLORS.electricViolet, z: 1.6, fn: (n) => n * Math.log2(n + 1) * 0.05 },
-  { key: "square", label: "O(n²)", color: COLORS.hotPink, z: 3.2, fn: (n) => n * n * 0.012 }
+  { key: "square", label: "O(n²)", color: COLORS.brightViolet, z: 3.2, fn: (n) => n * n * 0.012 }
 ];
 
 export function initAlgorithmVisualizerModels(root = document) {
@@ -169,13 +169,13 @@ class AlgorithmVisualizerModel {
     const { THREE, scene } = this;
     scene.add(new THREE.AmbientLight(COLORS.electricViolet, 0.72));
 
-    const hotLight = new THREE.PointLight(COLORS.hotPink, 1.6, 70);
-    hotLight.position.set(-8, 9, 9);
+    const brightVioletLight = new THREE.PointLight(COLORS.brightViolet, 1.6, 70);
+    brightVioletLight.position.set(-8, 9, 9);
     const violetLight = new THREE.PointLight(COLORS.electric, 2.1, 80);
     violetLight.position.set(8, 8, -7);
     const indigoLight = new THREE.PointLight(COLORS.electricIndigo, 1.7, 80);
     indigoLight.position.set(0, -3, 11);
-    scene.add(hotLight, violetLight, indigoLight);
+    scene.add(brightVioletLight, violetLight, indigoLight);
   }
 
   addBackdrop() {
@@ -184,8 +184,8 @@ class AlgorithmVisualizerModel {
     const positions = new Float32Array(count * 3);
     const colors = new Float32Array(count * 3);
     const palette = [
-      new THREE.Color(COLORS.hotPink),
-      new THREE.Color(COLORS.strongPink),
+      new THREE.Color(COLORS.brightViolet),
+      new THREE.Color(COLORS.luminousViolet),
       new THREE.Color(COLORS.electric),
       new THREE.Color(COLORS.violet),
       new THREE.Color(COLORS.electricIndigo)
@@ -452,7 +452,7 @@ class AlgorithmVisualizerModel {
 
     GRAPH_NODES.forEach((node, index) => {
       const material = new THREE.MeshBasicMaterial({
-        color: index === 0 ? COLORS.hotPink : COLORS.electric,
+        color: index === 0 ? COLORS.brightViolet : COLORS.electric,
         transparent: true,
         opacity: 0.92
       });
@@ -489,7 +489,7 @@ class AlgorithmVisualizerModel {
     this.pathEdgeLines.forEach((line) => {
       const edgeKey = edgeId(line.userData.from, line.userData.to);
       if (finalEdges.has(edgeKey)) {
-        line.material.color.setHex(COLORS.hotPink);
+        line.material.color.setHex(COLORS.brightViolet);
         line.material.opacity = 0.96;
       } else if (relaxedEdges.has(edgeKey)) {
         line.material.color.setHex(COLORS.electricViolet);
@@ -502,13 +502,13 @@ class AlgorithmVisualizerModel {
 
     this.pathNodeMeshes.forEach(({ mesh, halo }, index) => {
       if (state.finalPath.includes(index)) {
-        mesh.material.color.setHex(COLORS.hotPink);
-        halo.material.color.setHex(COLORS.hotPink);
+        mesh.material.color.setHex(COLORS.brightViolet);
+        halo.material.color.setHex(COLORS.brightViolet);
         halo.material.opacity = 0.24;
         mesh.scale.setScalar(1.24);
       } else if (index === state.current) {
-        mesh.material.color.setHex(COLORS.strongPink);
-        halo.material.color.setHex(COLORS.strongPink);
+        mesh.material.color.setHex(COLORS.luminousViolet);
+        halo.material.color.setHex(COLORS.luminousViolet);
         halo.material.opacity = 0.22;
         mesh.scale.setScalar(1.18);
       } else if (settled.has(index)) {
@@ -575,9 +575,9 @@ class AlgorithmVisualizerModel {
       mesh.scale.y = height / mesh.geometry.parameters.height;
       mesh.position.set(index * (width + gap) - totalWidth / 2, height / 2, 0);
       if (index >= sortedFrom) {
-        mesh.material.color.setHex(COLORS.hotPink);
+        mesh.material.color.setHex(COLORS.brightViolet);
       } else if (compare.has(index)) {
-        mesh.material.color.setHex(state.swapped ? COLORS.strongPink : COLORS.electricViolet);
+        mesh.material.color.setHex(state.swapped ? COLORS.luminousViolet : COLORS.electricViolet);
       } else {
         mesh.material.color.setHex(COLORS.electric);
       }

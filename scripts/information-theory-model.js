@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260524-electromagnetism-wave-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260524-model-purple-palette-v1";
 
 const mountedModels = new WeakSet();
 const SYMBOL_COUNT = 4;
@@ -9,10 +9,10 @@ const COLORS = {
   grid: "rgba(191, 64, 255, 0.18)",
   violet: "#7700ff",
   electric: "#bf40ff",
-  pink: "#ff00a2",
-  softPink: "#ff58d6",
+  brightViolet: "#8a2be2",
+  softLavender: "#bf40ff",
   indigo: "#2b006d",
-  text: "#ff58d6"
+  text: "#bf40ff"
 };
 
 function getCanvasContentFont() {
@@ -289,8 +289,8 @@ class InformationTheoryModel {
     drawGrid(ctx, project);
     drawChannelShell(ctx, project, this.time, this.state.noise);
     drawFlows(ctx, project, metrics.joint, this.time);
-    drawDistribution(ctx, project, source, -3.7, "SOURCE", [COLORS.violet, COLORS.electric, COLORS.pink, COLORS.softPink]);
-    drawDistribution(ctx, project, received, 3.7, "RECEIVED", [COLORS.electric, COLORS.violet, COLORS.softPink, COLORS.pink]);
+    drawDistribution(ctx, project, source, -3.7, "SOURCE", [COLORS.violet, COLORS.electric, COLORS.brightViolet, COLORS.softLavender]);
+    drawDistribution(ctx, project, received, 3.7, "RECEIVED", [COLORS.electric, COLORS.violet, COLORS.softLavender, COLORS.brightViolet]);
     drawRecoveryArc(ctx, project, recoveredError, this.time);
     drawHud(ctx, this.width, this.height, metrics);
     this.syncMetricValues(metrics);
@@ -384,14 +384,14 @@ function drawChannelShell(ctx, project, time, noise) {
   const center = project(0, 0.65, 0);
   const radius = 32 + noise * 28 + Math.sin(time * 2.3) * 3;
   const gradient = ctx.createRadialGradient(center.x, center.y, 4, center.x, center.y, radius);
-  gradient.addColorStop(0, "rgba(255, 0, 162, 0.46)");
+  gradient.addColorStop(0, "rgba(138, 43, 226, 0.46)");
   gradient.addColorStop(0.45, "rgba(191, 64, 255, 0.2)");
   gradient.addColorStop(1, "rgba(119, 0, 255, 0)");
   ctx.fillStyle = gradient;
   ctx.beginPath();
   ctx.arc(center.x, center.y, radius, 0, Math.PI * 2);
   ctx.fill();
-  ctx.strokeStyle = "rgba(255, 88, 214, 0.54)";
+  ctx.strokeStyle = "rgba(191, 64, 255, 0.54)";
   ctx.lineWidth = 1.2;
   ctx.beginPath();
   ctx.arc(center.x, center.y, radius * 0.52, 0, Math.PI * 2);
@@ -417,7 +417,7 @@ function drawFlows(ctx, project, joint, time) {
 
     const t = (time * (0.12 + value * 0.8) + x * 0.11 + y * 0.07) % 1;
     const p = quadraticPoint(start, mid, end, t);
-    ctx.fillStyle = value > 0.08 ? COLORS.softPink : COLORS.electric;
+    ctx.fillStyle = value > 0.08 ? COLORS.softLavender : COLORS.electric;
     ctx.beginPath();
     ctx.arc(p.x, p.y, 1.8 + value * 9, 0, Math.PI * 2);
     ctx.fill();
@@ -452,7 +452,7 @@ function drawBar(ctx, project, x, z, height, color, value, index) {
   fillPoly(ctx, [baseA, baseB, topB, topA], shade(color, -24));
   fillPoly(ctx, [baseB, baseC, topC, topB], shade(color, -42));
   fillPoly(ctx, [topA, topB, topC, topD], color);
-  ctx.strokeStyle = "rgba(255, 88, 214, 0.58)";
+  ctx.strokeStyle = "rgba(191, 64, 255, 0.58)";
   ctx.lineWidth = 0.9;
   strokePoly(ctx, [baseA, baseB, baseC, baseD]);
   strokePoly(ctx, [topA, topB, topC, topD]);
@@ -478,7 +478,7 @@ function drawRecoveryArc(ctx, project, recoveredError, time) {
   ctx.stroke();
   ctx.setLineDash([]);
   const p = quadraticPoint(start, mid, end, (time * 0.18) % 1);
-  ctx.fillStyle = COLORS.pink;
+  ctx.fillStyle = COLORS.brightViolet;
   ctx.beginPath();
   ctx.arc(p.x, p.y, 3.4, 0, Math.PI * 2);
   ctx.fill();
@@ -599,7 +599,7 @@ function strokePoly(ctx, points) {
 function drawLabel(ctx, x, y, text, size = 10) {
   ctx.save();
   ctx.fillStyle = COLORS.text;
-  ctx.shadowColor = COLORS.pink;
+  ctx.shadowColor = COLORS.brightViolet;
   ctx.shadowBlur = 8;
   ctx.font = `700 ${size}px ${getCanvasContentFont()}`;
   ctx.textAlign = "center";

@@ -1,4 +1,4 @@
-import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260524-electromagnetism-wave-v1";
+import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260524-model-purple-palette-v1";
 
 const mountedSimulators = new WeakSet();
 const TWO_PI = Math.PI * 2;
@@ -434,7 +434,7 @@ class DoubleSlitInterference {
 
         const alpha = 0.035 + brightness * 0.13;
         ctx.fillStyle = combined >= 0
-          ? `rgba(255, 0, 162, ${alpha})`
+          ? `rgba(138, 43, 226, ${alpha})`
           : `rgba(191, 64, 255, ${alpha})`;
         ctx.beginPath();
         ctx.arc(x, y, 1.2 + brightness * 1.8, 0, TWO_PI);
@@ -474,7 +474,7 @@ class DoubleSlitInterference {
         continue;
       }
 
-      ctx.strokeStyle = order === 0 ? "rgba(255, 88, 214, 0.58)" : "rgba(255, 88, 214, 0.24)";
+      ctx.strokeStyle = order === 0 ? "rgba(191, 64, 255, 0.58)" : "rgba(191, 64, 255, 0.24)";
       ctx.beginPath();
       ctx.moveTo(layout.barrierX, layout.centerY);
       ctx.lineTo(layout.screenX, y);
@@ -489,7 +489,7 @@ class DoubleSlitInterference {
     ctx.strokeStyle = "rgba(224, 152, 255, 0.62)";
     ctx.lineWidth = 4;
     ctx.shadowBlur = 12;
-    ctx.shadowColor = "rgba(255, 88, 214, 0.36)";
+    ctx.shadowColor = "rgba(191, 64, 255, 0.36)";
 
     ctx.beginPath();
     ctx.moveTo(layout.barrierX, layout.top);
@@ -500,7 +500,7 @@ class DoubleSlitInterference {
     ctx.lineTo(layout.barrierX, layout.bottom);
     ctx.stroke();
 
-    ctx.fillStyle = "#ff00a2";
+    ctx.fillStyle = "#8a2be2";
     ctx.shadowBlur = 14;
     for (const y of [layout.slitA, layout.slitB]) {
       ctx.beginPath();
@@ -515,7 +515,7 @@ class DoubleSlitInterference {
     ctx.save();
     ctx.fillStyle = "rgba(224, 152, 255, 0.16)";
     ctx.fillRect(layout.screenX, layout.top, 3, layout.bottom - layout.top);
-    ctx.strokeStyle = "rgba(255, 88, 214, 0.42)";
+    ctx.strokeStyle = "rgba(191, 64, 255, 0.42)";
     ctx.lineWidth = 1;
     ctx.strokeRect(layout.screenX - 2, layout.top, 7, layout.bottom - layout.top);
     ctx.restore();
@@ -531,7 +531,7 @@ class DoubleSlitInterference {
       const width = Math.max(1, patternWidth * intensity);
       const alpha = 0.14 + 0.76 * intensity;
 
-      ctx.fillStyle = `rgba(255, 0, 162, ${alpha})`;
+      ctx.fillStyle = `rgba(138, 43, 226, ${alpha})`;
       ctx.fillRect(startX, y, width, 1);
     }
     ctx.restore();
@@ -600,11 +600,11 @@ class DoubleSlitInterference {
     for (const hit of this.hits) {
       ctx.fillStyle = this.state.detectorMode
         ? "rgba(191, 64, 255, 0.62)"
-        : "rgba(255, 0, 162, 0.68)";
+        : "rgba(138, 43, 226, 0.68)";
       ctx.shadowBlur = 6;
       ctx.shadowColor = this.state.detectorMode
         ? "rgba(191, 64, 255, 0.5)"
-        : "rgba(255, 88, 214, 0.48)";
+        : "rgba(191, 64, 255, 0.48)";
       ctx.beginPath();
       ctx.arc(hit.x, hit.y, hit.radius, 0, TWO_PI);
       ctx.fill();
@@ -617,7 +617,7 @@ class DoubleSlitInterference {
     const tick = Math.max(20, this.height * 0.08);
 
     ctx.save();
-    ctx.strokeStyle = "rgba(255, 88, 214, 0.34)";
+    ctx.strokeStyle = "rgba(191, 64, 255, 0.34)";
     ctx.fillStyle = "rgba(159, 92, 255, 0.92)";
     ctx.lineWidth = 1;
     ctx.font = `600 12px ${getCanvasContentFont()}`;
@@ -655,9 +655,9 @@ class DoubleSlitInterference {
     ctx.fillText(this.copy("screen"), layout.screenX, layout.bottom + 14);
 
     if (this.state.showMaxima) {
-      ctx.fillStyle = "#ff58d6";
+      ctx.fillStyle = "#bf40ff";
       ctx.shadowBlur = 10;
-      ctx.shadowColor = "rgba(255, 88, 214, 0.48)";
+      ctx.shadowColor = "rgba(191, 64, 255, 0.48)";
       ctx.fillText(this.copy("centralMaximum"), (layout.barrierX + layout.screenX) / 2, layout.centerY - 10);
     }
 

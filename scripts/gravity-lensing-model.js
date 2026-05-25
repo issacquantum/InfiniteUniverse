@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260524-electromagnetism-wave-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260524-model-purple-palette-v1";
 
 const mountedModels = new WeakSet();
 const TWO_PI = Math.PI * 2;
@@ -423,7 +423,7 @@ class GravityLensingModel {
 
   getStarColor(star) {
     if (!this.state.coloredStars) {
-      return "255, 88, 214";
+      return "191, 64, 255";
     }
 
     return star.color;
@@ -459,7 +459,7 @@ class GravityLensingModel {
 
   drawEinsteinRing(ctx, lens, thetaE) {
     ctx.save();
-    ctx.strokeStyle = "rgba(255, 0, 162, 0.34)";
+    ctx.strokeStyle = "rgba(138, 43, 226, 0.34)";
     ctx.lineWidth = 1.35;
     ctx.setLineDash([7, 8]);
     ctx.shadowBlur = 16;
@@ -474,7 +474,7 @@ class GravityLensingModel {
     ctx.save();
     ctx.lineWidth = 1.15;
     ctx.setLineDash([8, 10]);
-    ctx.strokeStyle = "rgba(255, 88, 214, 0.32)";
+    ctx.strokeStyle = "rgba(191, 64, 255, 0.32)";
     ctx.shadowBlur = 8;
     ctx.shadowColor = "rgba(191, 64, 255, 0.34)";
 
@@ -500,7 +500,7 @@ class GravityLensingModel {
   drawLens(ctx, lens, thetaE) {
     ctx.save();
     const glow = ctx.createRadialGradient(lens.x, lens.y, 0, lens.x, lens.y, thetaE * 0.95);
-    glow.addColorStop(0, "rgba(255, 0, 162, 0.42)");
+    glow.addColorStop(0, "rgba(138, 43, 226, 0.42)");
     glow.addColorStop(0.45, "rgba(119, 0, 255, 0.16)");
     glow.addColorStop(1, "rgba(119, 0, 255, 0)");
     ctx.fillStyle = glow;
@@ -521,10 +521,10 @@ class GravityLensingModel {
     body.addColorStop(0.66, "#2b006d");
     body.addColorStop(1, "#050008");
     ctx.fillStyle = body;
-    ctx.strokeStyle = "rgba(255, 0, 162, 0.84)";
+    ctx.strokeStyle = "rgba(138, 43, 226, 0.84)";
     ctx.lineWidth = 1.4;
     ctx.shadowBlur = 14;
-    ctx.shadowColor = "rgba(255, 88, 214, 0.58)";
+    ctx.shadowColor = "rgba(191, 64, 255, 0.58)";
     ctx.beginPath();
     ctx.arc(lens.x, lens.y, thetaE * 0.24, 0, TWO_PI);
     ctx.fill();
@@ -534,7 +534,7 @@ class GravityLensingModel {
 
   drawLabels(ctx, lens, thetaE) {
     ctx.save();
-    ctx.fillStyle = "rgba(255, 88, 214, 0.82)";
+    ctx.fillStyle = "rgba(191, 64, 255, 0.82)";
     ctx.font = `600 13px ${getCanvasContentFont()}`;
     ctx.textAlign = "center";
     ctx.fillText(this.copy("lens"), lens.x, Math.max(18, lens.y - thetaE * 0.42));
@@ -570,8 +570,8 @@ class GravityLensingModel {
 function createStars(count) {
   const random = mulberry32(12261995);
   const colors = [
-    "255, 0, 162",
-    "255, 88, 214",
+    "138, 43, 226",
+    "191, 64, 255",
     "191, 64, 255",
     "154, 77, 255",
     "119, 0, 255",
