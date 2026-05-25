@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260524-equation-symbol-lists-v1";
+import { pick } from "./i18n.js?v=20260524-equation-context-meaning-v1";
 
 const STORAGE_KEY = "issac-tabares-reading-settings";
 
