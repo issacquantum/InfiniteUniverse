@@ -4,13 +4,13 @@
     <h3>Equation</h3>
     <div class="equation-link-wrap"><div class="glass-window equation-display">$$ L_{\rm LM}=-\sum_t \log p_\theta(x_t\mid x_{1:t-1}) $$</div></div>
   </section>
-  <section class="content-block"><h3>Literal Reading</h3><p>The loss is the negative sum of the log probability assigned to each next token given the previous tokens.</p></section>
-  <section class="content-block"><h3>Physicist's Reading</h3><p>The model is trained to predict the next token from context. Repeating that objective at scale produces broad language and task behavior.</p></section>
+  <section class="content-block"><h3>What the Formula Says</h3><p>The loss is the negative sum of the log probability assigned to each next token given the previous tokens.</p></section>
+  <section class="content-block"><h3>What It Means in Practice</h3><p>The model is trained to predict the next token from context. Repeating that objective at scale produces broad language and task behavior.</p></section>
   <section class="content-block">
-    <h3>Symbol Breakdown</h3>
+    <h3>Symbols</h3>
     <p><strong>\(x_t\)</strong>: token at position \(t\).</p>
     <p><strong>\(x_{1:t-1}\)</strong>: previous context tokens.</p>
     <p><strong>\(p_\theta\)</strong>: probability distribution produced by parameters \(\theta\).</p>
   </section>
-  <section class="content-block"><h3>Physical Meaning</h3><p>The objective optimizes prediction, not truth or wisdom. Useful behavior emerges only when prediction is paired with data quality, evaluation, and alignment.</p></section>
+  <section class="content-block"><h3>Why It Matters</h3><p>The objective optimizes prediction, not truth or wisdom. Useful behavior emerges only when prediction is paired with data quality, evaluation, and alignment.</p></section>
 </div>
