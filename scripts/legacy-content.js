@@ -1,6 +1,6 @@
-import { bigBangLegacyContent } from "../data/legacy-big-bang.js?v=20260529-heat-stability-2d-v1";
-import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260529-heat-stability-2d-v1";
-import { pick } from "./i18n.js?v=20260529-heat-stability-2d-v1";
+import { bigBangLegacyContent } from "../data/legacy-big-bang.js?v=20260530-consciousness-boundaries-v1";
+import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260530-consciousness-boundaries-v1";
+import { pick } from "./i18n.js?v=20260530-consciousness-boundaries-v1";
 
 let activeRequestToken = 0;
 
