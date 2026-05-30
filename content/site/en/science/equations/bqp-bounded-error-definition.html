@@ -1,0 +1,19 @@
+<div class="structured-content equation-detail-page" data-structured-content>
+  <section class="content-block"><h3>BQP Bounded-Error Definition</h3></section>
+  <section class="content-block"><h3>Equation</h3><div class="equation-link-wrap">
+      <div class="glass-window equation-display">
+        $$
+        x\in L \Rightarrow \Pr[C_x\ \mathrm{accepts}]\ge \frac{2}{3},
+        \qquad
+        x\notin L \Rightarrow \Pr[C_x\ \mathrm{accepts}]\le \frac{1}{3}
+        $$
+      </div>
+    </div></section>
+  <section class="content-block"><h3>Literal Reading</h3><p>Read it as: if \(x\) is in the language, the quantum circuit accepts with probability at least two thirds; if \(x\) is not in the language, it accepts with probability at most one third.</p></section>
+  <section class="content-block"><h3>Common Reading</h3><p>A BQP algorithm is allowed to be wrong sometimes, but only with a controlled probability gap.</p></section>
+  <section class="content-block"><h3>Symbols</h3><p><strong>\(L\)</strong>: the decision problem or language being solved.</p>
+    <p><strong>\(x\)</strong>: the input string.</p>
+    <p><strong>\(C_x\)</strong>: the quantum circuit generated for input \(x\) or its input length.</p>
+    <p><strong>\(\Pr\)</strong>: probability after quantum measurement.</p></section>
+  <section class="content-block"><h3>Meaning of the Equation</h3><p>BQP does not require perfect certainty. It requires an efficient quantum circuit whose measurement outcome separates yes-instances from no-instances by a reliable gap. Repetition can reduce the error, so the exact constants matter less than the existence of a bounded-error separation using polynomial resources.</p></section>
+</div>

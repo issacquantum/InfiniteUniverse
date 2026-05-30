@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260530-info-theory-precision-v1";
+import { pick } from "./i18n.js?v=20260530-quantum-complexity-v1";
 
 const STORAGE_KEY = "issac-tabares-reading-settings";
 

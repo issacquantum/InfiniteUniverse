@@ -1,0 +1,22 @@
+<div class="structured-content equation-detail-page" data-structured-content>
+  <section class="content-block"><h3>QMA Verifier Definition</h3></section>
+  <section class="content-block"><h3>Equation</h3><div class="equation-link-wrap">
+      <div class="glass-window equation-display">
+        $$
+        x\in L \Rightarrow \exists|\psi\rangle:\Pr[V_x(|\psi\rangle)=1]\ge a,
+        \qquad
+        x\notin L \Rightarrow \forall|\psi\rangle:\Pr[V_x(|\psi\rangle)=1]\le b,
+        \qquad
+        a-b\ge \frac{1}{\mathrm{poly}(n)}
+        $$
+      </div>
+    </div></section>
+  <section class="content-block"><h3>Literal Reading</h3><p>Read it as: for yes-instances there exists a quantum witness that makes the verifier accept with probability at least \(a\); for no-instances every quantum witness is accepted with probability at most \(b\); the gap between \(a\) and \(b\) is at least inverse polynomial.</p></section>
+  <section class="content-block"><h3>Common Reading</h3><p>QMA is efficient quantum proof checking with a guaranteed acceptance gap.</p></section>
+  <section class="content-block"><h3>Symbols</h3><p><strong>\(|\psi\rangle\)</strong>: the quantum witness or proof state.</p>
+    <p><strong>\(V_x\)</strong>: the verifier circuit for input \(x\).</p>
+    <p><strong>\(a\)</strong>: completeness threshold for accepting true statements.</p>
+    <p><strong>\(b\)</strong>: soundness threshold limiting false statements.</p>
+    <p><strong>\(\mathrm{poly}(n)\)</strong>: a polynomial in the input size.</p></section>
+  <section class="content-block"><h3>Meaning of the Equation</h3><p>A QMA verifier must be convinced by some valid quantum proof when the statement is true, but no quantum proof may fool it too often when the statement is false. The inverse-polynomial gap makes the distinction amplifiable, so repeated verification can separate the two cases more strongly.</p></section>
+</div>
