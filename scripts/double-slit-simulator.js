@@ -1,4 +1,4 @@
-import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260530-quantum-complexity-v1";
+import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260530-model-accessibility-v1";
 
 const mountedSimulators = new WeakSet();
 const TWO_PI = Math.PI * 2;
