@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260530-model-accessibility-v1";
+import { pick } from "./i18n.js?v=20260530-book-naming-audit-v1";
 
 function escapeHtml(value) {
   return String(value)
@@ -75,12 +75,12 @@ function renderDockItems({ assets, includeCv, language }) {
         <i data-lucide="file-text"></i>
       </button>
       <button
-        class="glass-sphere social-sphere cv-sphere research-essay-sphere"
+        class="glass-sphere social-sphere cv-sphere time-infinity-book-sphere"
         type="button"
         data-action="open-external"
-        data-external-id="researchEssay"
-        aria-label="${escapeHtml(pick(assets.researchEssay.label, language))}"
-        title="${escapeHtml(pick(assets.researchEssay.label, language))}"
+        data-external-id="timeInfinityBook"
+        aria-label="${escapeHtml(pick(assets.timeInfinityBook.label, language))}"
+        title="${escapeHtml(pick(assets.timeInfinityBook.label, language))}"
       >
         <i data-lucide="scroll-text"></i>
       </button>
