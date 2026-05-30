@@ -1,9 +1,9 @@
-import { bigBangLegacyContent } from "../data/legacy-big-bang.js?v=20260529-heat-stability-2d-v1";
-import { siteContent } from "../data/site-content.js?v=20260529-heat-stability-2d-v1";
+import { bigBangLegacyContent } from "../data/legacy-big-bang.js?v=20260530-consciousness-boundaries-v1";
+import { siteContent } from "../data/site-content.js?v=20260530-consciousness-boundaries-v1";
 
 const documentCache = new Map();
 const requestCache = new Map();
-const CONTENT_CACHE_VERSION = "20260529-heat-stability-2d-v1";
+const CONTENT_CACHE_VERSION = "20260530-consciousness-boundaries-v1";
 const PREWARM_WORKER_LIMIT = 4;
 let prewarmScheduled = false;
 
