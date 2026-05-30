@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260530-quantum-complexity-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260530-model-accessibility-v1";
 
 const mountedModels = new WeakSet();
 
