@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260529-mechanics-wording-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260529-vector-caption-v1";
 
 const mountedModels = new WeakSet();
 const TWO_PI = Math.PI * 2;
