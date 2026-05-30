@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260530-model-accessibility-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260530-book-naming-audit-v1";
 
 function htmlSource(group, id) {
   return {

@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260530-model-accessibility-v1";
+import { pick } from "./i18n.js?v=20260530-book-naming-audit-v1";
 
 const STORAGE_KEY = "issac-tabares-reading-settings";
 
