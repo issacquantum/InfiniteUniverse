@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260529-equation-meaning-audit-v1";
+import { pick } from "./i18n.js?v=20260529-mechanics-wording-v1";
 
 function escapeHtml(value) {
   return String(value)
