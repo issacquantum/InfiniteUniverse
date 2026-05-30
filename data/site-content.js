@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260530-ai-evaluation-boundaries-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260530-info-theory-precision-v1";
 
 function htmlSource(group, id) {
   return {

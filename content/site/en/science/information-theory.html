@@ -67,7 +67,8 @@
       streams contain <strong>redundancy</strong>. <strong>Source coding</strong> removes that <strong>redundancy</strong> without changing the message.
     </p>
     <p>
-      Shannon's source coding theorem says that long lossless descriptions can approach the <strong>entropy rate</strong>:
+      Shannon's source coding theorem has a precise single-symbol form: for an optimal binary prefix code for a
+      discrete memoryless source, the expected codeword length \(L\) satisfies:
     </p>
     <div class="equation-link-wrap">
       <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
@@ -79,8 +80,10 @@
       </button>
     </div>
     <p>
-      This is the bridge from uncertainty to compression: common patterns get shorter codes, rare patterns get longer
-      codes, and the best average length is controlled by entropy.
+      This is an average-length bound under a probability model and prefix-code assumptions, not a promise that every
+      individual message has that length. For block coding, the relevant quantity is the <strong>entropy rate</strong>:
+      average information per emitted symbol in a long source. As block length grows, lossless compression can approach
+      that rate, while finite blocks still carry overhead.
     </p>
   </section>
 
@@ -114,6 +117,10 @@
         $$
       </button>
     </div>
+    <p>
+      Here \(q\) is the alphabet size, \(p\) is the total probability that the received symbol is wrong, and the capacity
+      is measured in bits per channel use because the logarithms are base 2.
+    </p>
   </section>
 
   <section class="content-block">
@@ -187,8 +194,8 @@
     <h3>Information Is Physical</h3>
     <p>
       Information theory also touches thermodynamics. A bit can be abstract, but storing, copying, transmitting, and
-      erasing it require physical systems. <strong>Landauer's principle</strong> gives the minimum heat cost of
-      irreversible erasure:
+      erasing it require physical systems. <strong>Landauer's principle</strong> gives the ideal lower bound for heat
+      dissipated by logically irreversible erasure:
     </p>
     <div class="equation-link-wrap">
       <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
@@ -200,8 +207,9 @@
       </button>
     </div>
     <p>
-      The point is not that every computation must waste this exact energy. The point is that irreversible loss of
-      information has a thermodynamic price.
+      More precisely, \(k_BT\ln2\) is the ideal minimum heat dissipation for logically irreversible erasure of one bit
+      under ideal thermodynamic conditions. Real hardware can dissipate more, and reversible computation changes the
+      assumptions.
     </p>
   </section>
 
