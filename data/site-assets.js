@@ -34,11 +34,11 @@ export const siteAssets = {
       es: "Assets2/Professional_Resume_Spanish2026.pdf"
     }
   },
-  researchEssay: {
-    id: "researchEssay",
+  timeInfinityBook: {
+    id: "timeInfinityBook",
     label: {
-      en: "Time and Infinity Essay",
-      es: "Ensayo sobre tiempo e infinito"
+      en: "Time and Infinity Book",
+      es: "Libro sobre tiempo e infinito"
     },
     path: {
       en: "Assets2/My-Physics-of-Time-and-Infinity.pdf",

@@ -1,14 +1,14 @@
-import { siteAssets } from "../data/site-assets.js?v=20260530-model-accessibility-v1";
-import { siteContent } from "../data/site-content.js?v=20260530-model-accessibility-v1";
-import { createReadingSettingsController } from "./reading-settings.js?v=20260530-model-accessibility-v1";
-import { initBackground } from "./background.js?v=20260530-model-accessibility-v1";
-import { refreshIcons } from "./icons.js?v=20260530-model-accessibility-v1";
-import { pick } from "./i18n.js?v=20260530-model-accessibility-v1";
-import { syncLegacyContent } from "./legacy-content.js?v=20260530-model-accessibility-v1";
-import { createMusicController, syncMusicUi } from "./music.js?v=20260530-model-accessibility-v1";
-import { renderSite } from "./render.js?v=20260530-model-accessibility-v1";
-import { createState } from "./state.js?v=20260530-model-accessibility-v1";
-import { syncStructuredContent } from "./structured-content.js?v=20260530-model-accessibility-v1";
+import { siteAssets } from "../data/site-assets.js?v=20260530-book-naming-audit-v1";
+import { siteContent } from "../data/site-content.js?v=20260530-book-naming-audit-v1";
+import { createReadingSettingsController } from "./reading-settings.js?v=20260530-book-naming-audit-v1";
+import { initBackground } from "./background.js?v=20260530-book-naming-audit-v1";
+import { refreshIcons } from "./icons.js?v=20260530-book-naming-audit-v1";
+import { pick } from "./i18n.js?v=20260530-book-naming-audit-v1";
+import { syncLegacyContent } from "./legacy-content.js?v=20260530-book-naming-audit-v1";
+import { createMusicController, syncMusicUi } from "./music.js?v=20260530-book-naming-audit-v1";
+import { renderSite } from "./render.js?v=20260530-book-naming-audit-v1";
+import { createState } from "./state.js?v=20260530-book-naming-audit-v1";
+import { syncStructuredContent } from "./structured-content.js?v=20260530-book-naming-audit-v1";
 
 const refs = {
   siteShell: document.querySelector(".site-shell"),
@@ -873,8 +873,8 @@ function openExternal(id) {
     ?? /Android|iPhone|iPad|iPod/i.test(navigator.userAgent || "");
   const hasUrl = (value) => typeof value === "string" && value.trim() !== "";
 
-  if (id === "cv" || id === "researchEssay") {
-    const documentAsset = id === "cv" ? siteAssets.cv : siteAssets.researchEssay;
+  if (id === "cv" || id === "timeInfinityBook") {
+    const documentAsset = id === "cv" ? siteAssets.cv : siteAssets.timeInfinityBook;
     const cvPath = pick(documentAsset.path, store.getState().language);
 
     if (hasUrl(cvPath)) {
