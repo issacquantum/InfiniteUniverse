@@ -1,0 +1,23 @@
+<div class="structured-content equation-detail-page" data-structured-content>
+  <section class="content-block"><h3>Local Hamiltonian Decision Gap</h3></section>
+  <section class="content-block"><h3>Equation</h3><div class="equation-link-wrap">
+      <div class="glass-window equation-display">
+        $$
+        H=\sum_{j=1}^{m}H_j,
+        \qquad
+        \lambda_{\min}(H)\le a
+        \quad\text{or}\quad
+        \lambda_{\min}(H)\ge b,
+        \qquad
+        b-a\ge \frac{1}{\mathrm{poly}(n)}
+        $$
+      </div>
+    </div></section>
+  <section class="content-block"><h3>Literal Reading</h3><p>Read it as: the Hamiltonian is a sum of local terms, and the smallest eigenvalue is promised to be either at most \(a\) or at least \(b\), with an inverse-polynomial gap between \(a\) and \(b\).</p></section>
+  <section class="content-block"><h3>Common Reading</h3><p>Decide whether a local quantum system has low energy or is separated from low energy by a promised gap.</p></section>
+  <section class="content-block"><h3>Symbols</h3><p><strong>\(H\)</strong>: the full Hamiltonian of the system.</p>
+    <p><strong>\(H_j\)</strong>: a local term acting on only a few qubits or particles.</p>
+    <p><strong>\(\lambda_{\min}(H)\)</strong>: the ground-state energy, the smallest eigenvalue of \(H\).</p>
+    <p><strong>\(a,b\)</strong>: threshold energies defining the two promised cases.</p></section>
+  <section class="content-block"><h3>Meaning of the Equation</h3><p>The problem is not asking for the exact ground-state energy. It asks for a decision between two separated cases: definitely low enough or definitely high enough. This promise gap makes the task a complexity-theory problem and is the reason the local Hamiltonian problem can serve as a quantum analogue of satisfiability.</p></section>
+</div>

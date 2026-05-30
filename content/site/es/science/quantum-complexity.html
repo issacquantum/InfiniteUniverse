@@ -1,0 +1,334 @@
+<div class="structured-content" data-structured-content>
+  <section class="content-block">
+    <h3>Etimología y alcance</h3>
+    <p>
+      <strong>Complejidad</strong> viene de raíces relacionadas con cosas entretejidas. En computación, complejidad
+      significa los recursos necesarios para resolver un problema: tiempo, memoria, consultas, tamaño de circuito,
+      longitud de prueba, aleatoriedad, entrelazamiento y precisión física. La <strong>complejidad cuántica</strong>
+      pregunta cómo cambian esos recursos cuando la información se procesa mediante estados cuánticos, compuertas
+      unitarias, mediciones y entrelazamiento.
+    </p>
+    <p>
+      Esta sección no trata de decir que las computadoras cuánticas son "rápidas" de forma vaga. Trata de afirmaciones
+      exactas: qué problemas se vuelven más fáciles, cuáles siguen siendo difíciles, qué ventajas dependen del modelo
+      de entrada y dónde la mecánica cuántica cambia la frontera entre cómputo factible e infactible.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>El recurso que se mide</h3>
+    <p>
+      Una computadora cuántica con \(n\) qubits tiene un vector de estado en un espacio de Hilbert cuya dimensión crece
+      exponencialmente:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-complexity-equations" data-item-id="quantum-state-space-dimension"
+        aria-label="Abrir explicación para dimensión del espacio de estados cuántico">
+        $$
+        \dim \mathcal{H}_n = 2^n
+        $$
+      </button>
+    </div>
+    <p>
+      Este espacio de estados exponencial es importante, pero por sí solo no es una aceleración. Un dispositivo físico
+      no puede imprimir simplemente todas las \(2^n\) amplitudes. Un algoritmo cuántico útil debe preparar el estado
+      correcto de forma eficiente, transformarlo con un circuito de tamaño polinomial y hacer que la medición tenga alta
+      probabilidad de revelar información clásica útil.
+    </p>
+    <p>
+      Por eso la teoría de complejidad cuenta recursos operacionales: número de compuertas, profundidad del circuito,
+      número de consultas al oráculo, número de qubits, precisión, probabilidad de error, costo de preparación del
+      estado y costo de leer la respuesta. Una ventaja cuántica es seria solo cuando todos esos costos se incluyen.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Punto de comparación clásico</h3>
+    <p>
+      La complejidad cuántica empieza comparando contra la complejidad clásica. \(P\) contiene problemas de decisión
+      resolubles en tiempo polinomial determinista. \(BPP\) permite aleatoriedad con error acotado. \(NP\) contiene
+      problemas donde una solución propuesta puede verificarse eficientemente. \(PSPACE\) permite memoria polinomial
+      aunque el tiempo sea mucho mayor.
+    </p>
+    <p>
+      Las contenciones conocidas más relevantes aquí son:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-complexity-equations" data-item-id="quantum-complexity-class-containments"
+        aria-label="Abrir explicación para contenciones de clases de complejidad cuántica">
+        $$
+        P \subseteq BPP \subseteq BQP \subseteq PP \subseteq PSPACE
+        $$
+      </button>
+    </div>
+    <p>
+      Estas son contenciones, no igualdades. No prueban que las computadoras cuánticas resuelvan todo problema difícil.
+      Dicen dónde se ubica el cómputo cuántico con error acotado dentro del mapa mayor de límites matemáticos conocidos.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>BQP: cómputo cuántico eficiente</h3>
+    <p>
+      La clase central es <strong>BQP</strong>, tiempo polinomial cuántico con error acotado. Un lenguaje \(L\) está en
+      BQP si una familia uniforme de circuitos cuánticos de tamaño polinomial decide la pertenencia con probabilidad
+      suficientemente alta:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-complexity-equations" data-item-id="bqp-bounded-error-definition"
+        aria-label="Abrir explicación para definición de BQP con error acotado">
+        $$
+        x\in L \Rightarrow \Pr[C_x\ \mathrm{acepta}]\ge \frac{2}{3},
+        \qquad
+        x\notin L \Rightarrow \Pr[C_x\ \mathrm{acepta}]\le \frac{1}{3}
+        $$
+      </button>
+    </div>
+    <p>
+      Las constantes \(2/3\) y \(1/3\) no son sagradas. Repetir el cómputo y tomar mayoría puede reducir la
+      probabilidad de error. El punto real es que el circuito debe generarse eficientemente y usar solo un número
+      polinomial de compuertas.
+    </p>
+    <p>
+      El algoritmo de Shor para factorización y la estimación de fase cuántica viven dentro de este marco. No muestran
+      que las computadoras cuánticas resuelvan eficientemente problemas \(NP\)-completos. Muestran que algunos problemas
+      algebraicos y con estructura de Fourier entran en otro régimen de complejidad cuando la interferencia cuántica
+      está disponible.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Complejidad de consultas y búsqueda</h3>
+    <p>
+      La complejidad de consultas pregunta cuántas veces un algoritmo debe hacer una pregunta de caja negra. Aísla el
+      costo de extraer información de un oráculo, separado del costo del cómputo ordinario. La búsqueda de Grover es el
+      ejemplo más limpio:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-complexity-equations" data-item-id="quantum-query-search-bound"
+        aria-label="Abrir explicación para cota cuántica de búsqueda por consultas">
+        $$
+        Q_{\mathrm{search}}(N)=\Theta(\sqrt{N})
+        $$
+      </button>
+    </div>
+    <p>
+      Esto es tanto una cota superior como una cota inferior. La mecánica cuántica da una mejora cuadrática sobre
+      revisar \(N\) posibilidades una por una, pero no convierte la búsqueda sin estructura en tiempo logarítmico o
+      constante. La cota inferior es tan importante como el algoritmo porque muestra que la aceleración cuadrática es la
+      mejor posible en ese modelo de caja negra.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>QMA: pruebas cuánticas</h3>
+    <p>
+      <strong>QMA</strong> es el análogo cuántico de \(NP\). En \(NP\), un verificador revisa un testigo clásico. En
+      QMA, el testigo puede ser un estado cuántico. Un circuito verificador debe aceptar instancias válidas con alta
+      probabilidad y rechazar instancias inválidas sin importar qué estado cuántico se entregue:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-complexity-equations" data-item-id="qma-verifier-definition"
+        aria-label="Abrir explicación para definición de verificador QMA">
+        $$
+        x\in L \Rightarrow \exists|\psi\rangle:\Pr[V_x(|\psi\rangle)=1]\ge a,
+        \qquad
+        x\notin L \Rightarrow \forall|\psi\rangle:\Pr[V_x(|\psi\rangle)=1]\le b,
+        \qquad
+        a-b\ge \frac{1}{\mathrm{poly}(n)}
+        $$
+      </button>
+    </div>
+    <p>
+      QMA importa porque muchos problemas naturales de muchos cuerpos cuánticos no son solo correr algoritmos. Preguntan
+      si existe un estado cuántico de baja energía, si un estado propuesto tiene cierta propiedad o si un sistema físico
+      local esconde una estructura global difícil.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>El problema del Hamiltoniano local</h3>
+    <p>
+      El <strong>problema del Hamiltoniano local</strong> es la versión cuántica de un problema de satisfacción de
+      restricciones. Un Hamiltoniano se escribe como suma de términos locales de energía:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-complexity-equations" data-item-id="local-hamiltonian-decision-gap"
+        aria-label="Abrir explicación para brecha de decisión del Hamiltoniano local">
+        $$
+        H=\sum_{j=1}^{m}H_j,
+        \qquad
+        \lambda_{\min}(H)\le a
+        \quad\text{o}\quad
+        \lambda_{\min}(H)\ge b,
+        \qquad
+        b-a\ge \frac{1}{\mathrm{poly}(n)}
+        $$
+      </button>
+    </div>
+    <p>
+      La tarea es decidir si la energía mínima posible está por debajo de \(a\) o por encima de \(b\), con la promesa de
+      que uno de esos casos es verdadero. Este problema es QMA-completo para interacciones locales adecuadas, lo que
+      significa que es un problema difícil central para la verificación de pruebas cuánticas.
+    </p>
+    <p>
+      Físicamente, esto conecta la teoría de complejidad con la materia condensada. La pregunta "cuál es la energía del
+      estado fundamental?" se vuelve una pregunta computacional sobre qué tan difícil es certificar el comportamiento de
+      un sistema cuántico de muchas partículas.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Complejidad de circuitos</h3>
+    <p>
+      La complejidad de circuitos mide cuántas compuertas elementales se necesitan para aproximar una operación unitaria
+      objetivo:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-complexity-equations" data-item-id="quantum-circuit-complexity"
+        aria-label="Abrir explicación para complejidad de circuitos cuánticos">
+        $$
+        C_{\epsilon}(U)=\min\left\{m:\left\|U-G_m\cdots G_2G_1\right\|\le\epsilon\right\}
+        $$
+      </button>
+    </div>
+    <p>
+      Esto es distinto de la dimensión del espacio de Hilbert. Un estado o una unitaria puede vivir en un espacio enorme
+      y aun así ser fácil si tiene una descripción corta mediante circuitos. Por el contrario, una unitaria genérica de
+      muchos qubits normalmente requiere una cantidad enorme de compuertas para describirse o implementarse.
+    </p>
+    <p>
+      La complejidad de circuitos también aparece en discusiones modernas sobre agujeros negros, holografía y
+      mezclado cuántico, pero esos usos son interpretativos y dependen del modelo. En esta sección, el significado
+      estricto es computacional: número de compuertas necesarias para sintetizar una transformación con precisión
+      \(\epsilon\).
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Cuándo un sistema cuántico se puede simular clásicamente</h3>
+    <p>
+      No todo proceso que parece cuántico es computacionalmente difícil. Los circuitos estabilizadores construidos con
+      operaciones de Clifford se pueden simular eficientemente en una computadora clásica. Sistemas unidimensionales con
+      bajo entrelazamiento a menudo pueden describirse con redes tensoriales. Hamiltonianos estoquásticos y ciertos
+      modelos de partículas libres también pueden ser más fáciles que la dinámica cuántica general.
+    </p>
+    <p>
+      Una frontera común es la cantidad y estructura del entrelazamiento. Muchos métodos eficientes de redes tensoriales
+      dependen de un patrón de ley de área:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-complexity-equations" data-item-id="area-law-entanglement-bound"
+        aria-label="Abrir explicación para cota de entrelazamiento por ley de área">
+        $$
+        S(A)=O(|\partial A|)
+        $$
+      </button>
+    </div>
+    <p>
+      Esto dice que la entropía de entrelazamiento de una región escala como su frontera y no como su volumen. Las leyes
+      de área no vuelven fácil todo sistema, pero explican por qué algunos sistemas cuánticos físicamente importantes
+      tienen descripciones comprimidas.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Ventaja cuántica y sus límites</h3>
+    <p>
+      <strong>Ventaja cuántica</strong> significa que un dispositivo cuántico resuelve una tarea bien definida con menor
+      costo de recursos que el mejor método clásico disponible. Una afirmación fuerte debe especificar la tarea, el
+      modelo de entrada, el tipo de salida, la tolerancia de error, los supuestos de hardware y el punto de comparación
+      clásico.
+    </p>
+    <p>
+      Los experimentos de muestreo son importantes porque pueden mostrar una separación antes de que existan
+      computadoras cuánticas tolerantes a fallas. Pero ventaja de muestreo no es lo mismo que cómputo útil general. Un
+      dispositivo puede ser difícil de simular y aun así no resolver un problema práctico. La complejidad cuántica
+      mantiene esas afirmaciones separadas.
+    </p>
+    <p>
+      Los resultados de decuantización también pertenecen aquí. Si una aceleración cuántica depende de acceso especial a
+      datos clásicos, un algoritmo clásico comparado bajo supuestos equivalentes puede recuperar gran parte de la
+      ventaja. Eso no vuelve irrelevante a la computación cuántica. Obliga a contar los mismos recursos en ambos lados.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Pruebas interactivas y fronteras modernas</h3>
+    <p>
+      La complejidad cuántica va más allá de una sola computadora. En sistemas de prueba interactiva cuántica, un
+      verificador intercambia mensajes con uno o más probadores. El resultado \(QIP=PSPACE\) muestra que las pruebas
+      interactivas cuánticas coinciden con una clase clásica importante de memoria acotada. Más tarde, el resultado
+      \(MIP^*=RE\) mostró que varios probadores entrelazados producen un panorama mucho más extraño conectado con la
+      indecidibilidad.
+    </p>
+    <p>
+      Estos resultados no son instrucciones para construir una laptop. Son afirmaciones matemáticas sobre lo que puede
+      certificarse cuando se permiten información cuántica, interacción y entrelazamiento. Muestran que la teoría
+      cuántica no solo cambia algoritmos; cambia la estructura de la prueba y la verificación.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Lo que la complejidad cuántica no dice</h3>
+    <p>
+      La complejidad cuántica no dice que las computadoras cuánticas resuelvan todo problema difícil. No prueba que
+      \(P\neq NP\). No vuelve legible directamente el espacio de Hilbert exponencial. No elimina el costo de preparar
+      estados, corregir errores, controlar precisión o medir resultados.
+    </p>
+    <p>
+      La afirmación disciplinada es más precisa: la mecánica cuántica crea nuevos recursos computacionales, y la teoría
+      de complejidad nos dice dónde esos recursos ayudan de forma demostrable, dónde probablemente no ayudan y dónde la
+      respuesta sigue abierta.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Preguntas abiertas</h3>
+    <ul class="paper-list glossary-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span>¿Es \(BQP\) estrictamente mayor que \(BPP\) en el mundo sin oráculos, y no solo relativo a oráculos o bajo supuestos?</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span>¿Qué problemas prácticos conservan ventaja cuántica después de contar preparación de estados, corrección de errores y lectura de salida?</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span>¿Qué tan difícil es aproximar estados fundamentales de Hamiltonianos físicamente realistas?</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span>¿Puede resolverse la conjetura PCP cuántica, y qué implicaría para la física de muchos cuerpos?</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span>¿Dónde está exactamente la frontera entre estructura cuántica simulable clásicamente y dinámica cuántica genuinamente difícil?</span></li>
+    </ul>
+  </section>
+
+  <section class="content-block">
+    <h3>Glosario técnico</h3>
+    <ul class="paper-list glossary-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>BQP:</strong> Tiempo polinomial cuántico con error acotado; la clase de problemas decidibles eficientemente por circuitos cuánticos con probabilidad pequeña de error.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>QMA:</strong> Quantum Merlin-Arthur; el análogo cuántico de verificación eficiente con un testigo cuántico.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Oráculo:</strong> Una subrutina de caja negra cuyo costo se cuenta por consultas y no por su implementación interna.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Familia uniforme de circuitos:</strong> Una secuencia de circuitos generada por un procedimiento clásico eficiente, con un circuito para cada tamaño de entrada.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Hamiltoniano local:</strong> Un Hamiltoniano formado por términos que actúan solo sobre pocas partículas o qubits a la vez.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>QMA-completo:</strong> Tan difícil como cualquier problema en QMA, y al mismo tiempo perteneciente a QMA.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Ley de área:</strong> Patrón donde el entrelazamiento escala con la frontera de una región en lugar de con su volumen.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Decuantización:</strong> Construir un algoritmo clásico comparable que elimina o reduce una supuesta aceleración cuántica.</span></li>
+    </ul>
+  </section>
+
+  <section class="content-block">
+    <h3>Fuentes y referencias</h3>
+    <p>Estas fuentes sostienen las afirmaciones de teoría de complejidad, complejidad Hamiltoniana, simulabilidad y frontera moderna de esta sección.</p>
+    <ul class="paper-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://epubs.siam.org/doi/abs/10.1137/S0097539796300921" target="_blank" rel="noopener noreferrer">Ethan Bernstein y Umesh Vazirani, 1997. <em>Quantum Complexity Theory.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/abs/0804.3401" target="_blank" rel="noopener noreferrer">John Watrous, 2008. <em>Quantum Computational Complexity.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://epubs.siam.org/doi/abs/10.1137/S0097539704445226" target="_blank" rel="noopener noreferrer">Julia Kempe, Alexei Kitaev y Oded Regev, 2006. <em>The Complexity of the Local Hamiltonian Problem.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/abs/1401.3916" target="_blank" rel="noopener noreferrer">Sevag Gharibian, Yichen Huang, Zeph Landau y Seung Woo Shin, 2014. <em>Quantum Hamiltonian Complexity.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/abs/quant-ph/0406196" target="_blank" rel="noopener noreferrer">Scott Aaronson y Daniel Gottesman, 2004. <em>Improved Simulation of Stabilizer Circuits.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.nature.com/articles/nature23458" target="_blank" rel="noopener noreferrer">Aram Harrow y Ashley Montanaro, 2017. <em>Quantum Computational Supremacy.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/abs/0907.4737" target="_blank" rel="noopener noreferrer">Rahul Jain, Zhengfeng Ji, Sarvagya Upadhyay y John Watrous, 2009. <em>QIP = PSPACE.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/abs/2001.04383" target="_blank" rel="noopener noreferrer">Zhengfeng Ji, Anand Natarajan, Thomas Vidick, John Wright y Henry Yuen, 2020. <em>MIP* = RE.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://ocw.mit.edu/courses/6-845-quantum-complexity-theory-fall-2010/" target="_blank" rel="noopener noreferrer">MIT OpenCourseWare. <em>6.845 Quantum Complexity Theory.</em></a></span></li>
+    </ul>
+  </section>
+</div>
