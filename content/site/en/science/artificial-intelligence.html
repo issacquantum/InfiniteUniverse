@@ -16,6 +16,10 @@
       question of conscious interiority: a system can produce intelligent-looking behavior without that proving first-person
       experience.
     </p>
+    <p>
+      <strong>Status date:</strong> May 30, 2026. AI systems, benchmark results, product behavior, and deployment practices
+      change quickly, so claims about current capability should be read as time-stamped rather than permanent.
+    </p>
     <p class="source-language-note">
       <strong>Source of etymological origin:</strong>
       <a class="platform-link" href="https://www.etymonline.com/word/artificial" target="_blank" rel="noopener noreferrer">Online Etymology Dictionary: artificial</a>;
@@ -147,6 +151,22 @@
   </section>
 
   <section class="content-block">
+    <h3>Model Cards and Data Cards</h3>
+    <p>
+      A strong AI system should not be described only by a demo. <strong>Model cards</strong> document what a model is
+      intended for, what data and evaluation shaped it, where it performs poorly, what risks are known, and what use cases
+      should be avoided. <strong>Data cards</strong> or dataset sheets document where data came from, how it was collected,
+      what was filtered, what populations may be missing, what licenses or consent limits apply, and how the dataset may
+      become stale.
+    </p>
+    <p>
+      This matters because model behavior is partly a result of architecture and optimization, but also a result of data
+      provenance, labeling choices, preprocessing, evaluation design, and deployment context. A model without documentation
+      is harder to audit, reproduce, compare, or trust.
+    </p>
+  </section>
+
+  <section class="content-block">
     <h3>AI Model Families</h3>
     <p>
       <strong>Machine learning</strong> is the broad category: systems learn patterns from data instead of being written
@@ -242,6 +262,21 @@
   </section>
 
   <section class="content-block">
+    <h3>Retrieval-Augmented Generation</h3>
+    <p>
+      <strong>Retrieval-augmented generation</strong> connects a generative model to an external search or document store.
+      The system retrieves relevant text, code, images, or records, then asks the model to answer using that context. This
+      separates what the model memorized during training from what it can look up at run time.
+    </p>
+    <p>
+      Retrieval can make answers more grounded, but it does not guarantee truth. A system can retrieve the wrong document,
+      miss the best source, use stale material, quote a source incorrectly, or draw an overconfident conclusion from weak
+      evidence. Retrieval improves the evidence path only when the sources, ranking, citations, and final reasoning are
+      checked.
+    </p>
+  </section>
+
+  <section class="content-block">
     <h3>Alignment, RLHF and Safety</h3>
     <p>
       A model trained only to predict text is not automatically helpful, honest, or safe. <strong>Instruction tuning</strong> and
@@ -286,6 +321,29 @@
   </section>
 
   <section class="content-block">
+    <h3>Calibration and Confusion Matrices</h3>
+    <p>
+      A model is <strong>calibrated</strong> when its stated confidence matches how often it is actually correct. If a
+      model says 0.8 confidence on many comparable cases, about 80 percent of those cases should be correct:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="artificial-intelligence-equations" data-item-id="calibration-condition"
+        aria-label="Open explanation for the calibration condition">
+        $$
+        P(\mathrm{correct}\mid \mathrm{confidence}=0.8)\approx 0.8
+        $$
+      </button>
+    </div>
+    <p>
+      A <strong>confusion matrix</strong> is the basic table for classification errors. It separates true positives, false
+      positives, true negatives, and false negatives. That makes accuracy less misleading: a medical test, spam filter, or
+      safety classifier may need high recall, high precision, or a controlled false-positive rate depending on the cost of
+      each mistake.
+    </p>
+  </section>
+
+  <section class="content-block">
     <h3>Evaluation and Failure Modes</h3>
     <p>
       The serious question is not whether a model sounds fluent. It is whether the output is calibrated, verifiable,
@@ -296,6 +354,17 @@
     <p>
       AI should be treated as a powerful statistical instrument, not an authority. Its value depends on the task, the
       data, the deployment context, and the discipline of the person or system using it.
+    </p>
+    <p>
+      Hallucination is not one single failure. It can mean an <strong>unsupported claim</strong> with no evidence, a
+      <strong>wrong citation</strong> that points to a source that does not support the statement, <strong>stale
+      information</strong> after the world has changed, <strong>tool misuse</strong> where the model calls or interprets a
+      tool incorrectly, or <strong>overconfident inference</strong> where weak evidence is presented as settled fact.
+    </p>
+    <p>
+      The practical response is not blind distrust and not blind trust. It is task-specific verification: check sources,
+      inspect uncertainty, compare against known constraints, test edge cases, and treat high-stakes output as a draft that
+      must be reviewed by competent humans or validated systems.
     </p>
   </section>
 
@@ -497,6 +566,10 @@
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Residual path:</strong> A shortcut connection that lets information pass around a layer, making very deep networks easier to train.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Feed-forward block:</strong> The per-token neural subnetwork inside a transformer layer, separate from the attention operation.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Softmax temperature:</strong> A scaling value that makes a probability distribution sharper or flatter before sampling or visualization.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Model card:</strong> A structured document describing a model's intended use, evaluation results, limits, risks, and unsuitable uses.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Data card:</strong> A structured document describing dataset origin, collection, filtering, representation gaps, update limits, and responsible use.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Calibration:</strong> Agreement between stated confidence and actual correctness over many comparable cases.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Confusion matrix:</strong> A classification table that separates true positives, false positives, true negatives, and false negatives.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Distribution shift:</strong> A mismatch between the data a model saw during training and the data it faces later.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Data contamination:</strong> Leakage of test, benchmark, or evaluation material into training data, making performance look more reliable than it is.</span></li>
     </ul>
@@ -506,6 +579,7 @@
     <p class="abbreviation-glossary__note">This glossary expands the abbreviations used in this section. The first appearance in the text includes the full wording in parentheses; later uses stay abbreviated so the section stays readable.</p>
     <ul class="paper-list glossary-list">
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>RLHF:</strong> reinforcement learning from human feedback.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>RAG:</strong> retrieval-augmented generation.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>QK:</strong> query-key.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>DOI:</strong> digital object identifier.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>CVF:</strong> Computer Vision Foundation.</span></li>
@@ -538,6 +612,9 @@
             Ba, 2014. <em>Adam: A Method for Stochastic Optimization.</em></a> <span class="paper-note">arXiv
             record.</span></span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://arxiv.org/abs/1706.04599" target="_blank" rel="noopener noreferrer">Chuan Guo et al., 2017.
+            <em>On Calibration of Modern Neural Networks.</em></a> <span class="paper-note">Calibration reference.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
             href="https://www.nature.com/articles/nature14539" target="_blank" rel="noopener noreferrer">Yann LeCun,
             Yoshua Bengio, and Geoffrey Hinton, 2015. <em>Deep Learning.</em></a> <span class="paper-note">Official
             Nature review page.</span></span></li>
@@ -558,9 +635,16 @@
             <em>BERT (Bidirectional Encoder Representations from Transformers): Pre-training of Deep Bidirectional Transformers for Language Understanding.</em></a> <span
             class="paper-note">arXiv record.</span></span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://dl.acm.org/doi/10.1145/3287560.3287596" target="_blank"
+            rel="noopener noreferrer">Margaret Mitchell et al., 2019. <em>Model Cards for Model Reporting.</em></a>
+          <span class="paper-note">Official ACM FAccT article page.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
             href="https://arxiv.org/abs/2001.08361" target="_blank" rel="noopener noreferrer">Kaplan et al., 2020.
             <em>Scaling Laws for Neural Language Models.</em></a> <span class="paper-note">arXiv record.</span></span>
       </li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://arxiv.org/abs/2005.11401" target="_blank" rel="noopener noreferrer">Patrick Lewis et al.,
+            2020. <em>Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks.</em></a> <span class="paper-note">RAG reference.</span></span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
             href="https://papers.neurips.cc/paper/2020/hash/1457c0d6bfcb4967418bfb8ac142f64a-Abstract.html"
             target="_blank" rel="noopener noreferrer">Brown et al., 2020. <em>Language Models are Few-Shot
@@ -573,6 +657,9 @@
             href="https://dl.acm.org/doi/10.1145/3442188.3445922" target="_blank" rel="noopener noreferrer">Bender et
             al., 2021. <em>On the Dangers of Stochastic Parrots.</em></a> <span class="paper-note">Official ACM (Association for Computing Machinery) FAccT
             article page.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://doi.org/10.1145/3458723" target="_blank" rel="noopener noreferrer">Timnit Gebru et al.,
+            2021. <em>Datasheets for Datasets.</em></a> <span class="paper-note">Dataset documentation reference.</span></span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
             href="https://arxiv.org/abs/2203.02155" target="_blank" rel="noopener noreferrer">Ouyang et al., 2022.
             <em>Training Language Models to Follow Instructions with Human Feedback.</em></a> <span

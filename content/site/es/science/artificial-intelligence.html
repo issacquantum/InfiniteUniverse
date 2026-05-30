@@ -16,6 +16,11 @@
       pregunta por la interioridad consciente: un sistema puede producir conducta que parece inteligente sin que eso pruebe
       experiencia de primera persona.
     </p>
+    <p>
+      <strong>Fecha de estado:</strong> 30 de mayo de 2026. Los sistemas de IA, los resultados de pruebas, el
+      comportamiento de productos y las prácticas de despliegue cambian rápido, así que las afirmaciones sobre capacidad
+      actual deben leerse como afirmaciones fechadas, no permanentes.
+    </p>
     <p class="source-language-note">
       <strong>Fuente del origen etimológico:</strong> Incluyo estas fuentes en inglés porque ese fue el idioma en que las leí originalmente.
       <a class="platform-link" href="https://www.etymonline.com/word/artificial" target="_blank" rel="noopener noreferrer">Online Etymology Dictionary: artificial</a>;
@@ -147,6 +152,22 @@
   </section>
 
   <section class="content-block">
+    <h3>Tarjetas de Modelo y de Datos</h3>
+    <p>
+      Un sistema de IA serio no debe describirse solo con una demostración. Las <strong>tarjetas de modelo</strong>
+      documentan para qué se diseñó un modelo, qué datos y evaluaciones lo moldearon, dónde falla, qué riesgos se conocen y
+      qué usos deben evitarse. Las <strong>tarjetas de datos</strong> o fichas de conjuntos de datos documentan de dónde
+      vienen los datos, cómo se recolectaron, qué se filtró, qué poblaciones pueden faltar, qué límites de licencia o
+      consentimiento aplican y cómo el conjunto puede volverse obsoleto.
+    </p>
+    <p>
+      Esto importa porque la conducta de un modelo depende de la arquitectura y la optimización, pero también de la
+      procedencia de datos, las decisiones de etiquetado, el preprocesamiento, el diseño de evaluación y el contexto de
+      despliegue. Un modelo sin documentación es más difícil de auditar, reproducir, comparar o confiar.
+    </p>
+  </section>
+
+  <section class="content-block">
     <h3>Familias de modelos de IA</h3>
     <p>
       <strong>Aprendizaje automático</strong> es la categoría amplia: sistemas que aprenden patrones desde datos en vez
@@ -246,6 +267,22 @@
   </section>
 
   <section class="content-block">
+    <h3>Generación Aumentada por Recuperación</h3>
+    <p>
+      La <strong>generación aumentada por recuperación</strong> conecta un modelo generativo con una búsqueda externa o un
+      almacén de documentos. El sistema recupera texto, código, imágenes o registros relevantes, y después pide al modelo
+      responder usando ese contexto. Esto separa lo que el modelo memorizó durante entrenamiento de lo que puede consultar
+      durante el uso.
+    </p>
+    <p>
+      La recuperación puede hacer que las respuestas estén mejor ancladas, pero no garantiza verdad. Un sistema puede
+      recuperar el documento equivocado, no encontrar la mejor fuente, usar material obsoleto, citar mal una fuente o sacar
+      una conclusión demasiado segura desde evidencia débil. La recuperación solo mejora la ruta de evidencia cuando se
+      revisan las fuentes, el ordenamiento, las citas y el razonamiento final.
+    </p>
+  </section>
+
+  <section class="content-block">
     <h3>Alineación, RLHF y seguridad</h3>
     <p>
       Un modelo entrenado solo para predecir texto no es automáticamente útil, honesto o seguro. El ajuste por
@@ -290,6 +327,30 @@
   </section>
 
   <section class="content-block">
+    <h3>Calibración y Matrices de Confusión</h3>
+    <p>
+      Un modelo está <strong>calibrado</strong> cuando su confianza declarada coincide con la frecuencia real de aciertos.
+      Si un modelo dice 0.8 de confianza en muchos casos comparables, alrededor del 80 por ciento de esos casos deberían
+      ser correctos:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="artificial-intelligence-equations" data-item-id="calibration-condition"
+        aria-label="Abrir explicación para la condición de calibración">
+        $$
+        P(\mathrm{correcto}\mid \mathrm{confianza}=0.8)\approx 0.8
+        $$
+      </button>
+    </div>
+    <p>
+      Una <strong>matriz de confusión</strong> es la tabla básica para errores de clasificación. Separa verdaderos
+      positivos, falsos positivos, verdaderos negativos y falsos negativos. Eso evita que la exactitud global engañe: una
+      prueba médica, un filtro de spam o un clasificador de seguridad pueden necesitar alta sensibilidad, alta precisión o
+      una tasa controlada de falsos positivos según el costo de cada error.
+    </p>
+  </section>
+
+  <section class="content-block">
     <h3>Evaluación y fallas</h3>
     <p>
       La pregunta seria no es si un modelo suena fluido. Es si la salida está calibrada, es verificable, robusta ante
@@ -301,6 +362,18 @@
     <p>
       La IA debe tratarse como un instrumento estadístico poderoso, no como autoridad. Su valor depende de la tarea, los
       datos, el contexto de despliegue y la disciplina de la persona o sistema que la usa.
+    </p>
+    <p>
+      La alucinación no es una sola falla. Puede ser una <strong>afirmación sin soporte</strong>, una
+      <strong>cita equivocada</strong> que apunta a una fuente que no sostiene lo dicho, <strong>información obsoleta</strong>
+      después de que el mundo cambió, <strong>mal uso de herramientas</strong> cuando el modelo llama o interpreta una
+      herramienta incorrectamente, o <strong>inferencia demasiado segura</strong> cuando evidencia débil se presenta como
+      hecho establecido.
+    </p>
+    <p>
+      La respuesta práctica no es desconfianza ciega ni confianza ciega. Es verificación según la tarea: revisar fuentes,
+      inspeccionar incertidumbre, comparar contra restricciones conocidas, probar casos límite y tratar la salida de alto
+      riesgo como un borrador que debe ser revisado por personas competentes o sistemas validados.
     </p>
   </section>
 
@@ -505,6 +578,10 @@
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Ruta residual:</strong> Una conexión de atajo que permite que la información rodee una capa y facilita entrenar redes muy profundas.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Bloque de alimentación directa:</strong> La subred neuronal por unidad léxica dentro de una capa de transformador, separada de la operación de atención.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Temperatura de normalización exponencial:</strong> Un valor de escala que vuelve una distribución de probabilidad más concentrada o más plana antes de muestrear o visualizar.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Tarjeta de modelo:</strong> Documento estructurado que describe uso previsto, resultados de evaluación, límites, riesgos y usos inadecuados de un modelo.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Tarjeta de datos:</strong> Documento estructurado que describe origen, recolección, filtrado, ausencias de representación, límites de actualización y uso responsable de un conjunto de datos.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Calibración:</strong> Acuerdo entre la confianza declarada y la frecuencia real de aciertos en muchos casos comparables.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Matriz de confusión:</strong> Tabla de clasificación que separa verdaderos positivos, falsos positivos, verdaderos negativos y falsos negativos.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Cambio de distribución:</strong> Una diferencia entre los datos vistos durante entrenamiento y los datos que el modelo encuentra después.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Contaminación de datos:</strong> Filtración de material de prueba, referencia o evaluación dentro de los datos de entrenamiento.</span></li>
     </ul>
@@ -514,6 +591,7 @@
     <p class="abbreviation-glossary__note">Este glosario expande las abreviaturas usadas en esta sección. La primera aparición en el texto incluye el significado completo entre paréntesis; las repeticiones quedan abreviadas para mantener la lectura limpia.</p>
     <ul class="paper-list glossary-list">
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>RLHF:</strong> aprendizaje por refuerzo con retroalimentación humana.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>RAG:</strong> retrieval-augmented generation, generación aumentada por recuperación.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>QK:</strong> consulta-clave.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>DOI:</strong> identificador digital de objeto.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>CVF:</strong> Computer Vision Foundation, Fundación de Visión por Computadora.</span></li>
@@ -547,6 +625,9 @@
             Ba, 2014. <em>Adam: A Method for Stochastic Optimization.</em></a> <span class="paper-note">Registro en
             arXiv.</span></span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://arxiv.org/abs/1706.04599" target="_blank" rel="noopener noreferrer">Chuan Guo et al., 2017.
+            <em>On Calibration of Modern Neural Networks.</em></a> <span class="paper-note">Referencia sobre calibración.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
             href="https://www.nature.com/articles/nature14539" target="_blank" rel="noopener noreferrer">Yann LeCun,
             Yoshua Bengio y Geoffrey Hinton, 2015. <em>Aprendizaje profundo.</em></a> <span class="paper-note">Página oficial
             de la revisión en Nature.</span></span></li>
@@ -567,9 +648,16 @@
             <em>BERT (representaciones de codificador bidireccional de transformadores): preentrenamiento de transformadores bidireccionales profundos para comprensión del lenguaje.</em></a> <span
             class="paper-note">Registro en arXiv.</span></span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://dl.acm.org/doi/10.1145/3287560.3287596" target="_blank"
+            rel="noopener noreferrer">Margaret Mitchell et al., 2019. <em>Model Cards for Model Reporting.</em></a>
+          <span class="paper-note">Página oficial del artículo en ACM FAccT.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
             href="https://arxiv.org/abs/2001.08361" target="_blank" rel="noopener noreferrer">Kaplan et al., 2020.
             <em>Scaling Laws for Neural Language Models.</em></a> <span class="paper-note">Registro en arXiv.</span></span>
       </li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://arxiv.org/abs/2005.11401" target="_blank" rel="noopener noreferrer">Patrick Lewis et al.,
+            2020. <em>Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks.</em></a> <span class="paper-note">Referencia sobre RAG.</span></span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
             href="https://papers.neurips.cc/paper/2020/hash/1457c0d6bfcb4967418bfb8ac142f64a-Abstract.html"
             target="_blank" rel="noopener noreferrer">Brown et al., 2020. <em>Language Models are Few-Shot
@@ -582,6 +670,9 @@
             href="https://dl.acm.org/doi/10.1145/3442188.3445922" target="_blank" rel="noopener noreferrer">Bender et
             al., 2021. <em>On the Dangers of Stochastic Parrots.</em></a> <span class="paper-note">Página oficial del
             artículo en ACM (Association for Computing Machinery, Asociación de Maquinaria Computacional) FAccT.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://doi.org/10.1145/3458723" target="_blank" rel="noopener noreferrer">Timnit Gebru et al.,
+            2021. <em>Datasheets for Datasets.</em></a> <span class="paper-note">Referencia sobre documentación de conjuntos de datos.</span></span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
             href="https://arxiv.org/abs/2203.02155" target="_blank" rel="noopener noreferrer">Ouyang et al., 2022.
             <em>Training Language Models to Follow Instructions with Human Feedback.</em></a> <span
