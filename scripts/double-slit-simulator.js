@@ -1,4 +1,4 @@
-import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260529-vector-caption-v1";
+import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260529-double-slit-mobile-speed-v1";
 
 const mountedSimulators = new WeakSet();
 const TWO_PI = Math.PI * 2;
@@ -125,6 +125,12 @@ class DoubleSlitInterference {
     fallback.className = "content-placeholder";
     fallback.textContent = this.copy("fallback");
     return fallback;
+  }
+
+  getDeviceMotionFactor() {
+    const narrowViewport = window.matchMedia?.("(max-width: 760px)")?.matches ?? window.innerWidth <= 760;
+    const coarsePointer = window.matchMedia?.("(pointer: coarse)")?.matches ?? false;
+    return narrowViewport || coarsePointer ? 0.42 : 1;
   }
 
   bindControls() {
@@ -282,9 +288,10 @@ class DoubleSlitInterference {
     this.lastTimestamp = timestamp;
 
     if (this.visible) {
-      const motionFactor = document.body.dataset.motion === "reduced" ? 0.35 : 1;
+      const deviceMotionFactor = this.getDeviceMotionFactor();
+      const motionFactor = (document.body.dataset.motion === "reduced" ? 0.35 : 1) * deviceMotionFactor;
       this.phase = (this.phase + deltaTime * 34 * motionFactor) % this.state.wavelength;
-      this.updateHits(deltaTime);
+      this.updateHits(deltaTime * deviceMotionFactor);
     }
 
     this.draw();

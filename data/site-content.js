@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260529-vector-caption-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260529-double-slit-mobile-speed-v1";
 
 function htmlSource(group, id) {
   return {
