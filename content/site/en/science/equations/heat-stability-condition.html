@@ -1,11 +1,11 @@
 <div class="structured-content equation-detail-page" data-structured-content>
   <section class="content-block"><h3>Heat Stability Condition</h3></section>
   <section class="content-block"><h3>Equation</h3><div class="equation-link-wrap"><div class="glass-window equation-display">$$ \lambda=\alpha\frac{\Delta t}{\Delta x^2}\le\frac{1}{2} $$</div></div></section>
-  <section class="content-block"><h3>Literal Reading</h3><p>The diffusion number lambda equals diffusivity times the time step divided by grid spacing squared, and it must stay below a limit for this explicit one-dimensional update.</p></section>
-  <section class="content-block"><h3>Common Reading</h3><p>A short way to say it: A grid cannot move heat too far in one time step. If the step is too aggressive, the numerical solution becomes unstable instead of physical.</p></section>
+  <section class="content-block"><h3>Literal Reading</h3><p>Read it as: the diffusion number lambda equals diffusivity times the time step divided by grid spacing squared, and it must stay below a limit for this explicit one-dimensional update.</p></section>
+  <section class="content-block"><h3>Common Reading</h3><p>A grid cannot move heat too far in one time step.</p></section>
   <section class="content-block"><h3>Symbols</h3><p><strong>\(\lambda\)</strong>: diffusion number.</p>
     <p><strong>\(\alpha\)</strong>: thermal diffusivity.</p>
     <p><strong>\(\Delta t\)</strong>: time step.</p>
     <p><strong>\(\Delta x\)</strong>: grid spacing.</p></section>
-  <section class="content-block"><h3>Meaning of the Equation</h3><p>A grid cannot move heat too far in one time step. If the step is too aggressive, the numerical solution becomes unstable instead of physical.</p></section>
+  <section class="content-block"><h3>Meaning of the Equation</h3><p>This relation turns an algorithmic step into a precise rule. It identifies what is being updated, counted, or bounded, so the process can be checked by its state, cost, error, or learning behavior instead of only by a visual animation.</p></section>
 </div>

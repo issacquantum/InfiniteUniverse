@@ -1,12 +1,12 @@
 <div class="structured-content equation-detail-page" data-structured-content>
   <section class="content-block"><h3>Scaled Dot Product Attention</h3></section>
   <section class="content-block"><h3>Equation</h3><div class="equation-link-wrap"><div class="glass-window equation-display">$$ \operatorname{Attention}(Q,K,V)=\operatorname{softmax}\!\left(\frac{QK^T}{\sqrt{d_k}}\right)V $$</div></div></section>
-  <section class="content-block"><h3>Literal Reading</h3><p>Attention equals softmax of Q K transpose divided by the square root of d k, multiplied by V.</p></section>
-  <section class="content-block"><h3>Common Reading</h3><p>A short way to say it: The model compares queries with keys to decide how strongly each value should contribute to the next representation.</p></section>
+  <section class="content-block"><h3>Literal Reading</h3><p>Read it as: attention equals softmax of Q K transpose divided by the square root of d k, multiplied by V.</p></section>
+  <section class="content-block"><h3>Common Reading</h3><p>The model compares queries with keys to decide how strongly each value should contribute to the next representation.</p></section>
   <section class="content-block"><h3>Symbols</h3><p><strong>\(Q\)</strong>: query matrix.</p>
     <p><strong>\(K\)</strong>: key matrix.</p>
     <p><strong>\(V\)</strong>: value matrix.</p>
     <p><strong>\(d_k\)</strong>: key dimension, used to stabilize the scale of dot products.</p>
     <p><strong>\(\operatorname{softmax}\)</strong>: converts scores into weights that sum to one.</p></section>
-  <section class="content-block"><h3>Meaning of the Equation</h3><p>The model compares queries with keys to decide how strongly each value should contribute to the next representation.</p></section>
+  <section class="content-block"><h3>Meaning of the Equation</h3><p>This relation turns an algorithmic step into a precise rule. It identifies what is being updated, counted, or bounded, so the process can be checked by its state, cost, error, or learning behavior instead of only by a visual animation.</p></section>
 </div>
