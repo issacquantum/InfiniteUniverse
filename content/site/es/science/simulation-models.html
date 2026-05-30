@@ -141,15 +141,18 @@
       </button>
     </div>
     <p>
-      Las actualizaciones explícitas de difusión deben respetar una <strong>condición de estabilidad</strong>. En una dimensión, la forma
-      básica es:
+      Las actualizaciones explícitas de difusión deben respetar una <strong>condición de estabilidad</strong>. El esquema
+      FTCS de calor en una dimensión permite \(\lambda \le 1/2\). La red del modelo de abajo es bidimensional, así que
+      con el mismo espaciado y el mismo número de difusión en ambas direcciones el límite seguro se vuelve
+      \(\lambda \le 1/4\). De forma más general, los números de difusión direccionales deben satisfacer
+      \(\lambda_x+\lambda_y\le 1/2\).
     </p>
     <div class="equation-link-wrap">
       <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
         data-branch-id="simulation-models-equations" data-item-id="heat-stability-condition"
         aria-label="Abrir explicación para la condición de estabilidad de la ecuación de calor">
         $$
-        \lambda=\alpha\frac{\Delta t}{\Delta x^2}\le\frac{1}{2}
+        \lambda_x+\lambda_y\le\frac{1}{2}
         $$
       </button>
     </div>

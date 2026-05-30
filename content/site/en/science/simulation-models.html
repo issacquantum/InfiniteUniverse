@@ -141,14 +141,17 @@
       </button>
     </div>
     <p>
-      Explicit diffusion updates must respect a <strong>stability condition</strong>. In one dimension, the basic form is:
+      Explicit diffusion updates must respect a <strong>stability condition</strong>. The one-dimensional FTCS heat
+      scheme allows \(\lambda \le 1/2\). The grid in the model below is two-dimensional, so for equal spacing and the
+      same diffusion number in both directions the safe limit becomes \(\lambda \le 1/4\). More generally, the two
+      directional diffusion numbers must satisfy \(\lambda_x+\lambda_y\le 1/2\).
     </p>
     <div class="equation-link-wrap">
       <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
         data-branch-id="simulation-models-equations" data-item-id="heat-stability-condition"
         aria-label="Open explanation for the heat equation stability condition">
         $$
-        \lambda=\alpha\frac{\Delta t}{\Delta x^2}\le\frac{1}{2}
+        \lambda_x+\lambda_y\le\frac{1}{2}
         $$
       </button>
     </div>
