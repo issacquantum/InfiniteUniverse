@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260524-equation-reading-structure-v1";
+import { pick } from "./i18n.js?v=20260529-equation-meaning-audit-v1";
 
 const STORAGE_KEY = "issac-tabares-reading-settings";
 
