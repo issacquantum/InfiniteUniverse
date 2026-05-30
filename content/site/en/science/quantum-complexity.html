@@ -1,0 +1,321 @@
+<div class="structured-content" data-structured-content>
+  <section class="content-block">
+    <h3>Etymology and Scope</h3>
+    <p>
+      <strong>Complexity</strong> comes from roots connected with things woven together. In computation, complexity means
+      the resources needed to solve a problem: time, memory, queries, circuit size, proof length, randomness,
+      entanglement, and physical precision. <strong>Quantum complexity</strong> asks how those resource requirements
+      change when information is processed by quantum states, unitary gates, measurements, and entanglement.
+    </p>
+    <p>
+      This section is not about whether quantum computers are "fast" in a vague sense. It is about exact claims:
+      which problems become easier, which remain hard, which advantages depend on input assumptions, and where quantum
+      mechanics changes the boundary between feasible and infeasible computation.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>The Resource Being Measured</h3>
+    <p>
+      A quantum computer with \(n\) qubits has a state vector in a Hilbert space whose dimension grows exponentially:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-complexity-equations" data-item-id="quantum-state-space-dimension"
+        aria-label="Open explanation for quantum state-space dimension">
+        $$
+        \dim \mathcal{H}_n = 2^n
+        $$
+      </button>
+    </div>
+    <p>
+      This exponential state space is important, but it is not by itself a speedup. A physical device cannot simply
+      print all \(2^n\) amplitudes. A useful quantum algorithm must prepare the right state efficiently, transform it
+      with a polynomial-size circuit, and make measurement likely to reveal useful classical information.
+    </p>
+    <p>
+      That is why complexity theory counts operational resources: number of gates, circuit depth, number of oracle
+      queries, number of qubits, precision, error probability, state-preparation cost, and the cost of reading the
+      answer. A claimed quantum advantage is serious only when all of those costs are included.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Classical Baseline</h3>
+    <p>
+      Quantum complexity starts by comparing against classical complexity. \(P\) contains decision problems solvable in
+      deterministic polynomial time. \(BPP\) allows randomness with bounded error. \(NP\) contains problems where a
+      proposed solution can be checked efficiently. \(PSPACE\) allows polynomial memory even if time is much larger.
+    </p>
+    <p>
+      The known containments most relevant here are:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-complexity-equations" data-item-id="quantum-complexity-class-containments"
+        aria-label="Open explanation for quantum complexity class containments">
+        $$
+        P \subseteq BPP \subseteq BQP \subseteq PP \subseteq PSPACE
+        $$
+      </button>
+    </div>
+    <p>
+      These are containments, not equalities. They do not prove that quantum computers solve every hard problem. They
+      say where bounded-error quantum computation sits inside the larger map of known mathematical limits.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>BQP: Efficient Quantum Computation</h3>
+    <p>
+      The central class is <strong>BQP</strong>, bounded-error quantum polynomial time. A language \(L\) is in BQP if a
+      uniform family of polynomial-size quantum circuits decides membership with high enough probability:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-complexity-equations" data-item-id="bqp-bounded-error-definition"
+        aria-label="Open explanation for BQP bounded-error definition">
+        $$
+        x\in L \Rightarrow \Pr[C_x\ \mathrm{accepts}]\ge \frac{2}{3},
+        \qquad
+        x\notin L \Rightarrow \Pr[C_x\ \mathrm{accepts}]\le \frac{1}{3}
+        $$
+      </button>
+    </div>
+    <p>
+      The constants \(2/3\) and \(1/3\) are not sacred. Repeating the computation and taking a majority vote can reduce
+      the error probability. The real point is that the circuit must be generated efficiently and must use only
+      polynomially many gates.
+    </p>
+    <p>
+      Shor's factoring algorithm and quantum phase estimation are inside this framework. They do not show that quantum
+      computers solve \(NP\)-complete problems efficiently. They show that some algebraic and Fourier-structured
+      problems move into a different complexity regime when quantum interference is available.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Query Complexity and Search</h3>
+    <p>
+      Query complexity asks how many times an algorithm must ask a black-box question. It isolates the cost of
+      extracting information from an oracle, separate from the cost of ordinary computation. Grover's search is the
+      cleanest example:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-complexity-equations" data-item-id="quantum-query-search-bound"
+        aria-label="Open explanation for quantum query search bound">
+        $$
+        Q_{\mathrm{search}}(N)=\Theta(\sqrt{N})
+        $$
+      </button>
+    </div>
+    <p>
+      This is both an upper and lower bound. Quantum mechanics gives a quadratic improvement over checking \(N\)
+      possibilities one by one, but it does not turn unstructured search into logarithmic or constant time. The lower
+      bound is as important as the algorithm because it shows that the quadratic speedup is the best possible for that
+      black-box model.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>QMA: Quantum Proofs</h3>
+    <p>
+      <strong>QMA</strong> is the quantum analogue of \(NP\). In \(NP\), a verifier checks a classical witness. In QMA,
+      the witness can be a quantum state. A verifier circuit must accept valid instances with high probability and
+      reject invalid ones no matter what quantum state is submitted:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-complexity-equations" data-item-id="qma-verifier-definition"
+        aria-label="Open explanation for QMA verifier definition">
+        $$
+        x\in L \Rightarrow \exists|\psi\rangle:\Pr[V_x(|\psi\rangle)=1]\ge a,
+        \qquad
+        x\notin L \Rightarrow \forall|\psi\rangle:\Pr[V_x(|\psi\rangle)=1]\le b,
+        \qquad
+        a-b\ge \frac{1}{\mathrm{poly}(n)}
+        $$
+      </button>
+    </div>
+    <p>
+      QMA matters because many natural quantum many-body problems are not just about running algorithms. They ask
+      whether a low-energy quantum state exists, whether a proposed quantum state has a property, or whether a local
+      physical system hides a hard global structure.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>The Local Hamiltonian Problem</h3>
+    <p>
+      The <strong>local Hamiltonian problem</strong> is the quantum version of a constraint-satisfaction problem. A
+      Hamiltonian is written as a sum of local energy terms:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-complexity-equations" data-item-id="local-hamiltonian-decision-gap"
+        aria-label="Open explanation for local Hamiltonian decision gap">
+        $$
+        H=\sum_{j=1}^{m}H_j,
+        \qquad
+        \lambda_{\min}(H)\le a
+        \quad\text{or}\quad
+        \lambda_{\min}(H)\ge b,
+        \qquad
+        b-a\ge \frac{1}{\mathrm{poly}(n)}
+        $$
+      </button>
+    </div>
+    <p>
+      The task is to decide whether the lowest possible energy is below \(a\) or above \(b\), promised that one of those
+      cases is true. This problem is QMA-complete for suitable local interactions, which means it is a central hard
+      problem for quantum proof verification.
+    </p>
+    <p>
+      Physically, this connects complexity theory to condensed matter. The question "what is the ground-state energy?"
+      becomes a computational question about how hard it is to certify the behavior of a many-particle quantum system.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Circuit Complexity</h3>
+    <p>
+      Circuit complexity measures how many elementary gates are needed to approximate a target unitary operation:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-complexity-equations" data-item-id="quantum-circuit-complexity"
+        aria-label="Open explanation for quantum circuit complexity">
+        $$
+        C_{\epsilon}(U)=\min\left\{m:\left\|U-G_m\cdots G_2G_1\right\|\le\epsilon\right\}
+        $$
+      </button>
+    </div>
+    <p>
+      This is different from the dimension of the Hilbert space. A state or unitary may live in an enormous space but
+      still be easy if it has a short circuit description. Conversely, a generic unitary on many qubits usually requires
+      an enormous number of gates to describe or implement.
+    </p>
+    <p>
+      Circuit complexity is also important in modern physics discussions of black holes, holography, and scrambling,
+      but those uses are interpretive and model-dependent. In this section, the strict meaning is computational: gate
+      count needed to synthesize a transformation to accuracy \(\epsilon\).
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>When Quantum Systems Are Classically Simulable</h3>
+    <p>
+      Not every quantum-looking process is computationally hard. Stabilizer circuits built from Clifford operations can
+      be simulated efficiently on a classical computer. Low-entanglement one-dimensional systems can often be described
+      by tensor networks. Stoquastic Hamiltonians and special free-particle models can also be easier than fully general
+      quantum dynamics.
+    </p>
+    <p>
+      A common boundary is the amount and structure of entanglement. Many efficient tensor-network methods rely on an
+      area-law pattern:
+    </p>
+    <div class="equation-link-wrap">
+      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-complexity-equations" data-item-id="area-law-entanglement-bound"
+        aria-label="Open explanation for area-law entanglement bound">
+        $$
+        S(A)=O(|\partial A|)
+        $$
+      </button>
+    </div>
+    <p>
+      This says the entanglement entropy of a region scales like its boundary rather than its volume. Area laws do not
+      make every system easy, but they explain why some physically important quantum systems have compressed
+      descriptions.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Quantum Advantage and Its Boundaries</h3>
+    <p>
+      <strong>Quantum advantage</strong> means a quantum device solves a well-defined task with less resource cost than
+      the best available classical method. A strong claim must specify the task, input model, output type, error
+      tolerance, hardware assumptions, and classical baseline.
+    </p>
+    <p>
+      Sampling experiments are important because they can show a separation before fault-tolerant quantum computers
+      exist. But sampling advantage is not the same as general useful computation. A device can be hard to simulate and
+      still not solve a practical problem. Quantum complexity keeps those claims separate.
+    </p>
+    <p>
+      Dequantization results also belong here. If a quantum speedup depends on special access to classical data, a
+      matched classical algorithm may recover much of the speedup. That does not make quantum computing irrelevant. It
+      forces every advantage claim to count the same resources on both sides.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Interactive Proofs and Modern Frontiers</h3>
+    <p>
+      Quantum complexity extends beyond single computers. In quantum interactive proof systems, a verifier exchanges
+      messages with one or more provers. The result \(QIP=PSPACE\) shows that quantum interactive proofs match a major
+      classical space-bounded class. Later, the result \(MIP^*=RE\) showed that multiple entangled provers produce a
+      far stranger landscape connected to undecidability.
+    </p>
+    <p>
+      These results are not instructions for building a laptop. They are mathematical statements about what can be
+      certified when quantum information, interaction, and entanglement are allowed. They show that quantum theory does
+      not merely change algorithms; it changes the structure of proof and verification.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>What Quantum Complexity Does Not Say</h3>
+    <p>
+      Quantum complexity does not say quantum computers solve every hard problem. It does not prove \(P\neq NP\). It
+      does not make exponential Hilbert space directly readable. It does not remove the cost of state preparation,
+      error correction, precision, or measurement.
+    </p>
+    <p>
+      The disciplined claim is sharper: quantum mechanics creates new computational resources, and complexity theory
+      tells us where those resources provably help, where they probably do not, and where the answer is still unknown.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3>Open Problems</h3>
+    <ul class="paper-list glossary-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span>Is \(BQP\) strictly larger than \(BPP\) in the unrelativized world, not only relative to oracles or under assumptions?</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span>Which practical problems have durable quantum advantage after state-preparation, error-correction, and output-readout costs are counted?</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span>How hard is it to approximate ground states of physically realistic Hamiltonians?</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span>Can the quantum PCP conjecture be resolved, and what would it imply about many-body physics?</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span>Where exactly is the boundary between classically simulable quantum structure and genuinely hard quantum dynamics?</span></li>
+    </ul>
+  </section>
+
+  <section class="content-block">
+    <h3>Technical Terms Glossary</h3>
+    <ul class="paper-list glossary-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>BQP:</strong> Bounded-error quantum polynomial time, the class of problems efficiently decidable by quantum circuits with small error probability.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>QMA:</strong> Quantum Merlin-Arthur, the quantum analogue of efficient proof verification with a quantum witness.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Oracle:</strong> A black-box subroutine counted by queries rather than by its internal implementation.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Uniform circuit family:</strong> A sequence of circuits generated by an efficient classical procedure, one circuit for each input length.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Local Hamiltonian:</strong> A Hamiltonian made of terms that act on only a few particles or qubits at a time.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>QMA-complete:</strong> As hard as every problem in QMA, while still belonging to QMA.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Area law:</strong> A pattern where entanglement scales with the boundary of a region rather than its volume.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Dequantization:</strong> Building a matched classical algorithm that removes or reduces a claimed quantum speedup.</span></li>
+    </ul>
+  </section>
+
+  <section class="content-block">
+    <h3>Sources and References</h3>
+    <p>These sources support the complexity-theory, Hamiltonian-complexity, simulability, and frontier claims in this section.</p>
+    <ul class="paper-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://epubs.siam.org/doi/abs/10.1137/S0097539796300921" target="_blank" rel="noopener noreferrer">Ethan Bernstein and Umesh Vazirani, 1997. <em>Quantum Complexity Theory.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/abs/0804.3401" target="_blank" rel="noopener noreferrer">John Watrous, 2008. <em>Quantum Computational Complexity.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://epubs.siam.org/doi/abs/10.1137/S0097539704445226" target="_blank" rel="noopener noreferrer">Julia Kempe, Alexei Kitaev, and Oded Regev, 2006. <em>The Complexity of the Local Hamiltonian Problem.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/abs/1401.3916" target="_blank" rel="noopener noreferrer">Sevag Gharibian, Yichen Huang, Zeph Landau, and Seung Woo Shin, 2014. <em>Quantum Hamiltonian Complexity.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/abs/quant-ph/0406196" target="_blank" rel="noopener noreferrer">Scott Aaronson and Daniel Gottesman, 2004. <em>Improved Simulation of Stabilizer Circuits.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.nature.com/articles/nature23458" target="_blank" rel="noopener noreferrer">Aram Harrow and Ashley Montanaro, 2017. <em>Quantum Computational Supremacy.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/abs/0907.4737" target="_blank" rel="noopener noreferrer">Rahul Jain, Zhengfeng Ji, Sarvagya Upadhyay, and John Watrous, 2009. <em>QIP = PSPACE.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/abs/2001.04383" target="_blank" rel="noopener noreferrer">Zhengfeng Ji, Anand Natarajan, Thomas Vidick, John Wright, and Henry Yuen, 2020. <em>MIP* = RE.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://ocw.mit.edu/courses/6-845-quantum-complexity-theory-fall-2010/" target="_blank" rel="noopener noreferrer">MIT OpenCourseWare. <em>6.845 Quantum Complexity Theory.</em></a></span></li>
+    </ul>
+  </section>
+</div>

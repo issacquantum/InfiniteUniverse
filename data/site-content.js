@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260530-info-theory-precision-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260530-quantum-complexity-v1";
 
 function htmlSource(group, id) {
   return {
@@ -139,6 +139,21 @@ const quantumComputingEquationBranch = {
     createStructuredItem("science/equations", "pure-state-hilbert-normalization", "Pure State Hilbert Normalization", "Normalización de Estado Puro en Hilbert"),
     createStructuredItem("science/equations", "density-matrix-conditions", "Density Matrix Conditions", "Condiciones de Matriz de Densidad"),
     createStructuredItem("science/equations", "product-state-factorization", "Product State Factorization", "Factorización de Estado Producto")
+  ]
+};
+
+const quantumComplexityEquationBranch = {
+  id: "quantum-complexity-equations",
+  title: { en: "Equations", es: "Ecuaciones" },
+  items: [
+    createStructuredItem("science/equations", "quantum-state-space-dimension", "Quantum State-Space Dimension", "Dimensión del Espacio de Estados Cuántico"),
+    createStructuredItem("science/equations", "quantum-complexity-class-containments", "Quantum Complexity Class Containments", "Contenciones de Clases de Complejidad Cuántica"),
+    createStructuredItem("science/equations", "bqp-bounded-error-definition", "BQP Bounded-Error Definition", "Definición de BQP con Error Acotado"),
+    createStructuredItem("science/equations", "quantum-query-search-bound", "Quantum Query Search Bound", "Cota Cuántica de Búsqueda por Consultas"),
+    createStructuredItem("science/equations", "qma-verifier-definition", "QMA Verifier Definition", "Definición de Verificador QMA"),
+    createStructuredItem("science/equations", "local-hamiltonian-decision-gap", "Local Hamiltonian Decision Gap", "Brecha de Decisión del Hamiltoniano Local"),
+    createStructuredItem("science/equations", "quantum-circuit-complexity", "Quantum Circuit Complexity", "Complejidad de Circuitos Cuánticos"),
+    createStructuredItem("science/equations", "area-law-entanglement-bound", "Area-Law Entanglement Bound", "Cota de Entrelazamiento por Ley de Área")
   ]
 };
 
@@ -533,6 +548,12 @@ export const siteContent = {
         createTopic("quantum-computing", "Quantum Computing", "Computación cuántica", {
           contentFile: htmlSource("science", "quantum-computing"),
           branches: [quantumComputingEquationBranch],
+          hideBranchNavigation: true,
+          hideDetailNavigation: true
+        }),
+        createTopic("quantum-complexity", "Quantum Complexity", "Complejidad cuántica", {
+          contentFile: htmlSource("science", "quantum-complexity"),
+          branches: [quantumComplexityEquationBranch],
           hideBranchNavigation: true,
           hideDetailNavigation: true
         })
