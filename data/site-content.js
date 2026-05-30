@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260530-consciousness-boundaries-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260530-ai-evaluation-boundaries-v1";
 
 function htmlSource(group, id) {
   return {
@@ -216,6 +216,7 @@ const artificialIntelligenceEquationBranch = {
     createStructuredItem("science/equations", "language-modeling-objective", "Language Modeling Objective", "Objetivo de Modelado de Lenguaje"),
     createStructuredItem("science/equations", "diffusion-denoising-objective", "Diffusion Denoising Objective", "Objetivo de Eliminación de Ruido en Difusión"),
     createStructuredItem("science/equations", "rlhf-objective", "RLHF (reinforcement learning from human feedback) Objective", "Objetivo de RLHF (reinforcement learning from human feedback, aprendizaje por refuerzo con retroalimentación humana)"),
+    createStructuredItem("science/equations", "calibration-condition", "Calibration Condition", "Condición de Calibración"),
     createStructuredItem("science/equations", "neural-scaling-law", "Neural Scaling Law", "Ley de Escalamiento Neuronal")
   ]
 };
