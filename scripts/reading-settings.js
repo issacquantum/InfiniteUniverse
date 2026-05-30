@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260529-heat-stability-2d-v1";
+import { pick } from "./i18n.js?v=20260530-consciousness-boundaries-v1";
 
 const STORAGE_KEY = "issac-tabares-reading-settings";
 

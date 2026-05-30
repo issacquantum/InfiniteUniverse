@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260529-heat-stability-2d-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260530-consciousness-boundaries-v1";
 
 const mountedModels = new WeakSet();
 
