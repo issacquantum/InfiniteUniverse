@@ -1,4 +1,4 @@
-import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260529-equation-meaning-audit-v1";
+import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260529-mechanics-wording-v1";
 
 const mountedSimulators = new WeakSet();
 const TWO_PI = Math.PI * 2;
