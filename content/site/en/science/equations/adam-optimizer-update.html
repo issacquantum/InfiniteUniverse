@@ -1,11 +1,11 @@
 <div class="structured-content equation-detail-page" data-structured-content>
   <section class="content-block"><h3>Adam Optimizer Update</h3></section>
   <section class="content-block"><h3>Equation</h3><div class="equation-link-wrap"><div class="glass-window equation-display">$$ \theta_{t+1}=\theta_t-\eta\frac{\hat m_t}{\sqrt{\hat v_t}+\epsilon} $$</div></div></section>
-  <section class="content-block"><h3>Literal Reading</h3><p>The parameters move by a learning rate times a bias-corrected first moment divided by a scaled second moment.</p></section>
-  <section class="content-block"><h3>Common Reading</h3><p>A short way to say it: Adam adapts the step size per parameter using running estimates of gradient mean and variance.</p></section>
+  <section class="content-block"><h3>Literal Reading</h3><p>Read it as: the parameters move by a learning rate times a bias-corrected first moment divided by a scaled second moment.</p></section>
+  <section class="content-block"><h3>Common Reading</h3><p>Adam adapts the step size per parameter using running estimates of gradient mean and variance.</p></section>
   <section class="content-block"><h3>Symbols</h3><p><strong>\(\hat m_t\)</strong>: bias-corrected first moment estimate of the gradient.</p>
     <p><strong>\(\hat v_t\)</strong>: bias-corrected second moment estimate.</p>
     <p><strong>\(\eta\)</strong>: learning rate.</p>
     <p><strong>\(\epsilon\)</strong>: small constant preventing division by zero.</p></section>
-  <section class="content-block"><h3>Meaning of the Equation</h3><p>Adam adapts the step size per parameter using running estimates of gradient mean and variance.</p></section>
+  <section class="content-block"><h3>Meaning of the Equation</h3><p>This relation turns an algorithmic step into a precise rule. It identifies what is being updated, counted, or bounded, so the process can be checked by its state, cost, error, or learning behavior instead of only by a visual animation.</p></section>
 </div>
