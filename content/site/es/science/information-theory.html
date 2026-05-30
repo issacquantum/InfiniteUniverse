@@ -67,8 +67,9 @@
       y flujos de datos contienen <strong>redundancia</strong>. <strong>La codificación de fuente</strong> remueve esa <strong>redundancia</strong> sin cambiar el mensaje.
     </p>
     <p>
-      El teorema de codificación de fuente de Shannon dice que descripciones largas sin pérdida pueden acercarse a la
-      <strong>tasa de entropía</strong>:
+      El teorema de codificación de fuente de Shannon tiene una forma precisa para símbolos individuales: para un
+      código prefijo binario óptimo de una fuente discreta sin memoria, la longitud esperada \(L\) de las palabras de
+      código satisface:
     </p>
     <div class="equation-link-wrap">
       <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
@@ -80,8 +81,11 @@
       </button>
     </div>
     <p>
-      Este es el puente entre incertidumbre y compresión: los patrones comunes reciben códigos más cortos, los raros
-      reciben códigos más largos y la mejor longitud promedio queda controlada por la entropía.
+      Este es un límite de longitud promedio bajo un modelo de probabilidad y supuestos de código prefijo, no una promesa
+      de que cada mensaje individual tenga esa longitud. En codificación por bloques, la cantidad relevante es la
+      <strong>tasa de entropía</strong>: información promedio por símbolo emitido en una fuente larga. Al crecer la
+      longitud del bloque, la compresión sin pérdida puede acercarse a esa tasa, aunque los bloques finitos todavía
+      cargan sobrecostos.
     </p>
   </section>
 
@@ -116,6 +120,10 @@
         $$
       </button>
     </div>
+    <p>
+      Aquí \(q\) es el tamaño del alfabeto, \(p\) es la probabilidad total de que el símbolo recibido sea incorrecto, y
+      la capacidad se mide en bits por uso del canal porque los logaritmos son base 2.
+    </p>
   </section>
 
   <section class="content-block">
@@ -192,8 +200,8 @@
     <h3>La información es física</h3>
     <p>
       La teoría de la información también toca la termodinámica. Un bit puede ser abstracto, pero almacenarlo, copiarlo,
-      transmitirlo y borrarlo requiere sistemas físicos. El <strong>principio de Landauer</strong> da el costo mínimo
-      de calor para un borrado irreversible:
+      transmitirlo y borrarlo requiere sistemas físicos. El <strong>principio de Landauer</strong> da el límite inferior
+      ideal de calor disipado por un borrado lógicamente irreversible:
     </p>
     <div class="equation-link-wrap">
       <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
@@ -205,8 +213,9 @@
       </button>
     </div>
     <p>
-      El punto no es que cada cómputo deba gastar exactamente esa energía. El punto es que perder información de forma
-      irreversible tiene un precio termodinámico.
+      Más precisamente, \(k_BT\ln2\) es la disipación mínima ideal de calor al borrar irreversiblemente un bit lógico bajo
+      condiciones termodinámicas ideales. El hardware real puede disipar más, y el cómputo reversible cambia los
+      supuestos.
     </p>
   </section>
 
