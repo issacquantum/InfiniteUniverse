@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260529-double-slit-mobile-speed-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260529-model-lab-last-v1";
 
 function htmlSource(group, id) {
   return {
@@ -478,13 +478,6 @@ export const siteContent = {
   ],
   knowledgeWorlds: [
     {
-      id: "model-lab",
-      title: { en: "Model Lab", es: "Laboratorio de modelos" },
-      topics: [
-        createTopic("model-lab", "Interactive Models", "Modelos interactivos")
-      ]
-    },
-    {
       id: "physical-foundations",
       title: { en: "Physical Foundations", es: "Fundamentos físicos" },
       topics: [
@@ -645,6 +638,13 @@ export const siteContent = {
           hideDetailNavigation: true
         }),
         createTopic("philosophy-science", "Philosophy of Science", "Filosofía de la ciencia")
+      ]
+    },
+    {
+      id: "model-lab",
+      title: { en: "Model Lab", es: "Laboratorio de modelos" },
+      topics: [
+        createTopic("model-lab", "Interactive Models", "Modelos interactivos")
       ]
     }
   ]
