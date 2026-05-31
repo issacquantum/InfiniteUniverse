@@ -873,8 +873,8 @@ function openExternal(id) {
     ?? /Android|iPhone|iPad|iPod/i.test(navigator.userAgent || "");
   const hasUrl = (value) => typeof value === "string" && value.trim() !== "";
 
-  if (id === "cv" || id === "timeInfinityBook") {
-    const documentAsset = id === "cv" ? siteAssets.cv : siteAssets.timeInfinityBook;
+  if (id === "cv") {
+    const documentAsset = siteAssets.cv;
     const cvPath = pick(documentAsset.path, store.getState().language);
 
     if (hasUrl(cvPath)) {
