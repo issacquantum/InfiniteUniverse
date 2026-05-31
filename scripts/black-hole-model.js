@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260531-literal-reading-cleanup-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260531-literal-parenthesis-natural-v1";
 
 const mountedModels = new WeakSet();
 
