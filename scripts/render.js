@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260531-literal-reading-cleanup-v1";
+import { pick } from "./i18n.js?v=20260531-literal-parenthesis-natural-v1";
 
 function escapeHtml(value) {
   return String(value)

@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260531-literal-reading-cleanup-v1";
+import { pick } from "./i18n.js?v=20260531-literal-parenthesis-natural-v1";
 
 const STORAGE_KEY = "issac-tabares-reading-settings";
 

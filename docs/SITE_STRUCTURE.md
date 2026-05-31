@@ -31,6 +31,8 @@ The literal reading is for reading the symbols out loud. The common reading is a
 
 Literal readings start directly with the read-aloud wording. They should not repeat labels such as `Read it as:` or `Se lee:` inside the paragraph.
 
+Parentheses in literal readings should be spoken naturally. Use `the quantity ...` or `la cantidad ...` for grouped terms, and use function phrasing such as `H of X` or `H de X` for ordinary function notation. Do not mechanically spell out `open parenthesis`, `close parenthesis`, `paréntesis abierto`, or `paréntesis cerrado` when a clearer spoken form exists.
+
 ## Knowledge World Domains
 
 - `model-lab`: central model index.

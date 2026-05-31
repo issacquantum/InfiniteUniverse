@@ -77,6 +77,8 @@ The literal reading is how the equation is read out loud. The common reading is 
 
 Literal readings should start directly with the read-aloud wording. Do not add repeated lead-ins such as `Read it as:` or `Se lee:` because the section title already provides that context.
 
+When an equation contains parentheses, write the literal reading in natural spoken form. Use wording like `the quantity ...` / `la cantidad ...` for grouped terms, and use function phrasing like `H of X` / `H de X` when the parentheses are ordinary function notation. Avoid spelling out `open parenthesis`, `close parenthesis`, `paréntesis abierto`, or `paréntesis cerrado` unless there is no clearer way to read the expression.
+
 ## Model Notes
 
 Interactive models should stay tied to the section where they belong. `model-lab` is only a place to find them faster.
