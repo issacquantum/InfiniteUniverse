@@ -74,16 +74,6 @@ function renderDockItems({ assets, includeCv, language }) {
       >
         <i data-lucide="file-text"></i>
       </button>
-      <button
-        class="glass-sphere social-sphere cv-sphere time-infinity-book-sphere"
-        type="button"
-        data-action="open-external"
-        data-external-id="timeInfinityBook"
-        aria-label="${escapeHtml(pick(assets.timeInfinityBook.label, language))}"
-        title="${escapeHtml(pick(assets.timeInfinityBook.label, language))}"
-      >
-        <i data-lucide="scroll-text"></i>
-      </button>
     `);
   }
 

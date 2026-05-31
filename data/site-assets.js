@@ -34,17 +34,6 @@ export const siteAssets = {
       es: "Assets2/Professional_Resume_Spanish2026.pdf"
     }
   },
-  timeInfinityBook: {
-    id: "timeInfinityBook",
-    label: {
-      en: "Time and Infinity Book",
-      es: "Libro sobre tiempo e infinito"
-    },
-    path: {
-      en: "Assets2/My-Physics-of-Time-and-Infinity.pdf",
-      es: "Assets2/Mi-Fisica-del-Tiempo-y-el-Infinito.pdf"
-    }
-  },
   music: {
     folder: "Assets2/Sitemusic",
     files: [
