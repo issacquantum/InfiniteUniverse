@@ -75,6 +75,8 @@ Each equation page should keep the same order:
 
 The literal reading is how the equation is read out loud. The common reading is the short physics shorthand. The meaning section should explain the idea in plain language and should not repeat the common reading.
 
+Literal readings should start directly with the read-aloud wording. Do not add repeated lead-ins such as `Read it as:` or `Se lee:` because the section title already provides that context.
+
 ## Model Notes
 
 Interactive models should stay tied to the section where they belong. `model-lab` is only a place to find them faster.

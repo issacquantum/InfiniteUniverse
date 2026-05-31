@@ -29,6 +29,8 @@ Equation detail pages use the same reader structure in both languages:
 
 The literal reading is for reading the symbols out loud. The common reading is a short shorthand. The meaning section should explain the physical or mathematical idea without repeating the common reading.
 
+Literal readings start directly with the read-aloud wording. They should not repeat labels such as `Read it as:` or `Se lee:` inside the paragraph.
+
 ## Knowledge World Domains
 
 - `model-lab`: central model index.
