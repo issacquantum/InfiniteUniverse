@@ -1,7 +1,7 @@
 <div class="structured-content equation-detail-page" data-structured-content>
   <section class="content-block"><h3>L2-Norm (Euclidean Norm) Matrix Sampling</h3></section>
   <section class="content-block"><h3>Equation</h3><div class="equation-link-wrap"><div class="glass-window equation-display">$$ \Pr[i]=\frac{\|A_{i,*}\|_2^2}{\|A\|_F^2},\qquad \Pr[j\mid i]=\frac{|A_{ij}|^2}{\|A_{i,*}\|_2^2} $$</div></div></section>
-  <section class="content-block"><h3>Literal Reading</h3><p>Read it as: the probability of choosing row \(i\) is its squared row norm divided by the squared Frobenius norm of the matrix. After row \(i\) is chosen, the probability of choosing column \(j\) is the squared entry divided by that row's squared norm.</p></section>
+  <section class="content-block"><h3>Literal Reading</h3><p>Read it as: P open parenthesis i comma j close parenthesis equals vertical bar A sub ij vertical bar to the power of 2 over norm A norm sub F to the power of 2.</p></section>
   <section class="content-block"><h3>Common Reading</h3><p>This is the matrix version of length-square sampling: sample large-energy rows first, then large-energy entries within the selected row.</p></section>
   <section class="content-block"><h3>Symbols</h3><p><strong>\(A\)</strong>: the matrix being sampled.</p>
     <p><strong>\(A_{i,*}\)</strong>: row \(i\) of the matrix.</p>
@@ -9,5 +9,5 @@
     <p><strong>\(\|A_{i,*}\|_2\)</strong>: \(\ell^2\) norm of row \(i\).</p>
     <p><strong>\(\|A\|_F\)</strong>: Frobenius norm of the whole matrix.</p>
     <p><strong>\(\Pr[j\mid i]\)</strong>: probability of choosing \(j\) after \(i\) has already been chosen.</p></section>
-  <section class="content-block"><h3>Meaning of the Equation</h3><p>The matrix version of length-square sampling: sample large-energy rows first, then large-energy entries within the selected row.</p></section>
+  <section class="content-block"><h3>Meaning of the Equation</h3><p>Classical data are represented or sampled through quantum amplitudes and squared norms.</p></section>
 </div>

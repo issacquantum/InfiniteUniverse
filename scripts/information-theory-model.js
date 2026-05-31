@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260530-book-naming-audit-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260531-equation-explainers-v1";
 
 const mountedModels = new WeakSet();
 const SYMBOL_COUNT = 4;
