@@ -7,11 +7,11 @@
         $$
       </div>
     </div></section>
-  <section class="content-block"><h3>Literal Reading</h3><p>Read it as: capacity equals log base two of \(q\), plus one minus \(p\) times log base two of one minus \(p\), plus \(p\) times log base two of \(p\) divided by \(q-1\).</p></section>
+  <section class="content-block"><h3>Literal Reading</h3><p>Read it as: C equals log q minus H sub q open parenthesis p close parenthesis.</p></section>
   <section class="content-block"><h3>Common Reading</h3><p>The maximum reliable information rate for a q-ary symmetric noisy channel.</p></section>
   <section class="content-block"><h3>Symbols</h3><p><strong>\(C\)</strong>: channel capacity in bits per channel use.</p>
     <p><strong>\(q\)</strong>: alphabet size, meaning the number of possible symbols the channel can send.</p>
     <p><strong>\(p\)</strong>: total symbol error probability, meaning the chance that the received symbol is not the one sent.</p>
     <p><strong>\(\log_2\)</strong>: logarithm base 2, so the result is measured in bits.</p></section>
-  <section class="content-block"><h3>Meaning of the Equation</h3><p>This formula says how much information can be sent per use of a symmetric noisy channel if the code is designed well enough and made long enough. A larger alphabet raises the possible information per symbol, while a larger error probability lowers it because the receiver has less certainty about what was sent.</p></section>
+  <section class="content-block"><h3>Meaning of the Equation</h3><p>For an alphabet with \(q\) possible symbols, the ideal information per channel use is reduced by the uncertainty caused by symbol errors. The formula measures how many bits per use can still be transmitted reliably after accounting for that noise.</p></section>
 </div>

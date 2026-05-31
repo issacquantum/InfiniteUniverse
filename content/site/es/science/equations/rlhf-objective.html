@@ -1,11 +1,11 @@
 <div class="structured-content equation-detail-page" data-structured-content>
   <section class="content-block"><h3>Objetivo de RLHF (aprendizaje por refuerzo con retroalimentación humana)</h3></section>
   <section class="content-block"><h3>Ecuación</h3><div class="equation-link-wrap"><div class="glass-window equation-display">$$ \max_\theta\;\mathbb{E}[r_\phi(x,y)]-\beta D_{\rm KL}(\pi_\theta(y|x)\|\pi_{\rm ref}(y|x)) $$</div></div></section>
-  <section class="content-block"><h3>Lectura Literal</h3><p>Se lee: maximizar la puntuación del modelo de recompensa mientras se penaliza desviarse de una política de referencia.</p></section>
+  <section class="content-block"><h3>Lectura Literal</h3><p>Se lee: J paréntesis abierto theta paréntesis cerrado igual E corchete abierto R paréntesis abierto x coma y paréntesis cerrado corchete cerrado menos beta KL paréntesis abierto pi sub theta norma pi sub ref paréntesis cerrado.</p></section>
   <section class="content-block"><h3>Lectura Común</h3><p>Maximizar la puntuación del modelo de recompensa mientras se penaliza desviarse de una política de referencia.</p></section>
   <section class="content-block"><h3>Símbolos</h3><p><strong>\(r_\phi(x,y)\)</strong>: puntuación del modelo de recompensa para la instrucción de entrada \(x\) y la salida \(y\).</p>
     <p><strong>\(\pi_\theta\)</strong>: política ajustada.</p>
     <p><strong>\(\pi_{\rm ref}\)</strong>: modelo de referencia.</p>
     <p><strong>\(\beta\)</strong>: fuerza de la penalización KL.</p></section>
-  <section class="content-block"><h3>Significado de la Ecuación</h3><p>Esta relación convierte un paso algorítmico en una regla precisa. Identifica qué se actualiza, se cuenta o se acota, para que el proceso pueda revisarse por su estado, costo, error o comportamiento de aprendizaje, y no solo por una animación visual.</p></section>
+  <section class="content-block"><h3>Significado de la Ecuación</h3><p>La política se optimiza por recompensa mientras permanece cerca de un modelo de referencia.</p></section>
 </div>
