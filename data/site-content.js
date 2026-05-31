@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260531-equation-explainers-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260531-perspective-boundary-v1";
 
 function htmlSource(group, id) {
   return {
@@ -393,7 +393,9 @@ const personalCosmologyEquationBranch = {
     createStructuredItem("science/equations", "geodesic-equation", "Geodesic Equation", "Ecuación Geodésica"),
     createStructuredItem("science/equations", "boltzmann-entropy", "Boltzmann Entropy", "Entropía de Boltzmann"),
     createStructuredItem("science/equations", "reduced-density-matrix", "Reduced Density Matrix", "Matriz de Densidad Reducida"),
+    createStructuredItem("science/equations", "finite-observer-reduced-state", "Finite Observer Reduced State", "Estado Reducido de un Observador Finito"),
     createStructuredItem("science/equations", "environment-reduced-state", "Environment Reduced State", "Estado Reducido por Ambiente"),
+    createStructuredItem("science/equations", "decohered-record-state", "Decohered Record State", "Estado de Registros Decoheridos"),
     createStructuredItem("science/equations", "hamiltonian-time-evolution", "Hamiltonian Time Evolution", "Evolución Temporal Hamiltoniana"),
     createStructuredItem("science/equations", "einstein-field-equations", "Einstein Field Equations", "Ecuaciones de Campo de Einstein"),
     createStructuredItem("science/equations", "einstein-field-equations-lambda", "Einstein Field Equations with Lambda", "Ecuaciones de Campo de Einstein con Lambda"),
