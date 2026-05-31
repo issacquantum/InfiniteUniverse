@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260531-equation-explainers-v1";
+import { pick } from "./i18n.js?v=20260531-perspective-boundary-v1";
 
 const STORAGE_KEY = "issac-tabares-reading-settings";
 
