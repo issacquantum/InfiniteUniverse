@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260530-book-naming-audit-v1";
+import { pick } from "./i18n.js?v=20260531-equation-explainers-v1";
 
 function escapeHtml(value) {
   return String(value)

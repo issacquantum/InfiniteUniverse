@@ -1,12 +1,12 @@
 <div class="structured-content equation-detail-page" data-structured-content>
   <section class="content-block"><h3>Heat Stability Condition</h3></section>
   <section class="content-block"><h3>Equation</h3><div class="equation-link-wrap"><div class="glass-window equation-display">$$ \lambda=\alpha\frac{\Delta t}{\Delta x^2}\le\frac{1}{2}\quad\text{(1D FTCS)} $$</div></div><div class="equation-link-wrap"><div class="glass-window equation-display">$$ \lambda_x+\lambda_y\le\frac{1}{2},\qquad \lambda_x=\lambda_y=\lambda\Rightarrow \lambda\le\frac{1}{4} $$</div></div></section>
-  <section class="content-block"><h3>Literal Reading</h3><p>Read it as: in one dimension, lambda equals thermal diffusivity times the time step divided by grid spacing squared, and the explicit FTCS update is stable only when lambda is no more than one half. In two dimensions, the x and y diffusion numbers must add to no more than one half; if they are equal, each one must be no more than one fourth.</p></section>
+  <section class="content-block"><h3>Literal Reading</h3><p>Read it as: alpha Delta t over Delta x to the power of 2 less than or equal to 1 over 2.</p></section>
   <section class="content-block"><h3>Common Reading</h3><p>The allowed time step gets smaller when heat can spread in more directions.</p></section>
   <section class="content-block"><h3>Symbols</h3><p><strong>\(\lambda\)</strong>: diffusion number for one direction.</p>
     <p><strong>\(\lambda_x,\lambda_y\)</strong>: diffusion numbers in the horizontal and vertical grid directions.</p>
     <p><strong>\(\alpha\)</strong>: thermal diffusivity.</p>
     <p><strong>\(\Delta t\)</strong>: time step.</p>
     <p><strong>\(\Delta x\)</strong>: grid spacing.</p></section>
-  <section class="content-block"><h3>Meaning of the Equation</h3><p>An explicit heat solver updates each grid point using nearby values from the previous step. If the time step is too large compared with grid spacing and diffusivity, the update overreacts and creates numerical growth instead of smooth diffusion. In a 2D square grid, heat spreads along two axes, so the per-direction limit used by the model is \(0.25\), not the \(0.5\) limit from the one-dimensional case.</p></section>
+  <section class="content-block"><h3>Meaning of the Equation</h3><p>The discrete heat equation is stable only when the time step is small enough relative to spatial resolution.</p></section>
 </div>

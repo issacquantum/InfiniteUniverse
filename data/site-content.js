@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260530-book-naming-audit-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260531-equation-explainers-v1";
 
 function htmlSource(group, id) {
   return {
