@@ -57,6 +57,24 @@ Names should stay consistent across visible labels, section IDs, file names, and
 - `intelligence-computation` - AI, information theory, programming, and simulations.
 - `systems-method` - complex systems and philosophy of science.
 
+## Equation Explainers
+
+Equation pages live in:
+
+```text
+content/site/en/science/equations/
+content/site/es/science/equations/
+```
+
+Each equation page should keep the same order:
+
+- literal reading;
+- common reading;
+- symbols;
+- meaning of the equation.
+
+The literal reading is how the equation is read out loud. The common reading is the short physics shorthand. The meaning section should explain the idea in plain language and should not repeat the common reading.
+
 ## Model Notes
 
 Interactive models should stay tied to the section where they belong. `model-lab` is only a place to find them faster.
