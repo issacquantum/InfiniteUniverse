@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260531-perspective-boundary-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260531-literal-reading-cleanup-v1";
 
 function htmlSource(group, id) {
   return {
