@@ -34,6 +34,17 @@ export const siteAssets = {
       es: "Assets2/Professional_Resume_Spanish2026.pdf"
     }
   },
+  timeInfinityWork: {
+    id: "timeInfinityWork",
+    label: {
+      en: "My Physics of Time and Infinity",
+      es: "Mi Física del Tiempo y el Infinito"
+    },
+    path: {
+      en: "Assets2/My-Physics-of-Time-and-Infinity.pdf",
+      es: "Assets2/Mi-Fisica-del-Tiempo-y-el-Infinito.pdf"
+    }
+  },
   music: {
     folder: "Assets2/Sitemusic",
     files: [

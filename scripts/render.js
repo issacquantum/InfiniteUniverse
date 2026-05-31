@@ -62,6 +62,7 @@ function renderDockItems({ assets, includeCv, language }) {
 
   if (includeCv) {
     const cvLabel = pick(assets.cv.label, language);
+    const timeInfinityWorkLabel = pick(assets.timeInfinityWork.label, language);
 
     items.push(`
       <button
@@ -73,6 +74,16 @@ function renderDockItems({ assets, includeCv, language }) {
         title="${escapeHtml(cvLabel)}"
       >
         <i data-lucide="file-text"></i>
+      </button>
+      <button
+        class="glass-sphere social-sphere cv-sphere time-infinity-work-sphere"
+        type="button"
+        data-action="open-external"
+        data-external-id="timeInfinityWork"
+        aria-label="${escapeHtml(timeInfinityWorkLabel)}"
+        title="${escapeHtml(timeInfinityWorkLabel)}"
+      >
+        <i data-lucide="scroll-text"></i>
       </button>
     `);
   }
