@@ -13,12 +13,21 @@ This file documents the project layout for `https://issacquantum.github.io/Infin
 
 ## Content Flow
 
-- `index.html` loads the app shell, canonical metadata, styles, and module entry point.
+- `index.html` loads the app shell, public URL metadata, styles, and module entry point.
 - `scripts/app.js` creates the app state and calls the renderer.
 - `scripts/structured-content.js` loads structured HTML fragments and initializes models inside the loaded section.
 - Science and personal pages live under `content/site/en/` and `content/site/es/`.
 - Equation explainer pages live under `content/site/*/science/equations/`.
 - The centralized model index lives at `content/site/*/science/model-lab.html`; models still remain embedded in their original science pages.
+
+## Equation Explainers
+
+Equation detail pages use the same reader structure in both languages:
+
+- English: `Equation`, `Literal Reading`, `Common Reading`, `Symbols`, `Meaning of the Equation`.
+- Spanish: `Ecuación`, `Lectura Literal`, `Lectura Común`, `Símbolos`, `Significado de la Ecuación`.
+
+The literal reading is for reading the symbols out loud. The common reading is a short shorthand. The meaning section should explain the physical or mathematical idea without repeating the common reading.
 
 ## Knowledge World Domains
 
@@ -50,6 +59,6 @@ The shared foundation-topic model initializer is `scripts/foundation-models.js`;
 
 ## Deployment
 
-Canonical public URL: `https://issacquantum.github.io/InfiniteUniverse/`
+Public site URL: `https://issacquantum.github.io/InfiniteUniverse/`
 
 References in `index.html`, `robots.txt`, and `sitemap.xml` should keep pointing to that URL.
