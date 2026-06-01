@@ -2315,7 +2315,7 @@ body[data-media-notes="on"] .media-note {
 
   .reading-settings-panel h2,
   .reading-settings-panel h3 {
-    font-family: var(--font-title);
+    font-family: var(--font-content-desktop);
   }
 
   h1,
@@ -2336,13 +2336,13 @@ body[data-media-notes="on"] .media-note {
   .branch-grid .glass-tab,
   .legacy-item-grid .glass-tab,
   .focused-path-tab {
-    font-family: var(--font-title);
+    font-family: var(--font-content-desktop);
   }
 
   .content-window :is(h1, h2, h3, h4, h5, h6) :is(a, span, strong, em),
   .structured-content :is(h1, h2, h3, h4, h5, h6) :is(a, span, strong, em),
   .legacy-content :is(h1, h2, h3, h4, h5, h6) :is(a, span, strong, em) {
-    font-family: var(--font-title);
+    font-family: var(--font-content-desktop);
   }
 
   body[data-readable-font="on"] .site-title,
@@ -2359,7 +2359,7 @@ body[data-media-notes="on"] .media-note {
   body[data-readable-font="on"] .branch-grid .glass-tab,
   body[data-readable-font="on"] .legacy-item-grid .glass-tab,
   body[data-readable-font="on"] .focused-path-tab {
-    font-family: var(--font-title);
+    font-family: var(--font-content-desktop);
   }
 
   .reading-settings-panel__description {
