@@ -7,5 +7,5 @@
     <p><strong>\(\pi_\theta\)</strong>: tuned policy.</p>
     <p><strong>\(\pi_{\rm ref}\)</strong>: reference model.</p>
     <p><strong>\(\beta\)</strong>: strength of the KL penalty.</p></section>
-  <section class="content-block"><h3>Meaning of the Equation</h3><p>The policy is optimized for reward while staying close to a reference model.</p></section>
+  <section class="content-block"><h3>Meaning of the Equation</h3><p>The reward term pushes behavior toward preferred outputs, while the KL penalty limits drift from the reference model. This reduces but does not eliminate reward hacking.</p></section>
 </div>
