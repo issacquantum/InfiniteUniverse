@@ -196,7 +196,7 @@ body[data-motion="reduced"] *::after {
   h4,
   h5,
   h6 {
-    font-family: var(--font-title);
+    font-family: var(--font-content-desktop);
   }
 
   h1 :is(a, span, strong, em),
@@ -205,7 +205,7 @@ body[data-motion="reduced"] *::after {
   h4 :is(a, span, strong, em),
   h5 :is(a, span, strong, em),
   h6 :is(a, span, strong, em) {
-    font-family: var(--font-title);
+    font-family: var(--font-content-desktop);
   }
 
   body[data-readable-font="on"],
