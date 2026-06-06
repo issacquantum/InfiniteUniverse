@@ -501,7 +501,7 @@
   filter: blur(0.88px);
 }
 
-.cv-sphere::after {
+.document-sphere::after {
   transform: rotate(15deg);
   opacity: 0.7;
   filter: blur(1.08px);
@@ -2572,14 +2572,14 @@ body[data-link-visibility="enhanced"] :where(.structured-content, .legacy-conten
   height: 1.05rem;
 }
 
-.cv-sphere i {
+.document-sphere i {
   width: 1.2rem;
   height: 1.2rem;
 }
 
 .music-control,
 .language-control__sphere,
-.cv-sphere {
+.document-sphere {
   color: var(--heading);
 }
 
@@ -2589,7 +2589,7 @@ body[data-link-visibility="enhanced"] :where(.structured-content, .legacy-conten
   height: 2.6rem;
 }
 
-.cv-sphere {
+.document-sphere {
   width: 2.6rem;
   height: 2.6rem;
 }
@@ -2769,7 +2769,7 @@ body[data-link-visibility="enhanced"] :where(.structured-content, .legacy-conten
   }
 
   .social-sphere,
-  .cv-sphere,
+  .document-sphere,
   .dock-slot {
     width: 2.72rem;
     height: 2.72rem;
@@ -2780,7 +2780,7 @@ body[data-link-visibility="enhanced"] :where(.structured-content, .legacy-conten
     height: 1.78rem;
   }
 
-  .cv-sphere i {
+  .document-sphere i {
     width: 1.28rem;
     height: 1.28rem;
   }

@@ -23,14 +23,14 @@ export const siteAssets = {
       iconFileName: "youtube-logo.svg"
     }
   ],
-  cv: {
-    id: "cv",
+  knowledgeRecord: {
+    id: "knowledgeRecord",
     label: {
-      en: "Work Record",
+      en: "Knowledge and Systems Record",
       es: "Registro de trabajo"
     },
     path: {
-      en: "Assets2/Professional_Resume2026.pdf",
+      en: "Assets2/Knowledge-and-Systems-Record.pdf",
       es: "Assets2/Professional_Resume_Spanish2026.pdf"
     }
   },

@@ -873,12 +873,12 @@ function openExternal(id) {
     ?? /Android|iPhone|iPad|iPod/i.test(navigator.userAgent || "");
   const hasUrl = (value) => typeof value === "string" && value.trim() !== "";
 
-  if (id === "cv" || id === "timeInfinityWork") {
-    const documentAsset = id === "cv" ? siteAssets.cv : siteAssets.timeInfinityWork;
-    const cvPath = pick(documentAsset.path, store.getState().language);
+  if (id === "knowledgeRecord" || id === "timeInfinityWork") {
+    const documentAsset = id === "knowledgeRecord" ? siteAssets.knowledgeRecord : siteAssets.timeInfinityWork;
+    const documentPath = pick(documentAsset.path, store.getState().language);
 
-    if (hasUrl(cvPath)) {
-      window.open(cvPath, "_blank", "noopener,noreferrer");
+    if (hasUrl(documentPath)) {
+      window.open(documentPath, "_blank", "noopener,noreferrer");
     }
 
     return;
