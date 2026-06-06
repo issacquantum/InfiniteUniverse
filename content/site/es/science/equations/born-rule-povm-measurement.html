@@ -3,20 +3,20 @@
   <section class="content-block"><h3>Ecuación</h3><div class="equation-link-wrap">
       <div class="glass-window equation-display">
         $$
-        P(m) = \langle \psi | M_m^\dagger M_m | \psi \rangle
+        E_m=M_m^\dagger M_m,\qquad \sum_m E_m=I
         $$
         $$
-        |\psi_m\rangle = \frac{M_m|\psi\rangle}{\sqrt{P(m)}},\qquad \sum_m E_m = I
+        P(m)=\operatorname{Tr}(E_m\rho),\qquad P(m)=\langle\psi|E_m|\psi\rangle\ \text{for a pure state}
         $$
       </div>
     </div></section>
-  <section class="content-block"><h3>Lectura Literal</h3><p>p de i igual traza de M sub i rho.</p></section>
-  <section class="content-block"><h3>Lectura Común</h3><p>Las probabilidades cuánticas salen de operadores de medición aplicados al estado.</p></section>
+  <section class="content-block"><h3>Lectura Literal</h3><p>E sub m es igual a M sub m adjunto M sub m, y la suma sobre m de E sub m es igual a I. P de m es igual a la traza de E sub m rho; para un estado puro, P de m es igual a bra psi E sub m ket psi.</p></section>
+  <section class="content-block"><h3>Lectura Común</h3><p>Un efecto POVM convierte un estado cuántico en la probabilidad de un resultado de medición.</p></section>
   <section class="content-block"><h3>Símbolos</h3><p><strong>\(P(m)\)</strong>: probabilidad del resultado de medición \(m\).</p>
     <p><strong>\(|\psi\rangle\)</strong>: el estado antes de la medición.</p>
     <p><strong>\(M_m\)</strong>: el operador de medición para el resultado \(m\).</p>
     <p><strong>\(M_m^\dagger\)</strong>: el adjunto hermitiano de \(M_m\).</p>
     <p><strong>\(E_m\)</strong>: un efecto POVM, igual a \(M_m^\dagger M_m\) en esta representación.</p>
     <p><strong>\(I\)</strong>: el operador identidad.</p></section>
-  <section class="content-block"><h3>Significado de la Ecuación</h3><p>La traza convierte el estado cuántico y el efecto de medición en una probabilidad ordinaria. Es el puente entre una matriz de densidad y las estadísticas que se predicen en el laboratorio.</p></section>
+  <section class="content-block"><h3>Significado de la Ecuación</h3><p>Los efectos \(E_m\) son operadores positivos que suman la identidad, de modo que las probabilidades de todos los resultados posibles suman uno.</p></section>
 </div>

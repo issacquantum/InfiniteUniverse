@@ -2,9 +2,9 @@
   <section class="content-block"><h3>Cross Entropy Loss</h3></section>
   <section class="content-block"><h3>Equation</h3><div class="equation-link-wrap"><div class="glass-window equation-display">$$ L=-\sum_i y_i\log(\hat{y}_i) $$</div></div></section>
   <section class="content-block"><h3>Literal Reading</h3><p>L equals minus sum sub i y sub i log of p sub i.</p></section>
-  <section class="content-block"><h3>Common Reading</h3><p>Entropy measures uncertainty, disorder, or missing information in the relevant physical or informational state.</p></section>
+  <section class="content-block"><h3>Common Reading</h3><p>Cross-entropy loss is the negative log-likelihood of the target labels under the model’s predicted probability distribution.</p></section>
   <section class="content-block"><h3>Symbols</h3><p><strong>\(L\)</strong>: loss value.</p>
     <p><strong>\(y_i\)</strong>: true label indicator or target probability.</p>
     <p><strong>\(\hat{y}_i\)</strong>: predicted probability for class \(i\).</p></section>
-  <section class="content-block"><h3>Meaning of the Equation</h3><p>The loss becomes small when the model assigns high probability to the correct answer and large when it is confidently wrong. It trains probability predictions, not truth itself.</p></section>
+  <section class="content-block"><h3>Meaning of the Equation</h3><p>It penalizes the model when it assigns low probability to the correct target, rather than being generic thermodynamic entropy.</p></section>
 </div>

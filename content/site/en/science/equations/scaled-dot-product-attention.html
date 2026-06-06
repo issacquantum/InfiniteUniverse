@@ -2,7 +2,7 @@
   <section class="content-block"><h3>Scaled Dot Product Attention</h3></section>
   <section class="content-block"><h3>Equation</h3><div class="equation-link-wrap"><div class="glass-window equation-display">$$ \operatorname{Attention}(Q,K,V)=\operatorname{softmax}\!\left(\frac{QK^T}{\sqrt{d_k}}\right)V $$</div></div></section>
   <section class="content-block"><h3>Literal Reading</h3><p>Attention of Q comma K comma V equals softmax of QK to the power of T over square root of d sub k V.</p></section>
-  <section class="content-block"><h3>Common Reading</h3><p>Attention scores compare queries with keys, normalize the scores, and use them to weight values.</p></section>
+  <section class="content-block"><h3>Common Reading</h3><p>Attention compares queries and keys, applies softmax normalization, and uses the resulting weights to combine value vectors.</p></section>
   <section class="content-block"><h3>Symbols</h3><p><strong>\(Q\)</strong>: query matrix.</p>
     <p><strong>\(K\)</strong>: key matrix.</p>
     <p><strong>\(V\)</strong>: value matrix.</p>

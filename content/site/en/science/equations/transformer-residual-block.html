@@ -2,7 +2,7 @@
   <section class="content-block"><h3>Transformer Residual Block</h3></section>
   <section class="content-block"><h3>Equation</h3><div class="equation-link-wrap"><div class="glass-window equation-display">$$ y=\operatorname{LayerNorm}(x+\operatorname{Sublayer}(x)) $$</div></div></section>
   <section class="content-block"><h3>Literal Reading</h3><p>x sub l plus 1 equals x sub l plus F of x sub l.</p></section>
-  <section class="content-block"><h3>Common Reading</h3><p>The residual path lets information and gradients move through deep transformer stacks without forcing every layer to relearn the identity map.</p></section>
+  <section class="content-block"><h3>Common Reading</h3><p>A residual block adds a learned transformation back to the input so information and gradients can pass through deep networks more easily.</p></section>
   <section class="content-block"><h3>Symbols</h3><p><strong>\(x\)</strong>: incoming representation.</p>
     <p><strong>\(\operatorname{Sublayer}(x)\)</strong>: attention or feed-forward transformation.</p>
     <p><strong>\(\operatorname{LayerNorm}\)</strong>: normalization that stabilizes activations.</p></section>
