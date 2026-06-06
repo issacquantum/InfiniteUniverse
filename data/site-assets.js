@@ -27,11 +27,11 @@ export const siteAssets = {
     id: "knowledgeRecord",
     label: {
       en: "Knowledge and Systems Record",
-      es: "Registro de trabajo"
+      es: "Registro de Conocimiento y Sistemas"
     },
     path: {
       en: "Assets2/Knowledge-and-Systems-Record.pdf",
-      es: "Assets2/Professional_Resume_Spanish2026.pdf"
+      es: "Assets2/Registro-de-Conocimiento-y-Sistemas.pdf"
     }
   },
   timeInfinityWork: {
