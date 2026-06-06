@@ -46,7 +46,7 @@ function renderSocialSphereInner(assets, item) {
   return `<span class="sphere-label">${escapeHtml(item.shortLabel)}</span>`;
 }
 
-function renderDockItems({ assets, includeCv, language }) {
+function renderDockItems({ assets, includeDocuments, language }) {
   const items = assets.social.map((item) => `
     <button
       class="glass-sphere social-sphere"
@@ -60,23 +60,23 @@ function renderDockItems({ assets, includeCv, language }) {
     </button>
   `);
 
-  if (includeCv) {
-    const cvLabel = pick(assets.cv.label, language);
+  if (includeDocuments) {
+    const knowledgeRecordLabel = pick(assets.knowledgeRecord.label, language);
     const timeInfinityWorkLabel = pick(assets.timeInfinityWork.label, language);
 
     items.push(`
       <button
-        class="glass-sphere social-sphere cv-sphere"
+        class="glass-sphere social-sphere document-sphere"
         type="button"
         data-action="open-external"
-        data-external-id="cv"
-        aria-label="${escapeHtml(cvLabel)}"
-        title="${escapeHtml(cvLabel)}"
+        data-external-id="knowledgeRecord"
+        aria-label="${escapeHtml(knowledgeRecordLabel)}"
+        title="${escapeHtml(knowledgeRecordLabel)}"
       >
         <i data-lucide="file-text"></i>
       </button>
       <button
-        class="glass-sphere social-sphere cv-sphere time-infinity-work-sphere"
+        class="glass-sphere social-sphere document-sphere time-infinity-work-sphere"
         type="button"
         data-action="open-external"
         data-external-id="timeInfinityWork"
@@ -575,7 +575,7 @@ export function renderSite({ state, refs, content, assets }) {
 
   refs.socialDock.innerHTML = renderDockItems({
     assets,
-    includeCv: showPersonalNavigation,
+    includeDocuments: showPersonalNavigation,
     language
   });
 
