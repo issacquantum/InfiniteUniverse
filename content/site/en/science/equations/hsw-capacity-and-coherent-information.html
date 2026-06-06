@@ -3,20 +3,15 @@
   <section class="content-block"><h3>Equation</h3><div class="equation-link-wrap">
       <div class="glass-window equation-display">
         $$
-        C(\mathcal{E}) = \max_{\{p_x, \rho_x\}} \chi(\mathcal{E})
+        C^{(1)}(\mathcal{E}) = \max_{\{p_x, \rho_x\}} \chi(\{p_x, \mathcal{E}(\rho_x)\})
         $$
         $$
-        I_c(\rho, \mathcal{E}) =
-        S(\mathcal{E}(\rho)) - S((\mathcal{E} \otimes \mathrm{id})(|\psi\rangle\langle\psi|))
+        I_c(\rho, \mathcal{E}) = S(\mathcal{E}(\rho)) - S((\mathcal{E} \otimes \mathrm{id})(|\psi\rangle\langle\psi|))
         $$
       </div>
     </div></section>
-  <section class="content-block"><h3>Literal Reading</h3><p>C equals max χ comma I sub c equals S the quantity  the quantity rho minus S the quantity of I tensor  the quantity vertical bar psi &gt; &lt; psi vertical bar.</p></section>
-  <section class="content-block"><h3>Common Reading</h3><p>The classical capacity of the channel is the maximum Holevo information over possible input ensembles.</p></section>
-  <section class="content-block"><h3>Symbols</h3><p><strong>\(\mathcal{E}\)</strong>: the quantum channel.</p>
-    <p><strong>\(C(\mathcal{E})\)</strong>: classical capacity of the channel.</p>
-    <p><strong>\(\chi(\mathcal{E})\)</strong>: Holevo information after the channel acts on an ensemble.</p>
-    <p><strong>\(I_c\)</strong>: coherent information.</p>
-    <p><strong>\(\mathrm{id}\)</strong>: the identity channel applied to a reference system.</p></section>
-  <section class="content-block"><h3>Meaning of the Equation</h3><p>Reliable communication requires optimizing over input ensembles and channel uses. The formulas distinguish classical information sent through quantum states from genuinely quantum information transmission.</p></section>
+  <section class="content-block"><h3>Literal Reading</h3><p>C one of E equals the maximum, over input ensembles p sub x and rho sub x, of the Holevo quantity of the output ensemble p sub x and E of rho sub x. I sub c equals the output entropy minus the entropy of the channel acting on one half of a purification.</p></section>
+  <section class="content-block"><h3>Common Reading</h3><p>The one-shot Holevo quantity describes how much classical information one use of a quantum channel can carry under an optimized input ensemble.</p></section>
+  <section class="content-block"><h3>Symbols</h3><p><strong>\(C^{(1)}(\mathcal{E})\)</strong>: one-shot classical capacity expression based on the Holevo quantity.</p><p><strong>\(\mathcal{E}\)</strong>: the quantum channel.</p><p><strong>\(\{p_x,\rho_x\}\)</strong>: input ensemble of probabilities and states.</p><p><strong>\(\chi\)</strong>: Holevo information of the output ensemble.</p><p><strong>\(I_c\)</strong>: coherent information.</p><p><strong>\(\mathrm{id}\)</strong>: the identity channel applied to a reference system.</p></section>
+  <section class="content-block"><h3>Meaning of the Equation</h3><p>For a general channel, full classical capacity may require regularization over many channel uses; coherent information is the quantity used in quantum-capacity analysis.</p></section>
 </div>

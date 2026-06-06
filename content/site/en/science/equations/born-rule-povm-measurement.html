@@ -3,20 +3,20 @@
   <section class="content-block"><h3>Equation</h3><div class="equation-link-wrap">
       <div class="glass-window equation-display">
         $$
-        P(m) = \langle \psi | M_m^\dagger M_m | \psi \rangle
+        E_m=M_m^\dagger M_m,\qquad \sum_m E_m=I
         $$
         $$
-        |\psi_m\rangle = \frac{M_m|\psi\rangle}{\sqrt{P(m)}},\qquad \sum_m E_m = I
+        P(m)=\operatorname{Tr}(E_m\rho),\qquad P(m)=\langle\psi|E_m|\psi\rangle\ \text{for a pure state}
         $$
       </div>
     </div></section>
-  <section class="content-block"><h3>Literal Reading</h3><p>p of i equals trace of M sub i rho.</p></section>
-  <section class="content-block"><h3>Common Reading</h3><p>Quantum probabilities come from measurement operators acting on the state.</p></section>
+  <section class="content-block"><h3>Literal Reading</h3><p>E sub m equals M sub m dagger M sub m, and the sum over m of E sub m equals I. P of m equals the trace of E sub m rho; for a pure state, P of m equals bra psi E sub m ket psi.</p></section>
+  <section class="content-block"><h3>Common Reading</h3><p>A POVM effect turns a quantum state into the probability of a measurement outcome.</p></section>
   <section class="content-block"><h3>Symbols</h3><p><strong>\(P(m)\)</strong>: probability of measurement result \(m\).</p>
     <p><strong>\(|\psi\rangle\)</strong>: the state before measurement.</p>
     <p><strong>\(M_m\)</strong>: the measurement operator for outcome \(m\).</p>
     <p><strong>\(M_m^\dagger\)</strong>: the Hermitian adjoint of \(M_m\).</p>
     <p><strong>\(E_m\)</strong>: a POVM effect, equal to \(M_m^\dagger M_m\) in this representation.</p>
     <p><strong>\(I\)</strong>: the identity operator.</p></section>
-  <section class="content-block"><h3>Meaning of the Equation</h3><p>The trace turns the quantum state and the measurement effect into an ordinary probability. It is the bridge from a density matrix to predicted measurement statistics.</p></section>
+  <section class="content-block"><h3>Meaning of the Equation</h3><p>The effects \(E_m\) are positive operators that add to the identity, so the probabilities of all possible outcomes add to one.</p></section>
 </div>

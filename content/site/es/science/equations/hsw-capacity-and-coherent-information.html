@@ -3,20 +3,15 @@
   <section class="content-block"><h3>Ecuación</h3><div class="equation-link-wrap">
       <div class="glass-window equation-display">
         $$
-        C(\mathcal{E}) = \max_{\{p_x, \rho_x\}} \chi(\mathcal{E})
+        C^{(1)}(\mathcal{E}) = \max_{\{p_x, \rho_x\}} \chi(\{p_x, \mathcal{E}(\rho_x)\})
         $$
         $$
-        I_c(\rho, \mathcal{E}) =
-        S(\mathcal{E}(\rho)) - S((\mathcal{E} \otimes \mathrm{id})(|\psi\rangle\langle\psi|))
+        I_c(\rho, \mathcal{E}) = S(\mathcal{E}(\rho)) - S((\mathcal{E} \otimes \mathrm{id})(|\psi\rangle\langle\psi|))
         $$
       </div>
     </div></section>
-  <section class="content-block"><h3>Lectura Literal</h3><p>C igual max χ coma I sub c igual S la cantidad  la cantidad rho menos S la cantidad de I tensor  la cantidad barra vertical psi &gt; &lt; psi barra vertical.</p></section>
-  <section class="content-block"><h3>Lectura Común</h3><p>La capacidad clásica del canal es la máxima información de Holevo sobre los posibles conjuntos de entrada.</p></section>
-  <section class="content-block"><h3>Símbolos</h3><p><strong>\(\mathcal{E}\)</strong>: el canal cuántico.</p>
-    <p><strong>\(C(\mathcal{E})\)</strong>: capacidad clásica del canal.</p>
-    <p><strong>\(\chi(\mathcal{E})\)</strong>: información de Holevo después de que el canal actúa sobre un conjunto.</p>
-    <p><strong>\(I_c\)</strong>: información coherente.</p>
-    <p><strong>\(\mathrm{id}\)</strong>: el canal identidad aplicado a un sistema de referencia.</p></section>
-  <section class="content-block"><h3>Significado de la Ecuación</h3><p>La comunicación confiable requiere optimizar conjuntos de entrada y usos del canal. Las fórmulas distinguen información clásica enviada mediante estados cuánticos de transmisión de información genuinamente cuántica.</p></section>
+  <section class="content-block"><h3>Lectura Literal</h3><p>C uno de E es igual al máximo, sobre ensambles de entrada p sub x y rho sub x, de la cantidad de Holevo del ensamble de salida p sub x y E de rho sub x. I sub c es igual a la entropía de salida menos la entropía del canal actuando sobre una mitad de una purificación.</p></section>
+  <section class="content-block"><h3>Lectura Común</h3><p>La cantidad de Holevo de un solo uso describe cuánta información clásica puede transportar un uso de un canal cuántico bajo un ensamble de entrada optimizado.</p></section>
+  <section class="content-block"><h3>Símbolos</h3><p><strong>\(C^{(1)}(\mathcal{E})\)</strong>: expresión de capacidad clásica de un solo uso basada en la cantidad de Holevo.</p><p><strong>\(\mathcal{E}\)</strong>: el canal cuántico.</p><p><strong>\(\{p_x,\rho_x\}\)</strong>: ensamble de entrada de probabilidades y estados.</p><p><strong>\(\chi\)</strong>: información de Holevo del ensamble de salida.</p><p><strong>\(I_c\)</strong>: información coherente.</p><p><strong>\(\mathrm{id}\)</strong>: canal identidad aplicado a un sistema de referencia.</p></section>
+  <section class="content-block"><h3>Significado de la Ecuación</h3><p>Para un canal general, la capacidad clásica completa puede requerir regularización sobre muchos usos del canal; la información coherente es la cantidad usada en el análisis de capacidad cuántica.</p></section>
 </div>
