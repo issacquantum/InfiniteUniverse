@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260607-model-accessibility-collapse-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260607-electromagnetic-wave-3d-v1";
 
 function htmlSource(group, id) {
   return {
