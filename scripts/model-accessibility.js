@@ -46,7 +46,6 @@ const COPY = {
     higher: "higher",
     lower: "lower",
     middle: "middle",
-    noVisibleControls: "No adjustable controls are currently visible; use the written model notes and the static fallback for the same concept.",
     reducedText: "Reduced motion is active or preferred. Use the static diagram and current-state text instead of relying on animation.",
     reducedTitle: "Reduced-motion fallback",
     selectValue: "selected",
@@ -68,7 +67,6 @@ const COPY = {
     higher: "alto",
     lower: "bajo",
     middle: "medio",
-    noVisibleControls: "No hay controles ajustables visibles en este momento; usa las notas escritas del modelo y la vista estática para leer el mismo concepto.",
     reducedText: "El movimiento reducido está activo o preferido. Usa el diagrama fijo y el texto de estado actual en lugar de depender de la animación.",
     reducedTitle: "Alternativa con movimiento reducido",
     selectValue: "seleccionado",
@@ -262,11 +260,9 @@ function summarizeControls(root, copy, language) {
     .map((control) => describeControl(control, copy))
     .filter(Boolean);
 
-  if (descriptions.length === 0) {
-    return `${copy.stateLabel}: ${copy.noVisibleControls}`;
-  }
-
-  return `${copy.stateLabel}: ${descriptions.slice(0, 6).join("; ")}.`;
+  return descriptions.length > 0
+    ? `${copy.stateLabel}: ${descriptions.slice(0, 6).join("; ")}.`
+    : "";
 }
 
 function createSvgElement(name, attributes = {}) {
@@ -364,7 +360,8 @@ function createAccessibilityPanel(root, state) {
   const panel = document.createElement("section");
   const header = document.createElement("div");
   const button = document.createElement("button");
-  const summary = createParagraph("model-accessibility__summary", summarizeControls(root, copy, language));
+  const summary = createParagraph("sr-only model-accessibility__summary", summarizeControls(root, copy, language));
+  const visibleSummary = createParagraph("model-accessibility__summary", summary.textContent);
   const details = document.createElement("div");
   const controlsText = createParagraph("model-accessibility__detail-text", copy.controlsText);
   const teachingSummary = getTeachingSummary(root, language);
@@ -385,12 +382,14 @@ function createAccessibilityPanel(root, state) {
   summary.id = summaryId;
   summary.setAttribute("aria-live", "polite");
   summary.setAttribute("aria-atomic", "true");
+  visibleSummary.hidden = !summary.textContent;
 
   details.className = "model-accessibility__details";
   details.id = detailsId;
   details.hidden = true;
   controlsText.id = guidanceId;
   details.append(
+    visibleSummary,
     createParagraph("model-accessibility__detail-heading", copy.controlsHelp),
     controlsText,
     createParagraph("model-accessibility__detail-heading", language === "es" ? "Qué cambia con los controles" : "What changes with controls"),
@@ -414,12 +413,14 @@ function createAccessibilityPanel(root, state) {
     createStaticFallback(modelName, copy, `${panelId}-reduced`),
     createParagraph("model-accessibility__fallback-text", `${copy.reducedTitle}: ${copy.reducedText}`)
   );
+  details.append(reducedFallback);
 
-  panel.append(header, summary, details, reducedFallback);
+  panel.append(header, summary, details);
 
   button.addEventListener("click", () => {
     const willOpen = details.hidden;
     details.hidden = !willOpen;
+    panel.dataset.open = String(willOpen);
     button.setAttribute("aria-expanded", String(willOpen));
     button.textContent = willOpen ? copy.detailsHidden : copy.describe;
   });
@@ -427,6 +428,8 @@ function createAccessibilityPanel(root, state) {
   const update = () => {
     updateControlLabels(root, copy, panelId, summaryId, guidanceId);
     summary.textContent = summarizeControls(root, copy, language);
+    visibleSummary.textContent = summary.textContent;
+    visibleSummary.hidden = !summary.textContent;
   };
 
   root.addEventListener("input", update);
