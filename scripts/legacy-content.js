@@ -1,6 +1,7 @@
-import { bigBangLegacyContent } from "../data/legacy-big-bang.js?v=20260607-nav-icons-v1";
-import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260607-nav-icons-v1";
-import { pick } from "./i18n.js?v=20260607-nav-icons-v1";
+import { bigBangLegacyContent } from "../data/legacy-big-bang.js?v=20260607-creative-effects-v1";
+import { decorateModelBadges, syncReadingConstellation } from "./creative-effects.js?v=20260607-creative-effects-v1";
+import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260607-creative-effects-v1";
+import { pick } from "./i18n.js?v=20260607-creative-effects-v1";
 
 let activeRequestToken = 0;
 
@@ -530,6 +531,8 @@ function commitLegacyDocument({
   wrapper.appendChild(sanitizeImportedContent(extracted, legacyItem.id, state.activeBranch, state.language));
 
   host.replaceChildren(wrapper);
+  decorateModelBadges(host, state.language);
+  syncReadingConstellation(host, state.language);
   host.setAttribute("aria-busy", "false");
   const restored = restoreReturnNavigation(host, state, returnNavigation);
 
