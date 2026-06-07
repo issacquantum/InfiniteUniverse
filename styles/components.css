@@ -804,6 +804,16 @@ body[data-readable-font="on"] .reading-settings-panel h3 {
   line-height: 1.28;
 }
 
+.content-window__close-button {
+  position: sticky;
+  top: 0.15rem;
+  z-index: 8;
+  width: 2.35rem;
+  height: 2.35rem;
+  margin: 0 0 0.35rem auto;
+  color: var(--heading);
+}
+
 .static-fallback {
   align-self: center;
   width: min(100%, 48rem);
