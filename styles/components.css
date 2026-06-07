@@ -851,9 +851,8 @@ body[data-readable-font="on"] .reading-settings-panel h3 {
 
 .model-accessibility {
   width: min(100%, 42rem);
-  margin: 1rem auto 1.6rem;
-  padding: 0 0 0 0.95rem;
-  border-left: 2px solid rgba(var(--glow-rgb), 0.58);
+  margin: 0.6rem auto 1.15rem;
+  padding: 0;
   color: var(--text);
   text-align: left;
 }
@@ -909,6 +908,12 @@ body[data-readable-font="on"] .reading-settings-panel h3 {
   display: none;
 }
 
+.model-accessibility__details {
+  margin-top: 0.72rem;
+  padding-left: 0.95rem;
+  border-left: 2px solid rgba(var(--glow-rgb), 0.58);
+}
+
 .model-accessibility__fallback {
   display: grid;
   gap: 0.45rem;
@@ -946,6 +951,10 @@ body[data-motion="reduced"] .model-accessibility__fallback--reduced {
   display: grid;
 }
 
+body[data-motion="reduced"] .model-accessibility__details:not([hidden]) .model-accessibility__fallback:not(.model-accessibility__fallback--reduced) {
+  display: none;
+}
+
 .structured-content :is(
   input[type="range"],
   input[type="checkbox"],
@@ -965,6 +974,10 @@ body[data-motion="reduced"] .model-accessibility__fallback--reduced {
 @media (prefers-reduced-motion: reduce) {
   .model-accessibility__fallback--reduced {
     display: grid;
+  }
+
+  .model-accessibility__details:not([hidden]) .model-accessibility__fallback:not(.model-accessibility__fallback--reduced) {
+    display: none;
   }
 }
 
