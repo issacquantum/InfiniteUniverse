@@ -1,4 +1,4 @@
-import { bindPinchZoom, isModelPanGesture, panTargetFromPointer } from "./model-pan.js?v=20260607-cosmology-social-indigo-v1";
+import { bindPinchZoom, isModelPanGesture, panTargetFromPointer } from "./model-pan.js?v=20260607-site-purpose-close-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;

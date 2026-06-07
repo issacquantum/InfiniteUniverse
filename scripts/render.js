@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260607-cosmology-social-indigo-v1";
+import { pick } from "./i18n.js?v=20260607-site-purpose-close-v1";
 
 function escapeHtml(value) {
   return String(value)
@@ -438,15 +438,28 @@ function renderMobileKnowledgeNavigation(domains, state, language) {
   `;
 }
 
-function renderStructuredPanel(contentFile, language, ui, navigation = null) {
+function renderStructuredPanel(contentFile, language, ui, navigation = null, options = {}) {
   const source = pick(contentFile, language);
 
   if (!source) {
     return "";
   }
 
+  const closeButton = options.closeButton;
+
   return `
     <article class="glass-window content-window" tabindex="0">
+      ${closeButton ? `
+        <button
+          class="glass-sphere content-window__close-button"
+          type="button"
+          data-action="${escapeHtml(closeButton.action)}"
+          aria-label="${escapeHtml(closeButton.label)}"
+          title="${escapeHtml(closeButton.label)}"
+        >
+          <i data-lucide="x"></i>
+        </button>
+      ` : ""}
       ${renderMobileReaderTopNavigation(navigation, language)}
       ${renderDesktopReaderNavigation(navigation, language, "top")}
       <div
@@ -645,7 +658,14 @@ export function renderSite({ state, refs, content, assets }) {
   } else if (activeTopic?.contentFile) {
     activePanel = renderStructuredPanel(activeTopic.contentFile, language, content.ui, readerNavigation);
   } else if (activeSection?.contentFile) {
-    activePanel = renderStructuredPanel(activeSection.contentFile, language, content.ui, readerNavigation);
+    activePanel = renderStructuredPanel(activeSection.contentFile, language, content.ui, readerNavigation, {
+      closeButton: isSitePurposeOpen
+        ? {
+            action: "show-home",
+            label: language === "es" ? "Cerrar propósito del sitio" : "Close site purpose"
+          }
+        : null
+    });
   }
 
   const focusedRows = [];
