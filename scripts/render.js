@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260607-electromagnetic-wave-3d-v1";
+import { pick } from "./i18n.js?v=20260607-home-overview-map-v1";
 
 function escapeHtml(value) {
   return String(value)
@@ -108,6 +108,228 @@ function renderSectionButtons(sections, state, language, ui) {
         </button>
       `).join("")}
     </div>
+  `;
+}
+
+const homeSectionSummaries = {
+  "origins": {
+    en: "Early formation, family context, limits, reading, and first questions.",
+    es: "Formación temprana, contexto familiar, límites, lectura y primeras preguntas."
+  },
+  "learning-path": {
+    en: "Independent study, school, programming, language, and technical growth.",
+    es: "Estudio independiente, escuela, programación, lenguaje y crecimiento técnico."
+  },
+  "music": {
+    en: "Piano, listening, discipline, expression, and musical memory.",
+    es: "Piano, escucha, disciplina, expresión y memoria musical."
+  },
+  "systems-work": {
+    en: "Work, technology, data, troubleshooting, and systems thinking.",
+    es: "Trabajo, tecnología, datos, resolución de problemas y pensamiento de sistemas."
+  },
+  "practice-worlds": {
+    en: "Simulation, execution, timing, games, vehicles, and disciplined play.",
+    es: "Simulación, ejecución, ritmo, juegos, vehículos y práctica disciplinada."
+  },
+  "personal-cosmology": {
+    en: "Time, infinity, consciousness, totality, and personal metaphysical synthesis.",
+    es: "Tiempo, infinito, conciencia, totalidad y síntesis metafísica personal."
+  }
+};
+
+const homeDomainSummaries = {
+  "physical-foundations": {
+    en: "Mechanics, fields, thermodynamics, and mathematical foundations.",
+    es: "Mecánica, campos, termodinámica y fundamentos matemáticos."
+  },
+  "quantum-foundations": {
+    en: "Quantum mechanics, entanglement, information, computing, and complexity.",
+    es: "Mecánica cuántica, entrelazamiento, información, computación y complejidad."
+  },
+  "matter-life-mind": {
+    en: "Fields, chemistry, life systems, neuroscience, and consciousness.",
+    es: "Campos, química, sistemas vivos, neurociencia y conciencia."
+  },
+  "spacetime-cosmos": {
+    en: "Relativity, black holes, wormholes, cosmology, and the early universe.",
+    es: "Relatividad, agujeros negros, agujeros de gusano, cosmología y universo temprano."
+  },
+  "intelligence-computation": {
+    en: "AI, information theory, programming, algorithms, simulations, and models.",
+    es: "IA, teoría de la información, programación, algoritmos, simulaciones y modelos."
+  },
+  "systems-method": {
+    en: "Complex systems, emergence, and philosophy of science.",
+    es: "Sistemas complejos, emergencia y filosofía de la ciencia."
+  },
+  "model-lab": {
+    en: "Direct catalog of the interactive scientific models.",
+    es: "Catálogo directo de los modelos científicos interactivos."
+  }
+};
+
+const homeSectionIcons = {
+  "origins": "sparkles",
+  "learning-path": "book-open",
+  "music": "music",
+  "systems-work": "database",
+  "practice-worlds": "gamepad-2",
+  "personal-cosmology": "orbit"
+};
+
+const homeDomainIcons = {
+  "physical-foundations": "atom",
+  "quantum-foundations": "waves",
+  "matter-life-mind": "brain",
+  "spacetime-cosmos": "telescope",
+  "intelligence-computation": "cpu",
+  "systems-method": "network",
+  "model-lab": "box"
+};
+
+function renderHomeOverview(content, language) {
+  const isSpanish = language === "es";
+  const labels = {
+    map: isSpanish ? "Mapa del sitio" : "Site map",
+    title: isSpanish
+      ? "Ciencia, sistemas, música y cosmología personal"
+      : "Science, systems, music, and personal cosmology",
+    copy: isSpanish
+      ? "Usa un solo mapa para moverte entre secciones de vida, mundos de conocimiento, modelos interactivos y documentos."
+      : "Use one map to move between life sections, knowledge worlds, interactive models, and documents.",
+    life: isSpanish ? "Secciones de vida" : "Life sections",
+    knowledge: isSpanish ? "Mundos de conocimiento" : "Knowledge worlds",
+    routes: isSpanish ? "Formas de entrar" : "Ways to enter",
+    open: isSpanish ? "Abrir" : "Open",
+    personalRoute: isSpanish ? "Vida personal" : "Personal life",
+    knowledgeRoute: isSpanish ? "Estudio científico" : "Scientific study",
+    modelRoute: isSpanish ? "Modelos" : "Models",
+    personalRouteText: isSpanish ? "Orígenes, aprendizaje, música, sistemas y práctica." : "Origins, learning, music, systems, and practice.",
+    knowledgeRouteText: isSpanish ? "Física, cosmos, mente, computación y método." : "Physics, cosmos, mind, computation, and method.",
+    modelRouteText: isSpanish ? "Entrada directa al laboratorio de modelos interactivos." : "Direct entry into the interactive model lab.",
+    topics: isSpanish ? "Temas" : "Topics"
+  };
+
+  const renderRoute = ({ icon, label, copy, action, dataName, id }) => `
+    <button
+      class="home-route-card"
+      type="button"
+      data-action="${escapeHtml(action)}"
+      ${escapeHtml(dataName)}="${escapeHtml(id)}"
+    >
+      <span class="home-route-card__icon" aria-hidden="true"><i data-lucide="${escapeHtml(icon)}"></i></span>
+      <span class="home-route-card__body">
+        <span class="home-route-card__label">${escapeHtml(label)}</span>
+        <span class="home-route-card__copy">${escapeHtml(copy)}</span>
+      </span>
+      <span class="home-route-card__action">${escapeHtml(labels.open)}</span>
+    </button>
+  `;
+
+  const sectionCards = content.personalSections.map((section) => {
+    const title = pick(section.title, language);
+    const summary = pick(homeSectionSummaries[section.id] ?? { en: "", es: "" }, language);
+    const icon = homeSectionIcons[section.id] ?? "circle";
+
+    return `
+      <button
+        class="home-map-card"
+        type="button"
+        data-action="select-section"
+        data-section-id="${escapeHtml(section.id)}"
+      >
+        <span class="home-map-card__icon" aria-hidden="true"><i data-lucide="${escapeHtml(icon)}"></i></span>
+        <span class="home-map-card__title">${escapeHtml(title)}</span>
+        <span class="home-map-card__copy">${escapeHtml(summary)}</span>
+      </button>
+    `;
+  }).join("");
+
+  const domainCards = content.knowledgeWorlds.map((domain) => {
+    const title = pick(domain.title, language);
+    const summary = pick(homeDomainSummaries[domain.id] ?? { en: "", es: "" }, language);
+    const icon = homeDomainIcons[domain.id] ?? "circle";
+    const topics = (domain.topics ?? []).slice(0, 4).map((topic) => pick(topic.title, language)).join(" · ");
+    const action = domain.id === "model-lab" ? "select-topic" : "select-domain";
+    const dataName = domain.id === "model-lab" ? "data-topic-id" : "data-domain-id";
+    const id = domain.id === "model-lab" ? "model-lab" : domain.id;
+
+    return `
+      <button
+        class="home-map-card home-map-card--knowledge"
+        type="button"
+        data-action="${escapeHtml(action)}"
+        ${escapeHtml(dataName)}="${escapeHtml(id)}"
+      >
+        <span class="home-map-card__icon" aria-hidden="true"><i data-lucide="${escapeHtml(icon)}"></i></span>
+        <span class="home-map-card__title">${escapeHtml(title)}</span>
+        <span class="home-map-card__copy">${escapeHtml(summary)}</span>
+        ${topics ? `<span class="home-map-card__topics">${escapeHtml(labels.topics)}: ${escapeHtml(topics)}</span>` : ""}
+      </button>
+    `;
+  }).join("");
+
+  return `
+    <section class="glass-window home-overview" aria-label="${escapeHtml(labels.map)}">
+      <div class="home-overview__hero">
+        <div class="home-overview__intro">
+          <p class="home-overview__eyebrow">${escapeHtml(labels.map)}</p>
+          <h1 class="home-overview__title">${escapeHtml(labels.title)}</h1>
+          <p class="home-overview__copy">${escapeHtml(labels.copy)}</p>
+        </div>
+        <div class="home-overview__visual" aria-hidden="true">
+          <span class="home-overview__orb home-overview__orb--primary"></span>
+          <span class="home-overview__orb home-overview__orb--secondary"></span>
+          <span class="home-overview__ring home-overview__ring--wide"></span>
+          <span class="home-overview__ring home-overview__ring--tilt"></span>
+        </div>
+      </div>
+
+      <section class="home-overview__section" aria-label="${escapeHtml(labels.routes)}">
+        <h2 class="home-overview__section-title">${escapeHtml(labels.routes)}</h2>
+        <div class="home-route-grid">
+          ${renderRoute({
+            icon: "map",
+            label: labels.personalRoute,
+            copy: labels.personalRouteText,
+            action: "select-section",
+            dataName: "data-section-id",
+            id: "origins"
+          })}
+          ${renderRoute({
+            icon: "atom",
+            label: labels.knowledgeRoute,
+            copy: labels.knowledgeRouteText,
+            action: "select-domain",
+            dataName: "data-domain-id",
+            id: "physical-foundations"
+          })}
+          ${renderRoute({
+            icon: "box",
+            label: labels.modelRoute,
+            copy: labels.modelRouteText,
+            action: "select-topic",
+            dataName: "data-topic-id",
+            id: "model-lab"
+          })}
+        </div>
+      </section>
+
+      <section class="home-overview__section" aria-label="${escapeHtml(labels.life)}">
+        <h2 class="home-overview__section-title">${escapeHtml(labels.life)}</h2>
+        <div class="home-map-grid">
+          ${sectionCards}
+        </div>
+      </section>
+
+      <section class="home-overview__section" aria-label="${escapeHtml(labels.knowledge)}">
+        <h2 class="home-overview__section-title">${escapeHtml(labels.knowledge)}</h2>
+        <div class="home-map-grid home-map-grid--knowledge">
+          ${domainCards}
+        </div>
+      </section>
+    </section>
   `;
 }
 
@@ -567,6 +789,13 @@ export function renderSite({ state, refs, content, assets }) {
     && !hasActiveSciencePath
     && !isSitePurposeOpen
     && (!hasActivePanel || state.titleOpen);
+  const showHomeOverview = showPersonalNavigation
+    && !hasActivePanel
+    && !activeSection
+    && !activeDomain
+    && !activeTopic
+    && !activeBranch
+    && !activeDetail;
 
   document.documentElement.lang = language;
   document.body.dataset.language = language;
@@ -594,7 +823,10 @@ export function renderSite({ state, refs, content, assets }) {
     language
   });
 
-  const personalNavigation = showPersonalNavigation
+  const homeOverview = showHomeOverview
+    ? renderHomeOverview(content, language)
+    : "";
+  const personalNavigation = showPersonalNavigation && !showHomeOverview
     ? renderSectionButtons(content.personalSections, state, language, content.ui)
     : "";
   const knowledgeNavigation = "";
@@ -741,7 +973,8 @@ export function renderSite({ state, refs, content, assets }) {
       ${mobileKnowledgeNavigation}
       ${useFocusedRows
         ? focusedRows.join("")
-        : `${personalNavigation}
+        : `${homeOverview}
+      ${personalNavigation}
       ${knowledgeNavigation}
       ${topicNavigation}
       ${branchNavigation}
