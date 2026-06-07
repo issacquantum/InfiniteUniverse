@@ -1,4 +1,4 @@
-import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260607-nav-icons-v1";
+import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260607-creative-effects-v1";
 
 const mountedSimulators = new WeakSet();
 const TWO_PI = Math.PI * 2;

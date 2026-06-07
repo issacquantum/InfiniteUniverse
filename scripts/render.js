@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260607-nav-icons-v1";
+import { pick } from "./i18n.js?v=20260607-creative-effects-v1";
 
 function escapeHtml(value) {
   return String(value)
@@ -59,6 +59,46 @@ const topicIconNames = {
   "model-lab": "box"
 };
 
+const sectionMoodNames = {
+  "origins": "life",
+  "learning-path": "learning",
+  "music": "music",
+  "systems-work": "systems",
+  "practice-worlds": "practice",
+  "personal-cosmology": "cosmology"
+};
+
+const domainMoodNames = {
+  "physical-foundations": "physics",
+  "quantum-foundations": "quantum",
+  "matter-life-mind": "mind",
+  "spacetime-cosmos": "cosmos",
+  "intelligence-computation": "systems",
+  "systems-method": "systems",
+  "model-lab": "model-lab"
+};
+
+const topicMoodNames = {
+  "electromagnetism": "waves",
+  "quantum-mechanics": "quantum",
+  "quantum-entanglement": "quantum",
+  "quantum-information": "quantum",
+  "quantum-computing": "quantum",
+  "quantum-complexity": "quantum",
+  "quantum-field-theory": "quantum",
+  "biology-life-systems": "life",
+  "neuroscience-consciousness": "mind",
+  "relativity-spacetime": "cosmos",
+  "black-holes": "cosmos",
+  "wormholes": "cosmos",
+  "cosmology-early-universe": "cosmos",
+  "artificial-intelligence": "systems",
+  "information-theory": "systems",
+  "programming-algorithms": "systems",
+  "simulation-models": "model-lab",
+  "complex-systems-emergence": "systems"
+};
+
 function renderNavigationLabel(label, iconName) {
   const icon = iconName
     ? `<span class="nav-button__icon" aria-hidden="true"><i data-lucide="${escapeHtml(iconName)}"></i></span>`
@@ -68,6 +108,26 @@ function renderNavigationLabel(label, iconName) {
     ${icon}
     <span class="nav-button__label">${escapeHtml(label)}</span>
   `;
+}
+
+function resolveSectionMood({ activeSection, activeDomain, activeTopic }) {
+  return (
+    topicMoodNames[activeTopic?.id]
+    ?? domainMoodNames[activeDomain?.id]
+    ?? sectionMoodNames[activeSection?.id]
+    ?? ""
+  );
+}
+
+function resolveSignatureIcon({ activeSection, activeDomain, activeTopic, activeBranch, activeDetail }) {
+  return (
+    topicIconNames[activeDetail?.id]
+    ?? topicIconNames[activeBranch?.id]
+    ?? topicIconNames[activeTopic?.id]
+    ?? domainIconNames[activeDomain?.id]
+    ?? sectionIconNames[activeSection?.id]
+    ?? ""
+  );
 }
 
 function hasConfiguredValue(value) {
@@ -506,9 +566,15 @@ function renderStructuredPanel(contentFile, language, ui, navigation = null, opt
   }
 
   const closeButton = options.closeButton;
+  const signatureIconName = options.signatureIconName;
 
   return `
     <article class="glass-window content-window" tabindex="0">
+      ${signatureIconName ? `
+        <div class="content-window__signature" aria-hidden="true">
+          <i data-lucide="${escapeHtml(signatureIconName)}"></i>
+        </div>
+      ` : ""}
       ${closeButton ? `
         <button
           class="glass-sphere content-window__close-button"
@@ -542,13 +608,20 @@ function renderEducationPanel(topic, language, ui) {
   return renderStructuredPanel(topic.contentFile, language, ui);
 }
 
-function renderLegacyPanel(item, language, ui, navigation = null) {
+function renderLegacyPanel(item, language, ui, navigation = null, options = {}) {
   if (!item) {
     return "";
   }
 
+  const signatureIconName = options.signatureIconName;
+
   return `
     <article class="glass-window content-window" tabindex="0">
+      ${signatureIconName ? `
+        <div class="content-window__signature" aria-hidden="true">
+          <i data-lucide="${escapeHtml(signatureIconName)}"></i>
+        </div>
+      ` : ""}
       ${renderMobileReaderTopNavigation(navigation, language)}
       ${renderDesktopReaderNavigation(navigation, language, "top")}
       <div class="legacy-content-host" data-legacy-host></div>
@@ -630,6 +703,12 @@ export function renderSite({ state, refs, content, assets }) {
 
   document.documentElement.lang = language;
   document.body.dataset.language = language;
+  const activeMoodName = resolveSectionMood({ activeSection, activeDomain, activeTopic });
+  if (activeMoodName) {
+    document.body.dataset.sectionMood = activeMoodName;
+  } else {
+    delete document.body.dataset.sectionMood;
+  }
 
   refs.titleButton.setAttribute("aria-expanded", String(showPersonalNavigation));
   refs.languageToggle.setAttribute("aria-pressed", String(language === "es"));
@@ -669,6 +748,16 @@ export function renderSite({ state, refs, content, assets }) {
 
   let activePanel = "";
   let readerNavigation = null;
+  const activeSignatureIconName = resolveSignatureIcon({
+    activeSection,
+    activeDomain,
+    activeTopic,
+    activeBranch,
+    activeDetail
+  });
+  const activePanelOptions = activeSignatureIconName
+    ? { signatureIconName: activeSignatureIconName }
+    : {};
 
   if (activeDetail) {
     readerNavigation = createReaderNavigation(
@@ -708,17 +797,18 @@ export function renderSite({ state, refs, content, assets }) {
   }
 
   if (activeDetail?.contentFile) {
-    activePanel = renderStructuredPanel(activeDetail.contentFile, language, content.ui, readerNavigation);
+    activePanel = renderStructuredPanel(activeDetail.contentFile, language, content.ui, readerNavigation, activePanelOptions);
   } else if (activeTopic?.branches) {
     if (activeDetail) {
-      activePanel = renderLegacyPanel(activeDetail, language, content.ui, readerNavigation);
+      activePanel = renderLegacyPanel(activeDetail, language, content.ui, readerNavigation, activePanelOptions);
     } else if (activeTopic?.contentFile) {
-      activePanel = renderStructuredPanel(activeTopic.contentFile, language, content.ui, readerNavigation);
+      activePanel = renderStructuredPanel(activeTopic.contentFile, language, content.ui, readerNavigation, activePanelOptions);
     }
   } else if (activeTopic?.contentFile) {
-    activePanel = renderStructuredPanel(activeTopic.contentFile, language, content.ui, readerNavigation);
+    activePanel = renderStructuredPanel(activeTopic.contentFile, language, content.ui, readerNavigation, activePanelOptions);
   } else if (activeSection?.contentFile) {
     activePanel = renderStructuredPanel(activeSection.contentFile, language, content.ui, readerNavigation, {
+      ...activePanelOptions,
       closeButton: isSitePurposeOpen
         ? {
             action: "show-home",

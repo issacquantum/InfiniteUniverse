@@ -1,21 +1,22 @@
-import { pick } from "./i18n.js?v=20260607-nav-icons-v1";
-import { initDoubleSlitSimulators } from "./double-slit-simulator.js?v=20260607-nav-icons-v1";
-import { initGravityFabricModels } from "./gravity-fabric-model.js?v=20260607-nav-icons-v1";
-import { initGravityLensingModels } from "./gravity-lensing-model.js?v=20260607-nav-icons-v1";
-import { initQuantumEntanglementModels } from "./quantum-entanglement-model.js?v=20260607-nav-icons-v1";
-import { initQuantumChannelModels } from "./quantum-channel-model.js?v=20260607-nav-icons-v1";
-import { initQuantumModels } from "./quantum-model.js?v=20260607-nav-icons-v1";
-import { initOrbitalSelectorModels } from "./orbital-selector-model.js?v=20260607-nav-icons-v1";
-import { initWormholeModels } from "./wormhole-model.js?v=20260607-nav-icons-v1";
-import { initNumericalMethodsModels } from "./numerical-methods-model.js?v=20260607-nav-icons-v1";
-import { initNeuralArchitectModels } from "./neural-architect-model.js?v=20260607-nav-icons-v1";
-import { initInformationTheoryModels } from "./information-theory-model.js?v=20260607-nav-icons-v1";
-import { initAlgorithmVisualizerModels } from "./algorithm-visualizer-model.js?v=20260607-nav-icons-v1";
-import { initQuantumFluctuationModels } from "./quantum-fluctuation-model.js?v=20260607-nav-icons-v1";
-import { initBlackHoleModels } from "./black-hole-model.js?v=20260607-nav-icons-v1";
-import { initFoundationModels } from "./foundation-models.js?v=20260607-nav-icons-v1";
-import { enhanceModelAccessibility } from "./model-accessibility.js?v=20260607-nav-icons-v1";
-import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260607-nav-icons-v1";
+import { pick } from "./i18n.js?v=20260607-creative-effects-v1";
+import { initDoubleSlitSimulators } from "./double-slit-simulator.js?v=20260607-creative-effects-v1";
+import { initGravityFabricModels } from "./gravity-fabric-model.js?v=20260607-creative-effects-v1";
+import { initGravityLensingModels } from "./gravity-lensing-model.js?v=20260607-creative-effects-v1";
+import { initQuantumEntanglementModels } from "./quantum-entanglement-model.js?v=20260607-creative-effects-v1";
+import { initQuantumChannelModels } from "./quantum-channel-model.js?v=20260607-creative-effects-v1";
+import { initQuantumModels } from "./quantum-model.js?v=20260607-creative-effects-v1";
+import { initOrbitalSelectorModels } from "./orbital-selector-model.js?v=20260607-creative-effects-v1";
+import { initWormholeModels } from "./wormhole-model.js?v=20260607-creative-effects-v1";
+import { initNumericalMethodsModels } from "./numerical-methods-model.js?v=20260607-creative-effects-v1";
+import { initNeuralArchitectModels } from "./neural-architect-model.js?v=20260607-creative-effects-v1";
+import { initInformationTheoryModels } from "./information-theory-model.js?v=20260607-creative-effects-v1";
+import { initAlgorithmVisualizerModels } from "./algorithm-visualizer-model.js?v=20260607-creative-effects-v1";
+import { initQuantumFluctuationModels } from "./quantum-fluctuation-model.js?v=20260607-creative-effects-v1";
+import { initBlackHoleModels } from "./black-hole-model.js?v=20260607-creative-effects-v1";
+import { initFoundationModels } from "./foundation-models.js?v=20260607-creative-effects-v1";
+import { enhanceModelAccessibility } from "./model-accessibility.js?v=20260607-creative-effects-v1";
+import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260607-creative-effects-v1";
+import { decorateModelBadges, syncReadingConstellation } from "./creative-effects.js?v=20260607-creative-effects-v1";
 
 let activeRequestToken = 0;
 
@@ -386,6 +387,8 @@ function commitStructuredDocument({
   makeGlossariesCollapsible(imported, state);
 
   host.replaceChildren(imported);
+  decorateModelBadges(host, state.language);
+  syncReadingConstellation(host, state.language);
   host.setAttribute("aria-busy", "false");
   const restored = restoreReturnNavigation(host, state, returnNavigation);
   const shouldApplyModelScroll = matchesModelScrollTarget(state, modelScrollTarget);
