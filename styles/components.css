@@ -181,7 +181,7 @@
   height: calc(clamp(1.78rem, 2.72vw, 2.36rem) * var(--site-title-scale, 1));
   flex: 0 0 auto;
   filter:
-    drop-shadow(0 0 8px rgba(255, 88, 214, 0.3))
+    drop-shadow(0 0 8px rgba(177, 0, 255, 0.3))
     drop-shadow(0 0 16px rgba(119, 0, 255, 0.18));
   transition:
     transform 320ms ease,

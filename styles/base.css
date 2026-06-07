@@ -22,8 +22,8 @@ body {
 body[data-contrast="high"] {
   --text: #9f5cff;
   --body-muted: rgba(159, 92, 255, 0.9);
-  --strong: #ff58d6;
-  --heading: #ff00a2;
+  --strong: #b100ff;
+  --heading: #b100ff;
   --panel-fill: rgba(9, 2, 16, 0.82);
   --panel-outline: rgba(255, 255, 255, 0.14);
   --edge-violet: rgba(255, 184, 255, 0.62);
@@ -155,8 +155,8 @@ body[data-motion="reduced"] *::after {
   body:not([data-contrast="high"]) {
     --text: #9f5cff;
     --body-muted: rgba(159, 92, 255, 0.9);
-    --strong: #ff58d6;
-    --heading: #ff00a2;
+    --strong: #b100ff;
+    --heading: #b100ff;
     --panel-fill: rgba(9, 2, 16, 0.82);
     --panel-outline: rgba(255, 255, 255, 0.14);
     --edge-violet: rgba(255, 184, 255, 0.62);
