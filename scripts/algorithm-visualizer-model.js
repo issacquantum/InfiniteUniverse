@@ -1,4 +1,4 @@
-import { bindPinchZoom, isModelPanGesture, panTargetFromPointer } from "./model-pan.js?v=20260607-electromagnetic-wave-3d-v1";
+import { bindPinchZoom, isModelPanGesture, panTargetFromPointer } from "./model-pan.js?v=20260607-nav-icons-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
