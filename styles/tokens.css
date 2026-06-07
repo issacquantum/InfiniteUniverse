@@ -1,20 +1,20 @@
 :root {
   color-scheme: dark;
   --bg: #05020a;
-  --heading: #ff00a2;
+  --heading: #b100ff;
   --text: #9f5cff;
   --body: var(--text);
   --body-muted: rgba(159, 92, 255, 0.84);
   --color-text: var(--text);
-  --strong: #ff58d6;
+  --strong: #b100ff;
   --science-active-text: #c084ff;
   --science-group-text: #ad63ff;
   --glow-rgb: 119, 0, 255;
-  --outline-rgb: 255, 88, 214;
+  --outline-rgb: 177, 0, 255;
   --hover-outline-rgb: 157, 0, 255;
   --glass-rgb: 58, 14, 93;
   --shadow-rgb: 0, 0, 0;
-  --edge-white: rgba(255, 0, 242, 0.72);
+  --edge-white: rgba(177, 0, 255, 0.72);
   --edge-violet: rgba(224, 152, 255, 0.42);
   --panel-fill: rgba(17, 4, 28, 0.56);
   --panel-outline: rgba(255, 255, 255, 0.08);
