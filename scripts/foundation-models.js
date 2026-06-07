@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260607-site-purpose-close-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260607-model-accessibility-collapse-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
