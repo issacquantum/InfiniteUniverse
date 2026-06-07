@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260531-literal-parenthesis-natural-v1";
+import { pick } from "./i18n.js?v=20260607-cosmology-social-indigo-v1";
 
 function escapeHtml(value) {
   return String(value)
@@ -20,13 +20,15 @@ function hasConfiguredValue(value) {
 function resolveSocialIconSource(assets, item) {
   const folder = assets.socialIconFolder;
   const fileName = item.iconFileName;
+  const version = assets.socialIconVersion;
 
   if (!hasConfiguredValue(folder) || !hasConfiguredValue(fileName)) {
     return "";
   }
 
   const normalizedFolder = folder.endsWith("/") ? folder.slice(0, -1) : folder;
-  return `${normalizedFolder}/${fileName}`;
+  const versionSuffix = hasConfiguredValue(version) ? `?v=${encodeURIComponent(version)}` : "";
+  return `${normalizedFolder}/${fileName}${versionSuffix}`;
 }
 
 function renderSocialSphereInner(assets, item) {

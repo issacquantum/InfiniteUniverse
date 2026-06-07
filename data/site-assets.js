@@ -1,5 +1,6 @@
 export const siteAssets = {
   socialIconFolder: "Assets2",
+  socialIconVersion: "20260607-social-indigo-v1",
   social: [
     {
       id: "linkedin",
