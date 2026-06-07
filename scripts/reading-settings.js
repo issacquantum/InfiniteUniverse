@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260607-electromagnetic-wave-3d-v1";
+import { pick } from "./i18n.js?v=20260607-home-overview-map-v1";
 
 const STORAGE_KEY = "issac-tabares-reading-settings";
 
