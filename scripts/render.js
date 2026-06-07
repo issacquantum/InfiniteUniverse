@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260607-model-accessibility-collapse-v1";
+import { pick } from "./i18n.js?v=20260607-electromagnetic-wave-3d-v1";
 
 function escapeHtml(value) {
   return String(value)
