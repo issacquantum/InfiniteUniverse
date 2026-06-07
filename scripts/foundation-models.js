@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260607-model-accessibility-collapse-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260607-electromagnetic-wave-3d-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
@@ -219,85 +219,271 @@ class FoundationModel {
 
   addElectromagnetismModel() {
     const { THREE, modelGroup } = this;
+    this.state.yaw = -0.78;
+    this.state.pitch = 0.32;
+    this.state.distance = 7.1;
+    modelGroup.scale.setScalar(1.08);
+
+    const span = 7;
+    const halfSpan = span / 2;
+    const samples = 150;
+    const amplitude = 1.04;
+    const waveNumber = 2.65;
+    const angularSpeed = 2.15;
+    const electricColor = 0xa64dff;
+    const magneticColor = 0x5b2bff;
+    const phaseColor = 0x7f35ff;
+    const energyColor = 0xc084ff;
     const eGeometry = new THREE.BufferGeometry();
     const bGeometry = new THREE.BufferGeometry();
-    const samples = 96;
     const ePositions = new Float32Array(samples * 3);
     const bPositions = new Float32Array(samples * 3);
-    const eLine = new THREE.Line(eGeometry, new THREE.LineBasicMaterial({ color: COLORS.brightViolet, linewidth: 2 }));
-    const bLine = new THREE.Line(bGeometry, new THREE.LineBasicMaterial({ color: COLORS.electric, linewidth: 2 }));
+    const eSurfaceGeometry = new THREE.BufferGeometry();
+    const bSurfaceGeometry = new THREE.BufferGeometry();
+    const surfaceVertexCount = samples * 2;
+    const eSurfacePositions = new Float32Array(surfaceVertexCount * 3);
+    const bSurfacePositions = new Float32Array(surfaceVertexCount * 3);
+    const surfaceIndices = [];
+    const eLine = new THREE.Line(eGeometry, new THREE.LineBasicMaterial({
+      color: electricColor,
+      transparent: true,
+      opacity: 0.98
+    }));
+    const bLine = new THREE.Line(bGeometry, new THREE.LineBasicMaterial({
+      color: magneticColor,
+      transparent: true,
+      opacity: 0.98
+    }));
     const arrows = [];
     const phaseFronts = [];
+    const energyPulses = [];
 
     eGeometry.setAttribute("position", new THREE.BufferAttribute(ePositions, 3));
     bGeometry.setAttribute("position", new THREE.BufferAttribute(bPositions, 3));
-    modelGroup.add(eLine, bLine);
+    eSurfaceGeometry.setAttribute("position", new THREE.BufferAttribute(eSurfacePositions, 3));
+    bSurfaceGeometry.setAttribute("position", new THREE.BufferAttribute(bSurfacePositions, 3));
+
+    for (let i = 0; i < samples - 1; i += 1) {
+      const a = i * 2;
+      const b = a + 1;
+      const c = a + 2;
+      const d = a + 3;
+      surfaceIndices.push(a, c, b, b, c, d);
+    }
+
+    eSurfaceGeometry.setIndex(surfaceIndices);
+    bSurfaceGeometry.setIndex(surfaceIndices);
+
+    const eSurface = new THREE.Mesh(eSurfaceGeometry, new THREE.MeshBasicMaterial({
+      color: electricColor,
+      transparent: true,
+      opacity: 0.34,
+      side: THREE.DoubleSide,
+      depthWrite: false
+    }));
+    const bSurface = new THREE.Mesh(bSurfaceGeometry, new THREE.MeshBasicMaterial({
+      color: magneticColor,
+      transparent: true,
+      opacity: 0.3,
+      side: THREE.DoubleSide,
+      depthWrite: false
+    }));
+
+    modelGroup.add(this.createEmFieldGrid("xy", electricColor), this.createEmFieldGrid("xz", magneticColor));
+    modelGroup.add(eSurface, bSurface, eLine, bLine);
 
     const axis = new THREE.Line(
-      new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(-3.2, 0, 0), new THREE.Vector3(3.2, 0, 0)]),
-      new THREE.LineBasicMaterial({ color: COLORS.luminousViolet, transparent: true, opacity: 0.42 })
+      new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(-halfSpan - 0.35, 0, 0), new THREE.Vector3(halfSpan + 0.48, 0, 0)]),
+      new THREE.LineBasicMaterial({ color: energyColor, transparent: true, opacity: 0.52 })
     );
-    modelGroup.add(axis);
+    const propagationArrow = new THREE.ArrowHelper(
+      new THREE.Vector3(1, 0, 0),
+      new THREE.Vector3(-halfSpan - 0.38, -1.18, -1.05),
+      span + 0.76,
+      energyColor,
+      0.22,
+      0.11
+    );
+    modelGroup.add(axis, propagationArrow);
 
-    for (let i = 0; i < 11; i += 1) {
-      const x = -3 + i * 0.6;
-      const eArrow = new THREE.ArrowHelper(new THREE.Vector3(0, 1, 0), new THREE.Vector3(x, 0, 0), 0.4, COLORS.brightViolet, 0.1, 0.045);
-      const bArrow = new THREE.ArrowHelper(new THREE.Vector3(0, 0, 1), new THREE.Vector3(x, 0, 0), 0.4, COLORS.electric, 0.1, 0.045);
+    for (let i = 0; i < 15; i += 1) {
+      const x = -halfSpan + (i / 14) * span;
+      const eArrow = new THREE.ArrowHelper(
+        new THREE.Vector3(0, 1, 0),
+        new THREE.Vector3(x, 0, 0),
+        0.45,
+        electricColor,
+        0.12,
+        0.055
+      );
+      const bArrow = new THREE.ArrowHelper(
+        new THREE.Vector3(0, 0, 1),
+        new THREE.Vector3(x, 0, 0),
+        0.45,
+        magneticColor,
+        0.12,
+        0.055
+      );
       arrows.push({ x, eArrow, bArrow });
       modelGroup.add(eArrow, bArrow);
     }
 
-    const frontMaterial = new THREE.MeshBasicMaterial({
-      color: COLORS.luminousViolet,
-      transparent: true,
-      opacity: 0.7,
-      depthWrite: false
-    });
-    const frontGeometry = new THREE.TorusGeometry(0.72, 0.012, 12, 64);
+    const frontGeometry = new THREE.PlaneGeometry(1.95, 1.95, 1, 1);
+    const frontEdgeGeometry = new THREE.EdgesGeometry(frontGeometry);
 
-    for (let i = 0; i < 3; i += 1) {
-      const front = new THREE.Mesh(frontGeometry, frontMaterial.clone());
-      front.rotation.y = Math.PI / 2;
-      front.userData.offset = i / 3;
-      phaseFronts.push(front);
-      modelGroup.add(front);
+    for (let i = 0; i < 5; i += 1) {
+      const plane = new THREE.Mesh(frontGeometry, new THREE.MeshBasicMaterial({
+        color: phaseColor,
+        transparent: true,
+        opacity: 0.12,
+        side: THREE.DoubleSide,
+        depthWrite: false
+      }));
+      const edge = new THREE.LineSegments(frontEdgeGeometry, new THREE.LineBasicMaterial({
+        color: phaseColor,
+        transparent: true,
+        opacity: 0.6
+      }));
+      const group = new THREE.Group();
+      group.rotation.y = Math.PI / 2;
+      group.userData.offset = i / 5;
+      group.add(plane, edge);
+      phaseFronts.push(group);
+      modelGroup.add(group);
     }
 
+    for (let i = 0; i < 8; i += 1) {
+      const pulse = new THREE.Mesh(
+        new THREE.SphereGeometry(0.045, 18, 10),
+        new THREE.MeshBasicMaterial({
+          color: energyColor,
+          transparent: true,
+          opacity: 0.8,
+          depthWrite: false
+        })
+      );
+      pulse.userData.offset = i / 8;
+      energyPulses.push(pulse);
+      modelGroup.add(pulse);
+    }
+
+    const glowMaterial = new THREE.MeshBasicMaterial({
+      color: energyColor,
+      transparent: true,
+      opacity: 0.12,
+      side: THREE.DoubleSide,
+      depthWrite: false
+    });
+    const glow = new THREE.Mesh(new THREE.CylinderGeometry(1.08, 1.08, span, 64, 1, true), glowMaterial);
+    glow.rotation.z = Math.PI / 2;
+    modelGroup.add(glow);
+
     this.dynamic = (time) => {
+      const phase = -time * angularSpeed;
+
       for (let i = 0; i < samples; i += 1) {
         const ratio = i / (samples - 1);
-        const x = -3.2 + ratio * 6.4;
-        const wave = Math.sin(x * 2.6 - time * 2.2);
+        const x = -halfSpan + ratio * span;
+        const wave = Math.sin(x * waveNumber + phase);
+        const y = wave * amplitude;
+        const z = wave * amplitude;
+
         ePositions[i * 3] = x;
-        ePositions[i * 3 + 1] = wave * 0.82;
+        ePositions[i * 3 + 1] = y;
         ePositions[i * 3 + 2] = 0;
         bPositions[i * 3] = x;
         bPositions[i * 3 + 1] = 0;
-        bPositions[i * 3 + 2] = wave * 0.82;
+        bPositions[i * 3 + 2] = z;
+
+        eSurfacePositions[i * 6] = x;
+        eSurfacePositions[i * 6 + 1] = 0;
+        eSurfacePositions[i * 6 + 2] = 0;
+        eSurfacePositions[i * 6 + 3] = x;
+        eSurfacePositions[i * 6 + 4] = y;
+        eSurfacePositions[i * 6 + 5] = 0;
+
+        bSurfacePositions[i * 6] = x;
+        bSurfacePositions[i * 6 + 1] = 0;
+        bSurfacePositions[i * 6 + 2] = 0;
+        bSurfacePositions[i * 6 + 3] = x;
+        bSurfacePositions[i * 6 + 4] = 0;
+        bSurfacePositions[i * 6 + 5] = z;
       }
+
       eGeometry.attributes.position.needsUpdate = true;
       bGeometry.attributes.position.needsUpdate = true;
+      eSurfaceGeometry.attributes.position.needsUpdate = true;
+      bSurfaceGeometry.attributes.position.needsUpdate = true;
 
       arrows.forEach(({ x, eArrow, bArrow }) => {
-        const wave = Math.sin(x * 2.6 - time * 2.2);
-        const length = 0.18 + Math.abs(wave) * 0.62;
+        const wave = Math.sin(x * waveNumber + phase);
+        const length = 0.12 + Math.abs(wave) * 0.78;
+        const direction = Math.sign(wave) || 1;
         eArrow.position.set(x, 0, 0);
-        eArrow.setDirection(new THREE.Vector3(0, Math.sign(wave) || 1, 0));
-        eArrow.setLength(length, 0.1, 0.045);
+        eArrow.setDirection(new THREE.Vector3(0, direction, 0));
+        eArrow.setLength(length, 0.12, 0.055);
         bArrow.position.set(x, 0, 0);
-        bArrow.setDirection(new THREE.Vector3(0, 0, Math.sign(wave) || 1));
-        bArrow.setLength(length, 0.1, 0.045);
+        bArrow.setDirection(new THREE.Vector3(0, 0, direction));
+        bArrow.setLength(length, 0.12, 0.055);
       });
 
       phaseFronts.forEach((front) => {
-        const travel = (time * 0.18 + front.userData.offset) % 1;
-        const x = -3.2 + travel * 6.4;
-        const wave = Math.sin(x * 2.6 - time * 2.2);
-        front.position.set(x, wave * 0.18, wave * 0.18);
-        front.scale.setScalar(0.78 + Math.abs(wave) * 0.16);
-        front.material.opacity = 0.32 + (1 - travel) * 0.42;
+        const travel = (time * 0.16 + front.userData.offset) % 1;
+        const x = -halfSpan + travel * span;
+        front.position.set(x, 0, 0);
+        front.scale.setScalar(0.82 + Math.sin(time * 1.2 + front.userData.offset * Math.PI * 2) * 0.04);
+        front.children.forEach((child) => {
+          child.material.opacity = child.isMesh
+            ? 0.07 + (1 - travel) * 0.12
+            : 0.34 + (1 - travel) * 0.34;
+        });
+      });
+
+      energyPulses.forEach((pulse) => {
+        const travel = (time * 0.21 + pulse.userData.offset) % 1;
+        const x = -halfSpan + travel * span;
+        const wave = Math.sin(x * waveNumber + phase);
+        pulse.position.set(x, wave * amplitude * 0.32, wave * amplitude * 0.32);
+        pulse.scale.setScalar(0.8 + Math.abs(wave) * 0.65);
+        pulse.material.opacity = 0.28 + (1 - Math.abs(travel - 0.5) * 2) * 0.58;
       });
     };
+  }
+
+  createEmFieldGrid(plane, color) {
+    const { THREE } = this;
+    const size = 4.2;
+    const span = 7;
+    const divisions = 10;
+    const positions = [];
+    const half = size / 2;
+    const halfSpan = span / 2;
+
+    for (let i = 0; i <= divisions; i += 1) {
+      const x = -halfSpan + (span * i) / divisions;
+      if (plane === "xy") {
+        positions.push(x, -half, 0, x, half, 0);
+      } else {
+        positions.push(x, 0, -half, x, 0, half);
+      }
+    }
+
+    for (let i = 0; i <= divisions; i += 1) {
+      const v = -half + (size * i) / divisions;
+      if (plane === "xy") {
+        positions.push(-halfSpan, v, 0, halfSpan, v, 0);
+      } else {
+        positions.push(-halfSpan, 0, v, halfSpan, 0, v);
+      }
+    }
+
+    const geometry = new THREE.BufferGeometry();
+    geometry.setAttribute("position", new THREE.Float32BufferAttribute(positions, 3));
+    return new THREE.LineSegments(geometry, new THREE.LineBasicMaterial({
+      color,
+      transparent: true,
+      opacity: 0.24
+    }));
   }
 
   addThermodynamicsModel() {
