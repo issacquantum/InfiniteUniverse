@@ -65,9 +65,9 @@
       amplitudes al cuadrado. Esta estructura de amplitudes es la primera fuente del poder computacional cuántico. Cuando se combinan varios qubits, el espacio
       de estados crece exponencialmente: <strong>\(n\) qubits ocupan un espacio de Hilbert de dimensión
         \(2^n\)</strong>,
-      lo que permite la representación y manipulación en paralelo de una cantidad de información que escala mucho más
-      rápido que en cualquier sistema clásico equivalente. Lo esencial no es una imagen del qubit, sino sus amplitudes, su
-      fase relativa y la base en la que será medido.
+      lo que da al vector de estado \(2^n\) amplitudes complejas, aunque esas amplitudes no se pueden leer directamente
+      como \(2^n\) datos clásicos. Lo esencial no es una imagen del qubit, sino sus amplitudes, su fase relativa y la base
+      en la que será medido.
     </p>
 
     <h3>Entrelazamiento y medición</h3>
@@ -85,14 +85,12 @@
     </div>
     <p>en el que las mediciones producen correlaciones no clásicas entre qubits, sin crear una señal controlable más
       rápida que la luz. Esta propiedad, que Einstein calificó célebremente de "acción fantasmal a distancia", es hoy un
-      recurso operativo: sin entrelazamiento no existirían la <strong>teleportación cuántica</strong>, el
-      <strong>código superdenso</strong> ni gran parte de la ventaja algorítmica que ofrece esta tecnología. La
-      <strong>medición</strong>, por su parte, es un acto irreversible que proyecta el estado sobre uno de los
-      autoestados del observable y devuelve un resultado clásico con probabilidad \(|\alpha|^2\) o \(|\beta|^2\) según
-      la <strong>regla de Born</strong>; tras la medición, la superposición se destruye y el sistema queda en el estado
-      correspondiente al valor obtenido. Este <strong>colapso</strong> impone una restricción esencial en el diseño de
-      algoritmos cuánticos, ya que toda la riqueza del cálculo debe estructurarse para que, en el momento de medir, las
-      amplitudes interfieran <strong>constructivamente</strong> sobre la respuesta correcta y
+      recurso operativo. El entrelazamiento es central para muchos protocolos cuánticos y para muchas afirmaciones de
+      ventaja cuántica escalable, aunque su papel exacto depende del modelo computacional y de la tarea. En la
+      idealización de medición proyectiva, la <strong>medición</strong> devuelve un resultado clásico y actualiza el
+      estado según el observable medido; mediciones más generales se describen mediante POVM. Esto impone una restricción
+      esencial en el diseño de algoritmos cuánticos, ya que toda la riqueza del cálculo debe estructurarse para que, en el
+      momento de medir, las amplitudes interfieran <strong>constructivamente</strong> sobre la respuesta correcta y
       <strong>destructivamente</strong> sobre las incorrectas.
     </p>
 
