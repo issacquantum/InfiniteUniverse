@@ -1,14 +1,14 @@
-import { siteAssets } from "../data/site-assets.js?v=20260607-cosmology-social-indigo-v1";
-import { siteContent } from "../data/site-content.js?v=20260607-cosmology-social-indigo-v1";
-import { createReadingSettingsController } from "./reading-settings.js?v=20260607-cosmology-social-indigo-v1";
-import { initBackground } from "./background.js?v=20260607-cosmology-social-indigo-v1";
-import { refreshIcons } from "./icons.js?v=20260607-cosmology-social-indigo-v1";
-import { pick } from "./i18n.js?v=20260607-cosmology-social-indigo-v1";
-import { syncLegacyContent } from "./legacy-content.js?v=20260607-cosmology-social-indigo-v1";
-import { createMusicController, syncMusicUi } from "./music.js?v=20260607-cosmology-social-indigo-v1";
-import { renderSite } from "./render.js?v=20260607-cosmology-social-indigo-v1";
-import { createState } from "./state.js?v=20260607-cosmology-social-indigo-v1";
-import { syncStructuredContent } from "./structured-content.js?v=20260607-cosmology-social-indigo-v1";
+import { siteAssets } from "../data/site-assets.js?v=20260607-site-purpose-close-v1";
+import { siteContent } from "../data/site-content.js?v=20260607-site-purpose-close-v1";
+import { createReadingSettingsController } from "./reading-settings.js?v=20260607-site-purpose-close-v1";
+import { initBackground } from "./background.js?v=20260607-site-purpose-close-v1";
+import { refreshIcons } from "./icons.js?v=20260607-site-purpose-close-v1";
+import { pick } from "./i18n.js?v=20260607-site-purpose-close-v1";
+import { syncLegacyContent } from "./legacy-content.js?v=20260607-site-purpose-close-v1";
+import { createMusicController, syncMusicUi } from "./music.js?v=20260607-site-purpose-close-v1";
+import { renderSite } from "./render.js?v=20260607-site-purpose-close-v1";
+import { createState } from "./state.js?v=20260607-site-purpose-close-v1";
+import { syncStructuredContent } from "./structured-content.js?v=20260607-site-purpose-close-v1";
 
 const refs = {
   siteShell: document.querySelector(".site-shell"),
@@ -522,7 +522,11 @@ function toggleTitle() {
 
 function showHome() {
   clearPendingReturnNavigation();
-  store.setState((state) => ({
+  store.setState((state) => createHomeState(state));
+}
+
+function createHomeState(state) {
+  return {
     ...state,
     titleOpen: true,
     activeSection: null,
@@ -533,13 +537,17 @@ function showHome() {
     activeDetail: null,
     equationReturnTarget: null,
     mobileKnowledgeNavOpen: false
-  }));
+  };
 }
 
 function selectSection(sectionId) {
   clearPendingReturnNavigation();
   store.setState((state) => {
     if (state.activeSection === sectionId) {
+      if (sectionId === siteContent.sitePurposeSection?.id) {
+        return createHomeState(state);
+      }
+
       return {
         ...state,
         titleOpen: false,
