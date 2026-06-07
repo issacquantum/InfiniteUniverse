@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260607-electromagnetic-wave-3d-v1";
+import { pick } from "./i18n.js?v=20260607-nav-icons-v1";
 
 function escapeHtml(value) {
   return String(value)
@@ -11,6 +11,63 @@ function escapeHtml(value) {
 
 function classNames(...values) {
   return values.filter(Boolean).join(" ");
+}
+
+const sectionIconNames = {
+  "origins": "sparkles",
+  "learning-path": "book-open",
+  "music": "music",
+  "systems-work": "database",
+  "practice-worlds": "gamepad-2",
+  "personal-cosmology": "orbit"
+};
+
+const domainIconNames = {
+  "physical-foundations": "atom",
+  "quantum-foundations": "waves",
+  "matter-life-mind": "brain",
+  "spacetime-cosmos": "telescope",
+  "intelligence-computation": "cpu",
+  "systems-method": "network",
+  "model-lab": "box"
+};
+
+const topicIconNames = {
+  "classical-mechanics": "circle-dot",
+  "electromagnetism": "radio-tower",
+  "thermodynamics-statistical-mechanics": "flame",
+  "mathematical-foundations": "sigma",
+  "quantum-mechanics": "atom",
+  "quantum-entanglement": "network",
+  "quantum-information": "binary",
+  "quantum-computing": "cpu",
+  "quantum-complexity": "workflow",
+  "quantum-field-theory": "waves",
+  "chemistry-molecular-structure": "flask-conical",
+  "biology-life-systems": "dna",
+  "neuroscience-consciousness": "brain",
+  "relativity-spacetime": "orbit",
+  "black-holes": "circle-dot-dashed",
+  "wormholes": "scan",
+  "cosmology-early-universe": "telescope",
+  "artificial-intelligence": "bot",
+  "information-theory": "binary",
+  "programming-algorithms": "code-2",
+  "simulation-models": "boxes",
+  "complex-systems-emergence": "network",
+  "philosophy-science": "scroll",
+  "model-lab": "box"
+};
+
+function renderNavigationLabel(label, iconName) {
+  const icon = iconName
+    ? `<span class="nav-button__icon" aria-hidden="true"><i data-lucide="${escapeHtml(iconName)}"></i></span>`
+    : "";
+
+  return `
+    ${icon}
+    <span class="nav-button__label">${escapeHtml(label)}</span>
+  `;
 }
 
 function hasConfiguredValue(value) {
@@ -104,7 +161,7 @@ function renderSectionButtons(sections, state, language, ui) {
           data-section-id="${escapeHtml(section.id)}"
           aria-pressed="${String(state.activeSection === section.id)}"
         >
-          ${escapeHtml(pick(section.title, language))}
+          ${renderNavigationLabel(pick(section.title, language), sectionIconNames[section.id])}
         </button>
       `).join("")}
     </div>
@@ -117,6 +174,7 @@ function renderFocusedPathRow({
   dataName,
   id,
   label,
+  iconName,
   scope,
   closeHint,
   closeAria
@@ -134,7 +192,7 @@ function renderFocusedPathRow({
         aria-label="${escapeHtml(buttonLabel)}"
         title="${escapeHtml(buttonLabel)}"
       >
-        <span class="focused-path-tab__label">${escapeHtml(label)}</span>
+        <span class="focused-path-tab__label">${renderNavigationLabel(label, iconName)}</span>
         ${closeHint ? `<span class="focused-path-tab__meta">${escapeHtml(closeHint)}</span>` : ""}
         ${closeHint ? `<span class="focused-path-tab__close" aria-hidden="true">×</span>` : ""}
       </button>
@@ -153,7 +211,7 @@ function renderDomainButtons(domains, state, language, ui) {
           data-domain-id="${escapeHtml(domain.id)}"
           aria-pressed="${String(state.activeDomain === domain.id)}"
         >
-          ${escapeHtml(pick(domain.title, language))}
+          ${renderNavigationLabel(pick(domain.title, language), domainIconNames[domain.id])}
         </button>
       `).join("")}
     </div>
@@ -171,7 +229,7 @@ function renderTopicButtons(topics, state, language, ui) {
           data-topic-id="${escapeHtml(topic.id)}"
           aria-pressed="${String(state.activeTopic === topic.id)}"
         >
-          ${escapeHtml(pick(topic.title, language))}
+          ${renderNavigationLabel(pick(topic.title, language), topicIconNames[topic.id])}
         </button>
       `).join("")}
     </div>
@@ -192,7 +250,7 @@ function renderBranchButtons(branches, state, language, ui) {
           data-branch-id="${escapeHtml(branch.id)}"
           aria-pressed="${String(state.activeBranch === branch.id)}"
         >
-          ${escapeHtml(pick(branch.title, language))}
+          ${renderNavigationLabel(pick(branch.title, language), topicIconNames[branch.id])}
         </button>
       `).join("")}
     </div>
@@ -212,7 +270,7 @@ function renderLegacyItemButtons(items, state, language, ui) {
           data-item-id="${escapeHtml(item.id)}"
           aria-pressed="${String(state.activeDetail === item.id)}"
         >
-          ${escapeHtml(pick(item.title, language))}
+          ${renderNavigationLabel(pick(item.title, language), topicIconNames[item.id])}
         </button>
       `).join("")}
     </div>
@@ -413,7 +471,9 @@ function renderMobileKnowledgeNavigation(domains, state, language) {
                   data-domain-id="${escapeHtml(domain.id)}"
                   aria-expanded="${String(isExpanded)}"
                 >
-                  <span>${escapeHtml(pick(domain.title, language))}</span>
+                  <span class="mobile-knowledge-nav__domain-label">
+                    ${renderNavigationLabel(pick(domain.title, language), domainIconNames[domain.id])}
+                  </span>
                   <i data-lucide="${isExpanded ? "chevron-up" : "chevron-down"}"></i>
                 </button>
                 <div class="mobile-knowledge-nav__topics" ${isExpanded ? "" : "hidden"} aria-label="${escapeHtml(labels.topics)}">
@@ -425,7 +485,7 @@ function renderMobileKnowledgeNavigation(domains, state, language) {
                       data-domain-id="${escapeHtml(domain.id)}"
                       data-topic-id="${escapeHtml(topic.id)}"
                     >
-                      ${escapeHtml(pick(topic.title, language))}
+                      ${renderNavigationLabel(pick(topic.title, language), topicIconNames[topic.id])}
                     </button>
                   `).join("")}
                 </div>
@@ -677,7 +737,8 @@ export function renderSite({ state, refs, content, assets }) {
         action: "select-section",
         dataName: "data-section-id",
         id: activeSection.id,
-        label: pick(activeSection.title, language)
+        label: pick(activeSection.title, language),
+        iconName: sectionIconNames[activeSection.id]
       }));
 
       if (activeDetail) {
@@ -687,6 +748,7 @@ export function renderSite({ state, refs, content, assets }) {
           dataName: "data-item-id",
           id: activeDetail.id,
           label: pick(activeDetail.title, language),
+          iconName: topicIconNames[activeDetail.id],
           closeHint: pick(content.ui.focusedPathCloseHint, language),
           closeAria: pick(content.ui.focusedPathCloseAria, language)
         }));
@@ -698,6 +760,7 @@ export function renderSite({ state, refs, content, assets }) {
         dataName: "data-domain-id",
         id: activeDomain.id,
         label: pick(activeDomain.title, language),
+        iconName: domainIconNames[activeDomain.id],
         scope: "science"
       }));
 
@@ -707,6 +770,7 @@ export function renderSite({ state, refs, content, assets }) {
         dataName: "data-topic-id",
         id: activeTopic.id,
         label: pick(activeTopic.title, language),
+        iconName: topicIconNames[activeTopic.id],
         scope: "science"
       }));
 
@@ -717,6 +781,7 @@ export function renderSite({ state, refs, content, assets }) {
           dataName: "data-branch-id",
           id: activeBranch.id,
           label: pick(activeBranch.title, language),
+          iconName: topicIconNames[activeBranch.id],
           scope: "science"
         }));
       }
@@ -728,6 +793,7 @@ export function renderSite({ state, refs, content, assets }) {
           dataName: "data-item-id",
           id: activeDetail.id,
           label: pick(activeDetail.title, language),
+          iconName: topicIconNames[activeDetail.id],
           scope: "science",
           closeHint: pick(content.ui.focusedPathCloseHint, language),
           closeAria: pick(content.ui.focusedPathCloseAria, language)
