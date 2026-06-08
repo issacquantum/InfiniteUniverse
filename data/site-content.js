@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260607-equation-fit-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260608-spanish-wording-v1";
 
 function htmlSource(group, id) {
   return {
