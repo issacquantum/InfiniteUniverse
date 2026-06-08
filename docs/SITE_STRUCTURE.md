@@ -35,13 +35,13 @@ Parentheses in literal readings should be spoken naturally. Use `the quantity ..
 
 ## Knowledge World Domains
 
-- `model-lab`: central model index.
 - `physical-foundations`: classical mechanics, electromagnetism, thermodynamics/statistical mechanics, mathematical foundations.
 - `quantum-foundations`: quantum mechanics, quantum entanglement, quantum information, quantum computing.
 - `matter-life-mind`: quantum field theory, chemistry and molecular structure, biology and life systems, neuroscience of consciousness.
 - `spacetime-cosmos`: relativity and spacetime, black holes, wormholes, cosmology and the early universe.
 - `intelligence-computation`: artificial intelligence, information theory, programming and algorithms, simulation and models.
 - `systems-method`: complex systems and emergence, philosophy of science.
+- `model-lab`: central model index.
 
 ## Adding A Content Page
 

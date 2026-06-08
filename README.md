@@ -49,13 +49,13 @@ Names should stay consistent across visible labels, section IDs, file names, and
 
 ## Science Areas
 
-- `model-lab` - model index.
 - `physical-foundations` - mechanics, electromagnetism, thermodynamics, and mathematical foundations.
 - `quantum-foundations` - quantum mechanics, entanglement, quantum information, and quantum computing.
 - `matter-life-mind` - quantum field theory, chemistry, biology, and neuroscience.
 - `spacetime-cosmos` - relativity, black holes, wormholes, and cosmology.
 - `intelligence-computation` - AI, information theory, programming, and simulations.
 - `systems-method` - complex systems and philosophy of science.
+- `model-lab` - model index.
 
 ## Equation Explainers
 
