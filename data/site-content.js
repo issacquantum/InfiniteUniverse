@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260607-creative-effects-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260607-side-rail-v1";
 
 function htmlSource(group, id) {
   return {

@@ -111,8 +111,9 @@ export function syncReadingConstellation(root, language) {
 
   contentWindow._creativeProgressCleanup?.();
 
-  const previousProgress = root.querySelector(":scope > .content-progress-constellation");
+  const previousProgress = contentWindow.querySelector(":scope > .content-progress-constellation");
   previousProgress?.remove();
+  root.querySelector(":scope > .content-progress-constellation")?.remove();
 
   const headings = Array.from(root.querySelectorAll(HEADING_SELECTOR))
     .filter((heading) => {
@@ -152,6 +153,7 @@ export function syncReadingConstellation(root, language) {
 
   const updateProgress = () => {
     const activeIndex = findActiveHeadingIndex(contentWindow, headings);
+    progress.style.top = `${contentWindow.scrollTop + (contentWindow.clientHeight / 2)}px`;
 
     dots.forEach((dot, index) => {
       dot.classList.toggle("is-active", index === activeIndex);
@@ -159,12 +161,14 @@ export function syncReadingConstellation(root, language) {
     });
   };
 
-  root.prepend(progress);
+  contentWindow.appendChild(progress);
   contentWindow.addEventListener("scroll", updateProgress, { passive: true });
+  window.addEventListener("resize", updateProgress, { passive: true });
   updateProgress();
 
   contentWindow._creativeProgressCleanup = () => {
     contentWindow.removeEventListener("scroll", updateProgress);
+    window.removeEventListener("resize", updateProgress);
     progress.remove();
   };
 }
