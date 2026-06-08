@@ -12,15 +12,15 @@ body[data-section-mood]::after {
   animation: ambient-mood-drift 18s ease-in-out infinite alternate;
 }
 
-body[data-section-mood="music"]::after {
+body[data-section-mood="personal-music"]::after {
   background:
     repeating-linear-gradient(115deg, rgba(119, 0, 255, 0.12) 0 1px, transparent 1px 42px),
     radial-gradient(circle at 24% 22%, rgba(141, 39, 255, 0.24), transparent 28%),
     radial-gradient(circle at 82% 74%, rgba(62, 0, 190, 0.2), transparent 30%);
 }
 
-body[data-section-mood="systems"]::after,
-body[data-section-mood="practice"]::after {
+body[data-section-mood="personal-systems"]::after,
+body[data-section-mood="personal-practice"]::after {
   background:
     radial-gradient(circle at 18% 32%, rgba(141, 39, 255, 0.18), transparent 24%),
     radial-gradient(circle at 76% 66%, rgba(79, 0, 210, 0.14), transparent 30%),
@@ -37,21 +37,22 @@ body[data-section-mood="waves"]::after {
     radial-gradient(circle at 20% 20%, rgba(141, 39, 255, 0.18), transparent 26%);
 }
 
-body[data-section-mood="life"]::after,
-body[data-section-mood="learning"]::after {
+body[data-section-mood="personal-origins"]::after,
+body[data-section-mood="personal-learning"]::after {
   background:
     radial-gradient(circle at 22% 26%, rgba(141, 39, 255, 0.2), transparent 24%),
     radial-gradient(circle at 72% 36%, rgba(79, 0, 210, 0.16), transparent 30%),
     linear-gradient(145deg, transparent 0 48%, rgba(119, 0, 255, 0.08) 50% 51%, transparent 55%);
 }
 
-body[data-section-mood="cosmology"]::after {
+body[data-section-mood="personal-cosmology"]::after {
   background:
     radial-gradient(circle at 26% 24%, rgba(141, 39, 255, 0.18), transparent 25%),
     radial-gradient(circle at 74% 68%, rgba(62, 0, 190, 0.16), transparent 32%),
     linear-gradient(140deg, transparent 0 42%, rgba(119, 0, 255, 0.07) 47% 48%, transparent 54%);
 }
 
+body[data-section-mood="systems"]::after,
 body[data-section-mood="mind"]::after,
 body[data-section-mood="model-lab"]::after {
   background:
