@@ -1,4 +1,4 @@
-import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260608-spanish-wording-v1";
+import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260608-watermark-glint-v1";
 
 const mountedSimulators = new WeakSet();
 const TWO_PI = Math.PI * 2;

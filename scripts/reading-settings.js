@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260608-spanish-wording-v1";
+import { pick } from "./i18n.js?v=20260608-watermark-glint-v1";
 
 const STORAGE_KEY = "issac-tabares-reading-settings";
 
