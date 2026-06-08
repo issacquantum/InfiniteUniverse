@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260607-personal-watermark-isolation-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260607-em-bar-wave-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
@@ -221,59 +221,106 @@ class FoundationModel {
 
   addElectromagnetismModel() {
     const { THREE, modelGroup } = this;
-    this.state.yaw = -0.78;
-    this.state.pitch = 0.32;
-    this.state.distance = 7.1;
-    modelGroup.scale.setScalar(1.08);
+    this.state.yaw = -0.68;
+    this.state.pitch = 0.26;
+    this.state.distance = 8.4;
+    modelGroup.scale.setScalar(1.02);
 
-    const span = 7;
+    const span = 7.6;
     const halfSpan = span / 2;
-    const samples = 96;
-    const amplitude = 1.2;
-    const waveNumber = 2.65;
-    const angularSpeed = 2.15;
-    const electricColor = 0xa64dff;
-    const magneticColor = 0x5b2bff;
-    const eMaterial = new THREE.MeshBasicMaterial({
-      color: electricColor,
-      transparent: true,
-      opacity: 0.98
+    const samples = 54;
+    const amplitude = 1.38;
+    const waveNumber = (Math.PI * 2) / 2.95;
+    const angularSpeed = 1.55;
+    const barWidth = 0.045;
+    const barDepth = 0.065;
+
+    const electricMaterial = new THREE.MeshStandardMaterial({
+      color: 0xbf40ff,
+      emissive: 0xbf40ff,
+      emissiveIntensity: 1.35,
+      roughness: 0.22,
+      metalness: 0.12
     });
-    const bMaterial = new THREE.MeshBasicMaterial({
-      color: magneticColor,
+    const magneticMaterial = new THREE.MeshStandardMaterial({
+      color: 0x5f24ff,
+      emissive: 0x5f24ff,
+      emissiveIntensity: 1.15,
+      roughness: 0.24,
+      metalness: 0.1
+    });
+    const axisMaterial = new THREE.LineBasicMaterial({
+      color: 0xcc99ff,
       transparent: true,
-      opacity: 0.98
+      opacity: 0.94
+    });
+    const gridMaterial = new THREE.LineBasicMaterial({
+      color: 0x5f24ff,
+      transparent: true,
+      opacity: 0.28
     });
 
-    const buildWaveGeometry = (axis, phase) => {
-      const points = [];
+    const gridPositions = [];
+    const gridWidth = 8.7;
+    const gridHeight = 4.8;
+    const gridZ = -2.1;
+    const gridStep = 0.48;
+
+    for (let x = -gridWidth / 2; x <= gridWidth / 2 + 0.001; x += gridStep) {
+      gridPositions.push(x, -gridHeight / 2, gridZ, x, gridHeight / 2, gridZ);
+    }
+    for (let y = -gridHeight / 2; y <= gridHeight / 2 + 0.001; y += gridStep) {
+      gridPositions.push(-gridWidth / 2, y, gridZ, gridWidth / 2, y, gridZ);
+    }
+
+    const gridGeometry = new THREE.BufferGeometry();
+    gridGeometry.setAttribute("position", new THREE.Float32BufferAttribute(gridPositions, 3));
+    modelGroup.add(new THREE.LineSegments(gridGeometry, gridMaterial));
+
+    const floorGrid = this.addGrid(8.3, 18, -1.55);
+    floorGrid.material.color.setHex(0x3b0fb5);
+    floorGrid.material.opacity = 0.2;
+
+    const axisGeometry = new THREE.BufferGeometry().setFromPoints([
+      new THREE.Vector3(-halfSpan - 0.18, 0, 0),
+      new THREE.Vector3(halfSpan + 0.18, 0, 0)
+    ]);
+    modelGroup.add(new THREE.Line(axisGeometry, axisMaterial));
+
+    const electricBars = [];
+    const magneticBars = [];
+    const electricGeometry = new THREE.BoxGeometry(barWidth, 1, barDepth);
+    const magneticGeometry = new THREE.BoxGeometry(barWidth, barDepth, 1);
+
+    for (let i = 0; i < samples; i += 1) {
+      const ratio = i / (samples - 1);
+      const x = -halfSpan + ratio * span;
+      const electricBar = new THREE.Mesh(electricGeometry, electricMaterial);
+      const magneticBar = new THREE.Mesh(magneticGeometry, magneticMaterial);
+
+      electricBar.position.x = x;
+      magneticBar.position.x = x;
+      electricBars.push(electricBar);
+      magneticBars.push(magneticBar);
+      modelGroup.add(electricBar, magneticBar);
+    }
+
+    this.dynamic = (time) => {
+      const phase = -time * angularSpeed;
 
       for (let i = 0; i < samples; i += 1) {
         const ratio = i / (samples - 1);
         const x = -halfSpan + ratio * span;
-        const wave = Math.sin(x * waveNumber + phase) * amplitude;
-        points.push(axis === "electric"
-          ? new THREE.Vector3(x, wave, 0)
-          : new THREE.Vector3(x, 0, wave));
+        const value = Math.sin(x * waveNumber + phase) * amplitude;
+        const length = Math.max(0.025, Math.abs(value));
+        const electricBar = electricBars[i];
+        const magneticBar = magneticBars[i];
+
+        electricBar.scale.set(1, length, 1);
+        electricBar.position.set(x, value / 2, 0);
+        magneticBar.scale.set(1, 1, length);
+        magneticBar.position.set(x, 0, value / 2);
       }
-
-      const curve = new THREE.CatmullRomCurve3(points);
-      return new THREE.TubeGeometry(curve, 96, 0.018, 8, false);
-    };
-
-    const eWave = new THREE.Mesh(buildWaveGeometry("electric", 0), eMaterial);
-    const bWave = new THREE.Mesh(buildWaveGeometry("magnetic", 0), bMaterial);
-    modelGroup.add(eWave, bWave);
-
-    this.dynamic = (time) => {
-      const phase = -time * angularSpeed;
-      const nextEGeometry = buildWaveGeometry("electric", phase);
-      const nextBGeometry = buildWaveGeometry("magnetic", phase);
-
-      eWave.geometry.dispose();
-      bWave.geometry.dispose();
-      eWave.geometry = nextEGeometry;
-      bWave.geometry = nextBGeometry;
     };
   }
 
