@@ -19,16 +19,14 @@ body[data-section-mood="music"]::after {
     radial-gradient(circle at 82% 74%, rgba(62, 0, 190, 0.2), transparent 30%);
 }
 
-body[data-section-mood="practice"]::after,
 body[data-section-mood="systems"]::after,
-body[data-section-mood="model-lab"]::after {
+body[data-section-mood="practice"]::after {
   background:
-    linear-gradient(120deg, transparent 0 35%, rgba(119, 0, 255, 0.1) 40% 43%, transparent 49%),
-    repeating-linear-gradient(0deg, rgba(90, 0, 220, 0.08) 0 1px, transparent 1px 36px),
-    radial-gradient(circle at 76% 28%, rgba(141, 39, 255, 0.22), transparent 30%);
+    radial-gradient(circle at 18% 32%, rgba(141, 39, 255, 0.18), transparent 24%),
+    radial-gradient(circle at 76% 66%, rgba(79, 0, 210, 0.14), transparent 30%),
+    linear-gradient(145deg, transparent 0 46%, rgba(119, 0, 255, 0.08) 49% 50%, transparent 54%);
 }
 
-body[data-section-mood="cosmology"]::after,
 body[data-section-mood="cosmos"]::after,
 body[data-section-mood="quantum"]::after,
 body[data-section-mood="physics"]::after,
@@ -40,12 +38,26 @@ body[data-section-mood="waves"]::after {
 }
 
 body[data-section-mood="life"]::after,
-body[data-section-mood="learning"]::after,
-body[data-section-mood="mind"]::after {
+body[data-section-mood="learning"]::after {
   background:
     radial-gradient(circle at 22% 26%, rgba(141, 39, 255, 0.2), transparent 24%),
     radial-gradient(circle at 72% 36%, rgba(79, 0, 210, 0.16), transparent 30%),
     linear-gradient(145deg, transparent 0 48%, rgba(119, 0, 255, 0.08) 50% 51%, transparent 55%);
+}
+
+body[data-section-mood="cosmology"]::after {
+  background:
+    radial-gradient(circle at 26% 24%, rgba(141, 39, 255, 0.18), transparent 25%),
+    radial-gradient(circle at 74% 68%, rgba(62, 0, 190, 0.16), transparent 32%),
+    linear-gradient(140deg, transparent 0 42%, rgba(119, 0, 255, 0.07) 47% 48%, transparent 54%);
+}
+
+body[data-section-mood="mind"]::after,
+body[data-section-mood="model-lab"]::after {
+  background:
+    linear-gradient(120deg, transparent 0 35%, rgba(119, 0, 255, 0.1) 40% 43%, transparent 49%),
+    repeating-linear-gradient(0deg, rgba(90, 0, 220, 0.08) 0 1px, transparent 1px 36px),
+    radial-gradient(circle at 76% 28%, rgba(141, 39, 255, 0.22), transparent 30%);
 }
 
 .glass-window,
