@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260607-em-wave-rail-v1";
+import { pick } from "./i18n.js?v=20260607-personal-watermark-isolation-v1";
 
 function escapeHtml(value) {
   return String(value)
@@ -14,12 +14,12 @@ function classNames(...values) {
 }
 
 const sectionIconNames = {
-  "origins": "sparkles",
+  "origins": "home",
   "learning-path": "book-open",
   "music": "music",
-  "systems-work": "database",
+  "systems-work": "briefcase",
   "practice-worlds": "gamepad-2",
-  "personal-cosmology": "orbit"
+  "personal-cosmology": "infinity"
 };
 
 const domainIconNames = {
@@ -60,12 +60,12 @@ const topicIconNames = {
 };
 
 const sectionSignatureIconNames = {
-  "origins": "circle-dot",
-  "learning-path": "sigma",
-  "music": "waves",
-  "systems-work": "network",
-  "practice-worlds": "workflow",
-  "personal-cosmology": "telescope",
+  "origins": "home",
+  "learning-path": "book-open",
+  "music": "music",
+  "systems-work": "briefcase",
+  "practice-worlds": "gamepad-2",
+  "personal-cosmology": "infinity",
   "site-purpose-notices-privacy": "scroll-text"
 };
 
@@ -107,12 +107,12 @@ const topicSignatureIconNames = {
 };
 
 const sectionMoodNames = {
-  "origins": "life",
-  "learning-path": "learning",
-  "music": "music",
-  "systems-work": "systems",
-  "practice-worlds": "practice",
-  "personal-cosmology": "cosmology"
+  "origins": "personal-origins",
+  "learning-path": "personal-learning",
+  "music": "personal-music",
+  "systems-work": "personal-systems",
+  "practice-worlds": "personal-practice",
+  "personal-cosmology": "personal-cosmology"
 };
 
 const domainMoodNames = {

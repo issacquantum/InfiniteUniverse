@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260607-em-wave-rail-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260607-personal-watermark-isolation-v1";
 
 const mountedModels = new WeakSet();
 const SYMBOL_COUNT = 4;
