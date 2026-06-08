@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260607-side-rail-v1";
+import { pick } from "./i18n.js?v=20260607-mature-watermarks-v1";
 
 const STORAGE_KEY = "issac-tabares-reading-settings";
 
