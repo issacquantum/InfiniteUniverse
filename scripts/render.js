@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260607-static-reading-rail-v1";
+import { pick } from "./i18n.js?v=20260607-personal-watermark-scope-v1";
 
 function escapeHtml(value) {
   return String(value)
@@ -60,13 +60,13 @@ const topicIconNames = {
 };
 
 const sectionSignatureIconNames = {
-  "origins": "circle-dot",
-  "learning-path": "sigma",
-  "music": "waves",
-  "systems-work": "network",
-  "practice-worlds": "workflow",
+  "origins": "map",
+  "learning-path": "book-open-check",
+  "music": "audio-lines",
+  "systems-work": "server-cog",
+  "practice-worlds": "gauge",
   "personal-cosmology": "telescope",
-  "site-purpose-notices-privacy": "scroll-text"
+  "site-purpose-notices-privacy": "file-text"
 };
 
 const domainSignatureIconNames = {
@@ -167,6 +167,12 @@ function resolveSectionMood({ activeSection, activeDomain, activeTopic }) {
 }
 
 function resolveSignatureIcon({ activeSection, activeDomain, activeTopic, activeBranch, activeDetail }) {
+  const personalSignatureIconName = sectionSignatureIconNames[activeSection?.id];
+
+  if (personalSignatureIconName && !activeDomain && !activeTopic) {
+    return personalSignatureIconName;
+  }
+
   return (
     topicSignatureIconNames[activeDetail?.id]
     ?? topicSignatureIconNames[activeBranch?.id]
