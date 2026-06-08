@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260607-watermark-icons-only-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260607-equation-fit-v1";
 
 const mountedModels = new WeakSet();
 
