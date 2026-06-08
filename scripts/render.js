@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260608-spanish-wording-v1";
+import { pick } from "./i18n.js?v=20260608-watermark-glint-v1";
 
 function escapeHtml(value) {
   return String(value)
@@ -630,7 +630,12 @@ function renderStructuredPanel(contentFile, language, ui, navigation = null, opt
     <article class="glass-window content-window" tabindex="0">
       ${signatureIconName ? `
         <div class="content-window__signature" aria-hidden="true">
-          <i data-lucide="${escapeHtml(signatureIconName)}"></i>
+          <span class="content-window__signature-mark content-window__signature-mark--base">
+            <i data-lucide="${escapeHtml(signatureIconName)}"></i>
+          </span>
+          <span class="content-window__signature-mark content-window__signature-mark--glint">
+            <i data-lucide="${escapeHtml(signatureIconName)}"></i>
+          </span>
         </div>
       ` : ""}
       ${closeButton ? `
@@ -677,7 +682,12 @@ function renderLegacyPanel(item, language, ui, navigation = null, options = {}) 
     <article class="glass-window content-window" tabindex="0">
       ${signatureIconName ? `
         <div class="content-window__signature" aria-hidden="true">
-          <i data-lucide="${escapeHtml(signatureIconName)}"></i>
+          <span class="content-window__signature-mark content-window__signature-mark--base">
+            <i data-lucide="${escapeHtml(signatureIconName)}"></i>
+          </span>
+          <span class="content-window__signature-mark content-window__signature-mark--glint">
+            <i data-lucide="${escapeHtml(signatureIconName)}"></i>
+          </span>
         </div>
       ` : ""}
       ${renderMobileReaderTopNavigation(navigation, language)}
