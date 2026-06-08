@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260607-personal-watermark-isolation-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260607-em-bar-wave-v1";
 
 function htmlSource(group, id) {
   return {
