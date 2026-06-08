@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260607-watermark-icons-only-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260607-equation-fit-v1";
 
 function htmlSource(group, id) {
   return {

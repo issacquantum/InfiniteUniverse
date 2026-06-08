@@ -1745,12 +1745,12 @@ body[data-media-notes="on"] .media-note {
   display: flex;
   justify-content: center;
   width: 100%;
+  max-width: 100%;
   margin: clamp(1.15rem, 2.3vw, 1.95rem) 0;
   min-width: 0;
   padding: 0.1rem 0;
-  overflow-x: auto;
+  overflow-x: visible;
   overflow-y: visible;
-  scrollbar-width: thin;
 }
 
 .structured-content .equation-link,
@@ -1759,9 +1759,9 @@ body[data-media-notes="on"] .media-note {
 .legacy-content .equation-display {
   display: inline-grid;
   place-items: center;
-  width: min(100%, 24rem);
-  max-width: min(100%, 24rem);
-  min-width: 0;
+  width: fit-content;
+  min-width: min(100%, 24rem);
+  max-width: min(100%, 64rem);
   min-height: 2rem;
   padding: 0.34rem 0.62rem;
   border: 0;
@@ -1773,6 +1773,7 @@ body[data-media-notes="on"] .media-note {
   line-height: normal;
   text-align: center;
   overflow: visible;
+  justify-self: center;
 }
 
 .structured-content .equation-link,
@@ -1823,10 +1824,9 @@ body[data-media-notes="on"] .media-note {
   padding-block: 0.04em;
   max-width: 100%;
   line-height: 1.35;
-  overflow-x: auto;
+  overflow-x: visible;
   overflow-y: visible !important;
-  scrollbar-width: thin;
-  font-size: calc(70% * var(--equation-font-scale, 1));
+  font-size: calc(70% * var(--equation-font-scale, 1) * var(--equation-fit-scale, 1));
 }
 
 .structured-content .equation-link mjx-container :is(mjx-math, mjx-mrow, mjx-frac, mjx-sqrt, mjx-script),
@@ -3114,7 +3114,7 @@ body[data-link-visibility="enhanced"] :where(.structured-content, .legacy-conten
   .legacy-content .equation-link-wrap {
     max-width: 100%;
     margin-block: 1.45rem;
-    overflow-x: auto;
+    overflow-x: visible;
   }
 
   .structured-content .equation-link,
@@ -3127,14 +3127,19 @@ body[data-link-visibility="enhanced"] :where(.structured-content, .legacy-conten
     padding: 0.68rem 0.56rem;
   }
 
-  .content-window mjx-container,
+  .content-window mjx-container {
+    max-width: 100% !important;
+    overflow-x: visible !important;
+    font-size: calc(72% * var(--equation-font-scale, 1)) !important;
+  }
+
   .structured-content .equation-link mjx-container,
   .structured-content .equation-display mjx-container,
   .legacy-content .equation-link mjx-container,
   .legacy-content .equation-display mjx-container {
     max-width: 100% !important;
-    overflow-x: auto !important;
-    font-size: calc(80% * var(--equation-font-scale, 1)) !important;
+    overflow-x: visible !important;
+    font-size: calc(64% * var(--equation-font-scale, 1) * var(--equation-fit-scale, 1)) !important;
   }
 
   .glass-window {
