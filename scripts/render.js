@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260607-mature-watermarks-v1";
+import { pick } from "./i18n.js?v=20260607-static-reading-rail-v1";
 
 function escapeHtml(value) {
   return String(value)

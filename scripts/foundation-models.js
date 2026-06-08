@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260607-mature-watermarks-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260607-static-reading-rail-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
