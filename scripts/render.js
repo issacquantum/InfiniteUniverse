@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260607-personal-watermark-scope-v1";
+import { pick } from "./i18n.js?v=20260607-life-watermark-restore-v1";
 
 function escapeHtml(value) {
   return String(value)
@@ -60,13 +60,13 @@ const topicIconNames = {
 };
 
 const sectionSignatureIconNames = {
-  "origins": "map",
-  "learning-path": "book-open-check",
-  "music": "audio-lines",
-  "systems-work": "server-cog",
-  "practice-worlds": "gauge",
+  "origins": "circle-dot",
+  "learning-path": "sigma",
+  "music": "waves",
+  "systems-work": "network",
+  "practice-worlds": "workflow",
   "personal-cosmology": "telescope",
-  "site-purpose-notices-privacy": "file-text"
+  "site-purpose-notices-privacy": "scroll-text"
 };
 
 const domainSignatureIconNames = {
