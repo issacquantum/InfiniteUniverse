@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260607-em-bar-wave-v1";
+import { pick } from "./i18n.js?v=20260607-watermark-icons-only-v1";
 
 function escapeHtml(value) {
   return String(value)
@@ -65,7 +65,7 @@ const sectionSignatureIconNames = {
   "music": "music",
   "systems-work": "briefcase",
   "practice-worlds": "gamepad-2",
-  "personal-cosmology": "infinity",
+  "personal-cosmology": "orbit",
   "site-purpose-notices-privacy": "scroll-text"
 };
 
