@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260607-life-watermark-restore-v1";
+import { pick } from "./i18n.js?v=20260607-life-watermark-hard-scope-v1";
 
 const STORAGE_KEY = "issac-tabares-reading-settings";
 

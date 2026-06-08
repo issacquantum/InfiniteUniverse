@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260607-life-watermark-restore-v1";
+import { pick } from "./i18n.js?v=20260607-life-watermark-hard-scope-v1";
 
 function escapeHtml(value) {
   return String(value)
@@ -158,10 +158,15 @@ function renderNavigationLabel(label, iconName) {
 }
 
 function resolveSectionMood({ activeSection, activeDomain, activeTopic }) {
+  const personalMoodName = sectionMoodNames[activeSection?.id];
+
+  if (personalMoodName) {
+    return personalMoodName;
+  }
+
   return (
     topicMoodNames[activeTopic?.id]
     ?? domainMoodNames[activeDomain?.id]
-    ?? sectionMoodNames[activeSection?.id]
     ?? ""
   );
 }
@@ -169,7 +174,7 @@ function resolveSectionMood({ activeSection, activeDomain, activeTopic }) {
 function resolveSignatureIcon({ activeSection, activeDomain, activeTopic, activeBranch, activeDetail }) {
   const personalSignatureIconName = sectionSignatureIconNames[activeSection?.id];
 
-  if (personalSignatureIconName && !activeDomain && !activeTopic) {
+  if (personalSignatureIconName) {
     return personalSignatureIconName;
   }
 
