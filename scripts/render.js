@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260607-watermark-icons-only-v1";
+import { pick } from "./i18n.js?v=20260607-equation-fit-v1";
 
 function escapeHtml(value) {
   return String(value)
