@@ -1,14 +1,14 @@
-import { siteAssets } from "../data/site-assets.js?v=20260607-life-watermark-restore-v1";
-import { siteContent } from "../data/site-content.js?v=20260607-life-watermark-restore-v1";
-import { createReadingSettingsController } from "./reading-settings.js?v=20260607-life-watermark-restore-v1";
-import { initBackground } from "./background.js?v=20260607-life-watermark-restore-v1";
-import { refreshIcons } from "./icons.js?v=20260607-life-watermark-restore-v1";
-import { pick } from "./i18n.js?v=20260607-life-watermark-restore-v1";
-import { syncLegacyContent } from "./legacy-content.js?v=20260607-life-watermark-restore-v1";
-import { createMusicController, syncMusicUi } from "./music.js?v=20260607-life-watermark-restore-v1";
-import { renderSite } from "./render.js?v=20260607-life-watermark-restore-v1";
-import { createState } from "./state.js?v=20260607-life-watermark-restore-v1";
-import { syncStructuredContent } from "./structured-content.js?v=20260607-life-watermark-restore-v1";
+import { siteAssets } from "../data/site-assets.js?v=20260607-life-watermark-hard-scope-v1";
+import { siteContent } from "../data/site-content.js?v=20260607-life-watermark-hard-scope-v1";
+import { createReadingSettingsController } from "./reading-settings.js?v=20260607-life-watermark-hard-scope-v1";
+import { initBackground } from "./background.js?v=20260607-life-watermark-hard-scope-v1";
+import { refreshIcons } from "./icons.js?v=20260607-life-watermark-hard-scope-v1";
+import { pick } from "./i18n.js?v=20260607-life-watermark-hard-scope-v1";
+import { syncLegacyContent } from "./legacy-content.js?v=20260607-life-watermark-hard-scope-v1";
+import { createMusicController, syncMusicUi } from "./music.js?v=20260607-life-watermark-hard-scope-v1";
+import { renderSite } from "./render.js?v=20260607-life-watermark-hard-scope-v1";
+import { createState } from "./state.js?v=20260607-life-watermark-hard-scope-v1";
+import { syncStructuredContent } from "./structured-content.js?v=20260607-life-watermark-hard-scope-v1";
 
 const refs = {
   siteShell: document.querySelector(".site-shell"),
@@ -775,6 +775,8 @@ function selectLegacyItem(branchId, itemId) {
       titleOpen: false,
       activeSection: sectionOwnsBranch ? state.activeSection : null,
       showPersonalSectionList: false,
+      activeDomain: sectionOwnsBranch ? null : state.activeDomain,
+      activeTopic: sectionOwnsBranch ? null : state.activeTopic,
       activeBranch: branchId,
       activeDetail: itemId,
       equationReturnTarget,

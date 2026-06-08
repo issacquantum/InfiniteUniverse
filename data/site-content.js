@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260607-life-watermark-restore-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260607-life-watermark-hard-scope-v1";
 
 function htmlSource(group, id) {
   return {
