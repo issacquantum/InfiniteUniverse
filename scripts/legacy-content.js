@@ -1,7 +1,7 @@
-import { bigBangLegacyContent } from "../data/legacy-big-bang.js?v=20260607-life-watermark-hard-scope-v1";
-import { decorateModelBadges, syncReadingConstellation } from "./creative-effects.js?v=20260607-life-watermark-hard-scope-v1";
-import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260607-life-watermark-hard-scope-v1";
-import { pick } from "./i18n.js?v=20260607-life-watermark-hard-scope-v1";
+import { bigBangLegacyContent } from "../data/legacy-big-bang.js?v=20260607-em-wave-rail-v1";
+import { decorateModelBadges, syncReadingConstellation } from "./creative-effects.js?v=20260607-em-wave-rail-v1";
+import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260607-em-wave-rail-v1";
+import { pick } from "./i18n.js?v=20260607-em-wave-rail-v1";
 
 let activeRequestToken = 0;
 

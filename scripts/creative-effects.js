@@ -153,11 +153,13 @@ export function syncReadingConstellation(root, language) {
 
   const syncProgressPosition = () => {
     const rect = contentWindow.getBoundingClientRect();
+    const viewportWidth = window.innerWidth || document.documentElement.clientWidth || rect.right;
     const viewportHeight = window.innerHeight || document.documentElement.clientHeight || rect.height;
     const minTop = 90;
     const maxTop = Math.max(minTop, viewportHeight - 90);
     const top = Math.min(Math.max(rect.top + (rect.height / 2), minTop), maxTop);
-    const right = Math.max((window.innerWidth || document.documentElement.clientWidth) - rect.right + 10, 8);
+    const outsideGap = Math.max(viewportWidth - rect.right, 0);
+    const right = Math.max(Math.min(outsideGap * 0.25, 10), 2);
 
     progress.style.setProperty("--progress-top", `${top}px`);
     progress.style.setProperty("--progress-right", `${right}px`);
