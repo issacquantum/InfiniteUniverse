@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260607-side-rail-v1";
+import { pick } from "./i18n.js?v=20260607-mature-watermarks-v1";
 
 function escapeHtml(value) {
   return String(value)
@@ -57,6 +57,53 @@ const topicIconNames = {
   "complex-systems-emergence": "network",
   "philosophy-science": "scroll",
   "model-lab": "box"
+};
+
+const sectionSignatureIconNames = {
+  "origins": "circle-dot",
+  "learning-path": "sigma",
+  "music": "waves",
+  "systems-work": "network",
+  "practice-worlds": "workflow",
+  "personal-cosmology": "telescope",
+  "site-purpose-notices-privacy": "scroll-text"
+};
+
+const domainSignatureIconNames = {
+  "physical-foundations": "atom",
+  "quantum-foundations": "orbit",
+  "matter-life-mind": "dna",
+  "spacetime-cosmos": "circle-dot-dashed",
+  "intelligence-computation": "network",
+  "systems-method": "workflow",
+  "model-lab": "boxes"
+};
+
+const topicSignatureIconNames = {
+  "classical-mechanics": "circle-dot",
+  "electromagnetism": "waves",
+  "thermodynamics-statistical-mechanics": "flame",
+  "mathematical-foundations": "sigma",
+  "quantum-mechanics": "orbit",
+  "quantum-entanglement": "network",
+  "quantum-information": "binary",
+  "quantum-computing": "cpu",
+  "quantum-complexity": "workflow",
+  "quantum-field-theory": "waves",
+  "chemistry-molecular-structure": "flask-conical",
+  "biology-life-systems": "dna",
+  "neuroscience-consciousness": "brain",
+  "relativity-spacetime": "orbit",
+  "black-holes": "circle-dot-dashed",
+  "wormholes": "scan",
+  "cosmology-early-universe": "telescope",
+  "artificial-intelligence": "network",
+  "information-theory": "binary",
+  "programming-algorithms": "code-2",
+  "simulation-models": "boxes",
+  "complex-systems-emergence": "network",
+  "philosophy-science": "scroll",
+  "model-lab": "boxes"
 };
 
 const sectionMoodNames = {
@@ -121,11 +168,11 @@ function resolveSectionMood({ activeSection, activeDomain, activeTopic }) {
 
 function resolveSignatureIcon({ activeSection, activeDomain, activeTopic, activeBranch, activeDetail }) {
   return (
-    topicIconNames[activeDetail?.id]
-    ?? topicIconNames[activeBranch?.id]
-    ?? topicIconNames[activeTopic?.id]
-    ?? domainIconNames[activeDomain?.id]
-    ?? sectionIconNames[activeSection?.id]
+    topicSignatureIconNames[activeDetail?.id]
+    ?? topicSignatureIconNames[activeBranch?.id]
+    ?? topicSignatureIconNames[activeTopic?.id]
+    ?? domainSignatureIconNames[activeDomain?.id]
+    ?? sectionSignatureIconNames[activeSection?.id]
     ?? ""
   );
 }
