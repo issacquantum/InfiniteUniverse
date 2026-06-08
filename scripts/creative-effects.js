@@ -111,9 +111,9 @@ export function syncReadingConstellation(root, language) {
 
   contentWindow._creativeProgressCleanup?.();
 
-  const previousProgress = contentWindow.querySelector(":scope > .content-progress-constellation");
-  previousProgress?.remove();
-  root.querySelector(":scope > .content-progress-constellation")?.remove();
+  document.querySelectorAll(".content-progress-constellation").forEach((node) => {
+    node.remove();
+  });
 
   const headings = Array.from(root.querySelectorAll(HEADING_SELECTOR))
     .filter((heading) => {
@@ -151,9 +151,22 @@ export function syncReadingConstellation(root, language) {
     return button;
   });
 
+  const syncProgressPosition = () => {
+    const rect = contentWindow.getBoundingClientRect();
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight || rect.height;
+    const minTop = 90;
+    const maxTop = Math.max(minTop, viewportHeight - 90);
+    const top = Math.min(Math.max(rect.top + (rect.height / 2), minTop), maxTop);
+    const right = Math.max((window.innerWidth || document.documentElement.clientWidth) - rect.right + 10, 8);
+
+    progress.style.setProperty("--progress-top", `${top}px`);
+    progress.style.setProperty("--progress-right", `${right}px`);
+    progress.style.setProperty("--progress-window-height", `${Math.max(rect.height, 160)}px`);
+    progress.style.setProperty("--progress-dot-gap", headings.length > 10 ? "0.22rem" : "0.36rem");
+  };
+
   const updateProgress = () => {
     const activeIndex = findActiveHeadingIndex(contentWindow, headings);
-    progress.style.top = `${contentWindow.scrollTop + (contentWindow.clientHeight / 2)}px`;
 
     dots.forEach((dot, index) => {
       dot.classList.toggle("is-active", index === activeIndex);
@@ -161,14 +174,26 @@ export function syncReadingConstellation(root, language) {
     });
   };
 
-  contentWindow.appendChild(progress);
+  const syncAndUpdateProgress = () => {
+    syncProgressPosition();
+    updateProgress();
+  };
+
+  document.body.appendChild(progress);
   contentWindow.addEventListener("scroll", updateProgress, { passive: true });
-  window.addEventListener("resize", updateProgress, { passive: true });
-  updateProgress();
+  window.addEventListener("resize", syncAndUpdateProgress, { passive: true });
+
+  const resizeObserver = typeof ResizeObserver === "function"
+    ? new ResizeObserver(syncAndUpdateProgress)
+    : null;
+
+  resizeObserver?.observe(contentWindow);
+  syncAndUpdateProgress();
 
   contentWindow._creativeProgressCleanup = () => {
     contentWindow.removeEventListener("scroll", updateProgress);
-    window.removeEventListener("resize", updateProgress);
+    window.removeEventListener("resize", syncAndUpdateProgress);
+    resizeObserver?.disconnect();
     progress.remove();
   };
 }
