@@ -47,7 +47,7 @@
     <h3>Punto de comparación clásico</h3>
     <p>
       La complejidad cuántica empieza comparando contra la complejidad clásica. \(P\) contiene problemas de decisión
-      resolubles en tiempo polinomial determinista. \(BPP\) permite aleatoriedad con error acotado. \(NP\) contiene
+      resolubles en tiempo polinomial determinista. \(BPP\) permite aleatoriedad con error limitado. \(NP\) contiene
       problemas donde una solución propuesta puede verificarse eficientemente. \(PSPACE\) permite memoria polinomial
       aunque el tiempo sea mucho mayor.
     </p>
@@ -65,21 +65,21 @@
     </div>
     <p>
       Estas son contenciones, no igualdades. No prueban que las computadoras cuánticas resuelvan todo problema difícil.
-      Dicen dónde se ubica el cómputo cuántico con error acotado dentro del mapa mayor de límites matemáticos conocidos.
+      Dicen dónde se ubica el cómputo cuántico con error limitado dentro del mapa mayor de límites matemáticos conocidos.
     </p>
   </section>
 
   <section class="content-block">
     <h3>BQP: cómputo cuántico eficiente</h3>
     <p>
-      La clase central es <strong>BQP</strong>, tiempo polinomial cuántico con error acotado. Un lenguaje \(L\) está en
+      La clase central es <strong>BQP</strong>, tiempo polinomial cuántico con error limitado. Un lenguaje \(L\) está en
       BQP si una familia uniforme de circuitos cuánticos de tamaño polinomial decide la pertenencia con probabilidad
       suficientemente alta:
     </p>
     <div class="equation-link-wrap">
       <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
         data-branch-id="quantum-complexity-equations" data-item-id="bqp-bounded-error-definition"
-        aria-label="Abrir explicación para definición de BQP con error acotado">
+        aria-label="Abrir explicación para definición de BQP con error limitado">
         $$
         x\in L \Rightarrow \Pr[C_x\ \mathrm{acepta}]\ge \frac{2}{3},
         \qquad
@@ -110,16 +110,16 @@
     <div class="equation-link-wrap">
       <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
         data-branch-id="quantum-complexity-equations" data-item-id="quantum-query-search-bound"
-        aria-label="Abrir explicación para cota cuántica de búsqueda por consultas">
+        aria-label="Abrir explicación para límite cuántico de búsqueda por consultas">
         $$
         Q_{\mathrm{search}}(N)=\Theta(\sqrt{N})
         $$
       </button>
     </div>
     <p>
-      Esto es tanto una cota superior como una cota inferior. La mecánica cuántica da una mejora cuadrática sobre
+      Esto funciona como límite superior y como límite inferior. La mecánica cuántica da una mejora cuadrática sobre
       revisar \(N\) posibilidades una por una, pero no convierte la búsqueda sin estructura en tiempo logarítmico o
-      constante. La cota inferior es tan importante como el algoritmo porque muestra que la aceleración cuadrática es la
+      constante. El límite inferior es tan importante como el algoritmo porque muestra que la aceleración cuadrática es la
       mejor posible en ese modelo de caja negra.
     </p>
   </section>
@@ -227,7 +227,7 @@
     <div class="equation-link-wrap">
       <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
         data-branch-id="quantum-complexity-equations" data-item-id="area-law-entanglement-bound"
-        aria-label="Abrir explicación para cota de entrelazamiento por ley de área">
+        aria-label="Abrir explicación para límite de entrelazamiento por ley de área">
         $$
         S(A)=O(|\partial A|)
         $$
@@ -266,7 +266,7 @@
     <p>
       La complejidad cuántica va más allá de una sola computadora. En sistemas de prueba interactiva cuántica, un
       verificador intercambia mensajes con uno o más probadores. El resultado \(QIP=PSPACE\) muestra que las pruebas
-      interactivas cuánticas coinciden con una clase clásica importante de memoria acotada. Más tarde, el resultado
+      interactivas cuánticas coinciden con una clase clásica importante de memoria limitada. Más tarde, el resultado
       \(MIP^*=RE\) mostró que varios probadores entrelazados producen un panorama mucho más extraño conectado con la
       indecidibilidad.
     </p>
@@ -305,7 +305,7 @@
   <section class="content-block">
     <h3>Glosario técnico</h3>
     <ul class="paper-list glossary-list">
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>BQP:</strong> Tiempo polinomial cuántico con error acotado; la clase de problemas decidibles eficientemente por circuitos cuánticos con probabilidad pequeña de error.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>BQP:</strong> Tiempo polinomial cuántico con error limitado; la clase de problemas decidibles eficientemente por circuitos cuánticos con probabilidad pequeña de error.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>QMA:</strong> Quantum Merlin-Arthur; el análogo cuántico de verificación eficiente con un testigo cuántico.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Oráculo:</strong> Una subrutina de caja negra cuyo costo se cuenta por consultas y no por su implementación interna.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Familia uniforme de circuitos:</strong> Una secuencia de circuitos generada por un procedimiento clásico eficiente, con un circuito para cada tamaño de entrada.</span></li>
