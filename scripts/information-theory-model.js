@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260608-spanish-bound-cleanup-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260608-watermark-photon-v1";
 
 const mountedModels = new WeakSet();
 const SYMBOL_COUNT = 4;

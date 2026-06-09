@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260608-spanish-bound-cleanup-v1";
+import { pick } from "./i18n.js?v=20260608-watermark-photon-v1";
 
 function escapeHtml(value) {
   return String(value)
