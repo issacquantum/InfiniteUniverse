@@ -1,14 +1,14 @@
-import { siteAssets } from "../data/site-assets.js?v=20260608-watermark-photon-v1";
-import { siteContent } from "../data/site-content.js?v=20260608-watermark-photon-v1";
-import { createReadingSettingsController } from "./reading-settings.js?v=20260608-watermark-photon-v1";
-import { initBackground } from "./background.js?v=20260608-watermark-photon-v1";
-import { refreshIcons } from "./icons.js?v=20260608-watermark-photon-v1";
-import { pick } from "./i18n.js?v=20260608-watermark-photon-v1";
-import { syncLegacyContent } from "./legacy-content.js?v=20260608-watermark-photon-v1";
-import { createMusicController, syncMusicUi } from "./music.js?v=20260608-watermark-photon-v1";
-import { renderSite } from "./render.js?v=20260608-watermark-photon-v1";
-import { createState } from "./state.js?v=20260608-watermark-photon-v1";
-import { syncStructuredContent } from "./structured-content.js?v=20260608-watermark-photon-v1";
+import { siteAssets } from "../data/site-assets.js?v=20260611-gallery-alt-v1";
+import { siteContent } from "../data/site-content.js?v=20260611-gallery-alt-v1";
+import { createReadingSettingsController } from "./reading-settings.js?v=20260611-gallery-alt-v1";
+import { initBackground } from "./background.js?v=20260611-gallery-alt-v1";
+import { refreshIcons } from "./icons.js?v=20260611-gallery-alt-v1";
+import { pick } from "./i18n.js?v=20260611-gallery-alt-v1";
+import { syncLegacyContent } from "./legacy-content.js?v=20260611-gallery-alt-v1";
+import { createMusicController, syncMusicUi } from "./music.js?v=20260611-gallery-alt-v1";
+import { renderSite } from "./render.js?v=20260611-gallery-alt-v1";
+import { createState } from "./state.js?v=20260611-gallery-alt-v1";
+import { syncStructuredContent } from "./structured-content.js?v=20260611-gallery-alt-v1";
 
 const refs = {
   siteShell: document.querySelector(".site-shell"),
@@ -111,6 +111,7 @@ let pendingLegacyReturn = null;
 let pendingReaderScrollRestoration = null;
 let pendingModelScrollTarget = null;
 const GALLERY_MAX_ZOOM_LEVEL = 7;
+const GALLERY_FALLBACK_ALT = "Selected image in the gallery viewer";
 
 function clearPendingReturnNavigation() {
   pendingStructuredReturn = null;
@@ -946,8 +947,9 @@ function renderGalleryImage() {
   }
 
   const activeItem = galleryItems[activeGalleryIndex];
+  const altText = normalizeGalleryText(activeItem.alt) || galleryAltFromSource(activeItem.src);
   refs.galleryLightboxImage.src = activeItem.src;
-  refs.galleryLightboxImage.alt = activeItem.alt;
+  refs.galleryLightboxImage.alt = altText;
 
   if (refs.galleryLightboxImage.complete && refs.galleryLightboxImage.naturalWidth > 0) {
     applyGalleryZoom(true);
@@ -1021,6 +1023,71 @@ function getGalleryTriggerImage(trigger) {
   return trigger.querySelector("img");
 }
 
+function normalizeGalleryText(value) {
+  return typeof value === "string" ? value.trim() : "";
+}
+
+function galleryAltFromSource(src) {
+  const normalizedSrc = normalizeGalleryText(src);
+
+  if (!normalizedSrc) {
+    return GALLERY_FALLBACK_ALT;
+  }
+
+  const fileName = normalizedSrc
+    .split(/[?#]/)[0]
+    .split("/")
+    .filter(Boolean)
+    .pop() ?? "";
+  let decodedName = fileName;
+
+  try {
+    decodedName = decodeURIComponent(fileName);
+  } catch (_error) {
+    decodedName = fileName;
+  }
+
+  const readableName = decodedName
+    .replace(/\.[a-z0-9]+$/i, "")
+    .replace(/[-_]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  return readableName ? `Gallery image: ${readableName}` : GALLERY_FALLBACK_ALT;
+}
+
+function getGalleryAltText(trigger) {
+  if (!(trigger instanceof Element)) {
+    return GALLERY_FALLBACK_ALT;
+  }
+
+  const explicitAlt = normalizeGalleryText(trigger.dataset.galleryAlt);
+
+  if (explicitAlt) {
+    return explicitAlt;
+  }
+
+  const triggerImageAlt = normalizeGalleryText(getGalleryTriggerImage(trigger)?.getAttribute("alt"));
+
+  if (triggerImageAlt) {
+    return triggerImageAlt;
+  }
+
+  const ariaLabel = normalizeGalleryText(trigger.getAttribute("aria-label"));
+
+  if (ariaLabel) {
+    return ariaLabel;
+  }
+
+  const title = normalizeGalleryText(trigger.getAttribute("title"));
+
+  if (title) {
+    return title;
+  }
+
+  return galleryAltFromSource(trigger.dataset.gallerySrc);
+}
+
 function openGalleryImage(items, index, trigger = null, initialScale = 0.28) {
   if (!refs.galleryLightbox || !refs.galleryLightboxImage || !Array.isArray(items) || items.length === 0) {
     return;
@@ -1065,7 +1132,7 @@ function closeGalleryImage() {
 
   refs.galleryLightbox.hidden = true;
   refs.galleryLightboxImage.removeAttribute("src");
-  refs.galleryLightboxImage.alt = "";
+  refs.galleryLightboxImage.alt = GALLERY_FALLBACK_ALT;
   refs.galleryLightboxImage.style.removeProperty("width");
   galleryItems = [];
   activeGalleryIndex = -1;
@@ -1096,7 +1163,7 @@ function openGalleryFromTrigger(galleryTrigger) {
   const nextGalleryItems = galleryTriggers
     .map((trigger) => ({
       src: trigger.dataset.gallerySrc,
-      alt: trigger.dataset.galleryAlt ?? ""
+      alt: getGalleryAltText(trigger)
     }))
     .filter((item) => typeof item.src === "string" && item.src.trim() !== "");
   const nextIndex = Math.max(galleryTriggers.indexOf(galleryTrigger), 0);

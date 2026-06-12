@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260608-watermark-photon-v1";
+import { pick } from "./i18n.js?v=20260611-gallery-alt-v1";
 
 const STORAGE_KEY = "issac-tabares-reading-settings";
 
