@@ -1,4 +1,4 @@
-import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260611-pwa-seo-stability-v1";
+import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260611-glossary-cleanup-v1";
 
 const mountedSimulators = new WeakSet();
 const TWO_PI = Math.PI * 2;

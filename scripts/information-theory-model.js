@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260611-pwa-seo-stability-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260611-glossary-cleanup-v1";
 
 const mountedModels = new WeakSet();
 const SYMBOL_COUNT = 4;
