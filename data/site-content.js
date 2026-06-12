@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260611-gallery-alt-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260611-pwa-seo-stability-v1";
 
 function htmlSource(group, id) {
   return {

@@ -1108,7 +1108,9 @@ body[data-readable-font="on"] .reading-settings-panel h3 {
 .static-fallback {
   align-self: center;
   width: min(100%, 48rem);
+  max-height: 100%;
   margin-inline: auto;
+  overflow: auto;
 }
 
 .model-teaching-card {

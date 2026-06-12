@@ -47,6 +47,12 @@ When adding a new section, the content file is not enough by itself. The section
 
 Names should stay consistent across visible labels, section IDs, file names, and content paths. If one section has multiple names in different files, it becomes harder to maintain and easier to break.
 
+After adding, renaming, or removing content HTML files, regenerate the sitemap:
+
+```sh
+node tools/generate-sitemap.mjs
+```
+
 ## Science Areas
 
 - `physical-foundations` - mechanics, electromagnetism, thermodynamics, and mathematical foundations.
