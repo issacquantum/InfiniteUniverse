@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260608-watermark-photon-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260611-gallery-alt-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
