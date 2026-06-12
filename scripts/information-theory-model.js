@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260612-watermark-glint-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260612-watermark-glint-desktop-v3";
 
 const mountedModels = new WeakSet();
 const SYMBOL_COUNT = 4;
