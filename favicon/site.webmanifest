@@ -1,6 +1,10 @@
 {
-  "name": "MyWebSite",
-  "short_name": "MySite",
+  "id": "../",
+  "name": "Infinite Universe",
+  "short_name": "Infinite Universe",
+  "description": "Issac Tabares personal educational site for science, interactive models, music, programming, and personal cosmology.",
+  "start_url": "../",
+  "scope": "../",
   "icons": [
     {
       "src": "web-app-manifest-192x192.png",
@@ -15,7 +19,9 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#240345",
-  "background_color": "#3a07a6",
-  "display": "standalone"
+  "theme_color": "#05020a",
+  "background_color": "#05020a",
+  "display": "standalone",
+  "orientation": "any",
+  "categories": ["education", "science"]
 }

@@ -10,6 +10,7 @@ This file documents the project layout for `https://issacquantum.github.io/Infin
 - `styles/`: layout, typography rules, components, and model-specific CSS.
 - `shaders/`: GLSL shader files used by visual models.
 - `Assets2/`: public media, documents, PDFs, images, and music assets.
+- `tools/`: small maintenance scripts, including sitemap generation.
 
 ## Content Flow
 
@@ -48,7 +49,8 @@ Parentheses in literal readings should be spoken naturally. Use `the quantity ..
 1. Add the English and Spanish HTML fragments under the matching `content/site/` paths.
 2. Register the page in `data/site-content.js`.
 3. Keep section IDs, file paths, and visible labels aligned.
-4. Run syntax checks before publishing.
+4. Regenerate `sitemap.xml` with `node tools/generate-sitemap.mjs`.
+5. Run syntax checks before publishing.
 
 ## Adding A Model
 
