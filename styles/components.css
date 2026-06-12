@@ -968,31 +968,12 @@ body[data-readable-font="on"] .reading-settings-panel h3 {
 
 .content-window__signature-mark--glint svg * {
   opacity: 0;
-  stroke-dasharray: 4 210;
-  stroke-dashoffset: 214;
+  stroke-dasharray: 0.08 0.92;
+  stroke-dashoffset: 1;
   stroke-linecap: round;
   vector-effect: non-scaling-stroke;
-  animation: signature-photon-channel 5.6s cubic-bezier(0.42, 0, 0.18, 1) infinite both;
-}
-
-.content-window__signature-mark--glint svg *:nth-child(2) {
-  animation-delay: 0.45s;
-}
-
-.content-window__signature-mark--glint svg *:nth-child(3) {
-  animation-delay: 0.9s;
-}
-
-.content-window__signature-mark--glint svg *:nth-child(4) {
-  animation-delay: 1.35s;
-}
-
-.content-window__signature-mark--glint svg *:nth-child(5) {
-  animation-delay: 1.8s;
-}
-
-.content-window__signature-mark--glint svg *:nth-child(n + 6) {
-  animation-delay: 2.25s;
+  animation: signature-photon-channel 4.8s cubic-bezier(0.42, 0, 0.18, 1) infinite both;
+  animation-delay: var(--signature-glint-delay, 0s);
 }
 
 .content-window > :not(.content-window__signature) {
@@ -2358,7 +2339,7 @@ body[data-media-notes="on"] .media-note {
 @keyframes signature-photon-channel {
   0% {
     opacity: 0;
-    stroke-dashoffset: 214;
+    stroke-dashoffset: 1;
   }
 
   8% {
@@ -2373,7 +2354,7 @@ body[data-media-notes="on"] .media-note {
   48%,
   100% {
     opacity: 0;
-    stroke-dashoffset: -214;
+    stroke-dashoffset: -1;
   }
 }
 
@@ -2582,11 +2563,11 @@ body[data-media-notes="on"] .media-note {
 
 @media (max-width: 768px) {
   .content-window__signature {
-    top: 0.72rem;
-    right: 0.78rem;
-    width: 3.35rem;
-    height: 3.35rem;
-    opacity: 0.36;
+    top: 3.95rem;
+    right: 0.88rem;
+    width: 3.1rem;
+    height: 3.1rem;
+    opacity: 0.32;
   }
 
   .content-progress-constellation {
