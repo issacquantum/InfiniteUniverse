@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260612-watermark-glint-v1";
+import { pick } from "./i18n.js?v=20260612-watermark-glint-desktop-v3";
 
 const STORAGE_KEY = "issac-tabares-reading-settings";
 

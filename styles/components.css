@@ -2926,6 +2926,18 @@ body[data-motion="reduced"] .site-background {
   opacity: 0.88;
 }
 
+@media (min-width: 769px) {
+  body[data-motion="reduced"] .content-window__signature-mark--glint svg *,
+  .content-window__signature-mark--glint svg * {
+    animation-name: signature-photon-channel !important;
+    animation-duration: 4.8s !important;
+    animation-timing-function: cubic-bezier(0.42, 0, 0.18, 1) !important;
+    animation-iteration-count: infinite !important;
+    animation-fill-mode: both !important;
+    animation-delay: var(--signature-glint-delay, 0s) !important;
+  }
+}
+
 body[data-contrast="high"] .glass-window,
 body[data-contrast="high"] .glass-tab,
 body[data-contrast="high"] .glass-sphere {

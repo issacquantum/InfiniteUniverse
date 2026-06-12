@@ -1,9 +1,9 @@
-import { bigBangLegacyContent } from "../data/legacy-big-bang.js?v=20260612-watermark-glint-v1";
-import { siteContent } from "../data/site-content.js?v=20260612-watermark-glint-v1";
+import { bigBangLegacyContent } from "../data/legacy-big-bang.js?v=20260612-watermark-glint-desktop-v3";
+import { siteContent } from "../data/site-content.js?v=20260612-watermark-glint-desktop-v3";
 
 const documentCache = new Map();
 const requestCache = new Map();
-const CONTENT_CACHE_VERSION = "20260612-watermark-glint-v1";
+const CONTENT_CACHE_VERSION = "20260612-watermark-glint-desktop-v3";
 const PREWARM_WORKER_LIMIT = 4;
 let prewarmScheduled = false;
 
