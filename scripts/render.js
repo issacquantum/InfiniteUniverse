@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260611-glossary-cleanup-v1";
+import { pick } from "./i18n.js?v=20260612-watermark-glint-v1";
 
 function escapeHtml(value) {
   return String(value)

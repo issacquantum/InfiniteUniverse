@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260611-glossary-cleanup-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260612-watermark-glint-v1";
 
 function htmlSource(group, id) {
   return {
