@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260614-music-influences-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260614-guitar-origin-v1";
 
 function htmlSource(group, id) {
   return {
