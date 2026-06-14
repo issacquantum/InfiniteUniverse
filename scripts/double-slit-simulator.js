@@ -1,4 +1,4 @@
-import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260614-origins-self-focus-v1";
+import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260614-learning-path-redaction-v1";
 
 const mountedSimulators = new WeakSet();
 const TWO_PI = Math.PI * 2;
