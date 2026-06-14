@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260614-dock-sphere-hover-v1";
+import { pick } from "./i18n.js?v=20260614-photon-random-linefix-v1";
 
 const STORAGE_KEY = "issac-tabares-reading-settings";
 
