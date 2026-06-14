@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260614-outline-photon-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260614-dock-sphere-hover-v1";
 
 const mountedModels = new WeakSet();
 const SYMBOL_COUNT = 4;
