@@ -1,4 +1,4 @@
-import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260614-guitar-origin-v1";
+import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260614-systems-record-link-trim-v1";
 
 const mountedSimulators = new WeakSet();
 const TWO_PI = Math.PI * 2;
