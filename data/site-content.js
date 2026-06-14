@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260614-practice-worlds-vehicle-trim-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260614-guthrie-link-fix-v1";
 
 function htmlSource(group, id) {
   return {
