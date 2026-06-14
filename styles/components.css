@@ -1456,11 +1456,11 @@ body[data-motion="reduced"] .model-accessibility__details:not([hidden]) .model-a
   content: "∞";
   position: absolute;
   inset: -0.08em;
-  color: rgba(236, 192, 255, 0.72);
+  color: rgba(186, 64, 255, 0.84);
   text-shadow:
-    0 0 8px rgba(236, 192, 255, 0.78),
-    0 0 24px rgba(177, 0, 255, 0.7),
-    0 0 46px rgba(96, 0, 255, 0.46);
+    0 0 8px rgba(194, 76, 255, 0.9),
+    0 0 24px rgba(143, 0, 255, 0.76),
+    0 0 46px rgba(82, 0, 220, 0.54);
   pointer-events: none;
   mix-blend-mode: screen;
 }

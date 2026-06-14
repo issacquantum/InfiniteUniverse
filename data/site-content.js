@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260614-infinity-photon-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260614-infinity-purple-v1";
 
 function htmlSource(group, id) {
   return {
