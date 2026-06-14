@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260614-photon-explicit-targets-v1";
+import { pick } from "./i18n.js?v=20260614-photon-tabs-equations-icons-v1";
 
 function escapeHtml(value) {
   return String(value)

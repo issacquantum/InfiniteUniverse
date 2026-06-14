@@ -12,28 +12,15 @@ const HEADING_SELECTOR = [
 
 const OUTLINE_PHOTON_SELECTOR = [
   ".glass-sphere",
-  ".double-slit-simulator.glass-window",
-  ".quantum-fluctuation.glass-window",
-  ".orbital-selector.glass-window",
-  ".quantum-model__frame.glass-window",
-  ".gravity-fabric__frame.glass-window",
-  ".gravity-lensing.glass-window",
-  ".quantum-channel.glass-window",
-  ".quantum-entanglement.glass-window",
-  ".neural-architect.glass-window",
-  ".algorithm-visualizer.glass-window",
-  ".numerical-methods.glass-window",
-  ".foundation-model.glass-window",
-  ".black-hole-model.glass-window",
-  ".wormhole-model.glass-window",
-  ".information-theory-model.glass-window",
+  ".section-grid .glass-tab",
+  ".knowledge-worlds-row .glass-tab",
+  ".topic-grid .glass-tab",
+  ".branch-grid .glass-tab",
+  ".legacy-item-grid .glass-tab",
+  ".mobile-knowledge-nav__domain-button",
+  ".mobile-knowledge-nav__topic-button",
   ".equation-link",
-  ".equation-display",
-  ".content-progress-constellation__dot",
-  ".model-accessibility__button",
-  ".gallery-lightbox__zoom-button",
-  ".gallery-lightbox__nav",
-  ".gallery-lightbox__close"
+  ".equation-display"
 ].join(", ");
 
 function hashString(value) {
