@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260614-science-menu-layout-v1";
+import { pick } from "./i18n.js?v=20260614-infinity-photon-v1";
 
 function escapeHtml(value) {
   return String(value)

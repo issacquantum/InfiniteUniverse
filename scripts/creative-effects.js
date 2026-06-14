@@ -49,8 +49,8 @@ function getPhotonSignature(target, index) {
 
 function randomizePhotonMotion(target, index) {
   const hash = hashString(getPhotonSignature(target, index));
-  const duration = 3.8 + ((hash % 170) / 100);
-  const delay = -(((hash >>> 8) % 460) / 100);
+  const duration = 6.8 + ((hash % 220) / 100);
+  const delay = -(((hash >>> 8) % 780) / 100);
   const angle = 96 + ((hash >>> 16) % 54);
   const direction = (hash & 1) === 0 ? "normal" : "reverse";
   const size = 245 + ((hash >>> 20) % 72);
