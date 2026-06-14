@@ -444,8 +444,13 @@
 
   .mobile-knowledge-nav__domain {
     display: grid;
+    position: relative;
     justify-items: center;
     gap: 0.7rem;
+  }
+
+  .mobile-knowledge-nav__domain:has(.mobile-knowledge-nav__topics:not([hidden])) {
+    z-index: 6;
   }
 
   .mobile-knowledge-nav__domain-button,
@@ -471,9 +476,13 @@
   }
 
   .mobile-knowledge-nav__topics {
+    position: absolute;
+    top: calc(100% + 0.7rem);
+    left: 0;
     width: 100%;
     justify-items: center;
     gap: 0.58rem;
+    z-index: 6;
   }
 
   .mobile-knowledge-nav__topic-button {

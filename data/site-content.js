@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260614-reset-expanded-tabs-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260614-science-menu-layout-v1";
 
 function htmlSource(group, id) {
   return {
