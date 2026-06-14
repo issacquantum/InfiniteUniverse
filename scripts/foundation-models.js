@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260614-learning-path-music-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260614-personal-process-trim-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
