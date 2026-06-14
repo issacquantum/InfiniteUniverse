@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260612-watermark-glint-desktop-v3";
+import { bindPinchZoom } from "./model-pan.js?v=20260613-watermark-photon-sweep-v1";
 
 const mountedModels = new WeakSet();
 

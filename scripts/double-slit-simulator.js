@@ -1,4 +1,4 @@
-import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260612-watermark-glint-desktop-v3";
+import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260613-watermark-photon-sweep-v1";
 
 const mountedSimulators = new WeakSet();
 const TWO_PI = Math.PI * 2;

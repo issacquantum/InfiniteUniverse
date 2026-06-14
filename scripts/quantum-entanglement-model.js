@@ -1,4 +1,4 @@
-import { bindPinchZoom, isModelPanGesture, panObjectFromPointer } from "./model-pan.js?v=20260612-watermark-glint-desktop-v3";
+import { bindPinchZoom, isModelPanGesture, panObjectFromPointer } from "./model-pan.js?v=20260613-watermark-photon-sweep-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
