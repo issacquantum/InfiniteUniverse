@@ -954,26 +954,46 @@ body[data-readable-font="on"] .reading-settings-panel h3 {
   position: relative;
   z-index: 2;
   color: rgba(210, 166, 255, 0.98);
+  opacity: 0;
   filter:
     drop-shadow(0 0 4px rgba(210, 166, 255, 0.95))
     drop-shadow(0 0 11px rgba(136, 54, 255, 0.82))
     drop-shadow(0 0 24px rgba(68, 0, 180, 0.55));
+  -webkit-mask-image: linear-gradient(
+    115deg,
+    transparent 0%,
+    transparent 38%,
+    #000 46%,
+    #000 54%,
+    transparent 62%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    115deg,
+    transparent 0%,
+    transparent 38%,
+    #000 46%,
+    #000 54%,
+    transparent 62%,
+    transparent 100%
+  );
+  -webkit-mask-size: 270% 270%;
+  mask-size: 270% 270%;
+  -webkit-mask-position: 145% 145%;
+  mask-position: 145% 145%;
   mix-blend-mode: screen;
+  animation: signature-photon-channel 4.6s cubic-bezier(0.42, 0, 0.18, 1) infinite both;
 }
 
 .content-window__signature-mark--glint svg {
   opacity: 1;
-  stroke-width: 1.85;
+  stroke-width: 2;
 }
 
 .content-window__signature-mark--glint svg * {
-  opacity: 0;
-  stroke-dasharray: 0.08 0.92;
-  stroke-dashoffset: 1;
+  opacity: 1;
   stroke-linecap: round;
   vector-effect: non-scaling-stroke;
-  animation: signature-photon-channel 4.8s cubic-bezier(0.42, 0, 0.18, 1) infinite both;
-  animation-delay: var(--signature-glint-delay, 0s);
 }
 
 .content-window > :not(.content-window__signature) {
@@ -2339,22 +2359,31 @@ body[data-media-notes="on"] .media-note {
 @keyframes signature-photon-channel {
   0% {
     opacity: 0;
-    stroke-dashoffset: 1;
+    -webkit-mask-position: 145% 145%;
+    mask-position: 145% 145%;
   }
 
   8% {
     opacity: 1;
   }
 
-  38% {
+  42% {
     opacity: 1;
-    stroke-dashoffset: 0;
+    -webkit-mask-position: 50% 50%;
+    mask-position: 50% 50%;
   }
 
-  48%,
+  72% {
+    opacity: 1;
+    -webkit-mask-position: -45% -45%;
+    mask-position: -45% -45%;
+  }
+
+  86%,
   100% {
     opacity: 0;
-    stroke-dashoffset: -1;
+    -webkit-mask-position: -45% -45%;
+    mask-position: -45% -45%;
   }
 }
 
@@ -2926,16 +2955,14 @@ body[data-motion="reduced"] .site-background {
   opacity: 0.88;
 }
 
-@media (min-width: 769px) {
-  body[data-motion="reduced"] .content-window__signature-mark--glint svg *,
-  .content-window__signature-mark--glint svg * {
-    animation-name: signature-photon-channel !important;
-    animation-duration: 4.8s !important;
-    animation-timing-function: cubic-bezier(0.42, 0, 0.18, 1) !important;
-    animation-iteration-count: infinite !important;
-    animation-fill-mode: both !important;
-    animation-delay: var(--signature-glint-delay, 0s) !important;
-  }
+body[data-motion="reduced"] .content-window__signature-mark--glint,
+.content-window__signature-mark--glint {
+  animation-name: signature-photon-channel !important;
+  animation-duration: 4.6s !important;
+  animation-timing-function: cubic-bezier(0.42, 0, 0.18, 1) !important;
+  animation-iteration-count: infinite !important;
+  animation-fill-mode: both !important;
+  animation-delay: 0s !important;
 }
 
 body[data-contrast="high"] .glass-window,

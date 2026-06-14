@@ -9,12 +9,9 @@ export function refreshIcons() {
     }
   });
 
-  document.querySelectorAll(".content-window__signature-mark--glint svg *").forEach((node, index) => {
-    if (typeof node.setAttribute !== "function") {
-      return;
+  document.querySelectorAll(".content-window__signature-mark--glint svg *").forEach((node) => {
+    if (typeof node.setAttribute === "function") {
+      node.setAttribute("vector-effect", "non-scaling-stroke");
     }
-
-    node.setAttribute("pathLength", "1");
-    node.style.setProperty("--signature-glint-delay", `${(index % 7) * 0.34}s`);
   });
 }

@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260612-watermark-glint-desktop-v3";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260613-watermark-photon-sweep-v1";
 
 function htmlSource(group, id) {
   return {
