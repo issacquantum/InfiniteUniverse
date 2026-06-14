@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260614-outline-photon-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260614-dock-sphere-hover-v1";
 
 function htmlSource(group, id) {
   return {
