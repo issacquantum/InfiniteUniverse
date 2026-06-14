@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260614-personal-process-trim-v1";
+import { pick } from "./i18n.js?v=20260614-computing-origin-v1";
 
 function escapeHtml(value) {
   return String(value)
