@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260614-personal-process-trim-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260614-computing-origin-v1";
 
 function htmlSource(group, id) {
   return {
