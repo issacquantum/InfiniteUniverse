@@ -1,4 +1,4 @@
-import { bindPinchZoom, isModelPanGesture, panTargetFromPointer } from "./model-pan.js?v=20260614-reading-panel-position-v1";
+import { bindPinchZoom, isModelPanGesture, panTargetFromPointer } from "./model-pan.js?v=20260614-photon-model-equation-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
