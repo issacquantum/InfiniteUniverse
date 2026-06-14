@@ -1,4 +1,4 @@
-import { bindPinchZoom, isModelPanGesture, panTargetFromPointer } from "./model-pan.js?v=20260614-desktop-title-font-v1";
+import { bindPinchZoom, isModelPanGesture, panTargetFromPointer } from "./model-pan.js?v=20260614-reset-expanded-tabs-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;

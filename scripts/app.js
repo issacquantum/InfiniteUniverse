@@ -1,16 +1,16 @@
-import { siteAssets } from "../data/site-assets.js?v=20260614-desktop-title-font-v1";
-import { siteContent } from "../data/site-content.js?v=20260614-desktop-title-font-v1";
-import { createReadingSettingsController } from "./reading-settings.js?v=20260614-desktop-title-font-v1";
-import { initBackground } from "./background.js?v=20260614-desktop-title-font-v1";
-import { refreshIcons } from "./icons.js?v=20260614-desktop-title-font-v1";
-import { pick } from "./i18n.js?v=20260614-desktop-title-font-v1";
-import { decoratePhotonOutlines } from "./creative-effects.js?v=20260614-desktop-title-font-v1";
-import { syncLegacyContent } from "./legacy-content.js?v=20260614-desktop-title-font-v1";
-import { createMusicController, syncMusicUi } from "./music.js?v=20260614-desktop-title-font-v1";
-import { renderSite } from "./render.js?v=20260614-desktop-title-font-v1";
-import { createState } from "./state.js?v=20260614-desktop-title-font-v1";
-import { syncStructuredContent } from "./structured-content.js?v=20260614-desktop-title-font-v1";
-import { markWebGLAvailability } from "./webgl-support.js?v=20260614-desktop-title-font-v1";
+import { siteAssets } from "../data/site-assets.js?v=20260614-reset-expanded-tabs-v1";
+import { siteContent } from "../data/site-content.js?v=20260614-reset-expanded-tabs-v1";
+import { createReadingSettingsController } from "./reading-settings.js?v=20260614-reset-expanded-tabs-v1";
+import { initBackground } from "./background.js?v=20260614-reset-expanded-tabs-v1";
+import { refreshIcons } from "./icons.js?v=20260614-reset-expanded-tabs-v1";
+import { pick } from "./i18n.js?v=20260614-reset-expanded-tabs-v1";
+import { decoratePhotonOutlines } from "./creative-effects.js?v=20260614-reset-expanded-tabs-v1";
+import { syncLegacyContent } from "./legacy-content.js?v=20260614-reset-expanded-tabs-v1";
+import { createMusicController, syncMusicUi } from "./music.js?v=20260614-reset-expanded-tabs-v1";
+import { renderSite } from "./render.js?v=20260614-reset-expanded-tabs-v1";
+import { createState } from "./state.js?v=20260614-reset-expanded-tabs-v1";
+import { syncStructuredContent } from "./structured-content.js?v=20260614-reset-expanded-tabs-v1";
+import { markWebGLAvailability } from "./webgl-support.js?v=20260614-reset-expanded-tabs-v1";
 
 const refs = {
   siteShell: document.querySelector(".site-shell"),
@@ -510,7 +510,8 @@ function toggleTitle() {
         titleOpen: false,
         activeSection: null,
         showPersonalSectionList: false,
-        mobileKnowledgeNavOpen: false
+        mobileKnowledgeNavOpen: false,
+        mobileKnowledgeNavDomain: null
       };
     }
 
@@ -524,7 +525,8 @@ function toggleTitle() {
       activeBranch: null,
       activeDetail: null,
       equationReturnTarget: null,
-      mobileKnowledgeNavOpen: false
+      mobileKnowledgeNavOpen: false,
+      mobileKnowledgeNavDomain: null
     };
   });
 }
@@ -545,7 +547,8 @@ function createHomeState(state) {
     activeBranch: null,
     activeDetail: null,
     equationReturnTarget: null,
-    mobileKnowledgeNavOpen: false
+    mobileKnowledgeNavOpen: false,
+    mobileKnowledgeNavDomain: null
   };
 }
 
@@ -567,7 +570,8 @@ function selectSection(sectionId) {
         activeBranch: null,
         activeDetail: null,
         equationReturnTarget: null,
-        mobileKnowledgeNavOpen: false
+        mobileKnowledgeNavOpen: false,
+        mobileKnowledgeNavDomain: null
       };
     }
 
@@ -581,7 +585,8 @@ function selectSection(sectionId) {
       activeBranch: null,
       activeDetail: null,
       equationReturnTarget: null,
-      mobileKnowledgeNavOpen: false
+      mobileKnowledgeNavOpen: false,
+      mobileKnowledgeNavDomain: null
     };
   });
 }
@@ -606,7 +611,7 @@ function selectDomain(domainId) {
       activeDetail: null,
       equationReturnTarget: null,
       mobileKnowledgeNavOpen: false,
-      mobileKnowledgeNavDomain: domainId
+      mobileKnowledgeNavDomain: null
     };
   });
 }
@@ -638,7 +643,7 @@ function returnToKnowledgeDomain(state, domainId, { openMobileMenu = false } = {
     activeDetail: null,
     equationReturnTarget: null,
     mobileKnowledgeNavOpen: openMobileMenu,
-    mobileKnowledgeNavDomain: nextDomainId
+    mobileKnowledgeNavDomain: null
   };
 }
 
@@ -673,7 +678,7 @@ function selectTopic(topicId, modelTarget = null) {
       activeDetail: null,
       equationReturnTarget: null,
       mobileKnowledgeNavOpen: false,
-      mobileKnowledgeNavDomain: domainId ?? state.mobileKnowledgeNavDomain
+      mobileKnowledgeNavDomain: null
     };
   });
 }
@@ -690,7 +695,8 @@ function selectBranch(branchId) {
           showPersonalSectionList: false,
           activeDetail: null,
           equationReturnTarget: null,
-          mobileKnowledgeNavOpen: false
+          mobileKnowledgeNavOpen: false,
+          mobileKnowledgeNavDomain: null
         };
       }
 
@@ -702,7 +708,8 @@ function selectBranch(branchId) {
         activeBranch: null,
         activeDetail: null,
         equationReturnTarget: null,
-        mobileKnowledgeNavOpen: false
+        mobileKnowledgeNavOpen: false,
+        mobileKnowledgeNavDomain: null
       };
     }
 
@@ -714,7 +721,8 @@ function selectBranch(branchId) {
       activeBranch: branchId,
       activeDetail: null,
       equationReturnTarget: null,
-      mobileKnowledgeNavOpen: false
+      mobileKnowledgeNavOpen: false,
+      mobileKnowledgeNavDomain: null
     };
   });
 }
@@ -732,7 +740,8 @@ function selectDetail(itemId) {
         activeBranch: pendingStructuredReturn.branchId,
         activeDetail: pendingStructuredReturn.detailId,
         equationReturnTarget: null,
-        mobileKnowledgeNavOpen: false
+        mobileKnowledgeNavOpen: false,
+        mobileKnowledgeNavDomain: null
       };
     }
 
@@ -750,7 +759,8 @@ function selectDetail(itemId) {
         activeBranch: pendingLegacyReturn.branchId,
         activeDetail: pendingLegacyReturn.itemId,
         equationReturnTarget: null,
-        mobileKnowledgeNavOpen: false
+        mobileKnowledgeNavOpen: false,
+        mobileKnowledgeNavDomain: null
       };
     }
 
@@ -761,7 +771,8 @@ function selectDetail(itemId) {
       showPersonalSectionList: false,
       activeDetail: state.activeDetail === itemId ? null : itemId,
       equationReturnTarget: state.activeDetail === itemId ? null : state.equationReturnTarget,
-      mobileKnowledgeNavOpen: false
+      mobileKnowledgeNavOpen: false,
+      mobileKnowledgeNavDomain: null
     };
   });
 }
@@ -784,7 +795,8 @@ function selectLegacyItem(branchId, itemId) {
       activeBranch: branchId,
       activeDetail: itemId,
       equationReturnTarget,
-      mobileKnowledgeNavOpen: false
+      mobileKnowledgeNavOpen: false,
+      mobileKnowledgeNavDomain: null
     };
   });
 }
@@ -806,7 +818,8 @@ function showMobileSections() {
         activeBranch: null,
         activeDetail: null,
         equationReturnTarget: null,
-        mobileKnowledgeNavOpen: false
+        mobileKnowledgeNavOpen: false,
+        mobileKnowledgeNavDomain: null
       };
     }
 
@@ -841,7 +854,7 @@ function toggleMobileKnowledgeNav() {
       activeDetail: null,
       equationReturnTarget: null,
       mobileKnowledgeNavOpen: true,
-      mobileKnowledgeNavDomain: activeScienceDomainId
+      mobileKnowledgeNavDomain: null
     };
   });
 }
@@ -874,7 +887,7 @@ function selectMobileKnowledgeTopic(domainId, topicId) {
       activeDetail: null,
       equationReturnTarget: null,
       mobileKnowledgeNavOpen: false,
-      mobileKnowledgeNavDomain: domainId
+      mobileKnowledgeNavDomain: null
     };
   });
 }
