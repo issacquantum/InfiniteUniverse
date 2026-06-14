@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260614-guitar-origin-v1";
+import { pick } from "./i18n.js?v=20260614-systems-record-link-trim-v1";
 
 function escapeHtml(value) {
   return String(value)
