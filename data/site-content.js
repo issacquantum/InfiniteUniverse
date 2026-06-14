@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260614-photon-model-equation-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260614-photon-explicit-targets-v1";
 
 function htmlSource(group, id) {
   return {
