@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260614-site-notice-date-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260614-origins-self-focus-v1";
 
 function htmlSource(group, id) {
   return {
