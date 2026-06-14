@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260612-watermark-glint-desktop-v3";
+import { pick } from "./i18n.js?v=20260613-watermark-photon-sweep-v1";
 
 function escapeHtml(value) {
   return String(value)
