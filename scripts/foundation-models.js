@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260614-systems-work-closing-trim-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260614-practice-worlds-vehicle-trim-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
