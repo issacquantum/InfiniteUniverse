@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260614-systems-record-link-trim-v1";
+import { pick } from "./i18n.js?v=20260614-systems-work-closing-trim-v1";
 
 const STORAGE_KEY = "issac-tabares-reading-settings";
 
