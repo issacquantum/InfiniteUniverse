@@ -1010,7 +1010,7 @@ body[data-readable-font="on"] .reading-settings-panel h3 {
   opacity: var(--outline-photon-opacity, 0.72);
   background:
     linear-gradient(
-      115deg,
+      var(--outline-photon-angle, 115deg),
       transparent 0%,
       transparent 38%,
       rgba(224, 152, 255, 0.18) 42%,
@@ -1020,7 +1020,7 @@ body[data-readable-font="on"] .reading-settings-panel h3 {
       transparent 63%,
       transparent 100%
     );
-  background-size: 270% 270%;
+  background-size: var(--outline-photon-size, 270%) var(--outline-photon-size, 270%);
   background-position: 145% 145%;
   filter:
     drop-shadow(0 0 5px rgba(213, 108, 255, 0.96))
@@ -1035,7 +1035,13 @@ body[data-readable-font="on"] .reading-settings-panel h3 {
     linear-gradient(#000 0 0) content-box,
     linear-gradient(#000 0 0);
   mask-composite: exclude;
-  animation: outline-photon-channel 4.6s cubic-bezier(0.42, 0, 0.18, 1) infinite both;
+  animation-name: outline-photon-channel;
+  animation-duration: var(--outline-photon-duration, 4.6s);
+  animation-timing-function: cubic-bezier(0.42, 0, 0.18, 1);
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+  animation-delay: var(--outline-photon-delay, 0s);
+  animation-direction: var(--outline-photon-direction, normal);
 }
 
 .glass-sphere.has-outline-photon > .outline-photon-channel,
@@ -1050,7 +1056,6 @@ body[data-readable-font="on"] .reading-settings-panel h3 {
   --outline-photon-opacity: 0.66;
 }
 
-.content-window.has-outline-photon > .outline-photon-channel,
 .reading-settings-panel.has-outline-photon > .outline-photon-channel,
 .mobile-knowledge-nav__panel.has-outline-photon > .outline-photon-channel {
   --outline-photon-width: 1.2px;
@@ -3062,11 +3067,12 @@ body[data-motion="reduced"] .content-window__signature-mark--glint,
 body[data-motion="reduced"] .outline-photon-channel,
 .outline-photon-channel {
   animation-name: outline-photon-channel !important;
-  animation-duration: 4.6s !important;
+  animation-duration: var(--outline-photon-duration, 4.6s) !important;
   animation-timing-function: cubic-bezier(0.42, 0, 0.18, 1) !important;
   animation-iteration-count: infinite !important;
   animation-fill-mode: both !important;
-  animation-delay: 0s !important;
+  animation-delay: var(--outline-photon-delay, 0s) !important;
+  animation-direction: var(--outline-photon-direction, normal) !important;
 }
 
 body[data-contrast="high"] .glass-window,

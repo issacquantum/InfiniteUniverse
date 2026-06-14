@@ -1,4 +1,4 @@
-import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260614-dock-sphere-hover-v1";
+import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260614-photon-random-linefix-v1";
 
 const mountedSimulators = new WeakSet();
 const TWO_PI = Math.PI * 2;
