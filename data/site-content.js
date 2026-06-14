@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260614-all-sphere-hover-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260614-reading-panel-position-v1";
 
 function htmlSource(group, id) {
   return {
