@@ -23,8 +23,7 @@ const HEADING_SELECTOR = [
 ].join(", ");
 
 const OUTLINE_PHOTON_SELECTOR = [
-  ".glass-window",
-  ".content-window",
+  ".glass-window:not(.content-window)",
   ".glass-tab",
   ".glass-sphere",
   ".equation-link",
@@ -38,6 +37,45 @@ const OUTLINE_PHOTON_SELECTOR = [
   ".gallery-lightbox__nav",
   ".gallery-lightbox__close"
 ].join(", ");
+
+function hashString(value) {
+  let hash = 2166136261;
+  const text = String(value ?? "");
+
+  for (let index = 0; index < text.length; index += 1) {
+    hash ^= text.charCodeAt(index);
+    hash = Math.imul(hash, 16777619);
+  }
+
+  return hash >>> 0;
+}
+
+function getPhotonSignature(target, index) {
+  return [
+    index,
+    target.id,
+    target.className,
+    target.getAttribute("aria-label"),
+    target.getAttribute("title"),
+    target.getAttribute("href"),
+    target.textContent
+  ].filter(Boolean).join("|");
+}
+
+function randomizePhotonMotion(target, index) {
+  const hash = hashString(getPhotonSignature(target, index));
+  const duration = 3.8 + ((hash % 170) / 100);
+  const delay = -(((hash >>> 8) % 460) / 100);
+  const angle = 96 + ((hash >>> 16) % 54);
+  const direction = (hash & 1) === 0 ? "normal" : "reverse";
+  const size = 245 + ((hash >>> 20) % 72);
+
+  target.style.setProperty("--outline-photon-duration", `${duration.toFixed(2)}s`);
+  target.style.setProperty("--outline-photon-delay", `${delay.toFixed(2)}s`);
+  target.style.setProperty("--outline-photon-angle", `${angle}deg`);
+  target.style.setProperty("--outline-photon-direction", direction);
+  target.style.setProperty("--outline-photon-size", `${size}%`);
+}
 
 function getInterfaceText(language) {
   return language === "es"
@@ -131,12 +169,14 @@ export function decoratePhotonOutlines(root = document) {
     targets.add(target);
   });
 
-  targets.forEach((target) => {
+  Array.from(targets).forEach((target, index) => {
     if (target.querySelector(":scope > .outline-photon-channel")) {
+      randomizePhotonMotion(target, index);
       return;
     }
 
     target.classList.add("has-outline-photon");
+    randomizePhotonMotion(target, index);
 
     const photon = document.createElement("span");
     photon.className = "outline-photon-channel";
