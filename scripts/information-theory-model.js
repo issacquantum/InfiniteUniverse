@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260614-origins-self-focus-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260614-learning-path-redaction-v1";
 
 const mountedModels = new WeakSet();
 const SYMBOL_COUNT = 4;
