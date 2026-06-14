@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260614-desktop-title-font-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260614-reset-expanded-tabs-v1";
 
 function htmlSource(group, id) {
   return {

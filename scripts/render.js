@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260614-desktop-title-font-v1";
+import { pick } from "./i18n.js?v=20260614-reset-expanded-tabs-v1";
 
 function escapeHtml(value) {
   return String(value)
@@ -805,8 +805,11 @@ export function renderSite({ state, refs, content, assets }) {
     ? renderSectionButtons(content.personalSections, state, language, content.ui)
     : "";
   const knowledgeNavigation = "";
-  const topicNavigation = activeDomain && !mobileKnowledgeMenuOpen ? renderTopicButtons(topics, state, language, content.ui) : "";
+  const topicNavigation = activeDomain && !activeTopic && !mobileKnowledgeMenuOpen
+    ? renderTopicButtons(topics, state, language, content.ui)
+    : "";
   const branchNavigation = branchSource?.branches && !branchSource.hideBranchNavigation
+    && !activeBranch
     ? renderBranchButtons(branchSource.branches, state, language, content.ui)
     : "";
   const legacyItemNavigation = activeBranch && !branchSource?.hideDetailNavigation
