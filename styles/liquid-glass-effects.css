@@ -271,7 +271,6 @@
 }
 
 .glass-sphere {
-  position: relative;
   transform-origin: 50% 58%;
   transform-style: preserve-3d;
   transition:

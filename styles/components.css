@@ -413,14 +413,23 @@ body[data-section-mood="model-lab"]::after {
 }
 
 .reading-settings-panel {
+  --reading-panel-inline-edge: max(1rem, env(safe-area-inset-right));
+  --reading-panel-bottom-edge: calc(6.75rem + env(safe-area-inset-bottom));
   position: fixed;
-  right: 1rem;
-  bottom: 7.75rem;
+  top: auto !important;
+  right: var(--reading-panel-inline-edge);
+  bottom: var(--reading-panel-bottom-edge);
+  left: auto !important;
   z-index: 55;
   width: min(24rem, calc(100vw - 2rem));
+  max-width: calc(100dvw - 2rem);
+  max-height: calc(100dvh - var(--reading-panel-bottom-edge) - max(1rem, env(safe-area-inset-top)));
+  overflow: auto;
+  overscroll-behavior: contain;
   display: grid;
   gap: 0.9rem;
   font-family: var(--font-content-desktop);
+  transform: none !important;
 }
 
 .reading-settings-toggle {
@@ -996,7 +1005,11 @@ body[data-readable-font="on"] .reading-settings-panel h3 {
   vector-effect: non-scaling-stroke;
 }
 
-.has-outline-photon {
+.content-progress-constellation__dot.has-outline-photon,
+.model-lab-card.has-outline-photon,
+.reader-map__item.has-outline-photon,
+.equation-link.has-outline-photon,
+.equation-display.has-outline-photon {
   position: relative;
 }
 
@@ -2847,9 +2860,17 @@ body[data-media-notes="on"] .media-note {
   }
 
   .reading-settings-panel {
-    right: 0.68rem;
-    bottom: calc(4.25rem + env(safe-area-inset-bottom));
-    width: min(calc(100vw - 1.36rem), 22rem);
+    --reading-panel-inline-edge: max(0.68rem, env(safe-area-inset-right));
+    --reading-panel-block-edge: max(0.68rem, env(safe-area-inset-left));
+    --reading-panel-bottom-edge: calc(3.35rem + env(safe-area-inset-bottom));
+    top: auto !important;
+    right: var(--reading-panel-inline-edge) !important;
+    bottom: var(--reading-panel-bottom-edge) !important;
+    left: var(--reading-panel-block-edge) !important;
+    width: auto !important;
+    max-width: none;
+    max-height: calc(100dvh - var(--reading-panel-bottom-edge) - max(0.68rem, env(safe-area-inset-top)));
+    overflow: auto;
     font-family: var(--font-content-desktop);
   }
 
@@ -2925,6 +2946,22 @@ body[data-media-notes="on"] .media-note {
 
   .reading-settings-panel__description {
     font-size: 0.92rem;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 620px) and (max-width: 1024px) and (hover: none) and (pointer: coarse) {
+  .reading-settings-panel {
+    --reading-panel-inline-edge: max(0.62rem, env(safe-area-inset-right));
+    --reading-panel-block-edge: max(0.62rem, env(safe-area-inset-left));
+    --reading-panel-bottom-edge: calc(3.25rem + env(safe-area-inset-bottom));
+    top: auto !important;
+    right: var(--reading-panel-inline-edge) !important;
+    bottom: var(--reading-panel-bottom-edge) !important;
+    left: var(--reading-panel-block-edge) !important;
+    width: auto !important;
+    max-width: none;
+    max-height: calc(100dvh - var(--reading-panel-bottom-edge) - max(0.62rem, env(safe-area-inset-top)));
+    overflow: auto;
   }
 }
 
