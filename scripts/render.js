@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260614-reading-panel-position-v1";
+import { pick } from "./i18n.js?v=20260614-photon-model-equation-v1";
 
 function escapeHtml(value) {
   return String(value)
