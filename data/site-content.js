@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260614-systems-record-link-trim-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260614-systems-work-closing-trim-v1";
 
 function htmlSource(group, id) {
   return {
