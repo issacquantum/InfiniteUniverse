@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260614-photon-explicit-targets-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260614-photon-tabs-equations-icons-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;

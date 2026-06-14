@@ -1005,11 +1005,10 @@ body[data-readable-font="on"] .reading-settings-panel h3 {
   vector-effect: non-scaling-stroke;
 }
 
-.content-progress-constellation__dot.has-outline-photon,
-.model-lab-card.has-outline-photon,
-.reader-map__item.has-outline-photon,
 .equation-link.has-outline-photon,
-.equation-display.has-outline-photon {
+.equation-display.has-outline-photon,
+.mobile-knowledge-nav__domain-button.has-outline-photon,
+.mobile-knowledge-nav__topic-button.has-outline-photon {
   position: relative;
 }
 
@@ -1057,28 +1056,17 @@ body[data-readable-font="on"] .reading-settings-panel h3 {
   animation-direction: var(--outline-photon-direction, normal);
 }
 
-.glass-sphere.has-outline-photon > .outline-photon-channel,
-.content-progress-constellation__dot.has-outline-photon > .outline-photon-channel {
+.glass-sphere.has-outline-photon > .outline-photon-channel {
   --outline-photon-width: 1px;
   --outline-photon-opacity: 0.86;
 }
 
 .glass-tab.has-outline-photon > .outline-photon-channel,
+.mobile-knowledge-nav__domain-button.has-outline-photon > .outline-photon-channel,
+.mobile-knowledge-nav__topic-button.has-outline-photon > .outline-photon-channel,
 .equation-link.has-outline-photon > .outline-photon-channel,
 .equation-display.has-outline-photon > .outline-photon-channel {
   --outline-photon-opacity: 0.66;
-}
-
-.reading-settings-panel.has-outline-photon > .outline-photon-channel,
-.mobile-knowledge-nav__panel.has-outline-photon > .outline-photon-channel {
-  --outline-photon-width: 1.2px;
-  --outline-photon-opacity: 0.58;
-}
-
-.content-progress-constellation.has-outline-photon > .outline-photon-channel,
-.model-lab-card.has-outline-photon > .outline-photon-channel,
-.reader-map__item.has-outline-photon > .outline-photon-channel {
-  --outline-photon-opacity: 0.54;
 }
 
 .content-window > :not(.content-window__signature):not(.outline-photon-channel) {
