@@ -1,4 +1,4 @@
-import { bindPinchZoom, isModelPanGesture, panObjectFromPointer } from "./model-pan.js?v=20260614-site-notice-date-v1";
+import { bindPinchZoom, isModelPanGesture, panObjectFromPointer } from "./model-pan.js?v=20260614-origins-self-focus-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
