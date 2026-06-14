@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260614-origins-self-focus-v1";
+import { pick } from "./i18n.js?v=20260614-learning-path-redaction-v1";
 
 const STORAGE_KEY = "issac-tabares-reading-settings";
 
