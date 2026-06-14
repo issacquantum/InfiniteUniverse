@@ -1,19 +1,7 @@
 const MODEL_SELECTOR = [
-  ".double-slit-simulator",
-  ".gravity-fabric",
-  ".gravity-lensing-model",
-  ".wormhole-model",
-  ".quantum-entanglement-model",
-  ".quantum-channel-model",
-  ".orbital-selector",
-  ".numerical-methods-model",
-  ".neural-architect-model",
-  ".information-theory-model",
-  ".algorithm-visualizer-model",
-  ".quantum-fluctuation-model",
-  ".black-hole-model",
-  ".quantum-model",
-  ".foundation-model"
+  ".glass-window[data-model-target]",
+  ".gravity-fabric[data-model-target]",
+  ".quantum-model__frame.glass-window"
 ].join(", ");
 
 const HEADING_SELECTOR = [
@@ -94,18 +82,18 @@ function getModelBadgeText(model, language) {
   const labels = [
     ["double-slit-simulator", isSpanish ? "Modelo de ondas" : "Wave model"],
     ["gravity-fabric", isSpanish ? "Modelo de analogía" : "Analogy model"],
-    ["gravity-lensing-model", isSpanish ? "Modelo físico" : "Physical model"],
+    ["gravity-lensing", isSpanish ? "Modelo físico" : "Physical model"],
     ["wormhole-model", isSpanish ? "Modelo especulativo" : "Speculative model"],
-    ["quantum-entanglement-model", isSpanish ? "Modelo estadístico" : "Statistical model"],
-    ["quantum-channel-model", isSpanish ? "Modelo de canal" : "Channel model"],
+    ["quantum-entanglement", isSpanish ? "Modelo estadístico" : "Statistical model"],
+    ["quantum-channel", isSpanish ? "Modelo de canal" : "Channel model"],
     ["orbital-selector", isSpanish ? "Modelo orbital" : "Orbital model"],
-    ["numerical-methods-model", isSpanish ? "Modelo numérico" : "Numerical model"],
-    ["neural-architect-model", isSpanish ? "Modelo de IA" : "AI model"],
+    ["numerical-methods", isSpanish ? "Modelo numérico" : "Numerical model"],
+    ["neural-architect", isSpanish ? "Modelo de IA" : "AI model"],
     ["information-theory-model", isSpanish ? "Modelo de información" : "Information model"],
-    ["algorithm-visualizer-model", isSpanish ? "Modelo algorítmico" : "Algorithm model"],
-    ["quantum-fluctuation-model", isSpanish ? "Muestra de campo" : "Field sample"],
+    ["algorithm-visualizer", isSpanish ? "Modelo algorítmico" : "Algorithm model"],
+    ["quantum-fluctuation", isSpanish ? "Muestra de campo" : "Field sample"],
     ["black-hole-model", isSpanish ? "Visualización científica" : "Scientific visualization"],
-    ["quantum-model", isSpanish ? "Modelo cuántico" : "Quantum model"],
+    ["quantum-model__frame", isSpanish ? "Modelo cuántico" : "Quantum model"],
     ["foundation-model", isSpanish ? "Modelo conceptual" : "Conceptual model"]
   ];
 

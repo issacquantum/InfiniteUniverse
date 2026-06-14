@@ -1,8 +1,8 @@
-import { bigBangLegacyContent } from "../data/legacy-big-bang.js?v=20260614-reading-panel-position-v1";
-import { decorateModelBadges, syncReadingConstellation } from "./creative-effects.js?v=20260614-reading-panel-position-v1";
-import { fitEquationBlocks } from "./equation-fit.js?v=20260614-reading-panel-position-v1";
-import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260614-reading-panel-position-v1";
-import { pick } from "./i18n.js?v=20260614-reading-panel-position-v1";
+import { bigBangLegacyContent } from "../data/legacy-big-bang.js?v=20260614-photon-model-equation-v1";
+import { decorateModelBadges, decoratePhotonOutlines, syncReadingConstellation } from "./creative-effects.js?v=20260614-photon-model-equation-v1";
+import { fitEquationBlocks } from "./equation-fit.js?v=20260614-photon-model-equation-v1";
+import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260614-photon-model-equation-v1";
+import { pick } from "./i18n.js?v=20260614-photon-model-equation-v1";
 
 let activeRequestToken = 0;
 
@@ -534,6 +534,7 @@ function commitLegacyDocument({
 
   host.replaceChildren(wrapper);
   decorateModelBadges(host, state.language);
+  decoratePhotonOutlines(host);
   syncReadingConstellation(host, state.language);
   host.setAttribute("aria-busy", "false");
   const restored = restoreReturnNavigation(host, state, returnNavigation);
@@ -551,6 +552,7 @@ function commitLegacyDocument({
       return;
     }
 
+    decoratePhotonOutlines(host);
     void renderMath(host).catch(() => null);
   });
 
