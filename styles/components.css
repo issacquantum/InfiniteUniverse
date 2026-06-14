@@ -828,10 +828,14 @@ body[data-music="playing"] .music-control i {
   .branch-grid .glass-tab,
   .legacy-item-grid .glass-tab,
   .focused-path-tab {
-    font-family: var(--font-title);
+    font-family: var(--font-content-desktop);
   }
 
   body[data-readable-font="on"] .site-title,
+  body[data-readable-font="on"] .site-title :is(a, span, strong, em) {
+    font-family: var(--font-title);
+  }
+
   body[data-readable-font="on"] .content-window :is(h1, h2, h3, h4, h5, h6),
   body[data-readable-font="on"] .content-window :is(h1, h2, h3, h4, h5, h6) :is(a, span, strong, em),
   body[data-readable-font="on"] .content-window__eyebrow,
@@ -845,7 +849,7 @@ body[data-music="playing"] .music-control i {
   body[data-readable-font="on"] .branch-grid .glass-tab,
   body[data-readable-font="on"] .legacy-item-grid .glass-tab,
   body[data-readable-font="on"] .focused-path-tab {
-    font-family: var(--font-title);
+    font-family: var(--font-content-desktop);
   }
 }
 
@@ -859,6 +863,31 @@ body[data-readable-font="on"] .content-window__eyebrow,
 body[data-readable-font="on"] .reading-settings-panel h2,
 body[data-readable-font="on"] .reading-settings-panel h3 {
   font-family: var(--font-title);
+}
+
+@media (min-width: 769px) {
+  body[data-readable-font="on"] .content-window :is(h1, h2, h3, h4, h5, h6),
+  body[data-readable-font="on"] .content-window :is(h1, h2, h3, h4, h5, h6) :is(a, span, strong, em),
+  body[data-readable-font="on"] .content-window__eyebrow,
+  body[data-readable-font="on"] .reading-settings-panel h2,
+  body[data-readable-font="on"] .reading-settings-panel h3,
+  body[data-readable-font="on"] .local-dock__title,
+  body[data-readable-font="on"] .mobile-knowledge-nav__heading,
+  body[data-readable-font="on"] .mobile-knowledge-nav__domain-button,
+  body[data-readable-font="on"] .mobile-knowledge-nav__topic-button,
+  body[data-readable-font="on"] .section-grid .glass-tab,
+  body[data-readable-font="on"] .knowledge-worlds-row .glass-tab,
+  body[data-readable-font="on"] .topic-grid .glass-tab,
+  body[data-readable-font="on"] .branch-grid .glass-tab,
+  body[data-readable-font="on"] .legacy-item-grid .glass-tab,
+  body[data-readable-font="on"] .focused-path-tab {
+    font-family: var(--font-content-desktop);
+  }
+
+  body[data-readable-font="on"] .site-title,
+  body[data-readable-font="on"] .site-title :is(a, span, strong, em) {
+    font-family: var(--font-title);
+  }
 }
 
 .content-window__header h2 {
