@@ -22,6 +22,23 @@ const HEADING_SELECTOR = [
   ".content-subarea-title"
 ].join(", ");
 
+const OUTLINE_PHOTON_SELECTOR = [
+  ".glass-window",
+  ".content-window",
+  ".glass-tab",
+  ".glass-sphere",
+  ".equation-link",
+  ".equation-display",
+  ".model-lab-card",
+  ".reader-map__item",
+  ".content-progress-constellation",
+  ".content-progress-constellation__dot",
+  ".model-accessibility__button",
+  ".gallery-lightbox__zoom-button",
+  ".gallery-lightbox__nav",
+  ".gallery-lightbox__close"
+].join(", ");
+
 function getInterfaceText(language) {
   return language === "es"
     ? {
@@ -99,6 +116,32 @@ export function decorateModelBadges(root, language) {
     badge.className = "model-creative-badge";
     badge.textContent = getModelBadgeText(model, language);
     model.appendChild(badge);
+  });
+}
+
+export function decoratePhotonOutlines(root = document) {
+  const scope = root?.querySelectorAll ? root : document;
+  const targets = new Set();
+
+  if (scope.matches?.(OUTLINE_PHOTON_SELECTOR)) {
+    targets.add(scope);
+  }
+
+  scope.querySelectorAll(OUTLINE_PHOTON_SELECTOR).forEach((target) => {
+    targets.add(target);
+  });
+
+  targets.forEach((target) => {
+    if (target.querySelector(":scope > .outline-photon-channel")) {
+      return;
+    }
+
+    target.classList.add("has-outline-photon");
+
+    const photon = document.createElement("span");
+    photon.className = "outline-photon-channel";
+    photon.setAttribute("aria-hidden", "true");
+    target.appendChild(photon);
   });
 }
 
