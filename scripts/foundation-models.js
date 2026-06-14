@@ -1,4 +1,4 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260614-all-sphere-hover-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260614-reading-panel-position-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
