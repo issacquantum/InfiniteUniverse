@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260614-infinity-purple-v1";
+import { pick } from "./i18n.js?v=20260614-infinity-purple-v3";
 
 function escapeHtml(value) {
   return String(value)
