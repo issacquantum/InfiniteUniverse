@@ -1,4 +1,4 @@
-import { bindPinchZoom, isModelPanGesture, panTargetFromPointer } from "./model-pan.js?v=20260620-expanded-tabs-hide-v1";
+import { bindPinchZoom, isModelPanGesture, panTargetFromPointer } from "./model-pan.js?v=20260620-covered-tabs-only-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;

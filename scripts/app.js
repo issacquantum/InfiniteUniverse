@@ -1,16 +1,16 @@
-import { siteAssets } from "../data/site-assets.js?v=20260620-expanded-tabs-hide-v1";
-import { siteContent } from "../data/site-content.js?v=20260620-expanded-tabs-hide-v1";
-import { createReadingSettingsController } from "./reading-settings.js?v=20260620-expanded-tabs-hide-v1";
-import { initBackground } from "./background.js?v=20260620-expanded-tabs-hide-v1";
-import { refreshIcons } from "./icons.js?v=20260620-expanded-tabs-hide-v1";
-import { pick } from "./i18n.js?v=20260620-expanded-tabs-hide-v1";
-import { decoratePhotonOutlines } from "./creative-effects.js?v=20260620-expanded-tabs-hide-v1";
-import { syncLegacyContent } from "./legacy-content.js?v=20260620-expanded-tabs-hide-v1";
-import { createMusicController, syncMusicUi } from "./music.js?v=20260620-expanded-tabs-hide-v1";
-import { renderSite } from "./render.js?v=20260620-expanded-tabs-hide-v1";
-import { createState } from "./state.js?v=20260620-expanded-tabs-hide-v1";
-import { syncStructuredContent } from "./structured-content.js?v=20260620-expanded-tabs-hide-v1";
-import { markWebGLAvailability } from "./webgl-support.js?v=20260620-expanded-tabs-hide-v1";
+import { siteAssets } from "../data/site-assets.js?v=20260620-covered-tabs-only-v1";
+import { siteContent } from "../data/site-content.js?v=20260620-covered-tabs-only-v1";
+import { createReadingSettingsController } from "./reading-settings.js?v=20260620-covered-tabs-only-v1";
+import { initBackground } from "./background.js?v=20260620-covered-tabs-only-v1";
+import { refreshIcons } from "./icons.js?v=20260620-covered-tabs-only-v1";
+import { pick } from "./i18n.js?v=20260620-covered-tabs-only-v1";
+import { decoratePhotonOutlines } from "./creative-effects.js?v=20260620-covered-tabs-only-v1";
+import { syncLegacyContent } from "./legacy-content.js?v=20260620-covered-tabs-only-v1";
+import { createMusicController, syncMusicUi } from "./music.js?v=20260620-covered-tabs-only-v1";
+import { renderSite } from "./render.js?v=20260620-covered-tabs-only-v1";
+import { createState } from "./state.js?v=20260620-covered-tabs-only-v1";
+import { syncStructuredContent } from "./structured-content.js?v=20260620-covered-tabs-only-v1";
+import { markWebGLAvailability } from "./webgl-support.js?v=20260620-covered-tabs-only-v1";
 
 const refs = {
   siteShell: document.querySelector(".site-shell"),
@@ -112,6 +112,7 @@ let pendingStructuredReturn = null;
 let pendingLegacyReturn = null;
 let pendingReaderScrollRestoration = null;
 let pendingModelScrollTarget = null;
+let pendingKnowledgeTabOverlapSync = 0;
 const GALLERY_MAX_ZOOM_LEVEL = 7;
 const GALLERY_FALLBACK_ALT = "Selected image in the gallery viewer";
 
@@ -128,6 +129,74 @@ function clearPendingReaderScrollRestoration() {
 
 function clearPendingModelScrollTarget() {
   pendingModelScrollTarget = null;
+}
+
+function clearCoveredKnowledgeTabs() {
+  refs.stage
+    .querySelectorAll(".mobile-knowledge-nav__domain--hidden-by-expanded")
+    .forEach((domain) => {
+      domain.classList.remove("mobile-knowledge-nav__domain--hidden-by-expanded");
+      domain.removeAttribute("aria-hidden");
+      if ("inert" in domain) {
+        domain.inert = false;
+      } else {
+        domain.removeAttribute("inert");
+      }
+    });
+}
+
+function doRectsOverlap(firstRect, secondRect) {
+  const overlapWidth = Math.min(firstRect.right, secondRect.right) - Math.max(firstRect.left, secondRect.left);
+  const overlapHeight = Math.min(firstRect.bottom, secondRect.bottom) - Math.max(firstRect.top, secondRect.top);
+
+  return overlapWidth > 4 && overlapHeight > 4;
+}
+
+function syncCoveredKnowledgeTabs() {
+  pendingKnowledgeTabOverlapSync = 0;
+  const nav = refs.stage.querySelector(".mobile-knowledge-nav--has-expanded-domain");
+
+  clearCoveredKnowledgeTabs();
+
+  if (!nav) {
+    return;
+  }
+
+  const expandedTopics = nav.querySelector(".mobile-knowledge-nav__domain--expanded .mobile-knowledge-nav__topics:not([hidden])");
+
+  if (!expandedTopics) {
+    return;
+  }
+
+  const topicsRect = expandedTopics.getBoundingClientRect();
+
+  if (topicsRect.width <= 0 || topicsRect.height <= 0) {
+    return;
+  }
+
+  nav.querySelectorAll(".mobile-knowledge-nav__domain:not(.mobile-knowledge-nav__domain--expanded)").forEach((domain) => {
+    const button = domain.querySelector(".mobile-knowledge-nav__domain-button");
+
+    if (!button || !doRectsOverlap(button.getBoundingClientRect(), topicsRect)) {
+      return;
+    }
+
+    domain.classList.add("mobile-knowledge-nav__domain--hidden-by-expanded");
+    domain.setAttribute("aria-hidden", "true");
+    if ("inert" in domain) {
+      domain.inert = true;
+    } else {
+      domain.setAttribute("inert", "");
+    }
+  });
+}
+
+function scheduleKnowledgeTabOverlapSync() {
+  if (pendingKnowledgeTabOverlapSync) {
+    cancelAnimationFrame(pendingKnowledgeTabOverlapSync);
+  }
+
+  pendingKnowledgeTabOverlapSync = requestAnimationFrame(syncCoveredKnowledgeTabs);
 }
 
 function captureReaderScrollRestoration() {
@@ -452,6 +521,7 @@ function syncUi(state = store.getState()) {
   readingSettingsController?.syncLanguage(state.language);
   refreshIcons();
   decoratePhotonOutlines(document);
+  scheduleKnowledgeTabOverlapSync();
 }
 
 function getActiveLabel(state) {
@@ -1463,6 +1533,8 @@ window.addEventListener("resize", () => {
   if (refs.galleryLightbox?.hidden === false) {
     applyGalleryZoom();
   }
+
+  scheduleKnowledgeTabOverlapSync();
 });
 
 store.subscribe((state) => {
