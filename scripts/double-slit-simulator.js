@@ -1,4 +1,4 @@
-import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260614-infinity-purple-v3";
+import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260620-expanded-tabs-hide-v1";
 
 const mountedSimulators = new WeakSet();
 const TWO_PI = Math.PI * 2;

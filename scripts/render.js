@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260614-infinity-purple-v3";
+import { pick } from "./i18n.js?v=20260620-expanded-tabs-hide-v1";
 
 function escapeHtml(value) {
   return String(value)
@@ -553,13 +553,14 @@ function renderMobileKnowledgeNavigation(domains, state, language) {
   };
   const isOpen = Boolean(state.mobileKnowledgeNavOpen);
   const expandedDomainId = state.mobileKnowledgeNavDomain ?? null;
+  const hasExpandedDomain = Boolean(expandedDomainId);
 
   if (!isOpen) {
     return "";
   }
 
   return `
-    <nav class="mobile-knowledge-nav is-open" aria-label="${escapeHtml(labels.toggle)}">
+    <nav class="${classNames("mobile-knowledge-nav", "is-open", hasExpandedDomain && "mobile-knowledge-nav--has-expanded-domain")}" aria-label="${escapeHtml(labels.toggle)}">
       <div
         class="glass-window mobile-knowledge-nav__panel"
         id="mobile-knowledge-nav-panel"
@@ -578,10 +579,14 @@ function renderMobileKnowledgeNavigation(domains, state, language) {
         <div class="mobile-knowledge-nav__domains">
           ${domains.map((domain) => {
             const isExpanded = expandedDomainId === domain.id;
+            const isHiddenByExpandedDomain = hasExpandedDomain && !isExpanded;
             const topics = domain.topics ?? [];
 
             return `
-              <section class="mobile-knowledge-nav__domain">
+              <section
+                class="${classNames("mobile-knowledge-nav__domain", isExpanded && "mobile-knowledge-nav__domain--expanded", isHiddenByExpandedDomain && "mobile-knowledge-nav__domain--hidden-by-expanded")}"
+                ${isHiddenByExpandedDomain ? 'aria-hidden="true" inert' : ""}
+              >
                 <button
                   class="${classNames("glass-tab", "mobile-knowledge-nav__domain-button", state.activeDomain === domain.id && "is-active")}"
                   type="button"

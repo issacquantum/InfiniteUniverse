@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260614-infinity-purple-v3";
+import { pick } from "./i18n.js?v=20260620-expanded-tabs-hide-v1";
 
 const STORAGE_KEY = "issac-tabares-reading-settings";
 
