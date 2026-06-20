@@ -1,4 +1,4 @@
-import { bindPinchZoom, isModelPanGesture, panObjectFromPointer } from "./model-pan.js?v=20260614-infinity-purple-v3";
+import { bindPinchZoom, isModelPanGesture, panObjectFromPointer } from "./model-pan.js?v=20260620-expanded-tabs-hide-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;

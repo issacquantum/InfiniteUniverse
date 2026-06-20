@@ -1,16 +1,16 @@
-import { siteAssets } from "../data/site-assets.js?v=20260614-infinity-purple-v3";
-import { siteContent } from "../data/site-content.js?v=20260614-infinity-purple-v3";
-import { createReadingSettingsController } from "./reading-settings.js?v=20260614-infinity-purple-v3";
-import { initBackground } from "./background.js?v=20260614-infinity-purple-v3";
-import { refreshIcons } from "./icons.js?v=20260614-infinity-purple-v3";
-import { pick } from "./i18n.js?v=20260614-infinity-purple-v3";
-import { decoratePhotonOutlines } from "./creative-effects.js?v=20260614-infinity-purple-v3";
-import { syncLegacyContent } from "./legacy-content.js?v=20260614-infinity-purple-v3";
-import { createMusicController, syncMusicUi } from "./music.js?v=20260614-infinity-purple-v3";
-import { renderSite } from "./render.js?v=20260614-infinity-purple-v3";
-import { createState } from "./state.js?v=20260614-infinity-purple-v3";
-import { syncStructuredContent } from "./structured-content.js?v=20260614-infinity-purple-v3";
-import { markWebGLAvailability } from "./webgl-support.js?v=20260614-infinity-purple-v3";
+import { siteAssets } from "../data/site-assets.js?v=20260620-expanded-tabs-hide-v1";
+import { siteContent } from "../data/site-content.js?v=20260620-expanded-tabs-hide-v1";
+import { createReadingSettingsController } from "./reading-settings.js?v=20260620-expanded-tabs-hide-v1";
+import { initBackground } from "./background.js?v=20260620-expanded-tabs-hide-v1";
+import { refreshIcons } from "./icons.js?v=20260620-expanded-tabs-hide-v1";
+import { pick } from "./i18n.js?v=20260620-expanded-tabs-hide-v1";
+import { decoratePhotonOutlines } from "./creative-effects.js?v=20260620-expanded-tabs-hide-v1";
+import { syncLegacyContent } from "./legacy-content.js?v=20260620-expanded-tabs-hide-v1";
+import { createMusicController, syncMusicUi } from "./music.js?v=20260620-expanded-tabs-hide-v1";
+import { renderSite } from "./render.js?v=20260620-expanded-tabs-hide-v1";
+import { createState } from "./state.js?v=20260620-expanded-tabs-hide-v1";
+import { syncStructuredContent } from "./structured-content.js?v=20260620-expanded-tabs-hide-v1";
+import { markWebGLAvailability } from "./webgl-support.js?v=20260620-expanded-tabs-hide-v1";
 
 const refs = {
   siteShell: document.querySelector(".site-shell"),
