@@ -1,4 +1,4 @@
-import { pick } from "./i18n.js?v=20260620-expanded-tabs-hide-v1";
+import { pick } from "./i18n.js?v=20260620-covered-tabs-only-v1";
 
 function escapeHtml(value) {
   return String(value)
@@ -579,13 +579,12 @@ function renderMobileKnowledgeNavigation(domains, state, language) {
         <div class="mobile-knowledge-nav__domains">
           ${domains.map((domain) => {
             const isExpanded = expandedDomainId === domain.id;
-            const isHiddenByExpandedDomain = hasExpandedDomain && !isExpanded;
             const topics = domain.topics ?? [];
 
             return `
               <section
-                class="${classNames("mobile-knowledge-nav__domain", isExpanded && "mobile-knowledge-nav__domain--expanded", isHiddenByExpandedDomain && "mobile-knowledge-nav__domain--hidden-by-expanded")}"
-                ${isHiddenByExpandedDomain ? 'aria-hidden="true" inert' : ""}
+                class="${classNames("mobile-knowledge-nav__domain", isExpanded && "mobile-knowledge-nav__domain--expanded")}"
+                data-domain-id="${escapeHtml(domain.id)}"
               >
                 <button
                   class="${classNames("glass-tab", "mobile-knowledge-nav__domain-button", state.activeDomain === domain.id && "is-active")}"
