@@ -71,11 +71,11 @@ class QuantumFluctuationModel {
     const content = {
       canvasLabel: {
         en: "Interactive quantum fluctuation field model.",
-        es: "Modelo interactivo de campo con fluctuaciones cuanticas."
+        es: "Modelo interactivo de campo con fluctuaciones cuánticas."
       },
       fallback: {
         en: "The quantum fluctuation model could not load in this browser.",
-        es: "El modelo de fluctuaciones cuanticas no pudo cargar en este navegador."
+        es: "El modelo de fluctuaciones cuánticas no pudo cargar en este navegador."
       },
       hint: {
         en: "drag to rotate · Shift/Alt or right-drag to move · scroll to zoom",

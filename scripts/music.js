@@ -67,9 +67,11 @@ function resolvePlaylist(assets, contextId = "default") {
   return resolveTrackEntries(folder, entries);
 }
 
-export function syncMusicUi({ refs, isPlaying = false, currentTrackName = "" }) {
+export function syncMusicUi({ refs, language = "en", isPlaying = false, currentTrackName = "" }) {
   const iconName = isPlaying ? "pause" : "play";
-  const ariaLabel = isPlaying ? "Pause site music" : "Play site music";
+  const ariaLabel = language === "es"
+    ? (isPlaying ? "Pausar música del sitio" : "Reproducir música del sitio")
+    : (isPlaying ? "Pause site music" : "Play site music");
 
   refs.musicButtons.forEach((button) => {
     if (!button) {
