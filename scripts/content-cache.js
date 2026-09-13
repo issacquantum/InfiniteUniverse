@@ -3,7 +3,7 @@ import { siteContent } from "../data/site-content.js?v=20260913-bilingual-releas
 
 const documentCache = new Map();
 const requestCache = new Map();
-const CONTENT_CACHE_VERSION = "20260913-bilingual-release-v1";
+const CONTENT_CACHE_VERSION = "20260913-notices-v1";
 const PREWARM_WORKER_LIMIT = 4;
 let prewarmScheduled = false;
 
