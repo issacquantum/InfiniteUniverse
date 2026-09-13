@@ -784,6 +784,7 @@ export function renderSite({ state, refs, content, assets }) {
 
   refs.titleButton.setAttribute("aria-expanded", String(showPersonalNavigation));
   refs.languageToggle.setAttribute("aria-pressed", String(language === "es"));
+  refs.languageToggle.setAttribute("aria-label", language === "es" ? "Cambiar idioma" : "Toggle language");
   refs.languageLabel.textContent = pick(content.ui.languageLabel, language);
   refs.socialDock.setAttribute("aria-label", pick(content.ui.socialAriaLabel, language));
   if (refs.siteInfinity) {

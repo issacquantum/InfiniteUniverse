@@ -1,12 +1,12 @@
 <div class="structured-content equation-detail-page" data-structured-content>
   <section class="content-block"><h3>Atención de Producto Punto Escalado</h3></section>
-  <section class="content-block"><h3>Ecuación</h3><div class="equation-link-wrap"><div class="glass-window equation-display">$$ \operatorname{Atencion}(Q,K,V)=\operatorname{normaliza}_{\exp}\!\left(\frac{QK^T}{\sqrt{d_k}}\right)V $$</div></div></section>
-  <section class="content-block"><h3>Lectura Literal</h3><p>Attention de Q coma K coma V es igual a softmax de QK elevado a T sobre raíz cuadrada de d sub k V.</p></section>
+  <section class="content-block"><h3>Ecuación</h3><div class="equation-link-wrap"><div class="glass-window equation-display">$$ \operatorname{Attention}(Q,K,V)=\operatorname{softmax}\!\left(\frac{QK^T}{\sqrt{d_k}}\right)V $$</div></div></section>
+  <section class="content-block"><h3>Lectura Literal</h3><p>Attention de Q, K y V es igual a softmax aplicada al producto Q por la transpuesta de K, dividido entre la raíz cuadrada de d subíndice k; el resultado se multiplica por V.</p></section>
   <section class="content-block"><h3>Lectura Común</h3><p>La atención compara consultas y claves, aplica normalización softmax y usa los pesos resultantes para combinar vectores de valor.</p></section>
   <section class="content-block"><h3>Símbolos</h3><p><strong>\(Q\)</strong>: matriz de consultas.</p>
     <p><strong>\(K\)</strong>: matriz de claves.</p>
     <p><strong>\(V\)</strong>: matriz de valores.</p>
     <p><strong>\(d_k\)</strong>: dimensión de las claves, usada para estabilizar la escala de los productos punto.</p>
-    <p><strong>\(\operatorname{normaliza}_{\exp}\)</strong>: función de normalización exponencial que convierte puntajes en pesos que suman uno.</p></section>
+    <p><strong>\(\operatorname{softmax}\)</strong>: función de normalización exponencial que convierte puntajes en pesos que suman uno.</p></section>
   <section class="content-block"><h3>Significado de la Ecuación</h3><p>Los puntajes de atención deciden cuánto usa cada token la información de otros tokens. La escala mantiene controlados los productos punto antes de que softmax los convierta en pesos.</p></section>
 </div>

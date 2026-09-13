@@ -3487,7 +3487,7 @@ body[data-link-visibility="enhanced"] :where(.structured-content, .legacy-conten
   }
 
   .site-title::after {
-    content: "\2302";
+    content: none;
     display: inline-grid;
     place-items: center;
     flex: 0 0 auto;
