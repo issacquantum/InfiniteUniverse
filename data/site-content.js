@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260620-covered-tabs-only-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260913-social-dock-v1";
 
 function htmlSource(group, id) {
   return {

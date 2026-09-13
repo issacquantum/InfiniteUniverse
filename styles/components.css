@@ -595,17 +595,11 @@ body[data-music="playing"] .music-control i {
 }
 
 .social-dock .social-sphere:nth-child(2)::after {
-  transform: rotate(6deg);
-  opacity: 0.72;
-  filter: blur(1.08px);
-}
-
-.social-dock .social-sphere:nth-child(3)::after {
   transform: rotate(12deg);
   opacity: 0.76;
 }
 
-.social-dock .social-sphere:nth-child(4)::after {
+.social-dock .social-sphere:nth-child(3)::after {
   transform: rotate(-12deg);
   opacity: 0.68;
   filter: blur(1.14px);
