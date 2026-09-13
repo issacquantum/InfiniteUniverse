@@ -3,14 +3,14 @@
   <section class="content-block">
     <h3>Why I Study Fluids</h3>
     <p>Fluid mechanics and the Navier–Stokes problem have fascinated me for years. I have always been interested in liquids, gases, and other flowing media: how substances that are not rigid solids deform, move, and organize themselves, especially through turbulence and vortices. Whenever I have had time, I have studied Navier–Stokes on my own and worked through its equations.</p>
-    
+
   </section>
 
   <section class="content-block">
     <h3>Continuum Model and Conventions</h3>
     <p>A velocity field \(\mathbf u(x,t)=(u_1,u_2,u_3)\) assigns a velocity to each position \(x\) and time \(t\). Here the domain \(\Omega\) is either \(\mathbb R^3\), with sufficient decay at infinity, or the periodic torus \(\mathbb T^3=\mathbb R^3/\mathbb Z^3\). The fluid is Newtonian, incompressible, and has constant density \(\rho&gt;0\). The pressure variable is the physical pressure divided by density, \(p=P/\rho\); \(\nu=\mu/\rho&gt;0\) is kinematic viscosity, where \(\mu\) is dynamic viscosity; and \(\mathbf f\) is external force per unit mass. Thus every term in the momentum equation has units of acceleration.</p>
     <p>This is a continuum description, not a molecular calculation. It excludes compressibility, free boundaries, and variable density. Gases can be treated as incompressible in appropriate regimes, but the equations here do not describe all gas flows. A mathematical singularity concerns this specified model; it is not a prediction that a real material literally reaches infinite speed.</p>
-    
+
   </section>
 
   <section class="content-block">
@@ -19,21 +19,21 @@
     <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item" data-branch-id="fluid-mechanics-navier-stokes-equations" data-item-id="fluid-material-derivative" aria-label="Open equation explanation: Material Derivative">$$\frac{D\mathbf u}{Dt}=\partial_t\mathbf u+(\mathbf u\cdot\nabla)\mathbf u$$</button></div><p>Along a material trajectory \(\dot X(t)=\mathbf u(X(t),t)\), the chain rule gives \(d\mathbf u(X(t),t)/dt=D\mathbf u/Dt\). This is the acceleration of a moving fluid element. The pressure force is \(-\nabla p\); viscous diffusion is \(\nu\Delta\mathbf u\), where \(\Delta=\sum_i\partial_{x_i}^2\); external forcing supplies \(\mathbf f\).</p>
     <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item" data-branch-id="fluid-mechanics-navier-stokes-equations" data-item-id="fluid-incompressibility" aria-label="Open equation explanation: Incompressibility">$$\nabla\cdot\mathbf u=\sum_{i=1}^{3}\partial_{x_i}u_i=0$$</button></div><p>Incompressibility is the local volume-preservation constraint. General mass conservation is \(\partial_t\rho+\nabla\cdot(\rho\mathbf u)=0\); constant density reduces it to zero divergence. It does not require constant speed, zero deformation, or a fixed shape. A shrinking region selected by a velocity threshold or similarity coordinates need not contain the same fluid particles.</p>
     <p>Taking divergence of momentum gives \(-\Delta p=\sum_{i,j}(\partial_{x_i}u_j)(\partial_{x_j}u_i)-\nabla\cdot\mathbf f\). Pressure is determined nonlocally by this elliptic constraint, up to the permitted time-dependent additive constant and the domain conditions. It is not a freely prescribed extra state variable.</p>
-    
+
   </section>
 
   <section class="content-block">
     <h3>Euler and the Role of Viscosity</h3>
     <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item" data-branch-id="fluid-mechanics-navier-stokes-equations" data-item-id="fluid-euler" aria-label="Open equation explanation: Incompressible Euler Equations">$$\partial_t\mathbf u+(\mathbf u\cdot\nabla)\mathbf u=-\nabla p+\mathbf f,\qquad\nabla\cdot\mathbf u=0$$</button></div><p>Setting \(\nu=0\) gives the incompressible Euler equations. This is the formal inviscid system. Convergence of viscous solutions as \(\nu\downarrow0\) is a separate analytical question; boundaries and loss of regularity can obstruct a naive limit. At \(\nu&gt;0\), the Fourier mode with wavevector \(k\) is damped by the linear diffusion factor \(e^{-\nu|k|^2t}\). Nonlinear transport simultaneously creates fine spatial structure. Removing viscosity changes the competition and the theorem being studied.</p>
     <p>The Reynolds number \(\mathrm{Re}=UL/\nu\), for characteristic speed \(U\) and length \(L\), compares advective and viscous effects. A large value does not by itself prove turbulence or finite-time blowup. In an anisotropic flow there can be several relevant speeds and lengths, so one Reynolds number can hide important balances.</p>
-    
+
   </section>
 
   <section class="content-block">
     <h3>Vorticity and the Difference Between Two and Three Dimensions</h3>
     <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item" data-branch-id="fluid-mechanics-navier-stokes-equations" data-item-id="fluid-vorticity" aria-label="Open equation explanation: Vorticity Transport and Stretching">$$\begin{aligned}\boldsymbol\omega&amp;=\nabla\times\mathbf u,\\ \partial_t\boldsymbol\omega+(\mathbf u\cdot\nabla)\boldsymbol\omega&amp;=(\boldsymbol\omega\cdot\nabla)\mathbf u\\ &amp;\quad+\nu\Delta\boldsymbol\omega+\nabla\times\mathbf f\end{aligned}$$</button></div><p>Vorticity \(\boldsymbol\omega=\nabla\times\mathbf u\) measures local rotation; it is twice the angular velocity for rigid rotation. Curl removes the pressure gradient. The term \((\boldsymbol\omega\cdot\nabla)\mathbf u\) stretches and tilts vorticity. With strain tensor \(S=(\nabla\mathbf u+(\nabla\mathbf u)^{\mathsf T})/2\), its contribution to enstrophy is \(\int\boldsymbol\omega\cdot S\boldsymbol\omega\,dx\), which has no fixed sign. Enstrophy is \(\frac12\|\boldsymbol\omega\|_2^2\), and the superscript \(\mathsf T\) denotes matrix transpose.</p>
     <div class="equation-link-wrap"><div class="glass-window equation-display">$$\frac12\frac{d}{dt}\|\boldsymbol\omega\|_2^2+\nu\|\nabla\boldsymbol\omega\|_2^2=\int_\Omega\boldsymbol\omega\cdot S\boldsymbol\omega\,dx+\int_\Omega(\nabla\times\mathbf f)\cdot\boldsymbol\omega\,dx$$</div></div><p>For genuinely two-dimensional flow \(\mathbf u=(u_1(x_1,x_2),u_2(x_1,x_2),0)\), vorticity is perpendicular to the plane and \((\boldsymbol\omega\cdot\nabla)\mathbf u=0\). Its scalar equation is transport–diffusion with forcing curl. This removes the three-dimensional stretching term and gives much stronger a priori control; smooth 2D data with appropriate smooth forcing remain globally regular. A 3D axisymmetric flow with swirl is not a 2D flow in this sense.</p>
-    
+
   </section>
 
   <section class="content-block">
@@ -41,7 +41,7 @@
     <p>Write \(\|v\|_q=(\int_\Omega|v|^q\,dx)^{1/q}\) for \(1\leq q&lt;\infty\), and \(\|v\|_\infty\) for the essential supremum. With density normalized to one, kinetic energy is \(E(t)=\frac12\|\mathbf u(t)\|_2^2\). Multiplication of momentum by \(\mathbf u\), integration, and zero divergence remove transport and pressure from the global balance. For smooth, sufficiently decaying or periodic solutions:</p>
     <div class="equation-link-wrap"><div class="glass-window equation-display">$$\frac{dE}{dt}+\nu\|\nabla\mathbf u\|_2^2=\int_\Omega\mathbf f\cdot\mathbf u\,dx$$</div></div><div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item" data-branch-id="fluid-mechanics-navier-stokes-equations" data-item-id="fluid-energy" aria-label="Open equation explanation: Leray–Hopf Energy Inequality">$$\begin{aligned}\frac12\|\mathbf u(t)\|_2^2+\nu\int_s^t\|\nabla\mathbf u(a)\|_2^2\,da\\ \leq\frac12\|\mathbf u(s)\|_2^2+\int_s^t\int_\Omega\mathbf f\cdot\mathbf u\,dx\,da\end{aligned}$$</button></div><p>The second formula is the Leray–Hopf energy inequality, valid from \(s=0\) and almost every admissible starting time \(s\), for later times using the usual weakly continuous representative. Here \(a\) is the integration time. The inequality permits a loss in the limiting energy balance. It does not permit spontaneous gain without input from the force.</p>
     <p>The bounds \(\mathbf u\in L^\infty_tL^2_x\) and \(\nabla\mathbf u\in L^2_tL^2_x\) control total energy and accumulated dissipation on finite intervals. They do not control \(\|\mathbf u\|_\infty\) or all derivatives. A field of amplitude \(A\) supported in volume \(V\) can have energy of order \(A^2V\); \(A\) may diverge while \(V\) decreases fast enough to keep that product bounded. In three dimensions, \(H^1\) embeds into \(L^6\), not \(L^\infty\), and the available gradient bound is time-integrated.</p>
-    
+
   </section>
 
   <section class="content-block">
@@ -52,7 +52,7 @@
     <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item" data-branch-id="fluid-mechanics-navier-stokes-equations" data-item-id="fluid-weak-formulation" aria-label="Open equation explanation: Divergence-Free Weak Formulation">$$\begin{aligned}&amp;\int_0^T\!\!\int_\Omega\!\Big[-\mathbf u\cdot\partial_t\boldsymbol\varphi-(\mathbf u\otimes\mathbf u):\nabla\boldsymbol\varphi\Big]dx\,dt\\ &amp;\quad+\nu\int_0^T\!\!\int_\Omega\nabla\mathbf u:\nabla\boldsymbol\varphi\,dx\,dt\\ &amp;=\int_\Omega\mathbf u_0\cdot\boldsymbol\varphi(x,0)\,dx+\int_0^T\!\!\int_\Omega\mathbf f\cdot\boldsymbol\varphi\,dx\,dt\end{aligned}$$</button></div><p>The tensor product has entries \((\mathbf u\otimes\mathbf u)_{ij}=u_i u_j\); \(A:B=\sum_{i,j}A_{ij}B_{ij}\); and \((\nabla\boldsymbol\varphi)_{ij}=\partial_j\varphi_i\). Integration by parts transfers derivatives to the test field. Pressure drops out because \(\nabla\cdot\boldsymbol\varphi=0\). The initial term encodes \(\mathbf u_0\). Zero divergence must also hold in distributions.</p>
     <p>A Leray–Hopf solution is more than an arbitrary distributional solution: it lies in the energy class, is weakly continuous in \(L^2\), attains the initial data, and satisfies the energy inequality. Global construction in this class does not show that the solution is smooth or unique. A <em>suitable</em> weak solution additionally satisfies a local energy inequality involving pressure; this is the class used in partial regularity theory.</p>
     <p>Local smooth solutions exist for sufficiently regular compatible data. A finite maximal smooth lifespan \(T_*\) means smooth continuation fails at that time. A singularity is loss of the required regularity, not merely a rapidly changing picture or an under-resolved numerical grid. With smooth forcing, a bound strong enough for a continuation theorem would prevent such breakdown. OpenAI’s stated example has the explicit stronger diagnostic \(\limsup_{t\uparrow1}\|\mathbf u(t)\|_\infty=\infty\).</p>
-    
+
   </section>
 
   <section class="content-block">
@@ -60,14 +60,14 @@
     <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item" data-branch-id="fluid-mechanics-navier-stokes-equations" data-item-id="fluid-scaling" aria-label="Open equation explanation: Navier–Stokes Scaling">$$\begin{aligned}\mathbf u_\lambda(x,t)&amp;=\lambda\mathbf u(\lambda x,\lambda^2t),\\ p_\lambda(x,t)&amp;=\lambda^2p(\lambda x,\lambda^2t),\\ \mathbf f_\lambda(x,t)&amp;=\lambda^3\mathbf f(\lambda x,\lambda^2t)\end{aligned}$$</button></div><p>For \(\lambda&gt;0\) on \(\mathbb R^3\), these transformations preserve the equation with the same \(\nu\), on the correspondingly rescaled time interval and with rescaled initial data. A change of variables gives</p>
     <div class="equation-link-wrap"><div class="glass-window equation-display">$$\|\mathbf u_\lambda\|_{L^p_tL^q_x}=\lambda^{1-2/p-3/q}\|\mathbf u\|_{L^p_tL^q_x},\qquad\|\mathbf u_\lambda(t)\|_2^2=\lambda^{-1}\|\mathbf u(\lambda^2t)\|_2^2$$</div></div><p>A norm is scale-critical when its exponent is zero: \(2/p+3/q=1\). Examples are \(L^\infty_tL^3_x\) and the spatial homogeneous Sobolev norm \(\dot H^{1/2}\). The homogeneous Sobolev norm \(\dot H^s\) measures the Fourier transform of the field with squared weight \(|k|^{2s}\), where \(k\) is spatial frequency. In \(\dot H^s\), the norm scales as \(\lambda^{s-1/2}\). Here \(p,q\) are integrability exponents, not the pressure. On a fixed unit torus, arbitrary rescaling is not a global symmetry; the same scaling still diagnoses local concentration.</p>
     <p>The energy norm is supercritical in the regularity problem: concentrating a fixed profile with \(\lambda\to\infty\) makes its \(L^2\) norm smaller, even while pointwise speed and gradients grow. Energy control therefore becomes weaker at fine scales. For \(q&gt;3\), suitable finite \(L^p_tL^q_x\) control with \(2/p+3/q\leq1\) gives a classical regularity criterion under its standard hypotheses. The endpoint \(L^\infty_tL^3_x\) requires the deeper backward-uniqueness argument of Escauriaza–Seregin–Šverák. Their notation \(L_{3,\infty}\) denotes this mixed space; it must not be confused with the spatial weak-Lorentz space \(L^{3,\infty}_x\).</p>
-    
+
   </section>
 
   <section class="content-block">
     <h3>What the Clay Alternatives Actually Ask</h3>
     <p>The <a class="paper-link" href="https://www.claymath.org/wp-content/uploads/2022/06/navierstokes.pdf" target="_blank" rel="noopener noreferrer">official formulation by Charles L. Fefferman</a> asks for a proof of one of four statements, for positive viscosity in three dimensions:</p>
     <ul><li><strong>A:</strong> Every smooth divergence-free initial velocity on \(\mathbb R^3\), with all derivatives rapidly decaying at spatial infinity, admits a global smooth solution with uniformly bounded energy when \(\mathbf f=0\).</li><li><strong>B:</strong> Every smooth divergence-free periodic initial velocity admits a global smooth spatially periodic solution when \(\mathbf f=0\).</li><li><strong>C:</strong> There exist smooth divergence-free initial data and smooth forcing on \(\mathbb R^3\), satisfying the prescribed rapid decay of all derivatives, for which no global smooth solution with uniformly bounded energy exists.</li><li><strong>D:</strong> There exist smooth periodic divergence-free initial data and smooth periodic forcing, with all forcing derivatives rapidly decaying in time, for which no global smooth periodic solution exists.</li></ul><p>The whole-space decay requirement for forcing is \(|\partial_x^\alpha\partial_t^m\mathbf f(x,t)|\leq C_{\alpha m N}(1+|x|+t)^{-N}\) for every multi-index \(\alpha\) and nonnegative integers \(m,N\). The periodic version replaces the right-hand weight by \((1+t)^{-N}\). Thus C/D allow forcing, whereas A/B prescribe zero forcing. These are not paired logical negations with identical hypotheses. A forced counterexample does not by itself supply an unforced counterexample.</p>
-    
+
   </section>
 
   <section class="content-block">
@@ -88,7 +88,7 @@
     <p>A forced, non-axisymmetric Euler construction with force uniformly controlled in the stated Hölder and energy spaces. Successive vortex structures drive loss of regularity. Euler has no viscous Laplacian; the forcing is not asserted to satisfy Clay’s smoothness assumptions. The verified citation here is the 2023 arXiv preprint.</p>
     <h4>Diego Córdoba, Luis Martínez-Zoroa, Fan Zheng (2026)</h4><p><a class="paper-link" href="https://doi.org/10.1007/s00205-026-02198-0" target="_blank" rel="noopener noreferrer"><em>Finite Time Blow-Up for the Hypodissipative Navier Stokes Equations with a Force in \(L^1_t C_x^{1,\epsilon}\cap L^\infty_t L^2_x\)</em></a>. Archive for Rational Mechanics and Analysis 250, article 38.</p>
     <p>Replaces full viscosity by \(\nu|\nabla|^\alpha=\nu(-\Delta)^{\alpha/2}\), for \(0\leq\alpha&lt;(22-8\sqrt7)/9\). Classical finite-energy solutions develop a singularity with force in the title’s class. Positive \(\alpha\) introduces dissipation, and controlling its effect was an important step beyond Euler. Ordinary Navier–Stokes has \(\alpha=2\), far outside this range; this theorem does not reach that case.</p>
-    
+
   </section>
 
   <section class="content-block">
@@ -98,7 +98,7 @@
     <p><strong>Theorem 1.1, stated scope.</strong> For every \(\nu&gt;0\), the paper asserts the existence of a force \(\mathbf f\in C_c^\infty(\mathbb R^3\times(0,\infty);\mathbb R^3)\), a compact set \(K\subset\mathbb R^3\), and smooth \(\mathbf u,p\) on \(\mathbb R^3\times[0,1)\), satisfying momentum, incompressibility, and \(\mathbf u(\cdot,0)=0\), with</p>
     <div class="equation-link-wrap"><div class="glass-window equation-display">$$\begin{gathered}\operatorname{supp}\mathbf u(\cdot,t)\cup\operatorname{supp}p(\cdot,t)\subset K\quad(0\leq t&lt;1),\\ \sup_{0\leq t&lt;1}\|\mathbf u(t)\|_{L^2(\mathbb R^3)}&lt;\infty,\qquad\limsup_{t\uparrow1}\|\mathbf u(t)\|_{L^\infty(\mathbb R^3)}=\infty.\end{gathered}$$</div></div><p>The notation \(C_c^\infty\) means infinitely differentiable with compact support in space and time. In particular the force is zero near \(t=0\) and is smooth through \(t=1\); it is not allowed to become singular when the velocity does. The fixed set \(K\) contains the velocity and pressure supports before blowup. Uniform boundedness of \(\|\mathbf u\|_2\) gives uniformly bounded kinetic energy, whereas the last condition is unbounded speed along times approaching one.</p>
     <p>The stated consequence is nonexistence of a global smooth solution with the same force and zero initial data and uniformly bounded total energy. Local uniqueness rules out an alternative smooth evolution that simply avoids the constructed singularity. This gives the paper’s claimed alternative C. Spatial localization and rescaling permit periodization on \(\mathbb R^3/\mathbb Z^3\), yielding its alternative D (Corollary 10.6). These claims retain positive viscosity and nonzero forcing.</p>
-    
+
   </section>
 
   <section class="content-block">
@@ -108,7 +108,7 @@
     <div class="equation-link-wrap"><div class="glass-window equation-display">$$\tau=q(1-\eta^2),\qquad z=q^D\eta,\qquad X=\frac{r^2}{2q},\qquad q&gt;0,\quad |\eta|&lt;1$$</div></div><p>Here \(q=q(z,\tau)\) is an auxiliary scale variable, not an integrability exponent; \(X\) is a rescaled squared radius, and \(\eta\) is a rescaled axial coordinate. Eliminating \(\eta\) gives \(q-z^2q^{2h}=\tau\). Its relevant derivative is \(1-2h\eta^2&gt;0\), selecting a unique scale. In a core with bounded \(X\) and \(|\eta|\leq\eta_c&lt;1\), \(q\asymp\tau\). The leading profiles satisfy \(u_\theta^{(0)}=q^{-A}E(X,\eta)\), \(u_z^{(0)}=q^{-A}U(X,\eta)\), \(ru_r^{(0)}=V_0(X,\eta)\), and \(p^{(0)}=q^{-2A}\Pi(X,\eta)\). The symbols \(E,U,V_0,\Pi\) here are profile functions; \(E\) is not kinetic energy in this formula.</p>
     <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item" data-branch-id="fluid-mechanics-navier-stokes-equations" data-item-id="fluid-blowup-scales" aria-label="Open equation explanation: OpenAI Construction: Core Scaling">$$\begin{gathered}\tau=1-t,\quad 0&lt;h&lt;1/100,\quad\ell_r\asymp\tau^{1/2},\quad\ell_z\asymp\tau^{1/2-h},\\ U_\theta,U_z\asymp\tau^{-1/2-h},\quad U_r=O(\tau^{-1/2}),\\ E_{\mathrm{core}}=O(\tau^{1/2-3h}),\quad\ell_r/\ell_z\asymp\tau^h\end{gathered}$$</button></div><p>Here \(U_i\) denotes the characteristic supremum of the corresponding leading velocity component over the core, and \(\asymp\) means upper and lower bounds by fixed positive multiples. These are not pointwise equalities: azimuthal velocity vanishes on the axis. Both lengths tend to zero, but radial collapse is faster. The aspect ratio \(\ell_z/\ell_r\asymp\tau^{-h}\) diverges slowly. The core volume is \(O(\tau^{3/2-h})\); multiplying by squared characteristic speed gives \(E_{\mathrm{core}}=O(\tau^{1/2-3h})\to0\). This core estimate is distinct from the theorem’s global energy bound.</p>
     <p>At fixed viscosity, \(\mathrm{Re}_\theta\asymp\tau^{-h}\) while the radial Reynolds number stays \(O(1)\), with constants depending on the construction. Radial diffusion remains in the leading balance. Axial diffusion is smaller relative to radial diffusion by \(\ell_r^2/\ell_z^2\asymp q^{2h}\), the small parameter for successive background corrections. The full field also contains non-axisymmetric pulses: axisymmetry describes the leading background, not the completed solution.</p>
-    
+
   </section>
 
   <section class="content-block">
@@ -123,7 +123,7 @@
     <div class="equation-link-wrap"><div class="glass-window equation-display">$$\begin{aligned}\mathcal R(\mathbf u_B+\mathbf w,p_B+\pi)&amp;=\mathcal R(\mathbf u_B,p_B)\\ &amp;\quad+\partial_t\mathbf w+(\mathbf u_B\cdot\nabla)\mathbf w\\ &amp;\quad+(\mathbf w\cdot\nabla)\mathbf u_B-\Delta\mathbf w\\ &amp;\quad+\nabla\pi+\nabla\cdot(\mathbf w\otimes\mathbf w)\end{aligned}$$</div></div><p>The subscript \(B\) denotes the corrected background. Oscillations can have zero angular mean velocity but nonzero mean quadratic products. For a frozen local wave \(\mathbf w=\mathbf a\cos(\xi\cdot x+\phi)\), with \(\mathbf a\cdot\xi=0\), its phase mean is zero while \(\langle\mathbf w\otimes\mathbf w\rangle=\mathbf a\otimes\mathbf a/2\). Here \(\mathbf a\) is amplitude, \(\xi\) is wavevector, and \(\phi\) is phase. Localized waves require additional divergence corrections; this elementary wave is only an explanation of the quadratic flux.</p>
     <p>The construction places two families of spatially oscillatory pulses in an annulus. Their averaged radial fluxes of azimuthal and axial momentum are selected to supply the missing stress. The desired two-component stress must lie inside a positive cone generated by the two covariance directions, so its coefficients can be realized as squared amplitudes. This compatibility is part of the profile construction, not an arbitrary choice made after it.</p>
     <p>Tiny seeds are amplified by background shear. Shear also changes wave orientation and shortens radial wavelengths until viscous damping dominates. Each pulse grows and then decays; the cutoff tails must be small in every derivative. Ignoring logarithmic factors and boundary weights, the paper’s outline gives pulse amplitude \(A_{\mathrm{wave}}\asymp q^{-1/2-h/2}\) and wavelength \(\ell_{\mathrm{wave}}\asymp q^{1/2+h/2}\). Their ratios to background speed and radial length are both of order \(q^{h/2}\). The squared pulse amplitude, divided by the radial scale, is of order \(q^{-3/2-h}\), matching the needed stress divergence. These estimates describe the construction’s hierarchy, not a numerical resolution prescription.</p>
-    
+
   </section>
 
   <section class="content-block">
@@ -132,13 +132,13 @@
     <p>Corrections in successive powers of \(q^{2h}\) account for axial viscosity and lower-order background terms. Vector potentials allow localization while retaining zero divergence: taking a curl after applying a cutoff differs fundamentally from multiplying velocity itself by a cutoff. Pulse interactions then generate both oscillatory and mean errors; further compactly supported corrections improve the residual to arbitrarily high order.</p>
     <p>The central requirement is not that acceleration, pressure, transport, and diffusion be separately bounded. Their singular contributions must cancel in the sum defining \(\mathcal R\). The remaining errors are made <em>flat</em> at the singularity: every Cartesian space-time derivative decays faster than any prescribed power of the small scale in the relevant regions. Away from the singular point, the inner/outer construction has smooth limits, so the final spatial and temporal localization generates only smooth additional forcing. This is what allows \(\mathbf f=\mathcal R\) to extend smoothly through the singular time.</p>
     <p>The geometric scaling, admissible stress, pulse growth and damping, moment matching, and all-order error control are separate parts of the argument. A vortex drawing or the energy scaling alone establishes none of those compatibility estimates. The <a class="paper-link" href="https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf" target="_blank" rel="noopener noreferrer">166-page paper</a> develops them in Sections 4–10 and Appendices A–C.</p>
-    
+
   </section>
 
   <section class="content-block">
     <h3>Geometry and the Analytical Result</h3>
     <p>The distinction matters: energy scaling can explain compatibility with a singularity, while the analytical construction must establish the equations, smooth forcing, support properties, and continuation obstruction simultaneously. The primary sources above supply those claims and their precise scopes.</p>
-    
+
   </section>
 
 </div>
