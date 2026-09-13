@@ -486,9 +486,9 @@ export const siteContent = {
     createSection("origins", "Origins", "Orígenes"),
     createSection("learning-path", "Learning Path", "Camino de aprendizaje"),
     createSection("music", "Music", "Música"),
-    createSection("systems-work", "Systems Work", "Trabajo con sistemas"),
-    createSection("practice-worlds", "Practice Worlds", "Videojuegos Favoritos"),
-    createSection("personal-cosmology", "Personal Cosmology", "Cosmología personal", {
+    createSection("systems-work", "Professional Career", "Trayectoria Profesional"),
+    createSection("practice-worlds", "Favorite Video Games", "Videojuegos Favoritos"),
+    createSection("personal-cosmology", "My Theory", "Mi Teoría", {
       branches: [personalCosmologyEquationBranch],
       hideBranchNavigation: true,
       hideDetailNavigation: true
