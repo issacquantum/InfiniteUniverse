@@ -1,3 +1,4 @@
+import { deferModelInitialization, modelPixelRatio, modelRendererOptions, requestModelFrame, stopModelAnimation } from "./performance-profile.js?v=20260913-mobile-power-v1";
 import { bindPinchZoom, isModelPanGesture, panObjectFromPointer } from "./model-pan.js?v=20260913-social-dock-v1";
 
 const mountedModels = new WeakSet();
@@ -10,7 +11,7 @@ export function initWormholeModels(root = document) {
     }
 
     mountedModels.add(container);
-    new WormholeModel(container);
+    deferModelInitialization(container, () => new WormholeModel(container));
   });
 }
 
@@ -88,19 +89,20 @@ class WormholeModel {
 
   async setup() {
     const THREE = await loadThree();
+    if (!this.container.isConnected || this.destroyed) return;
     this.THREE = THREE;
 
     this.scene = new THREE.Scene();
     this.scene.background = new THREE.Color(0x030007);
     this.scene.fog = new THREE.FogExp2(0x030007, 0.032);
 
-    this.renderer = new THREE.WebGLRenderer({
+    this.renderer = new THREE.WebGLRenderer(modelRendererOptions({
       canvas: this.canvas,
       antialias: true,
       alpha: false,
       powerPreference: "high-performance"
-    });
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    }));
+    this.renderer.setPixelRatio(modelPixelRatio());
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
 
     this.camera = new THREE.PerspectiveCamera(48, 1, 0.1, 120);
@@ -124,7 +126,7 @@ class WormholeModel {
     this.resize();
 
     this.render = this.render.bind(this);
-    this.animationFrame = requestAnimationFrame(this.render);
+    this.animationFrame = requestModelFrame(this);
   }
 
   addLights() {
@@ -822,7 +824,7 @@ class WormholeModel {
     this.travelerGlow.position.copy(this.traveler.position);
     this.updateReadout(Math.abs(y));
     this.renderer.render(this.scene, this.camera);
-    this.animationFrame = requestAnimationFrame(this.render);
+    this.animationFrame = requestModelFrame(this);
   }
 
   updateReadout(distance) {
@@ -833,6 +835,7 @@ class WormholeModel {
   }
 
   destroy() {
+    stopModelAnimation(this);
     this.destroyed = true;
 
     if (this.animationFrame !== null) {

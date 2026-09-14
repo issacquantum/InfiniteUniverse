@@ -1,3 +1,4 @@
+import { deferModelInitialization, modelPixelRatio, modelRendererOptions, requestModelFrame, stopModelAnimation } from "./performance-profile.js?v=20260913-mobile-power-v1";
 import { bindPinchZoom, isModelPanGesture, panObjectFromPointer } from "./model-pan.js?v=20260913-social-dock-v1";
 
 const mountedModels = new WeakSet();
@@ -31,7 +32,7 @@ export function initQuantumEntanglementModels(root = document) {
     }
 
     mountedModels.add(container);
-    new QuantumEntanglementModel(container);
+    deferModelInitialization(container, () => new QuantumEntanglementModel(container));
   });
 }
 
@@ -134,19 +135,20 @@ class QuantumEntanglementModel {
 
   async setup() {
     const THREE = await loadThree();
+    if (!this.container.isConnected || this.destroyed) return;
     this.THREE = THREE;
 
     this.scene = new THREE.Scene();
     this.scene.background = new THREE.Color(COLORS.deep);
     this.scene.fog = new THREE.FogExp2(COLORS.deep, 0.036);
 
-    this.renderer = new THREE.WebGLRenderer({
+    this.renderer = new THREE.WebGLRenderer(modelRendererOptions({
       canvas: this.canvas,
       antialias: true,
       alpha: false,
       powerPreference: "high-performance"
-    });
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    }));
+    this.renderer.setPixelRatio(modelPixelRatio());
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
 
     this.camera = new THREE.PerspectiveCamera(46, 1, 0.1, 100);
@@ -168,7 +170,7 @@ class QuantumEntanglementModel {
     this.updateCamera();
 
     this.render = this.render.bind(this);
-    this.animationFrame = requestAnimationFrame(this.render);
+    this.animationFrame = requestModelFrame(this);
   }
 
   addLights() {
@@ -916,7 +918,7 @@ class QuantumEntanglementModel {
     }
 
     this.renderer.render(this.scene, this.camera);
-    this.animationFrame = requestAnimationFrame(this.render);
+    this.animationFrame = requestModelFrame(this);
   }
 
   animateModel(deltaTime) {
@@ -952,6 +954,7 @@ class QuantumEntanglementModel {
   }
 
   destroy() {
+    stopModelAnimation(this);
     this.destroyed = true;
 
     if (this.animationFrame !== null) {
