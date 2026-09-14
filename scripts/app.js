@@ -1,15 +1,17 @@
+import { isMobilePerformance, onPerformanceProfileChange } from "./performance-profile.js?v=20260913-mobile-power-v1";
+import { captureReaderPosition, matchesReaderState } from "./reader-position.js?v=20260913-language-context-v1";
 import { siteAssets } from "../data/site-assets.js?v=20260913-social-dock-v1";
 import { siteContent } from "../data/site-content.js?v=20260913-fluid-equations-v1";
 import { createReadingSettingsController } from "./reading-settings.js?v=20260913-social-dock-v1";
-import { initBackground } from "./background.js?v=20260913-social-dock-v1";
+import { initBackground } from "./background.js?v=20260913-mobile-power-v1";
 import { refreshIcons } from "./icons.js?v=20260913-social-dock-v1";
 import { pick } from "./i18n.js?v=20260913-social-dock-v1";
 import { decoratePhotonOutlines } from "./creative-effects.js?v=20260913-social-dock-v1";
-import { syncLegacyContent } from "./legacy-content.js?v=20260913-fluid-equations-v1";
+import { syncLegacyContent } from "./legacy-content.js?v=20260913-mobile-power-v1";
 import { createMusicController, syncMusicUi } from "./music.js?v=20260913-bilingual-release-v1";
 import { renderSite } from "./render.js?v=20260913-bilingual-release-v1";
 import { createState } from "./state.js?v=20260913-social-dock-v1";
-import { syncStructuredContent } from "./structured-content.js?v=20260913-fluid-equations-v1";
+import { syncStructuredContent } from "./structured-content.js?v=20260913-mobile-power-v1";
 import { markWebGLAvailability } from "./webgl-support.js?v=20260913-social-dock-v1";
 
 const refs = {
@@ -208,8 +210,10 @@ function captureReaderScrollRestoration() {
   }
 
   const state = store.getState();
-  const scrollTop = contentWindow.scrollTop;
-  const maxScrollTop = Math.max(contentWindow.scrollHeight - contentWindow.clientHeight, 0);
+  // A second toggle during loading retains the original reading position.
+  if (matchesReaderState(state, pendingReaderScrollRestoration)) {
+    return;
+  }
 
   pendingReaderScrollRestoration = {
     activeSection: state.activeSection ?? null,
@@ -217,8 +221,7 @@ function captureReaderScrollRestoration() {
     activeTopic: state.activeTopic ?? null,
     activeBranch: state.activeBranch ?? null,
     activeDetail: state.activeDetail ?? null,
-    scrollTop,
-    scrollRatio: maxScrollTop > 0 ? scrollTop / maxScrollTop : 0
+    ...captureReaderPosition(contentWindow, state.language)
   };
 }
 
@@ -254,11 +257,13 @@ function createEquationReturnTarget(state) {
     topicId: returnNavigation.topicId ?? null,
     sectionId: returnNavigation.sectionId ?? null,
     branchId: returnNavigation.branchId ?? null,
-    detailId: returnNavigation.detailId ?? returnNavigation.itemId ?? null,
+    detailId: returnType === "legacy" ? returnNavigation.itemId ?? null : returnNavigation.detailId ?? null,
     itemId: returnNavigation.itemId ?? null,
     targetItemId: returnNavigation.targetItemId ?? null,
     triggerIndex: returnNavigation.triggerIndex ?? -1,
-    scrollTop: returnNavigation.scrollTop ?? 0
+    triggerOccurrence: returnNavigation.triggerOccurrence ?? 0,
+    scrollTop: returnNavigation.scrollTop ?? 0,
+    position: returnNavigation.position
   };
   const label = getReturnTargetLabel(target, state.language);
 
@@ -283,7 +288,9 @@ function restoreEquationReturnTarget() {
         branchId: target.branchId,
         itemId: target.detailId,
         triggerIndex: target.triggerIndex,
+        triggerOccurrence: target.triggerOccurrence,
         scrollTop: target.scrollTop,
+        position: target.position,
         targetItemId: target.targetItemId
       };
       pendingStructuredReturn = null;
@@ -295,7 +302,9 @@ function restoreEquationReturnTarget() {
         branchId: target.branchId,
         detailId: target.detailId,
         triggerIndex: target.triggerIndex,
+        triggerOccurrence: target.triggerOccurrence,
         scrollTop: target.scrollTop,
+        position: target.position,
         itemId: target.itemId
       };
       pendingLegacyReturn = null;
@@ -341,7 +350,9 @@ function captureStructuredReturn(actionTarget) {
     branchId: state.activeBranch,
     detailId: state.activeDetail,
     triggerIndex,
+    triggerOccurrence: triggers.filter((element) => element.dataset.itemId === actionTarget.dataset.itemId).indexOf(actionTarget),
     scrollTop: contentWindow.scrollTop,
+    position: captureReaderPosition(contentWindow, state.language, actionTarget),
     itemId: actionTarget.dataset.itemId
   };
 }
@@ -379,7 +390,9 @@ function captureLegacyReturn(actionTarget) {
     branchId: state.activeBranch,
     itemId: state.activeDetail,
     triggerIndex,
+    triggerOccurrence: triggers.filter((element) => element.dataset.itemId === actionTarget.dataset.itemId).indexOf(actionTarget),
     scrollTop: contentWindow.scrollTop,
+    position: captureReaderPosition(contentWindow, state.language, actionTarget),
     targetItemId: actionTarget.dataset.itemId
   };
 }
@@ -497,14 +510,21 @@ function syncUi(state = store.getState()) {
   syncMobileKnowledgeToggle(state);
   syncDesktopHomeToggle(state);
 
+  const scrollRestoration = pendingReaderScrollRestoration;
+  const onScrollRestorationApplied = () => {
+    if (pendingReaderScrollRestoration === scrollRestoration) {
+      clearPendingReaderScrollRestoration();
+    }
+  };
+
   syncStructuredContent({
     state,
     refs,
     content: siteContent,
     returnNavigation: pendingStructuredReturn,
     onReturnNavigationApplied: clearPendingReturnNavigation,
-    scrollRestoration: pendingReaderScrollRestoration,
-    onScrollRestorationApplied: clearPendingReaderScrollRestoration,
+    scrollRestoration,
+    onScrollRestorationApplied,
     modelScrollTarget: pendingModelScrollTarget,
     onModelScrollApplied: clearPendingModelScrollTarget
   });
@@ -515,8 +535,8 @@ function syncUi(state = store.getState()) {
     content: siteContent,
     returnNavigation: pendingLegacyReturn,
     onReturnNavigationApplied: clearPendingReturnNavigation,
-    scrollRestoration: pendingReaderScrollRestoration,
-    onScrollRestorationApplied: clearPendingReaderScrollRestoration
+    scrollRestoration,
+    onScrollRestorationApplied
   });
 
   readingSettingsController?.syncLanguage(state.language);
@@ -965,10 +985,16 @@ function selectMobileKnowledgeTopic(domainId, topicId) {
 
 function toggleLanguage() {
   captureReaderScrollRestoration();
-  store.setState((state) => ({
-    ...state,
-    language: state.language === "en" ? "es" : "en"
-  }));
+  store.setState((state) => {
+    const language = state.language === "en" ? "es" : "en";
+    return {
+      ...state,
+      language,
+      equationReturnTarget: state.equationReturnTarget
+        ? { ...state.equationReturnTarget, label: getReturnTargetLabel(state.equationReturnTarget, language) }
+        : null
+    };
+  });
 }
 
 function openExternal(id) {
@@ -1564,13 +1590,32 @@ readingSettingsController = createReadingSettingsController({
 
 musicController.setContext(activeMusicContext);
 syncUi();
-const webglAvailability = markWebGLAvailability();
-
-if (webglAvailability.webgl2) {
-  initBackground(refs.backgroundCanvas);
-} else {
-  document.body.classList.add("background-fallback");
+let stopBackground;
+let backgroundRequest = 0;
+async function syncBackground() {
+  const request = ++backgroundRequest;
+  stopBackground?.();
+  stopBackground = null;
+  if (isMobilePerformance()) {
+    document.body.classList.add("background-fallback");
+    return;
+  }
+  const availability = markWebGLAvailability();
+  document.body.classList.toggle("background-fallback", !availability.webgl2);
+  if (availability.webgl2) {
+    const stop = await initBackground(refs.backgroundCanvas);
+    if (request !== backgroundRequest) stop?.();
+    else stopBackground = stop;
+  }
 }
+void syncBackground();
+onPerformanceProfileChange(() => {
+  if (!pendingStructuredReturn && !pendingLegacyReturn && !pendingModelScrollTarget) {
+    captureReaderScrollRestoration();
+  }
+  syncUi();
+  void syncBackground();
+});
 
 if (!window.lucide) {
   window.addEventListener("load", () => {

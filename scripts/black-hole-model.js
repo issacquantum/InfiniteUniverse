@@ -1,3 +1,4 @@
+import { deferModelInitialization, modelPixelRatio, requestModelFrame, stopModelAnimation } from "./performance-profile.js?v=20260913-mobile-power-v1";
 import { bindPinchZoom } from "./model-pan.js?v=20260913-social-dock-v1";
 
 const mountedModels = new WeakSet();
@@ -23,7 +24,7 @@ export function initBlackHoleModels(root = document) {
     }
 
     mountedModels.add(container);
-    new BlackHoleModel(container);
+    deferModelInitialization(container, () => new BlackHoleModel(container));
   });
 }
 
@@ -61,7 +62,7 @@ class BlackHoleModel {
     this.bindInteraction();
     this.setupObservers();
     this.resize();
-    this.animationFrame = requestAnimationFrame(this.render);
+    this.animationFrame = requestModelFrame(this);
   }
 
   get isSpanish() {
@@ -224,7 +225,7 @@ class BlackHoleModel {
     }
 
     const rect = this.frame.getBoundingClientRect();
-    const ratio = Math.min(window.devicePixelRatio || 1, 2);
+    const ratio = modelPixelRatio();
     const width = Math.max(320, Math.floor(rect.width));
     const height = Math.max(270, Math.floor(rect.height || width * 0.56));
     this.canvas.width = Math.floor(width * ratio);
@@ -249,7 +250,7 @@ class BlackHoleModel {
     }
 
     this.draw();
-    this.animationFrame = requestAnimationFrame(this.render);
+    this.animationFrame = requestModelFrame(this);
   }
 
   draw() {
@@ -400,6 +401,7 @@ class BlackHoleModel {
   }
 
   destroy() {
+    stopModelAnimation(this);
     this.destroyed = true;
     cancelAnimationFrame(this.animationFrame);
     this.resizeObserver?.disconnect();

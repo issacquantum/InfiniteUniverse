@@ -1,3 +1,4 @@
+import { deferModelInitialization, modelPixelRatio, requestModelFrame, stopModelAnimation } from "./performance-profile.js?v=20260913-mobile-power-v1";
 import { bindPinchZoom } from "./model-pan.js?v=20260913-social-dock-v1";
 
 const mountedModels = new WeakSet();
@@ -14,7 +15,7 @@ export function initGravityLensingModels(root = document) {
     }
 
     mountedModels.add(container);
-    new GravityLensingModel(container);
+    deferModelInitialization(container, () => new GravityLensingModel(container));
   });
 }
 
@@ -58,7 +59,7 @@ class GravityLensingModel {
     this.setupObservers();
     this.resize();
     this.render = this.render.bind(this);
-    this.animationFrame = requestAnimationFrame(this.render);
+    this.animationFrame = requestModelFrame(this);
   }
 
   get isSpanish() {
@@ -290,7 +291,7 @@ class GravityLensingModel {
     const rect = this.frame.getBoundingClientRect();
     const width = Math.max(320, Math.floor(rect.width));
     const height = Math.max(220, Math.floor(rect.height || width * 9 / 16));
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const dpr = modelPixelRatio();
 
     this.width = width;
     this.height = height;
@@ -318,7 +319,7 @@ class GravityLensingModel {
     this.lens.x += (this.targetLens.x - this.lens.x) * 0.12;
     this.lens.y += (this.targetLens.y - this.lens.y) * 0.12;
     this.draw();
-    this.animationFrame = requestAnimationFrame(this.render);
+    this.animationFrame = requestModelFrame(this);
   }
 
   draw() {
@@ -553,6 +554,7 @@ class GravityLensingModel {
   }
 
   destroy() {
+    stopModelAnimation(this);
     this.destroyed = true;
 
     if (this.animationFrame !== null) {

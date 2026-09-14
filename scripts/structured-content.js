@@ -1,19 +1,21 @@
+import { observeMobileMedia } from "./performance-profile.js?v=20260913-mobile-power-v1";
+import { restoreReaderPosition, restoreReaderScroll } from "./reader-position.js?v=20260913-language-context-v1";
 import { pick } from "./i18n.js?v=20260913-social-dock-v1";
-import { initDoubleSlitSimulators } from "./double-slit-simulator.js?v=20260913-social-dock-v1";
-import { initGravityFabricModels } from "./gravity-fabric-model.js?v=20260913-social-dock-v1";
-import { initGravityLensingModels } from "./gravity-lensing-model.js?v=20260913-social-dock-v1";
-import { initQuantumEntanglementModels } from "./quantum-entanglement-model.js?v=20260913-social-dock-v1";
-import { initQuantumChannelModels } from "./quantum-channel-model.js?v=20260913-social-dock-v1";
-import { initQuantumModels } from "./quantum-model.js?v=20260913-social-dock-v1";
-import { initOrbitalSelectorModels } from "./orbital-selector-model.js?v=20260913-social-dock-v1";
-import { initWormholeModels } from "./wormhole-model.js?v=20260913-social-dock-v1";
-import { initNumericalMethodsModels } from "./numerical-methods-model.js?v=20260913-social-dock-v1";
-import { initNeuralArchitectModels } from "./neural-architect-model.js?v=20260913-social-dock-v1";
-import { initInformationTheoryModels } from "./information-theory-model.js?v=20260913-social-dock-v1";
-import { initAlgorithmVisualizerModels } from "./algorithm-visualizer-model.js?v=20260913-social-dock-v1";
-import { initQuantumFluctuationModels } from "./quantum-fluctuation-model.js?v=20260913-bilingual-release-v1";
-import { initBlackHoleModels } from "./black-hole-model.js?v=20260913-social-dock-v1";
-import { initFoundationModels } from "./foundation-models.js?v=20260913-social-dock-v1";
+import { initDoubleSlitSimulators } from "./double-slit-simulator.js?v=20260913-mobile-power-v1";
+import { initGravityFabricModels } from "./gravity-fabric-model.js?v=20260913-mobile-power-v1";
+import { initGravityLensingModels } from "./gravity-lensing-model.js?v=20260913-mobile-power-v1";
+import { initQuantumEntanglementModels } from "./quantum-entanglement-model.js?v=20260913-mobile-power-v1";
+import { initQuantumChannelModels } from "./quantum-channel-model.js?v=20260913-mobile-power-v1";
+import { initQuantumModels } from "./quantum-model.js?v=20260913-mobile-power-v1";
+import { initOrbitalSelectorModels } from "./orbital-selector-model.js?v=20260913-mobile-power-v1";
+import { initWormholeModels } from "./wormhole-model.js?v=20260913-mobile-power-v1";
+import { initNumericalMethodsModels } from "./numerical-methods-model.js?v=20260913-mobile-power-v1";
+import { initNeuralArchitectModels } from "./neural-architect-model.js?v=20260913-mobile-power-v1";
+import { initInformationTheoryModels } from "./information-theory-model.js?v=20260913-mobile-power-v1";
+import { initAlgorithmVisualizerModels } from "./algorithm-visualizer-model.js?v=20260913-mobile-power-v1";
+import { initQuantumFluctuationModels } from "./quantum-fluctuation-model.js?v=20260913-mobile-power-v1";
+import { initBlackHoleModels } from "./black-hole-model.js?v=20260913-mobile-power-v1";
+import { initFoundationModels } from "./foundation-models.js?v=20260913-mobile-power-v1";
 import { enhanceModelAccessibility } from "./model-accessibility.js?v=20260913-social-dock-v1";
 import { fitEquationBlocks } from "./equation-fit.js?v=20260913-fluid-equations-v1";
 import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260913-fluid-equations-v1";
@@ -217,6 +219,7 @@ async function renderMath(host) {
 
   await window.MathJax.typesetPromise([host]);
   await fitEquationBlocks(host);
+  await document.fonts?.ready;
 }
 
 function afterContentPaint(callback) {
@@ -312,49 +315,14 @@ function restoreReturnNavigation(host, state, returnNavigation) {
   }
 
   const triggers = getStructuredReturnTargets(host);
-  const target = triggers[returnNavigation.triggerIndex]
-    ?? triggers.find((element) => element.dataset.itemId === returnNavigation.itemId);
+  const target = triggers.filter((element) => element.dataset.itemId === returnNavigation.itemId)[returnNavigation.triggerOccurrence ?? 0]
+    ?? triggers[returnNavigation.triggerIndex];
 
   if (!target) {
     return false;
   }
 
-  requestAnimationFrame(() => {
-    contentWindow.scrollTop = returnNavigation.scrollTop;
-    target.focus({ preventScroll: true });
-  });
-
-  return true;
-}
-
-function matchesReaderState(state, scrollRestoration) {
-  return Boolean(scrollRestoration)
-    && (state.activeSection ?? null) === scrollRestoration.activeSection
-    && (state.activeDomain ?? null) === scrollRestoration.activeDomain
-    && (state.activeTopic ?? null) === scrollRestoration.activeTopic
-    && (state.activeBranch ?? null) === scrollRestoration.activeBranch
-    && (state.activeDetail ?? null) === scrollRestoration.activeDetail;
-}
-
-function restoreReaderScroll(host, state, scrollRestoration) {
-  if (!matchesReaderState(state, scrollRestoration)) {
-    return false;
-  }
-
-  const contentWindow = host.closest(".content-window");
-
-  if (!contentWindow) {
-    return false;
-  }
-
-  const maxScrollTop = Math.max(contentWindow.scrollHeight - contentWindow.clientHeight, 0);
-  const fallbackScrollTop = maxScrollTop * (scrollRestoration.scrollRatio ?? 0);
-  const targetScrollTop = scrollRestoration.scrollTop ?? fallbackScrollTop;
-
-  requestAnimationFrame(() => {
-    const nextMaxScrollTop = Math.max(contentWindow.scrollHeight - contentWindow.clientHeight, 0);
-    contentWindow.scrollTop = Math.min(Math.max(targetScrollTop, 0), nextMaxScrollTop);
-  });
+  restoreReaderPosition(contentWindow, returnNavigation.position ?? returnNavigation, state.language, target);
 
   return true;
 }
@@ -372,7 +340,7 @@ function commitStructuredDocument({
   modelScrollTarget,
   onModelScrollApplied
 }) {
-  if (requestToken !== activeRequestToken) {
+  if (requestToken !== activeRequestToken || !host.isConnected) {
     return false;
   }
 
@@ -396,10 +364,11 @@ function commitStructuredDocument({
   const shouldApplyModelScroll = matchesModelScrollTarget(state, modelScrollTarget);
 
   afterContentPaint(() => {
-    if (requestToken !== activeRequestToken) {
+    if (requestToken !== activeRequestToken || !host.isConnected) {
       return;
     }
 
+    observeMobileMedia(host);
     initDoubleSlitSimulators(host);
     initGravityFabricModels(host);
     initGravityLensingModels(host);
@@ -422,14 +391,14 @@ function commitStructuredDocument({
     // Typesetting and responsive equation fitting change the reader's height.
     // Restore its position only after those layout changes have finished.
     void mathReady.then(() => {
-      if (requestToken !== activeRequestToken) {
+      if (requestToken !== activeRequestToken || !host.isConnected) {
         return;
       }
 
-      if (restoreReturnNavigation(host, state, returnNavigation)) {
-        onReturnNavigationApplied?.();
-      } else if (!shouldApplyModelScroll && restoreReaderScroll(host, state, scrollRestoration)) {
+      if (!shouldApplyModelScroll && restoreReaderScroll(host, state, scrollRestoration)) {
         onScrollRestorationApplied?.();
+      } else if (restoreReturnNavigation(host, state, returnNavigation)) {
+        onReturnNavigationApplied?.();
       } else if (shouldApplyModelScroll) {
         const applied = applyModelScrollTarget(host, state, modelScrollTarget);
         onModelScrollApplied?.();
@@ -499,7 +468,7 @@ export async function syncStructuredContent({
 
   if (shouldDelayLoadingPlaceholder && !hasVisibleContent) {
     loadingPlaceholderTimer = window.setTimeout(() => {
-      if (requestToken !== activeRequestToken) {
+      if (requestToken !== activeRequestToken || !host.isConnected) {
         return;
       }
 
@@ -510,7 +479,7 @@ export async function syncStructuredContent({
   try {
     const documentNode = await getCachedDocument(filePath);
 
-    if (requestToken !== activeRequestToken) {
+    if (requestToken !== activeRequestToken || !host.isConnected) {
       if (loadingPlaceholderTimer !== null) {
         window.clearTimeout(loadingPlaceholderTimer);
       }
@@ -535,7 +504,7 @@ export async function syncStructuredContent({
       onModelScrollApplied
     });
   } catch (_error) {
-    if (requestToken !== activeRequestToken) {
+    if (requestToken !== activeRequestToken || !host.isConnected) {
       if (loadingPlaceholderTimer !== null) {
         window.clearTimeout(loadingPlaceholderTimer);
       }

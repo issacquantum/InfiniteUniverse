@@ -1,3 +1,4 @@
+import { restoreReaderPosition, restoreReaderScroll } from "./reader-position.js?v=20260913-language-context-v1";
 import { bigBangLegacyContent } from "../data/legacy-big-bang.js?v=20260913-social-dock-v1";
 import { decorateModelBadges, decoratePhotonOutlines, syncReadingConstellation } from "./creative-effects.js?v=20260913-social-dock-v1";
 import { fitEquationBlocks } from "./equation-fit.js?v=20260913-fluid-equations-v1";
@@ -408,7 +409,8 @@ async function renderMath(host) {
   }
 
   await window.MathJax.typesetPromise([host]);
-  fitEquationBlocks(host);
+  await fitEquationBlocks(host);
+  await document.fonts?.ready;
 }
 
 function afterContentPaint(callback) {
@@ -458,49 +460,14 @@ function restoreReturnNavigation(host, state, returnNavigation) {
   }
 
   const triggers = getLegacyReturnTargets(host);
-  const target = triggers[returnNavigation.triggerIndex]
-    ?? triggers.find((element) => element.dataset.itemId === returnNavigation.targetItemId);
+  const target = triggers.filter((element) => element.dataset.itemId === returnNavigation.targetItemId)[returnNavigation.triggerOccurrence ?? 0]
+    ?? triggers[returnNavigation.triggerIndex];
 
   if (!target) {
     return false;
   }
 
-  requestAnimationFrame(() => {
-    contentWindow.scrollTop = returnNavigation.scrollTop;
-    target.focus({ preventScroll: true });
-  });
-
-  return true;
-}
-
-function matchesReaderState(state, scrollRestoration) {
-  return Boolean(scrollRestoration)
-    && (state.activeSection ?? null) === scrollRestoration.activeSection
-    && (state.activeDomain ?? null) === scrollRestoration.activeDomain
-    && (state.activeTopic ?? null) === scrollRestoration.activeTopic
-    && (state.activeBranch ?? null) === scrollRestoration.activeBranch
-    && (state.activeDetail ?? null) === scrollRestoration.activeDetail;
-}
-
-function restoreReaderScroll(host, state, scrollRestoration) {
-  if (!matchesReaderState(state, scrollRestoration)) {
-    return false;
-  }
-
-  const contentWindow = host.closest(".content-window");
-
-  if (!contentWindow) {
-    return false;
-  }
-
-  const maxScrollTop = Math.max(contentWindow.scrollHeight - contentWindow.clientHeight, 0);
-  const fallbackScrollTop = maxScrollTop * (scrollRestoration.scrollRatio ?? 0);
-  const targetScrollTop = scrollRestoration.scrollTop ?? fallbackScrollTop;
-
-  requestAnimationFrame(() => {
-    const nextMaxScrollTop = Math.max(contentWindow.scrollHeight - contentWindow.clientHeight, 0);
-    contentWindow.scrollTop = Math.min(Math.max(targetScrollTop, 0), nextMaxScrollTop);
-  });
+  restoreReaderPosition(contentWindow, returnNavigation.position ?? returnNavigation, state.language, target);
 
   return true;
 }
@@ -517,7 +484,7 @@ function commitLegacyDocument({
   scrollRestoration,
   onScrollRestorationApplied
 }) {
-  if (requestToken !== activeRequestToken) {
+  if (requestToken !== activeRequestToken || !host.isConnected) {
     return false;
   }
 
@@ -537,23 +504,25 @@ function commitLegacyDocument({
   decoratePhotonOutlines(host);
   syncReadingConstellation(host, state.language);
   host.setAttribute("aria-busy", "false");
-  const restored = restoreReturnNavigation(host, state, returnNavigation);
-
-  if (restored) {
-    onReturnNavigationApplied?.();
-  } else if (restoreReaderScroll(host, state, scrollRestoration)) {
-    onScrollRestorationApplied?.();
-  } else {
-    focusLoadedContent(host);
-  }
 
   afterContentPaint(() => {
-    if (requestToken !== activeRequestToken) {
+    if (requestToken !== activeRequestToken || !host.isConnected) {
       return;
     }
 
     decoratePhotonOutlines(host);
-    void renderMath(host).catch(() => null);
+    void renderMath(host).catch(() => null).then(() => {
+      if (requestToken !== activeRequestToken || !host.isConnected) {
+        return;
+      }
+      if (restoreReaderScroll(host, state, scrollRestoration)) {
+        onScrollRestorationApplied?.();
+      } else if (restoreReturnNavigation(host, state, returnNavigation)) {
+        onReturnNavigationApplied?.();
+      } else {
+        focusLoadedContent(host);
+      }
+    });
   });
 
   return true;
@@ -583,7 +552,7 @@ export async function syncLegacyContent({
 
   const requestToken = ++activeRequestToken;
   const candidateFiles = resolveLegacyFileCandidates(legacyItem.source, state.language);
-  const cachedDocument = candidateFiles.map((filePath) => getCachedDocumentNow(filePath)).find(Boolean);
+  const cachedDocument = getCachedDocumentNow(candidateFiles[0]);
 
   if (cachedDocument) {
     host.setAttribute("aria-busy", "true");
@@ -602,7 +571,7 @@ export async function syncLegacyContent({
     return;
   }
 
-  const shouldDelayLoadingPlaceholder = !candidateFiles.some((filePath) => hasCachedDocument(filePath));
+  const shouldDelayLoadingPlaceholder = !hasCachedDocument(candidateFiles[0]);
   const hasVisibleContent = host.childElementCount > 0 || host.textContent.trim() !== "";
   let loadingPlaceholderTimer = null;
 
@@ -610,7 +579,7 @@ export async function syncLegacyContent({
 
   if (shouldDelayLoadingPlaceholder && !hasVisibleContent) {
     loadingPlaceholderTimer = window.setTimeout(() => {
-      if (requestToken !== activeRequestToken) {
+      if (requestToken !== activeRequestToken || !host.isConnected) {
         return;
       }
 
@@ -621,7 +590,7 @@ export async function syncLegacyContent({
   try {
     const documentNode = await loadDocument(candidateFiles);
 
-    if (requestToken !== activeRequestToken) {
+    if (requestToken !== activeRequestToken || !host.isConnected) {
       if (loadingPlaceholderTimer !== null) {
         window.clearTimeout(loadingPlaceholderTimer);
       }
@@ -645,7 +614,7 @@ export async function syncLegacyContent({
       onScrollRestorationApplied
     });
   } catch (_error) {
-    if (requestToken !== activeRequestToken) {
+    if (requestToken !== activeRequestToken || !host.isConnected) {
       if (loadingPlaceholderTimer !== null) {
         window.clearTimeout(loadingPlaceholderTimer);
       }

@@ -1,3 +1,4 @@
+import { deferModelInitialization, modelPixelRatio, requestModelFrame, stopModelAnimation } from "./performance-profile.js?v=20260913-mobile-power-v1";
 import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260913-social-dock-v1";
 
 const mountedSimulators = new WeakSet();
@@ -14,7 +15,7 @@ export function initDoubleSlitSimulators(root = document) {
     }
 
     mountedSimulators.add(container);
-    new DoubleSlitInterference(container);
+    deferModelInitialization(container, () => new DoubleSlitInterference(container));
   });
 }
 
@@ -62,7 +63,7 @@ class DoubleSlitInterference {
     this.resize();
     this.setupObservers();
     this.render = this.render.bind(this);
-    this.animationFrame = requestAnimationFrame(this.render);
+    this.animationFrame = requestModelFrame(this);
   }
 
   get isSpanish() {
@@ -270,7 +271,7 @@ class DoubleSlitInterference {
     const rect = this.viewport.getBoundingClientRect();
     const width = Math.max(320, Math.floor(rect.width));
     const height = Math.max(230, Math.floor(rect.height || width * 9 / 16));
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const dpr = modelPixelRatio();
 
     this.width = width;
     this.height = height;
@@ -295,7 +296,7 @@ class DoubleSlitInterference {
     }
 
     this.draw();
-    this.animationFrame = requestAnimationFrame(this.render);
+    this.animationFrame = requestModelFrame(this);
   }
 
   draw() {
@@ -672,6 +673,7 @@ class DoubleSlitInterference {
   }
 
   destroy() {
+    stopModelAnimation(this);
     this.destroyed = true;
 
     if (this.animationFrame !== null) {
