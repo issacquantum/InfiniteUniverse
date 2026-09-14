@@ -37,13 +37,17 @@ function fitEquationBlock(block) {
   block.style.setProperty("--equation-fit-scale", "1");
   block.classList.remove("equation-fit--scaled");
 
-  requestAnimationFrame(() => {
-    if (!applyEquationFit(block, mathContainer)) {
-      return;
-    }
-
+  return new Promise((resolve) => {
     requestAnimationFrame(() => {
-      applyEquationFit(block, mathContainer);
+      if (!applyEquationFit(block, mathContainer)) {
+        resolve();
+        return;
+      }
+
+      requestAnimationFrame(() => {
+        applyEquationFit(block, mathContainer);
+        resolve();
+      });
     });
   });
 }
@@ -53,5 +57,5 @@ export function fitEquationBlocks(host) {
     return;
   }
 
-  host.querySelectorAll(EQUATION_BLOCK_SELECTOR).forEach(fitEquationBlock);
+  return Promise.all(Array.from(host.querySelectorAll(EQUATION_BLOCK_SELECTOR), fitEquationBlock));
 }
