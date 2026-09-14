@@ -15,8 +15,8 @@ import { initQuantumFluctuationModels } from "./quantum-fluctuation-model.js?v=2
 import { initBlackHoleModels } from "./black-hole-model.js?v=20260913-social-dock-v1";
 import { initFoundationModels } from "./foundation-models.js?v=20260913-social-dock-v1";
 import { enhanceModelAccessibility } from "./model-accessibility.js?v=20260913-social-dock-v1";
-import { fitEquationBlocks } from "./equation-fit.js?v=20260913-social-dock-v1";
-import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260913-notices-v1";
+import { fitEquationBlocks } from "./equation-fit.js?v=20260913-fluid-equations-v1";
+import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260913-fluid-equations-v1";
 import { decorateModelBadges, decoratePhotonOutlines, syncReadingConstellation } from "./creative-effects.js?v=20260913-social-dock-v1";
 
 let activeRequestToken = 0;
@@ -216,7 +216,7 @@ async function renderMath(host) {
   }
 
   await window.MathJax.typesetPromise([host]);
-  fitEquationBlocks(host);
+  await fitEquationBlocks(host);
 }
 
 function afterContentPaint(callback) {
@@ -393,16 +393,7 @@ function commitStructuredDocument({
   decoratePhotonOutlines(host);
   syncReadingConstellation(host, state.language);
   host.setAttribute("aria-busy", "false");
-  const restored = restoreReturnNavigation(host, state, returnNavigation);
   const shouldApplyModelScroll = matchesModelScrollTarget(state, modelScrollTarget);
-
-  if (restored) {
-    onReturnNavigationApplied?.();
-  } else if (!shouldApplyModelScroll && restoreReaderScroll(host, state, scrollRestoration)) {
-    onScrollRestorationApplied?.();
-  } else if (!shouldApplyModelScroll) {
-    focusLoadedContent(host);
-  }
 
   afterContentPaint(() => {
     if (requestToken !== activeRequestToken) {
@@ -428,20 +419,27 @@ function commitStructuredDocument({
     decoratePhotonOutlines(host);
     const mathReady = renderMath(host).catch(() => null);
 
-    if (shouldApplyModelScroll) {
-      void mathReady.then(() => {
-        if (requestToken !== activeRequestToken) {
-          return;
-        }
+    // Typesetting and responsive equation fitting change the reader's height.
+    // Restore its position only after those layout changes have finished.
+    void mathReady.then(() => {
+      if (requestToken !== activeRequestToken) {
+        return;
+      }
 
-        if (applyModelScrollTarget(host, state, modelScrollTarget)) {
-          onModelScrollApplied?.();
-        } else {
-          onModelScrollApplied?.();
+      if (restoreReturnNavigation(host, state, returnNavigation)) {
+        onReturnNavigationApplied?.();
+      } else if (!shouldApplyModelScroll && restoreReaderScroll(host, state, scrollRestoration)) {
+        onScrollRestorationApplied?.();
+      } else if (shouldApplyModelScroll) {
+        const applied = applyModelScrollTarget(host, state, modelScrollTarget);
+        onModelScrollApplied?.();
+        if (!applied) {
           focusLoadedContent(host);
         }
-      });
-    }
+      } else {
+        focusLoadedContent(host);
+      }
+    });
   });
 
   return true;

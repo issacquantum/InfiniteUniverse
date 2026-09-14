@@ -643,13 +643,31 @@
     <priority>0.55</priority>
   </url>
   <url>
+    <loc>https://issacquantum.github.io/InfiniteUniverse/content/site/en/science/equations/fluid-blowup-conditions.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
     <loc>https://issacquantum.github.io/InfiniteUniverse/content/site/en/science/equations/fluid-blowup-scales.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.55</priority>
   </url>
   <url>
+    <loc>https://issacquantum.github.io/InfiniteUniverse/content/site/en/science/equations/fluid-critical-norms.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
     <loc>https://issacquantum.github.io/InfiniteUniverse/content/site/en/science/equations/fluid-energy.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://issacquantum.github.io/InfiniteUniverse/content/site/en/science/equations/fluid-enstrophy.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.55</priority>
@@ -667,7 +685,19 @@
     <priority>0.55</priority>
   </url>
   <url>
+    <loc>https://issacquantum.github.io/InfiniteUniverse/content/site/en/science/equations/fluid-kinetic-energy.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
     <loc>https://issacquantum.github.io/InfiniteUniverse/content/site/en/science/equations/fluid-material-derivative.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://issacquantum.github.io/InfiniteUniverse/content/site/en/science/equations/fluid-momentum-residual.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.55</priority>
@@ -680,6 +710,12 @@
   </url>
   <url>
     <loc>https://issacquantum.github.io/InfiniteUniverse/content/site/en/science/equations/fluid-scaling.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://issacquantum.github.io/InfiniteUniverse/content/site/en/science/equations/fluid-similarity-coordinates.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.55</priority>
@@ -2203,13 +2239,31 @@
     <priority>0.55</priority>
   </url>
   <url>
+    <loc>https://issacquantum.github.io/InfiniteUniverse/content/site/es/science/equations/fluid-blowup-conditions.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
     <loc>https://issacquantum.github.io/InfiniteUniverse/content/site/es/science/equations/fluid-blowup-scales.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.55</priority>
   </url>
   <url>
+    <loc>https://issacquantum.github.io/InfiniteUniverse/content/site/es/science/equations/fluid-critical-norms.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
     <loc>https://issacquantum.github.io/InfiniteUniverse/content/site/es/science/equations/fluid-energy.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://issacquantum.github.io/InfiniteUniverse/content/site/es/science/equations/fluid-enstrophy.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.55</priority>
@@ -2227,7 +2281,19 @@
     <priority>0.55</priority>
   </url>
   <url>
+    <loc>https://issacquantum.github.io/InfiniteUniverse/content/site/es/science/equations/fluid-kinetic-energy.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
     <loc>https://issacquantum.github.io/InfiniteUniverse/content/site/es/science/equations/fluid-material-derivative.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://issacquantum.github.io/InfiniteUniverse/content/site/es/science/equations/fluid-momentum-residual.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.55</priority>
@@ -2240,6 +2306,12 @@
   </url>
   <url>
     <loc>https://issacquantum.github.io/InfiniteUniverse/content/site/es/science/equations/fluid-scaling.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://issacquantum.github.io/InfiniteUniverse/content/site/es/science/equations/fluid-similarity-coordinates.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.55</priority>

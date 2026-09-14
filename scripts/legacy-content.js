@@ -1,7 +1,7 @@
 import { bigBangLegacyContent } from "../data/legacy-big-bang.js?v=20260913-social-dock-v1";
 import { decorateModelBadges, decoratePhotonOutlines, syncReadingConstellation } from "./creative-effects.js?v=20260913-social-dock-v1";
-import { fitEquationBlocks } from "./equation-fit.js?v=20260913-social-dock-v1";
-import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260913-notices-v1";
+import { fitEquationBlocks } from "./equation-fit.js?v=20260913-fluid-equations-v1";
+import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260913-fluid-equations-v1";
 import { pick } from "./i18n.js?v=20260913-social-dock-v1";
 
 let activeRequestToken = 0;
