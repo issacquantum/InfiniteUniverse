@@ -35,12 +35,10 @@ function sourceBody(doc) {
 }
 const urls = new Set([siteRoot]);
 for (const language of ['en','es']) {
-  const all = documents(language); const index = []; const written = new Set();
+  const all = documents(language); const written = new Set();
   for (const doc of all) {
     const html = sourceBody(doc);
     const out = publicPath(doc,language); if (written.has(out)) continue; written.add(out);
-    const terms = [...html.matchAll(/<(?:h[2-4]|strong|a|figcaption)\b[^>]*>([\s\S]*?)<\/(?:h[2-4]|strong|a|figcaption)>/g)].map(m=>plain(m[1]));
-    index.push({ title:doc.title, route:route(doc,language), terms:[...new Set(terms)].join(' ') });
     const description = plain(html.match(/<p\b[^>]*>([\s\S]*?)<\/p>/)?.[1] ?? doc.title).slice(0,180);
     const url = siteRoot + out; urls.add(url);
     let body = html.replace(/<button\b([^>]*data-item-id="([^"]+)"[^>]*)>([\s\S]*?)<\/button>/g, (whole,attrs,id,label)=> {
@@ -82,11 +80,9 @@ for (const language of ['en','es']) {
     const out=`science/${language}/${topic.id}/index.html`;mkdirSync(path.dirname(out),{recursive:true});urls.add(siteRoot+out);
     const entries=all.filter(d=>d.topic.id===topic.id);
     writeFileSync(out,`<!doctype html><html lang="${language}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><base href="../../../"><title>${escape(topic.title[language])} | Infinite Universe</title><meta name="description" content="${escape(topic.title[language])}"><meta property="og:title" content="${escape(topic.title[language])}"><meta property="og:description" content="${escape(topic.title[language])}"><link rel="canonical" href="${siteRoot+out}"><link rel="alternate" hreflang="${language==='en'?'es':'en'}" href="${siteRoot}science/${language==='en'?'es':'en'}/${topic.id}/index.html"><link rel="stylesheet" href="styles/static-science.css"></head><body><main><h1>${escape(topic.title[language])}</h1><a href="index.html${routeFor({language,activeTopic:topic.id})}">${language==='es'?'Abrir en el sitio interactivo':'Open in the interactive site'}</a><ul>${entries.map(d=>`<li><a href="${publicPath(d,language)}">${escape(d.title)}</a></li>`).join('')}</ul></main></body></html>\n`);
-    index.push({title:topic.title[language],route:routeFor({language,activeTopic:topic.id}),terms:entries.map(d=>d.title).join(' ')});
   }
-  writeFileSync(`data/search-${language}.json`,JSON.stringify(index)+'\n');
   const listPath=`science/${language}/index.html`;urls.add(siteRoot+listPath);
   writeFileSync(listPath,`<!doctype html><html lang="${language}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><base href="../../"><title>${language==='es'?'Temas científicos':'Science topics'} | Infinite Universe</title><meta name="description" content="${language==='es'?'Índice de temas científicos y ecuaciones':'Index of science topics and equations'}"><meta property="og:title" content="Infinite Universe"><meta property="og:description" content="Science topics / Temas científicos"><link rel="canonical" href="${siteRoot+listPath}"><link rel="alternate" hreflang="${language==='en'?'es':'en'}" href="${siteRoot}science/${language==='en'?'es':'en'}/index.html"><link rel="stylesheet" href="styles/static-science.css"></head><body><main><h1>${language==='es'?'Temas científicos':'Science topics'}</h1><ul>${topics.map(t=>`<li><a href="science/${language}/${t.id}/index.html">${escape(t.title[language])}</a></li>`).join('')}</ul></main></body></html>\n`);
 }
 writeFileSync('data/public-science-urls.json',JSON.stringify([...urls].sort(),null,2)+'\n');
-console.log(`Generated ${urls.size-1} canonical science documents and two language-specific search indexes.`);
+console.log(`Generated ${urls.size-1} canonical science documents.`);

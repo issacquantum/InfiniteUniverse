@@ -1,4 +1,3 @@
-import { parseRoute } from "../scripts/routes.js";
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { topics, documents, siteContent } from './site-inventory.mjs';
 import { topicMetadata } from '../data/topic-metadata.js';
@@ -59,8 +58,6 @@ if (existsSync('data/public-science-urls.json')) {
     }
   }
   for (const language of ['en','es']) {
-    const entries=JSON.parse(readFileSync(`data/search-${language}.json`,'utf8'));
-    for (const entry of entries) check(Boolean(parseRoute(entry.route)),`Invalid search route: ${entry.route}`);
     const lab=readFileSync(`content/site/${language}/science/model-lab.html`,'utf8');
     for (const tag of lab.matchAll(/<button\b[^>]*data-model-target="([^"]+)"[^>]*>/g)) {
       const topic=topics.find(t=>t.id===tag[0].match(/data-topic-id="([^"]+)"/)?.[1]);
@@ -77,4 +74,4 @@ for (const id of ['probability-statistics','mathematical-analysis']) {
   check(JSON.stringify(urls(en)) === JSON.stringify(urls(es)), `Bilingual source mismatch: ${id}`);
 }
 if (failures.length) { console.error(failures.join('\n')); process.exitCode=1; }
-else console.log('Generated documents, search routes, Model Lab targets, and sitemap passed.');
+else console.log('Generated documents, Model Lab targets, and sitemap passed.');
