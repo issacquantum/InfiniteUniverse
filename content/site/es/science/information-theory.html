@@ -212,11 +212,7 @@
         $$
       </button>
     </div>
-    <p>
-      Más precisamente, \(k_BT\ln2\) es la disipación mínima ideal de calor al borrar irreversiblemente un bit lógico bajo
-      condiciones termodinámicas ideales. El hardware real puede disipar más, y el cómputo reversible cambia los
-      supuestos.
-    </p>
+    <p>\(k_BT\ln2\) es el costo ideal de restablecer un bit inicialmente equiprobable y sin correlaciones en contacto con un depósito térmico. El sesgo, la información auxiliar y los cambios físicos de energía libre requieren un balance más general; no es un costo obligatorio de toda operación lógica.</p>
   </section>
 
   <section class="content-block">
@@ -234,6 +230,8 @@
       <p><strong>Qué representa:</strong> Un sistema pequeño de comunicación donde se comparan incertidumbre, ruido y redundancia.</p>
       <p><strong>Qué probar:</strong> Usa primero las configuraciones predefinidas; luego cambia ruido y redundancia para ver cómo sobrevive la información.</p>
     </div>
+    <p>El control de redundancia reduce de manera heurística una probabilidad efectiva de error. No implementa un codificador y un decodificador ni contabiliza la reducción de tasa debida a la codificación. La capacidad mostrada corresponde a ese canal efectivo; la redundancia no aumenta la capacidad de un canal físico fijo.</p>
+    <p>El control de redundancia reduce de manera heurística una probabilidad efectiva de error. No implementa un codificador y un decodificador ni contabiliza la reducción de tasa debida a la codificación. La capacidad mostrada corresponde a ese canal efectivo; la redundancia no aumenta la capacidad de un canal físico fijo.</p>
     <figure class="information-theory-model glass-window" data-information-theory-model data-model-target="entropy-channel" data-language="es">
       <div class="information-theory-model__frame" data-it-frame></div>
       <div class="information-theory-model__panel">

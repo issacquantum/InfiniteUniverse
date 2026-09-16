@@ -1,4 +1,4 @@
-import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260620-covered-tabs-only-v1";
+import { bigBangLegacyContent } from "./legacy-big-bang.js?v=20260913-social-dock-v1";
 
 function htmlSource(group, id) {
   return {
@@ -149,11 +149,11 @@ const quantumComplexityEquationBranch = {
     createStructuredItem("science/equations", "quantum-state-space-dimension", "Quantum State-Space Dimension", "Dimensión del Espacio de Estados Cuántico"),
     createStructuredItem("science/equations", "quantum-complexity-class-containments", "Quantum Complexity Class Containments", "Contenciones de Clases de Complejidad Cuántica"),
     createStructuredItem("science/equations", "bqp-bounded-error-definition", "BQP Bounded-Error Definition", "Definición de BQP con Error Acotado"),
-    createStructuredItem("science/equations", "quantum-query-search-bound", "Quantum Query Search Bound", "Cota Cuántica de Búsqueda por Consultas"),
+    createStructuredItem("science/equations", "quantum-query-search-bound", "Quantum Query Search Bound", "Límite de consultas para la búsqueda cuántica"),
     createStructuredItem("science/equations", "qma-verifier-definition", "QMA Verifier Definition", "Definición de Verificador QMA"),
     createStructuredItem("science/equations", "local-hamiltonian-decision-gap", "Local Hamiltonian Decision Gap", "Brecha de Decisión del Hamiltoniano Local"),
     createStructuredItem("science/equations", "quantum-circuit-complexity", "Quantum Circuit Complexity", "Complejidad de Circuitos Cuánticos"),
-    createStructuredItem("science/equations", "area-law-entanglement-bound", "Area-Law Entanglement Bound", "Cota de Entrelazamiento por Ley de Área")
+    createStructuredItem("science/equations", "area-law-entanglement-bound", "Area-Law Entanglement Bound", "Límite del entrelazamiento según la ley de área")
   ]
 };
 
@@ -212,7 +212,7 @@ const wormholesEquationBranch = {
     createStructuredItem("science/equations", "wormhole-flare-out-condition", "Wormhole Flare-Out Condition", "Condición de Apertura de Agujero de Gusano"),
     createStructuredItem("science/equations", "wormhole-redshift-finite", "Finite Redshift Condition", "Condición de Corrimiento Finito"),
     createStructuredItem("science/equations", "null-energy-condition-wormhole", "Null Energy Condition", "Condición de Energía Nula"),
-    createStructuredItem("science/equations", "quantum-inequality-bound", "Quantum Inequality Bound", "Cota de Desigualdad Cuántica"),
+    createStructuredItem("science/equations", "quantum-inequality-bound", "Quantum Inequality Bound", "Límite impuesto por una desigualdad cuántica"),
     createStructuredItem("science/equations", "wormhole-tidal-constraint", "Traversability Tidal Constraint", "Restricción de Marea para Transitabilidad"),
     createStructuredItem("science/equations", "closed-timelike-curve-condition", "Closed Timelike Curve Condition", "Condición de Curva Temporal Cerrada")
   ]
@@ -279,6 +279,28 @@ const simulationModelsEquationBranch = {
     createStructuredItem("science/equations", "finite-difference-heat-equation", "Finite Difference Heat Equation", "Ecuación de Calor por Diferencias Finitas"),
     createStructuredItem("science/equations", "heat-stability-condition", "Heat Stability Condition", "Condición de Estabilidad del Calor"),
     createStructuredItem("science/equations", "simulation-rmse-error", "Simulation RMSE (root mean square error)", "Error RMSE (root mean square error, raíz del error cuadrático medio) de Simulación")
+  ]
+};
+
+const fluidMechanicsEquationBranch = {
+  id: "fluid-mechanics-navier-stokes-equations",
+  title: { en: "Equations", es: "Ecuaciones" },
+  items: [
+    createStructuredItem("science/equations", "fluid-navier-stokes", "Incompressible Navier–Stokes Momentum", "Ecuación de cantidad de movimiento de Navier–Stokes incompresible"),
+    createStructuredItem("science/equations", "fluid-incompressibility", "Incompressibility", "Incompresibilidad"),
+    createStructuredItem("science/equations", "fluid-material-derivative", "Material Derivative", "Derivada material"),
+    createStructuredItem("science/equations", "fluid-euler", "Incompressible Euler Equations", "Ecuaciones de Euler incompresibles"),
+    createStructuredItem("science/equations", "fluid-vorticity", "Vorticity Transport and Stretching", "Transporte y estiramiento de vorticidad"),
+    createStructuredItem("science/equations", "fluid-enstrophy", "Enstrophy Balance", "Balance de enstrofía"),
+    createStructuredItem("science/equations", "fluid-kinetic-energy", "Smooth Kinetic-Energy Balance", "Balance de energía cinética para soluciones suaves"),
+    createStructuredItem("science/equations", "fluid-energy", "Leray–Hopf Energy Inequality", "Desigualdad de energía de Leray–Hopf"),
+    createStructuredItem("science/equations", "fluid-weak-formulation", "Divergence-Free Weak Formulation", "Formulación débil con campos de prueba de divergencia nula"),
+    createStructuredItem("science/equations", "fluid-scaling", "Navier–Stokes Scaling", "Reescalamiento de Navier–Stokes"),
+    createStructuredItem("science/equations", "fluid-critical-norms", "Critical Norms and Energy Scaling", "Normas críticas y reescalamiento de la energía"),
+    createStructuredItem("science/equations", "fluid-blowup-conditions", "OpenAI Construction: Support, Energy, and Blowup", "Construcción de OpenAI: soporte, energía y singularidad"),
+    createStructuredItem("science/equations", "fluid-similarity-coordinates", "OpenAI Construction: Similarity Coordinates", "Construcción de OpenAI: coordenadas de semejanza"),
+    createStructuredItem("science/equations", "fluid-blowup-scales", "OpenAI Construction: Core Scaling", "Construcción de OpenAI: escalas del núcleo"),
+    createStructuredItem("science/equations", "fluid-momentum-residual", "Momentum Residual Under a Perturbation", "Residuo de cantidad de movimiento bajo una perturbación")
   ]
 };
 
@@ -416,7 +438,7 @@ const personalCosmologyEquationBranch = {
     createStructuredItem("science/equations", "schwarzschild-radius", "Schwarzschild Radius", "Radio de Schwarzschild"),
     createStructuredItem("science/equations", "kretschmann-scalar", "Kretschmann Scalar", "Escalar de Kretschmann"),
     createStructuredItem("science/equations", "bekenstein-hawking-entropy", "Bekenstein Hawking Entropy", "Entropía de Bekenstein Hawking"),
-    createStructuredItem("science/equations", "hilbert-dimension-entropy-bound", "Hilbert Dimension Entropy Bound", "Cota Entrópica de Dimensión de Hilbert"),
+    createStructuredItem("science/equations", "hilbert-dimension-entropy-bound", "Hilbert Dimension Entropy Bound", "Límite entrópico de la dimensión de Hilbert"),
     createStructuredItem("science/equations", "von-neumann-entropy", "Von Neumann Entropy", "Entropía de von Neumann"),
     createStructuredItem("science/equations", "quantum-mutual-information", "Quantum Mutual Information", "Información Mutua Cuántica")
   ]
@@ -486,9 +508,9 @@ export const siteContent = {
     createSection("origins", "Origins", "Orígenes"),
     createSection("learning-path", "Learning Path", "Camino de aprendizaje"),
     createSection("music", "Music", "Música"),
-    createSection("systems-work", "Systems Work", "Trabajo con sistemas"),
-    createSection("practice-worlds", "Practice Worlds", "Mundos de práctica"),
-    createSection("personal-cosmology", "Personal Cosmology", "Cosmología personal", {
+    createSection("systems-work", "Professional Career", "Trayectoria Profesional"),
+    createSection("practice-worlds", "Favorite Video Games", "Videojuegos Favoritos"),
+    createSection("personal-cosmology", "My Theory", "Mi Teoría", {
       branches: [personalCosmologyEquationBranch],
       hideBranchNavigation: true,
       hideDetailNavigation: true
@@ -502,6 +524,12 @@ export const siteContent = {
         createTopic("classical-mechanics", "Classical Mechanics", "Mecánica clásica", {
           contentFile: htmlSource("science", "classical-mechanics"),
           branches: [classicalMechanicsEquationBranch],
+          hideBranchNavigation: true,
+          hideDetailNavigation: true
+        }),
+        createTopic("fluid-mechanics-navier-stokes", "Fluid Mechanics and Navier–Stokes", "Mecánica de Fluidos y Navier–Stokes", {
+          contentFile: htmlSource("science", "fluid-mechanics-navier-stokes"),
+          branches: [fluidMechanicsEquationBranch],
           hideBranchNavigation: true,
           hideDetailNavigation: true
         }),

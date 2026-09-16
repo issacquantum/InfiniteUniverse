@@ -1,3 +1,4 @@
+import { isMobilePerformance } from "./performance-profile.js?v=20260913-mobile-power-v1";
 async function loadShaderSource(url) {
   const response = await fetch(url);
 
@@ -58,6 +59,7 @@ function createStars(count) {
 }
 
 export async function initBackground(canvas) {
+  if (isMobilePerformance()) return;
   const gl = canvas.getContext("webgl2", { alpha: true, antialias: true });
 
   if (!gl) {
@@ -73,11 +75,16 @@ export async function initBackground(canvas) {
       loadShaderSource(fragmentUrl)
     ]);
 
+    if (isMobilePerformance()) {
+      return;
+    }
     const program = createProgram(gl, vertexSource, fragmentSource);
     const stars = createStars(320);
     const buffer = gl.createBuffer();
     let animationTime = 0;
     let lastFrame = null;
+    let frameId = null;
+    let stopped = false;
 
     gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
     gl.bufferData(gl.ARRAY_BUFFER, stars, gl.STATIC_DRAW);
@@ -116,6 +123,7 @@ export async function initBackground(canvas) {
     };
 
     const render = (timestamp) => {
+      if (stopped) return;
       if (lastFrame === null) {
         lastFrame = timestamp;
       }
@@ -134,16 +142,26 @@ export async function initBackground(canvas) {
       gl.useProgram(program);
       gl.uniform1f(timeLocation, animationTime);
       gl.drawArrays(gl.POINTS, 0, stars.length / 4);
-      window.requestAnimationFrame(render);
+      frameId = window.requestAnimationFrame(render);
     };
 
     window.addEventListener("resize", resize);
-    document.addEventListener("visibilitychange", () => {
+    const onVisibility = () => {
       if (!document.hidden) {
         lastFrame = null;
       }
-    });
-    window.requestAnimationFrame(render);
+    };
+    document.addEventListener("visibilitychange", onVisibility);
+    frameId = window.requestAnimationFrame(render);
+    return () => {
+      stopped = true;
+      cancelAnimationFrame(frameId);
+      window.removeEventListener("resize", resize);
+      document.removeEventListener("visibilitychange", onVisibility);
+      gl.deleteBuffer(buffer);
+      gl.deleteProgram(program);
+      gl.clear(gl.COLOR_BUFFER_BIT);
+    };
   } catch (error) {
     console.error(error);
     document.body.classList.add("background-fallback");

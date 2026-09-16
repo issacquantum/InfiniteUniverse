@@ -441,6 +441,7 @@
         $$
       </button>
     </div>
+    <p>This exponential assumes a time-independent Hamiltonian. General time-dependent evolution requires time ordering.</p>
     <p>
       and it also determines the system's thermal equilibrium state. <strong>Equation explanation:</strong> \(U(t)\) is the time-evolution
       operator, \(H\) is the Hamiltonian, \(t\) is elapsed time, and \(\hbar\) is the reduced Planck constant setting the
@@ -502,8 +503,7 @@
     </div>
     <p>
       with time linear in the sample size times system size in their setting. <strong>Equation explanation:</strong> \(S\) is the number of samples, \(N\)
-      is the system-size parameter, and \(\varepsilon\) is the target accuracy; the formula says that tighter accuracy
-      or lower effective temperature requires more samples. Later work by Bakshi, Liu, Moitra, and Tang extended
+      is the system-size parameter, and \(\varepsilon\) is the target accuracy; the formula says that tighter accuracy or higher temperature (smaller inverse temperature beta) requires more samples within the theorem’s high-temperature regime. Later work by Bakshi, Liu, Moitra, and Tang extended
       Hamiltonian learning from Gibbs states to any constant temperature in polynomial time. A related 2024 line showed
       that high-temperature Gibbs states of bounded-degree local Hamiltonians become separable above a constant
       temperature threshold and can be efficiently prepared in that regime.
@@ -609,9 +609,7 @@
       such as the <strong>Shor code</strong>, the <strong>Steane code</strong>, and especially the <strong>surface
         code</strong>, which offers tolerable error thresholds and a geometry compatible with planar chips. The
       <strong>fault-tolerance theorems</strong> guarantee that, below a certain physical error threshold, fidelity can
-      be amplified arbitrarily at the cost of significant qubit overhead, which explains why fault-tolerant processors
-      will require <strong>millions of physical qubits</strong> to support a few thousand useful <strong>logical
-        qubits</strong>.
+      be amplified arbitrarily at the cost of significant qubit overhead, although the required overhead depends on the code, architecture, physical error rates, and target computation. Some resource estimates reach millions of physical qubits; this is not a universal requirement.
     </p>
 
     <h3>Hardware Approaches</h3>
@@ -630,7 +628,7 @@
       by <strong><a class="platform-link" href="https://www.psiquantum.com/" target="_blank"
           rel="noopener noreferrer">PsiQuantum</a> and <a class="platform-link" href="https://www.xanadu.ai/"
           target="_blank" rel="noopener noreferrer">Xanadu</a></strong>, take advantage of light states to transmit and process information,
-      with the natural advantage of operating at room temperature and integrating with quantum communication networks.
+      with natural connections to quantum communication networks. Some optical components operate at room temperature, but high-performance detectors may require cryogenic cooling.
       <strong>Topological approaches</strong>, explored by <strong><a class="platform-link"
           href="https://quantum.microsoft.com/" target="_blank" rel="noopener noreferrer">Microsoft</a></strong> through
       <strong>Majorana
@@ -641,20 +639,16 @@
     </p>
 
     <h3>Current State and Limitations</h3>
-    <p>The current state of the field sits in what John Preskill termed the <strong>NISQ (noisy intermediate-scale quantum) era</strong>,
-      characterized by noisy devices of intermediate scale with tens to a few thousand
-      physical qubits without error correction. Milestones such as the <strong>"quantum supremacy"</strong> announced by
+    <p>As of September 15, 2026, devices in John Preskill’s <strong>NISQ (noisy intermediate-scale quantum)</strong> category coexist with experimental logical processors and repeated quantum error correction. Physical-qubit count alone does not measure useful computational capacity. Milestones such as the <strong>"quantum supremacy"</strong> announced by
       <a class="platform-link" href="https://quantumai.google/" target="_blank"
         rel="noopener noreferrer">Google</a> in 2019 with the <strong><a class="platform-link"
           href="https://research.google/pubs/quantum-supremacy-using-a-programmable-superconducting-processor/"
           target="_blank" rel="noopener noreferrer">Sycamore processor</a></strong>, or subsequent advances in boson sampling and narrow
-      benchmark tasks, have demonstrated that certain narrowly designed tasks already surpass classical supercomputers, but a
-      useful and reproducible <strong>"quantum advantage"</strong> for relevant industrial problems does not yet exist.
+      benchmark tasks, report advantages on specific tasks and against specified classical baselines. Better classical algorithms can change those comparisons; a benchmark advantage does not establish broad industrial utility.
       Current limitations include <strong>restricted qubit connectivity</strong>, the maximum circuit depth before noise
       dominates, the bottleneck of classical readout, cryogenic and control costs, and a shortage of mature talent and
       software. Even so, the growing maturity of cloud platforms, the standardization of languages such as
-      <strong><a class="platform-link" href="https://www.ibm.com/quantum/qiskit" target="_blank" rel="noopener noreferrer">Qiskit</a>, <a class="platform-link" href="https://quantumai.google/cirq" target="_blank" rel="noopener noreferrer">Cirq</a>, and <a class="platform-link" href="https://pennylane.ai/" target="_blank" rel="noopener noreferrer">PennyLane</a></strong>, and sustained advances in fidelity and qubit count suggest a
-      plausible path toward <strong>fault-tolerant processors</strong> within the next decade.
+      <strong><a class="platform-link" href="https://www.ibm.com/quantum/qiskit" target="_blank" rel="noopener noreferrer">Qiskit</a>, <a class="platform-link" href="https://quantumai.google/cirq" target="_blank" rel="noopener noreferrer">Cirq</a>, and <a class="platform-link" href="https://pennylane.ai/" target="_blank" rel="noopener noreferrer">PennyLane</a></strong>, and sustained advances in fidelity and qubit count support continued development toward <strong>fault-tolerant processors</strong>, without establishing a reliable date for large-scale practical applications.
     </p>
     <p>The gap between proof of principle and broad practical deployment is therefore still large. Current machines are
       valuable because they let researchers learn how quantum control behaves outside ideal mathematics, how noise scales
@@ -703,6 +697,7 @@
       algorithms can dequantize an apparent speedup. Chemistry, materials, optimization, cryptography, and simulation are
       major motivations, but every claim depends on noise, data loading, access assumptions, and total resource cost.
     </p>
+    <p>Experiments now test whether increasing code distance suppresses logical errors, rather than merely adding physical qubits. <a class="paper-link" href="https://www.nature.com/articles/s41586-024-08449-y" target="_blank" rel="noopener noreferrer">Quantum error correction below the surface code threshold</a> (published online in 2024) demonstrated below-threshold surface-code memory. <a class="paper-link" href="https://www.nature.com/articles/s41586-025-09848-5" target="_blank" rel="noopener noreferrer">A fault-tolerant neutral-atom architecture for universal quantum computation</a> (published online in 2025) reported elements of a scalable neutral-atom architecture, including error correction and logical operations. These are experimental milestones toward fault tolerance, not evidence that arbitrary large computations can already run reliably.</p>
   </section>
 
 <section class="content-block source-papers">

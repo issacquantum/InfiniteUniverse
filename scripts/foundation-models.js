@@ -1,4 +1,5 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260620-covered-tabs-only-v1";
+import { deferModelInitialization, modelPixelRatio, modelRendererOptions, requestModelFrame, stopModelAnimation } from "./performance-profile.js?v=20260913-mobile-power-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260913-social-dock-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
@@ -19,7 +20,7 @@ export function initFoundationModels(root = document) {
     }
 
     mountedModels.add(container);
-    new FoundationModel(container);
+    deferModelInitialization(container, () => new FoundationModel(container));
   });
 }
 
@@ -78,17 +79,18 @@ class FoundationModel {
 
   async setup() {
     const THREE = await loadThree();
+    if (!this.container.isConnected || this.destroyed) return;
 
     this.THREE = THREE;
     this.scene = new THREE.Scene();
     this.scene.background = new THREE.Color(COLORS.deep);
-    this.renderer = new THREE.WebGLRenderer({
+    this.renderer = new THREE.WebGLRenderer(modelRendererOptions({
       canvas: this.canvas,
       antialias: true,
       alpha: false,
       powerPreference: "high-performance"
-    });
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    }));
+    this.renderer.setPixelRatio(modelPixelRatio());
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
 
     this.camera = new THREE.PerspectiveCamera(45, 1, 0.1, 80);
@@ -106,7 +108,7 @@ class FoundationModel {
 
     this.lastTimestamp = 0;
     this.render = this.render.bind(this);
-    this.animationFrame = requestAnimationFrame(this.render);
+    this.animationFrame = requestModelFrame(this);
   }
 
   addLights() {
@@ -629,6 +631,10 @@ class FoundationModel {
       this.visible = entry.isIntersecting;
     }, { threshold: 0.05 });
     this.intersectionObserver.observe(this.container);
+    this.cleanupObserver = new MutationObserver(() => {
+      if (!this.container.isConnected) this.destroy();
+    });
+    this.cleanupObserver.observe(document.body, { childList: true, subtree: true });
   }
 
   resize() {
@@ -656,6 +662,26 @@ class FoundationModel {
     camera.lookAt(new THREE.Vector3(0, 0, 0));
   }
 
+  destroy() {
+    if (this.destroyed) return;
+    this.destroyed = true;
+    stopModelAnimation(this);
+    cancelAnimationFrame(this.animationFrame);
+    this.resizeObserver?.disconnect();
+    this.intersectionObserver?.disconnect();
+    this.cleanupObserver?.disconnect();
+    window.removeEventListener("resize", this.handleResize);
+    this.scene?.traverse((object) => {
+      object.geometry?.dispose?.();
+      const materials = Array.isArray(object.material) ? object.material : [object.material];
+      for (const material of materials) {
+        material?.map?.dispose?.();
+        material?.dispose?.();
+      }
+    });
+    this.renderer?.dispose();
+  }
+
   render(timestamp = 0) {
     if (this.destroyed) {
       return;
@@ -673,7 +699,7 @@ class FoundationModel {
       this.renderer.render(this.scene, this.camera);
     }
 
-    this.animationFrame = requestAnimationFrame(this.render);
+    this.animationFrame = requestModelFrame(this);
   }
 }
 

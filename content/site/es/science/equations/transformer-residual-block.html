@@ -1,10 +1,10 @@
 <div class="structured-content equation-detail-page" data-structured-content>
   <section class="content-block"><h3>Bloque Residual de Transformador</h3></section>
-  <section class="content-block"><h3>Ecuación</h3><div class="equation-link-wrap"><div class="glass-window equation-display">$$ y=\operatorname{NormCapa}(x+\operatorname{Subcapa}(x)) $$</div></div></section>
-  <section class="content-block"><h3>Lectura Literal</h3><p>y es igual a NormCapa de x más Subcapa de x.</p></section>
+  <section class="content-block"><h3>Ecuación</h3><div class="equation-link-wrap"><div class="glass-window equation-display">$$ y=\operatorname{LayerNorm}(x+\operatorname{Sublayer}(x)) $$</div></div></section>
+  <section class="content-block"><h3>Lectura Literal</h3><p>y es igual a LayerNorm aplicada a la suma de x y Sublayer de x.</p></section>
   <section class="content-block"><h3>Lectura Común</h3><p>Un bloque residual suma una transformación aprendida de vuelta a la entrada para que la información y los gradientes pasen por redes profundas con mayor facilidad.</p></section>
   <section class="content-block"><h3>Símbolos</h3><p><strong>\(x\)</strong>: representación entrante.</p>
-    <p><strong>\(\operatorname{Subcapa}(x)\)</strong>: transformación de atención o red de alimentación directa.</p>
-    <p><strong>\(\operatorname{NormCapa}\)</strong>: normalización de capa que estabiliza activaciones.</p></section>
-  <section class="content-block"><h3>Significado de la Ecuación</h3><p>La conexión residual conserva la representación de entrada mientras el bloque agrega un cambio aprendido. Esto ayuda a entrenar redes profundas y evita que la información se sobrescriba demasiado fácil.</p></section>
+    <p><strong>\(\operatorname{Sublayer}(x)\)</strong>: transformación de atención o red de alimentación directa.</p>
+    <p><strong>\(\operatorname{LayerNorm}\)</strong>: normalización de capa que estabiliza activaciones.</p></section>
+  <section class="content-block"><h3>Significado de la Ecuación</h3><p>Este es un bloque residual con normalización posterior: la normalización sigue a la suma residual. Las arquitecturas con normalización previa normalizan en cambio la entrada de la subcapa. El orden mostrado es una elección arquitectónica, no una fórmula universal para todos los transformadores.</p></section>
 </div>

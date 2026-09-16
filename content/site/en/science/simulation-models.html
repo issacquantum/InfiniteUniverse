@@ -195,6 +195,7 @@
       <p><strong>What it represents:</strong> A compact computational-science lesson about approximation, error, and stability.</p>
       <p><strong>Try changing:</strong> Increase step size in Euler vs RK4, increase Monte Carlo samples, then test heat diffusion near the stability limit.</p>
     </div>
+    <p>The heat grid also multiplies each updated value by 0.996, adding uniform cooling. Even with insulated boundaries it therefore does not represent an isolated, energy-conserving diffusion system.</p>
     <figure class="numerical-methods glass-window" data-numerical-methods-model data-model-target="numerical-methods" data-language="en">
       <div class="numerical-methods__frame" data-nm-frame></div>
       <div class="numerical-methods__panel">
@@ -384,6 +385,7 @@
       and error. Without those, a beautiful visualization can become misleading. With them, simulation becomes an
       experimental partner rather than just an animation.
     </p>
+    <p><a class="paper-link" href="https://arxiv.org/abs/2405.19101" target="_blank" rel="noopener noreferrer">Poseidon: Efficient Foundation Models for PDEs (2024)</a> studies pretraining and transfer across partial differential equation tasks. Learned operators can reduce repeated solution costs in tested regimes, but extrapolation to unfamiliar geometries, boundary conditions, or physical regimes requires validation against trusted solvers and conservation laws.</p>
   </section>
 
   <section class="content-block glossary-section">

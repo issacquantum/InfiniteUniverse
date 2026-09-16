@@ -1,4 +1,5 @@
-import { bindPinchZoom, isModelPanGesture, panTargetFromPointer } from "./model-pan.js?v=20260620-covered-tabs-only-v1";
+import { deferModelInitialization, modelPixelRatio, modelRendererOptions, requestModelFrame, stopModelAnimation } from "./performance-profile.js?v=20260913-mobile-power-v1";
+import { bindPinchZoom, isModelPanGesture, panTargetFromPointer } from "./model-pan.js?v=20260913-social-dock-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
@@ -41,7 +42,7 @@ export function initAlgorithmVisualizerModels(root = document) {
     }
 
     mountedModels.add(container);
-    new AlgorithmVisualizerModel(container);
+    deferModelInitialization(container, () => new AlgorithmVisualizerModel(container));
   });
 }
 
@@ -126,19 +127,20 @@ class AlgorithmVisualizerModel {
 
   async setup() {
     const THREE = await loadThree();
+    if (!this.container.isConnected || this.destroyed) return;
     this.THREE = THREE;
 
     this.scene = new THREE.Scene();
     this.scene.background = new THREE.Color(COLORS.deep);
     this.scene.fog = new THREE.FogExp2(COLORS.deep, 0.025);
 
-    this.renderer = new THREE.WebGLRenderer({
+    this.renderer = new THREE.WebGLRenderer(modelRendererOptions({
       canvas: this.canvas,
       antialias: true,
       alpha: false,
       powerPreference: "high-performance"
-    });
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    }));
+    this.renderer.setPixelRatio(modelPixelRatio());
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
 
     this.camera = new THREE.PerspectiveCamera(45, 1, 0.1, 120);
@@ -162,7 +164,7 @@ class AlgorithmVisualizerModel {
     this.updateCamera();
 
     this.render = this.render.bind(this);
-    this.animationFrame = requestAnimationFrame(this.render);
+    this.animationFrame = requestModelFrame(this);
   }
 
   addLights() {
@@ -784,7 +786,7 @@ class AlgorithmVisualizerModel {
     }
 
     this.renderer.render(this.scene, this.camera);
-    this.animationFrame = requestAnimationFrame(this.render);
+    this.animationFrame = requestModelFrame(this);
   }
 
   animate(deltaTime) {
@@ -814,6 +816,7 @@ class AlgorithmVisualizerModel {
   }
 
   destroy() {
+    stopModelAnimation(this);
     this.destroyed = true;
 
     if (this.animationFrame !== null) {

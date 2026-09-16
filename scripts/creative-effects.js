@@ -154,14 +154,21 @@ export function decoratePhotonOutlines(root = document) {
     targets.add(target);
   });
 
+  let photonIndexOffset = 0;
+
   Array.from(targets).forEach((target, index) => {
+    // Preserve existing motion seeds after removing a preceding dock item.
+    if (target.matches('.social-dock .social-sphere[aria-label="YouTube"]')) {
+      photonIndexOffset = 1;
+    }
+    const motionIndex = index + photonIndexOffset;
     if (target.querySelector(":scope > .outline-photon-channel")) {
-      randomizePhotonMotion(target, index);
+      randomizePhotonMotion(target, motionIndex);
       return;
     }
 
     target.classList.add("has-outline-photon");
-    randomizePhotonMotion(target, index);
+    randomizePhotonMotion(target, motionIndex);
 
     const photon = document.createElement("span");
     photon.className = "outline-photon-channel";

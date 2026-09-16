@@ -62,7 +62,7 @@
       The path from theoretical puzzle to testable science began in <strong>1964</strong>, when physicist <strong>John
         Stewart Bell</strong>, working at <strong>CERN (European Organization for Nuclear Research) in Geneva, Switzerland</strong>, published what is now called
       <strong>Bell's theorem</strong>. Bell devised a mathematical framework, a set of inequalities, that could
-      distinguish between a universe governed by hidden variables and one where entanglement was genuinely nonlocal. If
+      test Bell-local hidden-variable models, assuming measurement settings are statistically independent of those variables. If
       experiments could violate Bell's inequalities, local hidden-variable explanations would be ruled out. Bell had
       transformed a philosophical argument into a testable prediction, opening the door to the experimental era of
       quantum entanglement.
@@ -80,11 +80,9 @@
       In quantum mechanics, the state of a particle is described by a <strong>wave function</strong>, a mathematical
       object that encodes all possible outcomes of a measurement and their associated probabilities. When two particles
       interact and become entangled, their individual wave functions merge into a single, unified <strong>composite wave
-        function</strong> that cannot be separated into two independent parts. This is described mathematically as a
-      <strong>superposition of joint states</strong>, meaning the system does not have a defined outcome until a
-      measurement is made, and joint statistics show correlations that cannot be explained by local hidden variables.
+        function</strong> that cannot be separated into two independent parts. For a joint pure state, entanglement means that the state is not a product of subsystem states. A mixed state is entangled when it cannot be written as a probabilistic mixture of product states. Entanglement and Bell inequality violation are distinct: not every entangled mixed state violates a Bell inequality in a given measurement scenario.
       <br><br>
-      The formal condition is that the joint state of the pair cannot be factorized into one state for particle
+      For a pure state, the formal condition is that the joint state of the pair cannot be factorized into one state for particle
       <strong>A</strong> and another for particle <strong>B</strong>:
     </p>
     <div class="equation-link-wrap">
@@ -125,8 +123,7 @@
       vertical; the singlet anticorrelation applies for any shared measurement direction.
       <br><br>
       A critical point that Schrödinger, <strong>Niels Bohr</strong>, and later <strong>John von Neumann</strong> helped
-      clarify is that entanglement does not allow for faster-than-light communication. While the correlation between
-      measurements is instantaneous, neither observer can control what outcome they will get. The results appear random
+      clarify is that entanglement does not allow for faster-than-light communication. Neither observer can control the local outcome, and spacelike-separated measurements have no frame-independent temporal order. The results appear random
       locally and only reveal their correlation when compared through classical means. This is known as the
       <strong>no-communication theorem</strong>, and it preserves the consistency of <strong>special relativity</strong>
       while still allowing the nonlocal correlations that entanglement produces.
@@ -359,7 +356,7 @@
     <p>
       The theoretical framework of quantum entanglement had existed for decades before anyone could test it in a
       laboratory. The turning point came with <strong>John Bell's</strong> 1964 theorem, which provided a precise
-      mathematical boundary: if hidden variables governed the correlations between particles, then certain statistical
+      mathematical boundary: if Bell-local hidden variables independent of the measurement settings governed the correlations between particles, then certain statistical
       measurements would never exceed a specific limit. If they did exceed it, entanglement was real and nonlocal. This
       boundary became known as the <strong>Bell inequality</strong>, and violating it became the experimental gold
       standard for confirming entanglement.
@@ -400,8 +397,7 @@
       In the following decades, experiments grew increasingly sophisticated. <strong>Anton Zeilinger</strong> and his
       group, working across institutions in <strong>Austria and Vienna</strong>, pushed entanglement into entirely new
       territory. In <strong>1997</strong>, Zeilinger's team demonstrated <strong>quantum teleportation</strong>, the
-      transfer of a quantum state from one particle to another at a distance using entanglement, without any physical
-      particle traveling between them. In <strong>1998</strong>, they performed entanglement experiments over increasing
+      transfer of a quantum state from one particle to another at a distance using pre-shared entanglement and a classical message. The original carrier is not transported, and reconstruction cannot outrun the classical message. In <strong>1998</strong>, they performed entanglement experiments over increasing
       distances, and by the 2000s, entanglement had been demonstrated across distances of several kilometers using
       optical fiber and open air.
       <br><br>
@@ -409,8 +405,7 @@
       when three independent teams, one led by <strong>Ronald Hanson</strong> at <strong>Delft University of
         Technology</strong> in the Netherlands, performed what are now called <strong>loophole-free Bell tests</strong>.
       These experiments closed the detection loophole and the locality loophole at the same time, leaving no credible
-      classical explanation for the observed correlations. The results were unambiguous: entanglement is real, it is
-      nonlocal, and it cannot be explained by any local hidden-variable theory.
+      classical explanation for the observed correlations. The results were unambiguous: the observed correlations violate Bell-local bounds under the stated statistical and experimental assumptions.
       <br><br>
       In <strong>2022</strong>, the Nobel Prize in Physics was awarded jointly to <strong>Alain Aspect</strong>,
       <strong>John Clauser</strong>, and <strong>Anton Zeilinger</strong> for their experimental work on entangled
@@ -451,6 +446,7 @@
       joint statistics, not local usable randomness. The educational goal is to make both facts visible at once: strong
       nonclassical correlation and no signal.
     </p>
+    <p><a class="paper-link" href="https://www.nature.com/articles/s41566-026-01911-5" target="_blank" rel="noopener noreferrer">A metropolitan-scale multiplexed quantum repeater with Bell non-locality (2026)</a> reports a repeater experiment with metropolitan-scale links and Bell-nonlocal correlations. This is progress toward networked entanglement, not a general-purpose quantum internet or faster-than-light communication.</p>
   </section>
 
   <section class="content-block glossary-section">

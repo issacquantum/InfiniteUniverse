@@ -68,10 +68,7 @@
       sits at one of two poles, a pure <strong>qubit</strong> state lies on the surface of the Bloch sphere; mixed one-qubit
       states lie inside the sphere.
     </p>
-    <p>
-      The physical nature of information is sharpened by <strong>Landauer's principle</strong>, which states that the
-      irreversible erasure of one bit of information must dissipate at least
-    </p>
+    <p>For an initially unbiased, uncorrelated classical bit, <strong>Landauer’s principle</strong> gives the ideal minimum heat released to a thermal reservoir during a reset:</p>
     <div class="equation-link-wrap">
       <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
         data-branch-id="quantum-information-equations" data-item-id="landauer-principle"
@@ -96,9 +93,7 @@
     <p>
       A <strong>classical bit</strong> is described by a value, either \(0\) or \(1\), or by a probability distribution over those
       values.
-      A <strong>qubit</strong> is different. Before measurement, it is described by <strong>complex amplitudes</strong>. The probabilities appear only
-      when a
-      measurement is chosen and performed.
+      A <strong>qubit</strong> is different. Before measurement, it is described by <strong>complex amplitudes</strong>. For a specified measurement, the Born rule assigns outcome probabilities before the measurement is performed.
     </p>
     <p>
       That difference is not cosmetic. The <strong>relative phase</strong> between amplitudes can change later interference, even when
@@ -353,7 +348,7 @@
     </div>
     <p>
       In the model, the wire sphere marks pure one-<strong>qubit</strong> states, the blob is the <strong>density matrix</strong>, the arrow is the Bloch
-      vector when the state is coherent, and the entropy graph records information lost to noise over time.
+      vector when the state is coherent, and the entropy graph records the state’s von Neumann entropy over time. That entropy can increase or decrease, particularly during relaxation toward a pure ground state; it is not a cumulative measure of information lost.
       It is a simplified artistic/physics visualizer of one-<strong>qubit</strong> density matrices and decoherence, not a full quantum
       communication simulator.
     </p>
@@ -522,16 +517,13 @@
       information is therefore not just about having more possibilities. It is about knowing which possibilities can
       actually become usable information.
     </p>
-    <p>
-      The <strong>Holevo, Schumacher, and Westmoreland (HSW (Holevo-Schumacher-Westmoreland)) theorem</strong> turns this bound into the actual classical
-      capacity of a memoryless quantum channel:
-    </p>
+    <p>The <strong>Holevo–Schumacher–Westmoreland (HSW) theorem</strong> gives the asymptotic classical capacity of a memoryless quantum channel when codewords use product input states, with collective output measurements allowed. The single-letter quantity below is denoted \(C^{(1)}\); unrestricted classical capacity requires regularization over multiple channel uses and can be larger.</p>
     <div class="equation-link-wrap">
       <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
         data-branch-id="quantum-information-equations" data-item-id="hsw-capacity-and-coherent-information"
         aria-label="Open explanation for HSW, Holevo-Schumacher-Westmoreland, capacity and coherent information">
         $$
-        C(\mathcal{E}) = \max_{\{p_x, \rho_x\}} \chi(\mathcal{E})
+        C^{(1)}(\mathcal{E}) = \max_{\{p_x, \rho_x\}} \chi(\{p_x,\mathcal{E}(\rho_x)\})
         $$
         $$
         I_c(\rho, \mathcal{E}) =

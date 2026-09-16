@@ -17,7 +17,7 @@
       experiencia de primera persona.
     </p>
     <p>
-      <strong>Fecha de estado:</strong> 30 de mayo de 2026. Los sistemas de IA, los resultados de pruebas, el
+      <strong>Fecha de estado:</strong> 15 de septiembre de 2026. Los sistemas de IA, los resultados de pruebas, el
       comportamiento de productos y las prácticas de despliegue cambian rápido, así que las afirmaciones sobre capacidad
       actual deben leerse como afirmaciones fechadas, no permanentes.
     </p>
@@ -138,7 +138,7 @@
       </button>
     </div>
     <p>
-      <strong>Los modelos de lenguaje</strong> suelen entrenarse con predicción de la siguiente unidad léxica:
+      <strong>Los modelos de lenguaje</strong> suelen entrenarse con predicción del siguiente token:
     </p>
     <div class="equation-link-wrap">
       <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
@@ -179,7 +179,7 @@
       imágenes, puntuaciones de riesgo o respuestas correctas. <strong>Aprendizaje no supervisado</strong> busca
       estructura sin etiquetas, como grupos, dimensiones latentes o representaciones comprimidas.
       <strong>Aprendizaje autosupervisado</strong> crea su propio objetivo desde los datos, como predecir palabras
-      faltantes, parches enmascarados o la siguiente unidad léxica.
+      faltantes, parches enmascarados o el siguiente token.
     </p>
     <p>
       <strong>Aprendizaje profundo</strong> usa muchas capas de transformaciones aprendidas. Las capas tempranas pueden detectar
@@ -193,7 +193,7 @@
     </p>
     <p>
       <strong>Transformadores</strong> son arquitecturas de aprendizaje profundo construidas alrededor de la atención. Son
-      especialmente potentes para secuencias porque cada unidad léxica puede compararse con otras unidades del contexto.
+      especialmente potentes para secuencias porque cada token puede compararse con otras unidades del contexto.
       <strong>Atención</strong> es el mecanismo que decide qué partes del contexto importan más para la siguiente
       actualización interna.
     </p>
@@ -212,9 +212,9 @@
 
   <section class="content-block">
     <h3>Transformadores</h3>
+    <p>Un token es una unidad producida por un tokenizador; puede ser una palabra, un fragmento de palabra, un signo de puntuación u otra unidad codificada.</p>
     <p>
-      Los transformadores cambiaron la IA moderna porque hicieron escalable el <strong>modelado de secuencias</strong>. Las unidades
-      léxicas se convierten en representaciones vectoriales, se agrega información de posición, la atención mezcla
+      Los transformadores cambiaron la IA moderna porque hicieron escalable el <strong>modelado de secuencias</strong>. Los tokens se convierten en representaciones vectoriales, se agrega información de posición, la atención mezcla
       información a través del contexto, los bloques de alimentación directa transforman cada unidad y las rutas
       residuales mantienen entrenables las redes profundas.
     </p>
@@ -226,7 +226,7 @@
         data-branch-id="artificial-intelligence-equations" data-item-id="scaled-dot-product-attention"
         aria-label="Abrir explicación para atención de producto punto escalado">
         $$
-        \operatorname{Atencion}(Q,K,V)=\operatorname{normaliza}_{\exp}\!\left(\frac{QK^T}{\sqrt{d_k}}\right)V
+        \operatorname{Attention}(Q,K,V)=\operatorname{softmax}\!\left(\frac{QK^T}{\sqrt{d_k}}\right)V
         $$
       </button>
     </div>
@@ -238,7 +238,7 @@
         data-branch-id="artificial-intelligence-equations" data-item-id="transformer-residual-block"
         aria-label="Abrir explicación para bloques residuales de transformador">
         $$
-        y=\operatorname{NormCapa}(x+\operatorname{Subcapa}(x))
+        y=\operatorname{LayerNorm}(x+\operatorname{Sublayer}(x))
         $$
       </button>
     </div>
@@ -248,7 +248,7 @@
     <h3>IA generativa</h3>
     <p>
       Los modelos generativos no solo recuperan respuestas terminadas. Generan muestras nuevas desde estructura de
-      probabilidad aprendida. <strong>Los modelos de lenguaje</strong> generan secuencias de unidades léxicas. <strong>Los modelos de difusión</strong> aprenden a
+      probabilidad aprendida. <strong>Los modelos de lenguaje</strong> generan secuencias de tokens. <strong>Los modelos de difusión</strong> aprenden a
       moverse desde ruido hacia estructura. <strong>Los modelos multimodales</strong> conectan texto, imágenes, audio, video y acciones
       en representaciones compartidas.
     </p>
@@ -398,18 +398,18 @@
     <h3>Modelo de arquitectura neuronal</h3>
     <p>
       Este modelo conecta las ideas principales directamente: las <strong>capas</strong> mueven activaciones por
-      conexiones ponderadas, la <strong>atención</strong> vuelve visibles las relaciones entre unidades léxicas, y el
+      conexiones ponderadas, la <strong>atención</strong> vuelve visibles las relaciones entre tokens, y el
       <strong>descenso de gradiente</strong> muestra cómo la optimización sigue una superficie de pérdida.
     </p>
     <p>
       <strong>Flujo de red</strong> muestra capas ponderadas y pulsos de activación. <strong>Mapa de atención</strong>
       muestra una matriz de atención multicabeza escalada \(QK^T/\sqrt{d_k}\), donde las barras más altas indican mayor
-      influencia entre unidades léxicas. <strong>Paisaje de gradiente</strong> muestra un optimizador siguiendo la pendiente local
+      influencia entre tokens. <strong>Paisaje de gradiente</strong> muestra un optimizador siguiendo la pendiente local
       de una superficie de pérdida no convexa.
     </p>
     <div class="model-teaching-card" aria-label="Notas educativas del modelo de arquitectura neuronal">
       <p><strong>Tipo de modelo:</strong> Modelo conceptual.</p>
-      <p><strong>Qué muestra:</strong> Tres lecciones separadas: flujo de activaciones, relaciones de atención y movimiento de optimización sobre una pérdida.</p>
+      <p><strong>Qué muestra:</strong> Tres lecciones separadas: flujo de activaciones, relaciones de atención y optimización sobre una superficie de pérdida.</p>
       <p><strong>Qué no muestra:</strong> Un modelo de lenguaje real, entrenamiento real a gran escala o comprensión humana.</p>
       <p><strong>Ecuación / principio:</strong> Atención escalada \(\operatorname{softmax}(QK^T/\sqrt{d_k})V\) y descenso de gradiente.</p>
       <p><strong>Qué representa:</strong> Un mapa guiado de mecanismos de IA, separado en lecciones para no confundir atención, activaciones y optimización.</p>
@@ -457,7 +457,7 @@
               <input class="neural-architect__range" type="range" min="1" max="8" step="1" value="4"
                 data-na-param="attentionHeads">
               <label class="neural-architect__label">
-                Temperatura de normalización exponencial <span class="neural-architect__value" data-na-display="attentionTemperature">1.00</span>
+                Temperatura de softmax <span class="neural-architect__value" data-na-display="attentionTemperature">1.00</span>
               </label>
               <input class="neural-architect__range" type="range" min="0.4" max="2" step="0.05" value="1"
                 data-na-param="attentionTemperature">
@@ -568,16 +568,18 @@
       para agentes autónomos. Esta sección trata la IA como campo matemático y de ingeniería, no como magia inteligente
       ni como prueba de conciencia.
     </p>
+    <p>El entrenamiento posterior con recompensas verificables y la búsqueda adicional durante la inferencia han mejorado de forma importante el desempeño en algunas tareas matemáticas y de programación. <a class="paper-link" href="https://www.nature.com/articles/s41586-025-09422-z" target="_blank" rel="noopener noreferrer">DeepSeek-R1 incentivizes reasoning in LLMs through reinforcement learning (2025)</a> documenta uno de estos enfoques. <a class="paper-link" href="https://www.nature.com/articles/s41586-025-09833-y" target="_blank" rel="noopener noreferrer">Olympiad-level formal mathematical reasoning with reinforcement learning (2025)</a> muestra el valor de combinar la búsqueda aprendida de demostraciones con un verificador formal. El sistema aprendido propone pasos; el verificador establece su validez respecto del enunciado formal y sus hipótesis. Ninguno de estos resultados establece una capacidad de razonamiento confiable sin restricciones.</p>
+    <p>Un sistema autónomo que usa herramientas combina un modelo con herramientas, estado almacenado, retroalimentación y un ciclo de ejecución. Su desempeño depende de toda esa configuración, de los permisos y del tiempo o cómputo disponible. Una ventana de contexto extensa no garantiza el aprovechamiento de toda la información suministrada. Las evaluaciones deben distinguir el avance parcial de las tareas concluidas, informar los controles de contaminación y los recursos utilizados, y usar tareas nuevas cuando una prueba se satura. <a class="paper-link" href="https://arxiv.org/abs/2606.29537" target="_blank" rel="noopener noreferrer">OSWorld 2 (prepublicación de junio de 2026)</a> estudia el uso de computadoras en tareas prolongadas; sus resultados se limitan al entorno evaluado. Las evaluaciones de interpretabilidad y alineación aportan evidencia sobre el comportamiento examinado, no una certificación general de seguridad o corrección.</p>
   </section>
 
   <section class="content-block glossary-section">
     <h3>Glosario de Términos Técnicos</h3>
     <ul class="paper-list glossary-list">
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Representación vectorial:</strong> Una representación numérica aprendida de una unidad léxica, parche de imagen, objeto o concepto dentro de un espacio vectorial.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Representación vectorial:</strong> Una representación numérica aprendida de un token, parche de imagen, objeto o concepto dentro de un espacio vectorial.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Dimensión latente:</strong> Una coordenada oculta en la representación interna de un modelo, a menudo no interpretable por sí sola.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Ruta residual:</strong> Una conexión de atajo que permite que la información rodee una capa y facilita entrenar redes muy profundas.</span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Bloque de alimentación directa:</strong> La subred neuronal por unidad léxica dentro de una capa de transformador, separada de la operación de atención.</span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Temperatura de normalización exponencial:</strong> Un valor de escala que vuelve una distribución de probabilidad más concentrada o más plana antes de muestrear o visualizar.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Bloque de alimentación directa:</strong> La subred neuronal por token dentro de una capa de transformador, separada de la operación de atención.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Temperatura de softmax:</strong> Un valor de escala que vuelve una distribución de probabilidad más concentrada o más plana antes de muestrear o visualizar.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Tarjeta de modelo:</strong> Documento estructurado que describe uso previsto, resultados de evaluación, límites, riesgos y usos inadecuados de un modelo.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Tarjeta de datos:</strong> Documento estructurado que describe origen, recolección, filtrado, ausencias de representación, límites de actualización y uso responsable de un conjunto de datos.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Calibración:</strong> Acuerdo entre la confianza declarada y la frecuencia real de aciertos en muchos casos comparables.</span></li>
@@ -595,7 +597,7 @@
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>QK:</strong> consulta-clave.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>DOI:</strong> identificador digital de objeto.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>CVF:</strong> Computer Vision Foundation, Fundación de Visión por Computadora.</span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>BERT:</strong> representaciones de codificador bidireccional de transformadores.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>BERT:</strong> representaciones bidireccionales de codificadores basados en transformadores.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>ACM:</strong> Association for Computing Machinery, Asociación de Maquinaria Computacional.</span></li>
     </ul>
   </section>

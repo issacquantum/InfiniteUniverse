@@ -7,11 +7,11 @@
         $$
       </div>
     </div></section>
-  <section class="content-block"><h3>Literal Reading</h3><p>C equals log q minus H sub q of p.</p></section>
+  <section class="content-block"><h3>Literal Reading</h3><p>C equals the base-two logarithm of q, plus one minus p times the base-two logarithm of one minus p, plus p times the base-two logarithm of p divided by q minus one.</p></section>
   <section class="content-block"><h3>Common Reading</h3><p>The maximum reliable information rate for a q-ary symmetric noisy channel.</p></section>
   <section class="content-block"><h3>Symbols</h3><p><strong>\(C\)</strong>: channel capacity in bits per channel use.</p>
     <p><strong>\(q\)</strong>: alphabet size, meaning the number of possible symbols the channel can send.</p>
     <p><strong>\(p\)</strong>: total symbol error probability, meaning the chance that the received symbol is not the one sent.</p>
     <p><strong>\(\log_2\)</strong>: logarithm base 2, so the result is measured in bits.</p></section>
-  <section class="content-block"><h3>Meaning of the Equation</h3><p>The capacity falls as symbol errors become more likely and depends on how many symbols the alphabet has. It is measured in bits per channel use.</p></section>
+  <section class="content-block"><h3>Meaning of the Equation</h3><p>For \(q\ge2\) and \(0\le p\le1\), with \(0\log 0=0\), capacity decreases to zero at \(p=(q-1)/q\), where the output is independent of the input. It increases again above that point because systematic exclusion of the sent symbol carries information. It is therefore not decreasing over the entire probability interval.</p></section>
 </div>

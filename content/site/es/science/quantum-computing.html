@@ -6,7 +6,7 @@
       término para describir la unidad discreta más pequeña de energía que podía ser emitida o absorbida, un "paquete"
       fundamental de energía que llamó <strong>Energieelement</strong>, posteriormente formalizado como
       <strong>quantum</strong>. El plural, <strong>quanta</strong>, se convirtió en un pilar del marco teórico que
-      eventualmente se conocería como <strong>mecánica cuántica</strong>.
+      más adelante se conocería como <strong>mecánica cuántica</strong>.
     </p>
     <p>La palabra <strong>computación</strong> tiene su origen en el verbo en latín <strong>computare</strong>, formado
       por <strong>com-</strong> ("junto") y <strong>putare</strong> ("calcular, ajustar, podar"). En su sentido
@@ -254,7 +254,7 @@
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Qubit lógico:</strong> Un qubit protegido contra errores y codificado sobre muchos qubits físicos.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Umbral de tolerancia a fallos:</strong> La tasa de error físico por debajo de la cual la corrección de errores puede suprimir errores lógicos añadiendo suficiente costo adicional.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Muestreo de bosones:</strong> Una tarea fotónica restringida usada para probar dispositivos cuánticos, no un modelo general de computación.</span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Modo de Majorana:</strong> Una excitación especial tipo cuasipartícula perseguida en algunas propuestas de computación cuántica topológica.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Modo de Majorana:</strong> Una excitación especial tipo cuasipartícula que se busca en algunas propuestas de computación cuántica topológica.</span></li>
     </ul>
 
     <h3>El Punto Fino: Preparación de Estados</h3>
@@ -459,6 +459,7 @@
         $$
       </button>
     </div>
+    <p>Esta exponencial supone un Hamiltoniano independiente del tiempo. La evolución general dependiente del tiempo requiere ordenamiento temporal.</p>
     <p>
       y también determina el estado de equilibrio térmico del sistema. <strong>Explicación de la ecuación:</strong> \(U(t)\) es el operador de
       evolución temporal, \(H\) es el Hamiltoniano, \(t\) es el tiempo transcurrido, y \(\hbar\) es la constante de
@@ -521,7 +522,7 @@
     <p>
       con tiempo lineal en el tamaño de muestra por el tamaño del sistema dentro de su marco. <strong>Explicación de la ecuación:</strong> \(S\) es el número de
       muestras, \(N\) es el parámetro de tamaño del sistema, y \(\varepsilon\) es la precisión deseada; la fórmula dice
-      que una precisión más estricta o una temperatura efectiva más baja exige más muestras. Trabajo posterior de
+      que una precisión más estricta o una temperatura mayor (menor temperatura inversa beta) exige más muestras dentro del régimen de alta temperatura del teorema. Trabajo posterior de
       Bakshi, Liu, Moitra y Tang extendieron el aprendizaje de Hamiltonianos desde estados de Gibbs a cualquier temperatura
       constante en tiempo polinomial. Una línea relacionada de 2024 mostró que los estados de Gibbs de alta temperatura
       de Hamiltonianos locales de grado limitado se vuelven separables por encima de un umbral constante de temperatura y
@@ -632,8 +633,7 @@
       sobre todo, el <strong>código de superficie</strong>, que ofrece umbrales de error tolerables y una geometría
       compatible con chips planares. Los <strong>teoremas de tolerancia a fallos</strong> garantizan que, por debajo de
       cierto umbral de error físico, la fidelidad puede amplificarse de manera arbitraria a costa de un fuerte
-      sobrecoste en qubits, lo que explica por qué los procesadores tolerantes a fallos requerirán <strong>millones de
-        qubits físicos</strong> para soportar unos pocos miles de <strong>qubits lógicos</strong> útiles.
+      sobrecoste en qubits, aunque los recursos necesarios dependen del código, la arquitectura, las tasas de error físico y el cálculo buscado. Algunas estimaciones llegan a millones de qubits físicos; no es un requisito universal.
     </p>
 
     <h3>Enfoques de Implementación Física</h3>
@@ -651,8 +651,7 @@
       de operaciones más lentas. Los <strong>procesadores fotónicos</strong>, desarrollados por <strong><a
           class="platform-link" href="https://www.psiquantum.com/" target="_blank"
           rel="noopener noreferrer">PsiQuantum</a> y <a class="platform-link" href="https://www.xanadu.ai/"
-          target="_blank" rel="noopener noreferrer">Xanadu</a></strong>, aprovechan estados de la luz para transmitir y procesar información, con la ventaja natural
-      de operar a temperatura ambiente y de integrarse con redes de comunicación cuántica. Los <strong>enfoques
+          target="_blank" rel="noopener noreferrer">Xanadu</a></strong>, aprovechan estados de la luz para transmitir y procesar información, con una conexión natural con las redes de comunicación cuántica. Algunos componentes ópticos operan a temperatura ambiente, pero los detectores de alto rendimiento pueden requerir enfriamiento criogénico. Los <strong>enfoques
         topológicos</strong>, explorados por <strong><a class="platform-link" href="https://quantum.microsoft.com/"
           target="_blank" rel="noopener noreferrer">Microsoft</a></strong> a través de los <strong>modos de
         Majorana</strong>, persiguen qubits intrínsecamente protegidos contra el ruido por la topología del sistema,
@@ -663,21 +662,16 @@
     </p>
 
     <h3>Estado actual y limitaciones</h3>
-    <p>El estado actual del campo se sitúa en lo que John Preskill denominó la <strong>era NISQ (cuántica ruidosa de escala intermedia)</strong>,
-      caracterizada por dispositivos ruidosos de escala intermedia con decenas a unos pocos
-      miles de qubits físicos sin corrección de errores. Hitos como la <strong>"supremacía cuántica"</strong> anunciada
+    <p>Al 15 de septiembre de 2026, los dispositivos de la categoría <strong>NISQ (cuántica ruidosa de escala intermedia)</strong>, denominada así por John Preskill, coexisten con procesadores lógicos experimentales y corrección repetida de errores cuánticos. El número de qubits físicos por sí solo no mide la capacidad útil de cálculo. Hitos como la <strong>"supremacía cuántica"</strong> anunciada
       por <a class="platform-link" href="https://quantumai.google/" target="_blank"
         rel="noopener noreferrer">Google</a> en 2019 con el <strong><a class="platform-link"
           href="https://research.google/pubs/quantum-supremacy-using-a-programmable-superconducting-processor/"
           target="_blank" rel="noopener noreferrer">procesador Sycamore</a></strong>, o avances posteriores en muestreo de bosones y
-      tareas de referencia muy delimitadas, han demostrado que ciertas tareas estrechamente diseñadas ya superan a los
-      supercomputadores clásicos, pero todavía no existe una <strong>"ventaja cuántica"</strong> útil y reproducible
-      para problemas industriales relevantes. Las limitaciones actuales incluyen la <strong>conectividad restringida
+      tareas de referencia muy delimitadas, reportan ventajas en tareas específicas frente a métodos clásicos determinados. Nuevos algoritmos clásicos pueden cambiar esas comparaciones; una ventaja en una prueba de referencia no establece una utilidad industrial general. Las limitaciones actuales incluyen la <strong>conectividad restringida
         entre qubits</strong>, la profundidad máxima de los circuitos antes de que el ruido domine, el cuello de
       botella de la lectura clásica, los costos criogénicos y de control, y la escasez de herramientas de software maduras.
       Aun así, la madurez creciente de las plataformas en la nube, la estandarización de lenguajes como
-      <strong><a class="platform-link" href="https://www.ibm.com/quantum/qiskit" target="_blank" rel="noopener noreferrer">Qiskit</a>, <a class="platform-link" href="https://quantumai.google/cirq" target="_blank" rel="noopener noreferrer">Cirq</a> y <a class="platform-link" href="https://pennylane.ai/" target="_blank" rel="noopener noreferrer">PennyLane</a></strong>, y los avances sostenidos en fidelidad y número de qubits sugieren un
-      camino verosímil hacia <strong>procesadores tolerantes a fallos</strong> en la próxima década.
+      <strong><a class="platform-link" href="https://www.ibm.com/quantum/qiskit" target="_blank" rel="noopener noreferrer">Qiskit</a>, <a class="platform-link" href="https://quantumai.google/cirq" target="_blank" rel="noopener noreferrer">Cirq</a> y <a class="platform-link" href="https://pennylane.ai/" target="_blank" rel="noopener noreferrer">PennyLane</a></strong>, y los avances sostenidos en fidelidad y número de qubits apoyan el desarrollo de <strong>procesadores tolerantes a fallos</strong>, sin establecer una fecha confiable para aplicaciones prácticas a gran escala.
     </p>
     <p>La distancia entre la prueba de principio y un despliegue práctico amplio sigue siendo, por tanto, considerable.
       Las máquinas actuales son valiosas porque permiten aprender cómo se comporta el control cuántico fuera de las
@@ -728,6 +722,7 @@
       motivaciones importantes, pero toda afirmación depende de ruido, carga de datos, supuestos de acceso y costo total
       de recursos.
     </p>
+    <p>Los experimentos ya examinan si aumentar la distancia del código reduce los errores lógicos, en lugar de limitarse a añadir qubits físicos. <a class="paper-link" href="https://www.nature.com/articles/s41586-024-08449-y" target="_blank" rel="noopener noreferrer">Quantum error correction below the surface code threshold</a> (publicado en línea en 2024) demostró una memoria de código de superficie por debajo del umbral. <a class="paper-link" href="https://www.nature.com/articles/s41586-025-09848-5" target="_blank" rel="noopener noreferrer">A fault-tolerant neutral-atom architecture for universal quantum computation</a> (publicado en línea en 2025) presentó elementos de una arquitectura escalable de átomos neutros, entre ellos corrección de errores y operaciones lógicas. Son avances experimentales hacia la tolerancia a fallos, no pruebas de que ya puedan ejecutarse cálculos arbitrarios de gran escala de manera confiable.</p>
   </section>
 
 <section class="content-block source-papers">

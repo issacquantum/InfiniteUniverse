@@ -1,6 +1,7 @@
-import { buildDensityCloud, buildCurrentCloud, advanceCurrentCloud, SCALE } from "./orbital-math.js?v=20260620-covered-tabs-only-v1";
-import { OrbitalRenderer } from "./orbital-renderer.js?v=20260620-covered-tabs-only-v1";
-import { OrbitalCamera } from "./orbital-camera.js?v=20260620-covered-tabs-only-v1";
+import { deferModelInitialization, isMobilePerformance, modelPixelRatio, modelRendererOptions, requestModelFrame, stopModelAnimation } from "./performance-profile.js?v=20260913-mobile-power-v1";
+import { buildDensityCloud, buildCurrentCloud, advanceCurrentCloud, SCALE } from "./orbital-math.js?v=20260913-social-dock-v1";
+import { OrbitalRenderer } from "./orbital-renderer.js?v=20260913-social-dock-v1";
+import { OrbitalCamera } from "./orbital-camera.js?v=20260913-social-dock-v1";
 
 const MOUNTED = new WeakSet();
 
@@ -83,12 +84,12 @@ async function mountModel(host) {
   }
   hint.textContent = getHintCopy(language);
 
-  const gl = canvas.getContext("webgl2", {
+  const gl = canvas.getContext("webgl2", modelRendererOptions({
     alpha: false,
     antialias: false,
     powerPreference: "high-performance",
     preserveDrawingBuffer: false
-  });
+  }));
 
   if (!gl) {
     frame.innerHTML = `<p class="content-placeholder">${getFallbackCopy(language)}</p>`;
@@ -98,13 +99,17 @@ async function mountModel(host) {
   const lowPower = isLowPowerDevice();
   const densityCount = lowPower ? 28000 : 64000;
   const currentCount = 0;
-  const dpr = Math.min(window.devicePixelRatio || 1, lowPower ? 1.5 : 2.0);
+  const dpr = modelPixelRatio(lowPower ? 1.5 : 2.0);
 
   const [vertexSource, fragmentSource] = await Promise.all([
     fetchShader(new URL("../shaders/orbital.vert.glsl", import.meta.url)),
-    fetchShader(new URL("../shaders/orbital.frag.glsl?v=20260620-covered-tabs-only-v1", import.meta.url))
+    fetchShader(new URL("../shaders/orbital.frag.glsl?v=20260913-social-dock-v1", import.meta.url))
   ]);
 
+  if (!host.isConnected) {
+    gl.getExtension("WEBGL_lose_context")?.loseContext();
+    return;
+  }
   const renderer = new OrbitalRenderer(canvas, gl);
   renderer.buildProgram(vertexSource, fragmentSource);
   renderer.setDensityCloud(buildDensityCloud(densityCount, 7));
@@ -158,7 +163,7 @@ async function mountModel(host) {
       return;
     }
 
-    frameId = requestAnimationFrame(renderFrame);
+    frameId = isMobilePerformance() ? requestModelFrame(mobileModel) : requestAnimationFrame(renderFrame);
     const deltaTime = lastTime === null ? 0.016 : Math.min((timestamp - lastTime) / 1000, 0.05);
     lastTime = timestamp;
 
@@ -183,7 +188,7 @@ async function mountModel(host) {
 
     running = true;
     lastTime = null;
-    frameId = requestAnimationFrame(renderFrame);
+    frameId = isMobilePerformance() ? requestModelFrame(mobileModel) : requestAnimationFrame(renderFrame);
   }
 
   function stop() {
@@ -194,6 +199,15 @@ async function mountModel(host) {
     }
   }
 
+  const mobileModel = { container: host, canvas, render: renderFrame, destroyed: false, destroy() {
+    if (this.destroyed) return;
+    this.destroyed = true;
+    stop();
+    stopModelAnimation(mobileModel);
+    renderer.destroy();
+    clearTimeout(camera.idleTimer);
+  } };
+
   const visibilityObserver = new IntersectionObserver((entries) => {
     if (entries[0]?.isIntersecting) {
       start();
@@ -202,13 +216,14 @@ async function mountModel(host) {
     }
   }, { threshold: 0.12 });
 
-  visibilityObserver.observe(host);
+  if (isMobilePerformance()) start();
+  else visibilityObserver.observe(host);
 
   const cleanupObserver = new MutationObserver(() => {
     if (!document.contains(host)) {
       stop();
       visibilityObserver.disconnect();
-      renderer.destroy();
+      mobileModel.destroy();
       cleanupObserver.disconnect();
     }
   });
@@ -218,9 +233,9 @@ async function mountModel(host) {
 
 export function initQuantumModels(root = document) {
   root.querySelectorAll("[data-quantum-model]").forEach((host) => {
-    mountModel(host).catch(() => {
+    deferModelInitialization(host, () => mountModel(host).catch(() => {
       const frame = host.querySelector(".quantum-model__frame") ?? host;
       frame.innerHTML = `<p class="content-placeholder">${getFallbackCopy(getLanguage(host))}</p>`;
-    });
+    }));
   });
 }
