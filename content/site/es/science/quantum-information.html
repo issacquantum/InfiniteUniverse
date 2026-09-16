@@ -69,10 +69,7 @@
       que se sitúa en uno de dos polos, un estado puro de <strong>qubit</strong> está en la superficie de la esfera de Bloch;
       los estados mixtos de un qubit están dentro de la esfera.
     </p>
-    <p>
-      El carácter físico de la información se vuelve más nítido con el <strong>principio de Landauer</strong>, que
-      afirma que el borrado irreversible de un bit de información debe disipar al menos
-    </p>
+    <p>Para un bit clásico inicialmente equiprobable y sin correlaciones, el <strong>principio de Landauer</strong> da el calor mínimo ideal liberado a un depósito térmico durante su restablecimiento:</p>
     <div class="equation-link-wrap">
       <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
         data-branch-id="quantum-information-equations" data-item-id="landauer-principle"
@@ -99,8 +96,7 @@
     <p>
       Un <strong>bit clásico</strong> se describe mediante un valor, \(0\) o \(1\), o mediante una distribución de probabilidad sobre
       esos
-      valores. Un <strong>qubit</strong> es distinto. Antes de la medición, se describe mediante <strong>amplitudes complejas</strong>. Las probabilidades
-      aparecen solo cuando se elige y se realiza una medición.
+      valores. Un <strong>qubit</strong> es distinto. Antes de la medición, se describe mediante <strong>amplitudes complejas</strong>. Para una medición especificada, la regla de Born asigna probabilidades a los resultados antes de realizarla.
     </p>
     <p>
       Esa diferencia no es cosmética. La <strong>fase relativa</strong> entre amplitudes puede cambiar la interferencia posterior,
@@ -364,8 +360,7 @@
     </div>
     <p>
       En el modelo, la esfera de alambre marca los estados puros de un <strong>qubit</strong>, la nube es la <strong>matriz de densidad</strong>, la
-      flecha es el vector de Bloch cuando hay coherencia, y la gráfica de entropía registra la información perdida por
-      ruido con el paso del tiempo. Es un visualizador artístico/físico simplificado de matrices de densidad de un <strong>qubit</strong>
+      flecha es el vector de Bloch cuando hay coherencia, y la gráfica de entropía registra la entropía de von Neumann del estado a lo largo del tiempo. Puede aumentar o disminuir, en particular durante la relajación hacia un estado fundamental puro; no mide una pérdida acumulada de información. Es un visualizador artístico/físico simplificado de matrices de densidad de un <strong>qubit</strong>
       y
       decoherencia, no un simulador completo de comunicación cuántica.
     </p>
@@ -533,16 +528,13 @@
       como datos clásicos. La información cuántica no consiste solo en tener más posibilidades. Consiste en saber cuáles
       posibilidades pueden convertirse realmente en información utilizable.
     </p>
-    <p>
-      El <strong>teorema de Holevo, Schumacher y Westmoreland (HSW (Holevo-Schumacher-Westmoreland))</strong> convierte ese límite en la capacidad clásica
-      real de un canal cuántico sin memoria:
-    </p>
+    <p>El <strong>teorema de Holevo–Schumacher–Westmoreland (HSW)</strong> da la capacidad clásica asintótica de un canal cuántico sin memoria cuando las palabras de código usan estados de entrada producto y se permiten mediciones colectivas de las salidas. La cantidad de una sola letra que aparece abajo se denota \(C^{(1)}\); la capacidad clásica sin esa restricción requiere regularizar sobre múltiples usos del canal y puede ser mayor.</p>
     <div class="equation-link-wrap">
       <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
         data-branch-id="quantum-information-equations" data-item-id="hsw-capacity-and-coherent-information"
         aria-label="Abrir explicación para la capacidad HSW, Holevo-Schumacher-Westmoreland, y la información coherente">
         $$
-        C(\mathcal{E}) = \max_{\{p_x, \rho_x\}} \chi(\mathcal{E})
+        C^{(1)}(\mathcal{E}) = \max_{\{p_x, \rho_x\}} \chi(\{p_x,\mathcal{E}(\rho_x)\})
         $$
         $$
         I_c(\rho, \mathcal{E}) =

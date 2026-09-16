@@ -2,9 +2,9 @@
   <section class="content-block"><h3>Hoare Triple</h3></section>
   <section class="content-block"><h3>Equation</h3><div class="equation-link-wrap"><div class="glass-window equation-display">$$ \{P\}\;C\;\{Q\} $$</div></div></section>
   <section class="content-block"><h3>Literal Reading</h3><p>open brace P close brace C open brace Q close brace.</p></section>
-  <section class="content-block"><h3>Common Reading</h3><p>A conservation statement for program meaning: the code must transform allowed starting states into guaranteed final states.</p></section>
+  <section class="content-block"><h3>Common Reading</h3><p>If the precondition holds and the command terminates, the postcondition holds.</p></section>
   <section class="content-block"><h3>Symbols</h3><p><strong>\(P\)</strong>: precondition, what must be true before execution.</p>
     <p><strong>\(C\)</strong>: command or program fragment.</p>
     <p><strong>\(Q\)</strong>: postcondition, what must be true afterward.</p></section>
-  <section class="content-block"><h3>Meaning of the Equation</h3><p>The triple is a logic contract for code correctness. It proves that every allowed start state leads to the promised end state, not merely that tests happened to pass.</p></section>
+  <section class="content-block"><h3>Meaning of the Equation</h3><p>Under the usual partial-correctness interpretation, the triple asserts that execution from a state satisfying P, if it terminates, yields a state satisfying Q. The assertion needs a proof; writing it does not prove it. Total correctness additionally requires termination.</p></section>
 </div>

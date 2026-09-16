@@ -1,8 +1,8 @@
 <div class="structured-content equation-detail-page" data-structured-content>
   <section class="content-block"><h3>Adam Optimizer Update</h3></section>
   <section class="content-block"><h3>Equation</h3><div class="equation-link-wrap"><div class="glass-window equation-display">$$ \theta_{t+1}=\theta_t-\eta\frac{\hat m_t}{\sqrt{\hat v_t}+\epsilon} $$</div></div></section>
-  <section class="content-block"><h3>Literal Reading</h3><p>theta sub t plus 1 equals theta sub t minus eta m sub hat sub t over of square root of v sub hat sub t plus epsilon.</p></section>
-  <section class="content-block"><h3>Common Reading</h3><p>Adam adapts the step size per parameter using running estimates of gradient mean and variance.</p></section>
+  <section class="content-block"><h3>Literal Reading</h3><p>Theta subscript t plus one equals theta subscript t minus eta times m hat subscript t, divided by the sum of the square root of v hat subscript t and epsilon.</p></section>
+  <section class="content-block"><h3>Common Reading</h3><p>Adam uses running estimates of the gradient’s first moment and second raw moment, with bias corrections; the second raw moment is not the variance.</p></section>
   <section class="content-block"><h3>Symbols</h3><p><strong>\(\hat m_t\)</strong>: bias-corrected first moment estimate of the gradient.</p>
     <p><strong>\(\hat v_t\)</strong>: bias-corrected second moment estimate.</p>
     <p><strong>\(\eta\)</strong>: learning rate.</p>

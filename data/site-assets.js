@@ -10,13 +10,6 @@ export const siteAssets = {
       iconFileName: "linkedin-logo.svg"
     },
     {
-      id: "facebook",
-      label: "Facebook",
-      shortLabel: "f",
-      url: "https://www.facebook.com/violetquantum",
-      iconFileName: "facebook-logo.svg"
-    },
-    {
       id: "youtube",
       label: "YouTube",
       shortLabel: "YT",

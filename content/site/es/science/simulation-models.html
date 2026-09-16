@@ -197,6 +197,8 @@
       <p><strong>Qué representa:</strong> Una lección compacta de ciencia computacional sobre aproximación, error y estabilidad.</p>
       <p><strong>Qué probar:</strong> Aumenta el paso en Euler vs RK4, aumenta las muestras de Monte Carlo y prueba la difusión de calor cerca del límite de estabilidad.</p>
     </div>
+    <p>La cuadrícula térmica también multiplica cada valor actualizado por 0.996, lo que añade un enfriamiento uniforme. Incluso con fronteras aisladas, por tanto, no representa un sistema de difusión aislado que conserve la energía.</p>
+    <p>La cuadrícula térmica también multiplica cada valor actualizado por 0.996, lo que añade un enfriamiento uniforme. Incluso con fronteras aisladas, por tanto, no representa un sistema de difusión aislado que conserve la energía.</p>
     <figure class="numerical-methods glass-window" data-numerical-methods-model data-model-target="numerical-methods" data-language="es">
       <div class="numerical-methods__frame" data-nm-frame></div>
       <div class="numerical-methods__panel">
@@ -388,6 +390,7 @@
       validación y error. Sin eso, una visualización hermosa puede engañar. Con eso, la simulación se vuelve compañera
       experimental, no solo animación.
     </p>
+    <p><a class="paper-link" href="https://arxiv.org/abs/2405.19101" target="_blank" rel="noopener noreferrer">Poseidon: Efficient Foundation Models for PDEs (2024)</a> estudia el entrenamiento previo y la transferencia entre tareas de ecuaciones diferenciales parciales. Los operadores aprendidos pueden reducir el costo de resolver problemas repetidos en los regímenes evaluados, pero la extrapolación a geometrías, condiciones de frontera o regímenes físicos nuevos requiere validación frente a solvers confiables y leyes de conservación.</p>
   </section>
 
   <section class="content-block glossary-section">
@@ -406,7 +409,7 @@
     <ul class="paper-list glossary-list">
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>RK4:</strong> Runge-Kutta de cuarto orden.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>ODE:</strong> ecuación diferencial ordinaria.</span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>OSTI:</strong> Office of Scientific and Technical Information, Oficina de Informacion Cientifica y Tecnica.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>OSTI:</strong> Office of Scientific and Technical Information, Oficina de Información Científica y Técnica.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>DOI:</strong> identificador digital de objeto.</span></li>
     </ul>
   </section>

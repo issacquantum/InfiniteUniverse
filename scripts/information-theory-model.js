@@ -1,4 +1,5 @@
-import { bindPinchZoom } from "./model-pan.js?v=20260620-covered-tabs-only-v1";
+import { deferModelInitialization, modelPixelRatio, requestModelFrame, stopModelAnimation } from "./performance-profile.js?v=20260913-mobile-power-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260913-social-dock-v1";
 
 const mountedModels = new WeakSet();
 const SYMBOL_COUNT = 4;
@@ -26,7 +27,7 @@ export function initInformationTheoryModels(root = document) {
     }
 
     mountedModels.add(container);
-    new InformationTheoryModel(container);
+    deferModelInitialization(container, () => new InformationTheoryModel(container));
   });
 }
 
@@ -72,7 +73,7 @@ class InformationTheoryModel {
     this.bindCanvas();
     this.resize();
     this.render = this.render.bind(this);
-    this.animationFrame = requestAnimationFrame(this.render);
+    this.animationFrame = requestModelFrame(this);
   }
 
   get isSpanish() {
@@ -235,7 +236,7 @@ class InformationTheoryModel {
     const rect = this.frame.getBoundingClientRect();
     const width = Math.max(320, Math.floor(rect.width));
     const height = Math.max(220, Math.floor(rect.height));
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const dpr = modelPixelRatio();
     this.canvas.width = Math.floor(width * dpr);
     this.canvas.height = Math.floor(height * dpr);
     this.canvas.style.width = `${width}px`;
@@ -255,10 +256,11 @@ class InformationTheoryModel {
     if (this.visible) {
       this.draw();
     }
-    this.animationFrame = requestAnimationFrame(this.render);
+    this.animationFrame = requestModelFrame(this);
   }
 
   destroy() {
+    stopModelAnimation(this);
     this.destroyed = true;
     cancelAnimationFrame(this.animationFrame);
     this.resizeObserver?.disconnect();

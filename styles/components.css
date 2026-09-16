@@ -595,17 +595,11 @@ body[data-music="playing"] .music-control i {
 }
 
 .social-dock .social-sphere:nth-child(2)::after {
-  transform: rotate(6deg);
-  opacity: 0.72;
-  filter: blur(1.08px);
-}
-
-.social-dock .social-sphere:nth-child(3)::after {
   transform: rotate(12deg);
   opacity: 0.76;
 }
 
-.social-dock .social-sphere:nth-child(4)::after {
+.social-dock .social-sphere:nth-child(3)::after {
   transform: rotate(-12deg);
   opacity: 0.68;
   filter: blur(1.14px);
@@ -638,6 +632,25 @@ body[data-music="playing"] .music-control i {
   width: 1em;
   height: 1em;
   stroke-width: 1.8;
+}
+
+.nav-button__topic-label {
+  display: grid;
+  grid-template-columns: 1.08em minmax(0, 1fr);
+  column-gap: 0.38em;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  align-items: center;
+}
+
+.nav-button__topic-label > .nav-button__icon {
+  margin-inline-end: 0;
+}
+
+.nav-button__topic-label > .nav-button__label {
+  min-width: 0;
+  text-align: center;
 }
 
 .nav-button__label {
@@ -3493,7 +3506,7 @@ body[data-link-visibility="enhanced"] :where(.structured-content, .legacy-conten
   }
 
   .site-title::after {
-    content: "\2302";
+    content: none;
     display: inline-grid;
     place-items: center;
     flex: 0 0 auto;
@@ -3552,4 +3565,18 @@ body[data-link-visibility="enhanced"] :where(.structured-content, .legacy-conten
   .legacy-content figcaption {
     font-size: 0.82rem;
   }
+}
+
+/* Reading stays static on the shared phone/tablet performance profile. */
+body[data-performance="mobile"]::after,
+body[data-performance="mobile"] .site-title__icon,
+body[data-performance="mobile"] .site-title__planet-orb,
+body[data-performance="mobile"] .site-title__planet-texture,
+body[data-performance="mobile"] .music-control,
+body[data-performance="mobile"] .content-window__signature,
+body[data-performance="mobile"] .content-window__signature-mark--glint,
+body[data-performance="mobile"] .outline-photon-channel,
+body[data-performance="mobile"] .equation-link,
+body[data-performance="mobile"] .equation-display {
+  animation: none !important;
 }

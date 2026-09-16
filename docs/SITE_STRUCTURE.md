@@ -1,6 +1,6 @@
 # Site Structure
 
-This file documents the project layout for `https://issacquantum.github.io/InfiniteUniverse/`.
+This guide describes the files and conventions behind `https://issacquantum.github.io/InfiniteUniverse/`.
 
 ## Folders
 
@@ -21,6 +21,20 @@ This file documents the project layout for `https://issacquantum.github.io/Infin
 - Equation explainer pages live under `content/site/*/science/equations/`.
 - The centralized model index lives at `content/site/*/science/model-lab.html`; models still remain embedded in their original science pages.
 
+## Bilingual Sections
+
+Personal writing and scientific explanations are HTML content; navigation and rendering are separate infrastructure in `data/` and `scripts/`. English and Spanish fragments use matching relative paths under their language folders. `data/site-content.js` supplies their shared IDs, translated labels, and content paths.
+
+Internal IDs remain stable when a public title changes:
+
+| Internal ID | English title | Spanish title |
+| --- | --- | --- |
+| `systems-work` | Professional Career | Trayectoria Profesional |
+| `practice-worlds` | Favorite Video Games | Videojuegos Favoritos |
+| `personal-cosmology` | My Theory | Mi Teoría |
+
+The two languages carry the same facts, chronology, scientific distinctions, equations, and references. Sentence structure can differ where a literal translation would sound unnatural.
+
 ## Equation Explainers
 
 Equation detail pages use the same reader structure in both languages:
@@ -28,16 +42,16 @@ Equation detail pages use the same reader structure in both languages:
 - English: `Equation`, `Literal Reading`, `Common Reading`, `Symbols`, `Meaning of the Equation`.
 - Spanish: `Ecuación`, `Lectura Literal`, `Lectura Común`, `Símbolos`, `Significado de la Ecuación`.
 
-The literal reading is for reading the symbols out loud. The common reading is a short shorthand. The meaning section should explain the physical or mathematical idea without repeating the common reading.
+The literal reading is for reading the symbols out loud. The common reading gives the usual shorthand. The meaning section explains the physical or mathematical idea, including its mechanism, consequences, or scope.
 
-Literal readings start directly with the read-aloud wording. They should not repeat labels such as `Read it as:` or `Se lee:` inside the paragraph.
+Literal readings start directly with the read-aloud wording. The heading makes repeated labels such as `Read it as:` or `Se lee:` unnecessary.
 
-Parentheses in literal readings should be spoken naturally. Use `the quantity ...` or `la cantidad ...` for grouped terms, and use function phrasing such as `H of X` or `H de X` for ordinary function notation. Do not mechanically spell out `open parenthesis`, `close parenthesis`, `paréntesis abierto`, or `paréntesis cerrado` when a clearer spoken form exists.
+Literal readings use `the quantity ...` or `la cantidad ...` for grouped terms and phrases such as `H of X` or `H de X` for ordinary function notation. Naming opening and closing parentheses is useful only when no clearer spoken form exists.
 
 ## Knowledge World Domains
 
-- `physical-foundations`: classical mechanics, electromagnetism, thermodynamics/statistical mechanics, mathematical foundations.
-- `quantum-foundations`: quantum mechanics, quantum entanglement, quantum information, quantum computing.
+- `physical-foundations`: classical mechanics, electromagnetism, thermodynamics/statistical mechanics, mathematical foundations, fluid mechanics / Navier–Stokes.
+- `quantum-foundations`: quantum mechanics, quantum entanglement, quantum information, quantum computing, quantum complexity.
 - `matter-life-mind`: quantum field theory, chemistry and molecular structure, biology and life systems, neuroscience of consciousness.
 - `spacetime-cosmos`: relativity and spacetime, black holes, wormholes, cosmology and the early universe.
 - `intelligence-computation`: artificial intelligence, information theory, programming and algorithms, simulation and models.
@@ -48,7 +62,7 @@ Parentheses in literal readings should be spoken naturally. Use `the quantity ..
 
 1. Add the English and Spanish HTML fragments under the matching `content/site/` paths.
 2. Register the page in `data/site-content.js`.
-3. Keep section IDs, file paths, and visible labels aligned.
+3. Check that the registration points to both language files and uses the same section ID in both languages. Existing IDs remain unchanged when only a title changes.
 4. Regenerate `sitemap.xml` with `node tools/generate-sitemap.mjs`.
 5. Run syntax checks before publishing.
 
@@ -58,7 +72,7 @@ Parentheses in literal readings should be spoken naturally. Use `the quantity ..
 2. Add one model initializer in `scripts/`.
 3. Import and call that initializer from `scripts/structured-content.js`.
 4. Add a model-specific stylesheet only if existing component styles are not enough.
-5. Keep model labels clear: physical model, toy physical model, conceptual model, analogy model, artistic scientific visualization, or speculative conceptual model.
+5. Identify the model type: physical model, toy physical model, conceptual model, analogy model, artistic scientific visualization, or speculative conceptual model.
 6. Register the model in the Model Lab page in both English and Spanish.
 
 The shared foundation-topic model initializer is `scripts/foundation-models.js`; its shared visual rules are in `styles/foundation-models.css`.
@@ -67,4 +81,4 @@ The shared foundation-topic model initializer is `scripts/foundation-models.js`;
 
 Public site URL: `https://issacquantum.github.io/InfiniteUniverse/`
 
-References in `index.html`, `robots.txt`, and `sitemap.xml` should keep pointing to that URL.
+`index.html`, `robots.txt`, and `sitemap.xml` use this production URL, including the `/InfiniteUniverse/` path. The project is a static site; local preview and the publishing checklist are documented in `README.md`. Both `main` and `gh-pages` track published changes, with GitHub Pages serving `gh-pages`.

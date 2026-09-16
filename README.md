@@ -1,6 +1,6 @@
 # InfiniteUniverse
 
-Personal site for my science notes, interactive models, music, programming work, simulations, games, and longer writing.
+InfiniteUniverse is my personal archive and a public educational site. It brings together my science notes, interactive models, music, programming work, simulations, games, and longer writing. This documentation explains how the site works and how to continue maintaining it.
 
 Live site:
 
@@ -34,7 +34,7 @@ http://127.0.0.1:4175/
 
 That address is only for local testing on my machine. Binding to `127.0.0.1` keeps the preview server limited to this computer instead of exposing the project folder to other devices on the network.
 
-## Content Notes
+## Bilingual Content
 
 Most page text lives in:
 
@@ -43,9 +43,9 @@ content/site/en/
 content/site/es/
 ```
 
-When adding a new section, the content file is not enough by itself. The section also has to be connected in `data/site-content.js`, otherwise the navigation will not know it exists.
+`data/site-content.js` connects each section to its content files and navigation labels. A new HTML fragment becomes available through the navigation once it is registered there.
 
-Names should stay consistent across visible labels, section IDs, file names, and content paths. If one section has multiple names in different files, it becomes harder to maintain and easier to break.
+English and Spanish pages share a section ID and matching content paths. Their prose follows the same facts and structure, with natural wording in each language. Visible titles can change without renaming internal IDs or files: `systems-work`, for example, is displayed as Professional Career / Trayectoria Profesional. The registration in `data/site-content.js` records that relationship.
 
 After adding, renaming, or removing content HTML files, regenerate the sitemap:
 
@@ -55,8 +55,8 @@ node tools/generate-sitemap.mjs
 
 ## Science Areas
 
-- `physical-foundations` - mechanics, electromagnetism, thermodynamics, and mathematical foundations.
-- `quantum-foundations` - quantum mechanics, entanglement, quantum information, and quantum computing.
+- `physical-foundations` - mechanics, electromagnetism, thermodynamics, mathematical foundations, and fluid mechanics / Navier–Stokes.
+- `quantum-foundations` - quantum mechanics, entanglement, quantum information, quantum computing, and quantum complexity.
 - `matter-life-mind` - quantum field theory, chemistry, biology, and neuroscience.
 - `spacetime-cosmos` - relativity, black holes, wormholes, and cosmology.
 - `intelligence-computation` - AI, information theory, programming, and simulations.
@@ -72,24 +72,25 @@ content/site/en/science/equations/
 content/site/es/science/equations/
 ```
 
-Each equation page should keep the same order:
+Each equation page follows this order:
 
+- equation;
 - literal reading;
 - common reading;
 - symbols;
 - meaning of the equation.
 
-The literal reading is how the equation is read out loud. The common reading is the short physics shorthand. The meaning section should explain the idea in plain language and should not repeat the common reading.
+The literal reading is how the equation is read out loud. The common reading is the short physics shorthand. The meaning section explains the physical or mathematical idea, including what the shorthand leaves unstated.
 
-Literal readings should start directly with the read-aloud wording. Do not add repeated lead-ins such as `Read it as:` or `Se lee:` because the section title already provides that context.
+Literal readings begin with the read-aloud wording. The heading provides the context, so repeated lead-ins such as `Read it as:` or `Se lee:` are unnecessary.
 
-When an equation contains parentheses, write the literal reading in natural spoken form. Use wording like `the quantity ...` / `la cantidad ...` for grouped terms, and use function phrasing like `H of X` / `H de X` when the parentheses are ordinary function notation. Avoid spelling out `open parenthesis`, `close parenthesis`, `paréntesis abierto`, or `paréntesis cerrado` unless there is no clearer way to read the expression.
+Grouped terms are read as `the quantity ...` / `la cantidad ...`; ordinary function notation uses phrases such as `H of X` / `H de X`. Naming each opening and closing parenthesis is reserved for expressions that cannot be read clearly another way.
 
-## Model Notes
+## Interactive Models
 
-Interactive models should stay tied to the section where they belong. `model-lab` is only a place to find them faster.
+Interactive models appear in the sections they explain. `model-lab` indexes those models rather than duplicating them.
 
-For new models, keep the same pattern:
+The model structure consists of:
 
 - short teaching card before the model;
 - one clear model type;
@@ -109,6 +110,9 @@ styles/foundation-models.css
 
 - Check the site locally.
 - Check desktop and phone behavior.
-- Keep the GitHub Pages URL references aligned with the live site URL.
-- Update the cache query string when scripts, styles, shaders, or content-loading behavior changes.
-- Push both `main` and `gh-pages`.
+- Check the production URL references in `index.html`, `robots.txt`, and `sitemap.xml`.
+- Update the affected cache query strings when scripts, styles, shaders, or content-loading behavior changes. Content fragments have a separate version in `scripts/content-cache.js`.
+- Publish verified changes to `main` and fast-forward `gh-pages` to the same commit, then push both branches. GitHub Pages publishes from `gh-pages`.
+- Check the deployed pages and assets at the production URL.
+
+The detailed content and model conventions are in `docs/SITE_STRUCTURE.md`.

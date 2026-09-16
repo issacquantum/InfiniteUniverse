@@ -206,11 +206,7 @@
         $$
       </button>
     </div>
-    <p>
-      More precisely, \(k_BT\ln2\) is the ideal minimum heat dissipation for logically irreversible erasure of one bit
-      under ideal thermodynamic conditions. Real hardware can dissipate more, and reversible computation changes the
-      assumptions.
-    </p>
+    <p>\(k_BT\ln2\) is the ideal reset cost for an initially unbiased, uncorrelated bit in contact with a thermal reservoir. Bias, side information, and physical free-energy changes require a more general accounting; this is not a mandatory cost of every logical operation.</p>
   </section>
 
   <section class="content-block">
@@ -228,6 +224,7 @@
       <p><strong>What it represents:</strong> A small communication system where uncertainty, noise, and redundancy can be compared directly.</p>
       <p><strong>Try changing:</strong> Use the presets first, then change noise and redundancy to see how information survives the channel.</p>
     </div>
+    <p>The redundancy control heuristically reduces an effective error probability. It does not implement an encoder and decoder or account for coding-rate overhead. The displayed capacity belongs to that effective channel; redundancy does not increase the capacity of a fixed physical channel.</p>
     <figure class="information-theory-model glass-window" data-information-theory-model data-model-target="entropy-channel" data-language="en">
       <div class="information-theory-model__frame" data-it-frame></div>
       <div class="information-theory-model__panel">

@@ -17,7 +17,7 @@
       experience.
     </p>
     <p>
-      <strong>Status date:</strong> May 30, 2026. AI systems, benchmark results, product behavior, and deployment practices
+      <strong>Status date:</strong> September 15, 2026. AI systems, benchmark results, product behavior, and deployment practices
       change quickly, so claims about current capability should be read as time-stamped rather than permanent.
     </p>
     <p class="source-language-note">
@@ -209,6 +209,7 @@
 
   <section class="content-block">
     <h3>Transformers</h3>
+    <p>A token is a unit produced by a tokenizer; it may be a word, word fragment, punctuation mark, or another encoded unit.</p>
     <p>
       Transformers changed modern AI because they made <strong>sequence modeling</strong> scalable. Tokens are converted into
       <strong>embeddings</strong>, position information is added, <strong>attention mixes information</strong> across the context, feed-forward blocks
@@ -556,6 +557,8 @@
       data risks, formal verification for AI-assisted code, and safety evaluations for autonomous agents. This section
       treats AI as a mathematical and engineering field, not as magic intelligence and not as proof of consciousness.
     </p>
+    <p>Post-training with verifiable rewards and additional inference-time search have materially improved performance on some mathematical and programming tasks. <a class="paper-link" href="https://www.nature.com/articles/s41586-025-09422-z" target="_blank" rel="noopener noreferrer">DeepSeek-R1 incentivizes reasoning in LLMs through reinforcement learning (2025)</a> documents one such approach. <a class="paper-link" href="https://www.nature.com/articles/s41586-025-09833-y" target="_blank" rel="noopener noreferrer">Olympiad-level formal mathematical reasoning with reinforcement learning (2025)</a> shows the value of coupling learned proof search to a formal checker. The learned system proposes steps; the checker establishes validity relative to the formal statement and its assumptions. Neither result establishes unrestricted reasoning reliability.</p>
+    <p>A tool-using agent is a system that combines a model with tools, stored state, feedback, and an execution loop. Its performance depends on that entire setup, permissions, and time or compute budgets. Long context windows do not guarantee effective use of all supplied information. Evaluations should separate partial progress from completed tasks, report contamination controls and resource budgets, and test new tasks when a benchmark saturates. <a class="paper-link" href="https://arxiv.org/abs/2606.29537" target="_blank" rel="noopener noreferrer">OSWorld 2 (June 2026 preprint)</a> examines long-horizon computer use; its results are benchmark-specific. Interpretability and alignment evaluations provide evidence about tested behavior, not a general safety or correctness certificate.</p>
   </section>
 
   <section class="content-block glossary-section">

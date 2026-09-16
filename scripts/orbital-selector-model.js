@@ -1,4 +1,5 @@
-import { bindPinchZoom, isModelPanGesture, panObjectFromPointer } from "./model-pan.js?v=20260620-covered-tabs-only-v1";
+import { invalidateModel, deferModelInitialization, modelPixelRatio, modelRendererOptions, requestModelFrame, stopModelAnimation } from "./performance-profile.js?v=20260913-mobile-power-v1";
+import { bindPinchZoom, isModelPanGesture, panObjectFromPointer } from "./model-pan.js?v=20260913-social-dock-v1";
 
 const mountedModels = new WeakSet();
 let threePromise = null;
@@ -28,7 +29,7 @@ export function initOrbitalSelectorModels(root = document) {
     }
 
     mountedModels.add(container);
-    new OrbitalSelectorModel(container);
+    deferModelInitialization(container, () => new OrbitalSelectorModel(container));
   });
 }
 
@@ -115,19 +116,20 @@ class OrbitalSelectorModel {
 
   async setup() {
     const THREE = await loadThree();
+    if (!this.container.isConnected || this.destroyed) return;
     this.THREE = THREE;
 
     this.scene = new THREE.Scene();
     this.scene.background = new THREE.Color(COLORS.deep);
     this.scene.fog = new THREE.FogExp2(COLORS.deep, 0.026);
 
-    this.renderer = new THREE.WebGLRenderer({
+    this.renderer = new THREE.WebGLRenderer(modelRendererOptions({
       canvas: this.canvas,
       antialias: true,
       alpha: false,
       powerPreference: "high-performance"
-    });
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    }));
+    this.renderer.setPixelRatio(modelPixelRatio());
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
 
     this.camera = new THREE.PerspectiveCamera(45, 1, 0.1, 120);
@@ -146,7 +148,7 @@ class OrbitalSelectorModel {
     this.updateCamera();
 
     this.render = this.render.bind(this);
-    this.animationFrame = requestAnimationFrame(this.render);
+    this.animationFrame = requestModelFrame(this);
   }
 
   addLights() {
@@ -377,6 +379,7 @@ class OrbitalSelectorModel {
     this.pendingGeneration = window.setTimeout(() => {
       this.generateCloud(0);
       this.setStatus(this.copy("ready"));
+      invalidateModel(this);
     }, 60);
   }
 
@@ -623,7 +626,7 @@ class OrbitalSelectorModel {
     }
 
     this.renderer.render(this.scene, this.camera);
-    this.animationFrame = requestAnimationFrame(this.render);
+    this.animationFrame = requestModelFrame(this);
   }
 
   updateCamera() {
@@ -640,6 +643,7 @@ class OrbitalSelectorModel {
   }
 
   destroy() {
+    stopModelAnimation(this);
     this.destroyed = true;
     window.clearTimeout(this.pendingGeneration);
 
