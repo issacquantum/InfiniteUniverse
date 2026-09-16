@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<base href="../../../"><title>Fundamentos matemáticos | Infinite Universe</title>
+<meta name="description" content="Los fundamentos matemáticos son el lenguaje de trabajo debajo del resto de las secciones científicas. Esta sección no intenta ser un libro de matemáticas aparte. Es un mapa de las "><link rel="canonical" href="https://issacquantum.github.io/InfiniteUniverse/science/es/mathematical-foundations/index.html">
+<link rel="alternate" hreflang="en" href="https://issacquantum.github.io/InfiniteUniverse/science/en/mathematical-foundations/index.html"><link rel="alternate" hreflang="es" href="https://issacquantum.github.io/InfiniteUniverse/science/es/mathematical-foundations/index.html">
+<meta property="og:title" content="Fundamentos matemáticos"><meta property="og:description" content="Los fundamentos matemáticos son el lenguaje de trabajo debajo del resto de las secciones científicas. Esta sección no intenta ser un libro de matemáticas aparte. Es un mapa de las "><meta property="og:url" content="https://issacquantum.github.io/InfiniteUniverse/science/es/mathematical-foundations/index.html"><meta property="og:type" content="article">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self' https://cdn.jsdelivr.net; connect-src 'self'; frame-src https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'">
+<link rel="stylesheet" href="styles/static-science.css"><script src="scripts/mathjax-config.js"></script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+</head><body><a href="science/es/mathematical-foundations/index.html#main">Saltar al contenido</a><nav><a href="index.html#/es/science/mathematical-foundations">Abrir en el sitio interactivo</a> · <a href="science/en/mathematical-foundations/index.html" lang="en">English</a> · <a href="science/es/index.html">Todos los temas</a></nav><main id="main"><h1>Fundamentos matemáticos</h1><div class="structured-content" data-structured-content>
+  <section class="content-block">
+    <h3 id="section-1">Propósito</h3>
+    <p>
+      Los fundamentos matemáticos son el lenguaje de trabajo debajo del resto de las secciones científicas. Esta sección
+      no intenta ser un libro de matemáticas aparte. Es un mapa de las herramientas que aparecen una y otra vez cuando la
+      física, la computación, la simulación, la probabilidad, la geometría y el análisis de datos se vuelven precisos.
+    </p>
+    <p>
+      La idea central es que las matemáticas permiten seguir la estructura sin depender solo de la intuición. Una
+      cantidad que cambia se vuelve una derivada. Un cambio acumulado se vuelve una integral. Una dirección o un estado
+      se vuelve un vector. Una transformación se vuelve una matriz. La incertidumbre se vuelve una distribución de
+      probabilidad. La curvatura se vuelve geometría. Una ley física se vuelve una ecuación que puede probarse,
+      resolverse, aproximarse o simularse.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <div class="model-teaching-card">
+      <p><strong>Tipo de modelo:</strong> Modelo conceptual.</p>
+      <p><strong>Qué muestra:</strong> Un vector y un vector transformado dentro de una cuadrícula de coordenadas deformada.</p>
+      <p><strong>Qué no muestra:</strong> Un motor completo de álgebra lineal, cálculo tensorial exacto o matemáticas a nivel de demostración formal.</p>
+      <p><strong>Ecuación / principio:</strong> \(\mathbf{v}'=A\mathbf{v}\) es la forma más simple de decir que una regla transforma un vector en otro.</p>
+      <p><strong>Qué representa el modelo:</strong> Una transformación de coordenadas: el objeto cambia de manera controlada, y la cuadrícula ayuda a ver qué cambió.</p>
+    </div>
+    <figure class="foundation-model glass-window" data-foundation-model="mathematics" data-model-target="mathematical-transformations" data-language="es">
+      <div class="foundation-model__frame" data-foundation-model-frame></div>
+      <figcaption class="foundation-model__caption">El segundo vector es una versión transformada del primero; la cuadrícula deformada muestra cómo pueden cambiar las coordenadas sin perder el seguimiento de la estructura.</figcaption>
+    </figure>
+    <p>
+      Lee el modelo como una lección visual de gramática matemática. La flecha es un vector: una dirección, un estado o
+      una pieza de datos. La cuadrícula es el marco de coordenadas usado para describirlo. La transformación cambia el
+      vector de forma controlada, como rotarlo, estirarlo, comprimirlo o mezclar sus componentes. El punto no es que el
+      espacio se esté doblando literalmente en este modelo; el punto es que la matemática puede seguir cómo cambia una
+      estructura sin perder el objeto que se está describiendo.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-2">Cálculo: Cambio y Acumulación</h3>
+    <p>
+      El cálculo es el lenguaje de las cantidades que cambian. La velocidad es cambio de posición. La aceleración es
+      cambio de velocidad. Crecimiento, decaimiento, calentamiento, enfriamiento, movimiento, curvatura y propagación de
+      ondas requieren una forma de describir cambio local. Una derivada hace eso:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/es/equations/derivative-notation.html">
+        $$
+        \frac{df}{dx}
+        $$
+      </a>
+    </div>
+    <p>
+      Una integral hace el movimiento contrario: suma muchas piezas pequeñas para formar un total. Distancia a partir de
+      velocidad, trabajo a partir de fuerza, probabilidad a partir de densidad, masa a partir de densidad y acción a
+      partir de un Lagrangiano son ideas de acumulación:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/es/equations/definite-integral.html">
+        $$
+        \int_a^b f(x)\,dx
+        $$
+      </a>
+    </div>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-3">Álgebra Lineal: Estados y Transformaciones</h3>
+    <p>
+      El álgebra lineal es el lenguaje de vectores, espacios, proyecciones, rotaciones, matrices, autovectores y bases.
+      Por eso el mismo patrón matemático aparece en gráficos, mecánica cuántica, vibraciones, modelos orbitales,
+      aprendizaje automático y simulación numérica.
+    </p>
+    <p>
+      Una transformación vectorial puede escribirse como
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/es/equations/matrix-vector-transformation.html">
+        $$
+        \mathbf{v}'=A\mathbf{v}
+        $$
+      </a>
+    </div>
+    <p>
+      Algunos vectores conservan su dirección bajo una transformación y solo cambian de escala. Esos son autovectores, y
+      los factores de escala son autovalores:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/es/equations/eigenvalue-equation.html">
+        $$
+        A\mathbf{v}=\lambda\mathbf{v}
+        $$
+      </a>
+    </div>
+    <p>Un vector propio es distinto de cero. Un valor propio real negativo invierte su orientación, uno nulo lo transforma en cero y uno complejo también puede cambiar su fase.</p>
+    <p>
+      Los problemas de autovalores explican modos normales, patrones estables, niveles de energía cuánticos, componentes
+      principales en datos y por qué algunas direcciones de un sistema importan más que otras.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-4">Probabilidad, Evidencia e Inferencia</h3>
+    <p>
+      La probabilidad no trata solo del azar. Es el lenguaje disciplinado para información limitada. En física aparece
+      en mecánica estadística, medición cuántica, señales con ruido e incertidumbre. En computación aparece en
+      aprendizaje automático, algoritmos aleatorios, simulación y análisis de datos.
+    </p>
+    <p>
+      El teorema de Bayes muestra cómo la evidencia actualiza una creencia o un modelo:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/es/equations/bayes-theorem.html">
+        $$
+        P(A\mid B)=\frac{P(B\mid A)P(A)}{P(B)}
+        $$
+      </a>
+    </div>
+    <p>
+      La lección importante no es que Bayes resuelva todo automáticamente. La lección es que la evidencia debe estar
+      conectada con supuestos. Si los supuestos son incorrectos, la actualización puede ser precisa y aun así engañosa.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-5">Geometría, Tensores e Independencia de Coordenadas</h3>
+    <p>
+      La geometría describe distancia, ángulo, curvatura y forma. El lenguaje tensorial permite que una afirmación
+      física siga siendo válida aunque cambien las coordenadas. Por eso los tensores son centrales en relatividad
+      general: la geometría es física, mientras que las etiquetas de coordenadas son una elección.
+    </p>
+    <p>
+      Esto importa en todo el sitio porque muchos errores científicos vienen de confundir una representación con lo
+      representado. Una gráfica, un sistema de coordenadas, una simulación o un modelo puede ser útil sin ser literal en
+      cada detalle.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-6">Funciones, Espacios y Estructura</h3>
+    <p>
+      Las matemáticas se vuelven poderosas en ciencia porque separan la estructura de la apariencia superficial. Una
+      función describe cómo una cantidad depende de otra. Un espacio dice qué tipos de objetos pueden compararse. Una
+      métrica define distancia. Una simetría dice qué puede cambiar mientras la relación esencial permanece igual. Estas
+      ideas permiten que la física no sea solo una lista de ejemplos.
+    </p>
+    <p>
+      El mismo patrón matemático puede aparecer en ciencias distintas. Un vector puede describir una fuerza, una velocidad,
+      un estado cuántico, una representación de palabras o un punto en un espacio de datos. La interpretación cambia, pero
+      las operaciones de suma, proyección, transformación y norma siguen dando formas disciplinadas de razonar.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-7">Ecuaciones como Mapas</h3>
+    <p>
+      Una ecuación no es solo un cálculo. Es un mapa comprimido de relaciones. Dice qué cantidades pueden variar juntas,
+      qué cantidades se mantienen fijas y qué supuestos se están usando. Leer bien una ecuación significa preguntar qué
+      representa cada símbolo, en qué dominio aplica y qué se rompería si cambiara una condición.
+    </p>
+    <p>
+      Por eso una misma ecuación puede ser fácil de escribir y difícil de entender. La ley de Newton, las ecuaciones de
+      Maxwell, la ecuación de Schrödinger y la ecuación de Einstein comprimen cada una un marco completo en una expresión
+      corta. El objetivo de las páginas de ecuaciones de este sitio es abrir esa compresión sin fingir que la notación se
+      explica sola.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-8">Probabilidad e Inferencia Científica</h3>
+    <p>
+      La probabilidad no es solo matemática de apuestas. Es el lenguaje usado cuando la información está incompleta, las
+      mediciones contienen ruido o un sistema tiene muchos estados posibles. La inferencia estadística conecta la evidencia
+      con la comparación de modelos: los datos no hablan solos, pero pueden restringir qué explicaciones siguen siendo
+      creíbles.
+    </p>
+    <p>
+      Esto importa en toda la ciencia moderna. La física experimental usa presupuestos de incertidumbre. La biología usa
+      estadística de poblaciones y secuenciación. La ciencia climática usa ensambles. El aprendizaje automático usa
+      distribuciones de probabilidad y funciones de pérdida. El punto científico no es eliminar la incertidumbre, sino
+      volverla lo bastante explícita para razonar con honestidad.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-9">Cómputo, Aproximación y Prueba</h3>
+    <p>
+      La ciencia moderna suele necesitar prueba y cómputo al mismo tiempo. Una prueba dice qué se sigue de los supuestos
+      con necesidad lógica. Una simulación numérica explora consecuencias cuando la solución directa es imposible. Una
+      aproximación muestra qué términos dominan y qué detalles pueden ignorarse para la pregunta que se está haciendo.
+    </p>
+    <p>
+      El peligro es confundir una imagen calculada con un teorema, o un teorema con una medición. Un resultado matemático
+      limpio puede ser físicamente irrelevante si sus supuestos no coinciden con la naturaleza. Una simulación bella puede
+      engañar si la resolución, la estabilidad o las condiciones de frontera son incorrectas. Un modelado serio mantiene
+      visibles esos límites.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-10">Frontera Moderna</h3>
+    <p>
+      La ciencia moderna depende de matemáticas que van más allá del cálculo manual: álgebra lineal numérica,
+      optimización, probabilidad de alta dimensión, geometría diferencial, topología, estadística, procesos estocásticos,
+      estructuras inspiradas por categorías y demostración asistida por computadora. El punto no es coleccionar palabras
+      difíciles; es saber qué herramienta corresponde a qué tipo de estructura.
+    </p>
+    <p>
+      En física y computación, la matemática más fuerte suele proteger contra la intuición falsa. Las coordenadas pueden
+      engañar, las simulaciones finitas pueden desviarse, los datos de alta dimensión pueden comportarse distinto a los
+      dibujos de baja dimensión y la probabilidad puede malinterpretarse. Los fundamentos matemáticos son las barreras
+      que evitan que los modelos visuales se vuelvan mitología.
+    </p>
+    <p><a class="paper-link" href="https://www.nature.com/articles/s41586-025-09833-y" target="_blank" rel="noopener noreferrer">Olympiad-level formal mathematical reasoning with reinforcement learning (2025)</a> presenta una búsqueda de demostraciones formales guiada por aprendizaje por refuerzo. Es un avance de la demostración automatizada que conserva la distinción entre encontrar una demostración y verificarla. El enunciado formal debe expresar las matemáticas buscadas, y es necesario revisar las hipótesis del verificador.</p>
+  </section>
+
+  <section class="content-block glossary-section">
+    <h3 id="section-11">Glosario Técnico</h3>
+    <ul class="paper-list glossary-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Derivada:</strong> Una tasa local de cambio.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Integral:</strong> Una forma de sumar muchas contribuciones pequeñas en una cantidad total.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Vector:</strong> Un objeto matemático con componentes, usado a menudo para dirección, estado o datos.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Matriz:</strong> Un arreglo estructurado que puede representar una transformación o un sistema de relaciones.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Autovalor:</strong> El factor de escala para una dirección que una transformación preserva.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Tensor:</strong> Un objeto matemático cuyas componentes cambian de forma consistente cuando cambian las coordenadas.</span></li>
+    </ul>
+  </section>
+
+  <section class="content-block source-papers">
+    <h3 id="section-12">Fuentes Fundamentales y Modernas</h3>
+    <ul class="paper-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/" target="_blank" rel="noopener noreferrer">Gilbert Strang. <em>MIT 18.06 Linear Algebra.</em></a> <span class="paper-note">Página de MIT OpenCourseWare.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/" target="_blank" rel="noopener noreferrer">MIT OpenCourseWare. <em>Single Variable Calculus.</em></a> <span class="paper-note">Curso estructurado de cálculo.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://projects.iq.harvard.edu/stat110/home" target="_blank" rel="noopener noreferrer">Joseph Blitzstein. <em>Statistics 110: Probability.</em></a> <span class="paper-note">Sitio del curso de Harvard.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.math.uci.edu/~rvershyn/teaching/hdp/hdp.html" target="_blank" rel="noopener noreferrer">Roman Vershynin. <em>High-Dimensional Probability.</em></a> <span class="paper-note">Referencia moderna de probabilidad para ciencia de datos y trabajo teórico.</span></span></li>
+    </ul>
+  </section>
+</div>
+<nav aria-label="Temas relacionados"><ul><li><a href="science/es/mathematical-analysis/index.html">Análisis Matemático y Ecuaciones Diferenciales</a></li><li><a href="science/es/probability-statistics/index.html">Probabilidad y Estadística</a></li><li><a href="science/es/programming-algorithms/index.html">Programación y algoritmos</a></li></ul></nav></main></body></html>

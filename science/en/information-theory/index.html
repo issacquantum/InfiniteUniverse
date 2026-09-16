@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<base href="../../../"><title>Information Theory | Infinite Universe</title>
+<meta name="description" content="Information comes from Latin roots connected with giving form, shape, or structure. In this field, information is not the emotional meaning of a message. It is the measurable reduc"><link rel="canonical" href="https://issacquantum.github.io/InfiniteUniverse/science/en/information-theory/index.html">
+<link rel="alternate" hreflang="es" href="https://issacquantum.github.io/InfiniteUniverse/science/es/information-theory/index.html"><link rel="alternate" hreflang="en" href="https://issacquantum.github.io/InfiniteUniverse/science/en/information-theory/index.html">
+<meta property="og:title" content="Information Theory"><meta property="og:description" content="Information comes from Latin roots connected with giving form, shape, or structure. In this field, information is not the emotional meaning of a message. It is the measurable reduc"><meta property="og:url" content="https://issacquantum.github.io/InfiniteUniverse/science/en/information-theory/index.html"><meta property="og:type" content="article">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self' https://cdn.jsdelivr.net; connect-src 'self'; frame-src https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'">
+<link rel="stylesheet" href="styles/static-science.css"><script src="scripts/mathjax-config.js"></script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+</head><body><a href="science/en/information-theory/index.html#main">Skip to content</a><nav><a href="index.html#/en/science/information-theory">Open in the interactive site</a> · <a href="science/es/information-theory/index.html" lang="es">Español</a> · <a href="science/en/index.html">All topics</a></nav><main id="main"><h1>Information Theory</h1><div class="structured-content" data-structured-content>
+  <section class="content-block">
+    <h3 id="section-1">Etymology</h3>
+    <p>
+      <strong>Information</strong> comes from Latin roots connected with giving form, shape, or structure. In this
+      field, information is not the emotional meaning of a message. It is the measurable reduction of uncertainty.
+    </p>
+    <p>
+      <strong>Information theory</strong> studies how structure can be encoded, compressed, transmitted, corrupted,
+      recovered, protected, and physically erased.
+    </p>
+    <p class="source-language-note">
+      <strong>Source of etymological origin:</strong>
+      <a class="platform-link" href="https://www.etymonline.com/word/information" target="_blank" rel="noopener noreferrer">Online Etymology Dictionary: information</a>.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-2">Shannon's Communication Theory</h3>
+    <p>
+      The modern field begins with <strong>Claude Shannon</strong> and his 1948 paper <em>A Mathematical Theory of
+        Communication</em>. Shannon separated the technical problem of communication from the meaning of the message. A
+      message could be poetry, telemetry, a password, a file, or a command. The first mathematical question is the same:
+      how much uncertainty is removed when the message is received?
+    </p>
+    <p>
+      Before Shannon, <strong>Ralph Hartley</strong> had connected information with the number of distinguishable
+      symbols in a communication system. Shannon completed the framework by adding probability, noise, entropy, coding,
+      and <strong>channel capacity</strong>.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-3">Bits and Uncertainty</h3>
+    <p>
+      The word <strong>bit</strong>, shortened from <strong>binary digit</strong>, was proposed by
+      <strong>John Tukey</strong> and adopted by Shannon as the natural unit of binary information. One bit resolves a
+      choice between two equally likely alternatives.
+    </p>
+    <p class="source-language-note">
+      <strong>Source of etymological origin:</strong>
+      <a class="platform-link" href="https://www.etymonline.com/word/bit" target="_blank" rel="noopener noreferrer">Online Etymology Dictionary: bit</a>;
+      <a class="platform-link" href="https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf" target="_blank" rel="noopener noreferrer">Shannon, <em>A Mathematical Theory of Communication</em></a>.
+    </p>
+    <p>
+      The central quantity is <strong>Shannon entropy</strong>:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/en/equations/shannon-entropy.html">
+        $$
+        H(X)=-\sum_x p_x\log_2 p_x
+        $$
+      </a>
+    </div>
+    <p>
+      A predictable source has low entropy. A uniform source has high entropy. Entropy is not disorder as a vague mood;
+      it is an average number of bits needed to specify outcomes from a probability distribution.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-4">Compression and Typical Sequences</h3>
+    <p>
+      <strong>Compression works</strong> because real sources are not usually random in every detail. Letters, pixels, notes, and data
+      streams contain <strong>redundancy</strong>. <strong>Source coding</strong> removes that <strong>redundancy</strong> without changing the message.
+    </p>
+    <p>
+      Shannon's source coding theorem has a precise single-symbol form: for an optimal binary prefix code for a
+      discrete memoryless source, the expected codeword length \(L\) satisfies:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/en/equations/shannon-source-coding-bound.html">
+        $$
+        H(X)\le L < H(X)+1
+        $$
+      </a>
+    </div>
+    <p>
+      This is an average-length bound under a probability model and prefix-code assumptions, not a promise that every
+      individual message has that length. For block coding, the relevant quantity is the <strong>entropy rate</strong>:
+      average information per emitted symbol in a long source. As block length grows, lossless compression can approach
+      that rate, while finite blocks still carry overhead.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-5">Noise and Channel Capacity</h3>
+    <p>
+      A <strong>communication channel</strong> maps inputs to outputs. Real channels add noise: thermal fluctuations, interference,
+      attenuation, packet loss, quantization error, or any process that makes the received symbol uncertain.
+    </p>
+    <p>
+      The abstract <strong>channel capacity</strong> is:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/en/equations/shannon-channel-capacity.html">
+        $$
+        C=\max_{p(x)}I(X;Y)
+        $$
+      </a>
+    </div>
+    <p>
+      For a symmetric channel with \(q\) symbols and error probability \(p\), a useful explicit form is:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/en/equations/q-ary-symmetric-channel-capacity.html">
+        $$
+        C=\log_2q+(1-p)\log_2(1-p)+p\log_2\frac{p}{q-1}
+        $$
+      </a>
+    </div>
+    <p>
+      Here \(q\) is the alphabet size, \(p\) is the total probability that the received symbol is wrong, and the capacity
+      is measured in bits per channel use because the logarithms are base 2.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-6">Error Correction</h3>
+    <p>
+      Shannon's noisy-channel theorem is one of the deepest results in engineering: reliable communication is possible
+      through noise if the rate stays below capacity and the code is long enough. Error correction does not remove
+      physics. It uses <strong>redundancy</strong> so the receiver can infer the most likely original message.
+    </p>
+    <p>
+      <strong>Hamming codes</strong> made this practical by showing how parity checks can detect and correct errors.
+      Later code families, including <strong>LDPC (low-density parity-check) codes</strong>, moved real systems closer to Shannon's limit.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-7">Mutual Information and Model Mismatch</h3>
+    <p>
+      Entropy measures uncertainty in one variable. <strong>Mutual information</strong> measures shared structure
+      between two variables:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/en/equations/classical-mutual-information.html">
+        $$
+        I(X;Y)=H(X)+H(Y)-H(X,Y)
+        $$
+      </a>
+    </div>
+    <p>
+      <strong>Kullback-Leibler divergence</strong> measures the information cost of using the wrong probability model:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/en/equations/kullback-leibler-divergence.html">
+        $$
+        D_{\mathrm{KL}}(P\|Q)=\sum_xP(x)\log_2\frac{P(x)}{Q(x)}
+        $$
+      </a>
+    </div>
+    <p>
+      Information theory sits underneath statistics and AI. Prediction, compression, cross-entropy, and model fitting
+      are all ways of asking whether a system has captured the right distribution.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-8">Secrecy and Cryptography</h3>
+    <p>
+      Shannon also gave a precise definition of <strong>perfect secrecy</strong>. A ciphertext is perfectly secret when observing it
+      does not reduce uncertainty about the message:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/en/equations/perfect-secrecy-condition.html">
+        $$
+        P(M=m\mid C=c)=P(M=m)
+        $$
+      </a>
+    </div>
+    <p>
+      This is stronger than practical computational security. It says the encrypted observation carries no information
+      about the underlying message.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-9">Information Is Physical</h3>
+    <p>
+      Information theory also touches thermodynamics. A bit can be abstract, but storing, copying, transmitting, and
+      erasing it require physical systems. <strong>Landauer's principle</strong> gives the ideal lower bound for heat
+      dissipated by logically irreversible erasure:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/en/equations/landauer-principle.html">
+        $$
+        E_{\min}=k_BT\ln2
+        $$
+      </a>
+    </div>
+    <p>\(k_BT\ln2\) is the ideal reset cost for an initially unbiased, uncorrelated bit in contact with a thermal reservoir. Bias, side information, and physical free-energy changes require a more general accounting; this is not a mandatory cost of every logical operation.</p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-10">Entropy Channel Model</h3>
+    <p>
+      This model shows the core ideas together: a source distribution, a noisy channel, <strong>redundancy</strong>, received symbols,
+      entropy, mutual information, and capacity. Taller source bars mean more probable symbols. Flow intensity shows
+      how much probability crosses the channel. More noise spreads probability across wrong outputs.
+    </p>
+    <div class="model-teaching-card" aria-label="Information theory model teaching notes">
+      <p><strong>Model type:</strong> Conceptual model.</p>
+      <p><strong>What this shows:</strong> How source probabilities and channel noise determine entropy, mutual information, capacity, and error.</p>
+      <p><strong>What it does not show:</strong> A real modem, a complete error-correcting code, or every possible communication channel.</p>
+      <p><strong>Equation / principle:</strong> \(H(X)=-\sum p\log_2p\) and \(I(X;Y)=H(X)-H(X|Y)\).</p>
+      <p><strong>What it represents:</strong> A small communication system where uncertainty, noise, and redundancy can be compared directly.</p>
+      <p><strong>Try changing:</strong> Use the presets first, then change noise and redundancy to see how information survives the channel.</p>
+    </div>
+    <p>The redundancy control heuristically reduces an effective error probability. It does not implement an encoder and decoder or account for coding-rate overhead. The displayed capacity belongs to that effective channel; redundancy does not increase the capacity of a fixed physical channel.</p>
+    <figure class="information-theory-model glass-window" data-information-theory-model data-model-target="entropy-channel" data-language="en">
+      <div class="information-theory-model__frame" data-it-frame></div>
+      <div class="information-theory-model__panel">
+        <div class="information-theory-model__controls">
+          <label class="information-theory-model__label">
+            Source predictability <span class="information-theory-model__value" data-it-value="focus">0.18</span>
+          </label>
+          <input class="information-theory-model__range" type="range" min="0" max="1" step="0.01" value="0.18"
+            data-it-param="focus">
+          <label class="information-theory-model__label">
+            Channel noise <span class="information-theory-model__value" data-it-value="noise">0.16</span>
+          </label>
+          <input class="information-theory-model__range" type="range" min="0" max="0.74" step="0.01" value="0.16"
+            data-it-param="noise">
+          <label class="information-theory-model__label">
+            Coding <strong>redundancy</strong> <span class="information-theory-model__value" data-it-value="redundancy">0.35</span>
+          </label>
+          <input class="information-theory-model__range" type="range" min="0" max="0.9" step="0.01" value="0.35"
+            data-it-param="redundancy">
+          <div class="information-theory-model__actions">
+            <span>Randomize</span>
+            <span>Center</span>
+          </div>
+          <div class="information-theory-model__actions" aria-label="Information theory presets">
+            <span>Uniform source</span>
+            <span>Predictable source</span>
+            <span>Clean channel</span>
+            <span>Noisy channel</span>
+            <span>High redundancy</span>
+          </div>
+        </div>
+        <div class="information-theory-model__metrics">
+          <p class="information-theory-model__status" data-it-value="status"></p>
+          <div class="information-theory-model__metric">
+            <div class="information-theory-model__metric-row">
+              <span class="information-theory-model__metric-label">Entropy H(X)</span>
+              <span class="information-theory-model__value" data-it-value="entropy">0.000</span>
+            </div>
+          </div>
+          <div class="information-theory-model__metric">
+            <div class="information-theory-model__metric-row">
+              <span class="information-theory-model__metric-label">Mutual I(X;Y)</span>
+              <span class="information-theory-model__value" data-it-value="mutual">0.000</span>
+            </div>
+          </div>
+          <div class="information-theory-model__metric">
+            <div class="information-theory-model__metric-row">
+              <span class="information-theory-model__metric-label">Capacity</span>
+              <span class="information-theory-model__value" data-it-value="capacity">0.000</span>
+            </div>
+          </div>
+          <div class="information-theory-model__metric">
+            <div class="information-theory-model__metric-row">
+              <span class="information-theory-model__metric-label">Effective error</span>
+              <span class="information-theory-model__value" data-it-value="error">0.000</span>
+            </div>
+          </div>
+          <div class="information-theory-model__metric">
+            <div class="information-theory-model__metric-row">
+              <span class="information-theory-model__metric-label">Channel matrix P(Y|X)</span>
+              <span class="information-theory-model__value" data-it-value="matrix">diag 0.840 / off 0.053</span>
+            </div>
+          </div>
+          <div class="information-theory-model__legend" aria-label="Information model legend">
+            <span>source and received probability bars</span>
+            <span>probability flow through the channel</span>
+            <span><strong>redundancy</strong>-assisted recovery path</span>
+          </div>
+        </div>
+      </div>
+      <figcaption>
+        Artistic + mathematics: entropy, noisy transmission, <strong>redundancy</strong>, and capacity. Design note: the recurring
+        violet, indigo, and lavender palette reflects my favourite colors.
+      </figcaption>
+    </figure>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-11">Key Figures and Breakthroughs</h3>
+    <p>
+      The line runs through <strong>Hartley</strong>, <strong>Shannon</strong>, <strong>Huffman</strong>,
+      <strong>Hamming</strong>, <strong>Kullback</strong>, <strong>Leibler</strong>, <strong>Kolmogorov</strong>,
+      <strong>Landauer</strong>, and many later researchers in coding theory, inference, statistical learning,
+      cryptography, and quantum communication.
+    </p>
+    <p>
+      The discipline is precise. Information theory does not ask whether a message feels important. It
+      asks what had to be removed from uncertainty for the message to become known.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-12">Modern Frontier</h3>
+    <p>
+      Information theory now reaches far beyond telephone channels. It shapes compression, cryptography, machine
+      learning, error correction, biological signaling, thermodynamics, quantum communication, and privacy. Modern work
+      studies finite-blocklength limits, network coding, information bottlenecks, differential privacy, and quantum
+      capacities where the clean asymptotic formulas are not enough.
+    </p>
+    <p>
+      The core discipline remains the same: define what counts as a message, what uncertainty means, what channel changes
+      it, and what resources are available. Without those definitions, information becomes a vague metaphor. With them,
+      it becomes a measurable constraint.
+    </p>
+  </section>
+
+  <section class="content-block glossary-section">
+    <h3 id="section-13">Technical Terms Glossary</h3>
+    <ul class="paper-list glossary-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Entropy rate:</strong> The average information produced per symbol by a source, especially when long streams have structure or memory.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Typical sequence:</strong> A long message whose statistical pattern is close to the source distribution, making compression predictable.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Parity check:</strong> A structured test bit or equation used to detect whether a received codeword contains an error.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>LDPC code:</strong> A low-density parity-check code, important because sparse parity constraints can approach Shannon's limit efficiently.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Cross-entropy:</strong> The average coding cost paid when predictions use one distribution while the data follows another.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Ciphertext:</strong> The encrypted version of a message, used in the section's discussion of <strong>perfect secrecy</strong>.</span></li>
+    </ul>
+  </section>
+  <section class="content-block glossary-section abbreviation-glossary" data-abbreviation-glossary>
+    <h3 id="section-14">Abbreviation Glossary</h3>
+    <p class="abbreviation-glossary__note">This glossary expands the abbreviations used in this section. The first appearance in the text includes the full wording in parentheses; later uses stay abbreviated so the section stays readable.</p>
+    <ul class="paper-list glossary-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>LDPC:</strong> low-density parity-check.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>DOI:</strong> digital object identifier.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>IEEE:</strong> Institute of Electrical and Electronics Engineers.</span></li>
+    </ul>
+  </section>
+
+<section class="content-block source-papers">
+    <h3 id="section-15">Foundational and Modern Source URLs</h3>
+    <ul class="paper-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://doi.org/10.1002/j.1538-7305.1928.tb01236.x" target="_blank"
+            rel="noopener noreferrer">Ralph V. L. Hartley, 1928. <em>Transmission of Information.</em></a> <span
+            class="paper-note">Official DOI (digital object identifier) record.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf" target="_blank"
+            rel="noopener noreferrer">Claude E. Shannon, 1948. <em>A Mathematical Theory of Communication.</em></a>
+          <span class="paper-note">PDF hosted by Harvard Mathematics.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://doi.org/10.1002/j.1538-7305.1949.tb00928.x" target="_blank"
+            rel="noopener noreferrer">Claude E. Shannon, 1949. <em>Communication Theory of Secrecy Systems.</em></a>
+          <span class="paper-note">Official DOI record.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://doi.org/10.1109/JRPROC.1952.273898" target="_blank" rel="noopener noreferrer">David A.
+            Huffman, 1952. <em>A Method for the Construction of Minimum Redundancy Codes.</em></a> <span
+            class="paper-note">Official IEEE (Institute of Electrical and Electronics Engineers) DOI record.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://doi.org/10.1002/j.1538-7305.1950.tb00463.x" target="_blank"
+            rel="noopener noreferrer">Richard W. Hamming, 1950. <em>Error Detecting and Error Correcting Codes.</em></a>
+          <span class="paper-note">Official DOI record.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://projecteuclid.org/download/pdf_1/euclid.aoms/1177729694" target="_blank"
+            rel="noopener noreferrer">Solomon Kullback and Richard A. Leibler, 1951. <em>On Information and
+              Sufficiency.</em></a> <span class="paper-note">Project Euclid PDF.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://doi.org/10.1109/TIT.1962.1057683" target="_blank" rel="noopener noreferrer">Robert G.
+            Gallager, 1962. <em>Low-Density Parity-Check Codes.</em></a> <span class="paper-note">Official IEEE DOI
+            record.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://doi.org/10.1147/rd.53.0183" target="_blank" rel="noopener noreferrer">Rolf Landauer, 1961.
+            <em>Irreversibility and Heat Generation in the Computing Process.</em></a> <span
+            class="paper-note">Official DOI record.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://www.inference.org.uk/itprnn/book.pdf" target="_blank" rel="noopener noreferrer">David J. C.
+            MacKay, 2003. <em>Information Theory, Inference, and Learning Algorithms.</em></a> <span
+            class="paper-note">Author-hosted PDF.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://www.wiley.com/en-us/Elements+of+Information+Theory%2C+2nd+Edition-p-9780471241959"
+            target="_blank" rel="noopener noreferrer">Thomas M. Cover and Joy A. Thomas, 2006. <em>Elements of
+              Information Theory.</em></a> <span class="paper-note">Official Wiley book page.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://www.itsoc.org/publications/papers/channel-coding-rate-in-the-finite-blocklength-regime"
+            target="_blank" rel="noopener noreferrer">Yury Polyanskiy, H. Vincent Poor, and Sergio Verdú, 2010.
+            <em>Channel Coding Rate in the Finite Blocklength Regime.</em></a> <span class="paper-note">IEEE
+            Information Theory Society paper page.</span></span></li>
+    </ul>
+  </section>
+</div>
+<nav aria-label="Related topics"><ul><li><a href="science/en/probability-statistics/index.html">Probability &amp; Statistics</a></li><li><a href="science/en/quantum-information/index.html">Quantum Information</a></li><li><a href="science/en/artificial-intelligence/index.html">Artificial Intelligence</a></li><li><a href="science/en/thermodynamics-statistical-mechanics/index.html">Thermodynamics &amp; Statistical Mechanics</a></li></ul></nav></main></body></html>

@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<base href="../../../"><title>Simulación y modelos | Infinite Universe</title>
+<meta name="description" content="Simulación viene de raíces del latín relacionadas con semejanza o imitación. Modelo viene de una idea de medida, patrón o representación reducida. Una simulación no es la realidad "><link rel="canonical" href="https://issacquantum.github.io/InfiniteUniverse/science/es/simulation-models/index.html">
+<link rel="alternate" hreflang="en" href="https://issacquantum.github.io/InfiniteUniverse/science/en/simulation-models/index.html"><link rel="alternate" hreflang="es" href="https://issacquantum.github.io/InfiniteUniverse/science/es/simulation-models/index.html">
+<meta property="og:title" content="Simulación y modelos"><meta property="og:description" content="Simulación viene de raíces del latín relacionadas con semejanza o imitación. Modelo viene de una idea de medida, patrón o representación reducida. Una simulación no es la realidad "><meta property="og:url" content="https://issacquantum.github.io/InfiniteUniverse/science/es/simulation-models/index.html"><meta property="og:type" content="article">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self' https://cdn.jsdelivr.net; connect-src 'self'; frame-src https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'">
+<link rel="stylesheet" href="styles/static-science.css"><script src="scripts/mathjax-config.js"></script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+</head><body><a href="science/es/simulation-models/index.html#main">Saltar al contenido</a><nav><a href="index.html#/es/science/simulation-models">Abrir en el sitio interactivo</a> · <a href="science/en/simulation-models/index.html" lang="en">English</a> · <a href="science/es/index.html">Todos los temas</a></nav><main id="main"><h1>Simulación y modelos</h1><div class="structured-content" data-structured-content>
+  <section class="content-block">
+    <h3 id="section-1">Etimología</h3>
+    <p>
+      <strong>Simulación</strong> viene de raíces del latín relacionadas con semejanza o imitación. <strong>Modelo</strong>
+      viene de una idea de medida, patrón o representación reducida. Una simulación no es la realidad misma. Es una
+      imitación disciplinada para probar, estimar, explorar o visualizar un comportamiento que puede ser demasiado
+      complejo, grande, pequeño, lento o peligroso para tratarlo directamente.
+    </p>
+    <p>
+      Un buen modelo es honesto sobre lo que deja fuera. Esa honestidad separa una simplificación útil de una animación
+      engañosa.
+    </p>
+    <p class="source-language-note">
+      <strong>Fuente del origen etimológico:</strong> Incluyo estas fuentes en inglés porque ese fue el idioma en que las leí originalmente.
+      <a class="platform-link" href="https://www.etymonline.com/word/simulation" target="_blank" rel="noopener noreferrer">Online Etymology Dictionary: simulation</a>;
+      <a class="platform-link" href="https://www.etymonline.com/word/model" target="_blank" rel="noopener noreferrer">Online Etymology Dictionary: model</a>.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-2">Modelo, método, simulación</h3>
+    <p>
+      Un <strong>modelo</strong> define variables, supuestos, ecuaciones y fronteras. Un <strong>método
+      numérico</strong> convierte esas ecuaciones en pasos computables. Una <strong>simulación</strong> ejecuta el modelo
+      en el tiempo, en muestras, en agentes o en puntos de una red.
+    </p>
+    <p>
+      La distinción es crucial. Si el modelo está mal, un algoritmo perfecto solo produce más rápido el resultado equivocado.
+      Si el método es inestable, incluso un buen modelo puede producir basura.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-3">Experimento numérico</h3>
+    <p>
+      Modelar es más antiguo que las computadoras, pero la simulación computacional moderna se volvió poderosa en el
+      siglo XX cuando métodos numéricos, computadoras electrónicas y muestreo estadístico empezaron a trabajar juntos.
+      Física, clima, investigación nuclear, ingeniería, biología, economía y aprendizaje automático necesitaban estudiar
+      sistemas que se resistían a soluciones exactas.
+    </p>
+    <p>
+      El <strong>método de Monte Carlo</strong> se volvió una de las herramientas clave porque usa muestreo aleatorio
+      para estimar cantidades difíciles de calcular directamente:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/es/equations/monte-carlo-probability-measure.html">
+        $$
+        \hat{\mu}_N = \frac{1}{N}\sum_{k=1}^{N} f(X_k)
+        $$
+      </a>
+    </div>
+    <p>
+      Monte Carlo no promete una respuesta perfecta en una sola corrida. Promete una estimación controlada cuya
+      incertidumbre disminuye como:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/es/equations/monte-carlo-standard-error.html">
+        $$
+        SE(\hat{\mu}_N)=\frac{\sigma_f}{\sqrt{N}}
+        $$
+      </a>
+    </div>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-4">Pasos temporales</h3>
+    <p>
+      Muchas simulaciones avanzan un estado en pasos pequeños. El <strong>método de Euler</strong> usa la pendiente
+      actual como primera estimación del siguiente estado:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/es/equations/euler-method.html">
+        $$
+        y_{n+1} = y_n + h f(t_n, y_n)
+        $$
+      </a>
+    </div>
+    <p>
+      Euler es transparente, pero su error global es de primer orden:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/es/equations/euler-global-error-order.html">
+        $$
+        \|e_N\|=O(h)
+        $$
+      </a>
+    </div>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-5">Corrección de orden mayor</h3>
+    <p>
+      <strong>Runge Kutta de cuarto orden</strong> mejora el paso calculando la pendiente varias veces dentro del mismo
+      intervalo:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/es/equations/runge-kutta-four.html">
+        $$
+        y_{n+1}=y_n+\frac{h}{6}(k_1+2k_2+2k_3+k_4)
+        $$
+      </a>
+    </div>
+    <p>
+      RK4 (Runge-Kutta de cuarto orden) sigue siendo una aproximación, pero para problemas suaves su error global cae mucho más rápido:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/es/equations/rk4-global-error-order.html">
+        $$
+        \|e_N\|=O(h^4)
+        $$
+      </a>
+    </div>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-6">Campos, redes, estabilidad</h3>
+    <p>
+      Las <strong>ecuaciones diferenciales parciales</strong> suelen simularse reemplazando derivadas continuas por <strong>diferencias finitas</strong> en
+      una red. Para la ecuación de calor, una actualización simple en una dimensión es:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/es/equations/finite-difference-heat-equation.html">
+        $$
+        u_i^{n+1}=u_i^n+\alpha\frac{\Delta t}{\Delta x^2}(u_{i+1}^n-2u_i^n+u_{i-1}^n)
+        $$
+      </a>
+    </div>
+    <p>
+      Las actualizaciones explícitas de difusión deben respetar una <strong>condición de estabilidad</strong>. El esquema
+      FTCS de calor en una dimensión permite \(\lambda \le 1/2\). La red del modelo de abajo es bidimensional, así que
+      con el mismo espaciado y el mismo número de difusión en ambas direcciones el límite seguro se vuelve
+      \(\lambda \le 1/4\). De forma más general, los números de difusión direccionales deben satisfacer
+      \(\lambda_x+\lambda_y\le 1/2\).
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/es/equations/heat-stability-condition.html">
+        $$
+        \lambda_x+\lambda_y\le\frac{1}{2}
+        $$
+      </a>
+    </div>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-7">Verificación y validación</h3>
+    <p>
+      La simulación necesita disciplina porque una visualización atractiva puede ocultar fallas numéricas.
+      <strong>Verificación</strong> pregunta si el código resuelve correctamente las ecuaciones.
+      <strong>Validación</strong> pregunta si las ecuaciones representan el sistema real con suficiente fidelidad para la
+      afirmación que se hace. La <strong>cuantificación de incertidumbre</strong> mide cómo los supuestos, parámetros y
+      errores numéricos afectan el resultado.
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/es/equations/simulation-rmse-error.html">
+        $$
+        RMSE=\sqrt{\frac{1}{N}\sum_{i=1}^{N}(y_i-\hat{y}_i)^2}
+        $$
+      </a>
+    </div>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-8">Banco de pruebas de métodos numéricos</h3>
+    <p>
+      Este modelo mantiene la lección práctica: <strong>Euler</strong> muestra el error de avanzar localmente,
+      <strong>Runge Kutta</strong> muestra corrección de orden mayor, <strong>Monte Carlo</strong> muestra estimación por
+      muestreo, y la <strong>red de calor</strong> muestra difusión por <strong>diferencias finitas</strong>.
+    </p>
+    <p>
+      Arrastra para rotar, usa la rueda para acercar o alejar, y usa <strong>Shift-arrastrar</strong> o clic derecho para
+      mover la vista. En modo calor, haz clic o arrastra directamente sobre la red para inyectar calor.
+    </p>
+    <div class="model-teaching-card" aria-label="Notas educativas de métodos numéricos">
+      <p><strong>Tipo de modelo:</strong> Modelo físico simplificado.</p>
+      <p><strong>Qué muestra:</strong> Cómo el tamaño de paso, el muestreo y la estabilidad afectan un cálculo aproximado.</p>
+      <p><strong>Qué no muestra:</strong> Un solucionador completo de ingeniería, una simulación exacta de clima o fluidos, ni una garantía de que toda simulación atractiva sea correcta.</p>
+      <p><strong>Ecuación / principio:</strong> Pasos temporales de Euler y RK4, error de Monte Carlo que baja con más muestras y límite de estabilidad de la ecuación de calor.</p>
+      <p><strong>Qué representa:</strong> Una lección compacta de ciencia computacional sobre aproximación, error y estabilidad.</p>
+      <p><strong>Qué probar:</strong> Aumenta el paso en Euler vs RK4, aumenta las muestras de Monte Carlo y prueba la difusión de calor cerca del límite de estabilidad.</p>
+    </div>
+    <p>La cuadrícula térmica también multiplica cada valor actualizado por 0.996, lo que añade un enfriamiento uniforme. Incluso con fronteras aisladas, por tanto, no representa un sistema de difusión aislado que conserve la energía.</p>
+
+    <figure class="numerical-methods glass-window" data-numerical-methods-model data-model-target="numerical-methods" data-language="es">
+      <div class="numerical-methods__frame" data-nm-frame></div>
+      <div class="numerical-methods__panel">
+        <div class="numerical-methods__modes" role="group" aria-label="Modo de método numérico">
+          <span>Euler vs RK4</span>
+          <span>Monte Carlo</span>
+          <span>Difusión</span>
+        </div>
+        <div class="numerical-methods__body">
+          <div class="numerical-methods__controls">
+            <div class="numerical-methods__panel-group" data-nm-panel="ode">
+              <label class="numerical-methods__label" for="nm-ode-model-es">Modelo ODE (ecuación diferencial ordinaria)</label>
+              <select class="numerical-methods__select" id="nm-ode-model-es" data-nm-ode-model>
+                <option value="projectile">Movimiento de proyectil</option>
+                <option value="oscillator">Oscilador amortiguado</option>
+                <option value="lorenz">Sistema de Lorenz</option>
+              </select>
+              <label class="numerical-methods__label">
+                Tamaño de paso <span class="numerical-methods__value" data-nm-display="h">0.10</span>
+              </label>
+              <input class="numerical-methods__range" type="range" min="0.02" max="0.35" step="0.01" value="0.10"
+                data-nm-param="h">
+              <label class="numerical-methods__label">
+                Factor temporal <span class="numerical-methods__value" data-nm-display="speed">1.0x</span>
+              </label>
+              <input class="numerical-methods__range" type="range" min="0.2" max="3" step="0.1" value="1"
+                data-nm-param="speed">
+              <span>Reiniciar ODE</span>
+            </div>
+            <div class="numerical-methods__panel-group is-hidden" data-nm-panel="mc">
+              <label class="numerical-methods__label">
+                Muestras por cuadro <span class="numerical-methods__value" data-nm-display="mcBatch">120</span>
+              </label>
+              <input class="numerical-methods__range" type="range" min="20" max="600" step="20" value="120"
+                data-nm-param="mcBatch">
+              <span>Limpiar muestras</span>
+            </div>
+            <div class="numerical-methods__panel-group is-hidden" data-nm-panel="heat">
+              <label class="numerical-methods__label" for="nm-heat-mode-es">Condición inicial</label>
+              <select class="numerical-methods__select" id="nm-heat-mode-es" data-nm-heat-mode>
+                <option value="point">Fuente puntual</option>
+                <option value="checker">Patrón alternado</option>
+                <option value="random">Campo aleatorio</option>
+              </select>
+              <label class="numerical-methods__label" for="nm-heat-boundary-es">Condición de frontera</label>
+              <select class="numerical-methods__select" id="nm-heat-boundary-es" data-nm-heat-boundary>
+                <option value="insulated">Borde aislado</option>
+                <option value="fixed">Borde frío fijo</option>
+              </select>
+              <label class="numerical-methods__label">
+                Difusividad <span class="numerical-methods__value" data-nm-display="alpha">0.18</span>
+              </label>
+              <input class="numerical-methods__range" type="range" min="0.04" max="0.24" step="0.01" value="0.18"
+                data-nm-param="alpha">
+              <p class="numerical-methods__hint">Haz clic o arrastra sobre la red para pintar calor. El deslizador se mantiene en el rango explícito estable.</p>
+              <span>Reiniciar red</span>
+            </div>
+          </div>
+          <div class="numerical-methods__metrics">
+            <p class="numerical-methods__status" data-nm-status></p>
+            <div class="numerical-methods__metric-group" data-nm-metrics="ode">
+              <div class="numerical-methods__metric">
+                <div class="numerical-methods__metric-row">
+                  <span class="numerical-methods__metric-label">Error Euler</span>
+                  <span class="numerical-methods__value" data-nm-value="eulerError">0.000</span>
+                </div>
+              </div>
+              <div class="numerical-methods__metric">
+                <div class="numerical-methods__metric-row">
+                  <span class="numerical-methods__metric-label">Error RK4</span>
+                  <span class="numerical-methods__value" data-nm-value="rk4Error">0.0000</span>
+                </div>
+              </div>
+              <div class="numerical-methods__metric">
+                <div class="numerical-methods__metric-row">
+                  <span class="numerical-methods__metric-label">Lectura de convergencia</span>
+                  <span class="numerical-methods__value" data-nm-value="convergence">Esperando datos</span>
+                </div>
+              </div>
+            </div>
+            <div class="numerical-methods__metric-group is-hidden" data-nm-metrics="mc">
+              <div class="numerical-methods__metric">
+                <div class="numerical-methods__metric-row">
+                  <span class="numerical-methods__metric-label">Estimación pi</span>
+                  <span class="numerical-methods__value" data-nm-value="pi">0.00000</span>
+                </div>
+              </div>
+              <div class="numerical-methods__metric">
+                <div class="numerical-methods__metric-row">
+                  <span class="numerical-methods__metric-label">Error abs.</span>
+                  <span class="numerical-methods__value" data-nm-value="mcError">0.00000</span>
+                </div>
+              </div>
+              <div class="numerical-methods__metric">
+                <div class="numerical-methods__metric-row">
+                  <span class="numerical-methods__metric-label">Muestras</span>
+                  <span class="numerical-methods__value" data-nm-value="samples">0</span>
+                </div>
+              </div>
+              <div class="numerical-methods__metric">
+                <div class="numerical-methods__metric-row">
+                  <span class="numerical-methods__metric-label">Intervalo 95%</span>
+                  <span class="numerical-methods__value" data-nm-value="mcCi">±0.0000</span>
+                </div>
+              </div>
+            </div>
+            <div class="numerical-methods__metric-group is-hidden" data-nm-metrics="heat">
+              <div class="numerical-methods__metric">
+                <div class="numerical-methods__metric-row">
+                  <span class="numerical-methods__metric-label">Calor promedio</span>
+                  <span class="numerical-methods__value" data-nm-value="heatAvg">0.00</span>
+                </div>
+              </div>
+              <div class="numerical-methods__metric">
+                <div class="numerical-methods__metric-row">
+                  <span class="numerical-methods__metric-label">Lambda</span>
+                  <span class="numerical-methods__value" data-nm-value="stability">0.18 / 0.25</span>
+                </div>
+              </div>
+              <div class="numerical-methods__metric">
+                <div class="numerical-methods__metric-row">
+                  <span class="numerical-methods__metric-label">Frontera</span>
+                  <span class="numerical-methods__value" data-nm-value="boundary">aislada</span>
+                </div>
+              </div>
+              <div class="numerical-methods__metric">
+                <div class="numerical-methods__metric-row">
+                  <span class="numerical-methods__metric-label">Nota de estabilidad</span>
+                  <span class="numerical-methods__value" data-nm-value="stabilityNote">estable para este paso explícito</span>
+                </div>
+              </div>
+            </div>
+            <div class="numerical-methods__legend" aria-label="Leyenda del modelo numérico">
+              <span>referencia violeta brillante</span>
+              <span>Euler violeta</span>
+              <span>RK4 índigo</span>
+              <span>mapa térmico morado</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <figcaption>
+        Arte + física: Euler, RK4, muestreo de Monte Carlo y difusión de calor. Nota de diseño: la paleta recurrente de
+        tonos violeta, índigo y lavanda refleja mis colores favoritos.
+      </figcaption>
+    </figure>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-9">Caos y simulación estocástica</h3>
+    <p>
+      La simulación no solo trata de predicción suave. Lorenz mostró que ecuaciones deterministas pueden ser
+      extremadamente <strong>sensibles a las condiciones iniciales</strong>. La <strong>simulación estocástica</strong> maneja sistemas donde el azar forma
+      parte del modelo, no solo del ruido numérico.
+    </p>
+    <p>
+      La simulación es poderosa y peligrosa. Puede revelar patrones ocultos al cálculo directo, pero también puede crear
+      falsa confianza cuando los supuestos no se declaran con claridad.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-10">Supuestos y límites</h3>
+    <p>
+      <strong>Todo modelo tiene una frontera</strong>. Nubes de probabilidad orbital, redes de difusión, atractores caóticos, autómatas
+      celulares, movimiento de agentes, dinámica molecular y muestreo de Monte Carlo enseñan cosas distintas porque
+      simplifican la realidad de formas distintas.
+    </p>
+    <p>
+      El modelo orbital de hidrógeno forma parte de esta categoría más amplia. No es una trayectoria literal del
+      electrón. Es una <strong>estructura de probabilidad muestreada</strong>, así que el movimiento necesita explicación y no solo
+      atractivo visual.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-11">Frontera Moderna</h3>
+    <p>
+      La simulación moderna incluye cuantificación de incertidumbre, modelos sustitutos, simulación diferenciable,
+      gemelos digitales, cómputo de alto rendimiento, métodos Monte Carlo, modelado por elementos finitos, conjuntos
+      climáticos y aprendizaje automático informado por física. La frontera no es solo hacer que una simulación parezca
+      realista; es saber cuándo el resultado es confiable.
+    </p>
+    <p>
+      Una simulación seria reporta supuestos, condiciones de frontera, discretización, convergencia, estabilidad,
+      validación y error. Sin eso, una visualización hermosa puede engañar. Con eso, la simulación se vuelve compañera
+      experimental, no solo animación.
+    </p>
+    <p><a class="paper-link" href="https://arxiv.org/abs/2405.19101" target="_blank" rel="noopener noreferrer">Poseidon: Efficient Foundation Models for PDEs (2024)</a> estudia el entrenamiento previo y la transferencia entre tareas de ecuaciones diferenciales parciales. Los operadores aprendidos pueden reducir el costo de resolver problemas repetidos en los regímenes evaluados, pero la extrapolación a geometrías, condiciones de frontera o regímenes físicos nuevos requiere validación frente a solvers confiables y leyes de conservación.</p>
+  </section>
+
+  <section class="content-block glossary-section">
+    <h3 id="section-12">Glosario de Términos Técnicos</h3>
+    <ul class="paper-list glossary-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>ODE:</strong> Ecuación diferencial ordinaria, donde la función desconocida depende de una sola variable independiente, normalmente el tiempo.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>PDE:</strong> Ecuación diferencial parcial, donde el campo desconocido depende de varias variables como espacio y tiempo.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Condición de frontera:</strong> Una regla impuesta en el borde de un dominio, como comportamiento aislado, fijo o envolvente en la red de calor.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Condición inicial:</strong> El estado de partida desde el que comienza la evolución numérica.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Simulación estocástica:</strong> Una simulación donde la aleatoriedad forma parte del modelo y no solo del error numérico.</span></li>
+    </ul>
+  </section>
+  <section class="content-block glossary-section abbreviation-glossary" data-abbreviation-glossary>
+    <h3 id="section-13">Glosario de Abreviaturas</h3>
+    <p class="abbreviation-glossary__note">Este glosario expande las abreviaturas usadas en esta sección. La primera aparición en el texto incluye el significado completo entre paréntesis; las repeticiones quedan abreviadas para mantener la lectura limpia.</p>
+    <ul class="paper-list glossary-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>RK4:</strong> Runge-Kutta de cuarto orden.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>ODE:</strong> ecuación diferencial ordinaria.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>OSTI:</strong> Office of Scientific and Technical Information, Oficina de Información Científica y Técnica.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>DOI:</strong> identificador digital de objeto.</span></li>
+    </ul>
+  </section>
+
+<section class="content-block source-papers">
+    <h3 id="section-14">Enlaces de Fuentes Fundamentales y Modernas</h3>
+    <p class="source-language-note">Incluyo estas fuentes en inglés porque ese fue el idioma en que las leí originalmente.</p>
+    <ul class="paper-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://www.osti.gov/servlets/purl/4390578" target="_blank" rel="noopener noreferrer">Metropolis et
+            al., 1953. <em>Equation of State Calculations by Fast Computing Machines.</em></a> <span
+            class="paper-note">PDF alojado por OSTI (Office of Scientific and Technical Information).</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://journals.ametsoc.org/view/journals/atsc/20/2/1520-0469_1963_020_0130_dnf_2_0_co_2.xml"
+            target="_blank" rel="noopener noreferrer">Edward N. Lorenz, 1963. <em>Deterministic Nonperiodic
+              Flow.</em></a> <span class="paper-note">Página oficial del artículo en American Meteorological
+            Society.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://doi.org/10.1021/j100540a008" target="_blank" rel="noopener noreferrer">Daniel T. Gillespie,
+            1977. <em>Exact Stochastic Simulation of Coupled Chemical Reactions.</em></a> <span
+            class="paper-note">Registro DOI (identificador digital de objeto) oficial.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://numerical.recipes/" target="_blank" rel="noopener noreferrer">William H. Press et al.
+            <em>Numerical Recipes.</em></a> <span class="paper-note">Sitio oficial de referencia.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://doi.org/10.1115/1.1767847" target="_blank" rel="noopener noreferrer">Oberkampf, Trucano y
+            Hirsch, 2004. <em>Verification, Validation, and Predictive Capability in Computational Engineering and
+              Physics.</em></a> <span class="paper-note">Registro DOI oficial.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://openresearchsoftware.metajnl.com/articles/10.5334/jors.151" target="_blank"
+            rel="noopener noreferrer">Christopher Rackauckas y Qing Nie, 2017.
+            <em>DifferentialEquations.jl: A Performant and Feature-Rich Ecosystem for Solving Differential Equations in
+              Julia.</em></a> <span class="paper-note">Artículo de acceso abierto en Journal of Open Research
+            Software.</span></span></li>
+    </ul>
+  </section>
+</div>
+<nav aria-label="Temas relacionados"><ul><li><a href="science/es/mathematical-analysis/index.html">Análisis Matemático y Ecuaciones Diferenciales</a></li><li><a href="science/es/programming-algorithms/index.html">Programación y algoritmos</a></li><li><a href="science/es/probability-statistics/index.html">Probabilidad y Estadística</a></li><li><a href="science/es/fluid-mechanics-navier-stokes/index.html">Mecánica de Fluidos y Navier–Stokes</a></li><li><a href="science/es/model-lab/index.html">Modelos interactivos</a></li></ul></nav></main></body></html>

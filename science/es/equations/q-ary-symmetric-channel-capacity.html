@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<base href="../../../"><title>Capacidad de Canal Simétrico con Ruido | Infinite Universe</title>
+<meta name="description" content="C es igual al logaritmo en base dos de q, más uno menos p por el logaritmo en base dos de uno menos p, más p por el logaritmo en base dos del cociente p entre q menos uno."><link rel="canonical" href="https://issacquantum.github.io/InfiniteUniverse/science/es/equations/q-ary-symmetric-channel-capacity.html">
+<link rel="alternate" hreflang="en" href="https://issacquantum.github.io/InfiniteUniverse/science/en/equations/q-ary-symmetric-channel-capacity.html"><link rel="alternate" hreflang="es" href="https://issacquantum.github.io/InfiniteUniverse/science/es/equations/q-ary-symmetric-channel-capacity.html">
+<meta property="og:title" content="Capacidad de Canal Simétrico con Ruido"><meta property="og:description" content="C es igual al logaritmo en base dos de q, más uno menos p por el logaritmo en base dos de uno menos p, más p por el logaritmo en base dos del cociente p entre q menos uno."><meta property="og:url" content="https://issacquantum.github.io/InfiniteUniverse/science/es/equations/q-ary-symmetric-channel-capacity.html"><meta property="og:type" content="article">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self' https://cdn.jsdelivr.net; connect-src 'self'; frame-src https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'">
+<link rel="stylesheet" href="styles/static-science.css"><script src="scripts/mathjax-config.js"></script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+</head><body><a href="science/es/equations/q-ary-symmetric-channel-capacity.html#main">Saltar al contenido</a><nav><a href="index.html#/es/science/information-theory?branch=information-theory-equations&detail=q-ary-symmetric-channel-capacity">Abrir en el sitio interactivo</a> · <a href="science/en/equations/q-ary-symmetric-channel-capacity.html" lang="en">English</a> · <a href="science/es/index.html">Todos los temas</a></nav><main id="main"><h1>Capacidad de Canal Simétrico con Ruido</h1><div class="structured-content equation-detail-page" data-structured-content>
+  <section class="content-block"><h3>Capacidad de un Canal Simétrico con Ruido</h3></section>
+  <section class="content-block"><h3>Ecuación</h3><div class="equation-link-wrap">
+      <div class="glass-window equation-display">
+        $$
+        C=\log_2 q+(1-p)\log_2(1-p)+p\log_2\frac{p}{q-1}
+        $$
+      </div>
+    </div></section>
+  <section class="content-block"><h3>Lectura Literal</h3><p>C es igual al logaritmo en base dos de q, más uno menos p por el logaritmo en base dos de uno menos p, más p por el logaritmo en base dos del cociente p entre q menos uno.</p></section>
+  <section class="content-block"><h3>Lectura Común</h3><p>La tasa máxima confiable de información para un canal simétrico ruidoso con \(q\) símbolos.</p></section>
+  <section class="content-block"><h3>Símbolos</h3><p><strong>\(C\)</strong>: capacidad del canal en bits por uso del canal.</p>
+    <p><strong>\(q\)</strong>: tamaño del alfabeto, es decir, el número de símbolos posibles que el canal puede enviar.</p>
+    <p><strong>\(p\)</strong>: probabilidad total de error de símbolo, es decir, la probabilidad de que el símbolo recibido no sea el enviado.</p>
+    <p><strong>\(\log_2\)</strong>: logaritmo base 2, por eso el resultado se mide en bits.</p></section>
+  <section class="content-block"><h3>Significado de la Ecuación</h3><p>Para \(q\ge2\) y \(0\le p\le1\), con \(0\log 0=0\), la capacidad disminuye hasta cero en \(p=(q-1)/q\), donde la salida es independiente de la entrada. Vuelve a aumentar por encima de ese punto porque la exclusión sistemática del símbolo enviado aporta información. Por tanto, no disminuye en todo el intervalo de probabilidad.</p></section>
+</div>
+<nav aria-label="Temas relacionados"><ul><li><a href="science/es/probability-statistics/index.html">Probabilidad y Estadística</a></li><li><a href="science/es/quantum-information/index.html">Información cuántica</a></li><li><a href="science/es/artificial-intelligence/index.html">Inteligencia artificial</a></li><li><a href="science/es/thermodynamics-statistical-mechanics/index.html">Termodinámica y mecánica estadística</a></li></ul></nav></main></body></html>

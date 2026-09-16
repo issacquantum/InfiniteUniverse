@@ -1,11 +1,8 @@
-import { bigBangLegacyContent } from "../data/legacy-big-bang.js?v=20260913-social-dock-v1";
-import { siteContent } from "../data/site-content.js?v=20260913-fluid-equations-v1";
+import { siteContent } from "../data/site-content.js?v=20260916-science-overhaul-v1";
 
 const documentCache = new Map();
 const requestCache = new Map();
-const CONTENT_CACHE_VERSION = "20260916-science-audit-v1";
-const PREWARM_WORKER_LIMIT = 4;
-let prewarmScheduled = false;
+const CONTENT_CACHE_VERSION = "20260916-science-overhaul-v1";
 
 function normalizePath(filePath) {
   if (typeof filePath !== "string") {
@@ -76,92 +73,35 @@ export async function getCachedDocument(filePath) {
   return request;
 }
 
-function addLocalizedFile(fileSet, source) {
-  if (!source || typeof source !== "object") {
-    return;
+// Only the active language and nearby destinations are warmed. No corpus-wide crawl.
+const warmed = new Set();
+let generation = 0;
+export function scheduleContentPrewarm(state) {
+  if (!state?.activeTopic) return;
+  const token = ++generation;
+  const domain = siteContent.knowledgeWorlds.find(d => d.id === state.activeDomain);
+  const index = domain?.topics.findIndex(t => t.id === state.activeTopic) ?? -1;
+  if (index < 0) return;
+  const topic = domain.topics[index];
+  const language = state.language === "es" ? "es" : "en";
+  const paths = [topic.contentFile?.[language], domain.topics[index + 1]?.contentFile?.[language], domain.topics[index - 1]?.contentFile?.[language]];
+  // A small bounded set: opening a detail never schedules hundreds of other equations.
+  const branch = topic.branches?.find(b => b.id === state.activeBranch) ?? topic.branches?.[0];
+  const items = branch?.items ?? [];
+  const itemIndex = Math.max(0, items.findIndex(i => i.id === state.activeDetail));
+  for (const item of items.slice(itemIndex, itemIndex + 3)) paths.push(item.contentFile?.[language]);
+  const connection = navigator.connection;
+  if (connection?.saveData || /2g/.test(connection?.effectiveType ?? "")) return;
+  const queue = [...new Set(paths.filter(Boolean))].filter(p => !warmed.has(p));
+  async function next() {
+    if (token !== generation || !queue.length) return;
+    const file = queue.shift(); warmed.add(file);
+    await getCachedDocument(file).catch(() => warmed.delete(file));
+    if (queue.length) schedule();
   }
-
-  if (typeof source.en === "string") {
-    fileSet.add(source.en);
+  function schedule() {
+    if (window.requestIdleCallback) window.requestIdleCallback(next, { timeout: 1500 });
+    else window.setTimeout(next, 300);
   }
-
-  if (typeof source.es === "string") {
-    fileSet.add(source.es);
-  }
-}
-
-function collectStructuredFiles(fileSet) {
-  addLocalizedFile(fileSet, siteContent.sitePurposeSection?.contentFile);
-  siteContent.personalSections.forEach((section) => addLocalizedFile(fileSet, section.contentFile));
-
-  siteContent.knowledgeWorlds.forEach((domain) => {
-    domain.topics.forEach((topic) => {
-      addLocalizedFile(fileSet, topic.contentFile);
-      topic.branches?.forEach((branch) => {
-        branch.items?.forEach((item) => addLocalizedFile(fileSet, item.contentFile));
-      });
-    });
-  });
-}
-
-function collectLegacyFiles(fileSet) {
-  bigBangLegacyContent.branches.forEach((branch) => {
-    branch.items?.forEach((item) => {
-      const filePath = normalizePath(item.source?.file);
-
-      if (!filePath) {
-        return;
-      }
-
-      fileSet.add(filePath);
-
-      if (filePath.includes("/big-bang/")) {
-        fileSet.add(filePath.replace("/big-bang/", "/big-bang-es/"));
-      }
-    });
-  });
-}
-
-function getAllContentFiles() {
-  const fileSet = new Set();
-  collectStructuredFiles(fileSet);
-  collectLegacyFiles(fileSet);
-  return Array.from(fileSet);
-}
-
-async function prewarmAllContent() {
-  const filePaths = getAllContentFiles();
-  const workerCount = Math.min(PREWARM_WORKER_LIMIT, filePaths.length);
-  let nextIndex = 0;
-
-  async function worker() {
-    while (nextIndex < filePaths.length) {
-      const filePath = filePaths[nextIndex];
-      nextIndex += 1;
-      await waitForIdlePrewarmSlot();
-      await getCachedDocument(filePath).catch(() => null);
-    }
-  }
-
-  await Promise.all(Array.from({ length: workerCount }, worker));
-}
-
-function waitForIdlePrewarmSlot() {
-  return new Promise((resolve) => {
-    if (typeof window.requestIdleCallback === "function") {
-      window.requestIdleCallback(resolve, { timeout: 600 });
-      return;
-    }
-
-    window.setTimeout(resolve, 16);
-  });
-}
-
-export function scheduleContentPrewarm() {
-  if (prewarmScheduled) {
-    return;
-  }
-
-  prewarmScheduled = true;
-  void prewarmAllContent();
+  schedule();
 }

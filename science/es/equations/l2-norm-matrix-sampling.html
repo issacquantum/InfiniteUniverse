@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<base href="../../../"><title>Muestreo Matricial de Norma L2 (norma euclidiana) | Infinite Universe</title>
+<meta name="description" content="La probabilidad de i es la norma euclidiana al cuadrado de la fila i de A dividida entre la norma de Frobenius al cuadrado de A. La probabilidad de j dado i es el módulo al cuadrad"><link rel="canonical" href="https://issacquantum.github.io/InfiniteUniverse/science/es/equations/l2-norm-matrix-sampling.html">
+<link rel="alternate" hreflang="en" href="https://issacquantum.github.io/InfiniteUniverse/science/en/equations/l2-norm-matrix-sampling.html"><link rel="alternate" hreflang="es" href="https://issacquantum.github.io/InfiniteUniverse/science/es/equations/l2-norm-matrix-sampling.html">
+<meta property="og:title" content="Muestreo Matricial de Norma L2 (norma euclidiana)"><meta property="og:description" content="La probabilidad de i es la norma euclidiana al cuadrado de la fila i de A dividida entre la norma de Frobenius al cuadrado de A. La probabilidad de j dado i es el módulo al cuadrad"><meta property="og:url" content="https://issacquantum.github.io/InfiniteUniverse/science/es/equations/l2-norm-matrix-sampling.html"><meta property="og:type" content="article">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self' https://cdn.jsdelivr.net; connect-src 'self'; frame-src https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'">
+<link rel="stylesheet" href="styles/static-science.css"><script src="scripts/mathjax-config.js"></script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+</head><body><a href="science/es/equations/l2-norm-matrix-sampling.html#main">Saltar al contenido</a><nav><a href="index.html#/es/science/quantum-computing?branch=quantum-computing-equations&detail=l2-norm-matrix-sampling">Abrir en el sitio interactivo</a> · <a href="science/en/equations/l2-norm-matrix-sampling.html" lang="en">English</a> · <a href="science/es/index.html">Todos los temas</a></nav><main id="main"><h1>Muestreo Matricial de Norma L2 (norma euclidiana)</h1><div class="structured-content equation-detail-page" data-structured-content>
+  <section class="content-block"><h3>Muestreo Matricial con Norma L2 (norma euclidiana)</h3></section>
+  <section class="content-block"><h3>Ecuación</h3><div class="equation-link-wrap"><div class="glass-window equation-display">$$ \Pr[i]=\frac{\|A_{i,*}\|_2^2}{\|A\|_F^2},\qquad \Pr[j\mid i]=\frac{|A_{ij}|^2}{\|A_{i,*}\|_2^2} $$</div></div></section>
+  <section class="content-block"><h3>Lectura Literal</h3><p>La probabilidad de i es la norma euclidiana al cuadrado de la fila i de A dividida entre la norma de Frobenius al cuadrado de A. La probabilidad de j dado i es el módulo al cuadrado de A subíndice i j dividido entre la norma euclidiana al cuadrado de esa fila.</p></section>
+  <section class="content-block"><h3>Lectura Común</h3><p>La probabilidad de elegir la fila \(i\) es su norma de fila al cuadrado dividida por la norma de Frobenius al cuadrado de la matriz.</p></section>
+  <section class="content-block"><h3>Símbolos</h3><p><strong>\(A\)</strong>: matriz que se está muestreando.</p>
+    <p><strong>\(A_{i,*}\)</strong>: fila \(i\) de la matriz.</p>
+    <p><strong>\(A_{ij}\)</strong>: entrada en la fila \(i\), columna \(j\).</p>
+    <p><strong>\(\|A_{i,*}\|_2\)</strong>: norma \(\ell^2\) de la fila \(i\).</p>
+    <p><strong>\(\|A\|_F\)</strong>: norma de Frobenius de toda la matriz.</p>
+    <p><strong>\(\Pr[j\mid i]\)</strong>: probabilidad de elegir \(j\) después de que \(i\) ya fue elegido.</p></section>
+  <section class="content-block"><h3>Significado de la Ecuación</h3><p>Muestrear filas y entradas de norma alta permite que algoritmos inspeccionen partes importantes de una matriz sin leerla completa. Por eso el modelo de acceso a datos forma parte de la afirmación.</p></section>
+</div>
+<nav aria-label="Temas relacionados"><ul><li><a href="science/es/quantum-mechanics/index.html">Mecánica cuántica</a></li><li><a href="science/es/programming-algorithms/index.html">Programación y algoritmos</a></li><li><a href="science/es/quantum-information/index.html">Información cuántica</a></li><li><a href="science/es/quantum-complexity/index.html">Complejidad cuántica</a></li></ul></nav></main></body></html>

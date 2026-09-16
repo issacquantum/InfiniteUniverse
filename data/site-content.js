@@ -545,6 +545,21 @@ export const siteContent = {
           hideBranchNavigation: true,
           hideDetailNavigation: true
         }),
+        createTopic("probability-statistics", "Probability & Statistics", "Probabilidad y Estadística", {
+          contentFile: htmlSource("science", "probability-statistics"),
+          branches: [{ id: "probability-statistics-equations", title: { en: "Equations", es: "Ecuaciones" }, items: [
+              createStructuredItem("science/equations", "probability-axioms", "Probability axioms", "Axiomas de probabilidad"),
+              createStructuredItem("science/equations", "conditional-bayes", "Conditional probability and Bayes", "Probabilidad condicional y Bayes"),
+              createStructuredItem("science/equations", "expectation-variance", "Expectation and variance", "Esperanza y varianza")
+          ] }], hideBranchNavigation: true, hideDetailNavigation: true
+        }),
+        createTopic("mathematical-analysis", "Mathematical Analysis & Differential Equations", "Análisis Matemático y Ecuaciones Diferenciales", {
+          contentFile: htmlSource("science", "mathematical-analysis"),
+          branches: [{ id: "mathematical-analysis-equations", title: { en: "Equations", es: "Ecuaciones" }, items: [
+              createStructuredItem("science/equations", "weak-derivative", "Weak derivative", "Derivada débil"),
+              createStructuredItem("science/equations", "sobolev-norm", "Sobolev norm", "Norma de Sobolev")
+          ] }], hideBranchNavigation: true, hideDetailNavigation: true
+        }),
         createTopic("mathematical-foundations", "Mathematical Foundations", "Fundamentos matemáticos", {
           contentFile: htmlSource("science", "mathematical-foundations"),
           branches: [mathematicalFoundationsEquationBranch],

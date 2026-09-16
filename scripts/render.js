@@ -1,3 +1,4 @@
+import { topicMetadata } from "../data/topic-metadata.js";
 import { pick } from "./i18n.js?v=20260913-social-dock-v1";
 
 function escapeHtml(value) {
@@ -32,33 +33,7 @@ const domainIconNames = {
   "model-lab": "box"
 };
 
-const topicIconNames = {
-  "fluid-mechanics-navier-stokes": "fluid-flow",
-  "classical-mechanics": "circle-dot",
-  "electromagnetism": "radio-tower",
-  "thermodynamics-statistical-mechanics": "flame",
-  "mathematical-foundations": "sigma",
-  "quantum-mechanics": "atom",
-  "quantum-entanglement": "network",
-  "quantum-information": "binary",
-  "quantum-computing": "cpu",
-  "quantum-complexity": "workflow",
-  "quantum-field-theory": "waves",
-  "chemistry-molecular-structure": "flask-conical",
-  "biology-life-systems": "dna",
-  "neuroscience-consciousness": "brain",
-  "relativity-spacetime": "orbit",
-  "black-holes": "circle-dot-dashed",
-  "wormholes": "scan",
-  "cosmology-early-universe": "telescope",
-  "artificial-intelligence": "bot",
-  "information-theory": "binary",
-  "programming-algorithms": "code-2",
-  "simulation-models": "boxes",
-  "complex-systems-emergence": "network",
-  "philosophy-science": "scroll",
-  "model-lab": "box"
-};
+const topicIconNames = Object.fromEntries(Object.entries(topicMetadata).map(([id, metadata]) => [id, metadata.icon]));
 
 const sectionSignatureIconNames = {
   "origins": "home",
@@ -80,32 +55,7 @@ const domainSignatureIconNames = {
   "model-lab": "boxes"
 };
 
-const topicSignatureIconNames = {
-  "classical-mechanics": "circle-dot",
-  "electromagnetism": "waves",
-  "thermodynamics-statistical-mechanics": "flame",
-  "mathematical-foundations": "sigma",
-  "quantum-mechanics": "orbit",
-  "quantum-entanglement": "network",
-  "quantum-information": "binary",
-  "quantum-computing": "cpu",
-  "quantum-complexity": "workflow",
-  "quantum-field-theory": "waves",
-  "chemistry-molecular-structure": "flask-conical",
-  "biology-life-systems": "dna",
-  "neuroscience-consciousness": "brain",
-  "relativity-spacetime": "orbit",
-  "black-holes": "circle-dot-dashed",
-  "wormholes": "scan",
-  "cosmology-early-universe": "telescope",
-  "artificial-intelligence": "network",
-  "information-theory": "binary",
-  "programming-algorithms": "code-2",
-  "simulation-models": "boxes",
-  "complex-systems-emergence": "network",
-  "philosophy-science": "scroll",
-  "model-lab": "boxes"
-};
+const topicSignatureIconNames = Object.fromEntries(Object.entries(topicMetadata).map(([id, metadata]) => [id, metadata.signature]));
 
 const sectionMoodNames = {
   "origins": "personal-origins",
@@ -126,26 +76,7 @@ const domainMoodNames = {
   "model-lab": "model-lab"
 };
 
-const topicMoodNames = {
-  "electromagnetism": "waves",
-  "quantum-mechanics": "quantum",
-  "quantum-entanglement": "quantum",
-  "quantum-information": "quantum",
-  "quantum-computing": "quantum",
-  "quantum-complexity": "quantum",
-  "quantum-field-theory": "quantum",
-  "biology-life-systems": "life",
-  "neuroscience-consciousness": "mind",
-  "relativity-spacetime": "cosmos",
-  "black-holes": "cosmos",
-  "wormholes": "cosmos",
-  "cosmology-early-universe": "cosmos",
-  "artificial-intelligence": "systems",
-  "information-theory": "systems",
-  "programming-algorithms": "systems",
-  "simulation-models": "model-lab",
-  "complex-systems-emergence": "systems"
-};
+const topicMoodNames = Object.fromEntries(Object.entries(topicMetadata).map(([id, metadata]) => [id, metadata.mood]));
 
 const fluidFlowIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
@@ -649,10 +580,10 @@ function renderStructuredPanel(contentFile, language, ui, navigation = null, opt
       ${signatureIconName ? `
         <div class="content-window__signature" aria-hidden="true">
           <span class="content-window__signature-mark content-window__signature-mark--base">
-            <i data-lucide="${escapeHtml(signatureIconName)}"></i>
+            ${signatureIconName === "fluid-flow" ? fluidFlowIcon : `<i data-lucide="${escapeHtml(signatureIconName)}"></i>`}
           </span>
           <span class="content-window__signature-mark content-window__signature-mark--glint">
-            <i data-lucide="${escapeHtml(signatureIconName)}"></i>
+            ${signatureIconName === "fluid-flow" ? fluidFlowIcon : `<i data-lucide="${escapeHtml(signatureIconName)}"></i>`}
           </span>
         </div>
       ` : ""}
@@ -701,10 +632,10 @@ function renderLegacyPanel(item, language, ui, navigation = null, options = {}) 
       ${signatureIconName ? `
         <div class="content-window__signature" aria-hidden="true">
           <span class="content-window__signature-mark content-window__signature-mark--base">
-            <i data-lucide="${escapeHtml(signatureIconName)}"></i>
+            ${signatureIconName === "fluid-flow" ? fluidFlowIcon : `<i data-lucide="${escapeHtml(signatureIconName)}"></i>`}
           </span>
           <span class="content-window__signature-mark content-window__signature-mark--glint">
-            <i data-lucide="${escapeHtml(signatureIconName)}"></i>
+            ${signatureIconName === "fluid-flow" ? fluidFlowIcon : `<i data-lucide="${escapeHtml(signatureIconName)}"></i>`}
           </span>
         </div>
       ` : ""}

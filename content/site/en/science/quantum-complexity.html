@@ -1,6 +1,6 @@
 <div class="structured-content" data-structured-content>
   <section class="content-block">
-    <h3>Etymology and Scope</h3>
+    <h3 id="section-1">Etymology and Scope</h3>
     <p>
       <strong>Complexity</strong> comes from roots connected with things woven together. In computation, complexity means
       the resources needed to solve a problem: time, memory, queries, circuit size, proof length, randomness,
@@ -15,7 +15,7 @@
   </section>
 
   <section class="content-block">
-    <h3>The Resource Being Measured</h3>
+    <h3 id="section-2">The Resource Being Measured</h3>
     <p>
       A quantum computer with \(n\) qubits has a state vector in a Hilbert space whose dimension grows exponentially:
     </p>
@@ -41,7 +41,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Classical Baseline</h3>
+    <h3 id="section-3">Classical Baseline</h3>
     <p>
       Quantum complexity starts by comparing against classical complexity. \(P\) contains decision problems solvable in
       deterministic polynomial time. \(BPP\) allows randomness with bounded error. \(NP\) contains problems where a
@@ -66,7 +66,7 @@
   </section>
 
   <section class="content-block">
-    <h3>BQP: Efficient Quantum Computation</h3>
+    <h3 id="section-4">BQP: Efficient Quantum Computation</h3>
     <p>
       The central class is <strong>BQP</strong>, bounded-error quantum polynomial time. A language \(L\) is in BQP if a
       uniform family of polynomial-size quantum circuits decides membership with high enough probability:
@@ -95,7 +95,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Query Complexity and Search</h3>
+    <h3 id="section-5">Query Complexity and Search</h3>
     <p>
       Query complexity asks how many times an algorithm must ask a black-box question. It isolates the cost of
       extracting information from an oracle, separate from the cost of ordinary computation. Grover's search is the
@@ -119,7 +119,7 @@
   </section>
 
   <section class="content-block">
-    <h3>QMA: Quantum Proofs</h3>
+    <h3 id="section-6">QMA: Quantum Proofs</h3>
     <p>
       <strong>QMA</strong> is the quantum analogue of \(NP\). In \(NP\), a verifier checks a classical witness. In QMA,
       the witness can be a quantum state. A verifier circuit must accept valid instances with high probability and
@@ -146,7 +146,7 @@
   </section>
 
   <section class="content-block">
-    <h3>The Local Hamiltonian Problem</h3>
+    <h3 id="section-7">The Local Hamiltonian Problem</h3>
     <p>
       The <strong>local Hamiltonian problem</strong> is the quantum version of a constraint-satisfaction problem. A
       Hamiltonian is written as a sum of local energy terms:
@@ -178,7 +178,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Circuit Complexity</h3>
+    <h3 id="section-8">Circuit Complexity</h3>
     <p>
       Circuit complexity measures how many elementary gates are needed to approximate a target unitary operation:
     </p>
@@ -204,7 +204,7 @@
   </section>
 
   <section class="content-block">
-    <h3>When Quantum Systems Are Classically Simulable</h3>
+    <h3 id="section-9">When Quantum Systems Are Classically Simulable</h3>
     <p>
       Not every quantum-looking process is computationally hard. Stabilizer circuits built from Clifford operations can
       be simulated efficiently on a classical computer. Low-entanglement one-dimensional systems can often be described
@@ -232,7 +232,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Quantum Advantage and Its Boundaries</h3>
+    <h3 id="section-10">Quantum Advantage and Its Boundaries</h3>
     <p>
       <strong>Quantum advantage</strong> means a quantum device solves a well-defined task with less resource cost than
       the best available classical method. A strong claim must specify the task, input model, output type, error
@@ -251,7 +251,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Interactive Proofs and Modern Frontiers</h3>
+    <h3 id="section-11">Interactive Proofs and Modern Frontiers</h3>
     <p>
       Quantum complexity extends beyond single computers. In quantum interactive proof systems, a verifier exchanges
       messages with one or more provers. The result \(QIP=PSPACE\) shows that quantum interactive proofs match a major
@@ -266,7 +266,7 @@
   </section>
 
   <section class="content-block">
-    <h3>What Quantum Complexity Does Not Say</h3>
+    <h3 id="section-12">What Quantum Complexity Does Not Say</h3>
     <p>
       Quantum complexity does not say quantum computers solve every hard problem. It does not prove \(P\neq NP\). It
       does not make exponential Hilbert space directly readable. It does not remove the cost of state preparation,
@@ -279,7 +279,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Open Problems</h3>
+    <h3 id="section-13">Open Problems</h3>
     <ul class="paper-list glossary-list">
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span>Is \(BQP\) strictly larger than \(BPP\) in the unrelativized world, not only relative to oracles or under assumptions?</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span>Which practical problems have durable quantum advantage after state-preparation, error-correction, and output-readout costs are counted?</span></li>
@@ -290,7 +290,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Technical Terms Glossary</h3>
+    <h3 id="section-14">Technical Terms Glossary</h3>
     <ul class="paper-list glossary-list">
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>BQP:</strong> Bounded-error quantum polynomial time, the class of problems efficiently decidable by quantum circuits with small error probability.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>QMA:</strong> Quantum Merlin-Arthur, the quantum analogue of efficient proof verification with a quantum witness.</span></li>
@@ -304,7 +304,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Sources and References</h3>
+    <h3 id="section-15">Sources and References</h3>
     <p>These sources support the complexity-theory, Hamiltonian-complexity, simulability, and frontier claims in this section.</p>
     <ul class="paper-list">
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://epubs.siam.org/doi/abs/10.1137/S0097539796300921" target="_blank" rel="noopener noreferrer">Ethan Bernstein and Umesh Vazirani, 1997. <em>Quantum Complexity Theory.</em></a></span></li>

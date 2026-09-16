@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<base href="../../../"><title>Monte Carlo Sampling | Infinite Universe</title>
+<meta name="description" content="I approximately equal to of 1 over N sum sub i equals 1 to the power of N f of x sub i."><link rel="canonical" href="https://issacquantum.github.io/InfiniteUniverse/science/en/equations/monte-carlo-probability-measure.html">
+<link rel="alternate" hreflang="es" href="https://issacquantum.github.io/InfiniteUniverse/science/es/equations/monte-carlo-probability-measure.html"><link rel="alternate" hreflang="en" href="https://issacquantum.github.io/InfiniteUniverse/science/en/equations/monte-carlo-probability-measure.html">
+<meta property="og:title" content="Monte Carlo Sampling"><meta property="og:description" content="I approximately equal to of 1 over N sum sub i equals 1 to the power of N f of x sub i."><meta property="og:url" content="https://issacquantum.github.io/InfiniteUniverse/science/en/equations/monte-carlo-probability-measure.html"><meta property="og:type" content="article">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self' https://cdn.jsdelivr.net; connect-src 'self'; frame-src https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'">
+<link rel="stylesheet" href="styles/static-science.css"><script src="scripts/mathjax-config.js"></script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+</head><body><a href="science/en/equations/monte-carlo-probability-measure.html#main">Skip to content</a><nav><a href="index.html#/en/science/quantum-mechanics?branch=quantum-mechanics-equations&detail=monte-carlo-probability-measure">Open in the interactive site</a> · <a href="science/es/equations/monte-carlo-probability-measure.html" lang="es">Español</a> · <a href="science/en/index.html">All topics</a></nav><main id="main"><h1>Monte Carlo Sampling</h1><div class="structured-content equation-detail-page" data-structured-content>
+  <section class="content-block"><h3>Monte Carlo Sampling</h3></section>
+  <section class="content-block"><h3>Equation</h3><div class="equation-link-wrap">
+      <div class="glass-window equation-display">
+        $$
+        \mu = \mathbb{E}_p[f(X)] = \int f(x)\,p(x)\,dx
+        $$
+      </div>
+    </div>
+    <div class="equation-link-wrap">
+      <div class="glass-window equation-display">
+        $$
+        \hat{\mu}_N = \frac{1}{N}\sum_{k=1}^{N} f(X_k), \qquad X_k \sim p(x)
+        $$
+      </div>
+    </div></section>
+  <section class="content-block"><h3>Literal Reading</h3><p>I approximately equal to of 1 over N sum sub i equals 1 to the power of N f of x sub i.</p></section>
+  <section class="content-block"><h3>Common Reading</h3><p>Mu equals the expectation under p of f of X, which is equal to the integral of f of x times p of x d x.</p></section>
+  <section class="content-block"><h3>Symbols</h3><p><strong>\(\mu\)</strong>: the exact quantity being estimated. In probability language, it is the true expectation value.</p>
+    <p><strong>\(\mathbb{E}_p[\cdot]\)</strong>: the expectation taken with respect to the probability distribution \(p\).</p>
+    <p><strong>\(f(X)\)</strong>: the quantity being measured on each random sample. This could be a coordinate, an energy contribution, or any observable built from the sampled variable.</p>
+    <p><strong>\(p(x)\)</strong>: the probability density used to generate samples. It tells the algorithm which regions should be sampled more often and which regions should be sampled less often.</p>
+    <p><strong>\(\int f(x)\,p(x)\,dx\)</strong>: the continuous average over all possible values of \(x\), weighted by their probability density.</p>
+    <p><strong>\(\hat{\mu}_N\)</strong>: the Monte Carlo estimator. The hat means it is an estimate, not the exact value.</p>
+    <p><strong>\(N\)</strong>: the total number of samples. It is a positive integer chosen by the implementation.</p>
+    <p><strong>\(\sum_{k=1}^{N}\)</strong>: the sum over all sampled trials, from the first sample to the \(N\)-th sample.</p>
+    <p><strong>\(X_k\)</strong>: the \(k\)-th sampled random variable.</p>
+    <p><strong>\(X_k \sim p(x)\)</strong>: the statement that each sample is drawn according to the distribution \(p(x)\).</p></section>
+  <section class="content-block"><h3>Meaning of the Equation</h3><p>Monte Carlo replaces an exact integral with an average over random samples. More samples usually reduce error, but only statistically.</p></section>
+</div>
+<nav aria-label="Related topics"><ul><li><a href="science/en/mathematical-foundations/index.html">Mathematical Foundations</a></li><li><a href="science/en/probability-statistics/index.html">Probability &amp; Statistics</a></li><li><a href="science/en/quantum-entanglement/index.html">Quantum Entanglement</a></li><li><a href="science/en/quantum-information/index.html">Quantum Information</a></li><li><a href="science/en/quantum-computing/index.html">Quantum Computing</a></li><li><a href="science/en/quantum-field-theory/index.html">Quantum Field Theory</a></li></ul></nav></main></body></html>

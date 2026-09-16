@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<base href="../../../"><title>Artificial Intelligence | Infinite Universe</title>
+<meta name="description" content="Artificial comes from Latin roots meaning made by skill or craft. Intelligence comes from intelligere , to understand, choose, or perceive between things. Artificial intelligence a"><link rel="canonical" href="https://issacquantum.github.io/InfiniteUniverse/science/en/artificial-intelligence/index.html">
+<link rel="alternate" hreflang="es" href="https://issacquantum.github.io/InfiniteUniverse/science/es/artificial-intelligence/index.html"><link rel="alternate" hreflang="en" href="https://issacquantum.github.io/InfiniteUniverse/science/en/artificial-intelligence/index.html">
+<meta property="og:title" content="Artificial Intelligence"><meta property="og:description" content="Artificial comes from Latin roots meaning made by skill or craft. Intelligence comes from intelligere , to understand, choose, or perceive between things. Artificial intelligence a"><meta property="og:url" content="https://issacquantum.github.io/InfiniteUniverse/science/en/artificial-intelligence/index.html"><meta property="og:type" content="article">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self' https://cdn.jsdelivr.net; connect-src 'self'; frame-src https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'">
+<link rel="stylesheet" href="styles/static-science.css"><script src="scripts/mathjax-config.js"></script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+</head><body><a href="science/en/artificial-intelligence/index.html#main">Skip to content</a><nav><a href="index.html#/en/science/artificial-intelligence">Open in the interactive site</a> · <a href="science/es/artificial-intelligence/index.html" lang="es">Español</a> · <a href="science/en/index.html">All topics</a></nav><main id="main"><h1>Artificial Intelligence</h1><div class="structured-content" data-structured-content>
+  <section class="content-block">
+    <h3 id="section-1">Etymology</h3>
+    <p>
+      <strong>Artificial</strong> comes from Latin roots meaning made by skill or craft. <strong>Intelligence</strong>
+      comes from <em>intelligere</em>, to understand, choose, or perceive between things. <strong>Artificial
+        intelligence</strong> asks whether a constructed system can process structure in ways that resemble reasoning,
+      perception, language, planning, or learning.
+    </p>
+    <p>
+      AI is not magic and it is not one single method. It is a family of mathematical, statistical, and computational
+      systems for turning data, rules, search, and feedback into behavior.
+    </p>
+    <p>
+      In this section I treat AI as computation, representation, optimization, and engineering. That is separate from the
+      question of conscious interiority: a system can produce intelligent-looking behavior without that proving first-person
+      experience.
+    </p>
+    <p>
+      <strong>Status date:</strong> September 15, 2026. AI systems, benchmark results, product behavior, and deployment practices
+      change quickly, so claims about current capability should be read as time-stamped rather than permanent.
+    </p>
+    <p class="source-language-note">
+      <strong>Source of etymological origin:</strong>
+      <a class="platform-link" href="https://www.etymonline.com/word/artificial" target="_blank" rel="noopener noreferrer">Online Etymology Dictionary: artificial</a>;
+      <a class="platform-link" href="https://www.etymonline.com/word/intelligence" target="_blank" rel="noopener noreferrer">Online Etymology Dictionary: intelligence</a>;
+      <a class="platform-link" href="https://www-formal.stanford.edu/jmc/history/dartmouth/dartmouth.html" target="_blank" rel="noopener noreferrer">Dartmouth AI proposal</a>.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-2">Early Artificial Intelligence</h3>
+    <p>
+      A few years before the field had its name, <strong>Alan Turing</strong> reframed the question of machine
+      intelligence. Instead of asking for a perfect definition of thought, he asked whether a machine could produce
+      behavior that forces us to reconsider the boundary between computation and intelligence.
+    </p>
+    <p>
+      The phrase became formal through the <strong>1956 Dartmouth workshop</strong>, organized by
+      <strong>John McCarthy</strong>, <strong>Marvin Minsky</strong>, <strong>Nathaniel Rochester</strong>, and
+      <strong>Claude Shannon</strong>. Their proposal treated intelligence as something that might be described so
+      precisely that a machine could simulate parts of it.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-3">Symbolic AI, Search and Learning</h3>
+    <p>
+      Early AI split into several routes: <strong>symbolic reasoning</strong>, <strong>search</strong>,
+      <strong>planning</strong>, <strong>perception</strong>, <strong>robotics</strong>, and
+      <strong>neural networks</strong>. Symbolic systems manipulate explicit rules. Search systems explore possible
+      states. Learning systems adjust from data.
+    </p>
+    <p>
+      Modern AI does not erase those older ideas. It combines them. A game-playing system may use neural networks plus
+      tree search. A language model may use a transformer trained by self-supervision, then instruction tuning, then
+      retrieval or tools. The important shift is that many behaviors are no longer written directly as rules. They are
+      learned from examples and optimized objectives.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-4">From Rules to Representation</h3>
+    <p>
+      Classical programming tells a machine what steps to follow. Machine learning asks whether a system can infer a
+      useful representation from examples and apply it to cases it has not seen before. That distinction moves the
+      problem from instruction to <strong>generalization</strong>.
+    </p>
+    <p>
+      A simple neural network layer can be written as:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/en/equations/neural-network-layer.html">
+        $$
+        h = \sigma(Wx + b)
+        $$
+      </a>
+    </div>
+    <p>
+      Inputs are transformed by learned weights, shifted by a bias, and passed through a nonlinear function. Stacking
+      these layers lets a model build progressively more useful internal representations.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-5">Training and Optimization</h3>
+    <p>
+      Training is usually framed as minimizing a <strong>loss function</strong>. The loss is not intelligence. It is the
+      target signal chosen by the designer. If the target is narrow, biased, or incomplete, the model can become
+      extremely good at the wrong thing.
+    </p>
+    <p>
+      The basic update rule is <strong>gradient descent</strong>:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/en/equations/gradient-descent-update.html">
+        $$
+        \theta_{t+1} = \theta_t - \eta \nabla_\theta L(\theta_t)
+        $$
+      </a>
+    </div>
+    <p>
+      In practice, large models often use adaptive optimizers such as <strong>Adam</strong>:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/en/equations/adam-optimizer-update.html">
+        $$
+        \theta_{t+1}=\theta_t-\eta\frac{\hat m_t}{\sqrt{\hat v_t}+\epsilon}
+        $$
+      </a>
+    </div>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-6">Data, Labels and Loss</h3>
+    <p>
+      Supervised models learn from examples paired with labels. Self-supervised models learn from structure already
+      present in data. Reinforcement learning uses rewards and actions. These are not just implementation details; they
+      define what kind of behavior the system is pressured to acquire.
+    </p>
+    <p>
+      Classification models often use <strong>cross entropy loss</strong>:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/en/equations/cross-entropy-loss.html">
+        $$
+        L = -\sum_i y_i \log(\hat{y}_i)
+        $$
+      </a>
+    </div>
+    <p>
+      <strong>Language models</strong> usually train on next-token prediction:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/en/equations/language-modeling-objective.html">
+        $$
+        L_{\rm LM}=-\sum_t \log p_\theta(x_t\mid x_{1:t-1})
+        $$
+      </a>
+    </div>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-7">Model Cards and Data Cards</h3>
+    <p>
+      A strong AI system should not be described only by a demo. <strong>Model cards</strong> document what a model is
+      intended for, what data and evaluation shaped it, where it performs poorly, what risks are known, and what use cases
+      should be avoided. <strong>Data cards</strong> or dataset sheets document where data came from, how it was collected,
+      what was filtered, what populations may be missing, what licenses or consent limits apply, and how the dataset may
+      become stale.
+    </p>
+    <p>
+      This matters because model behavior is partly a result of architecture and optimization, but also a result of data
+      provenance, labeling choices, preprocessing, evaluation design, and deployment context. A model without documentation
+      is harder to audit, reproduce, compare, or trust.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-8">AI Model Families</h3>
+    <p>
+      <strong>Machine learning</strong> is the broad category: systems learn patterns from data instead of being written
+      only as fixed rules. A spam filter, recommender, classifier, or regression model can be machine learning without
+      being a giant neural network.
+    </p>
+    <p>
+      <strong>Supervised learning</strong> trains from examples with known targets, such as image labels, medical risk
+      scores, or correct answers. <strong>Unsupervised learning</strong> looks for structure without labels, such as
+      clusters, latent dimensions, or compressed representations. <strong>Self-supervised learning</strong> creates its
+      own target from the data, such as predicting missing words, masked patches, or the next token.
+    </p>
+    <p>
+      <strong>Deep learning</strong> uses many layers of learned transformations. Early layers may detect simple
+      features, while deeper layers combine them into more abstract structure. The model learns its own representation
+      instead of relying entirely on hand-designed features.
+    </p>
+    <p>
+      <strong>Generative models</strong> learn a probability structure well enough to create new samples: text, images,
+      sounds, code, molecules, or trajectories. They are different from ordinary classifiers because their output is not
+      just a label. They synthesize a new object or sequence.
+    </p>
+    <p>
+      <strong>Transformers</strong> are deep learning architectures built around attention. They are especially powerful
+      for sequences because each token can compare itself with other tokens in context. <strong>Attention</strong> is the
+      mechanism that decides which parts of the context matter most for the next internal update.
+    </p>
+    <p>
+      <strong>Diffusion models</strong> are a major generative family. They learn to reverse a noise process, step by
+      step, so generation becomes a controlled path from random noise toward structure. <strong>Reinforcement
+      learning</strong> is different: an agent chooses actions, receives rewards, and learns a policy for acting in an
+      environment.
+    </p>
+    <p>
+      <strong>Multimodal models</strong> connect more than one kind of data, such as text, images, audio, video, and
+      actions. <strong>Alignment methods</strong>, including instruction tuning and <strong>RLHF (reinforcement learning from human feedback)</strong>, do not create the base model
+      from scratch; they shape how the model behaves after pretraining.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-9">Transformers</h3>
+    <p>A token is a unit produced by a tokenizer; it may be a word, word fragment, punctuation mark, or another encoded unit.</p>
+    <p>
+      Transformers changed modern AI because they made <strong>sequence modeling</strong> scalable. Tokens are converted into
+      <strong>embeddings</strong>, position information is added, <strong>attention mixes information</strong> across the context, feed-forward blocks
+      transform each token, and residual paths keep deep networks trainable.
+    </p>
+    <p>
+      Scaled dot-product attention is:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/en/equations/scaled-dot-product-attention.html">
+        $$
+        \operatorname{Attention}(Q,K,V)=\operatorname{softmax}\!\left(\frac{QK^T}{\sqrt{d_k}}\right)V
+        $$
+      </a>
+    </div>
+    <p>
+      The <strong>residual structure</strong> of transformer blocks is equally important:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/en/equations/transformer-residual-block.html">
+        $$
+        y=\operatorname{LayerNorm}(x+\operatorname{Sublayer}(x))
+        $$
+      </a>
+    </div>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-10">Generative AI</h3>
+    <p>
+      <strong>Generative AI models</strong> do not simply retrieve finished answers. They generate new samples from learned probability
+      structure. <strong>Language models</strong> generate token sequences. <strong>Diffusion models</strong> learn to move from noise toward structure.
+      <strong>Multimodal models</strong> connect text, images, audio, video, and actions into shared representations.
+    </p>
+    <p>
+      A common diffusion training objective is:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/en/equations/diffusion-denoising-objective.html">
+        $$
+        L_{\rm simple}=\mathbb{E}_{t,x_0,\epsilon}\!\left[\|\epsilon-\epsilon_\theta(x_t,t)\|^2\right]
+        $$
+      </a>
+    </div>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-11">Retrieval-Augmented Generation</h3>
+    <p>
+      <strong>Retrieval-augmented generation</strong> connects a generative model to an external search or document store.
+      The system retrieves relevant text, code, images, or records, then asks the model to answer using that context. This
+      separates what the model memorized during training from what it can look up at run time.
+    </p>
+    <p>
+      Retrieval can make answers more grounded, but it does not guarantee truth. A system can retrieve the wrong document,
+      miss the best source, use stale material, quote a source incorrectly, or draw an overconfident conclusion from weak
+      evidence. Retrieval improves the evidence path only when the sources, ranking, citations, and final reasoning are
+      checked.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-12">Alignment, RLHF and Safety</h3>
+    <p>
+      A model trained only to predict text is not automatically helpful, honest, or safe. <strong>Instruction tuning</strong> and
+      <strong>reinforcement learning from human feedback</strong> add a second layer of training pressure: produce outputs that people
+      prefer under a given evaluation setup.
+    </p>
+    <p>
+      A simplified <strong>RLHF</strong> objective is:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/en/equations/rlhf-objective.html">
+        $$
+        \max_\theta\;\mathbb{E}[r_\phi(x,y)]-\beta D_{\rm KL}(\pi_\theta(y|x)\|\pi_{\rm ref}(y|x))
+        $$
+      </a>
+    </div>
+    <p>
+      <strong>RLHF</strong> is useful, but it is not a truth machine. Reward models are imperfect, human preferences can conflict, and a
+      model can learn to sound aligned without being reliable. Evaluation, monitoring, and human judgment remain part of
+      the system.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-13">Scaling and Compute</h3>
+    <p>
+      Modern AI is also an infrastructure story. Performance often improves predictably with model size, dataset size,
+      and training compute, but <strong>scaling is expensive and not unlimited</strong>. <strong>More parameters</strong> do not automatically fix bad
+      data, weak evaluation, or unsafe deployment.
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/en/equations/neural-scaling-law.html">
+        $$
+        L(N,D)\approx L_\infty+aN^{-\alpha}+bD^{-\beta}
+        $$
+      </a>
+    </div>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-14">Calibration and Confusion Matrices</h3>
+    <p>
+      A model is <strong>calibrated</strong> when its stated confidence matches how often it is actually correct. If a
+      model says 0.8 confidence on many comparable cases, about 80 percent of those cases should be correct:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/en/equations/calibration-condition.html">
+        $$
+        P(\mathrm{correct}\mid \mathrm{confidence}=0.8)\approx 0.8
+        $$
+      </a>
+    </div>
+    <p>
+      A <strong>confusion matrix</strong> is the basic table for classification errors. It separates true positives, false
+      positives, true negatives, and false negatives. That makes accuracy less misleading: a medical test, spam filter, or
+      safety classifier may need high recall, high precision, or a controlled false-positive rate depending on the cost of
+      each mistake.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-15">Evaluation and Failure Modes</h3>
+    <p>
+      The serious question is not whether a model sounds fluent. It is whether the output is calibrated, verifiable,
+      robust under distribution shift, and safe in context. Failure modes include <strong>hallucination</strong>,
+      <strong>bias</strong>, <strong>overfitting</strong>, <strong>data contamination</strong>,
+      <strong>benchmark gaming</strong>, <strong>prompt sensitivity</strong>, and <strong>automation bias</strong>.
+    </p>
+    <p>
+      AI should be treated as a powerful statistical instrument, not an authority. Its value depends on the task, the
+      data, the deployment context, and the discipline of the person or system using it.
+    </p>
+    <p>
+      Hallucination is not one single failure. It can mean an <strong>unsupported claim</strong> with no evidence, a
+      <strong>wrong citation</strong> that points to a source that does not support the statement, <strong>stale
+      information</strong> after the world has changed, <strong>tool misuse</strong> where the model calls or interprets a
+      tool incorrectly, or <strong>overconfident inference</strong> where weak evidence is presented as settled fact.
+    </p>
+    <p>
+      The practical response is not blind distrust and not blind trust. It is task-specific verification: check sources,
+      inspect uncertainty, compare against known constraints, test edge cases, and treat high-stakes output as a draft that
+      must be reviewed by competent humans or validated systems.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-16">Key Figures and Breakthroughs</h3>
+    <p>
+      The history runs through <strong>Turing</strong>, <strong>McCarthy</strong>, <strong>Minsky</strong>,
+      <strong>Shannon</strong>, <strong>Rosenblatt</strong>, <strong>Newell</strong>, <strong>Simon</strong>,
+      <strong>Rumelhart</strong>, <strong>Hinton</strong>, <strong>LeCun</strong>, <strong>Bengio</strong>,
+      <strong>Sutton</strong>, <strong>Vaswani</strong>, and many others. Important breakthroughs include the Turing
+      test, symbolic AI, the perceptron, backpropagation, convolutional networks, residual networks, reinforcement
+      learning, transformers, diffusion models, and instruction-tuned language models.
+    </p>
+    <p>
+      The scientific problem is how far <strong>pattern</strong>, <strong>language</strong>, and
+      <strong>computation</strong> can go before imitation is mistaken for understanding.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-17">Neural Architecture Model</h3>
+    <p>
+      This model connects the main ideas directly: <strong>layers</strong> move activations through weighted
+      connections, <strong>attention</strong> makes token relationships visible, and <strong>gradient descent</strong>
+      shows how optimization follows a loss surface.
+    </p>
+    <p>
+      <strong>Network Flow</strong> shows weighted layers and activation pulses. <strong>Attention Map</strong> shows a
+      multi-head scaled \(QK^T/\sqrt{d_k}\) softmax matrix, where taller bars mean stronger token influence.
+      <strong>Gradient Landscape</strong> shows an optimizer following the local slope of a non-convex loss surface.
+    </p>
+    <div class="model-teaching-card" aria-label="Neural architecture model teaching notes">
+      <p><strong>Model type:</strong> Conceptual model.</p>
+      <p><strong>What this shows:</strong> Three separate lessons: network activations, attention weights, and gradient-based optimization.</p>
+      <p><strong>What it does not show:</strong> A real language model, real training data, production inference, or actual model weights.</p>
+      <p><strong>Equation / principle:</strong> Layers transform vectors, attention weights relationships, and gradient descent moves parameters downhill on a loss surface.</p>
+      <p><strong>What it represents:</strong> A guided map of AI mechanisms, split into lessons so attention, activations, and optimization are not confused.</p>
+      <p><strong>Try changing:</strong> Use one mode at a time: Network Flow for activations, Attention Map for token relationships, and Gradient Landscape for optimization.</p>
+    </div>
+    <figure class="neural-architect glass-window" data-neural-architect-model data-model-target="neural-architecture" data-language="en">
+      <div class="neural-architect__frame" data-na-frame></div>
+      <div class="neural-architect__panel">
+        <div class="neural-architect__modes" role="group" aria-label="Neural architecture mode">
+          <span>Network Flow</span>
+          <span>Attention Map</span>
+          <span>Gradient Landscape</span>
+        </div>
+        <div class="neural-architect__body">
+          <div class="neural-architect__controls">
+            <div class="neural-architect__panel-group" data-na-panel="network">
+              <div class="neural-architect__actions">
+                <span>Pause</span>
+                <span>Reset</span>
+              </div>
+              <label class="neural-architect__label">
+                Learning rate <span class="neural-architect__value" data-na-display="learningRate">0.050</span>
+              </label>
+              <input class="neural-architect__range" type="range" min="0.005" max="0.3" step="0.005" value="0.05"
+                data-na-param="learningRate">
+              <label class="neural-architect__label" for="na-detail-en">Visualization detail</label>
+              <select class="neural-architect__select" id="na-detail-en" data-na-detail>
+                <option value="weights">Weights and activations</option>
+                <option value="flow">Signal flow emphasis</option>
+              </select>
+            </div>
+            <div class="neural-architect__panel-group is-hidden" data-na-panel="attention">
+              <label class="neural-architect__label">
+                Sequence length <span class="neural-architect__value" data-na-display="attentionLength">8</span>
+              </label>
+              <input class="neural-architect__range" type="range" min="4" max="16" step="1" value="8"
+                data-na-param="attentionLength">
+              <label class="neural-architect__label">
+                Attention heads <span class="neural-architect__value" data-na-display="attentionHeads">4</span>
+              </label>
+              <input class="neural-architect__range" type="range" min="1" max="8" step="1" value="4"
+                data-na-param="attentionHeads">
+              <label class="neural-architect__label">
+                Softmax temperature <span class="neural-architect__value" data-na-display="attentionTemperature">1.00</span>
+              </label>
+              <input class="neural-architect__range" type="range" min="0.4" max="2" step="0.05" value="1"
+                data-na-param="attentionTemperature">
+              <label class="neural-architect__label" for="na-attention-pattern-en">Attention pattern</label>
+              <select class="neural-architect__select" id="na-attention-pattern-en" data-na-attention-pattern>
+                <option value="evolve">Evolving structure</option>
+                <option value="static">Diagonal focus</option>
+                <option value="chaos">Chaotic affinity</option>
+              </select>
+              <span>Recompute
+                QK (query-key)</span>
+            </div>
+            <div class="neural-architect__panel-group is-hidden" data-na-panel="landscape">
+              <label class="neural-architect__label">
+                Local minima <span class="neural-architect__value" data-na-display="complexity">1.5</span>
+              </label>
+              <input class="neural-architect__range" type="range" min="0" max="3" step="0.1" value="1.5"
+                data-na-param="complexity">
+              <label class="neural-architect__label">
+                Momentum <span class="neural-architect__value" data-na-display="momentum">0.80</span>
+              </label>
+              <input class="neural-architect__range" type="range" min="0" max="0.95" step="0.01" value="0.8"
+                data-na-param="momentum">
+              <div class="neural-architect__actions">
+                <span>Reset</span>
+                <span>Perturb</span>
+              </div>
+            </div>
+          </div>
+          <div class="neural-architect__metrics">
+            <p class="neural-architect__status" data-na-status></p>
+            <div class="neural-architect__metric-group" data-na-metrics="network">
+              <div class="neural-architect__metric">
+                <div class="neural-architect__metric-row">
+                  <span class="neural-architect__metric-label">Epoch</span>
+                  <span class="neural-architect__value" data-na-value="epoch">0</span>
+                </div>
+              </div>
+              <div class="neural-architect__metric">
+                <div class="neural-architect__metric-row">
+                  <span class="neural-architect__metric-label">Loss</span>
+                  <span class="neural-architect__value" data-na-value="loss">1.0000</span>
+                </div>
+              </div>
+              <div class="neural-architect__metric">
+                <div class="neural-architect__metric-row">
+                  <span class="neural-architect__metric-label">Accuracy</span>
+                  <span class="neural-architect__value" data-na-value="accuracy">0%</span>
+                </div>
+              </div>
+            </div>
+            <div class="neural-architect__metric-group is-hidden" data-na-metrics="attention">
+              <div class="neural-architect__metric">
+                <div class="neural-architect__metric-row">
+                  <span class="neural-architect__metric-label">Heads</span>
+                  <span class="neural-architect__value" data-na-value="attentionHeads">4</span>
+                </div>
+              </div>
+              <div class="neural-architect__metric">
+                <div class="neural-architect__metric-row">
+                  <span class="neural-architect__metric-label">Entropy</span>
+                  <span class="neural-architect__value" data-na-value="attentionEntropy">0.000</span>
+                </div>
+              </div>
+            </div>
+            <div class="neural-architect__metric-group is-hidden" data-na-metrics="landscape">
+              <div class="neural-architect__metric">
+                <div class="neural-architect__metric-row">
+                  <span class="neural-architect__metric-label">Loss height</span>
+                  <span class="neural-architect__value" data-na-value="landscapeLoss">0.000</span>
+                </div>
+              </div>
+              <div class="neural-architect__metric">
+                <div class="neural-architect__metric-row">
+                  <span class="neural-architect__metric-label">Momentum</span>
+                  <span class="neural-architect__value" data-na-value="momentum">0.80</span>
+                </div>
+              </div>
+            </div>
+            <div class="neural-architect__legend" aria-label="Neural model legend">
+              <span>deep purple positive weight</span>
+              <span>violet negative weight</span>
+              <span>bright violet optimization path</span>
+              <span>purple attention strength</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <figcaption>
+        Artistic + computation: neural layers, attention weights, and gradient descent. Design note: the recurring
+        violet, indigo, and lavender palette reflects my favourite colors.
+      </figcaption>
+    </figure>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-18">Modern Frontier</h3>
+    <p>
+      The modern frontier is no longer just whether a model can generate text, images, code, or audio. The serious
+      questions are reliability, evaluation, interpretability, data provenance, energy cost, tool use, multimodal
+      grounding, and whether a system can be constrained well enough for high-risk domains. Large models can be
+      impressive without being trustworthy in every context. A scientific treatment has to separate demonstration,
+      benchmark score, deployment behavior, and verified competence.
+    </p>
+    <p>
+      Current work includes mechanistic interpretability, retrieval-augmented systems, calibrated uncertainty, synthetic
+      data risks, formal verification for AI-assisted code, and safety evaluations for autonomous agents. This section
+      treats AI as a mathematical and engineering field, not as magic intelligence and not as proof of consciousness.
+    </p>
+    <p>Post-training with verifiable rewards and additional inference-time search have materially improved performance on some mathematical and programming tasks. <a class="paper-link" href="https://www.nature.com/articles/s41586-025-09422-z" target="_blank" rel="noopener noreferrer">DeepSeek-R1 incentivizes reasoning in LLMs through reinforcement learning (2025)</a> documents one such approach. <a class="paper-link" href="https://www.nature.com/articles/s41586-025-09833-y" target="_blank" rel="noopener noreferrer">Olympiad-level formal mathematical reasoning with reinforcement learning (2025)</a> shows the value of coupling learned proof search to a formal checker. The learned system proposes steps; the checker establishes validity relative to the formal statement and its assumptions. Neither result establishes unrestricted reasoning reliability.</p>
+    <p>A tool-using agent is a system that combines a model with tools, stored state, feedback, and an execution loop. Its performance depends on that entire setup, permissions, and time or compute budgets. Long context windows do not guarantee effective use of all supplied information. Evaluations should separate partial progress from completed tasks, report contamination controls and resource budgets, and test new tasks when a benchmark saturates. <a class="paper-link" href="https://arxiv.org/abs/2606.29537" target="_blank" rel="noopener noreferrer">OSWorld 2 (June 2026 preprint)</a> examines long-horizon computer use; its results are benchmark-specific. Interpretability and alignment evaluations provide evidence about tested behavior, not a general safety or correctness certificate.</p>
+  </section>
+
+  <section class="content-block glossary-section">
+    <h3 id="section-19">Technical Terms Glossary</h3>
+    <ul class="paper-list glossary-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Embedding:</strong> A learned numerical representation of a token, image patch, object, or concept inside a vector space.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Latent dimension:</strong> A hidden coordinate in a model's internal representation, often not directly interpretable by itself.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Residual path:</strong> A shortcut connection that lets information pass around a layer, making very deep networks easier to train.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Feed-forward block:</strong> The per-token neural subnetwork inside a transformer layer, separate from the attention operation.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Softmax temperature:</strong> A scaling value that makes a probability distribution sharper or flatter before sampling or visualization.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Model card:</strong> A structured document describing a model's intended use, evaluation results, limits, risks, and unsuitable uses.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Data card:</strong> A structured document describing dataset origin, collection, filtering, representation gaps, update limits, and responsible use.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Calibration:</strong> Agreement between stated confidence and actual correctness over many comparable cases.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Confusion matrix:</strong> A classification table that separates true positives, false positives, true negatives, and false negatives.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Distribution shift:</strong> A mismatch between the data a model saw during training and the data it faces later.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Data contamination:</strong> Leakage of test, benchmark, or evaluation material into training data, making performance look more reliable than it is.</span></li>
+    </ul>
+  </section>
+  <section class="content-block glossary-section abbreviation-glossary" data-abbreviation-glossary>
+    <h3 id="section-20">Abbreviation Glossary</h3>
+    <p class="abbreviation-glossary__note">This glossary expands the abbreviations used in this section. The first appearance in the text includes the full wording in parentheses; later uses stay abbreviated so the section stays readable.</p>
+    <ul class="paper-list glossary-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>RLHF:</strong> reinforcement learning from human feedback.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>RAG:</strong> retrieval-augmented generation.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>QK:</strong> query-key.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>DOI:</strong> digital object identifier.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>CVF:</strong> Computer Vision Foundation.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>BERT:</strong> Bidirectional Encoder Representations from Transformers.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>ACM:</strong> Association for Computing Machinery.</span></li>
+    </ul>
+  </section>
+
+<section class="content-block source-papers">
+    <h3 id="section-21">Foundational and Modern Source URLs</h3>
+    <ul class="paper-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://academic.oup.com/mind/article/LIX/236/433/986238" target="_blank"
+            rel="noopener noreferrer">Alan M. Turing, 1950. <em>Computing Machinery and Intelligence.</em></a> <span
+            class="paper-note">Official Oxford Academic article page.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://www-formal.stanford.edu/jmc/history/dartmouth/dartmouth.html" target="_blank"
+            rel="noopener noreferrer">John McCarthy et al., 1955. <em>A Proposal for the Dartmouth Summer Research
+              Project on Artificial Intelligence.</em></a> <span class="paper-note">Stanford hosted McCarthy archive
+            page.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://doi.org/10.1037/h0042519" target="_blank" rel="noopener noreferrer">Frank Rosenblatt, 1958.
+            <em>The Perceptron.</em></a> <span class="paper-note">Official DOI (digital object identifier) record.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://www.nature.com/articles/323533a0" target="_blank" rel="noopener noreferrer">David E.
+            Rumelhart, Geoffrey E. Hinton, and Ronald J. Williams, 1986. <em>Learning Representations by Back Propagating
+              Errors.</em></a> <span class="paper-note">Official Nature article page.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://arxiv.org/abs/1412.6980" target="_blank" rel="noopener noreferrer">Diederik P. Kingma and Jimmy
+            Ba, 2014. <em>Adam: A Method for Stochastic Optimization.</em></a> <span class="paper-note">arXiv
+            record.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://arxiv.org/abs/1706.04599" target="_blank" rel="noopener noreferrer">Chuan Guo et al., 2017.
+            <em>On Calibration of Modern Neural Networks.</em></a> <span class="paper-note">Calibration reference.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://www.nature.com/articles/nature14539" target="_blank" rel="noopener noreferrer">Yann LeCun,
+            Yoshua Bengio, and Geoffrey Hinton, 2015. <em>Deep Learning.</em></a> <span class="paper-note">Official
+            Nature review page.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://openaccess.thecvf.com/content_cvpr_2016/html/He_Deep_Residual_Learning_CVPR_2016_paper.html"
+            target="_blank" rel="noopener noreferrer">Kaiming He et al., 2016. <em>Deep Residual Learning for Image
+              Recognition.</em></a> <span class="paper-note">Official CVF (Computer Vision Foundation) open-access page.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://www.nature.com/articles/nature16961" target="_blank" rel="noopener noreferrer">David Silver et
+            al., 2016. <em>Mastering the Game of Go with Deep Neural Networks and Tree Search.</em></a> <span
+            class="paper-note">Official Nature article page.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://papers.neurips.cc/paper/7181-attention-is-all-you-need" target="_blank"
+            rel="noopener noreferrer">Vaswani et al., 2017. <em>Attention Is All You Need.</em></a> <span
+            class="paper-note">Official NeurIPS paper page.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://arxiv.org/abs/1810.04805" target="_blank" rel="noopener noreferrer">Jacob Devlin et al., 2018.
+            <em>BERT (Bidirectional Encoder Representations from Transformers): Pre-training of Deep Bidirectional Transformers for Language Understanding.</em></a> <span
+            class="paper-note">arXiv record.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://dl.acm.org/doi/10.1145/3287560.3287596" target="_blank"
+            rel="noopener noreferrer">Margaret Mitchell et al., 2019. <em>Model Cards for Model Reporting.</em></a>
+          <span class="paper-note">Official ACM FAccT article page.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://arxiv.org/abs/2001.08361" target="_blank" rel="noopener noreferrer">Kaplan et al., 2020.
+            <em>Scaling Laws for Neural Language Models.</em></a> <span class="paper-note">arXiv record.</span></span>
+      </li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://arxiv.org/abs/2005.11401" target="_blank" rel="noopener noreferrer">Patrick Lewis et al.,
+            2020. <em>Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks.</em></a> <span class="paper-note">RAG reference.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://papers.neurips.cc/paper/2020/hash/1457c0d6bfcb4967418bfb8ac142f64a-Abstract.html"
+            target="_blank" rel="noopener noreferrer">Brown et al., 2020. <em>Language Models are Few-Shot
+              Learners.</em></a> <span class="paper-note">Official NeurIPS paper page.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://arxiv.org/abs/2006.11239" target="_blank" rel="noopener noreferrer">Jonathan Ho, Ajay Jain,
+            and Pieter Abbeel, 2020. <em>Denoising Diffusion Probabilistic Models.</em></a> <span
+            class="paper-note">arXiv record.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://dl.acm.org/doi/10.1145/3442188.3445922" target="_blank" rel="noopener noreferrer">Bender et
+            al., 2021. <em>On the Dangers of Stochastic Parrots.</em></a> <span class="paper-note">Official ACM (Association for Computing Machinery) FAccT
+            article page.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://doi.org/10.1145/3458723" target="_blank" rel="noopener noreferrer">Timnit Gebru et al.,
+            2021. <em>Datasheets for Datasets.</em></a> <span class="paper-note">Dataset documentation reference.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://arxiv.org/abs/2203.02155" target="_blank" rel="noopener noreferrer">Ouyang et al., 2022.
+            <em>Training Language Models to Follow Instructions with Human Feedback.</em></a> <span
+            class="paper-note">arXiv record for InstructGPT/<strong>RLHF</strong>.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://arxiv.org/abs/2303.08774" target="_blank" rel="noopener noreferrer">OpenAI, 2023. <em>GPT-4
+              Technical Report.</em></a> <span class="paper-note">arXiv record.</span></span></li>
+    </ul>
+  </section>
+</div>
+<nav aria-label="Related topics"><ul><li><a href="science/en/probability-statistics/index.html">Probability &amp; Statistics</a></li><li><a href="science/en/programming-algorithms/index.html">Programming &amp; Algorithms</a></li><li><a href="science/en/information-theory/index.html">Information Theory</a></li><li><a href="science/en/neuroscience-consciousness/index.html">Neuroscience of Consciousness</a></li><li><a href="science/en/simulation-models/index.html">Simulation &amp; Models</a></li></ul></nav></main></body></html>
