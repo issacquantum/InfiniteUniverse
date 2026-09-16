@@ -1,6 +1,6 @@
 <div class="structured-content" data-structured-content>
   <section class="content-block">
-    <h3>Etymology</h3>
+    <h3 id="section-1">Etymology</h3>
     <p>
       <strong>Simulation</strong> comes from Latin roots related to likeness or imitation. <strong>Model</strong> comes
       from an idea of measure, pattern, or reduced representation. A simulation is not reality itself. It is a disciplined
@@ -19,7 +19,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Model, Method, Simulation</h3>
+    <h3 id="section-2">Model, Method, Simulation</h3>
     <p>
       A <strong>model</strong> defines the variables, assumptions, equations, and boundaries. A <strong>numerical
       method</strong> turns those equations into computable steps. A <strong>simulation</strong> is the execution of that
@@ -32,7 +32,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Numerical Experiment</h3>
+    <h3 id="section-3">Numerical Experiment</h3>
     <p>
       Modeling is older than computers, but modern computational simulation became powerful in the twentieth century when
       numerical methods, electronic computers, and statistical sampling began working together. Physics, weather, nuclear
@@ -68,7 +68,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Time Stepping</h3>
+    <h3 id="section-4">Time Stepping</h3>
     <p>
       Many simulations advance a state in small steps. The <strong>Euler method</strong> uses the current slope as a
       first estimate of the next state:
@@ -97,7 +97,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Higher Order Correction</h3>
+    <h3 id="section-5">Higher Order Correction</h3>
     <p>
       <strong>Fourth-order Runge Kutta</strong> improves the step by sampling the slope several times inside the same
       interval:
@@ -126,7 +126,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Fields, Grids, Stability</h3>
+    <h3 id="section-6">Fields, Grids, Stability</h3>
     <p>
       <strong>Partial differential equations</strong> are often simulated by replacing continuous derivatives with <strong>finite differences</strong> on a
       grid. For the heat equation, one simple one-dimensional update is:
@@ -158,7 +158,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Verification and Validation</h3>
+    <h3 id="section-7">Verification and Validation</h3>
     <p>
       Simulation needs discipline because attractive visuals can hide numerical failure. <strong>Verification</strong>
       asks whether the code solves the equations correctly. <strong>Validation</strong> asks whether the equations match
@@ -177,7 +177,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Numerical Methods Sandbox</h3>
+    <h3 id="section-8">Numerical Methods Sandbox</h3>
     <p>
       This model keeps the lesson practical: <strong>Euler</strong> shows local stepping error,
       <strong>Runge Kutta</strong> shows higher-order correction, <strong>Monte Carlo</strong> shows estimation by
@@ -347,7 +347,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Chaos and Stochastic Simulation</h3>
+    <h3 id="section-9">Chaos and Stochastic Simulation</h3>
     <p>
       Simulation is not only about smooth prediction. Lorenz showed that deterministic equations can be extremely
       <strong>sensitive to initial conditions</strong>. <strong>Stochastic simulation</strong> handles systems where randomness is part of the model, not
@@ -360,7 +360,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Assumptions and Limits</h3>
+    <h3 id="section-10">Assumptions and Limits</h3>
     <p>
       <strong>Every model has a boundary</strong>. Orbital probability clouds, diffusion grids, chaotic attractors, cellular automata,
       agent motion, molecular dynamics, and Monte Carlo sampling teach different lessons because they simplify reality in
@@ -373,7 +373,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Modern Frontier</h3>
+    <h3 id="section-11">Modern Frontier</h3>
     <p>
       Modern simulation now includes uncertainty quantification, surrogate models, differentiable simulation, digital
       twins, high-performance computing, Monte Carlo methods, finite-element modeling, climate ensembles, and
@@ -389,7 +389,7 @@
   </section>
 
   <section class="content-block glossary-section">
-    <h3>Technical Terms Glossary</h3>
+    <h3 id="section-12">Technical Terms Glossary</h3>
     <ul class="paper-list glossary-list">
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>ODE:</strong> Ordinary differential equation, where the unknown function depends on one independent variable, usually time.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>PDE:</strong> Partial differential equation, where the unknown field depends on multiple variables such as space and time.</span></li>
@@ -399,7 +399,7 @@
     </ul>
   </section>
   <section class="content-block glossary-section abbreviation-glossary" data-abbreviation-glossary>
-    <h3>Abbreviation Glossary</h3>
+    <h3 id="section-13">Abbreviation Glossary</h3>
     <p class="abbreviation-glossary__note">This glossary expands the abbreviations used in this section. The first appearance in the text includes the full wording in parentheses; later uses stay abbreviated so the section stays readable.</p>
     <ul class="paper-list glossary-list">
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>RK4:</strong> fourth-order Runge-Kutta.</span></li>
@@ -410,7 +410,7 @@
   </section>
 
 <section class="content-block source-papers">
-    <h3>Foundational and Modern Source URLs</h3>
+    <h3 id="section-14">Foundational and Modern Source URLs</h3>
     <ul class="paper-list">
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
             href="https://www.osti.gov/servlets/purl/4390578" target="_blank" rel="noopener noreferrer">Metropolis et

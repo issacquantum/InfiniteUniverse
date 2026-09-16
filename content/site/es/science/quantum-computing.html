@@ -1,6 +1,6 @@
 <div class="structured-content" data-structured-content>
   <section class="content-block">
-    <h3>Etimología</h3>
+    <h3 id="section-1">Etimología</h3>
     <p>La palabra <strong>quantum</strong> proviene del latín <strong>quantus</strong>, que significa "cuán grande" o
       "cuánto." Ingresó al vocabulario científico en 1900, cuando el físico <strong>Max Planck</strong> utilizó el
       término para describir la unidad discreta más pequeña de energía que podía ser emitida o absorbida, un "paquete"
@@ -35,7 +35,7 @@
   </section>
 
 <section class="content-block">
-    <h2>Qubits y superposición</h2>
+    <h2 id="section-2">Qubits y superposición</h2>
     <p>La computación cuántica es un paradigma de cálculo que aprovecha los principios de la <strong>mecánica
         cuántica</strong>
       para procesar información de un modo inaccesible a las máquinas clásicas. Su unidad fundamental es el
@@ -70,7 +70,7 @@
       en la que será medido.
     </p>
 
-    <h3>Entrelazamiento y medición</h3>
+    <h3 id="section-3">Entrelazamiento y medición</h3>
     <p>El segundo recurso fundamental es el <strong>entrelazamiento</strong>, una correlación puramente cuántica entre
       qubits que no admite descripción clásica. Un ejemplo canónico es el <strong>estado de Bell</strong>
     </p>
@@ -94,7 +94,7 @@
       <strong>destructivamente</strong> sobre las incorrectas.
     </p>
 
-    <h3>Compuertas y circuitos cuánticos</h3>
+    <h3 id="section-4">Compuertas y circuitos cuánticos</h3>
     <p>La manipulación de qubits se realiza mediante <strong>compuertas cuánticas</strong>, que son operaciones
       unitarias representadas por matrices. La <strong>compuerta de Hadamard</strong>
     </p>
@@ -136,7 +136,7 @@
       rotaciones de un qubit y una compuerta entrelazante; en la práctica, <strong>CNOT junto con un conjunto rico de
         compuertas de un qubit</strong> permite aproximar circuitos cuánticos arbitrarios.</p>
 
-    <h3>De Circuitos a Algoritmos</h3>
+    <h3 id="section-5">De Circuitos a Algoritmos</h3>
     <p>
       Las compuertas se convierten en algoritmos cuando un circuito se organiza para que las amplitudes vuelvan a
       encontrarse con signos controlados. Una computadora cuántica no es útil porque simplemente "pruebe todas las
@@ -145,21 +145,21 @@
       medición final queda entonces sesgada hacia la respuesta que el circuito amplificó.
     </p>
     <p>
-      El algoritmo de Grover es el ejemplo más claro. Primero prepara una superposición uniforme, usa un
+      El <a href="https://arxiv.org/pdf/quant-ph/9605043" target="_blank" rel="noopener noreferrer">algoritmo de Grover</a> es el ejemplo más claro. Primero prepara una superposición uniforme, usa un
       <strong>oráculo</strong> para invertir la fase de la respuesta marcada y luego aplica una
       <strong>inversión respecto al promedio</strong>. Esas dos reflexiones rotan el estado hacia el elemento marcado:
       la amplitud deseada crece, las amplitudes no marcadas disminuyen y, después de aproximadamente \(\sqrt{N}\)
       rondas, la medición final tiene alta probabilidad de devolver el objetivo.
     </p>
     <p>
-      El algoritmo de Shor usa la interferencia de otra manera. Convierte la factorización en un problema de
+      El <a href="https://users.cs.duke.edu/~reif/courses/randlectures/Quantum.papers/shor.factoring.pdf" target="_blank" rel="noopener noreferrer">algoritmo de Shor</a> usa la interferencia de otra manera. Convierte la factorización en un problema de
       <strong>búsqueda de período</strong>, evalúa una función periódica en superposición y luego aplica la
       <strong>transformada cuántica de Fourier</strong>. Los valores compatibles con el período oculto se refuerzan en
       frecuencias específicas, mientras que las fases incompatibles se cancelan. La medición no revela todas las ramas;
       devuelve información estructurada que el procesamiento clásico puede convertir en un factor.
     </p>
 
-    <h3>Algoritmos cuánticos clave</h3>
+    <h3 id="section-6">Algoritmos cuánticos clave</h3>
     <p>Sobre esta arquitectura se han construido algoritmos que superan en complejidad a sus equivalentes clásicos. El
       <strong>algoritmo de Shor</strong>, publicado en 1994, factoriza enteros en tiempo polinómico
     </p>
@@ -209,7 +209,7 @@
   </section>
 
   <section class="content-block">
-    <h2>Ewin Tang y Decuantización</h2>
+    <h2 id="section-7">Ewin Tang y Decuantización</h2>
     <p>
       <strong><a class="platform-link" href="https://breakthroughprize.org/Laureates/3/L3982" target="_blank"
           rel="noopener noreferrer">Ewin Tang</a></strong>, ganadora del
@@ -239,7 +239,7 @@
       muestreo asumido, la precisión requerida y la forma de la salida. Una ventaja cuántica es científicamente más
       fuerte cuando sobrevive a esa contabilidad completa.
     </p>
-    <h3>Glosario de Términos Técnicos</h3>
+    <h3 id="section-8">Glosario de Términos Técnicos</h3>
     <ul class="paper-list glossary-list">
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Compuerta CNOT:</strong> Una compuerta NOT controlada de dos qubits. Invierte el qubit objetivo solo cuando el qubit de control vale \(|1\rangle\), y es una compuerta entrelazante estándar en conjuntos universales de circuitos.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Conjunto rico de compuertas de un qubit:</strong> Una colección suficientemente expresiva de rotaciones y compuertas de fase de un solo qubit, normalmente combinada con una compuerta entrelazante como CNOT para lograr universalidad.</span></li>
@@ -257,7 +257,7 @@
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Modo de Majorana:</strong> Una excitación especial tipo cuasipartícula que se busca en algunas propuestas de computación cuántica topológica.</span></li>
     </ul>
 
-    <h3>El Punto Fino: Preparación de Estados</h3>
+    <h3 id="section-9">El Punto Fino: Preparación de Estados</h3>
     <p>
       Muchos algoritmos de aprendizaje automático cuántico empiezan suponiendo que un vector clásico
       \(x\in\mathbb{C}^n\) puede cargarse como un estado cuántico codificado en amplitudes,
@@ -289,7 +289,7 @@
       cuánticos que asumen preparación eficiente de estados.
     </p>
 
-    <h3>Acceso por Muestreo de Norma \(\ell^2\)</h3>
+    <h3 id="section-10">Acceso por Muestreo de Norma \(\ell^2\)</h3>
     <p>
       El modelo técnico detrás de la decuantización de Tang suele llamarse <strong>muestreo de norma
         \(\ell^2\)</strong>, <strong>muestreo por longitud al cuadrado</strong> o <strong>acceso por muestreo y
@@ -364,7 +364,7 @@
       justa.
     </p>
 
-    <h3>El Resultado de Sistemas de Recomendación</h3>
+    <h3 id="section-11">El Resultado de Sistemas de Recomendación</h3>
     <p>
       El manuscrito de Tang de 2018, publicado en STOC (Symposium on Theory of Computing, Simposio sobre Teoría de la Computación) 2019 como <strong><a class="platform-link"
           href="https://arxiv.org/pdf/1807.04271" target="_blank" rel="noopener noreferrer">A quantum-inspired
@@ -404,7 +404,7 @@
       aleatorizada pueden reproducir parte del comportamiento que se había tratado como exclusivamente cuántico.
     </p>
 
-    <h3>Q-PCA, Agrupamiento y Álgebra Lineal</h3>
+    <h3 id="section-12">Q-PCA, Agrupamiento y Álgebra Lineal</h3>
     <p>
       Tang extendió la misma lógica en <strong><a class="platform-link" href="https://arxiv.org/pdf/1811.00414"
           target="_blank" rel="noopener noreferrer">Quantum principal component analysis only achieves an exponential
@@ -443,7 +443,7 @@
       cuántico correspondiente.
     </p>
 
-    <h3>Hamiltonianos, Estados de Gibbs y Aprendizaje de Sistemas Cuánticos</h3>
+    <h3 id="section-13">Hamiltonianos, Estados de Gibbs y Aprendizaje de Sistemas Cuánticos</h3>
     <p>
       El trabajo posterior de Tang pasa de decuantizar aceleraciones de aprendizaje automático a estudiar el problema de
       <strong>aprender sistemas cuánticos mismos</strong>. El objeto central es el <strong>Hamiltoniano</strong> \(H\),
@@ -536,7 +536,7 @@
       el modelo de acceso, la localidad, la complejidad muestral y las líneas base clásicas.
     </p>
 
-    <h3>Estados en Espacio de Hilbert, Estados Producto y Tomografía</h3>
+    <h3 id="section-14">Estados en Espacio de Hilbert, Estados Producto y Tomografía</h3>
     <p>
       Los trabajos más recientes de Tang también se conectan con el lenguaje básico de los <strong>espacios de
         Hilbert</strong>. Un estado cuántico puro es un vector unitario
@@ -601,7 +601,7 @@
       estructura real de estados cuánticos sin fingir que todo el espacio de Hilbert es accesible de forma barata.
     </p>
 
-    <h3>Alcance Científico del Resultado</h3>
+    <h3 id="section-15">Alcance Científico del Resultado</h3>
     <p>
       El trabajo de Tang <strong>no</strong> refuta la ventaja cuántica en general. El algoritmo de Shor, la simulación
       cuántica, la química cuántica, la complejidad criptográfica y los algoritmos sobre datos genuinamente cuánticos
@@ -623,7 +623,7 @@
   </section>
 
   <section class="content-block">
-    <h2>Decoherencia y corrección de errores</h2>
+    <h2 id="section-16">Decoherencia y corrección de errores</h2>
     <p>El obstáculo principal para materializar estas promesas es la <strong>decoherencia</strong>: la interacción
       inevitable entre los qubits y su entorno destruye las fases relativas y, con ellas, la superposición y el
       entrelazamiento que sostienen el cálculo. A esto se añaden los errores en las propias compuertas y en las
@@ -636,7 +636,7 @@
       sobrecoste en qubits, aunque los recursos necesarios dependen del código, la arquitectura, las tasas de error físico y el cálculo buscado. Algunas estimaciones llegan a millones de qubits físicos; no es un requisito universal.
     </p>
 
-    <h3>Enfoques de Implementación Física</h3>
+    <h3 id="section-17">Enfoques de Implementación Física</h3>
     <p>En el plano de la implementación física coexisten varios enfoques competitivos. Los <strong>qubits superconductores</strong>,
       basados en <strong>uniones Josephson</strong> y operados a temperaturas de milikelvin, son la apuesta de
       <strong><a class="platform-link" href="https://www.ibm.com/quantum" target="_blank"
@@ -661,7 +661,7 @@
       conectividad.
     </p>
 
-    <h3>Estado actual y limitaciones</h3>
+    <h3 id="section-18">Estado actual y limitaciones</h3>
     <p>Al 15 de septiembre de 2026, los dispositivos de la categoría <strong>NISQ (cuántica ruidosa de escala intermedia)</strong>, denominada así por John Preskill, coexisten con procesadores lógicos experimentales y corrección repetida de errores cuánticos. El número de qubits físicos por sí solo no mide la capacidad útil de cálculo. Hitos como la <strong>"supremacía cuántica"</strong> anunciada
       por <a class="platform-link" href="https://quantumai.google/" target="_blank"
         rel="noopener noreferrer">Google</a> en 2019 con el <strong><a class="platform-link"
@@ -692,7 +692,7 @@
     </p>
   </section>
   <section class="content-block glossary-section abbreviation-glossary" data-abbreviation-glossary>
-    <h3>Glosario de Abreviaturas</h3>
+    <h3 id="section-19">Glosario de Abreviaturas</h3>
     <p class="abbreviation-glossary__note">Este glosario expande las abreviaturas usadas en esta sección. La primera aparición en el texto incluye el significado completo entre paréntesis; las repeticiones quedan abreviadas para mantener la lectura limpia.</p>
     <ul class="paper-list glossary-list">
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>CNOT:</strong> NOT controlada.</span></li>
@@ -708,7 +708,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Frontera Moderna</h3>
+    <h3 id="section-20">Frontera Moderna</h3>
     <p>
       La frontera moderna de la computación cuántica es la corrección de errores, no solo construir más qubits físicos.
       Los qubits físicos tienen ruido; la computación cuántica útil a gran escala requiere qubits lógicos protegidos por
@@ -726,7 +726,7 @@
   </section>
 
 <section class="content-block source-papers">
-    <h3>Enlaces de Artículos Fundamentales y Modernos</h3>
+    <h3 id="section-21">Enlaces de Artículos Fundamentales y Modernos</h3>
     <p class="source-language-note">Incluyo estas fuentes en inglés porque ese fue el idioma en que las leí originalmente.</p>
     <ul class="paper-list">
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.math.cmu.edu/~af1p/Texfiles/SVD.pdf" target="_blank" rel="noopener noreferrer">Frieze, Kannan, and Vempala, 2004. <em>Fast Monte-Carlo Algorithms for Finding Low-Rank Approximations.</em></a> <span class="paper-note">Artículo fundamental de álgebra lineal aleatorizada detrás de la aproximación de bajo rango con muestreo por longitudes al cuadrado.</span></span></li>

@@ -1,0 +1,7 @@
+:root { color-scheme:dark; background:#0c0614; color:#e2d4ef; font-family:Georgia,serif; line-height:1.65; }
+body { max-width:62rem; margin:auto; padding:1.5rem; overflow-wrap:anywhere; }
+a { color:#c98aff; } a:focus-visible { outline:2px solid currentColor; outline-offset:3px; }
+nav { margin-block:1rem; } h1,h2,h3 { line-height:1.25; } section { margin-block:2rem; }
+img,video,iframe { max-width:100%; height:auto; } table { display:block; overflow:auto; }
+.equation-link { display:block; overflow:auto; padding:.7rem; }
+mjx-container[display] { overflow-x:auto; overflow-y:hidden; }

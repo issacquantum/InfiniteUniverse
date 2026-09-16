@@ -1,6 +1,6 @@
 <div class="structured-content" data-structured-content>
   <section class="content-block">
-    <h3>Etymology</h3>
+    <h3 id="section-1">Etymology</h3>
     <p>The word <strong>quantum</strong> derives from the Latin <strong>quantus</strong>, meaning "how great" or "how
       much." It entered scientific vocabulary in 1900 when physicist <strong>Max Planck</strong> used the term to
       describe the smallest discrete unit of energy that could be emitted or absorbed, a fundamental "packet" of energy
@@ -34,7 +34,7 @@
   </section>
 
 <section class="content-block">
-    <h2>Qubits and Superposition</h2>
+    <h2 id="section-2">Qubits and Superposition</h2>
     <p>Quantum computing is a computational paradigm that harnesses the principles of <strong>quantum mechanics</strong>
       to process information in ways inaccessible to classical machines. Its fundamental unit is the
       <strong>qubit</strong>, a two-level quantum system whose general state is described by the vector
@@ -67,7 +67,7 @@
       basis.
     </p>
 
-    <h3>Entanglement and Measurement</h3>
+    <h3 id="section-3">Entanglement and Measurement</h3>
     <p>The second fundamental resource is <strong>entanglement</strong>, a purely quantum correlation between qubits
       that admits no classical description. A canonical example is the <strong>Bell state</strong>
     </p>
@@ -90,7 +90,7 @@
       ones.
     </p>
 
-    <h3>Quantum Gates and Circuits</h3>
+    <h3 id="section-4">Quantum Gates and Circuits</h3>
     <p>Qubit manipulation is performed through <strong>quantum gates</strong>, which are unitary operations represented
       by matrices. The <strong>Hadamard gate</strong>
     </p>
@@ -130,7 +130,7 @@
       paths reinforce. A universal circuit model needs both single-qubit rotations and an entangling gate; in practice,
       <strong>CNOT plus a rich set of one-qubit gates</strong> is enough to approximate arbitrary quantum circuits.</p>
 
-    <h3>From Circuits to Algorithms</h3>
+    <h3 id="section-5">From Circuits to Algorithms</h3>
     <p>
       Gates become algorithms when a circuit is arranged so amplitudes meet again with controlled signs. A quantum
       computer is not useful because it simply "tries every answer at once." It is useful because paths leading to a
@@ -138,21 +138,21 @@
       they reinforce. The final measurement then becomes biased toward the answer the circuit has amplified.
     </p>
     <p>
-      Grover's algorithm is the clearest example. It begins by preparing a uniform superposition, uses an
+      <a href="https://arxiv.org/pdf/quant-ph/9605043" target="_blank" rel="noopener noreferrer">Grover's algorithm</a> is the clearest example. It begins by preparing a uniform superposition, uses an
       <strong>oracle</strong> to flip the phase of the marked answer, and then applies an
       <strong>inversion-about-the-mean</strong> step. Those two reflections rotate the state toward the marked item:
       the desired amplitude grows, the unmarked amplitudes shrink, and after about \(\sqrt{N}\) rounds the final
       measurement is likely to return the target.
     </p>
     <p>
-      Shor's algorithm uses interference differently. It turns factoring into a <strong>period-finding</strong>
+      <a href="https://users.cs.duke.edu/~reif/courses/randlectures/Quantum.papers/shor.factoring.pdf" target="_blank" rel="noopener noreferrer">Shor's algorithm</a> uses interference differently. It turns factoring into a <strong>period-finding</strong>
       problem, evaluates a periodic function in superposition, and then applies the <strong>quantum Fourier
         transform</strong>. Values consistent with the hidden period reinforce at specific frequencies, while
       inconsistent phases cancel. Measurement does not reveal every branch; it returns structured information that
       classical post-processing can convert into a factor.
     </p>
 
-    <h3>Key Quantum Algorithms</h3>
+    <h3 id="section-6">Key Quantum Algorithms</h3>
     <p>On this architecture, algorithms have been built that surpass their classical counterparts in complexity.
       <strong>Shor's algorithm</strong>, published in 1994, factors integers in polynomial time
     </p>
@@ -199,7 +199,7 @@
   </section>
 
   <section class="content-block">
-    <h2>Ewin Tang and Dequantization</h2>
+    <h2 id="section-7">Ewin Tang and Dequantization</h2>
     <p>
       <strong><a class="platform-link" href="https://breakthroughprize.org/Laureates/3/L3982" target="_blank"
           rel="noopener noreferrer">Ewin Tang</a></strong>, recipient of the
@@ -228,7 +228,7 @@
       being assumed, the precision demanded, and the form of the output. A quantum advantage is scientifically stronger
       when it survives that full accounting.
     </p>
-    <h3>Technical Terms Glossary</h3>
+    <h3 id="section-8">Technical Terms Glossary</h3>
     <ul class="paper-list glossary-list">
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>CNOT gate:</strong> A two-qubit controlled-NOT gate. It flips the target qubit only when the control qubit is \(|1\rangle\), and it is the standard entangling gate used in universal circuit sets.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Rich set of one-qubit gates:</strong> A sufficiently expressive collection of single-qubit rotations and phase gates, usually combined with an entangling gate such as CNOT for universality.</span></li>
@@ -246,7 +246,7 @@
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Majorana mode:</strong> A special quasiparticle-like excitation pursued in some topological quantum computing proposals.</span></li>
     </ul>
 
-    <h3>The Fine Print: State Preparation</h3>
+    <h3 id="section-9">The Fine Print: State Preparation</h3>
     <p>
       Many quantum machine-learning algorithms begin by assuming that a classical vector \(x\in\mathbb{C}^n\) can be
       loaded as an amplitude-encoded quantum state,
@@ -277,7 +277,7 @@
       data, but it is a cleaner comparison against quantum algorithms that assume efficient state preparation.
     </p>
 
-    <h3>\(\ell^2\)-Norm Sampling Access</h3>
+    <h3 id="section-10">\(\ell^2\)-Norm Sampling Access</h3>
     <p>
       The technical access model behind Tang's dequantization is usually called <strong>\(\ell^2\)-norm
         sampling</strong>, <strong>length-square sampling</strong>, or <strong>sample-and-query access</strong>. For a
@@ -350,7 +350,7 @@
       then the claimed exponential quantum advantage must be judged under that fair comparison.
     </p>
 
-    <h3>The Recommendation-Systems Result</h3>
+    <h3 id="section-11">The Recommendation-Systems Result</h3>
     <p>
       Tang's 2018 preprint, published at STOC (Symposium on Theory of Computing) 2019 as <strong><a class="platform-link"
           href="https://arxiv.org/pdf/1807.04271" target="_blank" rel="noopener noreferrer">A quantum-inspired
@@ -388,7 +388,7 @@
       behavior that had been treated as uniquely quantum.
     </p>
 
-    <h3>Quantum PCA (principal component analysis), Clustering, and Linear Algebra</h3>
+    <h3 id="section-12">Quantum PCA (principal component analysis), Clustering, and Linear Algebra</h3>
     <p>
       Tang extended the same logic in <strong><a class="platform-link" href="https://arxiv.org/pdf/1811.00414"
           target="_blank" rel="noopener noreferrer">Quantum principal component analysis only achieves an exponential
@@ -425,7 +425,7 @@
       output without building the corresponding quantum state.
     </p>
 
-    <h3>Hamiltonians, Gibbs States, and Learning Quantum Systems</h3>
+    <h3 id="section-13">Hamiltonians, Gibbs States, and Learning Quantum Systems</h3>
     <p>
       Tang's later work also fits quantum computing because it moves from dequantizing machine-learning speedups to the
       problem of <strong>learning quantum systems themselves</strong>. The central object is the
@@ -516,7 +516,7 @@
       baselines with precision.
     </p>
 
-    <h3>Hilbert-Space States, Product States, and Tomography</h3>
+    <h3 id="section-14">Hilbert-Space States, Product States, and Tomography</h3>
     <p>
       Tang's newer papers also connect to the basic language of <strong>Hilbert spaces</strong>. A pure quantum state is
       a unit vector
@@ -579,7 +579,7 @@
       that the entire Hilbert space is cheaply accessible.
     </p>
 
-    <h3>Scientific Scope of the Result</h3>
+    <h3 id="section-15">Scientific Scope of the Result</h3>
     <p>
       Tang's work does <strong>not</strong> refute quantum advantage in general. Shor's algorithm, quantum simulation,
       quantum chemistry, cryptographic complexity, and algorithms on genuinely quantum data remain serious. Her work
@@ -600,7 +600,7 @@
   </section>
 
   <section class="content-block">
-    <h2>Decoherence and Error Correction</h2>
+    <h2 id="section-16">Decoherence and Error Correction</h2>
     <p>The main obstacle to realizing these promises is <strong>decoherence</strong>: the unavoidable interaction
       between qubits and their environment destroys the relative phases and, with them, the superposition and
       entanglement that sustain the computation. To this are added errors in the gates themselves and in measurements,
@@ -612,7 +612,7 @@
       be amplified arbitrarily at the cost of significant qubit overhead, although the required overhead depends on the code, architecture, physical error rates, and target computation. Some resource estimates reach millions of physical qubits; this is not a universal requirement.
     </p>
 
-    <h3>Hardware Approaches</h3>
+    <h3 id="section-17">Hardware Approaches</h3>
     <p>On the hardware front, several competing approaches coexist. <strong>Superconducting qubits</strong>, based on
       <strong>Josephson junctions</strong> and operated at millikelvin temperatures, are the bet of <strong><a
           class="platform-link" href="https://www.ibm.com/quantum" target="_blank" rel="noopener noreferrer">IBM (International Business Machines)</a>,
@@ -638,7 +638,7 @@
       each with its own balance between scalability, fidelity, and connectivity.
     </p>
 
-    <h3>Current State and Limitations</h3>
+    <h3 id="section-18">Current State and Limitations</h3>
     <p>As of September 15, 2026, devices in John Preskill’s <strong>NISQ (noisy intermediate-scale quantum)</strong> category coexist with experimental logical processors and repeated quantum error correction. Physical-qubit count alone does not measure useful computational capacity. Milestones such as the <strong>"quantum supremacy"</strong> announced by
       <a class="platform-link" href="https://quantumai.google/" target="_blank"
         rel="noopener noreferrer">Google</a> in 2019 with the <strong><a class="platform-link"
@@ -668,7 +668,7 @@
     </p>
   </section>
   <section class="content-block glossary-section abbreviation-glossary" data-abbreviation-glossary>
-    <h3>Abbreviation Glossary</h3>
+    <h3 id="section-19">Abbreviation Glossary</h3>
     <p class="abbreviation-glossary__note">This glossary expands the abbreviations used in this section. The first appearance in the text includes the full wording in parentheses; later uses stay abbreviated so the section stays readable.</p>
     <ul class="paper-list glossary-list">
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>CNOT:</strong> controlled NOT.</span></li>
@@ -685,7 +685,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Modern Frontier</h3>
+    <h3 id="section-20">Modern Frontier</h3>
     <p>
       The modern quantum-computing frontier is error correction, not just building more physical qubits. Physical qubits
       are noisy; useful large-scale quantum computation requires logical qubits protected by codes, fault-tolerant gates,
@@ -701,7 +701,7 @@
   </section>
 
 <section class="content-block source-papers">
-    <h3>Foundational and Modern Paper URLs</h3>
+    <h3 id="section-21">Foundational and Modern Paper URLs</h3>
     <ul class="paper-list">
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.math.cmu.edu/~af1p/Texfiles/SVD.pdf" target="_blank" rel="noopener noreferrer">Frieze, Kannan, and Vempala, 2004. <em>Fast Monte-Carlo Algorithms for Finding Low-Rank Approximations.</em></a> <span class="paper-note">Foundational randomized linear-algebra paper behind low-rank approximation with squared-length sampling.</span></span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.cambridge.org/core/journals/acta-numerica/article/abs/randomized-algorithms-in-numerical-linear-algebra/41CF2151FADE7757AA95C7FC15E43630" target="_blank" rel="noopener noreferrer">Kannan and Vempala, 2017. <em>Randomized Algorithms in Numerical Linear Algebra.</em></a> <span class="paper-note">Survey explaining squared-length row and column sampling as a central idea in fast randomized linear algebra.</span></span></li>

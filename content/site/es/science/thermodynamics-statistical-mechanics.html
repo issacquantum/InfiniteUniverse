@@ -1,6 +1,6 @@
 <div class="structured-content" data-structured-content>
   <section class="content-block">
-    <h3>Etimología</h3>
+    <h3 id="section-1">Etimología</h3>
     <p>
       <strong>Termodinámica</strong> es el estudio del calor, el trabajo, la energía y el cambio macroscópico.
       <strong>Mecánica estadística</strong> explica esos hechos macroscópicos a partir de muchos grados de libertad
@@ -27,7 +27,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Estado termodinámico</h3>
+    <h3 id="section-2">Estado termodinámico</h3>
     <p>
       Un estado termodinámico se describe con cantidades macroscópicas como temperatura, presión, volumen, energía y
       entropía. La primera ley organiza la contabilidad de energía:
@@ -48,7 +48,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Entropía y microestados</h3>
+    <h3 id="section-3">Entropía y microestados</h3>
     <p>
       La mecánica estadística conecta la entropía con el número de arreglos microscópicos compatibles con una misma
       descripción macroscópica:
@@ -69,7 +69,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Equilibrio y fluctuación</h3>
+    <h3 id="section-4">Equilibrio y fluctuación</h3>
     <p>
       El equilibrio no es un estado congelado. Es una condición estadística donde las cantidades macroscópicas se vuelven
       estables aunque el movimiento microscópico continúe. Las fluctuaciones siguen existiendo, pero en sistemas grandes
@@ -78,7 +78,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Flecha del tiempo</h3>
+    <h3 id="section-5">Flecha del tiempo</h3>
     <p>
       La segunda ley dice que la entropía tiende a aumentar en sistemas macroscópicos aislados. La mecánica estadística
       explica por qué eso es abrumadoramente probable, pero la flecha completa también depende de condiciones de
@@ -87,34 +87,34 @@
   </section>
 
   <section class="content-block">
-    <h3>Segunda Ley y Dirección de la Entropía</h3>
+    <h3 id="section-6">Segunda Ley y Dirección de la Entropía</h3>
     <p>La segunda ley no afirma que toda fluctuación pequeña siempre aumente la entropía. Es una afirmación estadística sobre el comportamiento macroscópico abrumadoramente probable en sistemas aislados. En forma diferencial, la desigualdad básica es</p>
     <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item" data-branch-id="thermodynamics-statistical-mechanics-equations" data-item-id="second-law-entropy-inequality" aria-label="Abrir la explicación de la desigualdad entrópica de la segunda ley">$$dS\geq \frac{\delta Q}{T}$$</button></div>
     <p>La desigualdad dice que los procesos irreversibles crean entropía extra. Es la razón matemática por la que los motores no pueden convertir todo el calor en trabajo útil y por la que los registros, la memoria y la historia macroscópica ordinaria tienen dirección.</p>
   </section>
 
   <section class="content-block">
-    <h3>Ensambles y Estado de Gibbs</h3>
+    <h3 id="section-7">Ensambles y Estado de Gibbs</h3>
     <p>La mecánica estadística a menudo no estudia un microestado conocido perfectamente, sino un ensamble: una distribución de probabilidad sobre posibles microestados compatibles con lo que se sabe macroscópicamente. Para un sistema en equilibrio térmico con un baño de calor, el estado cuántico de Gibbs es</p>
     <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item" data-branch-id="thermodynamics-statistical-mechanics-equations" data-item-id="gibbs-state-density-matrix" aria-label="Abrir la explicación de la matriz de densidad del estado de Gibbs">$$\rho=\frac{e^{-\beta H}}{Z}$$</button></div>
     <p>Esto dice que los estados de menor energía pesan más a baja temperatura, mientras que una temperatura mayor reparte la probabilidad entre más estados.</p>
   </section>
 
   <section class="content-block">
-    <h3>Termodinámica Fuera del Equilibrio</h3>
-    <p>Los sistemas reales a menudo están forzados, abiertos, con ruido y lejos del equilibrio. Los teoremas modernos de fluctuación vuelven más precisa la segunda ley al relacionar fluctuaciones raras que disminuyen entropía con las historias mucho más comunes que producen entropía. La igualdad de Jarzynski es un ejemplo:</p>
+    <h3 id="section-8">Termodinámica Fuera del Equilibrio</h3>
+    <p>Los sistemas reales a menudo están forzados, abiertos, con ruido y lejos del equilibrio. Los teoremas modernos de fluctuación vuelven más precisa la segunda ley al relacionar fluctuaciones raras que disminuyen entropía con las historias mucho más comunes que producen entropía. La <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.78.2690" target="_blank" rel="noopener noreferrer">igualdad de Jarzynski</a> es un ejemplo:</p>
     <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item" data-branch-id="thermodynamics-statistical-mechanics-equations" data-item-id="jarzynski-equality" aria-label="Abrir la explicación de la igualdad de Jarzynski">$$\langle e^{-\beta W}\rangle=e^{-\beta\Delta F}$$</button></div>
     <p>Aquí W es el trabajo realizado sobre el sistema, con signo opuesto a la convención de trabajo realizado por el sistema en la primera ley anterior. Cada ensayo comienza en equilibrio térmico y sigue el mismo protocolo.</p>
     <p>No cancela la segunda ley. Explica cómo puede extraerse información de energía libre de equilibrio a partir de muchos ensayos fuera del equilibrio cuando las fluctuaciones de trabajo se cuentan correctamente.</p>
   </section>
 
   <section class="content-block">
-    <h3>Transiciones de Fase y Comportamiento Crítico</h3>
+    <h3 id="section-9">Transiciones de Fase y Comportamiento Crítico</h3>
     <p>La materia puede reorganizarse colectivamente: el agua se congela, los imanes pierden magnetización, los fluidos se vuelven supercríticos y los materiales cambian de conductividad. Cerca de puntos críticos, los detalles microscópicos importan menos que la escala, la simetría y la dimensionalidad. Por eso las ideas de renormalización conectan termodinámica, materia condensada y teoría cuántica de campos.</p>
   </section>
 
   <section class="content-block">
-    <h3>Temperatura, Calor y Trabajo</h3>
+    <h3 id="section-10">Temperatura, Calor y Trabajo</h3>
     <p>
       La temperatura no es solo una lectura en un termómetro. En mecánica estadística, describe cómo se distribuye la
       energía entre estados microscópicos accesibles. El calor es energía transferida por diferencia de temperatura,
@@ -130,7 +130,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Entropía como Conteo y Restricción</h3>
+    <h3 id="section-11">Entropía como Conteo y Restricción</h3>
     <p>
       La entropía a veces se explica como desorden, pero esa palabra es demasiado vaga. Una frase más precisa es que la
       entropía cuenta cuántos arreglos microscópicos son compatibles con la misma descripción macroscópica. El macroestado
@@ -146,7 +146,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Motores, Refrigeradores y Sistemas Abiertos</h3>
+    <h3 id="section-12">Motores, Refrigeradores y Sistemas Abiertos</h3>
     <p>
       Los motores térmicos convierten parte de un flujo de calor en trabajo, pero ningún motor puede transformar todo el
       calor absorbido en trabajo útil durante un ciclo. Refrigeradores y bombas de calor ejecutan la lógica en sentido
@@ -163,7 +163,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Criticalidad y Universalidad</h3>
+    <h3 id="section-13">Criticalidad y Universalidad</h3>
     <p>
       Cerca de una transición de fase, la materia puede volverse sensible en muchas escalas de longitud al mismo tiempo.
       Una transición líquido-gas, un imán perdiendo orden o un material acercándose a un punto crítico pueden mostrar
@@ -179,7 +179,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Frontera Moderna</h3>
+    <h3 id="section-14">Frontera Moderna</h3>
     <p>
       La termodinámica moderna incluye termodinámica estocástica, teoremas de fluctuación, materia activa, energética
       biológica, motores a nanoescala, termodinámica cuántica y materiales fuera de equilibrio. La segunda ley sobrevive,
@@ -194,7 +194,7 @@
   </section>
 
   <section class="content-block glossary-section">
-    <h3>Glosario de Términos Técnicos</h3>
+    <h3 id="section-15">Glosario de Términos Técnicos</h3>
     <ul class="paper-list glossary-list">
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Macroestado:</strong> Descripción de gran escala como presión, temperatura y volumen.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Microestado:</strong> Arreglo microscópico detallado compatible con un macroestado.</span></li>
@@ -204,7 +204,7 @@
   </section>
 
   <section class="content-block source-papers">
-    <h3>Enlaces de Fuentes Fundamentales y Modernas</h3>
+    <h3 id="section-16">Enlaces de Fuentes Fundamentales y Modernas</h3>
     <p class="source-language-note">Incluyo estas fuentes en inglés porque ese fue el idioma en que las leí originalmente.</p>
     <ul class="paper-list">
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.gutenberg.org/ebooks/50992" target="_blank" rel="noopener noreferrer">J. Willard Gibbs. <em>Elementary Principles in Statistical Mechanics.</em></a> <span class="paper-note">Edición de Project Gutenberg.</span></span></li>

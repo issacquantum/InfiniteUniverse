@@ -1,6 +1,6 @@
 <div class="structured-content" data-structured-content>
   <section class="content-block">
-    <h3>Etimología</h3>
+    <h3 id="section-1">Etimología</h3>
     <p>
       <strong>Simulación</strong> viene de raíces del latín relacionadas con semejanza o imitación. <strong>Modelo</strong>
       viene de una idea de medida, patrón o representación reducida. Una simulación no es la realidad misma. Es una
@@ -19,7 +19,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Modelo, método, simulación</h3>
+    <h3 id="section-2">Modelo, método, simulación</h3>
     <p>
       Un <strong>modelo</strong> define variables, supuestos, ecuaciones y fronteras. Un <strong>método
       numérico</strong> convierte esas ecuaciones en pasos computables. Una <strong>simulación</strong> ejecuta el modelo
@@ -32,7 +32,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Experimento numérico</h3>
+    <h3 id="section-3">Experimento numérico</h3>
     <p>
       Modelar es más antiguo que las computadoras, pero la simulación computacional moderna se volvió poderosa en el
       siglo XX cuando métodos numéricos, computadoras electrónicas y muestreo estadístico empezaron a trabajar juntos.
@@ -68,7 +68,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Pasos temporales</h3>
+    <h3 id="section-4">Pasos temporales</h3>
     <p>
       Muchas simulaciones avanzan un estado en pasos pequeños. El <strong>método de Euler</strong> usa la pendiente
       actual como primera estimación del siguiente estado:
@@ -97,7 +97,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Corrección de orden mayor</h3>
+    <h3 id="section-5">Corrección de orden mayor</h3>
     <p>
       <strong>Runge Kutta de cuarto orden</strong> mejora el paso calculando la pendiente varias veces dentro del mismo
       intervalo:
@@ -126,7 +126,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Campos, redes, estabilidad</h3>
+    <h3 id="section-6">Campos, redes, estabilidad</h3>
     <p>
       Las <strong>ecuaciones diferenciales parciales</strong> suelen simularse reemplazando derivadas continuas por <strong>diferencias finitas</strong> en
       una red. Para la ecuación de calor, una actualización simple en una dimensión es:
@@ -159,7 +159,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Verificación y validación</h3>
+    <h3 id="section-7">Verificación y validación</h3>
     <p>
       La simulación necesita disciplina porque una visualización atractiva puede ocultar fallas numéricas.
       <strong>Verificación</strong> pregunta si el código resuelve correctamente las ecuaciones.
@@ -179,7 +179,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Banco de pruebas de métodos numéricos</h3>
+    <h3 id="section-8">Banco de pruebas de métodos numéricos</h3>
     <p>
       Este modelo mantiene la lección práctica: <strong>Euler</strong> muestra el error de avanzar localmente,
       <strong>Runge Kutta</strong> muestra corrección de orden mayor, <strong>Monte Carlo</strong> muestra estimación por
@@ -198,7 +198,7 @@
       <p><strong>Qué probar:</strong> Aumenta el paso en Euler vs RK4, aumenta las muestras de Monte Carlo y prueba la difusión de calor cerca del límite de estabilidad.</p>
     </div>
     <p>La cuadrícula térmica también multiplica cada valor actualizado por 0.996, lo que añade un enfriamiento uniforme. Incluso con fronteras aisladas, por tanto, no representa un sistema de difusión aislado que conserve la energía.</p>
-    <p>La cuadrícula térmica también multiplica cada valor actualizado por 0.996, lo que añade un enfriamiento uniforme. Incluso con fronteras aisladas, por tanto, no representa un sistema de difusión aislado que conserve la energía.</p>
+
     <figure class="numerical-methods glass-window" data-numerical-methods-model data-model-target="numerical-methods" data-language="es">
       <div class="numerical-methods__frame" data-nm-frame></div>
       <div class="numerical-methods__panel">
@@ -351,7 +351,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Caos y simulación estocástica</h3>
+    <h3 id="section-9">Caos y simulación estocástica</h3>
     <p>
       La simulación no solo trata de predicción suave. Lorenz mostró que ecuaciones deterministas pueden ser
       extremadamente <strong>sensibles a las condiciones iniciales</strong>. La <strong>simulación estocástica</strong> maneja sistemas donde el azar forma
@@ -364,7 +364,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Supuestos y límites</h3>
+    <h3 id="section-10">Supuestos y límites</h3>
     <p>
       <strong>Todo modelo tiene una frontera</strong>. Nubes de probabilidad orbital, redes de difusión, atractores caóticos, autómatas
       celulares, movimiento de agentes, dinámica molecular y muestreo de Monte Carlo enseñan cosas distintas porque
@@ -378,7 +378,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Frontera Moderna</h3>
+    <h3 id="section-11">Frontera Moderna</h3>
     <p>
       La simulación moderna incluye cuantificación de incertidumbre, modelos sustitutos, simulación diferenciable,
       gemelos digitales, cómputo de alto rendimiento, métodos Monte Carlo, modelado por elementos finitos, conjuntos
@@ -394,7 +394,7 @@
   </section>
 
   <section class="content-block glossary-section">
-    <h3>Glosario de Términos Técnicos</h3>
+    <h3 id="section-12">Glosario de Términos Técnicos</h3>
     <ul class="paper-list glossary-list">
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>ODE:</strong> Ecuación diferencial ordinaria, donde la función desconocida depende de una sola variable independiente, normalmente el tiempo.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>PDE:</strong> Ecuación diferencial parcial, donde el campo desconocido depende de varias variables como espacio y tiempo.</span></li>
@@ -404,7 +404,7 @@
     </ul>
   </section>
   <section class="content-block glossary-section abbreviation-glossary" data-abbreviation-glossary>
-    <h3>Glosario de Abreviaturas</h3>
+    <h3 id="section-13">Glosario de Abreviaturas</h3>
     <p class="abbreviation-glossary__note">Este glosario expande las abreviaturas usadas en esta sección. La primera aparición en el texto incluye el significado completo entre paréntesis; las repeticiones quedan abreviadas para mantener la lectura limpia.</p>
     <ul class="paper-list glossary-list">
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>RK4:</strong> Runge-Kutta de cuarto orden.</span></li>
@@ -415,7 +415,7 @@
   </section>
 
 <section class="content-block source-papers">
-    <h3>Enlaces de Fuentes Fundamentales y Modernas</h3>
+    <h3 id="section-14">Enlaces de Fuentes Fundamentales y Modernas</h3>
     <p class="source-language-note">Incluyo estas fuentes en inglés porque ese fue el idioma en que las leí originalmente.</p>
     <ul class="paper-list">
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"

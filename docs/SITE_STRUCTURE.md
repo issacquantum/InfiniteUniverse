@@ -82,3 +82,9 @@ The shared foundation-topic model initializer is `scripts/foundation-models.js`;
 Public site URL: `https://issacquantum.github.io/InfiniteUniverse/`
 
 `index.html`, `robots.txt`, and `sitemap.xml` use this production URL, including the `/InfiniteUniverse/` path. The project is a static site; local preview and the publishing checklist are documented in `README.md`. Both `main` and `gh-pages` track published changes, with GitHub Pages serving `gh-pages`.
+
+## Science discovery
+
+`data/topic-metadata.js` is the shared source for topic icons, signatures, moods, prerequisites, and related topics. `scripts/routes.js` handles shareable reading state; `scripts/science-reader.js` adds the TOC and related links; `scripts/science-search.js` searches the generated language-specific index.
+
+`science/en/` and `science/es/` contain generated complete public documents. Edit their source fragments, then run `node tools/generate-sitemap.mjs`. The sitemap lists these canonical documents rather than raw fragments. See [Science architecture](SCIENCE_ARCHITECTURE.md) for generation, validation, legacy cosmology, and publishing details.

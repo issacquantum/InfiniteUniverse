@@ -1,17 +1,20 @@
+import { installRoutes } from "./routes.js";
+import { installScienceSearch } from "./science-search.js";
+import { scheduleContentPrewarm } from "./content-cache.js?v=20260916-science-overhaul-v1";
 import { isMobilePerformance, onPerformanceProfileChange } from "./performance-profile.js?v=20260913-mobile-power-v1";
 import { captureReaderPosition, matchesReaderState } from "./reader-position.js?v=20260913-language-context-v1";
 import { siteAssets } from "../data/site-assets.js?v=20260913-social-dock-v1";
-import { siteContent } from "../data/site-content.js?v=20260913-fluid-equations-v1";
+import { siteContent } from "../data/site-content.js?v=20260916-science-overhaul-v1";
 import { createReadingSettingsController } from "./reading-settings.js?v=20260913-social-dock-v1";
 import { initBackground } from "./background.js?v=20260913-mobile-power-v1";
 import { refreshIcons } from "./icons.js?v=20260913-social-dock-v1";
 import { pick } from "./i18n.js?v=20260913-social-dock-v1";
 import { decoratePhotonOutlines } from "./creative-effects.js?v=20260913-social-dock-v1";
-import { syncLegacyContent } from "./legacy-content.js?v=20260916-science-audit-v1";
+import { syncLegacyContent } from "./legacy-content.js?v=20260916-science-overhaul-v1";
 import { createMusicController, syncMusicUi } from "./music.js?v=20260913-bilingual-release-v1";
-import { renderSite } from "./render.js?v=20260915-topic-icons-v1";
+import { renderSite } from "./render.js?v=20260916-science-overhaul-v1";
 import { createState } from "./state.js?v=20260913-social-dock-v1";
-import { syncStructuredContent } from "./structured-content.js?v=20260916-science-audit-v1";
+import { syncStructuredContent } from "./structured-content.js?v=20260916-science-overhaul-v1";
 import { markWebGLAvailability } from "./webgl-support.js?v=20260913-social-dock-v1";
 
 const refs = {
@@ -1565,7 +1568,22 @@ window.addEventListener("resize", () => {
   scheduleKnowledgeTabOverlapSync();
 });
 
+installRoutes(store, (position) => {
+  clearPendingReturnNavigation();
+  pendingReaderScrollRestoration = position;
+});
+installScienceSearch(store);
+
+// Save the current reader position on its own history entry before navigation.
+refs.stage.addEventListener("scroll", () => {
+  const reader = refs.stage.querySelector(".content-window");
+  if (!reader) return;
+  const state = store.getState();
+  history.replaceState({ ...history.state, reader: { ...state, ...captureReaderPosition(reader, state.language) } }, "");
+}, true);
+
 store.subscribe((state) => {
+  scheduleContentPrewarm(state);
   syncUi(state);
   announceNavigation(state);
   const nextMusicContext = resolveMusicContext(state);
@@ -1590,6 +1608,7 @@ readingSettingsController = createReadingSettingsController({
 
 musicController.setContext(activeMusicContext);
 syncUi();
+scheduleContentPrewarm(store.getState());
 let stopBackground;
 let backgroundRequest = 0;
 async function syncBackground() {

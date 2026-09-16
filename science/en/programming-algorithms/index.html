@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<base href="../../../"><title>Programming &amp; Algorithms | Infinite Universe</title>
+<meta name="description" content="Algorithm comes from the Latinized name of the Persian mathematician al-Khwarizmi . Long before electronic computers, an algorithm meant a reliable procedure for calculation. Progr"><link rel="canonical" href="https://issacquantum.github.io/InfiniteUniverse/science/en/programming-algorithms/index.html">
+<link rel="alternate" hreflang="es" href="https://issacquantum.github.io/InfiniteUniverse/science/es/programming-algorithms/index.html"><link rel="alternate" hreflang="en" href="https://issacquantum.github.io/InfiniteUniverse/science/en/programming-algorithms/index.html">
+<meta property="og:title" content="Programming &amp; Algorithms"><meta property="og:description" content="Algorithm comes from the Latinized name of the Persian mathematician al-Khwarizmi . Long before electronic computers, an algorithm meant a reliable procedure for calculation. Progr"><meta property="og:url" content="https://issacquantum.github.io/InfiniteUniverse/science/en/programming-algorithms/index.html"><meta property="og:type" content="article">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self' https://cdn.jsdelivr.net; connect-src 'self'; frame-src https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'">
+<link rel="stylesheet" href="styles/static-science.css"><script src="scripts/mathjax-config.js"></script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+</head><body><a href="science/en/programming-algorithms/index.html#main">Skip to content</a><nav><a href="index.html#/en/science/programming-algorithms">Open in the interactive site</a> · <a href="science/es/programming-algorithms/index.html" lang="es">Español</a> · <a href="science/en/index.html">All topics</a></nav><main id="main"><h1>Programming &amp; Algorithms</h1><div class="structured-content" data-structured-content>
+  <section class="content-block">
+    <h3 id="section-1">Etymology</h3>
+    <p>
+      <strong>Algorithm</strong> comes from the Latinized name of the Persian mathematician
+      <strong>al-Khwarizmi</strong>. Long before electronic computers, an algorithm meant a reliable procedure for
+      calculation. <strong>Programming</strong> is the act of writing an executable plan in advance.
+    </p>
+    <p>
+      Programming and algorithms turn intent into exact procedure: a vague idea must become clear enough for a machine
+      to execute and for another person to verify.
+    </p>
+    <p class="source-language-note">
+      <strong>Source of etymological origin:</strong>
+      <a class="platform-link" href="https://www.etymonline.com/word/algorithm" target="_blank" rel="noopener noreferrer">Online Etymology Dictionary: algorithm</a>;
+      <a class="platform-link" href="https://www.etymonline.com/word/program" target="_blank" rel="noopener noreferrer">Online Etymology Dictionary: program</a>.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-2">Computability</h3>
+    <p>
+      The scientific foundation of computation changed with <strong>Alan Turing</strong> and <strong>Alonzo
+        Church</strong>. Turing's machine was not a piece of hardware. It was an abstract model of procedure: symbols,
+      states, rules, and a tape. That made it possible to ask which problems can be computed at all.
+    </p>
+    <p>
+      Computability sets the first boundary. Some tasks are not algorithmically solvable in general. The halting problem
+      is the classic warning: there is no universal algorithm that can decide for every program and input whether that
+      program eventually stops.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-3">Correctness Before Speed</h3>
+    <p>
+      A program can appear to work because the test case was easy. An algorithm should work because its structure forces
+      the right result. <strong>Correctness</strong>, <strong>invariants</strong>, <strong>preconditions</strong>, and <strong>postconditions</strong> make that structure explicit.
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/en/equations/hoare-triple.html">
+        $$
+        \{P\}\;C\;\{Q\}
+        $$
+      </a>
+    </div>
+    <p>Under partial correctness, the triple says that if P holds and execution terminates, Q holds afterward. It does not itself prove termination or correctness; total correctness also requires a termination argument.</p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-4">Complexity and Big O</h3>
+    <p>
+      <strong>Correctness</strong> asks whether an algorithm gives the right answer. <strong>Complexity</strong> asks whether it can do so with reasonable
+      resources. Time, memory, communication, and energy all become part of the design.
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/en/equations/big-o-notation.html">
+        $$
+        f(n)=O(g(n))
+        $$
+      </a>
+    </div>
+    <p>
+      <strong>Big O</strong> is not a stopwatch. It is a growth model. It explains why an inefficient method can feel acceptable on small
+      inputs and collapse when the input becomes large.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-5">Recursion and Divide and Conquer</h3>
+    <p>
+      <strong>Recursive algorithms</strong> solve a problem by splitting it into smaller problems, solving those, and combining the results.
+      Their runtime is often described by a <strong>recurrence</strong>:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/en/equations/algorithmic-recurrence.html">
+        $$
+        T(n)=aT(n/b)+f(n)
+        $$
+      </a>
+    </div>
+    <p>
+      This pattern appears in mergesort, binary search, fast multiplication, tree algorithms, and many numerical
+      methods.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-6">Sorting and Lower Bounds</h3>
+    <p>
+      <strong>Sorting</strong> is a clean example because many algorithms produce the same final order while paying different costs.
+      Bubble sort is simple but inefficient. Quicksort is fast on average. Mergesort gives reliable \(O(n\log n)\)
+      behavior.
+    </p>
+    <p>
+      For comparison sorting, there is a <strong>lower bound</strong>:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/en/equations/comparison-sort-lower-bound.html">
+        $$
+        \Omega(n\log_2 n)
+        $$
+      </a>
+    </div>
+    <p>
+      This is an information argument: sorting must distinguish among many possible input orders, and each comparison
+      reveals only limited information.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-7">Graphs and Shortest Paths</h3>
+    <p>
+      <strong>Graphs</strong> model routes, dependencies, networks, states, citations, molecules, and social structure. Dijkstra's
+      algorithm solves shortest paths when all edge weights are nonnegative.
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/en/equations/dijkstra-relaxation.html">
+        $$
+        d[v]>d[u]+w(u,v)
+        $$
+      </a>
+    </div>
+    <p>
+      With a priority queue, a common implementation runs in:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/en/equations/dijkstra-priority-queue-complexity.html">
+        $$
+        O((V+E)\log V)
+        $$
+      </a>
+    </div>
+    <p>
+      The key idea is disciplined correction: keep the best known distance, test neighboring paths, and update only when
+      a strictly better route is proven.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-8">Dynamic Programming and Greedy Choices</h3>
+    <p>
+      <strong>Dynamic programming</strong> stores answers to subproblems so they are not recomputed. It works when a problem has
+      overlapping subproblems and optimal substructure.
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/en/equations/dynamic-programming-recurrence.html">
+        $$
+        \mathrm{OPT}(i)=\min_j\{c(i,j)+\mathrm{OPT}(j)\}
+        $$
+      </a>
+    </div>
+    <p>
+      <strong>Greedy algorithms</strong> are different: they make the best local choice and rely on structure proving that local choice is
+      globally safe. Dijkstra is greedy. Not every problem allows greed.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-9">P, NP (nondeterministic polynomial time) and Hardness</h3>
+    <p>
+      <strong>Complexity</strong> theory studies the limits of efficient computation. Some problems are efficiently solvable. Some have
+      solutions that are efficiently checkable but no known efficient way to find them.
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/en/equations/p-np-definitions.html">
+        $$
+        P=\bigcup_{k\ge1}\mathrm{TIME}(n^k),\qquad NP=\bigcup_{k\ge1}\mathrm{NTIME}(n^k)
+        $$
+      </a>
+    </div>
+    <p>
+      <strong>NP-complete</strong> problems are central because a polynomial-time solution to any one of them would give
+      polynomial-time solutions to all problems in NP. Reductions show when one problem carries the difficulty of
+      another.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-10">Programming as Engineering Discipline</h3>
+    <p>
+      Real programming adds constraints that pure pseudocode can hide: <strong>edge cases</strong>, invalid input, memory layout,
+      concurrency, latency, API (application programming interface) boundaries, data corruption, and <strong>maintainability</strong>. Good software is not only clever. It
+      is readable, testable, and honest about failure.
+    </p>
+    <p>
+      Algorithms give structure; programming makes that structure survive contact with real systems.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-11">3D Algorithm Visualizer</h3>
+    <p>
+      This model puts three algorithmic ideas side by side: <strong>Dijkstra pathfinding</strong>,
+      <strong>sorting by repeated comparison</strong>, and <strong>Big O growth</strong>. Drag to rotate, shift-drag or
+      right-drag to move the model, and scroll to zoom.
+    </p>
+    <p>
+      <strong>Dijkstra</strong> shows settled nodes, relaxed edges, and the final shortest path.
+      <strong>Sorting</strong> shows comparisons and swaps one step at a time. <strong>Big O</strong> compares how cost
+      curves separate as input size grows.
+    </p>
+    <div class="model-teaching-card" aria-label="Algorithm visualizer teaching notes">
+      <p><strong>Model type:</strong> Conceptual model.</p>
+      <p><strong>What this shows:</strong> Algorithm state: which item is current, what comparison or relaxation is happening, and how cost grows.</p>
+      <p><strong>What it does not show:</strong> Production code, every data structure detail, or a benchmark of real hardware speed.</p>
+      <p><strong>Equation / principle:</strong> Dijkstra relaxation \(d[v] > d[u]+w(u,v)\), comparison sorting, and Big O growth.</p>
+      <p><strong>What it represents:</strong> A visible algorithm trace, where each step changes state for a reason.</p>
+      <p><strong>Try changing:</strong> Step slowly through each mode before using Run; watch the state panel explain why the motion happens.</p>
+    </div>
+    <figure class="algorithm-visualizer glass-window" data-algorithm-visualizer-model data-model-target="algorithm-visualizer" data-language="en">
+      <div class="algorithm-visualizer__frame" data-av-frame></div>
+      <div class="algorithm-visualizer__panel">
+        <div class="algorithm-visualizer__modes" role="group" aria-label="Algorithm visualizer modes">
+          <span>Dijkstra</span>
+          <span><strong>Sorting</strong></span>
+          <span><strong>Big O</strong></span>
+        </div>
+        <div class="algorithm-visualizer__body">
+          <div class="algorithm-visualizer__controls" aria-label="Algorithm visualizer controls">
+            <div class="algorithm-visualizer__actions">
+              <span>Step</span>
+              <span>Run</span>
+              <span>Reset</span>
+            </div>
+            <label class="algorithm-visualizer__group">
+              <span class="algorithm-visualizer__label">Speed <span class="algorithm-visualizer__value" data-av-value="speed">1.0x</span></span>
+              <input class="algorithm-visualizer__range" type="range" min="0.4" max="3" step="0.1" value="1"
+                data-av-param="speed" aria-label="Algorithm animation speed">
+            </label>
+            <p class="algorithm-visualizer__status" data-av-status></p>
+          </div>
+          <div class="algorithm-visualizer__metrics" aria-label="Algorithm visualizer metrics">
+            <div class="algorithm-visualizer__metric">
+              <div class="algorithm-visualizer__metric-row">
+                <span class="algorithm-visualizer__metric-label">Mode</span>
+                <span class="algorithm-visualizer__value" data-av-value="mode">Dijkstra</span>
+              </div>
+            </div>
+            <div class="algorithm-visualizer__metric">
+              <div class="algorithm-visualizer__metric-row">
+                <span class="algorithm-visualizer__metric-label">Step</span>
+                <span class="algorithm-visualizer__value" data-av-value="step">0</span>
+              </div>
+            </div>
+            <div class="algorithm-visualizer__metric">
+              <div class="algorithm-visualizer__metric-row">
+                <span class="algorithm-visualizer__metric-label">State</span>
+                <span class="algorithm-visualizer__value" data-av-value="metric">ready</span>
+              </div>
+            </div>
+            <div class="algorithm-visualizer__metric">
+              <div class="algorithm-visualizer__metric-row">
+                <span class="algorithm-visualizer__metric-label">Focus</span>
+                <span class="algorithm-visualizer__value" data-av-value="focus">Current node: N1</span>
+              </div>
+            </div>
+            <div class="algorithm-visualizer__metric">
+              <div class="algorithm-visualizer__metric-row">
+                <span class="algorithm-visualizer__metric-label">Operation</span>
+                <span class="algorithm-visualizer__value" data-av-value="operation">Relax neighboring edges</span>
+              </div>
+            </div>
+            <div class="algorithm-visualizer__metric">
+              <div class="algorithm-visualizer__metric-row">
+                <span class="algorithm-visualizer__metric-label">Reading key</span>
+                <span class="algorithm-visualizer__value" data-av-value="axis">Table idea: node, distance, previous, status</span>
+              </div>
+            </div>
+            <div class="algorithm-visualizer__legend" aria-label="Algorithm visualizer legend">
+              <span>bright violet = selected/final</span>
+              <span>violet = active comparison</span>
+              <span>indigo = unexplored/base</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <figcaption class="algorithm-visualizer__note">
+        Artistic + computational: pathfinding, sorting, and <strong>Big O</strong> growth. Design note: the recurring violet, indigo, and lavender palette reflects my favourite colors.
+      </figcaption>
+    </figure>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-12">Modern Frontier</h3>
+    <p>
+      Modern programming is not just writing commands. It includes algorithms, data structures, formal verification,
+      distributed systems, security, numerical reliability, complexity limits, compiler design, and reproducible
+      engineering. The frontier includes verified software, proof assistants, safe systems languages, privacy-preserving
+      computation, and algorithms that must remain correct under scale and failure.
+    </p>
+    <p>
+      AI-assisted coding changes workflow but not the standard. Code still has to be tested, reviewed, secured, profiled,
+      documented, and understood. A program that appears to work on one example is not the same as a correct algorithm.
+    </p>
+  </section>
+
+  <section class="content-block glossary-section">
+    <h3 id="section-13">Technical Terms Glossary</h3>
+    <ul class="paper-list glossary-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Invariant:</strong> A statement that stays true through each step of an algorithm and helps prove correctness.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Precondition:</strong> What must be true before an algorithm or function runs for its guarantee to apply.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Postcondition:</strong> What must be true after an algorithm or function finishes if it is correct.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Recurrence:</strong> An equation that describes runtime by relating a problem to smaller subproblems.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Lower bound:</strong> A proof that no algorithm in a model can beat a certain minimum cost.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Reduction:</strong> A transformation showing that solving one problem would also solve another.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Frontier:</strong> The currently discovered but not fully processed boundary of a graph search.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Tractable:</strong> Practical enough to solve within a reasonable resource bound, often associated with polynomial-time algorithms.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Intractable:</strong> Too expensive to solve exactly at useful scale with known methods.</span></li>
+    </ul>
+  </section>
+  <section class="content-block glossary-section abbreviation-glossary" data-abbreviation-glossary>
+    <h3 id="section-14">Abbreviation Glossary</h3>
+    <p class="abbreviation-glossary__note">This glossary expands the abbreviations used in this section. The first appearance in the text includes the full wording in parentheses; later uses stay abbreviated so the section stays readable.</p>
+    <ul class="paper-list glossary-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>NP:</strong> nondeterministic polynomial time.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>API:</strong> application programming interface.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>DOI:</strong> digital object identifier.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>ACM:</strong> Association for Computing Machinery.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>SIAM:</strong> Society for Industrial and Applied Mathematics.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>IEEE:</strong> Institute of Electrical and Electronics Engineers.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>MIT:</strong> Massachusetts Institute of Technology.</span></li>
+    </ul>
+  </section>
+
+<section class="content-block source-papers">
+    <h3 id="section-15">Foundational and Modern Source URLs</h3>
+    <ul class="paper-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://academic.oup.com/plms/article/s2-42/1/230/1491926" target="_blank"
+            rel="noopener noreferrer">Alan M. Turing, 1937. <em>On Computable Numbers, with an Application to the
+              Entscheidungsproblem.</em></a> <span class="paper-note">Official Oxford Academic page.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://doi.org/10.1007/BF01386390" target="_blank" rel="noopener noreferrer">Edsger W. Dijkstra,
+            1959. <em>A Note on Two Problems in Connexion with <strong>Graphs</strong>.</em></a> <span class="paper-note">Official DOI (digital object identifier)
+            record.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://dl.acm.org/doi/10.1145/366622.366644" target="_blank" rel="noopener noreferrer">C. A. R.
+            Hoare, 1961. <em>Algorithm 64: Quicksort.</em></a> <span class="paper-note">Official ACM (Association for Computing Machinery) DOI page.</span></span>
+      </li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://doi.org/10.1145/363235.363259" target="_blank" rel="noopener noreferrer">C. A. R. Hoare,
+            1969. <em>An Axiomatic Basis for Computer Programming.</em></a> <span class="paper-note">Official ACM DOI
+            record.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://dl.acm.org/doi/10.1145/800157.805047" target="_blank" rel="noopener noreferrer">Stephen A.
+            Cook, 1971. <em>The <strong>Complexity</strong> of Theorem-Proving Procedures.</em></a> <span class="paper-note">Official
+            ACM DOI page.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://doi.org/10.1007/978-1-4684-2001-2_9" target="_blank" rel="noopener noreferrer">Richard M.
+            Karp, 1972. <em>Reducibility among Combinatorial Problems.</em></a> <span class="paper-note">Official DOI
+            record.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://epubs.siam.org/doi/10.1137/0201010" target="_blank" rel="noopener noreferrer">Robert E.
+            Tarjan, 1972. <em>Depth-First Search and Linear Graph Algorithms.</em></a> <span class="paper-note">Official
+            SIAM (Society for Industrial and Applied Mathematics) page.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://doi.org/10.1109/TSSC.1968.300136" target="_blank" rel="noopener noreferrer">Hart, Nilsson, and
+            Raphael, 1968. <em>A Formal Basis for the Heuristic Determination of Minimum Cost Paths.</em></a> <span
+            class="paper-note">Official IEEE (Institute of Electrical and Electronics Engineers) DOI record for A*.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://www-cs-faculty.stanford.edu/~knuth/taocp.html" target="_blank"
+            rel="noopener noreferrer">Donald E. Knuth. <em>The Art of Computer Programming.</em></a> <span
+            class="paper-note">Official author page.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link"
+            href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank"
+            rel="noopener noreferrer">Cormen, Leiserson, Rivest, and Stein, 2022. <em>Introduction to Algorithms, fourth
+              edition.</em></a> <span class="paper-note">Official MIT (Massachusetts Institute of Technology) Press page.</span></span></li>
+    </ul>
+  </section>
+</div>
+<nav aria-label="Related topics"><ul><li><a href="science/en/mathematical-foundations/index.html">Mathematical Foundations</a></li><li><a href="science/en/quantum-computing/index.html">Quantum Computing</a></li><li><a href="science/en/artificial-intelligence/index.html">Artificial Intelligence</a></li><li><a href="science/en/simulation-models/index.html">Simulation &amp; Models</a></li></ul></nav></main></body></html>

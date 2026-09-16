@@ -1,6 +1,6 @@
 <div class="structured-content" data-structured-content>
   <section class="content-block">
-    <h3>Etimología y alcance</h3>
+    <h3 id="section-1">Etimología y alcance</h3>
     <p>
       <strong>Complejidad</strong> viene de raíces relacionadas con cosas entretejidas. En computación, complejidad
       significa los recursos necesarios para resolver un problema: tiempo, memoria, consultas, tamaño de circuito,
@@ -16,7 +16,7 @@
   </section>
 
   <section class="content-block">
-    <h3>El recurso que se mide</h3>
+    <h3 id="section-2">El recurso que se mide</h3>
     <p>
       Una computadora cuántica con \(n\) qubits tiene un vector de estado en un espacio de Hilbert cuya dimensión crece
       exponencialmente:
@@ -44,7 +44,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Punto de comparación clásico</h3>
+    <h3 id="section-3">Punto de comparación clásico</h3>
     <p>
       La complejidad cuántica empieza comparando contra la complejidad clásica. \(P\) contiene problemas de decisión
       resolubles en tiempo polinomial determinista. \(BPP\) permite aleatoriedad con error limitado. \(NP\) contiene
@@ -70,7 +70,7 @@
   </section>
 
   <section class="content-block">
-    <h3>BQP: cómputo cuántico eficiente</h3>
+    <h3 id="section-4">BQP: cómputo cuántico eficiente</h3>
     <p>
       La clase central es <strong>BQP</strong>, tiempo polinomial cuántico con error limitado. Un lenguaje \(L\) está en
       BQP si una familia uniforme de circuitos cuánticos de tamaño polinomial decide la pertenencia con probabilidad
@@ -101,7 +101,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Complejidad de consultas y búsqueda</h3>
+    <h3 id="section-5">Complejidad de consultas y búsqueda</h3>
     <p>
       La complejidad de consultas pregunta cuántas veces un algoritmo debe hacer una pregunta de caja negra. Aísla el
       costo de extraer información de un oráculo, separado del costo del cómputo ordinario. La búsqueda de Grover es el
@@ -125,7 +125,7 @@
   </section>
 
   <section class="content-block">
-    <h3>QMA: pruebas cuánticas</h3>
+    <h3 id="section-6">QMA: pruebas cuánticas</h3>
     <p>
       <strong>QMA</strong> es el análogo cuántico de \(NP\). En \(NP\), un verificador revisa un testigo clásico. En
       QMA, el testigo puede ser un estado cuántico. Un circuito verificador debe aceptar instancias válidas con alta
@@ -152,7 +152,7 @@
   </section>
 
   <section class="content-block">
-    <h3>El problema del Hamiltoniano local</h3>
+    <h3 id="section-7">El problema del Hamiltoniano local</h3>
     <p>
       El <strong>problema del Hamiltoniano local</strong> es la versión cuántica de un problema de satisfacción de
       restricciones. Un Hamiltoniano se escribe como suma de términos locales de energía:
@@ -185,7 +185,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Complejidad de circuitos</h3>
+    <h3 id="section-8">Complejidad de circuitos</h3>
     <p>
       La complejidad de circuitos mide cuántas compuertas elementales se necesitan para aproximar una operación unitaria
       objetivo:
@@ -213,7 +213,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Cuándo un sistema cuántico se puede simular clásicamente</h3>
+    <h3 id="section-9">Cuándo un sistema cuántico se puede simular clásicamente</h3>
     <p>
       No todo proceso que parece cuántico es computacionalmente difícil. Los circuitos estabilizadores construidos con
       operaciones de Clifford se pueden simular eficientemente en una computadora clásica. Sistemas unidimensionales con
@@ -241,7 +241,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Ventaja cuántica y sus límites</h3>
+    <h3 id="section-10">Ventaja cuántica y sus límites</h3>
     <p>
       <strong>Ventaja cuántica</strong> significa que un dispositivo cuántico resuelve una tarea bien definida con menor
       costo de recursos que el mejor método clásico disponible. Una afirmación fuerte debe especificar la tarea, el
@@ -262,7 +262,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Pruebas interactivas y fronteras modernas</h3>
+    <h3 id="section-11">Pruebas interactivas y fronteras modernas</h3>
     <p>
       La complejidad cuántica va más allá de una sola computadora. En sistemas de prueba interactiva cuántica, un
       verificador intercambia mensajes con uno o más probadores. El resultado \(QIP=PSPACE\) muestra que las pruebas
@@ -278,7 +278,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Lo que la complejidad cuántica no dice</h3>
+    <h3 id="section-12">Lo que la complejidad cuántica no dice</h3>
     <p>
       La complejidad cuántica no dice que las computadoras cuánticas resuelvan todo problema difícil. No prueba que
       \(P\neq NP\). No vuelve legible directamente el espacio de Hilbert exponencial. No elimina el costo de preparar
@@ -292,7 +292,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Preguntas abiertas</h3>
+    <h3 id="section-13">Preguntas abiertas</h3>
     <ul class="paper-list glossary-list">
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span>¿Es \(BQP\) estrictamente mayor que \(BPP\) en el mundo sin oráculos, y no solo relativo a oráculos o bajo supuestos?</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span>¿Qué problemas prácticos conservan ventaja cuántica después de contar preparación de estados, corrección de errores y lectura de salida?</span></li>
@@ -303,7 +303,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Glosario técnico</h3>
+    <h3 id="section-14">Glosario técnico</h3>
     <ul class="paper-list glossary-list">
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>BQP:</strong> Tiempo polinomial cuántico con error limitado; la clase de problemas decidibles eficientemente por circuitos cuánticos con probabilidad pequeña de error.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>QMA:</strong> Quantum Merlin-Arthur; el análogo cuántico de verificación eficiente con un testigo cuántico.</span></li>
@@ -317,7 +317,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Fuentes y referencias</h3>
+    <h3 id="section-15">Fuentes y referencias</h3>
     <p>Estas fuentes sostienen las afirmaciones de teoría de complejidad, complejidad Hamiltoniana, simulabilidad y frontera moderna de esta sección.</p>
     <ul class="paper-list">
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://epubs.siam.org/doi/abs/10.1137/S0097539796300921" target="_blank" rel="noopener noreferrer">Ethan Bernstein y Umesh Vazirani, 1997. <em>Quantum Complexity Theory.</em></a></span></li>

@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<base href="../../../"><title>Agujeros negros | Infinite Universe</title>
+<meta name="description" content="El término agujero negro fue popularizado por John Archibald Wheeler en 1967, pero la idea es más antigua que el nombre. En el siglo dieciocho, John Michell y Pierre Simon Laplace "><link rel="canonical" href="https://issacquantum.github.io/InfiniteUniverse/science/es/black-holes/index.html">
+<link rel="alternate" hreflang="en" href="https://issacquantum.github.io/InfiniteUniverse/science/en/black-holes/index.html"><link rel="alternate" hreflang="es" href="https://issacquantum.github.io/InfiniteUniverse/science/es/black-holes/index.html">
+<meta property="og:title" content="Agujeros negros"><meta property="og:description" content="El término agujero negro fue popularizado por John Archibald Wheeler en 1967, pero la idea es más antigua que el nombre. En el siglo dieciocho, John Michell y Pierre Simon Laplace "><meta property="og:url" content="https://issacquantum.github.io/InfiniteUniverse/science/es/black-holes/index.html"><meta property="og:type" content="article">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self' https://cdn.jsdelivr.net; connect-src 'self'; frame-src https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'">
+<link rel="stylesheet" href="styles/static-science.css"><script src="scripts/mathjax-config.js"></script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+</head><body><a href="science/es/black-holes/index.html#main">Saltar al contenido</a><nav><a href="index.html#/es/science/black-holes">Abrir en el sitio interactivo</a> · <a href="science/en/black-holes/index.html" lang="en">English</a> · <a href="science/es/index.html">Todos los temas</a></nav><main id="main"><h1>Agujeros negros</h1><div class="structured-content" data-structured-content>
+  <section class="content-block">
+    <h3 id="section-1">Etimología</h3>
+    <p>
+      El término <strong>agujero negro</strong> fue popularizado por <strong>John Archibald Wheeler</strong> en 1967,
+      pero la idea es más antigua que el nombre. En el siglo dieciocho, John Michell y Pierre Simon Laplace imaginaron
+      estrellas oscuras cuya <strong>velocidad de escape</strong> podía superar la <strong>velocidad de la luz</strong>.
+      Su argumento usaba <strong>gravedad newtoniana</strong>:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/es/equations/escape-velocity.html">
+        $$
+        v_e = \sqrt{\frac{2GM}{r}}
+        $$
+      </a>
+    </div>
+    <p>
+      Si la velocidad de escape iguala la velocidad de la luz, el radio crítico se vuelve:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/es/equations/schwarzschild-radius.html">
+        $$
+        r_s = \frac{2GM}{c^2}
+        $$
+      </a>
+    </div>
+    <p>
+      La <strong>relatividad general</strong> cambió esa idea por completo. Un agujero negro no es solamente un objeto
+      pesado con una gravedad intensa. Es una región del espaciotiempo cuya <strong>estructura causal</strong> impide
+      que cualquier cosa dentro del <strong>horizonte de sucesos</strong> alcance el universo exterior. Eso es lo que
+      hace que el tema parezca casi imposible al principio: no es un monstruo sentado dentro del espacio, es una
+      <strong>deformación del espacio y del tiempo mismos</strong>.
+    </p>
+    <p class="source-language-note">
+      <strong>Fuente del origen etimológico:</strong> Incluyo estas fuentes en inglés porque ese fue el idioma en que las leí originalmente.
+      <a class="platform-link" href="https://www.etymonline.com/word/black%20hole" target="_blank" rel="noopener noreferrer">Online Etymology Dictionary: black hole</a>;
+      <a class="platform-link" href="https://imagine.gsfc.nasa.gov/educators/blackholes/starchild/page2.html" target="_blank" rel="noopener noreferrer">NASA Imagine: origen del nombre agujero negro</a>.
+    </p>
+  </section>
+
+<section class="content-block">
+    <h3 id="section-2">La solución de Schwarzschild</h3>
+    <p>
+      Una figura central es <strong>Karl Schwarzschild</strong>. En 1916, mientras servía durante la
+      <strong>Primera Guerra Mundial</strong>, encontró la primera solución exacta de las
+      <strong>ecuaciones de campo de Einstein</strong> para el campo gravitacional exterior a una masa esférica. El
+      contexto es históricamente impactante, pero el punto científico es la precisión del resultado: las ecuaciones se
+      convirtieron en una geometría concreta de agujero negro.
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/es/equations/schwarzschild-metric.html">
+        $$
+        ds^2 = -\left(1 - \frac{2GM}{rc^2}\right)c^2dt^2
+        + \left(1 - \frac{2GM}{rc^2}\right)^{-1}dr^2
+        + r^2d\Omega^2
+        $$
+      </a>
+    </div>
+    <p>
+      Al principio, el radio de Schwarzschild parecía un desastre matemático:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/es/equations/schwarzschild-radius.html">
+        $$r_s=\frac{2GM}{c^2}$$
+      </a>
+    </div>
+    <p>
+      Trabajos posteriores mostraron que esa superficie no es una <strong>singularidad física real</strong>. Es un
+      <strong>horizonte</strong>, y el problema aparente viene de las coordenadas usadas para describirlo. La
+      <strong>singularidad de curvatura</strong> real está en el centro, donde la curvatura crece sin límite. Una forma
+      compacta de verlo es el <strong>escalar de Kretschmann</strong>:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/es/equations/kretschmann-scalar.html">
+        $$
+        K = R_{\mu\nu\rho\sigma}R^{\mu\nu\rho\sigma}
+        = \frac{48G^2M^2}{c^4r^6}
+        $$
+      </a>
+    </div>
+    <p>
+      Esa diferencia es central. El horizonte no es una pared. Es una <strong>frontera causal</strong>. Cruzarlo no exige
+      una explosión ni un impacto local. Lo aterrador es más silencioso: una vez dentro, todo futuro posible apunta más
+      hacia adentro.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-3">Conos de luz y causalidad</h3>
+    <p>
+      La forma más limpia de entender el horizonte es mediante <strong>conos de luz</strong>. Localmente, la luz sigue
+      moviéndose a \(c\), y la condición luminosa sigue siendo:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/es/equations/light-cone-condition.html">
+        $$
+        ds^2 = 0
+        $$
+      </a>
+    </div>
+    <p>
+      Lo que cambia es la orientación de los futuros posibles. Fuera del horizonte, algunas trayectorias futuras de luz
+      todavía pueden escapar. En el horizonte, el camino hacia afuera se vuelve tangente a la frontera. En el interior de Schwarzschild, todas las trayectorias futuras de tipo tiempo y nulas tienen radio areal \(r\) decreciente. Esta descripción específica no cubre todos los interiores con rotación o carga. Los
+      <strong>diagramas de Penrose</strong> hacen visible esa estructura causal al comprimir distancias infinitas sin
+      perder qué eventos pueden influir en otros eventos.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-4">Cómo se forman los agujeros negros</h3>
+    <p>
+      Los <strong>agujeros negros estelares</strong> se forman cuando una <strong>estrella masiva</strong> ya no puede
+      sostenerse contra la gravedad. La fusión deja de aportar suficiente presión, el <strong>núcleo colapsa</strong>,
+      y si no puede quedar una estrella de neutrones estable, la gravedad gana por completo. El <strong>límite de
+      Tolman Oppenheimer Volkoff</strong> da la frontera aproximada para la estabilidad ordinaria de una estrella de
+      neutrones, aunque el valor exacto depende del comportamiento desconocido de la materia a densidad extrema.
+    </p>
+    <p>
+      En lenguaje relativista, el colapso se vuelve decisivo cuando la luz ya no puede expandirse hacia afuera desde
+      una región. Una <strong>superficie cerrada atrapada hacia el futuro</strong> tiene expansiones negativas para ambas normales nulas dirigidas al futuro. Si la expansión entrante ya es negativa, la condición saliente restante es:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/es/equations/trapped-surface-condition.html">
+        $$
+        \theta_{(\ell)} < 0
+        $$
+      </a>
+    </div>
+    <p>
+      Los <strong>agujeros negros supermasivos</strong> probablemente crecen mediante una mezcla de colapso directo,
+      fusiones y acreción sobre semillas tempranas. Los <strong>agujeros negros primordiales</strong> siguen siendo
+      hipotéticos, pero son científicamente importantes porque conectarían los agujeros negros directamente con
+      <strong>fluctuaciones de densidad</strong> del universo temprano.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-5">Crecimiento y problema de semillas</h3>
+    <p>
+      La formación es sólo el comienzo. Los agujeros negros crecen por <strong>acreción</strong> y por
+      <strong>fusiones</strong>, pero ambos procesos tienen límites. Si el gas que cae irradia demasiado, su propia
+      presión de radiación puede empujar el gas hacia afuera. La escala estándar para ese equilibrio es la
+      <strong>luminosidad de Eddington</strong>:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/es/equations/eddington-luminosity.html">
+        $$
+        L_{\rm Edd} = \frac{4\pi GMm_p c}{\sigma_T}
+        $$
+      </a>
+    </div>
+    <p>
+      Los agujeros negros supermasivos tempranos son difíciles porque algunos cuásares ya son enormes cuando el universo
+      es joven, así que sus semillas pudieron ser inusualmente masivas, su acreción pudo ser muy eficiente, o ambas
+      cosas. Sigue siendo un problema activo en cosmología y formación de galaxias.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-6">Anatomía de un agujero negro</h3>
+    <p>
+      Un agujero negro asentado se describe desde fuera por pocas cantidades: <strong>masa</strong>,
+      <strong>momento angular</strong> y <strong>carga eléctrica</strong>. Se espera que los agujeros negros
+      astrofísicos sean casi neutros, así que <strong>la masa y el giro</strong> dominan los objetos reales que
+      observamos. Para un <strong>agujero negro de Kerr</strong> en rotación, el <strong>horizonte exterior</strong> se
+      ubica en:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/es/equations/kerr-horizon-radius.html">
+        $$
+        r_+ = \frac{GM}{c^2}
+        + \sqrt{\left(\frac{GM}{c^2}\right)^2 - \left(\frac{J}{Mc}\right)^2}
+        $$
+      </a>
+    </div>
+    <p>
+      El giro suele resumirse con el parámetro adimensional de Kerr:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/es/equations/dimensionless-spin-parameter.html">
+        $$
+        \chi = \frac{cJ}{GM^2}
+        $$
+      </a>
+    </div>
+    <p>
+      Alrededor del agujero, la luz y la materia se comportan de formas que revelan la geometría. Para un agujero negro
+      sin rotación, la <strong>esfera de fotones</strong> es el radio donde la luz puede órbitar de manera inestable:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/es/equations/photon-sphere-radius.html">
+        $$
+        r_{\text{ph}} = \frac{3GM}{c^2}
+        $$
+      </a>
+    </div>
+    <p>
+      La <strong>órbita circular estable más interna</strong> da una frontera interior natural para el movimiento
+      estable del disco alrededor de un agujero negro sin rotación:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/es/equations/isco-radius.html">
+        $$
+        r_{\text{ISCO}} = \frac{6GM}{c^2}
+        $$
+      </a>
+    </div>
+    <p>
+      Los agujeros negros rotantes también tienen una <strong>ergosfera</strong>, donde el <strong>espaciotiempo mismo
+      es arrastrado</strong> alrededor del agujero. Dentro de esa región, permanecer quieto respecto a estrellas
+      distantes es imposible. No es una rotación ordinaria a través del espacio. Es la geometría del espaciotiempo
+      siendo puesta en movimiento.
+    </p>
+    <p>
+      Esa ergosfera también es donde el <strong>proceso de Penrose</strong> se vuelve posible. En geometría de Kerr,
+      una partícula puede dividirse de modo que un fragmento caiga con energía negativa medida desde el infinito:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/es/equations/penrose-process-efficiency.html">
+        $$
+        E_\infty < 0
+        $$
+      </a>
+    </div>
+    <p>
+      El fragmento que escapa puede llevar energía extra, que sale del giro del agujero negro. En astrofísica, la
+      versión con campos magnéticos de esta idea es el <strong>mecanismo de Blandford Znajek</strong>, una de las
+      formas principales en que agujeros negros rotantes pueden alimentar jets relativistas. La descripción exterior
+      también está limitada por el <strong>teorema sin pelo</strong>: una vez asentado, un agujero negro clásico se
+      caracteriza por masa, giro y carga, no por la historia detallada de lo que lo formó.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-7">Discos, sombras y jets</h3>
+    <p>
+      Un agujero negro visible suele ser visible por lo que lo rodea. El gas de un <strong>disco de acreción</strong>
+      se calienta por fricción y turbulencia magnética. El movimiento relativista hace que el lado que se acerca brille
+      más por <strong>amplificación Doppler</strong>, mientras la gravedad curva la luz tan intensamente que el lado
+      lejano del disco puede aparecer arriba y abajo del agujero. La región oscura central es la
+      <strong>sombra del agujero negro</strong>, bordeada por luz que orbitó cerca de la región de fotones antes de
+      escapar.
+    </p>
+    <p>
+      Los jets no son simples tubos de escape. Probablemente se lanzan cuando agujeros negros y discos rotantes ordenan
+      campos magnéticos intensos, extraen energía rotacional y coliman plasma a lo largo del eje de giro. La sombra, el
+      anillo de fotones, el brillo del disco y la dirección del jet llevan información sobre masa, giro, inclinación y
+      entorno de plasma.
+    </p>
+    <figure class="science-visualization-figure">
+      <video class="science-visualization-video" controls muted loop playsinline preload="metadata"
+        poster="https://svs.gsfc.nasa.gov/vis/a020000/a020200/a020281/BlazarProRes.00801_print.jpg"
+        aria-describedby="black-hole-blazar-video-caption-es">
+        <source src="Assets2/BlazarProRes.webm" type="video/webm">
+      </video>
+      <figcaption id="black-hole-blazar-video-caption-es">
+        Animación de NASA Scientific Visualization Studio de un blazar: un agujero negro supermasivo con disco de
+        acreción, toro de polvo y jets relativistas de partículas. Este video representa el contexto de lanzamiento de
+        jets descrito arriba: campos magnéticos ordenados cerca de un agujero negro rotante pueden colimar plasma a lo
+        largo del eje de giro. Crédito: NASA Goddard Conceptual Image Lab/Walt Feimer; producido por Scott Wiessinger.
+        Copia local incrustada desde:
+        <a class="platform-link" href="https://svs.gsfc.nasa.gov/20281/#media_group_326203" target="_blank"
+          rel="noopener noreferrer">grupo multimedia de NASA SVS (Scientific Visualization Studio)</a>. Página fuente:
+        <a class="platform-link" href="https://svs.gsfc.nasa.gov/20281/" target="_blank"
+          rel="noopener noreferrer">NASA SVS</a>.
+      </figcaption>
+    </figure>
+    <p class="source-language-note">
+      Referencia solamente: <code>BlackHoleSim.avif</code> del artículo de la Simons Foundation sobre jets de plasma
+      está acreditado a K. Parfrey et al./Physical Review Letters 2019. No republico el archivo local porque los
+      términos de la fuente no dan permiso claro para reutilización local. Fuente:
+      <a class="platform-link" href="https://www.simonsfoundation.org/2019/01/29/black-hole-plasma-jets/"
+        target="_blank" rel="noopener noreferrer">Simons Foundation</a>.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-8">El tiempo en el borde</h3>
+    <p>
+      Cerca de un agujero negro, el tiempo no sólo se mide diferente. Está <strong>moldeado por la gravedad</strong>.
+      La luz que sube alejándose del horizonte pierde frecuencia, y la señal vista por un observador distante se
+      <strong>corre al rojo</strong>:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/es/equations/black-hole-gravitational-redshift.html">
+        $$
+        \nu_\infty = \nu_{\text{local}}\sqrt{1 - \frac{2GM}{rc^2}}
+        $$
+      </a>
+    </div>
+    <p>
+      Para un observador lejano, la materia que cae hacia el horizonte parece frenarse, desvanecerse y enrojecerse.
+      Para el observador que cae, cruzar el horizonte puede ocurrir en <strong>tiempo propio finito</strong>. Ese
+      contraste hace que el tiempo parezca menos un río universal y más algo cuyo significado depende desde dónde se
+      está midiendo la existencia.
+    </p>
+    <p>
+      La <strong>gravedad de marea</strong> también es real. La diferencia de atracción gravitacional a lo largo de un cuerpo puede
+      aproximarse por:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/es/equations/tidal-acceleration.html">
+        $$
+        \Delta a \sim \frac{2GM}{r^3}\Delta r
+        $$
+      </a>
+    </div>
+    <p>
+      Para agujeros negros estelares, esas mareas pueden destruir un objeto antes o cerca del horizonte. Para agujeros
+      negros supermasivos, el horizonte puede cruzarse de forma más suave porque el <strong>gradiente de marea</strong>
+      allí es mucho menor. La frontera puede ser físicamente silenciosa y aun así ser absoluta.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-9">Termodinámica y problema cuántico</h3>
+    <p>
+      Los agujeros negros se volvieron todavía más extraños cuando los físicos entendieron que el
+      <strong>área del horizonte se comporta como entropía</strong>. Las leyes de la
+      <strong>mecánica de agujeros negros</strong> relacionan masa, área del horizonte, giro, carga y gravedad
+      superficial. La primera ley es:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/es/equations/black-hole-first-law.html">
+        $$
+        dM = \frac{\kappa}{8\pi G}dA + \Omega_H dJ + \Phi_H dQ
+        $$
+      </a>
+    </div>
+    <p>Esta expresión de la primera ley usa unidades con \(c=1\).</p>
+    <p>
+      <strong>Hawking</strong> mostró después que los agujeros negros no son completamente negros cuando se considera
+      <strong>teoría cuántica de campos</strong> sobre espaciotiempo curvo. Emiten radiación con una temperatura:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/es/equations/hawking-temperature.html">
+        $$
+        T_H = \frac{\hbar \kappa}{2\pi c k_B}
+        = \frac{\hbar c^3}{8\pi G M k_B}
+        $$
+      </a>
+    </div>
+    <p>
+      La <strong>entropía asociada con el horizonte</strong> es:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/es/equations/bekenstein-hawking-entropy.html">
+        $$
+        S_{BH} = \frac{k_B c^3 A}{4G\hbar}
+        $$
+      </a>
+    </div>
+    <p>
+      Para un agujero negro sin rotación y sin carga, el <strong>tiempo de evaporación</strong> escala como:
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/es/equations/black-hole-evaporation-time.html">
+        $$
+        \tau = \frac{5120\pi G^2M^3}{\hbar c^4}
+        $$
+      </a>
+    </div>
+    <p>
+      Aquí los agujeros negros dejan de ser sólo un problema de relatividad. Se convierten en un choque entre
+      <strong>gravedad</strong>, <strong>termodinámica</strong>, <strong>mecánica cuántica</strong> e
+      <strong>información</strong>. Si un agujero negro puede evaporarse, ¿qué ocurre con todo lo que cayó dentro? ¿La
+      información se destruye, se oculta, regresa o queda codificada de una manera que todavía no entendemos? Esa
+      pregunta conecta directamente con la existencia: qué significa que la información o la materia queden escondidas
+      detrás de una frontera.
+    </p>
+    <p>
+      Un proceso unitario de evaporación debería seguir una <strong>curva de Page</strong>: la entropía de la radiación
+      sube al principio y después baja cuando la radiación empieza a cargar suficientes correlaciones para purificar el
+      estado final.
+    </p>
+    <div class="equation-link-wrap">
+      <a class="equation-link" href="science/es/equations/page-curve-unitarity.html">
+        $$
+        S_{\rm rad}(t)\uparrow\ \text{hasta}\ t_{\rm Page},\qquad S_{\rm rad}(t)\downarrow\ \text{después}
+        $$
+      </a>
+    </div>
+    <p>
+      Trabajos modernos con <strong>holografía</strong>, <strong>superficies extremales cuánticas</strong> e
+      <strong>islas</strong> han reproducido el comportamiento de la curva de Page en modelos controlados. Eso es
+      progreso, pero todavía no es una explicación física completa de lo que experimenta un observador ante una
+      singularidad astrofísica real.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-10">Evidencia</h3>
+    <p>
+      Sin <strong>evidencia</strong>, los agujeros negros sonarían como mitología. Son ciencia porque observaciones
+      independientes apuntan a la misma conclusión. El movimiento estelar alrededor de
+      <strong>Sagitario A*</strong> revela una masa compacta de unos cuatro millones de masas solares en el centro de la
+      Vía Láctea. Los <strong>binarios de rayos X</strong> muestran objetos compactos acreciendo materia sin una
+      superficie visible. <strong>LIGO (Laser Interferometer Gravitational-Wave Observatory) y Virgo</strong> detectaron ondas gravitacionales de fusiones de agujeros
+      negros, coincidiendo con relatividad numérica durante inspiral, fusión y ringdown.
+    </p>
+    <p>
+      Cada método prueba una parte distinta del mismo objeto: las órbitas estelares miden masa compacta, la sincronía
+      de rayos X examina el flujo interno de acreción, las ondas gravitacionales miden espaciotiempo dinámico, y las
+      imágenes a escala de horizonte prueban el tamaño y la forma de la sombra. El acuerdo entre métodos
+      independientes hace fuerte la interpretación de agujero negro.
+    </p>
+    <p>
+      El <strong>Event Horizon Telescope</strong> produjo después imágenes de las sombras de <strong>M87 (Messier 87)*</strong> y
+      <strong>Sagitario A*</strong>. Esas imágenes no son fotografías del horizonte de sucesos en sí. Son evidencia de
+      luz curvada alrededor de un objeto extremadamente compacto cuyo tamaño de sombra coincide con las predicciones de
+      la <strong>relatividad general</strong>. Esto convirtió los agujeros negros en objetos empíricos, no sólo en
+      posibilidades matemáticas.
+    </p>
+    <figure class="science-visualization-figure">
+      <img class="science-visualization-image science-visualization-image--moderate" src="Assets2/blckholeimage.jpg"
+        alt="Imagen del Event Horizon Telescope de la sombra del agujero negro en M87"
+        data-gallery-trigger data-gallery-src="Assets2/blckholeimage.jpg"
+        data-gallery-alt="Imagen del Event Horizon Telescope de la sombra del agujero negro en M87"
+        role="button" tabindex="0" aria-describedby="black-hole-eht-image-caption-es">
+      <figcaption id="black-hole-eht-image-caption-es">
+        Primera imagen de la sombra del agujero negro en M87, producida por la Colaboración Event Horizon Telescope.
+        Esto es evidencia observacional, no una ilustración: el anillo es emisión del plasma a escala del horizonte, cuya luz se curva por la intensa gravedad alrededor de un objeto extremadamente compacto. Crédito: EHT (Event Horizon Telescope) Collaboration. Fuente:
+        <a class="platform-link" href="https://www.eso.org/public/images/eso1907a/" target="_blank"
+          rel="noopener noreferrer">ESO (European Southern Observatory, Observatorio Europeo Austral)</a>.
+      </figcaption>
+    </figure>
+    <figure class="science-visualization-figure">
+      <img class="science-visualization-image" src="Assets2/black-hole-accretion-disk-visualization.gif"
+        alt="Visualización de la NASA de un disco de acreción de un agujero negro"
+        data-gallery-trigger data-gallery-src="Assets2/black-hole-accretion-disk-visualization.gif"
+        data-gallery-alt="Visualización de la NASA de un disco de acreción de un agujero negro"
+        role="button" tabindex="0" aria-describedby="black-hole-visualization-caption-es">
+      <figcaption id="black-hole-visualization-caption-es">
+        Visualización de la NASA de un disco de acreción de un agujero negro, mostrando curvatura relativista de la
+        luz, amplificación Doppler, el anillo de fotones y la sombra del agujero negro. Esta visualización explica por
+        qué el lado lejano del disco puede aparecer deformado arriba y abajo del agujero, y por qué un lado se ve más
+        brillante. Crédito: NASA's Goddard Space Flight Center/Jeremy Schnittman. Fuente:
+        <a class="platform-link" href="https://svs.gsfc.nasa.gov/13326" target="_blank"
+          rel="noopener noreferrer">NASA Scientific Visualization Studio</a>.
+      </figcaption>
+    </figure>
+    <div class="model-teaching-card" aria-label="Notas educativas del modelo de sombra de agujero negro">
+      <p><strong>Tipo de modelo:</strong> Visualización científica artística.</p>
+      <p><strong>Qué muestra:</strong> Una imagen inspirada en sombra, brillo tipo anillo de fotones, asimetría del disco, inclinación y giro.</p>
+      <p><strong>Qué no muestra:</strong> Datos reales del EHT, relatividad numérica completa, turbulencia de plasma, radiación de Hawking o interior del agujero negro.</p>
+      <p><strong>Ecuación / principio:</strong> La luz sigue geodésicas nulas cerca de una métrica de agujero negro; la sombra es una región desde la que no llegan rayos al observador.</p>
+      <p><strong>Qué representa:</strong> Una guía visual de rasgos ópticos asociados a agujeros negros, no una imagen de telescopio ni una simulación completa.</p>
+      <p><strong>Qué probar:</strong> Cambia inclinación y giro para ver cómo la orientación y la rotación modifican la apariencia.</p>
+    </div>
+    <figure class="black-hole-model glass-window" data-black-hole-model data-model-target="black-hole-shadow" data-language="es">
+      <div class="black-hole-model__frame" data-bh-frame></div>
+      <div class="black-hole-model__controls" aria-label="Controles del modelo de agujero negro">
+        <div class="black-hole-model__group">
+          <label class="black-hole-model__label" for="bh-mass-es">Escala masa <span class="black-hole-model__value" data-bh-value="mass">1.0</span></label>
+          <input class="black-hole-model__range" id="bh-mass-es" data-bh-param="mass" type="range" min="0.7" max="1.4" step="0.01" value="1">
+        </div>
+        <div class="black-hole-model__group">
+          <label class="black-hole-model__label" for="bh-spin-es">Giro \(\chi\) <span class="black-hole-model__value" data-bh-value="spin">0.72</span></label>
+          <input class="black-hole-model__range" id="bh-spin-es" data-bh-param="spin" type="range" min="0" max="0.99" step="0.01" value="0.72">
+        </div>
+        <div class="black-hole-model__group">
+          <label class="black-hole-model__label" for="bh-inclination-es">Inclinación <span class="black-hole-model__value" data-bh-value="inclination">62.0</span></label>
+          <input class="black-hole-model__range" id="bh-inclination-es" data-bh-param="inclination" type="range" min="12" max="82" step="1" value="62">
+        </div>
+        <div class="black-hole-model__group">
+          <label class="black-hole-model__label" for="bh-brightness-es">Brillo disco <span class="black-hole-model__value" data-bh-value="brightness">1.0</span></label>
+          <input class="black-hole-model__range" id="bh-brightness-es" data-bh-param="brightness" type="range" min="0.4" max="1.6" step="0.01" value="1">
+        </div>
+        <span>Reiniciar</span>
+      </div>
+      <p class="black-hole-model__note">
+        Etiquetas visuales: sombra = región oscura central; brillo tipo anillo de fotones = borde interno luminoso; asimetría del disco = diferencia de brillo; inclinación = ángulo de visión; giro = pista visual de rotación.
+      </p>
+      <figcaption class="black-hole-model__note">
+        Animación artística personalizada inspirada en la óptica de agujeros negros. Representa la sombra central, un
+        brillo parecido a un anillo de fotones, asimetría de brillo tipo Doppler y cómo masa, giro, inclinación y brillo
+        del disco afectan la escena. No representa una simulación de relatividad numérica, datos reales de telescopio,
+        turbulencia real de plasma, radiación de Hawking ni estructura interior. El tratamiento
+        violeta, índigo y lavanda es una paleta visual personal, no datos físicos de color.
+      </figcaption>
+    </figure>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-11">Preguntas abiertas</h3>
+    <p>
+      Las preguntas más profundas siguen abiertas. La <strong>singularidad</strong> sugiere que la relatividad general
+      clásica llega al borde de su dominio. La <strong>paradoja de la información</strong> sugiere que la mecánica
+      cuántica y la gravedad todavía no hablan el mismo lenguaje. El <strong>principio holográfico</strong> sugiere que
+      el contenido de información de una región podría estar codificado en una frontera en lugar de distribuirse por
+      todo un volumen. Estas ideas apuntan directamente a la <strong>estructura de la realidad</strong>.
+    </p>
+    <p>
+      La <strong>censura cósmica</strong> es otro problema abierto: ¿la naturaleza siempre oculta las singularidades
+      detrás de horizontes, o puede formarse una singularidad desnuda? Una singularidad visible rompería la estructura
+      predictiva de la relatividad clásica. Los agujeros negros no son sólo objetos; son pruebas de estrés para la
+      consistencia de nuestras teorías.
+    </p>
+  </section>
+
+  <section class="content-block">
+    <h3 id="section-12">Frontera Moderna</h3>
+    <p>
+      Los agujeros negros ahora se estudian con múltiples mensajeros: ondas gravitacionales de fusiones, emisión
+      electromagnética de acreción, jets relativistas, órbitas estelares cerca de centros galácticos e imágenes a escala
+      de horizonte del Event Horizon Telescope. Las imágenes de M87* y Sagitario A* no muestran el horizonte de eventos
+      directamente; muestran emisión moldeada por gravedad intensa cerca de la región de sombra. Esa diferencia importa.
+    </p>
+    <p>
+      Las fronteras actuales incluyen mediciones de espín, pruebas de relatividad general con ringdown, crecimiento de
+      agujeros negros supermasivos en el universo temprano, lanzamiento de jets, física de acreción y el problema de la
+      información. Las observaciones hicieron concretos a los agujeros negros, pero el interior, la resolución de
+      singularidades y la descripción cuántica completa siguen abiertos.
+    </p>
+    <p><a class="paper-link" href="https://arxiv.org/abs/2607.19293" target="_blank" rel="noopener noreferrer">GWTC-5.0: Tests of General Relativity (July 2026 preprint)</a> presenta pruebas de relatividad general mediante ondas gravitacionales. La concordancia dentro de las incertidumbres reportadas restringe desviaciones de los modelos evaluados; no demuestra que la relatividad general sea exacta en todo régimen. Las pruebas de oscilación final, propagación y consistencia de las formas de onda examinan aspectos distintos de la teoría.</p>
+  </section>
+
+  <section class="content-block glossary-section">
+    <h3 id="section-13">Glosario de Términos Técnicos</h3>
+    <ul class="paper-list glossary-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Escalar de Kretschmann:</strong> Un invariante de curvatura usado para distinguir un problema de coordenadas de una divergencia real de curvatura.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Ergosfera:</strong> La región exterior de un agujero negro rotatorio donde el arrastre del espaciotiempo impide permanecer estacionario respecto al infinito.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Proceso de Penrose:</strong> Un mecanismo teórico para extraer energía rotacional de un agujero negro de Kerr mediante su ergosfera.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Mecanismo Blandford-Znajek:</strong> Un proceso magnético que puede extraer energía rotacional de un agujero negro y ayudar a alimentar jets relativistas.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Beaming Doppler:</strong> Aumento de brillo cuando la materia emisora se mueve hacia el observador a velocidad relativista.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Censura cósmica:</strong> La conjetura de que las singularidades formadas por colapso quedan ocultas detrás de horizontes.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Singularidad desnuda:</strong> Una singularidad hipotética que no está oculta por un horizonte de eventos.</span></li>
+    </ul>
+  </section>
+  <section class="content-block glossary-section abbreviation-glossary" data-abbreviation-glossary>
+    <h3 id="section-14">Glosario de Abreviaturas</h3>
+    <p class="abbreviation-glossary__note">Este glosario expande las abreviaturas usadas en esta sección. La primera aparición en el texto incluye el significado completo entre paréntesis; las repeticiones quedan abreviadas para mantener la lectura limpia.</p>
+    <ul class="paper-list glossary-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>NASA:</strong> Administración Nacional de Aeronáutica y el Espacio.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>SVS:</strong> Scientific Visualization Studio, Estudio de Visualización Científica.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>LIGO:</strong> Laser Interferometer Gravitational-Wave Observatory, Observatorio de Ondas Gravitacionales por Interferometría Láser.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>M87:</strong> Messier 87.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>EHT:</strong> Event Horizon Telescope, Telescopio del Horizonte de Sucesos.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>ESO:</strong> European Southern Observatory, Observatorio Europeo Austral.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>APS:</strong> American Physical Society, Sociedad Americana de Física.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>OSTI:</strong> Office of Scientific and Technical Information, Oficina de Información Científica y Técnica.</span></li>
+    </ul>
+  </section>
+
+<section class="content-block source-papers">
+    <h3 id="section-15">Enlaces de Artículos Fundamentales y Modernos</h3>
+    <p class="source-language-note">Incluyo estas fuentes en inglés porque ese fue el idioma en que las leí originalmente.</p>
+    <ul class="paper-list">
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/pdf/physics/9905030" target="_blank" rel="noopener noreferrer">Karl Schwarzschild, 1916. <em>On the Gravitational Field of a Mass Point According to Einstein's Theory.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://journals.aps.org/pr/abstract/10.1103/PhysRev.56.455" target="_blank" rel="noopener noreferrer">Oppenheimer and Snyder, 1939. <em>On Continued Gravitational Contraction.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.11.237" target="_blank" rel="noopener noreferrer">Roy Kerr, 1963. <em>Gravitational Field of a Spinning Mass as an Example of Algebraically Special Metrics.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.14.57" target="_blank" rel="noopener noreferrer">Roger Penrose, 1965. <em>Gravitational Collapse and Space Time Singularities.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://journals.aps.org/pr/abstract/10.1103/PhysRev.164.1776" target="_blank" rel="noopener noreferrer">Werner Israel, 1967. <em>Event Horizons in Static Vacuum Space-Times.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.26.331" target="_blank" rel="noopener noreferrer">Brandon Carter, 1971. <em>Axisymmetric Black Hole Has Only Two Degrees of Freedom.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://projecteuclid.org/journals/communications-in-mathematical-physics/volume-31/issue-2/The-four-laws-of-black-hole-mechanics/cmp/1103858973.pdf" target="_blank" rel="noopener noreferrer">Bardeen, Carter, and Hawking, 1973. <em>The Four Laws of Black Hole Mechanics.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://journals.aps.org/prd/abstract/10.1103/PhysRevD.7.2333" target="_blank" rel="noopener noreferrer">Jacob Bekenstein, 1973. <em>Black Holes and Entropy.</em></a> <span class="paper-note">Página oficial del artículo en APS (American Physical Society, Sociedad Americana de Física).</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://projecteuclid.org/journals/communications-in-mathematical-physics/volume-43/issue-3/Particle-creation-by-black-holes/cmp/1103899181.pdf" target="_blank" rel="noopener noreferrer">Stephen Hawking, 1975. <em>Particle Creation by Black Holes.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://academic.oup.com/mnras/article/179/3/433/962905" target="_blank" rel="noopener noreferrer">Blandford and Znajek, 1977. <em>Electromagnetic Extraction of Energy from Kerr Black Holes.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.71.3743" target="_blank" rel="noopener noreferrer">Don Page, 1993. <em>Information in Black Hole Radiation.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.osti.gov/biblio/1508025" target="_blank" rel="noopener noreferrer">Event Horizon Telescope Collaboration, 2019. <em>First M87 Event Horizon Telescope Results.</em></a> <span class="paper-note">Registro de OSTI (Office of Scientific and Technical Information) para el artículo de acceso abierto.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://link.springer.com/article/10.1007/JHEP12%282019%29063" target="_blank" rel="noopener noreferrer">Almheiri, Engelhardt, Marolf, and Maxfield, 2019. <em>The Entropy of Bulk Quantum Fields and the Entanglement Wedge of an Evaporating Black Hole.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://link.springer.com/article/10.1007/JHEP09%282020%29002" target="_blank" rel="noopener noreferrer">Geoffrey Penington, 2020. <em>Entanglement Wedge Reconstruction and the Information Paradox.</em></a></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://eventhorizontelescope.org/publications/first-sagittarius-event-horizon-telescope-results-i-shadow-supermassive-black-hole" target="_blank" rel="noopener noreferrer">Event Horizon Telescope Collaboration, 2022. <em>First Sagittarius A* Event Horizon Telescope Results. I. The Shadow of the Supermassive Black Hole in the Center of the Milky Way.</em></a> <span class="paper-note">Página oficial de publicación de EHT.</span></span></li>
+    </ul>
+  </section>
+</div>
+<nav aria-label="Temas relacionados"><ul><li><a href="science/es/relativity-spacetime/index.html">Relatividad y espaciotiempo</a></li><li><a href="science/es/thermodynamics-statistical-mechanics/index.html">Termodinámica y mecánica estadística</a></li><li><a href="science/es/quantum-information/index.html">Información cuántica</a></li><li><a href="science/es/cosmology-early-universe/index.html">Cosmología y el universo temprano</a></li></ul></nav></main></body></html>

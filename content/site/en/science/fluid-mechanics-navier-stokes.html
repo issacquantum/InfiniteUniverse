@@ -1,20 +1,20 @@
 <div class="structured-content" data-structured-content>
 
   <section class="content-block">
-    <h3>Why I Study Fluids</h3>
+    <h3 id="section-1">Why I Study Fluids</h3>
     <p>Fluid mechanics and the Navier–Stokes problem have fascinated me for years. I have always been interested in liquids, gases, and other flowing media: how substances that are not rigid solids deform, move, and organize themselves, especially through turbulence and vortices. Whenever I have had time, I have studied Navier–Stokes on my own and worked through its equations.</p>
 
   </section>
 
   <section class="content-block">
-    <h3>Continuum Model and Conventions</h3>
+    <h3 id="section-2">Continuum Model and Conventions</h3>
     <p>A velocity field \(\mathbf u(x,t)=(u_1,u_2,u_3)\) assigns a velocity to each position \(x\) and time \(t\). Here the domain \(\Omega\) is either \(\mathbb R^3\), with sufficient decay at infinity, or the periodic torus \(\mathbb T^3=\mathbb R^3/\mathbb Z^3\). The fluid is Newtonian, incompressible, and has constant density \(\rho&gt;0\). The pressure variable is the physical pressure divided by density, \(p=P/\rho\); \(\nu=\mu/\rho&gt;0\) is kinematic viscosity, where \(\mu\) is dynamic viscosity; and \(\mathbf f\) is external force per unit mass. Thus every term in the momentum equation has units of acceleration.</p>
     <p>This is a continuum description, not a molecular calculation. It excludes compressibility, free boundaries, and variable density. Gases can be treated as incompressible in appropriate regimes, but the equations here do not describe all gas flows. A mathematical singularity concerns this specified model; it is not a prediction that a real material literally reaches infinite speed.</p>
 
   </section>
 
   <section class="content-block">
-    <h3>Momentum, Transport, and Incompressibility</h3>
+    <h3 id="section-3">Momentum, Transport, and Incompressibility</h3>
     <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item" data-branch-id="fluid-mechanics-navier-stokes-equations" data-item-id="fluid-navier-stokes" aria-label="Open equation explanation: Incompressible Navier–Stokes Momentum">$$\partial_t\mathbf u+(\mathbf u\cdot\nabla)\mathbf u=-\nabla p+\nu\Delta\mathbf u+\mathbf f$$</button></div><p>The local acceleration \(\partial_t\mathbf u\) measures change at a fixed spatial point. The nonlinear advection term has components \(((\mathbf u\cdot\nabla)\mathbf u)_i=\sum_j u_j\partial_{x_j}u_i\): the velocity transports itself through a nonuniform field. It can redistribute energy between positions and scales even though its contribution to total kinetic energy vanishes under the stated boundary conditions.</p>
     <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item" data-branch-id="fluid-mechanics-navier-stokes-equations" data-item-id="fluid-material-derivative" aria-label="Open equation explanation: Material Derivative">$$\frac{D\mathbf u}{Dt}=\partial_t\mathbf u+(\mathbf u\cdot\nabla)\mathbf u$$</button></div><p>Along a material trajectory \(\dot X(t)=\mathbf u(X(t),t)\), the chain rule gives \(d\mathbf u(X(t),t)/dt=D\mathbf u/Dt\). This is the acceleration of a moving fluid element. The pressure force is \(-\nabla p\); viscous diffusion is \(\nu\Delta\mathbf u\), where \(\Delta=\sum_i\partial_{x_i}^2\); external forcing supplies \(\mathbf f\).</p>
     <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item" data-branch-id="fluid-mechanics-navier-stokes-equations" data-item-id="fluid-incompressibility" aria-label="Open equation explanation: Incompressibility">$$\nabla\cdot\mathbf u=\sum_{i=1}^{3}\partial_{x_i}u_i=0$$</button></div><p>Incompressibility is the local volume-preservation constraint. General mass conservation is \(\partial_t\rho+\nabla\cdot(\rho\mathbf u)=0\); constant density reduces it to zero divergence. It does not require constant speed, zero deformation, or a fixed shape. A shrinking region selected by a velocity threshold or similarity coordinates need not contain the same fluid particles.</p>
@@ -23,21 +23,21 @@
   </section>
 
   <section class="content-block">
-    <h3>Euler and the Role of Viscosity</h3>
+    <h3 id="section-4">Euler and the Role of Viscosity</h3>
     <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item" data-branch-id="fluid-mechanics-navier-stokes-equations" data-item-id="fluid-euler" aria-label="Open equation explanation: Incompressible Euler Equations">$$\partial_t\mathbf u+(\mathbf u\cdot\nabla)\mathbf u=-\nabla p+\mathbf f,\qquad\nabla\cdot\mathbf u=0$$</button></div><p>Setting \(\nu=0\) gives the incompressible Euler equations. This is the formal inviscid system. Convergence of viscous solutions as \(\nu\downarrow0\) is a separate analytical question; boundaries and loss of regularity can obstruct a naive limit. At \(\nu&gt;0\), the Fourier mode with wavevector \(k\) is damped by the linear diffusion factor \(e^{-\nu|k|^2t}\). Nonlinear transport simultaneously creates fine spatial structure. Removing viscosity changes the competition and the theorem being studied.</p>
     <p>The Reynolds number \(\mathrm{Re}=UL/\nu\), for characteristic speed \(U\) and length \(L\), compares advective and viscous effects. A large value does not by itself prove turbulence or finite-time blowup. In an anisotropic flow there can be several relevant speeds and lengths, so one Reynolds number can hide important balances.</p>
 
   </section>
 
   <section class="content-block">
-    <h3>Vorticity and the Difference Between Two and Three Dimensions</h3>
+    <h3 id="section-5">Vorticity and the Difference Between Two and Three Dimensions</h3>
     <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item" data-branch-id="fluid-mechanics-navier-stokes-equations" data-item-id="fluid-vorticity" aria-label="Open equation explanation: Vorticity Transport and Stretching">$$\begin{aligned}\boldsymbol\omega&amp;=\nabla\times\mathbf u,\\ \partial_t\boldsymbol\omega+(\mathbf u\cdot\nabla)\boldsymbol\omega&amp;=(\boldsymbol\omega\cdot\nabla)\mathbf u\\ &amp;\quad+\nu\Delta\boldsymbol\omega+\nabla\times\mathbf f\end{aligned}$$</button></div><p>Vorticity \(\boldsymbol\omega=\nabla\times\mathbf u\) measures local rotation; it is twice the angular velocity for rigid rotation. Curl removes the pressure gradient. The term \((\boldsymbol\omega\cdot\nabla)\mathbf u\) stretches and tilts vorticity. With strain tensor \(S=(\nabla\mathbf u+(\nabla\mathbf u)^{\mathsf T})/2\), its contribution to enstrophy is \(\int\boldsymbol\omega\cdot S\boldsymbol\omega\,dx\), which has no fixed sign. Enstrophy is \(\frac12\|\boldsymbol\omega\|_2^2\), and the superscript \(\mathsf T\) denotes matrix transpose.</p>
     <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item" data-branch-id="fluid-mechanics-navier-stokes-equations" data-item-id="fluid-enstrophy" aria-label="Open equation explanation: Enstrophy Balance">$$\frac12\frac{d}{dt}\|\boldsymbol\omega\|_2^2+\nu\|\nabla\boldsymbol\omega\|_2^2=\int_\Omega\boldsymbol\omega\cdot S\boldsymbol\omega\,dx+\int_\Omega(\nabla\times\mathbf f)\cdot\boldsymbol\omega\,dx$$</button></div><p>For genuinely two-dimensional flow \(\mathbf u=(u_1(x_1,x_2),u_2(x_1,x_2),0)\), vorticity is perpendicular to the plane and \((\boldsymbol\omega\cdot\nabla)\mathbf u=0\). Its scalar equation is transport–diffusion with forcing curl. This removes the three-dimensional stretching term and gives much stronger a priori control; smooth 2D data with appropriate smooth forcing remain globally regular. A 3D axisymmetric flow with swirl is not a 2D flow in this sense.</p>
 
   </section>
 
   <section class="content-block">
-    <h3>Energy Control and Its Limits</h3>
+    <h3 id="section-6">Energy Control and Its Limits</h3>
     <p>Write \(\|v\|_q=(\int_\Omega|v|^q\,dx)^{1/q}\) for \(1\leq q&lt;\infty\), and \(\|v\|_\infty\) for the essential supremum. With density normalized to one, kinetic energy is \(E(t)=\frac12\|\mathbf u(t)\|_2^2\). Multiplication of momentum by \(\mathbf u\), integration, and zero divergence remove transport and pressure from the global balance. For smooth, sufficiently decaying or periodic solutions:</p>
     <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item" data-branch-id="fluid-mechanics-navier-stokes-equations" data-item-id="fluid-kinetic-energy" aria-label="Open equation explanation: Smooth Kinetic-Energy Balance">$$\frac{dE}{dt}+\nu\|\nabla\mathbf u\|_2^2=\int_\Omega\mathbf f\cdot\mathbf u\,dx$$</button></div><div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item" data-branch-id="fluid-mechanics-navier-stokes-equations" data-item-id="fluid-energy" aria-label="Open equation explanation: Leray–Hopf Energy Inequality">$$\begin{aligned}\frac12\|\mathbf u(t)\|_2^2+\nu\int_s^t\|\nabla\mathbf u(a)\|_2^2\,da\\ \leq\frac12\|\mathbf u(s)\|_2^2+\int_s^t\int_\Omega\mathbf f\cdot\mathbf u\,dx\,da\end{aligned}$$</button></div><p>The second formula is the Leray–Hopf energy inequality, valid from \(s=0\) and almost every admissible starting time \(s\), for later times using the usual weakly continuous representative. Here \(a\) is the integration time. The inequality permits a loss in the limiting energy balance. It does not permit spontaneous gain without input from the force.</p>
     <p>The bounds \(\mathbf u\in L^\infty_tL^2_x\) and \(\nabla\mathbf u\in L^2_tL^2_x\) control total energy and accumulated dissipation on finite intervals. They do not control \(\|\mathbf u\|_\infty\) or all derivatives. A field of amplitude \(A\) supported in volume \(V\) can have energy of order \(A^2V\); \(A\) may diverge while \(V\) decreases fast enough to keep that product bounded. In three dimensions, \(H^1\) embeds into \(L^6\), not \(L^\infty\), and the available gradient bound is time-integrated.</p>
@@ -45,7 +45,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Existence, Weak Solutions, and Regularity</h3>
+    <h3 id="section-7">Existence, Weak Solutions, and Regularity</h3>
     <p><strong>Existence</strong> means finding fields satisfying the equations, initial data, boundary conditions, and a specified solution class. <strong>Regularity</strong> specifies integrability, continuity, or differentiability. <strong>Smoothness</strong> means \(C^\infty\), with continuous derivatives of all orders on the domain under discussion. A <strong>strong solution</strong> has enough regularity to satisfy the evolution almost everywhere and support the relevant uniqueness estimates; the precise function space must be stated. For example, with suitable data, \(C([0,T];H^1)\cap L^2(0,T;H^2)\) is a standard strong velocity class. Strong and smooth are not interchangeable definitions.</p>
     <p>For integer \(m\geq0\), \(H^m(\Omega)\) is the Sobolev space of square-integrable fields with square-integrable weak spatial derivatives through order \(m\). The notation \(L^p_tL^q_x\) means taking the spatial \(L^q\) norm first, then the temporal \(L^p\) norm; an infinite exponent uses the essential supremum. Weak continuity in \(L^2\) means that the pairing with each fixed \(L^2\) test field is continuous in time.</p>
     <p>A weak solution satisfies integrated equations against smooth test functions rather than requiring pointwise classical derivatives. For every divergence-free \(\boldsymbol\varphi\in C_c^\infty(\Omega\times[0,T);\mathbb R^3)\), with periodic spatial tests on the torus:</p>
@@ -56,7 +56,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Scaling and Critical Quantities</h3>
+    <h3 id="section-8">Scaling and Critical Quantities</h3>
     <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item" data-branch-id="fluid-mechanics-navier-stokes-equations" data-item-id="fluid-scaling" aria-label="Open equation explanation: Navier–Stokes Scaling">$$\begin{aligned}\mathbf u_\lambda(x,t)&amp;=\lambda\mathbf u(\lambda x,\lambda^2t),\\ p_\lambda(x,t)&amp;=\lambda^2p(\lambda x,\lambda^2t),\\ \mathbf f_\lambda(x,t)&amp;=\lambda^3\mathbf f(\lambda x,\lambda^2t)\end{aligned}$$</button></div><p>For \(\lambda&gt;0\) on \(\mathbb R^3\), these transformations preserve the equation with the same \(\nu\), on the correspondingly rescaled time interval and with rescaled initial data. A change of variables gives</p>
     <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item" data-branch-id="fluid-mechanics-navier-stokes-equations" data-item-id="fluid-critical-norms" aria-label="Open equation explanation: Critical Norms and Energy Scaling">$$\|\mathbf u_\lambda\|_{L^p_tL^q_x}=\lambda^{1-2/p-3/q}\|\mathbf u\|_{L^p_tL^q_x},\qquad\|\mathbf u_\lambda(t)\|_2^2=\lambda^{-1}\|\mathbf u(\lambda^2t)\|_2^2$$</button></div><p>A norm is scale-critical when its exponent is zero: \(2/p+3/q=1\). Examples are \(L^\infty_tL^3_x\) and the spatial homogeneous Sobolev norm \(\dot H^{1/2}\). The homogeneous Sobolev norm \(\dot H^s\) measures the Fourier transform of the field with squared weight \(|k|^{2s}\), where \(k\) is spatial frequency. In \(\dot H^s\), the norm scales as \(\lambda^{s-1/2}\). Here \(p,q\) are integrability exponents, not the pressure. On a fixed unit torus, arbitrary rescaling is not a global symmetry; the same scaling still diagnoses local concentration.</p>
     <p>The energy norm is supercritical in the regularity problem: concentrating a fixed profile with \(\lambda\to\infty\) makes its \(L^2\) norm smaller, even while pointwise speed and gradients grow. Energy control therefore becomes weaker at fine scales. For \(q&gt;3\), suitable finite \(L^p_tL^q_x\) control with \(2/p+3/q\leq1\) gives a classical regularity criterion under its standard hypotheses. The endpoint \(L^\infty_tL^3_x\) requires the deeper backward-uniqueness argument of Escauriaza–Seregin–Šverák. Their notation \(L_{3,\infty}\) denotes this mixed space; it must not be confused with the spatial weak-Lorentz space \(L^{3,\infty}_x\).</p>
@@ -64,14 +64,14 @@
   </section>
 
   <section class="content-block">
-    <h3>What the Clay Alternatives Actually Ask</h3>
+    <h3 id="section-9">What the Clay Alternatives Actually Ask</h3>
     <p>The <a class="paper-link" href="https://www.claymath.org/wp-content/uploads/2022/06/navierstokes.pdf" target="_blank" rel="noopener noreferrer">official formulation by Charles L. Fefferman</a> asks for a proof of one of four statements, for positive viscosity in three dimensions:</p>
     <ul><li><strong>A:</strong> Every smooth divergence-free initial velocity on \(\mathbb R^3\), with all derivatives rapidly decaying at spatial infinity, admits a global smooth solution with uniformly bounded energy when \(\mathbf f=0\).</li><li><strong>B:</strong> Every smooth divergence-free periodic initial velocity admits a global smooth spatially periodic solution when \(\mathbf f=0\).</li><li><strong>C:</strong> There exist smooth divergence-free initial data and smooth forcing on \(\mathbb R^3\), satisfying the prescribed rapid decay of all derivatives, for which no global smooth solution with uniformly bounded energy exists.</li><li><strong>D:</strong> There exist smooth periodic divergence-free initial data and smooth periodic forcing, with all forcing derivatives rapidly decaying in time, for which no global smooth periodic solution exists.</li></ul><p>The whole-space decay requirement for forcing is \(|\partial_x^\alpha\partial_t^m\mathbf f(x,t)|\leq C_{\alpha m N}(1+|x|+t)^{-N}\) for every multi-index \(\alpha\) and nonnegative integers \(m,N\). The periodic version replaces the right-hand weight by \((1+t)^{-N}\). Thus C/D allow forcing, whereas A/B prescribe zero forcing. These are not paired logical negations with identical hypotheses. A forced counterexample does not by itself supply an unforced counterexample.</p>
 
   </section>
 
   <section class="content-block">
-    <h3>Research Lineage: Distinct Theorems, Distinct Hypotheses</h3>
+    <h3 id="section-10">Research Lineage: Distinct Theorems, Distinct Hypotheses</h3>
     <h4>Jean Leray (1934)</h4><p><a class="paper-link" href="https://doi.org/10.1007/BF02547354" target="_blank" rel="noopener noreferrer"><em>Sur le mouvement d’un liquide visqueux emplissant l’espace</em></a>. Acta Mathematica 63, 193–248.</p>
     <p>Constructed global finite-energy weak solutions. Compactness and energy estimates provide existence in a generalized class, but do not control every derivative or establish global smoothness.</p>
     <h4>Luis Caffarelli, Robert Kohn, Louis Nirenberg (1982)</h4><p><a class="paper-link" href="https://doi.org/10.1002/cpa.3160350604" target="_blank" rel="noopener noreferrer"><em>Partial regularity of suitable weak solutions of the Navier–Stokes equations</em></a>. Communications on Pure and Applied Mathematics 35(6), 771–831.</p>
@@ -92,7 +92,7 @@
   </section>
 
   <section class="content-block">
-    <h3>OpenAI (2026): Statement and Status</h3>
+    <h3 id="section-11">OpenAI (2026): Statement and Status</h3>
     <p>OpenAI published <em>Finite Time Blowup for Navier–Stokes</em> on September 8, 2026, claiming a finite-time blowup construction for the forced three-dimensional incompressible system, together with a Lean formalization. The paper credits <strong>OpenAI</strong>. <a class="paper-link" href="https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf" target="_blank" rel="noopener noreferrer">Paper</a> · <a class="paper-link" href="https://openai.com/index/navier-stokes-solution/" target="_blank" rel="noopener noreferrer">Official publication</a> · <a class="paper-link" href="https://github.com/openai/NavierStokesAndEuler" target="_blank" rel="noopener noreferrer">Lean repository</a>.</p>
     <p>Status through September 15, 2026: <a class="paper-link" href="https://www.claymath.org/news/navier-stokes-announcement/" target="_blank" rel="noopener noreferrer">Clay Mathematics Institute, September 11, 2026</a> described the problem as having “apparently been settled” and announced an evaluation and credit-assignment process under its <a class="paper-link" href="https://www.claymath.org/millennium-problems/rules/" target="_blank" rel="noopener noreferrer">Millennium Prize rules</a>. This is a stronger acknowledgment than an unchanged problem listing, but it is not a prize award or a completed assessment of the proof. The <a class="paper-link" href="https://www.claymath.org/millennium/navier-stokes-equation/" target="_blank" rel="noopener noreferrer">problem page</a> remains useful for the original formulation.</p>
     <p>OpenAI reports a Lean formalization. Formal verification checks a formal theorem against definitions, assumptions, and the proof checker’s trusted foundations. Independent verification also requires checking the build, the assumptions, and the correspondence between that theorem and the stated mathematical problem. This website has not independently rebuilt or audited the proof.</p>
@@ -104,7 +104,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Geometry of the Concentrating Core</h3>
+    <h3 id="section-12">Geometry of the Concentrating Core</h3>
     <p>Use cylindrical coordinates \(x=(r\cos\theta,r\sin\theta,z)\). The leading field is axisymmetric: its components \(u_r^{(0)},u_\theta^{(0)},u_z^{(0)}\) are independent of \(\theta\). It has inward radial flow and azimuthal rotation near the core, with axial outflow on either side of a dividing plane close to \(z=0\). Fluid can spiral inward and leave along the axis. The axial extent of the concentrating region nevertheless shrinks: that region is not a material parcel. Farther from the central plane, radial outflow can also occur.</p>
     <p>Let \(\tau=1-t\), \(A=\frac12+h\), and \(D=\frac12-h\), with fixed \(0&lt;h&lt;1/100\). The paper’s similarity coordinates are</p>
     <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item" data-branch-id="fluid-mechanics-navier-stokes-equations" data-item-id="fluid-similarity-coordinates" aria-label="Open equation explanation: OpenAI Construction: Similarity Coordinates">$$\tau=q(1-\eta^2),\qquad z=q^D\eta,\qquad X=\frac{r^2}{2q},\qquad q&gt;0,\quad |\eta|&lt;1$$</button></div><p>Here \(q=q(z,\tau)\) is an auxiliary scale variable, not an integrability exponent; \(X\) is a rescaled squared radius, and \(\eta\) is a rescaled axial coordinate. Eliminating \(\eta\) gives \(q-z^2q^{2h}=\tau\). Its relevant derivative is \(1-2h\eta^2&gt;0\), selecting a unique scale. In a core with bounded \(X\) and \(|\eta|\leq\eta_c&lt;1\), \(q\asymp\tau\). The leading profiles satisfy \(u_\theta^{(0)}=q^{-A}E(X,\eta)\), \(u_z^{(0)}=q^{-A}U(X,\eta)\), \(ru_r^{(0)}=V_0(X,\eta)\), and \(p^{(0)}=q^{-2A}\Pi(X,\eta)\). The symbols \(E,U,V_0,\Pi\) here are profile functions; \(E\) is not kinetic energy in this formula.</p>
@@ -114,13 +114,13 @@
   </section>
 
   <section class="content-block">
-    <h3>OpenAI’s Official Visualization</h3>
+    <h3 id="section-13">OpenAI’s Official Visualization</h3>
     <p><a class="paper-link" href="https://openai.com/index/navier-stokes-solution/" target="_blank" rel="noopener noreferrer">View OpenAI’s official Navier–Stokes visualization</a></p>
     <p>Source: OpenAI, <cite>“On the Navier–Stokes Millennium Prize Problem,”</cite> 2026.</p>
   </section>
 
   <section class="content-block">
-    <h3>Momentum Flux and Oscillatory Pulses</h3>
+    <h3 id="section-14">Momentum Flux and Oscillatory Pulses</h3>
     <p>The leading vortex alone does not solve the full equations. At viscosity one, define the momentum residual \(\mathcal R(\mathbf u,p)=\partial_t\mathbf u+(\mathbf u\cdot\nabla)\mathbf u-\Delta\mathbf u+\nabla p\). For a divergence-free correction \(\mathbf w\) and pressure correction \(\pi\), the exact algebraic identity is</p>
     <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item" data-branch-id="fluid-mechanics-navier-stokes-equations" data-item-id="fluid-momentum-residual" aria-label="Open equation explanation: Momentum Residual Under a Perturbation">$$\begin{aligned}\mathcal R(\mathbf u_B+\mathbf w,p_B+\pi)&amp;=\mathcal R(\mathbf u_B,p_B)\\ &amp;\quad+\partial_t\mathbf w+(\mathbf u_B\cdot\nabla)\mathbf w\\ &amp;\quad+(\mathbf w\cdot\nabla)\mathbf u_B-\Delta\mathbf w\\ &amp;\quad+\nabla\pi+\nabla\cdot(\mathbf w\otimes\mathbf w)\end{aligned}$$</button></div><p>The subscript \(B\) denotes the corrected background. Oscillations can have zero angular mean velocity but nonzero mean quadratic products. For a frozen local wave \(\mathbf w=\mathbf a\cos(\xi\cdot x+\phi)\), with \(\mathbf a\cdot\xi=0\), its phase mean is zero while \(\langle\mathbf w\otimes\mathbf w\rangle=\mathbf a\otimes\mathbf a/2\). Here \(\mathbf a\) is amplitude, \(\xi\) is wavevector, and \(\phi\) is phase. Localized waves require additional divergence corrections; this elementary wave is only an explanation of the quadratic flux.</p>
     <p>The construction places two families of spatially oscillatory pulses in an annulus. Their averaged radial fluxes of azimuthal and axial momentum are selected to supply the missing stress. The desired two-component stress must lie inside a positive cone generated by the two covariance directions, so its coefficients can be realized as squared amplitudes. This compatibility is part of the profile construction, not an arbitrary choice made after it.</p>
@@ -129,7 +129,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Matching, Corrections, and Smooth Forcing</h3>
+    <h3 id="section-15">Matching, Corrections, and Smooth Forcing</h3>
     <p>The inner profiles satisfy the leading equations near the axis. The outer local flow is purely azimuthal and satisfies an exact radial heat equation. Between them, matching cumulative radial moments preserves pressure, radial velocity, and stress constraints. In particular, vanishing weighted integrals of the tangential residual make the stress vanish outside the pulse annulus. Matching just the pointwise values of velocity would not enforce these integral conditions.</p>
     <p>Corrections in successive powers of \(q^{2h}\) account for axial viscosity and lower-order background terms. Vector potentials allow localization while retaining zero divergence: taking a curl after applying a cutoff differs fundamentally from multiplying velocity itself by a cutoff. Pulse interactions then generate both oscillatory and mean errors; further compactly supported corrections improve the residual to arbitrarily high order.</p>
     <p>The central requirement is not that acceleration, pressure, transport, and diffusion be separately bounded. Their singular contributions must cancel in the sum defining \(\mathcal R\). The remaining errors are made <em>flat</em> at the singularity: every Cartesian space-time derivative decays faster than any prescribed power of the small scale in the relevant regions. Away from the singular point, the inner/outer construction has smooth limits, so the final spatial and temporal localization generates only smooth additional forcing. This is what allows \(\mathbf f=\mathcal R\) to extend smoothly through the singular time.</p>
@@ -138,7 +138,7 @@
   </section>
 
   <section class="content-block">
-    <h3>Geometry and the Analytical Result</h3>
+    <h3 id="section-16">Geometry and the Analytical Result</h3>
     <p>The distinction matters: energy scaling can explain compatibility with a singularity, while the analytical construction must establish the equations, smooth forcing, support properties, and continuation obstruction simultaneously. The primary sources above supply those claims and their precise scopes.</p>
 
   </section>

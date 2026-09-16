@@ -116,3 +116,9 @@ styles/foundation-models.css
 - Check the deployed pages and assets at the production URL.
 
 The detailed content and model conventions are in `docs/SITE_STRUCTURE.md`.
+
+## Science navigation and static pages
+
+The science reader includes local bilingual search, a compact heading-based table of contents, related topics, and shareable hash URLs. Complete static science documents live under `science/`; their sources remain under `content/`.
+
+Generate the public pages, search indexes, and sitemap with `node tools/generate-sitemap.mjs`, then run `node tools/check-site-integrity.mjs`. Content and navigation conventions are documented in [Science architecture](docs/SCIENCE_ARCHITECTURE.md).
