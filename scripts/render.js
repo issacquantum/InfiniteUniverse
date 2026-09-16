@@ -33,6 +33,7 @@ const domainIconNames = {
 };
 
 const topicIconNames = {
+  "fluid-mechanics-navier-stokes": "fluid-flow",
   "classical-mechanics": "circle-dot",
   "electromagnetism": "radio-tower",
   "thermodynamics-statistical-mechanics": "flame",
@@ -146,15 +147,28 @@ const topicMoodNames = {
   "complex-systems-emergence": "systems"
 };
 
-function renderNavigationLabel(label, iconName) {
+const fluidFlowIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+  stroke-linecap="round" stroke-linejoin="round" focusable="false">
+  <path d="M3 5C7 5 8 3 12 3s5 2 9 2" />
+  <path d="M3 12h3c3 0 3-5 7-5a4 4 0 0 1 0 8 2 2 0 0 1 0-4h1" />
+  <path d="M3 19c4 0 5 2 9 2s5-3 9-3" />
+</svg>`;
+
+function renderNavigationLabel(label, iconName, isTopic = false) {
+  const iconMarkup = iconName === "fluid-flow"
+    ? fluidFlowIcon
+    : `<i data-lucide="${escapeHtml(iconName)}"></i>`;
   const icon = iconName
-    ? `<span class="nav-button__icon" aria-hidden="true"><i data-lucide="${escapeHtml(iconName)}"></i></span>`
+    ? `<span class="nav-button__icon" aria-hidden="true">${iconMarkup}</span>`
     : "";
 
-  return `
+  const content = `
     ${icon}
     <span class="nav-button__label">${escapeHtml(label)}</span>
   `;
+
+  return isTopic ? `<span class="nav-button__topic-label">${content}</span>` : content;
 }
 
 function resolveSectionMood({ activeSection, activeDomain, activeTopic }) {
@@ -310,7 +324,7 @@ function renderFocusedPathRow({
         aria-label="${escapeHtml(buttonLabel)}"
         title="${escapeHtml(buttonLabel)}"
       >
-        <span class="focused-path-tab__label">${renderNavigationLabel(label, iconName)}</span>
+        <span class="focused-path-tab__label">${renderNavigationLabel(label, iconName, action === "select-topic")}</span>
         ${closeHint ? `<span class="focused-path-tab__meta">${escapeHtml(closeHint)}</span>` : ""}
         ${closeHint ? `<span class="focused-path-tab__close" aria-hidden="true">×</span>` : ""}
       </button>
@@ -347,7 +361,7 @@ function renderTopicButtons(topics, state, language, ui) {
           data-topic-id="${escapeHtml(topic.id)}"
           aria-pressed="${String(state.activeTopic === topic.id)}"
         >
-          ${renderNavigationLabel(pick(topic.title, language), topicIconNames[topic.id])}
+          ${renderNavigationLabel(pick(topic.title, language), topicIconNames[topic.id], true)}
         </button>
       `).join("")}
     </div>
@@ -607,7 +621,7 @@ function renderMobileKnowledgeNavigation(domains, state, language) {
                       data-domain-id="${escapeHtml(domain.id)}"
                       data-topic-id="${escapeHtml(topic.id)}"
                     >
-                      ${renderNavigationLabel(pick(topic.title, language), topicIconNames[topic.id])}
+                      ${renderNavigationLabel(pick(topic.title, language), topicIconNames[topic.id], true)}
                     </button>
                   `).join("")}
                 </div>

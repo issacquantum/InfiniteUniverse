@@ -634,6 +634,25 @@ body[data-music="playing"] .music-control i {
   stroke-width: 1.8;
 }
 
+.nav-button__topic-label {
+  display: grid;
+  grid-template-columns: 1.08em minmax(0, 1fr);
+  column-gap: 0.38em;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  align-items: center;
+}
+
+.nav-button__topic-label > .nav-button__icon {
+  margin-inline-end: 0;
+}
+
+.nav-button__topic-label > .nav-button__label {
+  min-width: 0;
+  text-align: center;
+}
+
 .nav-button__label {
   vertical-align: middle;
 }
