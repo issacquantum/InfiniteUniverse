@@ -1,5 +1,4 @@
 import { installRoutes } from "./routes.js";
-import { installScienceSearch } from "./science-search.js";
 import { scheduleContentPrewarm } from "./content-cache.js?v=20260916-science-overhaul-v1";
 import { isMobilePerformance, onPerformanceProfileChange } from "./performance-profile.js?v=20260913-mobile-power-v1";
 import { captureReaderPosition, matchesReaderState } from "./reader-position.js?v=20260913-language-context-v1";
@@ -1572,7 +1571,6 @@ installRoutes(store, (position) => {
   clearPendingReturnNavigation();
   pendingReaderScrollRestoration = position;
 });
-installScienceSearch(store);
 
 // Save the current reader position on its own history entry before navigation.
 refs.stage.addEventListener("scroll", () => {

@@ -18,11 +18,9 @@ Biology's evolution, cellular organization, and measurement sections have been c
 
 The compact table of contents is generated from H2/H3 headings on pages with at least six headings. Explicit source IDs take precedence; otherwise heading order supplies deterministic IDs. TOC links retain the route and a heading parameter. A later editorial reordering should preserve explicit IDs for externally linked headings.
 
-Search loads only the active language's generated index when a query is entered. It covers titles, headings, emphasized glossary terms, linked authors/papers, model captions, and equation titles. Results use the same validated routes. It sends no queries to an external service and keeps no query history.
-
 ## Public static documents
 
-`tools/generate-science-pages.mjs` creates complete documents under `science/en/` and `science/es/`, plus language-specific search indexes. These are generated copies, not a second editing source. Each document has a title, description, canonical URL, alternate-language link, and a link back to its interactive reading context. Equation links lead to complete documents. Model descriptions remain readable; interactive model controls belong to the main reader.
+`tools/generate-science-pages.mjs` creates complete documents under `science/en/` and `science/es/`. These are generated copies, not a second editing source. Each document has a title, description, canonical URL, alternate-language link, and a link back to its interactive reading context. Equation links lead to complete documents. Model descriptions remain readable; interactive model controls belong to the main reader.
 
 `tools/generate-sitemap.mjs` invokes this generation and writes the sitemap from the public-document inventory. Raw content fragments and personal material are not newly exposed as independent indexed pages. `robots.txt` continues to point to the root sitemap. There are no server-side routes or backend requirements.
 
@@ -45,7 +43,7 @@ node tools/test-mobile-performance.mjs
 node tools/test-targeted-prewarm.mjs
 ```
 
-The integrity checker covers bilingual source registration, orphan files, IDs, equation targets, metadata, related targets, internal paths, Model Lab destinations, generated documents, search routes, and sitemap parity. Shared equation references are allowed; duplicate IDs within a branch are errors. Browser checks still matter for focus, scrolling, Back/Forward, translated content, and phone layouts.
+The integrity checker covers bilingual source registration, orphan files, IDs, equation targets, metadata, related targets, internal paths, Model Lab destinations, generated documents, and sitemap parity. Shared equation references are allowed; duplicate IDs within a branch are errors. Browser checks still matter for focus, scrolling, Back/Forward, translated content, and phone layouts.
 
 Publishing keeps the existing workflow: commit verified sources and generated documents on `main`, then fast-forward GitHub `main` and `gh-pages` to the same commit. No force push is needed.
 
