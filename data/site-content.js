@@ -286,16 +286,16 @@ const fluidMechanicsEquationBranch = {
   id: "fluid-mechanics-navier-stokes-equations",
   title: { en: "Equations", es: "Ecuaciones" },
   items: [
-    createStructuredItem("science/equations", "fluid-navier-stokes", "Incompressible Navier–Stokes Momentum", "Ecuación de cantidad de movimiento de Navier–Stokes incompresible"),
+    createStructuredItem("science/equations", "fluid-navier-stokes", "Incompressible Navier-Stokes Momentum", "Ecuación de cantidad de movimiento de Navier-Stokes incompresible"),
     createStructuredItem("science/equations", "fluid-incompressibility", "Incompressibility", "Incompresibilidad"),
     createStructuredItem("science/equations", "fluid-material-derivative", "Material Derivative", "Derivada material"),
     createStructuredItem("science/equations", "fluid-euler", "Incompressible Euler Equations", "Ecuaciones de Euler incompresibles"),
     createStructuredItem("science/equations", "fluid-vorticity", "Vorticity Transport and Stretching", "Transporte y estiramiento de vorticidad"),
     createStructuredItem("science/equations", "fluid-enstrophy", "Enstrophy Balance", "Balance de enstrofía"),
     createStructuredItem("science/equations", "fluid-kinetic-energy", "Smooth Kinetic-Energy Balance", "Balance de energía cinética para soluciones suaves"),
-    createStructuredItem("science/equations", "fluid-energy", "Leray–Hopf Energy Inequality", "Desigualdad de energía de Leray–Hopf"),
+    createStructuredItem("science/equations", "fluid-energy", "Leray-Hopf Energy Inequality", "Desigualdad de energía de Leray-Hopf"),
     createStructuredItem("science/equations", "fluid-weak-formulation", "Divergence-Free Weak Formulation", "Formulación débil con campos de prueba de divergencia nula"),
-    createStructuredItem("science/equations", "fluid-scaling", "Navier–Stokes Scaling", "Reescalamiento de Navier–Stokes"),
+    createStructuredItem("science/equations", "fluid-scaling", "Navier-Stokes Scaling", "Reescalamiento de Navier-Stokes"),
     createStructuredItem("science/equations", "fluid-critical-norms", "Critical Norms and Energy Scaling", "Normas críticas y reescalamiento de la energía"),
     createStructuredItem("science/equations", "fluid-blowup-conditions", "OpenAI Construction: Support, Energy, and Blowup", "Construcción de OpenAI: soporte, energía y singularidad"),
     createStructuredItem("science/equations", "fluid-similarity-coordinates", "OpenAI Construction: Similarity Coordinates", "Construcción de OpenAI: coordenadas de semejanza"),
@@ -527,7 +527,7 @@ export const siteContent = {
           hideBranchNavigation: true,
           hideDetailNavigation: true
         }),
-        createTopic("fluid-mechanics-navier-stokes", "Fluid Mechanics and Navier–Stokes", "Mecánica de Fluidos y Navier–Stokes", {
+        createTopic("fluid-mechanics-navier-stokes", "Fluid Mechanics and Navier-Stokes", "Mecánica de Fluidos y Navier-Stokes", {
           contentFile: htmlSource("science", "fluid-mechanics-navier-stokes"),
           branches: [fluidMechanicsEquationBranch],
           hideBranchNavigation: true,

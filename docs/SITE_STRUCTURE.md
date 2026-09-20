@@ -50,7 +50,7 @@ Literal readings use `the quantity ...` or `la cantidad ...` for grouped terms a
 
 ## Knowledge World Domains
 
-- `physical-foundations`: classical mechanics, electromagnetism, thermodynamics/statistical mechanics, mathematical foundations, fluid mechanics / Navier–Stokes.
+- `physical-foundations`: classical mechanics, electromagnetism, thermodynamics/statistical mechanics, mathematical foundations, fluid mechanics / Navier-Stokes.
 - `quantum-foundations`: quantum mechanics, quantum entanglement, quantum information, quantum computing, quantum complexity.
 - `matter-life-mind`: quantum field theory, chemistry and molecular structure, biology and life systems, neuroscience of consciousness.
 - `spacetime-cosmos`: relativity and spacetime, black holes, wormholes, cosmology and the early universe.

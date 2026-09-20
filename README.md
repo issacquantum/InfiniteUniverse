@@ -55,7 +55,7 @@ node tools/generate-sitemap.mjs
 
 ## Science Areas
 
-- `physical-foundations` - mechanics, electromagnetism, thermodynamics, mathematical foundations, and fluid mechanics / Navier–Stokes.
+- `physical-foundations` - mechanics, electromagnetism, thermodynamics, mathematical foundations, and fluid mechanics / Navier-Stokes.
 - `quantum-foundations` - quantum mechanics, entanglement, quantum information, quantum computing, and quantum complexity.
 - `matter-life-mind` - quantum field theory, chemistry, biology, and neuroscience.
 - `spacetime-cosmos` - relativity, black holes, wormholes, and cosmology.
