@@ -14,14 +14,17 @@ function measureEquationWidth(mathContainer) {
 }
 
 function applyEquationFit(block, mathContainer) {
-  const availableWidth = Math.max(block.clientWidth - FIT_PADDING, 1);
+  const style = getComputedStyle(block);
+  const padding = parseFloat(style.paddingLeft) + parseFloat(style.paddingRight);
+  const availableWidth = Math.max(block.clientWidth - padding - FIT_PADDING, 1);
   const equationWidth = measureEquationWidth(mathContainer);
 
   if (equationWidth <= availableWidth) {
     return false;
   }
 
-  const scale = Math.max(MIN_EQUATION_SCALE, Math.min(1, availableWidth / equationWidth));
+  const currentScale = Number(block.style.getPropertyValue("--equation-fit-scale")) || 1;
+  const scale = Math.max(MIN_EQUATION_SCALE, Math.min(1, currentScale * availableWidth / equationWidth));
   block.style.setProperty("--equation-fit-scale", scale.toFixed(3));
   block.classList.add("equation-fit--scaled");
   return true;

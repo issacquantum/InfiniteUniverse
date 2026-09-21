@@ -2027,7 +2027,7 @@ body[data-media-notes="on"] .media-note {
   line-height: 1.35;
   overflow-x: visible;
   overflow-y: visible !important;
-  font-size: calc(70% * var(--equation-font-scale, 1) * var(--equation-fit-scale, 1));
+  font-size: calc(70% * var(--equation-font-scale, 1) * var(--equation-fit-scale, 1)) !important;
 }
 
 .structured-content .equation-link mjx-container :is(mjx-math, mjx-mrow, mjx-frac, mjx-sqrt, mjx-script),

@@ -4,7 +4,8 @@ import { routeFor } from './routes.js';
 const topics = siteContent.knowledgeWorlds.flatMap(d => d.topics.map(t => ({ ...t, domain: d.id })));
 export function enhanceScienceReader(host, state) {
   if (!state.activeTopic || host.querySelector('[data-science-tools]')) return;
-  const headings = [...host.querySelectorAll('h2,h3')];
+  const content = host.querySelector('.structured-content, .legacy-content') ?? host;
+  const headings = [...content.querySelectorAll('h2,h3')];
   const used = new Set([...host.querySelectorAll('[id]')].map(e => e.id));
   for (const [index, heading] of headings.entries()) {
     if (!heading.id) {
@@ -32,7 +33,7 @@ export function enhanceScienceReader(host, state) {
     }
     toc.append(list); tools.append(toc);
   }
-  host.prepend(tools);
+  content.prepend(tools);
   if (!state.activeDetail) {
     const metadata = topicMetadata[state.activeTopic];
     const nav = document.createElement('nav'); nav.className = 'science-related'; nav.dataset.scienceTools = '';
@@ -40,16 +41,18 @@ export function enhanceScienceReader(host, state) {
     for (const [key, labels] of [['prerequisites',['Prerequisites','Conocimientos previos']],['related',['Related topics','Temas relacionados']]]) {
       if (!metadata?.[key]?.length) continue;
       const label = document.createElement('p'); label.textContent = labels[state.language === 'es' ? 1 : 0]; nav.append(label);
-      const list = document.createElement('ul');
+      const list = document.createElement('ul'); list.className = 'paper-list';
       for (const id of metadata[key]) {
         const topic = topics.find(t => t.id === id); if (!topic) continue;
         const li = document.createElement('li'); const link = document.createElement('a');
         link.href = routeFor({ language: state.language, activeTopic: id }); link.textContent = topic.title[state.language];
-        li.append(link); list.append(li);
+        const icon = document.createElement('span'); icon.className = 'paper-icon';
+        icon.setAttribute('aria-hidden', 'true'); icon.textContent = '▣';
+        li.append(icon, link); list.append(li);
       }
       nav.append(list);
     }
-    host.append(nav);
+    content.append(nav);
   }
 }
 export function restoreHeading(host) {
