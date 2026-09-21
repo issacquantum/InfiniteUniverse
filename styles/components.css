@@ -1868,6 +1868,10 @@ body[data-media-notes="on"] .media-note {
   list-style: none;
 }
 
+:where(.structured-content, .legacy-content) li:has(> .paper-icon)::before {
+  content: none;
+}
+
 .paper-list li::marker {
   content: "";
 }
