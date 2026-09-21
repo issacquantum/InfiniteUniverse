@@ -2,8 +2,8 @@
 .science-toc { border-block-start: 1px solid currentColor; padding-block: .65rem; }
 .science-toc summary { cursor: pointer; }
 .science-toc ol { padding:0; }
-.science-toc li { margin-block: .3rem; padding-inline-start: 1.18rem; }
-.science-toc .toc-h3 { padding-inline-start: 1.68rem; }
-.science-toc .toc-h3::before { left: .6rem; }
+.science-toc li { margin-block: .3rem; padding:0; text-align:center; }
+.science-toc li::before { position:static; display:inline-block; margin-inline-end:.6rem; vertical-align:middle; }
+.science-toc li > a { display:inline-block; max-width:calc(100% - 1.18rem); vertical-align:middle; text-align:center; }
 .science-related ul { display:grid; gap:.72rem; padding:0; }
 .science-toc :focus-visible, .science-related :focus-visible { outline:2px solid currentColor; outline-offset:3px; }
