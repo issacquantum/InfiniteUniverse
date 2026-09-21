@@ -29,7 +29,11 @@ function sourceBody(doc) {
     return html.slice(0,first) + '</section>';
   }
   if (doc.source.extractorId === 'history-intro') {
-    return html.slice(0, html.search(/<h4\b/)) + '</section>';
+    const heading = html.search(/<h2\b[^>]*class="universe-subtitle"/);
+    if (heading < 0) throw new Error(`Missing universe introduction ${doc.file}`);
+    const body = html.slice(heading);
+    const end = body.search(/<h4\b/);
+    return '<section class="about">' + (end < 0 ? body : body.slice(0, end)) + '</section>';
   }
   return html;
 }

@@ -333,7 +333,7 @@ function sanitizeImportedContent(sourceNode, legacyItemId, branchId, language) {
 
     element.removeAttribute("style");
     const listClasses = [...element.classList].filter((name) =>
-      ["paper-list", "paper-icon", "equation-symbol-list"].includes(name)
+      ["paper-list", "paper-icon", "equation-symbol-list", "source-language-note", "platform-link"].includes(name)
     );
     element.removeAttribute("class");
     if (listClasses.length) element.classList.add(...listClasses);
