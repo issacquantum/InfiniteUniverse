@@ -1,6 +1,6 @@
 # Science content and navigation
 
-The source baseline for this expansion is `18b442f405d497022f37f9f5aa33dba5b633423f`. Its scientific corrections remain in the source pages. Personal pages and assets are outside this expansion.
+This guide describes science content registration, reading navigation, generated pages, and publishing. Personal content uses the shared reader but has its own source files.
 
 ## Content and metadata
 
@@ -8,7 +8,7 @@ The source baseline for this expansion is `18b442f405d497022f37f9f5aa33dba5b6334
 
 Probability and Statistics and Mathematical Analysis and Differential Equations are separate topics within Physical Foundations. The latter bridges the existing mathematical overview and the function-space assumptions used in fluid mechanics. Equation explanations use the existing five-part structure.
 
-Biology's evolution, cellular organization, and measurement sections have been consolidated. Chemistry's bonding and kinetics sections now keep the definitions, equations, and concrete examples together. Repeated copies of the Spanish scientific caveats were removed while keeping each correction once. Model limitations and glossary definitions can repeat a concept intentionally at the point of use.
+Related explanations belong together within a topic. Model limitations and glossary definitions may repeat a concept where readers need it.
 
 ## Reading and URLs
 
@@ -26,7 +26,7 @@ The compact table of contents is generated from H2/H3 headings on pages with at 
 
 ## Legacy cosmology
 
-The legacy renderer stays in place. It extracts whole pages, individual contributor sections, and custom introductions; it also rewrites equation and return links. Migrating it now would combine a content migration with navigation changes and risk losing section boundaries or return positions. The static generator respects those extraction boundaries without changing the interactive content architecture. Existing missing legacy images are omitted from generated documents, as unavailable images are not useful static illustrations; source files remain intact.
+The legacy renderer extracts whole pages, individual contributor sections, and custom introductions; it also rewrites equation and return links. These extraction rules determine section boundaries and return positions. The static generator uses the same boundaries. It omits unavailable legacy images from generated documents and leaves the source files intact.
 
 ## Performance and publishing
 
@@ -47,6 +47,6 @@ The integrity checker covers bilingual source registration, orphan files, IDs, e
 
 Publishing keeps the existing workflow: commit verified sources and generated documents on `main`, then fast-forward GitHub `main` and `gh-pages` to the same commit. No force push is needed.
 
-## Source review
+## Scientific sources
 
-New contextual links point to the original Shor, Grover, Kohn-Sham, and Jarzynski works; the probability topic links Bayes and Neyman-Pearson. Newton’s original text is linked through Oxford’s Newton Project, Maxwell through the Smithsonian, and Kolmogorov through the University of St Andrews. Existing Navier-Stokes primary-paper links and collaboration references remain in place. Added URLs were checked on 16 September 2026; the Royal Society endpoint for the Neyman-Pearson DOI blocks automated retrieval with HTTP 403, while the DOI and bibliographic identity are independently indexed.
+Contextual links point to the original Shor, Grover, Kohn-Sham, and Jarzynski works; the probability topic links Bayes and Neyman-Pearson. Newton’s original text is linked through Oxford’s Newton Project, Maxwell through the Smithsonian, and Kolmogorov through the University of St Andrews. The Navier-Stokes section includes primary papers and collaboration references. Some publishers block automated requests, so an HTTP 403 response alone does not establish that a reference is unavailable to readers.
