@@ -17,7 +17,7 @@ import { initAlgorithmVisualizerModels } from "./algorithm-visualizer-model.js?v
 import { initQuantumFluctuationModels } from "./quantum-fluctuation-model.js?v=20260913-mobile-power-v1";
 import { initBlackHoleModels } from "./black-hole-model.js?v=20260913-mobile-power-v1";
 import { initFoundationModels } from "./foundation-models.js?v=20260913-mobile-power-v1";
-import { enhanceModelAccessibility } from "./model-accessibility.js?v=20260913-social-dock-v1";
+import { enhanceModelAccessibility } from "./model-accessibility.js?v=20260920-model-controls-v1";
 import { fitEquationBlocks } from "./equation-fit.js?v=20260920-reader-alignment-v1";
 import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260916-science-overhaul-v1";
 import { decorateModelBadges, decoratePhotonOutlines, syncReadingConstellation } from "./creative-effects.js?v=20260913-social-dock-v1";

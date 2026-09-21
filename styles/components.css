@@ -1260,38 +1260,10 @@ body[data-readable-font="on"] .reading-settings-panel h3 {
 
 .model-accessibility {
   width: min(100%, 42rem);
-  margin: 0.6rem auto 1.15rem;
+  margin: 0;
   padding: 0;
   color: var(--text);
   text-align: left;
-}
-
-.model-accessibility__header {
-  display: flex;
-  justify-content: flex-start;
-}
-
-.model-accessibility__button {
-  min-height: 2.25rem;
-  padding: 0.3rem 0.85rem;
-  border: 1px solid rgba(var(--glow-rgb), 0.5);
-  border-radius: 999px;
-  color: var(--strong);
-  background:
-    radial-gradient(circle at 18% 20%, rgba(var(--glow-rgb), 0.18), transparent 58%),
-    rgba(var(--glass-rgb), 0.18);
-  box-shadow:
-    0 0 0 1px rgba(var(--glow-rgb), 0.12) inset,
-    0 0 18px rgba(var(--glow-rgb), 0.16);
-  cursor: pointer;
-}
-
-.model-accessibility__button:hover,
-.model-accessibility__button:focus-visible {
-  color: var(--heading);
-  box-shadow:
-    0 0 0 1px rgba(var(--glow-rgb), 0.34) inset,
-    0 0 24px rgba(var(--glow-rgb), 0.24);
 }
 
 .model-accessibility__summary,

@@ -13,7 +13,7 @@ import { syncLegacyContent } from "./legacy-content.js?v=20260920-etymology-sour
 import { createMusicController, syncMusicUi } from "./music.js?v=20260913-bilingual-release-v1";
 import { renderSite } from "./render.js?v=20260916-science-overhaul-v1";
 import { createState } from "./state.js?v=20260913-social-dock-v1";
-import { syncStructuredContent } from "./structured-content.js?v=20260920-reader-alignment-v1";
+import { syncStructuredContent } from "./structured-content.js?v=20260920-model-controls-v1";
 import { markWebGLAvailability } from "./webgl-support.js?v=20260913-social-dock-v1";
 
 const refs = {

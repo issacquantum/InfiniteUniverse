@@ -37,8 +37,6 @@ const COPY = {
     checkboxOn: "on",
     controlsHelp: "Keyboard controls",
     controlsText: "Use Tab to reach sliders, selectors, and buttons. Range sliders respond to arrow keys; Home and End usually move to the minimum or maximum.",
-    describe: "Describe this model",
-    detailsHidden: "Hide model description",
     fallbackDescription: "A fixed diagram showing the model as connected layers, so the idea can still be read without animation.",
     fallbackTitle: "Static fallback",
     genericExplanation: "Changing a slider updates the visible model and this current-state line. A range usually changes size, speed, strength, distance, noise, or probability; a checkbox turns a layer on or off; a mode button changes which lesson is emphasized.",
@@ -58,8 +56,6 @@ const COPY = {
     checkboxOn: "encendido",
     controlsHelp: "Controles con teclado",
     controlsText: "Usa Tab para llegar a deslizadores, selectores y botones. Los deslizadores responden a las flechas; Inicio y Fin suelen moverlos al mínimo o al máximo.",
-    describe: "Describir este modelo",
-    detailsHidden: "Ocultar descripción del modelo",
     fallbackDescription: "Un diagrama fijo que muestra el modelo como capas conectadas, para que la idea pueda leerse sin depender de la animación.",
     fallbackTitle: "Vista estática",
     genericExplanation: "Cambiar un deslizador actualiza el modelo visible y esta línea de estado. Un rango suele cambiar tamaño, velocidad, intensidad, distancia, ruido o probabilidad; una casilla activa o desactiva una capa; un botón de modo cambia la lección que se enfatiza.",
@@ -358,8 +354,6 @@ function createAccessibilityPanel(root, state) {
   const detailsId = `${panelId}-details`;
   const guidanceId = `${panelId}-guidance`;
   const panel = document.createElement("section");
-  const header = document.createElement("div");
-  const button = document.createElement("button");
   const summary = createParagraph("sr-only model-accessibility__summary", summarizeControls(root, copy, language));
   const visibleSummary = createParagraph("model-accessibility__summary", summary.textContent);
   const details = document.createElement("div");
@@ -370,14 +364,6 @@ function createAccessibilityPanel(root, state) {
   panel.className = "model-accessibility";
   panel.setAttribute("aria-label", language === "es" ? `Lectura accesible de ${modelName}` : `Accessible reading for ${modelName}`);
   panel.dataset.modelAccessibilityPanel = "true";
-
-  header.className = "model-accessibility__header";
-  button.className = "model-accessibility__button";
-  button.type = "button";
-  button.setAttribute("aria-expanded", "false");
-  button.setAttribute("aria-controls", detailsId);
-  button.textContent = copy.describe;
-  header.append(button);
 
   summary.id = summaryId;
   summary.setAttribute("aria-live", "polite");
@@ -415,15 +401,7 @@ function createAccessibilityPanel(root, state) {
   );
   details.append(reducedFallback);
 
-  panel.append(header, summary, details);
-
-  button.addEventListener("click", () => {
-    const willOpen = details.hidden;
-    details.hidden = !willOpen;
-    panel.dataset.open = String(willOpen);
-    button.setAttribute("aria-expanded", String(willOpen));
-    button.textContent = willOpen ? copy.detailsHidden : copy.describe;
-  });
+  panel.append(summary, details);
 
   const update = () => {
     updateControlLabels(root, copy, panelId, summaryId, guidanceId);
