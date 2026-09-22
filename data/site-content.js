@@ -320,6 +320,11 @@ const classicalMechanicsEquationBranch = {
     createStructuredItem("science/equations", "mechanics-gravitation", "Newtonian Gravitation and Circular Orbits", "Gravitación newtoniana y órbitas circulares"),
     createStructuredItem("science/equations", "mechanics-circular-motion", "Uniform Circular Motion", "Movimiento circular uniforme"),
     createStructuredItem("science/equations", "mechanics-oscillator", "Damped and Driven Oscillator", "Oscilador amortiguado y forzado"),
+    createStructuredItem("science/equations", "mechanics-center-of-mass", "Center of Mass", "Centro de masa"),
+    createStructuredItem("science/equations", "mechanics-rotational-energy", "Angular Momentum and Rotational Energy", "Momento angular y energía de rotación"),
+    createStructuredItem("science/equations", "mechanics-orbital-energy", "Kepler Period and Escape Energy", "Periodo de Kepler y energía de escape"),
+    createStructuredItem("science/equations", "mechanics-small-oscillations", "Potential Curvature and Small Oscillations", "Curvatura del potencial y pequeñas oscilaciones"),
+    createStructuredItem("science/equations", "mechanics-pendulum", "Pendulum Torque and Small Angles", "Momento de fuerza del péndulo y ángulos pequeños"),
     createStructuredItem("science/equations", "mechanics-velocity-verlet", "Velocity Verlet Integration", "Integración de Verlet en velocidades")
   ]
 };

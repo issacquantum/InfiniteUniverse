@@ -210,15 +210,71 @@ class FoundationModel {
     const velocityArrow = new THREE.ArrowHelper(new THREE.Vector3(0, 0, 1), new THREE.Vector3(), 0.85, COLORS.luminousViolet, 0.16, 0.08);
     modelGroup.add(forceArrow, velocityArrow);
 
-    this.dynamic = (time) => {
-      const angle = time * 0.62;
-      const position = new THREE.Vector3(Math.cos(angle) * 1.95, 0, Math.sin(angle) * 1.95);
+    const defaults = { mass: 1, radius: 1.95, omega: 0.62 };
+    const parameters = { ...defaults };
+    this.mechanics = { parameters, phase: 0, paused: false };
+    const controls = this.container.querySelector("[data-mechanics-controls]");
+    const spanish = this.container.dataset.language === "es";
+    const pause = controls.querySelector("[data-mechanics-pause]");
+    this.mechanicsEvents = new AbortController();
+    const options = { signal: this.mechanicsEvents.signal };
+    const updateReadouts = () => {
+      const { mass, radius, omega } = parameters;
+      const quantities = { speed: omega * radius, acceleration: omega * omega * radius, force: mass * omega * omega * radius };
+      for (const [key, value] of Object.entries(parameters)) {
+        controls.querySelector('[data-mechanics-param="' + key + '"]').value = value;
+        controls.querySelector('[data-mechanics-value="' + key + '"]').value = value.toFixed(2);
+      }
+      for (const [key, value] of Object.entries(quantities)) {
+        controls.querySelector('[data-mechanics-readout="' + key + '"]').textContent = value.toFixed(3);
+      }
+      pause.textContent = this.mechanics.paused ? (spanish ? "Continuar" : "Resume") : (spanish ? "Pausar" : "Pause");
+      pause.setAttribute("aria-pressed", String(this.mechanics.paused));
+      pause.setAttribute("aria-label", pause.textContent);
+      orbit.scale.setScalar(radius / defaults.radius);
+    };
+    controls.addEventListener("input", (event) => {
+      const input = event.target;
+      const key = input.dataset.mechanicsParam;
+      if (!Object.hasOwn(parameters, key)) return;
+      const value = Number(input.value);
+      if (!Number.isFinite(value)) return;
+      parameters[key] = Math.min(Number(input.max), Math.max(Number(input.min), value));
+      this.mechanics.phase = 0;
+      updateReadouts();
+      this.dynamic(0, 0);
+    }, options);
+    pause.addEventListener("click", () => {
+      this.mechanics.paused = !this.mechanics.paused;
+      updateReadouts();
+    }, options);
+    controls.querySelector("[data-mechanics-reset]").addEventListener("click", () => {
+      Object.assign(parameters, defaults);
+      this.mechanics.phase = 0;
+      this.mechanics.paused = false;
+      Object.assign(this.state, { yaw: -0.42, pitch: 0.28, distance: 7.8 });
+      updateReadouts();
+      this.dynamic(0, 0);
+    }, options);
+    const position = new THREE.Vector3();
+    const inward = new THREE.Vector3();
+    const tangent = new THREE.Vector3();
+    this.dynamic = (_time, delta = 0) => {
+      if (!this.mechanics.paused) {
+        this.mechanics.phase = (this.mechanics.phase + parameters.omega * delta) % (2 * Math.PI);
+      }
+      const angle = this.mechanics.phase;
+      position.set(Math.cos(angle) * parameters.radius, 0, Math.sin(angle) * parameters.radius);
       body.position.copy(position);
       forceArrow.position.copy(position);
-      forceArrow.setDirection(position.clone().multiplyScalar(-1).normalize());
+      forceArrow.setDirection(inward.copy(position).multiplyScalar(-1 / parameters.radius));
       velocityArrow.position.copy(position);
-      velocityArrow.setDirection(new THREE.Vector3(-Math.sin(angle), 0, Math.cos(angle)).normalize());
+      velocityArrow.setDirection(tangent.set(-Math.sin(angle), 0, Math.cos(angle)));
+      forceArrow.visible = velocityArrow.visible = parameters.omega > 0;
     };
+    updateReadouts();
+    this.dynamic(0, 0);
+    controls.disabled = false;
   }
 
   addElectromagnetismModel() {
@@ -682,6 +738,7 @@ class FoundationModel {
   destroy() {
     if (this.destroyed) return;
     this.destroyed = true;
+    this.mechanicsEvents?.abort();
     stopModelAnimation(this);
     cancelAnimationFrame(this.animationFrame);
     this.resizeObserver?.disconnect();
@@ -705,7 +762,8 @@ class FoundationModel {
     }
 
     const time = timestamp * 0.001;
-    const delta = Math.min(0.05, Math.max(0, time - this.lastTimestamp));
+    const elapsed = time - this.lastTimestamp;
+    const delta = this.type === "mechanics" && elapsed > 0.25 ? 0 : Math.min(0.05, Math.max(0, elapsed));
     this.lastTimestamp = time;
 
     if (this.visible) {

@@ -1,4 +1,4 @@
-import { enhanceScienceReader, restoreHeading } from "./science-reader.js?v=20260921-classical-mechanics-v1";
+import { enhanceScienceReader, restoreHeading } from "./science-reader.js?v=20260921-classical-mechanics-v2";
 import { observeMobileMedia } from "./performance-profile.js?v=20260913-mobile-power-v1";
 import { restoreReaderPosition, restoreReaderScroll } from "./reader-position.js?v=20260913-language-context-v1";
 import { pick } from "./i18n.js?v=20260913-social-dock-v1";
@@ -16,11 +16,11 @@ import { initInformationTheoryModels } from "./information-theory-model.js?v=202
 import { initAlgorithmVisualizerModels } from "./algorithm-visualizer-model.js?v=20260913-mobile-power-v1";
 import { initQuantumFluctuationModels } from "./quantum-fluctuation-model.js?v=20260913-mobile-power-v1";
 import { initBlackHoleModels } from "./black-hole-model.js?v=20260913-mobile-power-v1";
-import { initFoundationModels } from "./foundation-models.js?v=20260921-classical-mechanics-v1";
+import { initFoundationModels } from "./foundation-models.js?v=20260921-classical-mechanics-v2";
 import { enhanceModelAccessibility } from "./model-accessibility.js?v=20260920-model-controls-v1";
 import { fitEquationBlocks } from "./equation-fit.js?v=20260920-reader-alignment-v1";
-import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260921-classical-mechanics-v1";
-import { decorateModelBadges, decoratePhotonOutlines, syncReadingConstellation } from "./creative-effects.js?v=20260913-social-dock-v1";
+import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260921-classical-mechanics-v2";
+import { decorateModelBadges, decoratePhotonOutlines, syncReadingConstellation } from "./creative-effects.js?v=20260921-classical-mechanics-v2";
 
 let activeRequestToken = 0;
 

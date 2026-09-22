@@ -76,6 +76,9 @@ function getInterfaceText(language) {
 
 function getModelBadgeText(model, language) {
   const isSpanish = language === "es";
+  if (model.dataset.foundationModel === "mechanics") {
+    return isSpanish ? "Modelo físico simplificado" : "Toy physical model";
+  }
   const labels = [
     ["double-slit-simulator", isSpanish ? "Modelo de ondas" : "Wave model"],
     ["gravity-fabric", isSpanish ? "Modelo de analogía" : "Analogy model"],

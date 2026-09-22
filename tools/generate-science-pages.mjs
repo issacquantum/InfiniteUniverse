@@ -62,6 +62,11 @@ for (const language of ['en','es']) {
     });
     body = body.replace(/href="#([^"]+)"/g, (_, id) => `href="${out}#${id}"`);
     body = body.split('\n').map(line => line.trimEnd()).join('\n');
+    if (doc.id === 'classical-mechanics' && !doc.branch) {
+      body = body.replace(/<figure\b[^>]*data-foundation-model="mechanics"[^>]*>[\s\S]*?<\/figure>/g,
+        '<p><a href="index.html' + route(doc, language) + '">' +
+        (language === 'es' ? 'Abrir el modelo interactivo de movimiento circular' : 'Open the interactive circular-motion model') + '</a></p>');
+    }
     // Static documents carry text and equations; model controls belong to the interactive reader.
     body = body.replace(/<button\b[^>]*>([\s\S]*?)<\/button>/g,'<span>$1</span>');
     const related = [...new Set([...(topicMetadata[doc.topic.id]?.prerequisites ?? []),...(topicMetadata[doc.topic.id]?.related ?? [])])].map(id=>topics.find(t=>t.id===id)).filter(Boolean);
