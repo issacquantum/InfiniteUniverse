@@ -1,226 +1,154 @@
 <!doctype html>
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <base href="../../../"><title>Mecánica clásica | Infinite Universe</title>
-<meta name="description" content="Mecánica viene de palabras antiguas relacionadas con máquinas, dispositivos y movimiento práctico. En física, la mecánica clásica es el estudio disciplinado del movimiento antes de"><link rel="canonical" href="https://issacquantum.github.io/InfiniteUniverse/science/es/classical-mechanics/index.html">
+<meta name="description" content="La mecánica clásica describe cómo se mueven los cuerpos y cómo las interacciones modifican ese movimiento. Relaciona posiciones y tiempos medidos con fuerzas, energía y cantidad de"><link rel="canonical" href="https://issacquantum.github.io/InfiniteUniverse/science/es/classical-mechanics/index.html">
 <link rel="alternate" hreflang="en" href="https://issacquantum.github.io/InfiniteUniverse/science/en/classical-mechanics/index.html"><link rel="alternate" hreflang="es" href="https://issacquantum.github.io/InfiniteUniverse/science/es/classical-mechanics/index.html">
-<meta property="og:title" content="Mecánica clásica"><meta property="og:description" content="Mecánica viene de palabras antiguas relacionadas con máquinas, dispositivos y movimiento práctico. En física, la mecánica clásica es el estudio disciplinado del movimiento antes de"><meta property="og:url" content="https://issacquantum.github.io/InfiniteUniverse/science/es/classical-mechanics/index.html"><meta property="og:type" content="article">
+<meta property="og:title" content="Mecánica clásica"><meta property="og:description" content="La mecánica clásica describe cómo se mueven los cuerpos y cómo las interacciones modifican ese movimiento. Relaciona posiciones y tiempos medidos con fuerzas, energía y cantidad de"><meta property="og:url" content="https://issacquantum.github.io/InfiniteUniverse/science/es/classical-mechanics/index.html"><meta property="og:type" content="article">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self' https://cdn.jsdelivr.net; connect-src 'self'; frame-src https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'">
 <link rel="stylesheet" href="styles/static-science.css"><script src="scripts/mathjax-config.js"></script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
 </head><body><a href="science/es/classical-mechanics/index.html#main">Saltar al contenido</a><nav><a href="index.html#/es/science/classical-mechanics">Abrir en el sitio interactivo</a> · <a href="science/en/classical-mechanics/index.html" lang="en">English</a> · <a href="science/es/index.html">Todos los temas</a></nav><main id="main"><h1>Mecánica clásica</h1><div class="structured-content" data-structured-content>
-  <section class="content-block">
-    <h3 id="section-1">Etimología</h3>
-    <p>
-      <strong>Mecánica</strong> viene de palabras antiguas relacionadas con máquinas, dispositivos y movimiento
-      práctico. En física, la mecánica clásica es el estudio disciplinado del movimiento antes de que la mecánica
-      cuántica o la relatividad sean necesarias.
-    </p>
-    <p>
-      No está obsoleta. Es el lenguaje de trabajo detrás de proyectiles, planetas, vehículos, estructuras, osciladores,
-      robótica, sistemas de control, cálculos orbitales, física de videojuegos y la primera aproximación detrás de
-      muchas simulaciones.
-    </p>
-    <p class="source-language-note">Las fuentes se presentan en el idioma de la versión consultada.</p>
-    <p class="source-language-note">
-      <strong>Fuente de origen etimológico:</strong>
-      <a class="platform-link" href="https://www.etymonline.com/word/mechanics" target="_blank" rel="noopener noreferrer">Online Etymology Dictionary: mechanics</a>.
-    </p>
-  </section>
-
-  <section class="content-block">
-    <div class="model-teaching-card">
-      <p><strong>Tipo de modelo:</strong> Modelo físico simplificado.</p>
-      <p><strong>Qué muestra:</strong> Un cuerpo moviéndose alrededor de un centro, con vectores de velocidad y fuerza hacia dentro.</p>
-      <p><strong>Qué no muestra:</strong> Un solucionador orbital completo, resistencia del aire, relatividad o comportamiento cuántico.</p>
-      <p><strong>Ecuación / principio:</strong> \(\mathbf{F}=m\mathbf{a}\) y el principio de acción organizan el movimiento clásico.</p>
-      <p><strong>Qué representa el modelo:</strong> Movimiento clásico como posición más vectores cambiantes, no solo un objeto girando.</p>
-    </div>
-    <figure class="foundation-model glass-window" data-foundation-model="mechanics" data-model-target="classical-motion-vectors" data-language="es">
-      <div class="foundation-model__frame" data-foundation-model-frame></div>
-      <figcaption class="foundation-model__caption">Arrastra para rotar. El vector de fuerza, en morado azulado, apunta hacia dentro; el vector de velocidad tangencial, en púrpura luminoso, muestra la dirección del movimiento.</figcaption>
-    </figure>
-  </section>
-
-  <section class="content-block">
-    <h3 id="section-2">Núcleo Newtoniano</h3>
-    <p>La forma más directa es la segunda ley de <a href="https://newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00074" target="_blank" rel="noopener noreferrer">Newton</a>:</p>
-    <div class="equation-link-wrap">
-      <a class="equation-link" href="science/es/equations/newton-second-law.html">
-        $$
-        \mathbf{F}=m\mathbf{a}
-        $$
-      </a>
-    </div>
-    <p>
-      Dice que la fuerza cambia el movimiento. Dadas las fuerzas y el estado inicial, el movimiento puede predecirse
-      dentro del dominio clásico. La ley es local: dice cómo cambia la aceleración ahora, y resolver el movimiento
-      requiere seguir ese cambio en el tiempo.
-    </p>
-    <p>
-      La mecánica newtoniana también contiene gravedad, momento, movimiento circular, oscilación y colisiones. Funciona
-      muy bien para objetos grandes que se mueven mucho más lento que la luz, desde cuerpos que caen hasta órbitas
-      planetarias.
-    </p>
-  </section>
-
-  <section class="content-block">
-    <h3 id="section-3">Energía, Momento y Simetría</h3>
-    <p>
-      La mecánica clásica es más profunda que los diagramas de fuerzas. El momento, el momento angular y la energía
-      muestran qué permanece estable mientras un sistema cambia. Las leyes de conservación están ligadas a simetrías:
-      la simetría de traslación da conservación del momento, la simetría de rotación da conservación del momento
-      angular y la simetría temporal da conservación de la energía.
-    </p>
-    <p>
-      Por eso, las mismas leyes de la mecánica pueden describir un péndulo, un satélite, una colisión de billar y una
-      simulación numérica. Los objetos cambian, pero las relaciones conservadas mantienen el cálculo bien definido.
-    </p>
-  </section>
-
-  <section class="content-block">
-    <h3 id="section-4">Vistas Lagrangiana y Hamiltoniana</h3>
-    <p>La vista lagrangiana organiza el movimiento mediante la acción:</p>
-    <div class="equation-link-wrap">
-      <a class="equation-link" href="science/es/equations/classical-action-principle.html">
-        $$
-        S=\int L(q,\dot q,t)\,dt
-        $$
-      </a>
-    </div>
-    <p>
-      La trayectoria real es la que hace estacionaria la acción. Suena abstracto, pero el significado práctico es
-      simple: en lugar de seguir cada fuerza directamente, se escribe la estructura energética del sistema y se deriva
-      el movimiento a partir de ella.
-    </p>
-    <div class="equation-link-wrap">
-      <a class="equation-link" href="science/es/equations/euler-lagrange-equation.html">
-        $$
-        \frac{d}{dt}\frac{\partial L}{\partial \dot q}-\frac{\partial L}{\partial q}=0
-        $$
-      </a>
-    </div>
-    <p>La vista hamiltoniana mueve la atención a coordenadas y momentos:</p>
-    <div class="equation-link-wrap">
-      <a class="equation-link" href="science/es/equations/hamilton-equations.html">
-        $$
-        \dot q=\frac{\partial H}{\partial p},\qquad \dot p=-\frac{\partial H}{\partial q}
-        $$
-      </a>
-    </div>
-    <p>
-      Esta forma se vuelve puente hacia espacio de fases, mecánica estadística, transformaciones canónicas, mecánica
-      cuántica y métodos numéricos simplécticos.
-    </p>
-  </section>
-
-  <section class="content-block">
-    <h3 id="section-5">Oscilaciones, Estabilidad y Caos</h3>
-    <p>
-      Resortes, péndulos, cuerdas vibrantes, resonancias mecánicas, perturbaciones orbitales y sistemas de control
-      muestran que la mecánica no trata solo de movimiento en línea recta. Cerca del equilibrio estable, muchos
-      sistemas se comportan aproximadamente como osciladores armónicos. Más lejos, los efectos no lineales pueden
-      producir resonancia, inestabilidad o caos.
-    </p>
-    <p>
-      Caos no significa ausencia de ley. Significa que pequeñas diferencias en condiciones iniciales pueden crecer tan
-      rápido que la predicción a largo plazo queda limitada aunque las ecuaciones sean deterministas.
-    </p>
-  </section>
-
-  <section class="content-block">
-    <h3 id="section-6">Límites</h3>
-    <p>
-      La mecánica clásica es precisa para sistemas grandes y lentos donde la discreción cuántica y los efectos
-      relativistas son despreciables. Falla como marco final cuando las velocidades se acercan a la luz, cuando las
-      escalas de acción se acercan a \(\hbar\), cuando los campos deben cuantizarse o cuando la gravedad requiere
-      curvatura del espaciotiempo en lugar de una fuerza dentro de un espacio fijo.
-    </p>
-  </section>
-
-  <section class="content-block">
-    <h3 id="section-7">Marcos, Restricciones y Coordenadas</h3>
-    <p>
-      Un problema clásico nunca es solo un objeto y una fuerza. También necesita un marco de referencia, una elección de
-      coordenadas y una descripción clara de las restricciones. Una cuenta deslizándose sobre un alambre, un péndulo fijo
-      en un extremo, una rueda que rueda sin resbalar y una nave siguiendo una órbita de transferencia son distintos porque
-      sus movimientos permitidos son distintos. La buena mecánica empieza diciendo qué puede moverse, qué no puede moverse
-      y qué cantidades describen el estado sin redundancia.
-    </p>
-    <p>
-      Las coordenadas generalizadas sirven porque dejan que las matemáticas sigan el movimiento natural del sistema. Un
-      péndulo se describe mejor con un ángulo que con dos coordenadas cartesianas independientes más una ecuación de
-      restricción. Por eso las formas lagrangiana y hamiltoniana no son adornos de las leyes de Newton. Son lenguajes más
-      limpios para sistemas complicados, especialmente cuando no conviene seguir una por una las fuerzas de restricción.
-    </p>
-  </section>
-
-  <section class="content-block">
-    <h3 id="section-8">Muchos Cuerpos y Medios Continuos</h3>
-    <p>
-      Los sistemas reales suelen tener demasiadas partes para seguirlas manualmente. Un gas, un puente, un flujo líquido,
-      un instrumento vibrante, la suspensión de un vehículo o una galaxia no se entienden solo como una masa aislada. La
-      mecánica clásica se extiende entonces hacia dinámica de muchos cuerpos, movimiento de cuerpos rígidos, elasticidad,
-      mecánica de fluidos y modelos de medios continuos. Los principios de momento, energía y estabilidad siguen presentes,
-      pero el estado se vuelve un campo o una gran colección de grados de libertad acoplados.
-    </p>
-    <p>
-      Aquí la aproximación también se vuelve parte de la ciencia. La fricción puede modelarse como un término simple de
-      arrastre, un fluido puede tratarse como continuo aunque sea molecular, y una estructura flexible puede reducirse a
-      unos cuantos modos dominantes. Esas aproximaciones no son fallas cuando su dominio está declarado. Son la razón por
-      la que la mecánica clásica puede convertirse en ingeniería útil y no en un inventario imposible de cada átomo.
-    </p>
-  </section>
-
-  <section class="content-block">
-    <h3 id="section-9">Disciplina de Simulación</h3>
-    <p>
-      Una simulación no es correcta automáticamente porque se vea suave. El movimiento clásico tiene estructura geométrica:
-      energía, momento, volumen de espacio de fases y restricciones pueden desviarse si el método numérico es descuidado.
-      Un integrador básico puede verse aceptable durante unos segundos y aun así crear energía falsa a tiempos más largos.
-      Los métodos simplécticos importan porque conservan mejor la estructura del espacio de fases en sistemas hamiltonianos.
-    </p>
-    <p>
-      La lección práctica es directa: motores de física, solucionadores orbitales, modelos de vehículos y sistemas de
-      animación necesitan revisión de error, control del paso temporal y conciencia de dominio. La mecánica clásica se
-      vuelve más fuerte cuando la ecuación, el modelo y la implementación numérica se tratan como cosas separadas que deben
-      concordar dentro de límites declarados.
-    </p>
-  </section>
-
-  <section class="content-block">
-    <h3 id="section-10">Frontera Moderna</h3>
-    <p>
-      La mecánica clásica sigue siendo central en navegación espacial, robótica, teoría de control, simulación de
-      vehículos, ingeniería estructural, biomecánica, fluidos y animación. La frontera moderna es computacional:
-      integradores simplécticos, propagación de incertidumbre, control no lineal, gemelos digitales y simulación de alta
-      fidelidad. Las mismas ideas newtonianas o lagrangianas se vuelven herramientas serias de ingeniería cuando se
-      combinan con métodos numéricos y control cuidadoso del error.
-    </p>
-    <p>
-      El límite importante es el dominio. La mecánica clásica no es incorrecta dentro de su rango propio; es incompleta
-      como teoría final. Debe ceder ante la relatividad a alta velocidad o gravedad fuerte, ante la teoría cuántica en
-      escalas microscópicas de acción y ante métodos estadísticos cuando hay demasiados grados de libertad para seguirlos
-      exactamente.
-    </p>
-  </section>
-
-  <section class="content-block glossary-section">
-    <h3 id="section-11">Glosario Técnico</h3>
-    <ul class="paper-list glossary-list">
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Marco inercial:</strong> Marco donde un objeto libre se mueve con velocidad constante salvo que actúe una fuerza.</span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Espacio de fases:</strong> Espacio de posiciones y momentos usado para describir el estado de un sistema.</span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Acción:</strong> Cantidad integrada sobre una trayectoria cuyo valor estacionario da las ecuaciones de movimiento.</span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Momento canónico:</strong> Momento definido desde el Lagrangiano; no siempre es idéntico a masa por velocidad.</span></li>
-    </ul>
-  </section>
-
-  <section class="content-block source-papers">
-    <h3 id="section-12">Fuentes Fundamentales y Modernas</h3>
-    <ul class="paper-list">
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.gutenberg.org/ebooks/28233" target="_blank" rel="noopener noreferrer">Isaac Newton. <em>The Mathematical Principles of Natural Philosophy.</em></a> <span class="paper-note">Edición de Project Gutenberg.</span></span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.feynmanlectures.caltech.edu/I_toc.html" target="_blank" rel="noopener noreferrer">Feynman, Leighton y Sands. <em>The Feynman Lectures on Physics, Volume I.</em></a> <span class="paper-note">Edición en línea de Caltech.</span></span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://mitpress.mit.edu/9780262028967/structure-and-interpretation-of-classical-mechanics/" target="_blank" rel="noopener noreferrer">Sussman y Wisdom. <em>Structure and Interpretation of Classical Mechanics.</em></a> <span class="paper-note">Referencia moderna de mecánica computacional.</span></span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.press.jhu.edu/books/title/11438/emmy-noethers-wonderful-theorem" target="_blank" rel="noopener noreferrer">Dwight E. Neuenschwander. <em>Emmy Noether's Wonderful Theorem.</em></a> <span class="paper-note">Referencia sobre simetría y conservación.</span></span></li>
-    </ul>
-  </section>
+<section class="content-block">
+<h3 id="section-1">Significado y alcance</h3>
+<p>La <strong>mecánica clásica</strong> describe cómo se mueven los cuerpos y cómo las interacciones modifican ese movimiento. Relaciona posiciones y tiempos medidos con fuerzas, energía y cantidad de movimiento. Sigue siendo útil para vehículos, estructuras, instrumentos, robots y movimiento planetario cuando las correcciones cuánticas y relativistas son despreciables.</p><p>La palabra <em>mecánica</em> tiene raíces relacionadas con las máquinas y su funcionamiento. Su significado histórico es más amplio que las ecuaciones modernas del movimiento.</p>
+<p class="source-language-note"><strong>Fuente del origen etimológico: </strong><a class="platform-link" href="https://www.etymonline.com/word/mechanics" target="_blank" rel="noopener noreferrer">Online Etymology Dictionary: mechanics</a>.</p>
+</section>
+<section class="content-block">
+<h3 id="mechanics-history">De la caída de los cuerpos a las leyes generales</h3>
+<p>Describir una trayectoria no es lo mismo que explicar por qué ocurre. En <em>Two New Sciences</em> (1638), Galileo desarrolló descripciones matemáticas del movimiento acelerado y de los proyectiles. Los planos inclinados permitían medir los cambios de rapidez con más facilidad que una caída vertical breve. Su descripción del movimiento uniformemente acelerado relaciona la distancia recorrida desde el reposo con el cuadrado del tiempo transcurrido. La <a href="https://galileoandeinstein.phys.virginia.edu/tns_draft/tns_160to243.html" target="_blank" rel="noopener noreferrer">tercera jornada</a> vincula el razonamiento matemático con un procedimiento experimental.</p><p>Los <em>Principia</em> de Newton, publicados por primera vez en 1687, reunieron las leyes del movimiento y la gravitación universal en un marco para el movimiento terrestre y celeste. Los <a href="https://newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00074" target="_blank" rel="noopener noreferrer">textos preliminares de 1687 conservados por el Newton Project</a> presentan ese programa. Las formulaciones analíticas posteriores facilitaron la organización de problemas con restricciones y muchos cuerpos. No descartaron las predicciones newtonianas que ya funcionaban.</p>
+</section>
+<section class="content-block">
+<h3 id="mechanics-measurement">Medición, vectores y condiciones iniciales</h3>
+<p>Una predicción necesita un sistema definido, un marco de referencia, unidades y datos iniciales. Tratar un vehículo como partícula conserva su masa y posición, pero omite sus dimensiones y su movimiento interno. Un modelo de cuerpo rígido conserva la orientación y la rotación, pero desprecia la deformación. Ninguno sirve para todas las preguntas.</p><p>En el Sistema Internacional de Unidades (SI), la posición se expresa en metros (m), el tiempo en segundos (s) y la masa en kilogramos (kg). Un <strong>escalar</strong>, como la masa o la rapidez, tiene magnitud sin dirección espacial. Un <strong>vector</strong>, como el desplazamiento o la fuerza, tiene magnitud y dirección. Sus componentes son proyecciones con signo sobre los ejes elegidos. Un desplazamiento de 3 m al este y 4 m al norte tiene magnitud de 5 m, no de 7 m. La distancia recorrida, a diferencia del desplazamiento, depende de la trayectoria.</p><p>Una derivada expresa una tasa de cambio instantánea; una integral acumula contribuciones a lo largo de un intervalo o una trayectoria. Un punto sobre una cantidad indica una derivada temporal. Los símbolos en negritas representan vectores. Las dimensiones permiten una comprobación útil: la fuerza tiene unidades kg m/s², llamadas newtons (N), por lo que fuerza dividida entre masa tiene unidades de aceleración. La concordancia dimensional es necesaria, pero no determina el signo, el coeficiente ni el modelo físico correcto.</p><p>La incertidumbre de las mediciones y los supuestos del modelo forman parte del resultado. Para predecir el movimiento mediante una ecuación ordinaria de segundo orden, se especifican la posición y la velocidad iniciales. Datos iniciales más precisos no corrigen una ley de fuerzas incorrecta.</p>
+</section>
+<section class="content-block">
+<h3 id="mechanics-kinematics">Posición, velocidad y aceleración</h3>
+<p>La <strong>cinemática</strong> describe el movimiento sin especificar todavía su causa. La velocidad mide el cambio de posición; la aceleración mide el cambio de velocidad, incluidos los cambios de dirección. Un cuerpo puede acelerar aunque su rapidez permanezca constante, como ocurre en el movimiento circular uniforme. La última expresión de abajo corresponde a una coordenada con aceleración constante y tiempo inicial cero.</p><p>Para un objeto que parte de \(x_0=0\), con \(v_0=3\) m/s y \(a=2\) m/s² constante, después de 4 s su posición es \(3(4)+\tfrac12(2)(4^2)=28\) m y su velocidad es 11 m/s. Si la aceleración varía, hay que integrarla en vez de introducir un promedio en una fórmula sin justificación.</p><p>Un proyectil cerca de la superficie terrestre combina movimiento horizontal a velocidad constante con aceleración vertical aproximadamente igual a \(-g\), tomando hacia arriba como positivo. La trayectoria es parabólica solo cuando pueden despreciarse la resistencia del aire, la curvatura terrestre y la variación de \(g\). Las mediciones de posición en función del tiempo ponen a prueba la predicción; no basta la apariencia de la curva.</p>
+<div class="equation-link-wrap"><a class="equation-link" href="science/es/equations/mechanics-kinematics.html">$$ \mathbf v=\frac{d\mathbf r}{dt},\quad\mathbf a=\frac{d\mathbf v}{dt},\qquad x=x_0+v_0t+\tfrac12at^2 $$</a></div>
+</section>
+<section class="content-block">
+<h3 id="section-2">Las tres leyes de Newton</h3>
+<p><strong>Primera ley:</strong> en un marco inercial, un cuerpo con fuerza externa neta nula mantiene velocidad constante. El reposo es un caso, no el único. Mantener el movimiento no requiere una fuerza neta continua; la fricción suele ocultarlo en la experiencia cotidiana.</p><p><strong>Segunda ley:</strong> la fuerza neta cambia la cantidad de movimiento. Para masa constante toma la forma de la ecuación siguiente. La fuerza es la suma vectorial de todas las fuerzas externas sobre el cuerpo elegido. Determina la aceleración, no la dirección de la velocidad. Un carrito de 2 kg, sometido a una fuerza de 10 N y una resistencia de 2 N, acelera a \((10-2)/2=4\) m/s².</p><p><strong>Tercera ley:</strong> en el modelo newtoniano de interacción, la fuerza del cuerpo A sobre B es opuesta a la de B sobre A. Actúan sobre cuerpos distintos y no se cancelan en el diagrama de fuerzas de un solo cuerpo. Para un conjunto aislado con estos pares internos, se cancelan en el balance de cantidad de movimiento total. Las interacciones electromagnéticas requieren incluir la cantidad de movimiento del campo cuando el balance basado únicamente en partículas resulta insuficiente.</p><p>Un diagrama de fuerzas comienza por aislar un cuerpo, identificar las interacciones externas y elegir los ejes. Después se descomponen las fuerzas y se resuelve el problema. Las <a href="https://www.feynmanlectures.caltech.edu/I_09.html" target="_blank" rel="noopener noreferrer">lecciones de Feynman sobre dinámica</a> desarrollan la relación entre fuerzas, aceleración y cambios de dirección vectorial.</p>
+<div class="equation-link-wrap"><a class="equation-link" href="science/es/equations/newton-second-law.html">$$ \mathbf{F}=m\mathbf{a} $$</a></div>
+</section>
+<section class="content-block">
+<h3 id="mechanics-forces">Fuerzas habituales y sus aproximaciones</h3>
+<p>El <strong>peso</strong> cerca de la superficie terrestre es aproximadamente \(mg\), con \(g\approx9.81\) m/s². La masa mide la inercia; el peso es una fuerza. La <strong>fuerza normal</strong> de una superficie actúa perpendicularmente a ella y se ajusta a las condiciones de contacto. No es automáticamente igual al peso. Una cuerda ideal tensa y sin masa transmite tensión a lo largo de su longitud; un resorte ideal ejerce una fuerza restitutiva proporcional al desplazamiento.</p><p>La fricción estática seca se opone al deslizamiento relativo inminente y se ajusta hasta un valor límite. La fricción durante el deslizamiento suele aproximarse mediante un coeficiente constante multiplicado por la fuerza normal. Si \(N=20\) N y \(\mu_s=0.4\), el límite estático es 8 N. Una fuerza horizontal de 3 N puede equilibrarse con 3 N de fricción, no necesariamente con 8 N. Los coeficientes dependen de las superficies y las condiciones; estas leyes son aproximaciones, no explicaciones microscópicas.</p><p>La resistencia de un medio depende del movimiento respecto a él. Una aproximación lineal resulta útil en ciertos regímenes viscosos lentos; una cuadrática resulta útil en otros regímenes de flujo. Ninguna sirve a cualquier rapidez. El contacto, la deformación y el flujo pueden requerir modelos materiales más detallados.</p>
+<div class="equation-link-wrap"><a class="equation-link" href="science/es/equations/mechanics-common-forces.html">$$ \mathbf W=m\mathbf g,\quad F_x=-kx,\qquad |f_s|\leq\mu_s N,\quad |f_k|=\mu_k N $$</a></div>
+</section>
+<section class="content-block">
+<h3 id="mechanics-energy">Trabajo y energía mecánica</h3>
+<p>Una fuerza transfiere energía al realizar <strong>trabajo</strong> durante un desplazamiento. Solo contribuye su componente en la dirección del desplazamiento, mediante el producto escalar. El trabajo neto sobre una partícula es igual al cambio de su energía cinética. El trabajo y la energía se expresan en joules (J), donde 1 J = 1 N m. La potencia es la tasa de transferencia de energía y se mide en watts (J/s).</p><p>Una fuerza neta constante de 6 N en la dirección de un desplazamiento de 5 m realiza 30 J de trabajo. Un cuerpo de 2 kg que parte del reposo alcanza entonces \(\sqrt{30}\approx5.48\) m/s. Una fuerza perpendicular a la velocidad no realiza trabajo instantáneo; puede cambiar la dirección sin modificar la rapidez.</p><p>Una fuerza conservativa admite una energía potencial \(U\), de modo que su trabajo es igual al negativo del cambio en \(U\). Para una fuerza unidimensional, \(F_x=-dU/dx\). Sin otro trabajo ni dependencia temporal explícita, \(K+U\) permanece constante. La fricción puede reducir esta energía mecánica y aumentar la energía interna. Eso no viola la conservación de la energía total. El cero de energía potencial es arbitrario; las diferencias afectan el movimiento. Véase la <a href="https://www.feynmanlectures.caltech.edu/I_14.html" target="_blank" rel="noopener noreferrer">explicación del trabajo y la energía potencial</a>.</p>
+<div class="equation-link-wrap"><a class="equation-link" href="science/es/equations/mechanics-work-energy.html">$$ W_{\rm net}=\int_A^B\mathbf F\cdot d\mathbf r=\Delta K,\qquad K=\tfrac12mv^2 $$</a></div>
+</section>
+<section class="content-block">
+<h3 id="mechanics-momentum">Cantidad de movimiento, impulso y colisiones</h3>
+<p>La <strong>cantidad de movimiento</strong> es masa por velocidad en el régimen newtoniano. El impulso acumula la fuerza a lo largo del tiempo y equivale al cambio de cantidad de movimiento. Para un sistema, la cantidad de movimiento total se conserva cuando el impulso externo neto es nulo, aunque durante una colisión actúen fuerzas internas grandes. Si la fuerza externa neta permanece nula, el centro de masa se mueve a velocidad constante.</p><p>Un carrito de 1 kg que se mueve a 4 m/s queda unido a otro de 3 kg inicialmente en reposo sobre una vía horizontal. Si se desprecia el impulso externo, la cantidad de movimiento total es 4 kg m/s y la masa conjunta es 4 kg, por lo que la velocidad final común es 1 m/s. La energía cinética baja de 8 J a 2 J; los 6 J restantes se transforman en deformación, calor y otros movimientos internos.</p><p>Una colisión <strong>elástica</strong> conserva tanto la energía cinética total como la cantidad de movimiento del sistema aislado. Una colisión <strong>inelástica</strong> no conserva la energía cinética; cuando los cuerpos quedan unidos, es perfectamente inelástica. En dos dimensiones, la cantidad de movimiento se conserva componente por componente. Esta conservación no determina por sí sola todas las velocidades de salida sin información adicional sobre la colisión. La explicación de la <a href="https://www.feynmanlectures.caltech.edu/I_10.html" target="_blank" rel="noopener noreferrer">conservación de la cantidad de movimiento</a> muestra por qué importa elegir la frontera del sistema.</p>
+<div class="equation-link-wrap"><a class="equation-link" href="science/es/equations/mechanics-impulse-momentum.html">$$ \mathbf p=m\mathbf v,\qquad\Delta\mathbf p=\int_{t_1}^{t_2}\mathbf F_{\rm ext}\,dt $$</a></div>
+</section>
+<section class="content-block">
+<h3 id="mechanics-rotation">Rotación y equilibrio</h3>
+<p>Una fuerza puede modificar la traslación y la rotación. Su <strong>momento de fuerza</strong>, también llamado torque, respecto a un origen elegido es el producto vectorial del brazo de posición por la fuerza. Su magnitud es la fuerza multiplicada por el brazo perpendicular; su dirección sigue la regla de la mano derecha. El momento angular describe el movimiento de rotación respecto al mismo origen. Para un origen inercial fijo, el momento externo de fuerza determina su tasa de cambio.</p><p>El momento de inercia \(I\) mide cómo se distribuye la masa respecto a un eje, en kg m². No es simplemente la masa total. Para un cuerpo rígido alrededor de un eje fijo, el momento neto de fuerza sobre ese eje es \(I\alpha\), donde \(\alpha\) es la aceleración angular. Una fuerza perpendicular de 20 N aplicada a 0.30 m produce 6 N m; con \(I=2\) kg m², la aceleración angular es 3 rad/s². La rotación tridimensional general requiere un tensor de inercia, no un solo escalar para cualquier dirección.</p><p>El equilibrio estático requiere fuerza neta y momento neto de fuerza nulos, con el cuerpo inicialmente en reposo. Dos fuerzas opuestas pueden tener resultante nula y aun así formar un par que produce rotación. La rodadura sin deslizamiento impone \(v_{\mathrm{CM}}=R\omega\) sobre suelo horizontal, donde CM significa centro de masa; su energía cinética incluye traslación y rotación. La lección sobre <a href="https://www.feynmanlectures.caltech.edu/I_20.html" target="_blank" rel="noopener noreferrer">rotación en el espacio</a> desarrolla la descripción vectorial.</p>
+<div class="equation-link-wrap"><a class="equation-link" href="science/es/equations/mechanics-rotation.html">$$ \boldsymbol\tau=\mathbf r\times\mathbf F,\quad\frac{d\mathbf L}{dt}=\boldsymbol\tau_{\rm ext},\qquad\tau_z=I_z\alpha $$</a></div>
+</section>
+<section class="content-block">
+<h3 id="mechanics-gravity">Gravitación y órbitas</h3>
+<p>La gravedad newtoniana atrae dos masas puntuales con una fuerza proporcional a sus masas e inversamente proporcional al cuadrado de su separación. Fuera de una distribución esférica de masa, su campo gravitatorio es el de toda su masa concentrada en el centro. Aquí \(\mathbf r\) apunta desde la masa central \(M\) hacia el cuerpo \(m\); el signo negativo hace que la fuerza sea atractiva. \(G\) es la constante gravitacional.</p><p>Un satélite cae continuamente mientras su velocidad transversal evita que alcance la superficie. Al igualar \(mv^2/r\) con \(GMm/r^2\) se obtiene la rapidez circular de abajo cuando \(m\) es despreciable frente a \(M\). Con \(GM\approx3.986\times10^{14}\) m³/s² para la Tierra y una distancia al centro \(r=7.0\times10^6\) m, la rapidez es aproximadamente 7.55 km/s y el periodo, 97 minutos. Esto omite la atmósfera, las desviaciones de la gravedad esférica, otros cuerpos y las correcciones relativistas.</p><p>El problema de dos cuerpos con fuerza inversamente proporcional al cuadrado de la distancia produce trayectorias cónicas: las órbitas ligadas son elipses, con la circunferencia como caso particular. La conservación del momento angular implica áreas barridas iguales en tiempos iguales; el cuadrado del periodo orbital es proporcional al cubo del semieje mayor para masa total fija. Son las relaciones de Kepler recuperadas por la dinámica newtoniana. La <a href="https://www.feynmanlectures.caltech.edu/I_07.html" target="_blank" rel="noopener noreferrer">lección sobre gravitación</a> relaciona estas predicciones con observaciones astronómicas. Otros planetas perturban la órbita ideal de dos cuerpos. Si las masas son comparables, ambos cuerpos se mueven alrededor de su centro de masa común y el parámetro gravitatorio del movimiento relativo usa la suma de ambas masas.</p>
+<div class="equation-link-wrap"><a class="equation-link" href="science/es/equations/mechanics-gravitation.html">$$ \mathbf F=-\frac{GMm}{r^3}\mathbf r,\quad U=-\frac{GMm}{r},\qquad v_c=\sqrt{\frac{GM}{r}} $$</a></div>
+</section>
+<section class="content-block">
+<h3 id="mechanics-circle">Movimiento circular y modelo vectorial</h3>
+<p>El movimiento circular uniforme tiene rapidez constante, pero velocidad cambiante. Para radio \(R\) y rapidez angular \(\omega\), la aceleración apunta al centro y tiene magnitud \(\omega^2R=v^2/R\). <strong>Centrípeta</strong> describe esta condición sobre la fuerza neta hacia el centro, no una interacción adicional: la tensión, la fricción, la gravedad u otra fuerza física debe proporcionarla.</p><p>El modelo prescribe una circunferencia en el plano \(x,z\), con el centro y el cuerpo en \(y=0\). Al derivar la posición mostrada se obtienen la velocidad tangencial y la aceleración hacia el centro indicadas abajo. Las flechas muestran esas direcciones. Sus longitudes usan escalas gráficas distintas, por lo que no comparan unidades de fuerza con unidades de velocidad.</p>
+<div class="equation-link-wrap"><a class="equation-link" href="science/es/equations/mechanics-circular-motion.html">$$ \begin{aligned}\mathbf r(t)&=R(\cos\omega t,0,\sin\omega t),\\\mathbf v(t)&=R\omega(-\sin\omega t,0,\cos\omega t),\\\mathbf a(t)&=-\omega^2\mathbf r(t),\qquad F=m\omega^2R.\end{aligned} $$</a></div>
+<div class="model-teaching-card"><p><strong>Tipo de modelo:</strong> Animación prescrita analíticamente.</p><p><strong>Qué muestra:</strong> Movimiento circular uniforme, velocidad tangencial y fuerza neta hacia el centro.</p><p><strong>Qué no muestra:</strong> Un integrador orbital, una interacción específica que produzca la fuerza, resistencia del aire, relatividad ni efectos cuánticos.</p><p><strong>Ecuación / principio:</strong> \(\mathbf a=-\omega^2\mathbf r\) y \(\mathbf F=m\mathbf a\).</p><p><strong>Qué representa:</strong> La trayectoria usa radio 1.95 en unidades de escena y rapidez angular 0.62 radianes por unidad de tiempo de animación. Son parámetros gráficos, no datos medidos en el SI. El movimiento reducido ralentiza el reloj de visualización.</p><p><strong>Qué se puede probar:</strong> Arrastra para girar; usa la rueda o el gesto de pellizco para acercar o alejar. Con el lienzo enfocado, usa las flechas para girar, + o - para ajustar la distancia e Inicio para restablecer la vista. Los controles de cámara no modifican los parámetros físicos.</p></div>
+<figure class="foundation-model glass-window" data-foundation-model="mechanics" data-model-target="classical-motion-vectors" data-language="es"><div class="foundation-model__frame" data-foundation-model-frame></div><figcaption class="foundation-model__caption">La flecha azul violeta de fuerza neta apunta al centro; la flecha morada luminosa de velocidad es tangente a la circunferencia. Las longitudes de las flechas son ilustrativas.</figcaption></figure>
+</section>
+<section class="content-block">
+<h3 id="section-5">Oscilaciones, estabilidad y caos</h3>
+<p>Un equilibrio es una configuración que permanece en reposo bajo las fuerzas especificadas. Cerca de un mínimo suave de energía potencial, un desplazamiento pequeño suele producir una fuerza restitutiva aproximadamente lineal. El oscilador armónico resultante aparece en resortes, suspensiones y modos normales de estructuras que vibran. Un péndulo es aproximadamente armónico solo para ángulos pequeños. La <a href="https://www.feynmanlectures.caltech.edu/I_21.html" target="_blank" rel="noopener noreferrer">lección sobre el oscilador armónico</a> desarrolla esta aproximación.</p><p>En la ecuación siguiente, \(m\) es la masa, \(b\) el amortiguamiento viscoso, \(k\) la rigidez y \(F_0\cos(\Omega t)\) una fuerza periódica. Sin amortiguamiento ni fuerza externa, la frecuencia angular es \(\omega_0=\sqrt{k/m}\). Para \(m=0.50\) kg y \(k=200\) N/m, \(\omega_0=20\) rad/s y el periodo es aproximadamente 0.314 s. El amortiguamiento disipa energía mecánica; la fuerza externa la aporta. La resonancia es una respuesta grande en un intervalo apropiado de frecuencias, no un crecimiento ilimitado en cualquier sistema real.</p><p>La <strong>estabilidad</strong> estudia si las perturbaciones pequeñas permanecen pequeñas. Un mínimo local de energía potencial es un criterio útil para equilibrios conservativos, pero los sistemas forzados y disipativos requieren un análisis más general. El <strong>caos</strong> es una dinámica determinista con dependencia sensible de las condiciones iniciales en la región pertinente del espacio de estados. Un péndulo doble puede presentarlo, pero no toda oscilación ni toda trayectoria no lineal es caótica. La separación exponencial de estados cercanos puede limitar la predicción aun cuando se conoce la ley de fuerzas. No permite movimientos arbitrarios ni viola las leyes de conservación.</p>
+<div class="equation-link-wrap"><a class="equation-link" href="science/es/equations/mechanics-oscillator.html">$$ m\ddot x+b\dot x+kx=F_0\cos(\Omega t),\qquad\omega_0=\sqrt{k/m} $$</a></div>
+</section>
+<section class="content-block">
+<h3 id="section-7">Marcos de referencia, restricciones y coordenadas</h3>
+<p>Los marcos inerciales que se mueven a velocidad relativa constante comparten las leyes de Newton bajo transformaciones de Galileo: las velocidades difieren por la velocidad del marco, mientras que las aceleraciones coinciden. Un marco acelerado o giratorio requiere términos de fuerzas de inercia. El término centrífugo en un marco giratorio no es una fuerza compañera hacia afuera que actúe sobre el mismo cuerpo en un marco inercial; el término de Coriolis depende de la velocidad respecto al marco giratorio.</p><p>Una <strong>restricción</strong> limita los movimientos permitidos. Una cuenta sobre un alambre o un péndulo de longitud fija tiene menos coordenadas independientes que una partícula libre. Un péndulo puede describirse mediante un ángulo en vez de dos coordenadas cartesianas independientes. Estas variables independientes son las <strong>coordenadas generalizadas</strong>, y su número es el de grados de libertad.</p><p>Las restricciones que pueden expresarse como relaciones entre coordenadas y tiempo se llaman holónomas. Las restricciones de rodadura pueden involucrar velocidades y ser no holónomas; no siempre se eliminan eligiendo menos coordenadas. Las fuerzas ideales de restricción no realizan trabajo sobre los desplazamientos virtuales permitidos, lo que facilita obtener las ecuaciones de Lagrange habituales. Las restricciones con fricción o accionamiento externo requieren mayor cuidado.</p>
+</section>
+<section class="content-block">
+<h3 id="section-4">Formulaciones lagrangiana y hamiltoniana</h3>
+<p>En vez de seguir por separado cada fuerza de restricción, la mecánica analítica trabaja con coordenadas y una acción. Para muchos sistemas mecánicos conservativos, el lagrangiano es energía cinética menos energía potencial, \(L=T-U\); aquí \(T\) representa la misma energía cinética antes llamada \(K\). La acción integra \(L\) a lo largo de una trayectoria y tiene unidades J s. La condición estacionaria significa que el cambio de primer orden de la acción se anula ante pequeñas variaciones permitidas con extremos fijos. No necesariamente es un mínimo ni significa que un cuerpo compare deliberadamente trayectorias futuras.</p><p>Las dos primeras tarjetas presentan la condición de acción estacionaria y su ecuación de Euler-Lagrange para cada coordenada independiente. Para \(L=\tfrac12m\dot x^2-U\(x\)\), derivar respecto a \(\dot x\) da \(m\dot x\), y derivar respecto a \(x\) da \(-dU/dx\). La ecuación recupera entonces \(m\ddot x=-dU/dx\): la ley de Newton para esa fuerza conservativa. Cuando existen fuerzas generalizadas no conservativas, deben añadirse. El <a href="https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/9579/sicm_edition_2.zip/chapter001.html" target="_blank" rel="noopener noreferrer">primer capítulo de Sussman y Wisdom</a> explica la construcción variacional y las restricciones.</p><p>El momento canónico se define mediante \(p_i=\partial L/\partial\dot q_i\). Si esta relación puede invertirse para obtener las velocidades, la transformación de Legendre da \(H=\sum_i p_i\dot q_i-L\). Las ecuaciones de Hamilton de abajo hacen evolucionar coordenadas y momentos en el <strong>espacio de fases</strong>. El subíndice \(i\) identifica las coordenadas independientes; la tarjeta presenta un par. El momento canónico no tiene que ser masa por velocidad, y \(H\) no coincide automáticamente con la energía total habitual para cualquier elección de coordenadas. Un hamiltoniano sin dependencia temporal explícita se conserva a lo largo de sus soluciones.</p><p>El <a href="https://www.maths.tcd.ie/pub/HistMath/People/Hamilton/Dynamics/" target="_blank" rel="noopener noreferrer">artículo de Hamilton de 1834</a> forma parte del desarrollo histórico de este enfoque analítico. Las transformaciones canónicas cambian las coordenadas del espacio de fases y conservan la forma de Hamilton; conectan la mecánica con la teoría de perturbaciones, la mecánica estadística y la teoría cuántica sin convertir el modelo clásico en uno cuántico.</p>
+<div class="equation-link-wrap"><a class="equation-link" href="science/es/equations/classical-action-principle.html">$$ S[q]=\int_{t_1}^{t_2}L(q,\dot q,t)\,dt,\qquad \delta S=0 $$</a></div>
+<div class="equation-link-wrap"><a class="equation-link" href="science/es/equations/euler-lagrange-equation.html">$$ \frac{d}{dt}\frac{\partial L}{\partial\dot q}-\frac{\partial L}{\partial q}=0 $$</a></div>
+<div class="equation-link-wrap"><a class="equation-link" href="science/es/equations/hamilton-equations.html">$$ \dot q=\frac{\partial H}{\partial p},\qquad\dot p=-\frac{\partial H}{\partial q} $$</a></div>
+</section>
+<section class="content-block">
+<h3 id="section-3">Energía, cantidad de movimiento y simetría</h3>
+<p>Una simetría es una transformación que deja invariantes las leyes o la acción pertinentes. El <a href="https://arxiv.org/html/physics/0503066" target="_blank" rel="noopener noreferrer">primer teorema de Noether de 1918</a> asocia simetrías continuas de una acción con cantidades conservadas a lo largo de las soluciones, bajo sus supuestos variacionales. Explica una relación entre leyes de conservación; no supone que todo sistema conserve cualquier cantidad.</p><p>Para sistemas mecánicos aislados habituales, la invariancia ante traslaciones espaciales implica conservación de la cantidad de movimiento; ante rotaciones, conservación del momento angular; y ante traslaciones temporales, conservación de la energía. Un potencial externo fijo en el espacio puede romper la simetría de traslación del subsistema elegido. Una fuerza externa dependiente del tiempo puede intercambiar energía con él. Para decidir qué se conserva, hay que identificar el sistema y su simetría real. La traducción al inglés enlazada es de 1971; su incorporación al repositorio en 2005 no es la fecha de publicación del teorema.</p>
+</section>
+<section class="content-block">
+<h3 id="section-8">Mecánica de muchos cuerpos y medios continuos</h3>
+<p>Un gas, un puente, un instrumento o una galaxia pueden requerir muchos grados de libertad acoplados. La aproximación de cuerpo rígido omite la deformación; la elasticidad la describe; la mecánica de medios continuos sustituye partículas individuales por campos como la densidad de masa y la velocidad. Esta descripción es útil solo cuando las escalas de interés justifican promediar la estructura subyacente.</p><p>Los balances siguen rigiendo la masa, la cantidad de movimiento y la energía, pero también hacen falta relaciones materiales: la conservación por sí sola no determina la viscosidad de un fluido ni la respuesta elástica de un sólido. Unos cuantos modos de vibración pueden aproximar un instrumento, mientras que la dinámica molecular sigue partículas individuales. La mecánica estadística estudia el comportamiento colectivo sin predecir cada trayectoria microscópica.</p>
+<p><span>Continuar con Mecánica de Fluidos y Navier-Stokes</span></p>
+</section>
+<section class="content-block">
+<h3 id="section-9">Métodos numéricos y comprobación del error</h3>
+<p>Una ecuación diferencial proporciona una tasa de cambio, no una trayectoria ya calculada. Un integrador aproxima esa trayectoria con pasos temporales finitos. Euler explícito usa la pendiente actual; su error acumulado suele ser de primer orden. Para un oscilador sin amortiguamiento puede generar energía espuria aunque la animación parezca suave. Un orden mayor no garantiza por sí solo un comportamiento físico fiable a largo plazo.</p><p>La actualización de Verlet en velocidades de abajo usa las aceleraciones en los extremos del paso para masa constante y fuerza dependiente de la posición. Para soluciones regulares, su error global es de segundo orden: reducir el paso a la mitad debería reducirlo aproximadamente por cuatro en un intervalo fijo. Con un hamiltoniano conservativo separable y paso fijo, es simpléctica: conserva la geometría pertinente del espacio de fases, no la energía exacta en cada paso. Para un oscilador armónico, la condición de estabilidad es \(h\omega_0&lt;2\); una precisión útil suele exigir un paso mucho menor.</p><p>Un oscilador puede compararse con su periodo y fase analíticos. Para una órbita, se revisan la energía y el momento angular, se repite el cálculo con pasos menores y se examinan los acercamientos. El error de las restricciones, el redondeo y el error del modelo de fuerzas son distintos del error de discretización temporal. Los pasos adaptativos y la resistencia dependiente de la velocidad requieren métodos apropiados. Un error energético pequeño no demuestra que la trayectoria sea precisa, sobre todo en un sistema caótico.</p><p>El <a href="https://journals.aps.org/pr/abstract/10.1103/PhysRev.159.98" target="_blank" rel="noopener noreferrer">artículo de dinámica molecular de Verlet de 1967</a> es una fuente histórica de esta familia de integradores; eso no significa que incluyera exactamente la notación de actualización de velocidades usada aquí. La <a href="https://authors.library.caltech.edu/records/1h96d-ymc40" target="_blank" rel="noopener noreferrer">revisión de Marsden y West de 2001</a> desarrolla la mecánica variacional discreta y los integradores geométricos resultantes.</p>
+<div class="equation-link-wrap"><a class="equation-link" href="science/es/equations/mechanics-velocity-verlet.html">$$ \begin{aligned}x_{n+1}&=x_n+v_n h+\tfrac12a_nh^2,\\a_{n+1}&=a(x_{n+1}),\\v_{n+1}&=v_n+\tfrac12(a_n+a_{n+1})h.\end{aligned} $$</a></div>
+</section>
+<section class="content-block">
+<h3 id="section-10">Métodos modernos y preguntas de investigación</h3>
+<p>La navegación espacial, la robótica, el análisis estructural y la biomecánica combinan ecuaciones mecánicas con mediciones y parámetros inciertos. Un modelo útil debe contrastarse con observaciones en el régimen para el que se propone. Reproducir una trayectoria no identifica una ley de fuerzas única, y los datos de calibración no garantizan fiabilidad bajo otras cargas o condiciones iniciales.</p><p><a href="https://proceedings.neurips.cc/paper_files/paper/2019/hash/26cd8ecadce0d4efd6cc8a8725cbd1f8-Abstract.html" target="_blank" rel="noopener noreferrer">Hamiltonian Neural Networks</a> (Greydanus, Dzamba y Yosinski, 2019) aprende un hamiltoniano escalar y obtiene un campo vectorial mediante las ecuaciones de Hamilton. Así incorpora una estructura mecánica al aprendizaje en vez de ajustar derivadas temporales arbitrarias. El artículo prueba la idea en sistemas de referencia controlados. La conservación del hamiltoniano aprendido bajo su flujo continuo exacto no demuestra que coincida con la energía física, que un integrador numérico lo conserve exactamente ni que la dinámica aprendida sea válida fuera de las condiciones de entrenamiento.</p><p>Tratar la disipación, las coordenadas desconocidas, las restricciones, las mediciones ruidosas y la incertidumbre sigue siendo un problema sustantivo de modelado. Los integradores geométricos y la dinámica aprendida abordan partes distintas. Ninguno sustituye los experimentos ni vuelve universal un modelo simplificado.</p>
+</section>
+<section class="content-block">
+<h3 id="section-6">Límites y conexiones</h3>
+<p>La mecánica newtoniana es una aproximación cuya suficiencia depende de la precisión buscada. Un tamaño grande no basta para garantizarla. Los efectos relativistas importan a velocidades altas, y la gravedad puede requerir curvatura del espacio-tiempo incluso para cuerpos lentos. Los efectos cuánticos importan cuando la acción pertinente y la preparación del estado no admiten un tratamiento clásico; comparar una escala de acción con \(\hbar\), la constante reducida de Planck, orienta, pero no es un criterio completo.</p><p>Las ecuaciones deterministas no prometen predicción práctica exacta. La incertidumbre de las mediciones, la sensibilidad caótica, las interacciones no resueltas y el error numérico tienen orígenes distintos. Los métodos estadísticos pueden ser necesarios aun cuando el modelo mecánico subyacente sea clásico.</p>
+<p><span>Fundamentos matemáticos</span></p>
+<p><span>Relatividad y espacio-tiempo</span></p>
+<p><span>Mecánica cuántica</span></p>
+<p><span>Termodinámica y mecánica estadística</span></p>
+</section>
+<section class="content-block glossary-section"><h3 id="section-11">Glosario de términos técnicos</h3><ul class="paper-list glossary-list">
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Marco de referencia:</strong> Sistema de ejes y relojes para especificar posición y tiempo. En un marco inercial, un cuerpo libre de fuerzas mantiene velocidad constante.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Velocidad y aceleración:</strong> La velocidad es la tasa de cambio de la posición; la aceleración es la tasa de cambio de la velocidad, incluida su dirección. La rapidez es la magnitud de la velocidad.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Fuerza neta:</strong> Suma vectorial de las fuerzas sobre el cuerpo elegido. Las fuerzas sobre cuerpos distintos pertenecen a diagramas distintos.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Restricción:</strong> Condición que limita las posiciones o velocidades permitidas. Las restricciones holónomas pueden expresarse en coordenadas y tiempo.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Trabajo y potencia:</strong> El trabajo transfiere energía mediante fuerza a lo largo de un desplazamiento. La potencia mide la tasa de transferencia de energía.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Fuerza conservativa:</strong> Fuerza cuyo trabajo depende de los extremos y no de la trayectoria, en el dominio considerado; admite una energía potencial.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Cantidad de movimiento e impulso:</strong> La cantidad de movimiento newtoniana es masa por velocidad. El impulso es la integral temporal de la fuerza y cambia la cantidad de movimiento.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Centro de masa:</strong> Posición media de un sistema ponderada por la masa. Para masa total constante, su aceleración responde a la fuerza externa total.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Momento de fuerza y momento angular:</strong> El momento de fuerza mide el efecto de giro de una fuerza respecto a un origen; cambia el momento angular respecto a un origen inercial fijo.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Momento de inercia:</strong> Medida de la distribución de masa respecto a un eje de rotación, ponderada por el cuadrado de la distancia perpendicular. La relación tridimensional general usa un tensor.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Centrípeta:</strong> Dirigida hacia el centro de curvatura; describe la componente de fuerza neta necesaria para curvar una trayectoria, no una interacción aparte.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Modo normal:</strong> Patrón de oscilación colectiva de un sistema acoplado linealizado en el que todas las partes oscilan a una misma frecuencia del modo.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Resonancia:</strong> Respuesta forzada grande cerca de frecuencias naturales apropiadas; el amortiguamiento y los efectos no lineales la limitan.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Grado de libertad:</strong> Coordenada independiente necesaria para describir una configuración una vez consideradas las restricciones pertinentes.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Desplazamiento virtual:</strong> Variación infinitesimal de la configuración a tiempo fijo compatible con las restricciones; no es un movimiento durante un intervalo temporal.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Acción y condición estacionaria:</strong> La acción es la integral temporal del lagrangiano a lo largo de una trayectoria. La condición estacionaria anula su primera variación sin exigir un mínimo.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Momento canónico:</strong> Derivada del lagrangiano respecto a una velocidad generalizada. No tiene que coincidir con masa por velocidad.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Espacio de fases:</strong> Espacio de coordenadas y sus momentos conjugados. Un punto especifica un estado mecánico, no solo una posición en el espacio ordinario.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Transformación de Legendre:</strong> Cambio de variables de velocidad a variables de momento usado para construir un hamiltoniano regular a partir de un lagrangiano.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Simetría:</strong> Transformación que conserva la descripción matemática pertinente. Las simetrías continuas de la acción producen leyes de conservación bajo los supuestos de Noether.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Caos:</strong> Dependencia sensible de las condiciones iniciales en una dinámica determinista; limita la predicción sin volver aleatorias las leyes.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Integrador simpléctico:</strong> Transformación numérica que conserva la geometría hamiltoniana del espacio de fases. No garantiza energía exacta ni error de trayectoria despreciable.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Convergencia y estabilidad:</strong> La convergencia estudia la aproximación a la solución al mejorar la resolución numérica; la estabilidad estudia el control de perturbaciones o errores numéricos.</span></li>
+</ul></section>
+<section class="content-block glossary-section"><h3 id="mechanics-abbreviations">Abreviaturas y símbolos de unidades</h3><ul class="paper-list glossary-list">
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span>SI: Sistema Internacional de Unidades.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span>CM: centro de masa, usado en el subíndice de la velocidad de rodadura.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span>m, s, kg: metro, segundo, kilogramo. N, J: newton y joule. rad: radián, unidad adimensional de ángulo. Un símbolo como m puede representar la masa dentro de una ecuación; su definición local determina el significado.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span>DOI: identificador de objeto digital, identificador persistente usado en las referencias.</span></li>
+</ul></section>
+<section class="content-block source-papers"><h3 id="section-12">Fuentes fundamentales y modernas</h3>
+<p class="source-language-note">Las fuentes se presentan en el idioma de las ediciones consultadas.</p>
+<ul class="paper-list">
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://galileoandeinstein.phys.virginia.edu/tns_draft/" target="_blank" rel="noopener noreferrer">Galileo Galilei. <em>Dialogues Concerning Two New Sciences.</em></a> <span class="paper-note">Obra original de 1638; traducción al inglés de Henry Crew y Alfonso de Salvio, Macmillan, 1914. Transcripción de la Universidad de Virginia. Fuente histórica sobre movimiento acelerado y proyectiles.</span></span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.gutenberg.org/ebooks/28233" target="_blank" rel="noopener noreferrer">Isaac Newton. <em>Philosophiae Naturalis Principia Mathematica.</em></a> <span class="paper-note">Publicada por primera vez en 1687. Texto latino alojado en Project Gutenberg, no una traducción al inglés; la edición digital de 2009 no es la publicación original. Obra fundacional sobre movimiento y gravitación.</span></span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00074" target="_blank" rel="noopener noreferrer">Isaac Newton. <em>Front matter to the Principia (1687).</em></a> <span class="paper-note">Newton Project, Universidad de Oxford. Contexto histórico de los propósitos de la primera edición, no una derivación moderna de las ecuaciones.</span></span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.maths.tcd.ie/pub/HistMath/People/Hamilton/Dynamics/" target="_blank" rel="noopener noreferrer">William Rowan Hamilton. <em>On a General Method in Dynamics.</em></a> <span class="paper-note">Philosophical Transactions of the Royal Society, 1834, pp. 247-308. Transcripción editada por David R. Wilkins, Trinity College Dublin, 2000. Fuente histórica primaria de dinámica analítica.</span></span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/abs/physics/0503066" target="_blank" rel="noopener noreferrer">Emmy Noether. <em>Invariante Variationsprobleme / Invariant Variation Problems.</em></a> <span class="paper-note">Artículo original en alemán, 1918, Nachrichten von der Gesellschaft der Wissenschaften zu Göttingen, pp. 235-257. Traducción al inglés de M. A. Tavel, Transport Theory and Statistical Physics 1(3), 1971, pp. 186-207; depositada en 2005. Fuente del teorema que relaciona simetría y conservación.</span></span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.feynmanlectures.caltech.edu/I_toc.html" target="_blank" rel="noopener noreferrer">Richard P. Feynman, Robert B. Leighton, and Matthew Sands. <em>The Feynman Lectures on Physics, Volume I.</em></a> <span class="paper-note">1963; edición en línea de Caltech. Los capítulos 7, 9, 10, 14 y 18-21 desarrollan gravitación, fuerzas, cantidad de movimiento, trabajo, rotación y oscilaciones. Texto explicativo, no artículo de descubrimiento original.</span></span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://mitpress.mit.edu/9780262028967/structure-and-interpretation-of-classical-mechanics/" target="_blank" rel="noopener noreferrer">Gerald Jay Sussman and Jack Wisdom. <em>Structure and Interpretation of Classical Mechanics.</em></a> <span class="paper-note">Segunda edición, MIT Press, 2015. Texto computacional que relaciona mecánica variacional, espacio de fases, dinámica no lineal y exploración numérica.</span></span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.press.jhu.edu/books/title/11438/emmy-noethers-wonderful-theorem" target="_blank" rel="noopener noreferrer">Dwight E. Neuenschwander. <em>Emmy Noether’s Wonderful Theorem.</em></a> <span class="paper-note">Edición revisada y actualizada, Johns Hopkins University Press, 2017. Explicación complementaria del teorema y sus supuestos, distinta del artículo original de Noether.</span></span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://journals.aps.org/pr/abstract/10.1103/PhysRev.159.98" target="_blank" rel="noopener noreferrer">Loup Verlet. <em>Computer “Experiments” on Classical Fluids. I. Thermodynamical Properties of Lennard-Jones Molecules.</em></a> <span class="paper-note">Physical Review 159, 98-103 (1967), DOI: 10.1103/PhysRev.159.98. Artículo original de dinámica molecular en el origen de la familia de integradores de Verlet.</span></span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://authors.library.caltech.edu/records/1h96d-ymc40" target="_blank" rel="noopener noreferrer">Jerrold E. Marsden and Matthew West. <em>Discrete mechanics and variational integrators.</em></a> <span class="paper-note">Acta Numerica 10, 357-514 (2001), DOI: 10.1017/S096249290100006X. Revisión de principios variacionales discretos, estructura simpléctica y propiedades de conservación.</span></span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://proceedings.neurips.cc/paper_files/paper/2019/hash/26cd8ecadce0d4efd6cc8a8725cbd1f8-Abstract.html" target="_blank" rel="noopener noreferrer">Sam Greydanus, Misko Dzamba, and Jason Yosinski. <em>Hamiltonian Neural Networks.</em></a> <span class="paper-note">Advances in Neural Information Processing Systems 32 (2019). Investigación publicada sobre aprendizaje de dinámica hamiltoniana; sus resultados en sistemas de referencia tienen un alcance más limitado que el modelado físico general.</span></span></li>
+</ul></section>
 </div>
 <nav aria-label="Temas relacionados"><ul><li><a href="science/es/mathematical-foundations/index.html">Fundamentos matemáticos</a></li><li><a href="science/es/mathematical-analysis/index.html">Análisis Matemático y Ecuaciones Diferenciales</a></li><li><a href="science/es/fluid-mechanics-navier-stokes/index.html">Mecánica de Fluidos y Navier-Stokes</a></li><li><a href="science/es/relativity-spacetime/index.html">Relatividad y espaciotiempo</a></li></ul></nav></main></body></html>

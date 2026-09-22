@@ -1,217 +1,153 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <base href="../../../"><title>Classical Mechanics | Infinite Universe</title>
-<meta name="description" content="Mechanics comes from older words connected with machines, devices, and practical motion. In physics, classical mechanics is the disciplined study of motion before quantum mechanics"><link rel="canonical" href="https://issacquantum.github.io/InfiniteUniverse/science/en/classical-mechanics/index.html">
+<meta name="description" content="Classical mechanics describes how bodies move and how interactions change that motion. It connects measured positions and times with forces, energy, and momentum. It remains useful"><link rel="canonical" href="https://issacquantum.github.io/InfiniteUniverse/science/en/classical-mechanics/index.html">
 <link rel="alternate" hreflang="es" href="https://issacquantum.github.io/InfiniteUniverse/science/es/classical-mechanics/index.html"><link rel="alternate" hreflang="en" href="https://issacquantum.github.io/InfiniteUniverse/science/en/classical-mechanics/index.html">
-<meta property="og:title" content="Classical Mechanics"><meta property="og:description" content="Mechanics comes from older words connected with machines, devices, and practical motion. In physics, classical mechanics is the disciplined study of motion before quantum mechanics"><meta property="og:url" content="https://issacquantum.github.io/InfiniteUniverse/science/en/classical-mechanics/index.html"><meta property="og:type" content="article">
+<meta property="og:title" content="Classical Mechanics"><meta property="og:description" content="Classical mechanics describes how bodies move and how interactions change that motion. It connects measured positions and times with forces, energy, and momentum. It remains useful"><meta property="og:url" content="https://issacquantum.github.io/InfiniteUniverse/science/en/classical-mechanics/index.html"><meta property="og:type" content="article">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self' https://cdn.jsdelivr.net; connect-src 'self'; frame-src https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'">
 <link rel="stylesheet" href="styles/static-science.css"><script src="scripts/mathjax-config.js"></script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
 </head><body><a href="science/en/classical-mechanics/index.html#main">Skip to content</a><nav><a href="index.html#/en/science/classical-mechanics">Open in the interactive site</a> · <a href="science/es/classical-mechanics/index.html" lang="es">Español</a> · <a href="science/en/index.html">All topics</a></nav><main id="main"><h1>Classical Mechanics</h1><div class="structured-content" data-structured-content>
-  <section class="content-block">
-    <h3 id="section-1">Etymology</h3>
-    <p>
-      <strong>Mechanics</strong> comes from older words connected with machines, devices, and practical motion. In
-      physics, classical mechanics is the disciplined study of motion before quantum mechanics and relativity become
-      necessary.
-    </p>
-    <p>
-      It is not obsolete. It is the working language behind projectiles, planets, vehicles, structures, oscillators,
-      robotics, control systems, orbital calculations, game physics, and the first approximation behind many
-      simulations.
-    </p>
-    <p class="source-language-note">
-      <strong>Source of etymological origin:</strong>
-      <a class="platform-link" href="https://www.etymonline.com/word/mechanics" target="_blank" rel="noopener noreferrer">Online Etymology Dictionary: mechanics</a>.
-    </p>
-  </section>
-
-  <section class="content-block">
-    <div class="model-teaching-card">
-      <p><strong>Model type:</strong> Toy physical model.</p>
-      <p><strong>What this shows:</strong> A body moving around a center with velocity and inward force directions shown as vectors.</p>
-      <p><strong>What this does not show:</strong> A full numerical orbit solver, air resistance, relativity, or quantum behavior.</p>
-      <p><strong>Equation / principle:</strong> \(\mathbf{F}=m\mathbf{a}\) and the action principle organize classical motion.</p>
-      <p><strong>What the model represents:</strong> Classical motion as position plus changing vectors, not just an object moving in a circle.</p>
-    </div>
-    <figure class="foundation-model glass-window" data-foundation-model="mechanics" data-model-target="classical-motion-vectors" data-language="en">
-      <div class="foundation-model__frame" data-foundation-model-frame></div>
-      <figcaption class="foundation-model__caption">Drag to rotate. The force vector, in blue-violet, points inward; the tangential velocity vector, in luminous purple, shows the direction of motion.</figcaption>
-    </figure>
-  </section>
-
-  <section class="content-block">
-    <h3 id="section-2">Newtonian Core</h3>
-    <p>The most direct form is <a href="https://newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00074" target="_blank" rel="noopener noreferrer">Newton</a>'s second law:</p>
-    <div class="equation-link-wrap">
-      <a class="equation-link" href="science/en/equations/newton-second-law.html">
-        $$
-        \mathbf{F}=m\mathbf{a}
-        $$
-      </a>
-    </div>
-    <p>
-      It says that force changes motion. Given the forces and the starting state, the motion can be predicted inside
-      the classical domain. The law is local: it tells how acceleration changes now, and solving the motion requires
-      following that change over time.
-    </p>
-    <p>
-      Newtonian mechanics also contains gravity, momentum, circular motion, oscillation, and collisions. It works
-      extremely well for large objects moving much slower than light, from falling objects to planetary orbits.
-    </p>
-  </section>
-
-  <section class="content-block">
-    <h3 id="section-3">Energy, Momentum, and Symmetry</h3>
-    <p>
-      Classical mechanics is deeper than force diagrams. Momentum, angular momentum, and energy reveal what remains
-      stable while a system changes. Conservation laws are tied to symmetries: translation symmetry gives momentum
-      conservation, rotation symmetry gives angular momentum conservation, and time-translation symmetry gives energy
-      conservation.
-    </p>
-    <p>
-      This is why the same laws of mechanics can describe a pendulum, a satellite, a billiard collision, and a numerical
-      simulation. The objects change, but the conserved relationships keep the calculation well-defined.
-    </p>
-  </section>
-
-  <section class="content-block">
-    <h3 id="section-4">Lagrangian and Hamiltonian Views</h3>
-    <p>The Lagrangian view organizes motion through the action:</p>
-    <div class="equation-link-wrap">
-      <a class="equation-link" href="science/en/equations/classical-action-principle.html">
-        $$
-        S=\int L(q,\dot q,t)\,dt
-        $$
-      </a>
-    </div>
-    <p>
-      The actual path is the one that makes the action stationary. That sounds abstract, but the practical meaning is
-      simple: instead of tracking every force directly, one writes the energy structure of the system and derives the
-      motion from it.
-    </p>
-    <div class="equation-link-wrap">
-      <a class="equation-link" href="science/en/equations/euler-lagrange-equation.html">
-        $$
-        \frac{d}{dt}\frac{\partial L}{\partial \dot q}-\frac{\partial L}{\partial q}=0
-        $$
-      </a>
-    </div>
-    <p>The Hamiltonian view shifts attention to coordinates and momenta:</p>
-    <div class="equation-link-wrap">
-      <a class="equation-link" href="science/en/equations/hamilton-equations.html">
-        $$
-        \dot q=\frac{\partial H}{\partial p},\qquad \dot p=-\frac{\partial H}{\partial q}
-        $$
-      </a>
-    </div>
-    <p>This form becomes the bridge to phase space, statistical mechanics, canonical transformations, quantum mechanics, and symplectic numerical methods.</p>
-  </section>
-
-  <section class="content-block">
-    <h3 id="section-5">Oscillations, Stability, and Chaos</h3>
-    <p>
-      Springs, pendulums, vibrating strings, mechanical resonances, orbital perturbations, and control systems all show
-      why mechanics is not just about straight-line motion. Near stable equilibrium, many systems behave approximately
-      like harmonic oscillators. Farther away, nonlinear effects can produce resonance, instability, or chaos.
-    </p>
-    <p>
-      Chaos does not mean there is no law. It means small differences in initial conditions can grow so fast that
-      long-term prediction becomes limited even when the equations are deterministic.
-    </p>
-  </section>
-
-  <section class="content-block">
-    <h3 id="section-6">Limits</h3>
-    <p>
-      Classical mechanics is accurate for large, slow systems where quantum discreteness and relativistic effects are
-      negligible. It fails as a final framework when speeds approach light, when action scales approach \(\hbar\), when
-      fields must be quantized, or when gravity requires spacetime curvature rather than a force inside fixed space.
-    </p>
-  </section>
-
-  <section class="content-block">
-    <h3 id="section-7">Frames, Constraints, and Coordinates</h3>
-    <p>
-      A classical problem is never only an object plus a force. It also needs a reference frame, a choice of coordinates,
-      and a clear statement of constraints. A bead sliding on a wire, a pendulum fixed at one end, a wheel rolling without
-      slipping, and a spacecraft following a transfer orbit are all different because their allowed motions are different.
-      Good mechanics begins by saying what can move, what cannot move, and which quantities describe the state without
-      redundancy.
-    </p>
-    <p>
-      Generalized coordinates are useful because they let the mathematics follow the natural motion of the system. A
-      pendulum is easier to describe by an angle than by two independent Cartesian coordinates plus a constraint equation.
-      This is why the Lagrangian and Hamiltonian forms are not decorative alternatives to Newton's laws. They are cleaner
-      languages for complicated systems, especially when forces of constraint should not be tracked one by one.
-    </p>
-  </section>
-
-  <section class="content-block">
-    <h3 id="section-8">Many-Body and Continuum Mechanics</h3>
-    <p>
-      Real systems often contain too many parts to follow by hand. A gas, bridge, liquid flow, vibrating instrument,
-      vehicle suspension, or galaxy cannot be understood only as one isolated mass. Classical mechanics therefore expands
-      into many-body dynamics, rigid-body motion, elasticity, fluid mechanics, and continuum models. The same principles of
-      momentum, energy, and stability remain, but the state becomes a field or a large collection of coupled degrees of
-      freedom.
-    </p>
-    <p>
-      This is also where approximation becomes part of the science. Friction may be modeled as a simple drag term, a fluid
-      may be treated as continuous even though it is molecular, and a flexible structure may be reduced to a few dominant
-      modes. These approximations are not failures when their domain is stated. They are the reason classical mechanics can
-      become usable engineering instead of an impossible inventory of every atom.
-    </p>
-  </section>
-
-  <section class="content-block">
-    <h3 id="section-9">Simulation Discipline</h3>
-    <p>
-      A simulation is not automatically correct because it looks smooth. Classical motion has geometric structure: energy,
-      momentum, phase-space volume, and constraints can drift if the numerical method is careless. A basic integrator may
-      look acceptable for a few seconds and still create false energy over longer times. Symplectic methods matter because
-      they preserve the phase-space structure of Hamiltonian systems more faithfully.
-    </p>
-    <p>
-      The practical lesson is direct: physics engines, orbital solvers, vehicle models, and animation systems need error
-      checks, timestep control, and domain awareness. Classical mechanics becomes strongest when the equation, the model,
-      and the numerical implementation are all treated as separate things that must agree within stated limits.
-    </p>
-  </section>
-
-  <section class="content-block">
-    <h3 id="section-10">Modern Frontier</h3>
-    <p>
-      Classical mechanics remains central in spacecraft navigation, robotics, control theory, vehicle simulation,
-      structural engineering, biomechanics, fluids, and animation. The modern frontier is computational: symplectic
-      integrators, uncertainty propagation, nonlinear control, digital twins, and high-fidelity simulation. The same
-      Newtonian or Lagrangian ideas become serious engineering tools when combined with numerical methods and careful
-      error control.
-    </p>
-    <p>
-      The important boundary is domain. Classical mechanics is not wrong inside its proper range; it is incomplete as a
-      final theory. It must yield to relativity at high speed or strong gravity, to quantum theory at microscopic action
-      scales, and to statistical methods when too many degrees of freedom make exact tracking impossible.
-    </p>
-  </section>
-
-  <section class="content-block glossary-section">
-    <h3 id="section-11">Technical Terms Glossary</h3>
-    <ul class="paper-list glossary-list">
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Inertial frame:</strong> A frame where a free object moves at constant velocity unless a force acts.</span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Phase space:</strong> The space of positions and momenta used to describe a system's state.</span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Action:</strong> A quantity integrated over a path whose stationary value gives the equations of motion.</span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Canonical momentum:</strong> Momentum defined from the Lagrangian, not always identical to simple mass times velocity.</span></li>
-    </ul>
-  </section>
-
-  <section class="content-block source-papers">
-    <h3 id="section-12">Foundational and Modern Source URLs</h3>
-    <ul class="paper-list">
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.gutenberg.org/ebooks/28233" target="_blank" rel="noopener noreferrer">Isaac Newton. <em>The Mathematical Principles of Natural Philosophy.</em></a> <span class="paper-note">Project Gutenberg edition.</span></span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.feynmanlectures.caltech.edu/I_toc.html" target="_blank" rel="noopener noreferrer">Feynman, Leighton, and Sands. <em>The Feynman Lectures on Physics, Volume I.</em></a> <span class="paper-note">Caltech online edition.</span></span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://mitpress.mit.edu/9780262028967/structure-and-interpretation-of-classical-mechanics/" target="_blank" rel="noopener noreferrer">Sussman and Wisdom. <em>Structure and Interpretation of Classical Mechanics.</em></a> <span class="paper-note">Modern computational mechanics reference.</span></span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.press.jhu.edu/books/title/11438/emmy-noethers-wonderful-theorem" target="_blank" rel="noopener noreferrer">Dwight E. Neuenschwander. <em>Emmy Noether's Wonderful Theorem.</em></a> <span class="paper-note">Symmetry and conservation reference.</span></span></li>
-    </ul>
-  </section>
+<section class="content-block">
+<h3 id="section-1">Meaning and Scope</h3>
+<p><strong>Classical mechanics</strong> describes how bodies move and how interactions change that motion. It connects measured positions and times with forces, energy, and momentum. It remains useful for vehicles, structures, instruments, robots, and planetary motion when quantum and relativistic corrections are negligible.</p><p>The word <em>mechanics</em> has roots associated with machines and their operation. Its historical meaning is broader than the modern equations of motion.</p>
+<p class="source-language-note"><strong>Source of etymological origin: </strong><a class="platform-link" href="https://www.etymonline.com/word/mechanics" target="_blank" rel="noopener noreferrer">Online Etymology Dictionary: mechanics</a>.</p>
+</section>
+<section class="content-block">
+<h3 id="mechanics-history">From Falling Bodies to General Laws</h3>
+<p>Describing a trajectory is different from explaining why it occurs. Galileo's <em>Two New Sciences</em> (1638) developed mathematical accounts of accelerated motion and projectiles. Inclined planes made changes in speed easier to measure than a rapid vertical fall. His account of uniformly accelerated motion relates distance from rest to the square of elapsed time. The <a href="https://galileoandeinstein.phys.virginia.edu/tns_draft/tns_160to243.html" target="_blank" rel="noopener noreferrer">Third Day</a> connects the mathematical argument with an experimental procedure.</p><p>Newton's <em>Principia</em>, first published in 1687, brought laws of motion and universal gravitation into one framework for terrestrial and celestial motion. The <a href="https://newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00074" target="_blank" rel="noopener noreferrer">1687 front matter preserved by the Newton Project</a> records that program. Later analytical formulations made constrained and many-body problems easier to organize. They did not discard the successful Newtonian predictions.</p>
+</section>
+<section class="content-block">
+<h3 id="mechanics-measurement">Measurement, Vectors, and Initial Conditions</h3>
+<p>A prediction needs a defined system, a reference frame, units, and initial data. Treating a vehicle as a particle keeps its mass and position but ignores its dimensions and internal motion. A rigid-body model retains its orientation and rotation while neglecting deformation. Neither is suitable for every question.</p><p>In the International System of Units (SI), position uses metres (m), time seconds (s), and mass kilograms (kg). A <strong>scalar</strong>, such as mass or speed, has a magnitude without a spatial direction. A <strong>vector</strong>, such as displacement or force, has magnitude and direction. Components give its signed projections onto chosen axes. A displacement of 3 m east and 4 m north has magnitude 5 m, not 7 m. Distance traveled, unlike displacement, depends on the path.</p><p>A derivative is an instantaneous rate of change; an integral accumulates contributions over an interval or path. A dot over a quantity means a time derivative. Bold symbols denote vectors. Dimensions provide a useful check: force has units kg m/s², called newtons (N), so force divided by mass has acceleration units. Dimensional agreement is necessary, but cannot establish the correct sign, coefficient, or physical model.</p><p>Measurement uncertainty and model assumptions belong in the result. To predict an ordinary second-order equation of motion, specify initial position and velocity. More precise initial data cannot repair an incorrect force law.</p>
+</section>
+<section class="content-block">
+<h3 id="mechanics-kinematics">Position, Velocity, and Acceleration</h3>
+<p><strong>Kinematics</strong> describes motion without yet specifying its cause. Velocity measures change of position; acceleration measures change of velocity, including changes of direction. A body can accelerate while its speed stays constant, as in uniform circular motion. The last expression below applies to one coordinate with constant acceleration and initial time zero.</p><p>For an object starting at \(x_0=0\) with \(v_0=3\) m/s and constant \(a=2\) m/s², after 4 s its position is \(3(4)+\tfrac12(2)(4^2)=28\) m and its velocity is 11 m/s. If acceleration varies, integrate it rather than inserting an average into a formula without justification.</p><p>A projectile near Earth's surface separates into horizontal constant-velocity motion and vertical acceleration approximately equal to \(-g\), with upward positive. This yields a parabola only when air resistance, Earth's curvature, and variation of \(g\) can be neglected. Measurements of position against time test the prediction, rather than the appearance of the curve alone.</p>
+<div class="equation-link-wrap"><a class="equation-link" href="science/en/equations/mechanics-kinematics.html">$$ \mathbf v=\frac{d\mathbf r}{dt},\quad\mathbf a=\frac{d\mathbf v}{dt},\qquad x=x_0+v_0t+\tfrac12at^2 $$</a></div>
+</section>
+<section class="content-block">
+<h3 id="section-2">Newton's Three Laws</h3>
+<p><strong>First law:</strong> in an inertial frame, a body with zero net external force has constant velocity. Rest is one case, not the only case. Sustained motion does not require a sustained net force; friction often hides this in daily experience.</p><p><strong>Second law:</strong> net force changes momentum. For constant mass it becomes the equation below. The force is the vector sum of all external forces on the chosen body. It determines acceleration, not the direction of velocity. A 2 kg cart pulled by 10 N against 2 N of resistance accelerates at \((10-2)/2=4\) m/s².</p><p><strong>Third law:</strong> in the Newtonian interaction model, the force of body A on B is opposite to that of B on A. These forces act on different bodies and do not cancel in one body's force diagram. For an isolated collection with such internal pairs, they cancel in the total momentum balance. Electromagnetic interactions require including field momentum when this simple particle-only balance is inadequate.</p><p>Start a force diagram by isolating one body, naming the external interactions, and choosing axes. Only then resolve components and solve. The <a href="https://www.feynmanlectures.caltech.edu/I_09.html" target="_blank" rel="noopener noreferrer">Feynman lectures on dynamics</a> develop the relation between forces, acceleration, and changing vector direction.</p>
+<div class="equation-link-wrap"><a class="equation-link" href="science/en/equations/newton-second-law.html">$$ \mathbf{F}=m\mathbf{a} $$</a></div>
+</section>
+<section class="content-block">
+<h3 id="mechanics-forces">Common Forces and Their Approximations</h3>
+<p><strong>Weight</strong> near Earth's surface is approximately \(mg\), with \(g\approx9.81\) m/s². Mass measures inertia; weight is a force. A surface's <strong>normal force</strong> acts perpendicular to it and adjusts to contact conditions. It is not automatically equal to weight. An ideal taut, massless string transmits tension along its length; an ideal spring has a restoring force proportional to displacement.</p><p>Dry static friction opposes impending relative slip and adjusts up to a limiting magnitude. Sliding friction is often approximated by a constant coefficient times normal force. If \(N=20\) N and \(\mu_s=0.4\), the static limit is 8 N. A 3 N horizontal pull can be balanced by 3 N of friction, not necessarily 8 N. The coefficients depend on surfaces and conditions; these laws are approximations, not microscopic explanations.</p><p>Drag depends on motion relative to a surrounding medium. A linear drag approximation is useful in some slow viscous regimes; a quadratic approximation is useful in other flow regimes. Neither applies at every speed. Contact, deformation, and flow can require more detailed material models.</p>
+<div class="equation-link-wrap"><a class="equation-link" href="science/en/equations/mechanics-common-forces.html">$$ \mathbf W=m\mathbf g,\quad F_x=-kx,\qquad |f_s|\leq\mu_s N,\quad |f_k|=\mu_k N $$</a></div>
+</section>
+<section class="content-block">
+<h3 id="mechanics-energy">Work and Mechanical Energy</h3>
+<p>A force transfers energy by doing <strong>work</strong> along a displacement. Only its component along that displacement contributes, through the dot product. The net work on a particle equals its change of kinetic energy. Work and energy use joules (J), where 1 J = 1 N m. Power is the rate of energy transfer, in watts (J/s).</p><p>A constant net force of 6 N along a 5 m displacement does 30 J of work. A 2 kg body starting from rest therefore reaches \(\sqrt{30}\approx5.48\) m/s. A force perpendicular to velocity does no instantaneous work; it can change direction without changing speed.</p><p>A conservative force admits a potential energy \(U\), so its work is minus the change in \(U\). For a one-dimensional force, \(F_x=-dU/dx\). With no other work and no explicit time dependence, \(K+U\) remains constant. Friction can reduce this mechanical energy while increasing internal energy. That is not a failure of total energy conservation. Potential energy has an arbitrary additive zero; differences affect motion. See the <a href="https://www.feynmanlectures.caltech.edu/I_14.html" target="_blank" rel="noopener noreferrer">discussion of work and potential energy</a>.</p>
+<div class="equation-link-wrap"><a class="equation-link" href="science/en/equations/mechanics-work-energy.html">$$ W_{\rm net}=\int_A^B\mathbf F\cdot d\mathbf r=\Delta K,\qquad K=\tfrac12mv^2 $$</a></div>
+</section>
+<section class="content-block">
+<h3 id="mechanics-momentum">Momentum, Impulse, and Collisions</h3>
+<p><strong>Momentum</strong> is mass times velocity in the Newtonian regime. Impulse accumulates force over time and equals the change of momentum. For a system, total momentum is conserved when the net external impulse vanishes, even if large internal forces act during a collision. If the net external force remains zero, the center of mass moves at constant velocity.</p><p>A 1 kg cart moving at 4 m/s sticks to a stationary 3 kg cart on a horizontal track. Neglecting external impulse, total momentum is 4 kg m/s and combined mass is 4 kg, so the common final velocity is 1 m/s. Kinetic energy falls from 8 J to 2 J; the remaining 6 J becomes deformation, heat, and other internal motion.</p><p>An <strong>elastic</strong> collision conserves total kinetic energy as well as momentum in the isolated system. An <strong>inelastic</strong> collision does not conserve kinetic energy; sticking is the perfectly inelastic case. In a two-dimensional collision, conserve momentum component by component. Momentum alone does not determine every outgoing velocity without additional collision information. <a href="https://www.feynmanlectures.caltech.edu/I_10.html" target="_blank" rel="noopener noreferrer">Conservation of momentum</a> explains why choosing the system boundary matters.</p>
+<div class="equation-link-wrap"><a class="equation-link" href="science/en/equations/mechanics-impulse-momentum.html">$$ \mathbf p=m\mathbf v,\qquad\Delta\mathbf p=\int_{t_1}^{t_2}\mathbf F_{\rm ext}\,dt $$</a></div>
+</section>
+<section class="content-block">
+<h3 id="mechanics-rotation">Rotation and Equilibrium</h3>
+<p>A force can change translation and rotation. Its <strong>torque</strong> about a chosen origin is the cross product of lever arm and force. Its magnitude is force times perpendicular lever arm; its direction follows the right-hand rule. Angular momentum measures rotational motion about that same origin. For a fixed inertial origin, external torque gives its rate of change.</p><p>The moment of inertia \(I\) measures how mass is distributed relative to an axis, in kg m². It is not just total mass. For a rigid body about a fixed axis, net axial torque is \(I\alpha\), where \(\alpha\) is angular acceleration. A perpendicular 20 N force at 0.30 m produces 6 N m; with \(I=2\) kg m², the angular acceleration is 3 rad/s². General three-dimensional rotation needs an inertia tensor, not one scalar for every direction.</p><p>Static equilibrium requires both zero net force and zero net torque, with the body initially at rest. Two opposite forces can have zero resultant but still produce a turning couple. Rolling without slipping imposes \(v_{\mathrm{CM}}=R\omega\) on level ground, where CM denotes center of mass; its kinetic energy includes both translation and rotation. <a href="https://www.feynmanlectures.caltech.edu/I_20.html" target="_blank" rel="noopener noreferrer">Rotation in space</a> develops the vector description.</p>
+<div class="equation-link-wrap"><a class="equation-link" href="science/en/equations/mechanics-rotation.html">$$ \boldsymbol\tau=\mathbf r\times\mathbf F,\quad\frac{d\mathbf L}{dt}=\boldsymbol\tau_{\rm ext},\qquad\tau_z=I_z\alpha $$</a></div>
+</section>
+<section class="content-block">
+<h3 id="mechanics-gravity">Gravitation and Orbits</h3>
+<p>Newtonian gravity attracts two point masses with a force proportional to their masses and inversely proportional to separation squared. Outside a spherical mass distribution, its gravitational field is that of its mass concentrated at the center. Here \(\mathbf r\) points from the central mass \(M\) to the body \(m\); the negative sign makes the force attractive. \(G\) is the gravitational constant.</p><p>A satellite continuously falls while its sideways velocity keeps it from reaching the surface. Equating \(mv^2/r\) with \(GMm/r^2\) gives the circular speed below when \(m\) is negligible compared with \(M\). With Earth's \(GM\approx3.986\times10^{14}\) m³/s² and radius from the center \(r=7.0\times10^6\) m, speed is about 7.55 km/s and period about 97 minutes. This ignores atmosphere, nonspherical gravity, other bodies, and relativistic corrections.</p><p>The inverse-square two-body problem yields conic trajectories: bound orbits are ellipses, with the circle as a special case. Conservation of angular momentum gives equal swept areas in equal times; the orbital period squared scales with semimajor axis cubed for fixed total mass. These are the Kepler relations recovered by Newtonian dynamics. The <a href="https://www.feynmanlectures.caltech.edu/I_07.html" target="_blank" rel="noopener noreferrer">gravitation lecture</a> relates these predictions to astronomical observations. Other planets perturb the ideal two-body orbit. For comparable masses, both bodies move about their common center of mass, and the relative-motion gravitational parameter uses their sum.</p>
+<div class="equation-link-wrap"><a class="equation-link" href="science/en/equations/mechanics-gravitation.html">$$ \mathbf F=-\frac{GMm}{r^3}\mathbf r,\quad U=-\frac{GMm}{r},\qquad v_c=\sqrt{\frac{GM}{r}} $$</a></div>
+</section>
+<section class="content-block">
+<h3 id="mechanics-circle">Circular Motion and the Vector Model</h3>
+<p>Uniform circular motion has constant speed, but changing velocity. For radius \(R\) and angular speed \(\omega\), the acceleration points toward the center and has magnitude \(\omega^2R=v^2/R\). <strong>Centripetal</strong> names this inward net-force requirement, not an additional interaction: tension, friction, gravity, or another physical force must supply it.</p><p>The model prescribes a circle in the \(x,z\) plane with its center and body at \(y=0\). Differentiating the displayed position gives the tangential velocity and inward acceleration below. The arrows show those directions. Their lengths use separate display scales, so they do not compare force units with velocity units.</p>
+<div class="equation-link-wrap"><a class="equation-link" href="science/en/equations/mechanics-circular-motion.html">$$ \begin{aligned}\mathbf r(t)&=R(\cos\omega t,0,\sin\omega t),\\\mathbf v(t)&=R\omega(-\sin\omega t,0,\cos\omega t),\\\mathbf a(t)&=-\omega^2\mathbf r(t),\qquad F=m\omega^2R.\end{aligned} $$</a></div>
+<div class="model-teaching-card"><p><strong>Model type:</strong> Analytically prescribed animation.</p><p><strong>What this shows:</strong> Uniform circular motion, tangential velocity, and inward net force.</p><p><strong>What this does not show:</strong> A numerical orbit solver, a specified force-generating interaction, air resistance, relativity, or quantum effects.</p><p><strong>Equation / principle:</strong> \(\mathbf a=-\omega^2\mathbf r\) and \(\mathbf F=m\mathbf a\).</p><p><strong>What the model represents:</strong> The trajectory uses radius 1.95 in scene units and angular speed 0.62 radians per animation-time unit. These are display parameters, not measured SI data. Reduced motion slows the display clock.</p><p><strong>Try:</strong> Drag to rotate; scroll or pinch to zoom. With the canvas focused, use arrow keys to rotate, + or - to zoom, and Home to reset the view. Camera controls do not change the physical parameters.</p></div>
+<figure class="foundation-model glass-window" data-foundation-model="mechanics" data-model-target="classical-motion-vectors" data-language="en"><div class="foundation-model__frame" data-foundation-model-frame></div><figcaption class="foundation-model__caption">The blue-violet net-force arrow points to the center; the luminous-purple velocity arrow is tangent to the circle. Arrow lengths are illustrative.</figcaption></figure>
+</section>
+<section class="content-block">
+<h3 id="section-5">Oscillations, Stability, and Chaos</h3>
+<p>An equilibrium is a configuration that remains at rest under the stated forces. Near a smooth minimum of potential energy, a small displacement often produces an approximately linear restoring force. The resulting harmonic oscillator appears in springs, suspensions, and normal modes of vibrating structures. A pendulum is approximately harmonic only at small angles. The <a href="https://www.feynmanlectures.caltech.edu/I_21.html" target="_blank" rel="noopener noreferrer">harmonic-oscillator lecture</a> develops this approximation.</p><p>In the equation below, \(m\) is mass, \(b\) viscous damping, \(k\) stiffness, and \(F_0\cos(\Omega t)\) a periodic drive. With no damping or drive, angular frequency is \(\omega_0=\sqrt{k/m}\). For \(m=0.50\) kg and \(k=200\) N/m, \(\omega_0=20\) rad/s and the period is approximately 0.314 s. Damping removes mechanical energy; a drive supplies it. Resonance is a large response over an appropriate frequency range, not unlimited growth in every real system.</p><p><strong>Stability</strong> asks whether small disturbances remain small. A local potential minimum is a useful stability test for conservative equilibria, but driven and dissipative systems need a more general analysis. <strong>Chaos</strong> is deterministic dynamics with sensitive dependence on initial conditions in the relevant region of state space. A double pendulum can exhibit it, but not every oscillation or nonlinear trajectory is chaotic. Exponential separation of nearby states can limit prediction even when the force law is known. It does not license arbitrary motion or violate conservation laws.</p>
+<div class="equation-link-wrap"><a class="equation-link" href="science/en/equations/mechanics-oscillator.html">$$ m\ddot x+b\dot x+kx=F_0\cos(\Omega t),\qquad\omega_0=\sqrt{k/m} $$</a></div>
+</section>
+<section class="content-block">
+<h3 id="section-7">Frames, Constraints, and Coordinates</h3>
+<p>Inertial frames moving at constant relative velocity share Newton's laws under Galilean transformations: velocities differ by the frame velocity, while accelerations agree. An accelerating or rotating frame needs inertial-force terms. The centrifugal term in a rotating frame is not an outward partner force acting on the same body in an inertial frame; the Coriolis term depends on velocity relative to the rotating frame.</p><p>A <strong>constraint</strong> restricts allowed motion. A bead on a wire or a pendulum of fixed length has fewer independent coordinates than an unconstrained particle. A pendulum can be described by one angle rather than two independent Cartesian coordinates. These independent variables are <strong>generalized coordinates</strong>, and their number is the number of degrees of freedom.</p><p>Constraints expressible as relations among coordinates and time are called holonomic. Rolling constraints can instead involve velocities and may be nonholonomic; they cannot always be removed by simply choosing fewer coordinates. Ideal constraint forces do no work on allowed virtual displacements, which helps derive the standard Lagrange equations. Frictional or externally driven constraints require additional care.</p>
+</section>
+<section class="content-block">
+<h3 id="section-4">Lagrangian and Hamiltonian Views</h3>
+<p>Instead of separately tracking every constraint force, analytical mechanics works with coordinates and an action. For many conservative mechanical systems, the Lagrangian is kinetic minus potential energy, \(L=T-U\); here \(T\) means the same kinetic energy called \(K\) earlier. The action integrates \(L\) over a path and has units J s. Stationarity means that the first-order change of action vanishes for small allowed variations with fixed endpoints. It is not necessarily a minimum, and it does not mean a body deliberately compares future paths.</p><p>The first two cards give the action condition and its Euler-Lagrange equation for each independent coordinate. For \(L=\tfrac12m\dot x^2-U\(x\)\), differentiating with respect to \(\dot x\) gives \(m\dot x\), and differentiating with respect to \(x\) gives \(-dU/dx\). The equation therefore returns \(m\ddot x=-dU/dx\): Newton's law for that conservative force. Nonconservative generalized forces must be added when present. <a href="https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/9579/sicm_edition_2.zip/chapter001.html" target="_blank" rel="noopener noreferrer">Sussman and Wisdom's first chapter</a> explains the variational construction and constraints.</p><p>Define canonical momentum by \(p_i=\partial L/\partial\dot q_i\). When this relation can be inverted for velocities, the Legendre transform gives \(H=\sum_i p_i\dot q_i-L\). The Hamilton equations below evolve coordinates and momenta in <strong>phase space</strong>. Subscript \(i\) labels independent coordinates; the card writes one pair. Canonical momentum need not equal mass times velocity, and \(H\) is not automatically the ordinary total energy in every coordinate choice. An explicitly time-independent Hamiltonian is conserved along its solutions.</p><p><a href="https://www.maths.tcd.ie/pub/HistMath/People/Hamilton/Dynamics/" target="_blank" rel="noopener noreferrer">Hamilton's 1834 paper</a> belongs to the historical development of this analytical approach. Canonical transformations change phase-space coordinates while retaining Hamilton's form; they connect mechanics with perturbation theory, statistical mechanics, and quantum theory without making the classical model itself quantum.</p>
+<div class="equation-link-wrap"><a class="equation-link" href="science/en/equations/classical-action-principle.html">$$ S[q]=\int_{t_1}^{t_2}L(q,\dot q,t)\,dt,\qquad \delta S=0 $$</a></div>
+<div class="equation-link-wrap"><a class="equation-link" href="science/en/equations/euler-lagrange-equation.html">$$ \frac{d}{dt}\frac{\partial L}{\partial\dot q}-\frac{\partial L}{\partial q}=0 $$</a></div>
+<div class="equation-link-wrap"><a class="equation-link" href="science/en/equations/hamilton-equations.html">$$ \dot q=\frac{\partial H}{\partial p},\qquad\dot p=-\frac{\partial H}{\partial q} $$</a></div>
+</section>
+<section class="content-block">
+<h3 id="section-3">Energy, Momentum, and Symmetry</h3>
+<p>A symmetry is a transformation that leaves the relevant laws or action unchanged. <a href="https://arxiv.org/html/physics/0503066" target="_blank" rel="noopener noreferrer">Noether's 1918 first theorem</a> associates continuous symmetries of an action with conserved quantities along solutions, under its variational assumptions. This explains a relationship among conservation laws, rather than assuming every system conserves every quantity.</p><p>For ordinary isolated mechanical systems, invariance under spatial translations yields momentum conservation, rotations yield angular momentum conservation, and time translations yield energy conservation. An external potential fixed in space can break translation symmetry for the selected subsystem. A time-dependent drive can exchange energy with it. To decide what is conserved, identify the system and its actual symmetry. The English translation linked here is from 1971; its 2005 repository upload is not the theorem's publication date.</p>
+</section>
+<section class="content-block">
+<h3 id="section-8">Many-Body and Continuum Mechanics</h3>
+<p>A gas, bridge, instrument, or galaxy can require many coupled degrees of freedom. A rigid-body approximation omits deformation; elasticity describes it; continuum mechanics replaces individual particles with fields such as mass density and velocity. A continuum description is useful only when the scales of interest justify averaging over the underlying structure.</p><p>Balance laws still govern mass, momentum, and energy, but material relations are also needed: conservation alone does not specify a fluid's viscosity or a solid's elastic response. A few vibration modes can approximate an instrument, while molecular dynamics follows individual particles. Statistical mechanics treats collective behavior without predicting every microscopic trajectory.</p>
+<p><span>Continue with Fluid Mechanics and Navier-Stokes</span></p>
+</section>
+<section class="content-block">
+<h3 id="section-9">Numerical Methods and Error Checks</h3>
+<p>A differential equation gives a rate of change, not a ready-made trajectory. An integrator approximates that trajectory with finite time steps. Explicit Euler uses the current slope; its accumulated error is generally first order. For an undamped oscillator it can generate spurious energy, even when the animation looks smooth. Higher order alone does not guarantee that long-term physical behavior is reliable.</p><p>The velocity Verlet update below uses endpoint accelerations for a constant-mass, position-dependent force. For smooth solutions its global error is second order: halving the step should reduce it by roughly four over a fixed interval. With a separable conservative Hamiltonian and fixed step it is symplectic, preserving the appropriate phase-space geometry, not exact energy at every step. On a harmonic oscillator the stability condition is \(h\omega_0&lt;2\); useful accuracy normally requires a much smaller step.</p><p>Compare an oscillator with its analytic period and phase. For an orbit, monitor energy and angular momentum, repeat with smaller steps, and check close approaches. Constraint error, roundoff, and force-model error are different from time-discretization error. Adaptive steps and velocity-dependent drag need methods designed for them. A small energy error does not prove a trajectory is accurate, especially in a chaotic system.</p><p><a href="https://journals.aps.org/pr/abstract/10.1103/PhysRev.159.98" target="_blank" rel="noopener noreferrer">Verlet's 1967 molecular-dynamics paper</a> is a historical source for the integration family, not a claim that the exact velocity-update notation here appeared there. <a href="https://authors.library.caltech.edu/records/1h96d-ymc40" target="_blank" rel="noopener noreferrer">Marsden and West's 2001 review</a> develops discrete variational mechanics and the resulting geometric integrators.</p>
+<div class="equation-link-wrap"><a class="equation-link" href="science/en/equations/mechanics-velocity-verlet.html">$$ \begin{aligned}x_{n+1}&=x_n+v_n h+\tfrac12a_nh^2,\\a_{n+1}&=a(x_{n+1}),\\v_{n+1}&=v_n+\tfrac12(a_n+a_{n+1})h.\end{aligned} $$</a></div>
+</section>
+<section class="content-block">
+<h3 id="section-10">Modern Methods and Research Questions</h3>
+<p>Spacecraft navigation, robotics, structural analysis, and biomechanics combine mechanical equations with measurements and uncertain parameters. A useful model must be tested against observations in its intended regime. Matching one trajectory does not identify a unique force law, and calibration data do not guarantee reliability under different loads or initial conditions.</p><p><a href="https://proceedings.neurips.cc/paper_files/paper/2019/hash/26cd8ecadce0d4efd6cc8a8725cbd1f8-Abstract.html" target="_blank" rel="noopener noreferrer">Hamiltonian Neural Networks</a> (Greydanus, Dzamba, and Yosinski, 2019) learn a scalar Hamiltonian and obtain a vector field through Hamilton's equations. This builds a mechanical structure into learning rather than fitting arbitrary time derivatives. The paper tests the idea on controlled benchmark systems. Conservation of the learned Hamiltonian under its exact continuous flow does not establish that it equals the physical energy, that a numerical solver conserves it exactly, or that the learned dynamics generalize outside the training conditions.</p><p>Handling dissipation, unknown coordinates, constraints, noisy measurements, and uncertainty remains a substantive modeling problem. Geometric integrators and learned dynamics address different parts of it. Neither replaces experiments or makes a simplified model universally valid.</p>
+</section>
+<section class="content-block">
+<h3 id="section-6">Limits and Connections</h3>
+<p>Newtonian mechanics is an approximation whose adequacy depends on the requested precision. Large size alone does not guarantee it. Relativistic effects matter at high speeds, and gravity may require spacetime curvature even for slowly moving bodies. Quantum effects matter when the relevant action and state preparation cannot be treated classically; comparing an action scale with \(\hbar\), the reduced Planck constant, is a guide rather than a complete criterion.</p><p>Deterministic equations do not promise exact practical prediction. Measurement uncertainty, chaotic sensitivity, unresolved interactions, and numerical error have different origins. Statistical methods can be necessary even when the underlying mechanical model is classical.</p>
+<p><span>Mathematical Foundations</span></p>
+<p><span>Relativity and Spacetime</span></p>
+<p><span>Quantum Mechanics</span></p>
+<p><span>Thermodynamics and Statistical Mechanics</span></p>
+</section>
+<section class="content-block glossary-section"><h3 id="section-11">Technical Terms Glossary</h3><ul class="paper-list glossary-list">
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Reference frame:</strong> A system of axes and clocks used to specify position and time. An inertial frame gives constant velocity to a force-free body.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Velocity and acceleration:</strong> Velocity is the rate of change of position; acceleration is the rate of change of velocity, including direction. Speed is the magnitude of velocity.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Net force:</strong> The vector sum of forces acting on a chosen body. Forces on different bodies belong in different force diagrams.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Constraint:</strong> A condition limiting allowed positions or velocities. Holonomic constraints can be expressed in coordinates and time.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Work and power:</strong> Work transfers energy through force along displacement. Power measures the rate of energy transfer.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Conservative force:</strong> A force whose work depends on endpoints rather than the path, within the domain considered; it admits a potential energy.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Momentum and impulse:</strong> Newtonian momentum is mass times velocity. Impulse is force integrated over time and changes momentum.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Center of mass:</strong> The mass-weighted mean position of a system. Its acceleration follows the total external force for constant total mass.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Torque and angular momentum:</strong> Torque measures the turning effect of a force about an origin; it changes angular momentum about a fixed inertial origin.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Moment of inertia:</strong> A measure of mass distribution relative to a rotation axis, weighted by squared perpendicular distance. The general three-dimensional relation uses a tensor.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Centripetal:</strong> Directed toward the center of curvature; it describes the net-force component needed to bend a trajectory, not a separate interaction.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Normal mode:</strong> A collective oscillation pattern of a linearized coupled system in which all parts oscillate at one mode frequency.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Resonance:</strong> A large driven response near suitable natural frequencies; damping and nonlinear effects restrict the response.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Degree of freedom:</strong> An independent coordinate needed to describe a configuration after applicable constraints are accounted for.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Virtual displacement:</strong> An infinitesimal variation of configuration at fixed time consistent with the constraints, not an elapsed-time motion.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Action and stationarity:</strong> Action is the time integral of the Lagrangian along a path. Stationarity makes its first variation zero, without requiring a minimum.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Canonical momentum:</strong> The derivative of the Lagrangian with respect to a generalized velocity. It need not equal ordinary mass times velocity.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Phase space:</strong> The space of coordinates and their conjugate momenta. A point specifies a mechanical state, not just a position in ordinary space.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Legendre transform:</strong> The change from velocity variables to momentum variables used to construct a regular Hamiltonian from a Lagrangian.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Symmetry:</strong> A transformation preserving the relevant mathematical description. Continuous action symmetries give conservation laws under Noether’s assumptions.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Chaos:</strong> Sensitive dependence on initial conditions in deterministic dynamics; it limits prediction without making the laws random.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Symplectic integrator:</strong> A numerical map preserving Hamiltonian phase-space geometry. This is not a guarantee of exact energy or negligible trajectory error.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>Convergence and stability:</strong> Convergence concerns approach to the solution as numerical resolution improves; stability concerns control of disturbances or numerical errors.</span></li>
+</ul></section>
+<section class="content-block glossary-section"><h3 id="mechanics-abbreviations">Abbreviations and Unit Labels</h3><ul class="paper-list glossary-list">
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span>SI: International System of Units.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span>CM: center of mass, used in the rolling-velocity subscript.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span>m, s, kg: metre, second, kilogram. N, J: newton and joule. rad: radian, a dimensionless angle unit. A symbol such as m can instead denote mass within an equation; its local definition determines the meaning.</span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span>DOI: Digital Object Identifier, a persistent identifier used in the references.</span></li>
+</ul></section>
+<section class="content-block source-papers"><h3 id="section-12">Foundational and Modern Source URLs</h3>
+<ul class="paper-list">
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://galileoandeinstein.phys.virginia.edu/tns_draft/" target="_blank" rel="noopener noreferrer">Galileo Galilei. <em>Dialogues Concerning Two New Sciences.</em></a> <span class="paper-note">Original work 1638; English translation by Henry Crew and Alfonso de Salvio, Macmillan, 1914. University of Virginia transcription. Historical source for accelerated motion and projectile theory.</span></span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.gutenberg.org/ebooks/28233" target="_blank" rel="noopener noreferrer">Isaac Newton. <em>Philosophiae Naturalis Principia Mathematica.</em></a> <span class="paper-note">First published 1687. Latin text hosted by Project Gutenberg, not an English translation; the 2009 digital release is not the original publication date. Foundational work on motion and gravitation.</span></span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00074" target="_blank" rel="noopener noreferrer">Isaac Newton. <em>Front matter to the Principia (1687).</em></a> <span class="paper-note">Newton Project, University of Oxford. Historical context for the aims of the first edition, rather than a modern equation derivation.</span></span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.maths.tcd.ie/pub/HistMath/People/Hamilton/Dynamics/" target="_blank" rel="noopener noreferrer">William Rowan Hamilton. <em>On a General Method in Dynamics.</em></a> <span class="paper-note">Philosophical Transactions of the Royal Society, 1834, pp. 247-308. Transcription edited by David R. Wilkins, Trinity College Dublin, 2000. Primary historical source for analytical dynamics.</span></span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/abs/physics/0503066" target="_blank" rel="noopener noreferrer">Emmy Noether. <em>Invariante Variationsprobleme / Invariant Variation Problems.</em></a> <span class="paper-note">Original German paper, 1918, Nachrichten von der Gesellschaft der Wissenschaften zu Göttingen, pp. 235-257. English translation by M. A. Tavel, Transport Theory and Statistical Physics 1(3), 1971, pp. 186-207; deposited in 2005. Source for the symmetry-conservation theorem.</span></span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.feynmanlectures.caltech.edu/I_toc.html" target="_blank" rel="noopener noreferrer">Richard P. Feynman, Robert B. Leighton, and Matthew Sands. <em>The Feynman Lectures on Physics, Volume I.</em></a> <span class="paper-note">1963; Caltech online edition. Chapters 7, 9, 10, 14, 18-21 develop gravitation, forces, momentum, work, rotation, and oscillations. Explanatory textbook, not an original discovery paper.</span></span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://mitpress.mit.edu/9780262028967/structure-and-interpretation-of-classical-mechanics/" target="_blank" rel="noopener noreferrer">Gerald Jay Sussman and Jack Wisdom. <em>Structure and Interpretation of Classical Mechanics.</em></a> <span class="paper-note">Second edition, MIT Press, 2015. Computational textbook connecting variational mechanics, phase space, nonlinear dynamics, and numerical exploration.</span></span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.press.jhu.edu/books/title/11438/emmy-noethers-wonderful-theorem" target="_blank" rel="noopener noreferrer">Dwight E. Neuenschwander. <em>Emmy Noether’s Wonderful Theorem.</em></a> <span class="paper-note">Revised and updated edition, Johns Hopkins University Press, 2017. Supplementary explanation of the theorem and its assumptions, distinct from Noether’s original paper.</span></span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://journals.aps.org/pr/abstract/10.1103/PhysRev.159.98" target="_blank" rel="noopener noreferrer">Loup Verlet. <em>Computer “Experiments” on Classical Fluids. I. Thermodynamical Properties of Lennard-Jones Molecules.</em></a> <span class="paper-note">Physical Review 159, 98-103 (1967), DOI: 10.1103/PhysRev.159.98. Original molecular-dynamics paper underlying the Verlet integration family.</span></span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://authors.library.caltech.edu/records/1h96d-ymc40" target="_blank" rel="noopener noreferrer">Jerrold E. Marsden and Matthew West. <em>Discrete mechanics and variational integrators.</em></a> <span class="paper-note">Acta Numerica 10, 357-514 (2001), DOI: 10.1017/S096249290100006X. Review of discrete variational principles, symplectic structure, and conservation properties.</span></span></li>
+<li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://proceedings.neurips.cc/paper_files/paper/2019/hash/26cd8ecadce0d4efd6cc8a8725cbd1f8-Abstract.html" target="_blank" rel="noopener noreferrer">Sam Greydanus, Misko Dzamba, and Jason Yosinski. <em>Hamiltonian Neural Networks.</em></a> <span class="paper-note">Advances in Neural Information Processing Systems 32 (2019). Published research on learning Hamiltonian dynamics; its benchmark results have a narrower scope than general physical modeling.</span></span></li>
+</ul></section>
 </div>
 <nav aria-label="Related topics"><ul><li><a href="science/en/mathematical-foundations/index.html">Mathematical Foundations</a></li><li><a href="science/en/mathematical-analysis/index.html">Mathematical Analysis &amp; Differential Equations</a></li><li><a href="science/en/fluid-mechanics-navier-stokes/index.html">Fluid Mechanics and Navier-Stokes</a></li><li><a href="science/en/relativity-spacetime/index.html">Relativity &amp; Spacetime</a></li></ul></nav></main></body></html>

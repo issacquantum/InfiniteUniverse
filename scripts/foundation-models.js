@@ -212,7 +212,7 @@ class FoundationModel {
 
     this.dynamic = (time) => {
       const angle = time * 0.62;
-      const position = new THREE.Vector3(Math.cos(angle) * 1.95, 0.22, Math.sin(angle) * 1.95);
+      const position = new THREE.Vector3(Math.cos(angle) * 1.95, 0, Math.sin(angle) * 1.95);
       body.position.copy(position);
       forceArrow.position.copy(position);
       forceArrow.setDirection(position.clone().multiplyScalar(-1).normalize());
@@ -577,6 +577,23 @@ class FoundationModel {
   }
 
   bindInteraction() {
+    if (this.type === "mechanics") {
+      this.canvas.addEventListener("keydown", (event) => {
+        if (event.altKey || event.ctrlKey || event.metaKey) return;
+        switch (event.key) {
+          case "ArrowLeft": this.state.yaw -= 0.1; break;
+          case "ArrowRight": this.state.yaw += 0.1; break;
+          case "ArrowUp": this.state.pitch = Math.max(-0.72, this.state.pitch - 0.08); break;
+          case "ArrowDown": this.state.pitch = Math.min(0.72, this.state.pitch + 0.08); break;
+          case "+": case "=": this.state.distance = Math.max(4.4, this.state.distance - 0.4); break;
+          case "-": this.state.distance = Math.min(11.5, this.state.distance + 0.4); break;
+          case "Home": Object.assign(this.state, { yaw: -0.42, pitch: 0.28, distance: 7.8 }); break;
+          default: return;
+        }
+        event.preventDefault();
+      });
+    }
+
     this.canvas.addEventListener("pointerdown", (event) => {
       this.canvas.setPointerCapture(event.pointerId);
       this.pointer = {

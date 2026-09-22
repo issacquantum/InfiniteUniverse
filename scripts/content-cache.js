@@ -1,8 +1,8 @@
-import { siteContent } from "../data/site-content.js?v=20260916-science-overhaul-v1";
+import { siteContent } from "../data/site-content.js?v=20260921-classical-mechanics-v1";
 
 const documentCache = new Map();
 const requestCache = new Map();
-const CONTENT_CACHE_VERSION = "20260916-science-overhaul-v1";
+const CONTENT_CACHE_VERSION = "20260921-classical-mechanics-v1";
 
 function normalizePath(filePath) {
   if (typeof filePath !== "string") {

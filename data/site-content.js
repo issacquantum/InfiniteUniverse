@@ -311,7 +311,16 @@ const classicalMechanicsEquationBranch = {
     createStructuredItem("science/equations", "newton-second-law", "Newton's Second Law", "Segunda Ley de Newton"),
     createStructuredItem("science/equations", "classical-action-principle", "Classical Action Principle", "Principio de Acción Clásico"),
     createStructuredItem("science/equations", "euler-lagrange-equation", "Euler-Lagrange Equation", "Ecuación de Euler-Lagrange"),
-    createStructuredItem("science/equations", "hamilton-equations", "Hamilton's Equations", "Ecuaciones de Hamilton")
+    createStructuredItem("science/equations", "hamilton-equations", "Hamilton's Equations", "Ecuaciones de Hamilton"),
+    createStructuredItem("science/equations", "mechanics-kinematics", "Position, Velocity and Acceleration", "Posición, velocidad y aceleración"),
+    createStructuredItem("science/equations", "mechanics-common-forces", "Weight, Spring Force and Friction", "Peso, fuerza elástica y fricción"),
+    createStructuredItem("science/equations", "mechanics-work-energy", "Work and Kinetic Energy", "Trabajo y energía cinética"),
+    createStructuredItem("science/equations", "mechanics-impulse-momentum", "Impulse and Momentum", "Impulso y cantidad de movimiento"),
+    createStructuredItem("science/equations", "mechanics-rotation", "Torque and Rotation", "Momento de fuerza y rotación"),
+    createStructuredItem("science/equations", "mechanics-gravitation", "Newtonian Gravitation and Circular Orbits", "Gravitación newtoniana y órbitas circulares"),
+    createStructuredItem("science/equations", "mechanics-circular-motion", "Uniform Circular Motion", "Movimiento circular uniforme"),
+    createStructuredItem("science/equations", "mechanics-oscillator", "Damped and Driven Oscillator", "Oscilador amortiguado y forzado"),
+    createStructuredItem("science/equations", "mechanics-velocity-verlet", "Velocity Verlet Integration", "Integración de Verlet en velocidades")
   ]
 };
 
