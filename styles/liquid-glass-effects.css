@@ -357,3 +357,17 @@ body[data-motion="reduced"] .glass-sphere::after {
       rgba(17, 4, 28, 0.9);
   }
 }
+
+@media (max-width: 1024px), (hover: none) and (pointer: coarse) {
+  .content-window,
+  .content-window .glass-window,
+  .content-window .equation-link.glass-window {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .content-window .equation-link,
+  .content-window .equation-display {
+    box-shadow: inset 0 1px 0 rgba(191, 64, 255, 0.2), 0 0 16px rgba(119, 0, 255, 0.22);
+  }
+}

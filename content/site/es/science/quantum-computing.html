@@ -318,16 +318,12 @@
       probabilidad proporcional a \(|A_{ij}|^2\). También puede consultar entradas seleccionadas y normas de filas. En
       forma compacta:
     </p>
-    <div class="equation-link-wrap">
-      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
-        data-branch-id="quantum-computing-equations" data-item-id="l2-norm-matrix-sampling"
-        aria-label="Abrir explicación del muestreo matricial de norma L2, norma euclidiana">
-        $$
-        \Pr[i]=\frac{\|A_{i,*}\|_2^2}{\|A\|_F^2},\qquad
-        \Pr[j\mid i]=\frac{|A_{ij}|^2}{\|A_{i,*}\|_2^2}
-        $$
-      </button>
-    </div>
+    <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-computing-equations" data-item-id="length-square-row-sampling"
+        aria-label="Abrir explicación: Muestreo de filas por norma al cuadrado">$$\Pr[i]=\frac{\|A_{i,*}\|_2^2}{\|A\|_F^2}$$</button></div>
+<div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-computing-equations" data-item-id="conditional-column-sampling"
+        aria-label="Abrir explicación: Muestreo condicional de columnas por norma al cuadrado">$$\Pr[j\mid i]=\frac{|A_{ij}|^2}{\|A_{i,*}\|_2^2}$$</button></div>
     <p>
       <strong>Explicación de la ecuación:</strong> \(A_{i,*}\) es la fila \(i\), \(\|A\|_F\) es la norma de Frobenius de toda la matriz, y
       \(\Pr[j\mid i]\) es la probabilidad de elegir la columna \(j\) después de haber elegido la fila \(i\). Esto permite
@@ -489,15 +485,15 @@
     <p>
       El objeto de equilibrio es el <strong>estado de Gibbs</strong>
     </p>
-    <div class="equation-link-wrap">
-      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
-        data-branch-id="quantum-computing-equations" data-item-id="gibbs-state-density-matrix"
-        aria-label="Abrir explicación de matriz de densidad de estado de Gibbs">
-        $$
-        \rho_\beta=\frac{e^{-\beta H}}{Z},\qquad Z=\mathrm{Tr}(e^{-\beta H}),\qquad \beta=\frac{1}{k_BT}
-        $$
-      </button>
-    </div>
+    <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-computing-equations" data-item-id="canonical-gibbs-state"
+        aria-label="Abrir explicación: Estado canónico de Gibbs">$$\rho_\beta=\frac{e^{-\beta H}}{Z}$$</button></div>
+<div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-computing-equations" data-item-id="canonical-partition-function"
+        aria-label="Abrir explicación: Función de partición canónica">$$Z=\operatorname{Tr}(e^{-\beta H})$$</button></div>
+<div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-computing-equations" data-item-id="inverse-thermal-energy"
+        aria-label="Abrir explicación: Parámetro de energía térmica inversa">$$\beta=\frac{1}{k_B T}$$</button></div>
     <p>
       <strong>Explicación de la ecuación:</strong> \(\rho_\beta\) es la matriz de densidad térmica, \(Z\) es la función de partición que la normaliza,
       \(\mathrm{Tr}\) significa traza, \(T\) es la temperatura, \(k_B\) es la constante de Boltzmann, y \(\beta\) es la

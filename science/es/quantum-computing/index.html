@@ -308,14 +308,8 @@
       probabilidad proporcional a \(|A_{ij}|^2\). También puede consultar entradas seleccionadas y normas de filas. En
       forma compacta:
     </p>
-    <div class="equation-link-wrap">
-      <a class="equation-link" href="science/es/equations/l2-norm-matrix-sampling.html">
-        $$
-        \Pr[i]=\frac{\|A_{i,*}\|_2^2}{\|A\|_F^2},\qquad
-        \Pr[j\mid i]=\frac{|A_{ij}|^2}{\|A_{i,*}\|_2^2}
-        $$
-      </a>
-    </div>
+    <div class="equation-link-wrap"><a class="equation-link" href="science/es/equations/length-square-row-sampling.html">$$\Pr[i]=\frac{\|A_{i,*}\|_2^2}{\|A\|_F^2}$$</a></div>
+<div class="equation-link-wrap"><a class="equation-link" href="science/es/equations/conditional-column-sampling.html">$$\Pr[j\mid i]=\frac{|A_{ij}|^2}{\|A_{i,*}\|_2^2}$$</a></div>
     <p>
       <strong>Explicación de la ecuación:</strong> \(A_{i,*}\) es la fila \(i\), \(\|A\|_F\) es la norma de Frobenius de toda la matriz, y
       \(\Pr[j\mid i]\) es la probabilidad de elegir la columna \(j\) después de haber elegido la fila \(i\). Esto permite
@@ -467,13 +461,9 @@
     <p>
       El objeto de equilibrio es el <strong>estado de Gibbs</strong>
     </p>
-    <div class="equation-link-wrap">
-      <a class="equation-link" href="science/es/equations/gibbs-state-density-matrix.html">
-        $$
-        \rho_\beta=\frac{e^{-\beta H}}{Z},\qquad Z=\mathrm{Tr}(e^{-\beta H}),\qquad \beta=\frac{1}{k_BT}
-        $$
-      </a>
-    </div>
+    <div class="equation-link-wrap"><a class="equation-link" href="science/es/equations/canonical-gibbs-state.html">$$\rho_\beta=\frac{e^{-\beta H}}{Z}$$</a></div>
+<div class="equation-link-wrap"><a class="equation-link" href="science/es/equations/canonical-partition-function.html">$$Z=\operatorname{Tr}(e^{-\beta H})$$</a></div>
+<div class="equation-link-wrap"><a class="equation-link" href="science/es/equations/inverse-thermal-energy.html">$$\beta=\frac{1}{k_B T}$$</a></div>
     <p>
       <strong>Explicación de la ecuación:</strong> \(\rho_\beta\) es la matriz de densidad térmica, \(Z\) es la función de partición que la normaliza,
       \(\mathrm{Tr}\) significa traza, \(T\) es la temperatura, \(k_B\) es la constante de Boltzmann, y \(\beta\) es la

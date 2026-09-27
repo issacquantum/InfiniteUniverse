@@ -14,23 +14,6 @@ function measureEquationWidth(mathContainer) {
   return Math.max(mathContainer.scrollWidth, bounds.width);
 }
 
-function applyEquationFit(block, mathContainer) {
-  const style = getComputedStyle(block);
-  const padding = parseFloat(style.paddingLeft) + parseFloat(style.paddingRight);
-  const availableWidth = Math.max(block.clientWidth - padding - FIT_PADDING, 1);
-  const equationWidth = measureEquationWidth(mathContainer);
-
-  if (equationWidth <= availableWidth) {
-    return false;
-  }
-
-  const currentScale = Number(block.style.getPropertyValue("--equation-fit-scale")) || 1;
-  const scale = Math.max(MIN_EQUATION_SCALE, Math.min(1, currentScale * availableWidth / equationWidth));
-  block.style.setProperty("--equation-fit-scale", scale.toFixed(3));
-  block.classList.add("equation-fit--scaled");
-  return true;
-}
-
 function updateEquationScrollAccess(block, mathContainer) {
   if (block.tagName === "BUTTON") return;
   const scrollable = mathContainer.scrollWidth > mathContainer.clientWidth + 1;
@@ -43,39 +26,34 @@ function updateEquationScrollAccess(block, mathContainer) {
   }
 }
 
-function fitEquationBlock(block) {
-  const mathContainer = block.querySelector("mjx-container");
+const frame = () => new Promise(resolve => requestAnimationFrame(resolve));
 
-  if (!mathContainer) {
-    return;
-  }
-
-  block.style.setProperty("--equation-fit-scale", "1");
-  block.classList.remove("equation-fit--scaled");
-
-  return new Promise((resolve) => {
-    requestAnimationFrame(() => {
-      if (!applyEquationFit(block, mathContainer)) {
-        updateEquationScrollAccess(block, mathContainer);
-        resolve();
-        return;
-      }
-
-      requestAnimationFrame(() => {
-        applyEquationFit(block, mathContainer);
-        requestAnimationFrame(() => {
-          updateEquationScrollAccess(block, mathContainer);
-          resolve();
-        });
-      });
+export async function fitEquationBlocks(host, { isCurrent = () => true } = {}) {
+  if (!host) return;
+  const pairs = [...host.querySelectorAll(EQUATION_BLOCK_SELECTOR)]
+    .map(block => ({ block, math: block.querySelector("mjx-container") }))
+    .filter(pair => pair.math);
+  for (let index = 0; index < pairs.length && isCurrent(); index += 8) {
+    const batch = pairs.slice(index, index + 8);
+    for (const { block } of batch) {
+      block.style.setProperty("--equation-fit-scale", "1");
+      block.classList.remove("equation-fit--scaled");
+    }
+    await frame();
+    if (!isCurrent()) return;
+    const measurements = batch.map(({block, math}) => {
+      const style = getComputedStyle(block);
+      const available = Math.max(block.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight) - FIT_PADDING, 1);
+      return { block, scale: Math.max(MIN_EQUATION_SCALE, Math.min(1, available / measureEquationWidth(math))) };
     });
-  });
-}
-
-export function fitEquationBlocks(host) {
-  if (!host) {
-    return;
+    for (const { block, scale } of measurements) {
+      if (scale < 1) {
+        block.style.setProperty("--equation-fit-scale", scale.toFixed(3));
+        block.classList.add("equation-fit--scaled");
+      }
+    }
+    await frame();
+    if (!isCurrent()) return;
+    for (const { block, math } of batch) updateEquationScrollAccess(block, math);
   }
-
-  return Promise.all(Array.from(host.querySelectorAll(EQUATION_BLOCK_SELECTOR), fitEquationBlock));
 }

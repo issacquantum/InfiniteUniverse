@@ -1,0 +1,12 @@
+<div class="structured-content equation-detail-page" data-structured-content>
+  <section class="content-block"><h3>Kraus Trace-Preservation Condition</h3></section>
+  <section class="content-block"><h3>Equation</h3><div class="equation-link-wrap"><div class="glass-window equation-display">$$\sum_k K_k^\dagger K_k=I$$</div></div></section>
+  <section class="content-block"><h3>Literal reading</h3><p>The sum over k of K sub k dagger times K sub k equals the identity. The adjoint occurs to the left of each original operator.</p></section>
+  <section class="content-block"><h3>Conceptual reading</h3><p>Every input state retains its total probability when all Kraus contributions are combined.</p></section>
+  <section class="content-block"><h3>Symbols</h3><p>\(K_k\) maps the input Hilbert space to the output Hilbert space; \(k\) labels Kraus operators and \(\dagger\) takes the adjoint. \(K_k^\dagger K_k\) is a positive operator on the input space. \(\sum_k\) sums all terms, and \(I\) is the identity on that input space.</p></section>
+  <section class="content-block"><h3>Values, units and domains</h3><p>All entries are dimensionless. The condition is an operator equality, not a statement about one particular input vector. In finite dimensions it implies trace preservation for the associated operator-sum map on every input operator.</p></section>
+  <section class="content-block"><h3>Meaning</h3><p>Cyclicity of the trace moves the adjoint next to its Kraus operator. The sum then becomes the identity, leaving the input trace unchanged. Complete positivity comes from the operator-sum form, not from this equality in isolation.</p></section>
+  <section class="content-block"><h3>Assumptions and limits</h3><p>The condition applies to the full channel. A single selected outcome generally satisfies only a trace-nonincreasing inequality. Kraus operators need not be square, and their individual products need not be the identity.</p></section>
+  <section class="content-block"><h3>Example</h3><p>For K₀ = √(1−p) I and K₁ = √p Z, where Z is the qubit phase-flip operator and 0 ≤ p ≤ 1, the products are (1−p) I and p I. Their sum is I for every permitted p, so the phase-flip channel preserves trace.</p></section>
+  <section class="content-block"><h3>Source</h3><p><a class="platform-link" href="https://jhwatrous.github.io/TQI.pdf">John Watrous, The Theory of Quantum Information, Chapter 2</a>.</p></section>
+</div>

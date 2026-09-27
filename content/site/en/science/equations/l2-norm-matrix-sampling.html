@@ -1,14 +1,3 @@
-<div class="structured-content equation-detail-page" data-structured-content>
-  <section class="content-block"><h3>L2-Norm (Euclidean Norm) Matrix Sampling</h3></section>
-  <section class="content-block"><h3>Equation</h3><div class="equation-link-wrap"><div class="glass-window equation-display">$$ \Pr[i]=\frac{\|A_{i,*}\|_2^2}{\|A\|_F^2},\qquad \Pr[j\mid i]=\frac{|A_{ij}|^2}{\|A_{i,*}\|_2^2} $$</div></div></section>
-  <section class="content-block"><h3>Literal Reading</h3><p>The probability of i is the squared Euclidean norm of row i of A divided by the squared Frobenius norm of A. The probability of j given i is the squared modulus of A subscript i j divided by the squared Euclidean norm of that row.</p></section>
-  <section class="content-block"><h3>Common Reading</h3><p>This is the matrix version of length-square sampling: sample large-energy rows first, then large-energy entries within the selected row.</p></section>
-  <section class="content-block"><h3>Symbols</h3><p><strong>\(A\)</strong>: the matrix being sampled.</p>
-    <p><strong>\(A_{i,*}\)</strong>: row \(i\) of the matrix.</p>
-    <p><strong>\(A_{ij}\)</strong>: entry in row \(i\), column \(j\).</p>
-    <p><strong>\(\|A_{i,*}\|_2\)</strong>: \(\ell^2\) norm of row \(i\).</p>
-    <p><strong>\(\|A\|_F\)</strong>: Frobenius norm of the whole matrix.</p>
-    <p><strong>\(\Pr[j\mid i]\)</strong>: probability of choosing \(j\) after \(i\) has already been chosen.</p></section>
-  <section class="content-block"><h3>Meaning of the Equation</h3><p>Sampling high-norm rows and entries lets algorithms inspect important parts of a matrix without reading the whole object. The assumed data-access model is therefore part of the claim.</p></section>
-<section class="content-block"><h3>Conditions and units</h3><p>The matrix is nonzero and has finite Frobenius norm, \(\|A\|_F^2=\sum_{i,j}|A_{ij}|^2\). Zero rows have probability zero, and the conditional formula is used only for a nonzero selected row. Common entry units cancel, leaving dimensionless probabilities. Efficient sampling presupposes suitable data access or preprocessing; this identity alone does not make an arbitrary matrix cheap to read.</p></section>
+<div class="structured-content equation-detail-page" data-equation-index data-structured-content>
+  <section class="content-block"><h3>L2-Norm (Euclidean Norm) Matrix Sampling</h3><p>Each equation below has its own explanation.</p><ul><li><button class="platform-link" type="button" data-action="select-legacy-item" data-branch-id="quantum-computing-equations" data-item-id="length-square-row-sampling">Length-Square Row Sampling</button></li><li><button class="platform-link" type="button" data-action="select-legacy-item" data-branch-id="quantum-computing-equations" data-item-id="conditional-column-sampling">Conditional Length-Square Column Sampling</button></li></ul></section>
 </div>

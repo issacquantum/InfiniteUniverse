@@ -1,14 +1,3 @@
-<div class="structured-content equation-detail-page" data-structured-content>
-  <section class="content-block"><h3>Heat Stability Condition</h3></section>
-  <section class="content-block"><h3>Equation</h3><div class="equation-link-wrap"><div class="glass-window equation-display">$$ \lambda=\alpha\frac{\Delta t}{\Delta x^2}\le\frac{1}{2}\quad\text{(1D FTCS)} $$</div></div><div class="equation-link-wrap"><div class="glass-window equation-display">$$ \lambda_x+\lambda_y\le\frac{1}{2},\qquad \lambda_x=\lambda_y=\lambda\Rightarrow \lambda\le\frac{1}{4} $$</div></div></section>
-  <section class="content-block"><h3>Literal Reading</h3><p>For one-dimensional FTCS, lambda equals alpha times delta t over delta x squared and is at most one half. In two dimensions, lambda subscript x plus lambda subscript y is at most one half; if both equal lambda, lambda is at most one quarter.</p></section>
-  <section class="content-block"><h3>Common Reading</h3><p>The allowed time step gets smaller when heat can spread in more directions.</p></section>
-  <section class="content-block"><h3>Symbols</h3><p><strong>\(\lambda\)</strong>: diffusion number for one direction.</p>
-    <p><strong>\(\lambda_x,\lambda_y\)</strong>: diffusion numbers in the horizontal and vertical grid directions.</p>
-    <p><strong>\(\alpha\)</strong>: thermal diffusivity.</p>
-    <p><strong>\(\Delta t\)</strong>: time step.</p>
-    <p><strong>\(\Delta x\)</strong>: grid spacing.</p></section>
-  <section class="content-block"><h3>Meaning of the Equation</h3><p>This stability condition is for explicit FTCS heat-equation discretization, not for all heat-equation solvers.</p></section>
-<section class="content-block"><h3>Conditions and units</h3><p>Assume positive constant diffusivity \(\alpha\) in m²/s, a positive time step in s, uniform Cartesian spacings in m, centered spatial differences, and forward Euler time stepping. In two dimensions \(\lambda_x=\alpha\Delta t/\Delta x^2\) and \(\lambda_y=\alpha\Delta t/\Delta y^2\); both are nonnegative and dimensionless. The stated bounds follow from Fourier-mode stability on an infinite or periodic grid; boundary implementations must also be stable. Stability does not by itself guarantee a sufficiently accurate solution.</p></section>
-<section class="content-block"><h3>Reference</h3><p><a href="https://math.tifrbng.res.in/~praveen/notes/cm2013/heat_1d.pdf">Praveen Chandrashekar, Numerical solution of the heat equation</a>.</p></section>
+<div class="structured-content equation-detail-page" data-equation-index data-structured-content>
+  <section class="content-block"><h3>Heat Stability Condition</h3><p>Each equation below has its own explanation.</p><ul><li><button class="platform-link" type="button" data-action="select-legacy-item" data-branch-id="simulation-models-equations" data-item-id="one-dimensional-ftcs-stability">One-Dimensional FTCS Heat Stability</button></li><li><button class="platform-link" type="button" data-action="select-legacy-item" data-branch-id="simulation-models-equations" data-item-id="two-dimensional-ftcs-stability">Two-Dimensional FTCS Heat Stability</button></li></ul></section>
 </div>

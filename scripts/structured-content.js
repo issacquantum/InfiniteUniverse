@@ -1,4 +1,4 @@
-import { enhanceScienceReader, restoreHeading } from "./science-reader.js?v=20260926-mobile-stability-v1";
+import { enhanceScienceReader, restoreHeading } from "./science-reader.js?v=20260927-reader-equations-v3";
 import { observeMobileMedia } from "./performance-profile.js?v=20260913-mobile-power-v1";
 import { guardReaderRestoration, restoreReaderPosition, restoreReaderScroll } from "./reader-position.js?v=20260926-equation-audit-v1";
 import { pick } from "./i18n.js?v=20260913-social-dock-v1";
@@ -18,8 +18,8 @@ import { initQuantumFluctuationModels } from "./quantum-fluctuation-model.js?v=2
 import { initBlackHoleModels } from "./black-hole-model.js?v=20260926-mobile-stability-v1";
 import { initFoundationModels } from "./foundation-models.js?v=20260926-mobile-stability-v1";
 import { enhanceModelAccessibility } from "./model-accessibility.js?v=20260920-model-controls-v1";
-import { clearReaderMath, renderReaderMath as renderMath } from "./reader-math.js?v=20260926-mobile-stability-v1";
-import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260926-equation-audit-v1";
+import { clearReaderMath, reportReaderMathError, renderReaderMath as renderMath } from "./reader-math.js?v=20260927-reader-equations-v3";
+import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260927-reader-equations-v3";
 import { decorateModelBadges, decoratePhotonOutlines, syncReadingConstellation } from "./creative-effects.js?v=20260926-mobile-stability-v1";
 
 let activeRequestToken = 0;
@@ -341,6 +341,11 @@ function commitStructuredDocument({
 
   const imported = sanitizeStructuredContent(extracted);
   imported.lang = state.language;
+  if (imported.hasAttribute("data-equation-index") && state.activeBranch) {
+    imported.querySelectorAll("[data-action='select-legacy-item']").forEach(button => {
+      button.dataset.branchId = state.activeBranch;
+    });
+  }
   makeGlossariesCollapsible(imported, state);
 
   clearReaderMath(host);
@@ -376,7 +381,9 @@ function commitStructuredDocument({
     initFoundationModels(host);
     enhanceModelAccessibility(host, state);
     decoratePhotonOutlines(host);
-    const mathReady = renderMath(host).catch(() => null);
+    const mathReady = renderMath(host).catch(error => {
+      if (requestToken === activeRequestToken && host.isConnected) reportReaderMathError(host, state.language, error);
+    });
 
     // Typesetting and responsive equation fitting change the reader's height.
     // Restore its position only after those layout changes have finished.

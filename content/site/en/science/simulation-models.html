@@ -43,16 +43,10 @@
       The <strong>Monte Carlo method</strong> became one of the defining tools because it uses random sampling to
       estimate quantities that are difficult to compute directly:
     </p>
-    <div class="equation-link-wrap">
-      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
-        data-branch-id="simulation-models-equations" data-item-id="monte-carlo-probability-measure"
-        aria-label="Open explanation for Monte Carlo sampling">
-        $$
-        \hat{\mu}_N = \frac{1}{N}\sum_{k=1}^{N} f(X_k)
-        $$
-      </button>
-    </div>
-    <p>
+    <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="simulation-models-equations" data-item-id="monte-carlo-sample-average"
+        aria-label="Open explanation: Monte Carlo Sample Average">$$\hat\mu_N=\frac1N\sum_{k=1}^N f(X_k)$$</button></div>
+<p>
       Monte Carlo does not promise a perfect answer from one run. It promises a controlled estimate whose uncertainty
       shrinks like:
     </p>
@@ -146,15 +140,12 @@
       same diffusion number in both directions the safe limit becomes \(\lambda \le 1/4\). More generally, the two
       directional diffusion numbers must satisfy \(\lambda_x+\lambda_y\le 1/2\).
     </p>
-    <div class="equation-link-wrap">
-      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
-        data-branch-id="simulation-models-equations" data-item-id="heat-stability-condition"
-        aria-label="Open explanation for the heat equation stability condition">
-        $$
-        \lambda_x+\lambda_y\le\frac{1}{2}
-        $$
-      </button>
-    </div>
+    <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="simulation-models-equations" data-item-id="one-dimensional-ftcs-stability"
+        aria-label="Open explanation: One-Dimensional FTCS Heat Stability">$$\lambda=\alpha\frac{\Delta t}{\Delta x^2}\le\frac12$$</button></div>
+<div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="simulation-models-equations" data-item-id="two-dimensional-ftcs-stability"
+        aria-label="Open explanation: Two-Dimensional FTCS Heat Stability">$$\lambda_x+\lambda_y\le\frac12$$</button></div>
   </section>
 
   <section class="content-block">

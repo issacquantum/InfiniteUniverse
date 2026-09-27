@@ -1,0 +1,12 @@
+<div class="structured-content equation-detail-page" data-structured-content>
+  <section class="content-block"><h3>Conditional Length-Square Column Sampling</h3></section>
+  <section class="content-block"><h3>Equation</h3><div class="equation-link-wrap"><div class="glass-window equation-display">$$\Pr[j\mid i]=\frac{|A_{ij}|^2}{\|A_{i,*}\|_2^2}$$</div></div></section>
+  <section class="content-block"><h3>Literal reading</h3><p>The probability of column j given row i equals the squared modulus of entry A subscript i j divided by the squared Euclidean norm of row i.</p></section>
+  <section class="content-block"><h3>Conceptual reading</h3><p>After choosing a row, select an entry according to its squared magnitude within that row.</p></section>
+  <section class="content-block"><h3>Symbols</h3><p>\(A\) is a matrix, \(i\) the selected row and \(j\) a column index. \(A_{ij}\) is that entry, and \(A_{i,*}\) is the whole row. Single bars take complex modulus, double bars with subscript 2 take the Euclidean norm, and the superscript squares them. The vertical bar inside \(\Pr[j\mid i]\) means conditional on row i, not modulus.</p></section>
+  <section class="content-block"><h3>Values, units and domains</h3><p>The selected row must have positive squared norm. Numerator and denominator share the same squared entry units, so probabilities are dimensionless. Zero entries get zero probability; a zero row cannot use this conditional formula.</p></section>
+  <section class="content-block"><h3>Meaning</h3><p>The column probabilities sum to one within each nonzero row. Combined with length-square row sampling, this yields entry probabilities proportional to squared entry magnitude across the matrix.</p></section>
+  <section class="content-block"><h3>Assumptions and limits</h3><p>This formula assumes the row has already been selected. Efficient sampling still depends on data access or preprocessing, not just the probability identity.</p></section>
+  <section class="content-block"><h3>Example</h3><p>Within row (3,4), the squared row norm is 25. The two column probabilities are 9/25=0.36 and 16/25=0.64, which sum to one. Negative or complex entries use modulus squared and still produce nonnegative probabilities.</p></section>
+  <section class="content-block"><h3>Source</h3><p><a class="platform-link" href="https://arxiv.org/abs/1807.04271">Ewin Tang, A quantum-inspired classical algorithm for recommendation systems</a>.</p></section>
+</div>

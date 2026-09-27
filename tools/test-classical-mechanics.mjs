@@ -110,4 +110,4 @@ for (const relative of ['classical-mechanics.html', ...equationIds.map(id => 'eq
     assert.deepEqual(mathOf(versions[0]), mathOf(versions[1]), relative + ': bilingual formulas differ');
   }
 }
-console.log('All 18 mechanics equations and both articles have balanced, nonnested math; new equation formulas match across languages.');
+console.log(`${equationIds.length} mechanics equation/index pairs and both articles have balanced, nonnested math.`);

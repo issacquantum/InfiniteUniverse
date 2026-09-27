@@ -8,4 +8,7 @@
     <p><strong>\(\log_2 n\)</strong>: logarithmic growth measured in binary decisions.</p></section>
   <section class="content-block"><h3>Meaning of the Equation</h3><p>There are too many possible orderings for fewer comparisons to distinguish in the worst case. This is why comparison sorting cannot generally beat n log n scaling.</p></section>
 <section class="content-block"><h3>Conditions and units</h3><p>The bound counts dimensionless comparisons for arbitrary distinct keys in a comparison-only model. The decision tree needs at least n! leaves. Algorithms exploiting bounded integer keys or other extra structure can avoid this comparison-model bound.</p></section>
+  <section class="content-block" data-equation-example><h3>Worked example or interpretation</h3><p>Four distinct items admit 4!=24 possible orders. A binary comparison tree of depth four has at most 16 leaves, so some input requires at least five comparisons. The asymptotic lower bound follows by applying this counting argument as n grows.</p></section>
+  <section class="content-block"><h3>Notation details</h3><p>Omega states a lower bound by a positive constant multiple for sufficiently large n. Here n is a positive integer, the product n log₂ n sets the comparison-count scale, and the factorial n! counts permutations.</p></section>
+  <section class="content-block"><h3>Source</h3><p><a class="platform-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/" target="_blank" rel="noopener noreferrer">MIT 6.006, Introduction to Algorithms</a>.</p></section>
 </div>

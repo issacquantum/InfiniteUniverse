@@ -24,13 +24,19 @@ let windows = 0;
 for (const language of ['en', 'es']) {
   const directory = `content/site/${language}/science/equations`;
   const sources = readdirSync(directory).filter(file => file.endsWith('.html'));
-  assert.equal(sources.length, 255);
+  const counterparts = readdirSync(`content/site/${language === 'en' ? 'es' : 'en'}/science/equations`).filter(file => file.endsWith('.html'));
+  assert.deepEqual(sources.sort(), counterparts.sort(), 'Every equation and compatibility index has both languages');
   const all = publicDocuments(language);
   for (const file of sources) {
     const id = file.slice(0, -5);
     const source = read(`${directory}/${file}`);
     assert(source.includes('equation-detail-page'), `${language}/${id}: display wrapper`);
-    assert(source.includes('equation-display'), `${language}/${id}: equation window`);
+    if (source.includes('data-equation-index')) {
+      assert.equal(equations(source).length,0, 'Compatibility indexes must not retain bundled equations');
+      const targets = [...source.matchAll(/data-item-id="([^"]+)"/g)].map(m=>m[1]);
+      assert(targets.length > 1 && !targets.includes(id), `${id}: index must name its individual equations`);
+      for (const target of targets) assert(all.some(doc=>doc.id===target), `${id}: unknown indexed equation ${target}`);
+    } else assert(source.includes('equation-display'), `${language}/${id}: equation window`);
     const generated = `science/${language}/equations/${file}`;
     assert(existsSync(generated), `${language}/${id}: standalone page missing`);
     const published = read(generated);
@@ -66,7 +72,7 @@ for (const language of ['en', 'es']) {
     });
   }
 }
-console.log(`255 bilingual equation pairs, standalone pages, routes and ${windows} topic displays verified.`);
+console.log(`Bilingual equation pairs, compatibility indexes, standalone pages, routes and ${windows} topic displays verified.`);
 
 // Numerical checks for the examples and sign conventions revised in this audit.
 function verlet(step) {

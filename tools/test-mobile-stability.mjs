@@ -89,3 +89,55 @@ vm.runInContext('applyGalleryZoom(true)',galleryContext);
 assert.equal(galleryResets,1,'Opening a new gallery image still resets its initial position');
 assert.match(app,/window.addEventListener\("resize",[\s\S]*?applyGalleryZoom\(false, true\)/);
 console.log('Gallery viewport resize retains position; new-image centering remains available.');
+
+// Reusing a connected reader must invalidate its old nodes, not its replacement.
+const batches = [], retained = new Set();
+let unblock;
+const target = label => ({label, textContent:'\\(x\\)', closest:()=>null, contains:()=>false});
+const oldNodes = Array.from({length:7},(_,i)=>target(`old-${i}`));
+const newNodes = Array.from({length:5},(_,i)=>target(`new-${i}`));
+let children=oldNodes;
+const reused = {isConnected:true, querySelectorAll(selector){return selector.startsWith('p,') ? children : [];}};
+window.MathJax = {
+  startup:{promise:Promise.resolve()},
+  typesetClear(nodes){for(const node of nodes) { if(node===reused) for(const child of children) retained.delete(child); else retained.delete(node); }},
+  async typesetPromise(nodes){
+    batches.push(nodes.map(node=>node.label));
+    nodes.forEach(node=>retained.add(node));
+    if(nodes[0]===oldNodes[0]) await new Promise(resolve=>unblock=resolve);
+  }
+};
+const oldRender=renderReaderMath(reused);
+while(!unblock) await Promise.resolve();
+clearReaderMath(reused);
+children=newNodes;
+const replacement=renderReaderMath(reused);
+unblock();
+await Promise.all([oldRender,replacement]);
+assert.deepEqual(batches,[['old-0','old-1'],['new-0','new-1'],['new-2','new-3'],['new-4']]);
+assert.deepEqual([...retained],newNodes,'Cancelled work clears only its old nodes in a reused host');
+let timerRan=false;
+setTimeout(()=>{timerRan=true;},0);
+await renderReaderMath(reused);
+assert.equal(timerRan,true,'Math batches yield to browser tasks');
+const config=readFileSync(new URL('../scripts/mathjax-config.js',import.meta.url),'utf8');
+for (const managed of [true, false]) {
+  const context=vm.createContext({window:{},document:{currentScript:{hasAttribute:()=>managed}}});
+  vm.runInContext(config,context);
+  assert.equal(context.window.MathJax.startup.typeset,!managed,'Only the interactive reader disables automatic typesetting');
+}
+console.log('Bounded math batches, browser yields and connected-host replacement passed.');
+
+const paragraph=target('paragraph'), nestedSpan=target('nested-span');
+const label=target('model-label'), captionSpan=target('caption-span');
+paragraph.contains=node=>node===nestedSpan;
+const labelHost={isConnected:true,querySelectorAll(selector){
+  if(!selector.startsWith('p,')) return [];
+  assert.match(selector,/\bspan\b/);
+  assert.match(selector,/\blabel\b/);
+  return [paragraph,nestedSpan,label,captionSpan];
+}};
+const beforeLabels=batches.length;
+await renderReaderMath(labelHost);
+assert.deepEqual(batches.slice(beforeLabels).flat(),['paragraph','model-label','caption-span'],
+  'Model labels and captions render while nested spans are processed only once');

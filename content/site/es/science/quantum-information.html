@@ -123,17 +123,16 @@
       de
       describir incertidumbre, ruido, subsistemas descartados y entrelazamiento con un entorno.
     </p>
-    <div class="equation-link-wrap">
-      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
-        data-branch-id="quantum-information-equations" data-item-id="density-matrix-state"
-        aria-label="Abrir explicación para el estado de matriz de densidad">
-        $$
-        \rho = |\psi\rangle\langle\psi|,\qquad
-        \rho = \sum_i p_i|\psi_i\rangle\langle\psi_i|,\qquad
-        \operatorname{Tr}(\rho)=1
-        $$
-      </button>
-    </div>
+    <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item" data-branch-id="quantum-information-equations" data-item-id="born-rule-effect-probability" aria-label="Abrir explicación: probabilidad de Born">$$P(m)=\langle\psi|M_m^\dagger M_m|\psi\rangle$$</button></div>
+    <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="pure-state-density-operator"
+        aria-label="Abrir explicación: Operador de densidad de un estado puro">$$\rho=|\psi\rangle\langle\psi|$$</button></div>
+<div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="ensemble-density-operator"
+        aria-label="Abrir explicación: Operador de densidad de un ensamble">$$\rho=\sum_i p_i|\psi_i\rangle\langle\psi_i|$$</button></div>
+<div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="density-operator-trace-normalization"
+        aria-label="Abrir explicación: Normalización de la traza del operador de densidad">$$\operatorname{Tr}(\rho)=1$$</button></div>
     <p>
       Las entradas diagonales de \(\rho\) son <strong>poblaciones</strong>: las probabilidades de resultados en una
       base.
@@ -195,15 +194,9 @@
       Para un estado bipartito puro \(|\psi\rangle_{AB}\), la <strong>entropía de entrelazamiento</strong> es
       exactamente:
     </p>
-    <div class="equation-link-wrap">
-      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
-        data-branch-id="quantum-information-equations" data-item-id="entanglement-entropy"
-        aria-label="Abrir explicación para la entropía de entrelazamiento">
-        $$
-        S(\rho_A) = S(\rho_B)
-        $$
-      </button>
-    </div>
+    <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="pure-bipartite-entropy-equality"
+        aria-label="Abrir explicación: Igualdad de entropías locales en un estado bipartito puro">$$S(\rho_A)=S(\rho_B)$$</button></div>
     <p>
       Cada estado reducido se obtiene trazando sobre el otro subsistema. Este número cuantifica qué tan fuerte están
       entrelazadas las dos partes, y se obtiene directamente de la <strong>descomposición de Schmidt</strong> de
@@ -294,18 +287,12 @@
     <p>
       La probabilidad del resultado \(m\) está dada por la <strong>regla de Born</strong>,
     </p>
-    <div class="equation-link-wrap">
-      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
-        data-branch-id="quantum-information-equations" data-item-id="born-rule-povm-measurement"
-        aria-label="Abrir explicación para la regla de Born y las mediciones POVM, medidas de operador positivo">
-        $$
-        P(m) = \langle \psi | M_m^\dagger M_m | \psi \rangle
-        $$
-        $$
-        |\psi_m\rangle = \frac{M_m|\psi\rangle}{\sqrt{P(m)}},\qquad \sum_m E_m = I
-        $$
-      </button>
-    </div>
+    <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="povm-completeness"
+        aria-label="Abrir explicación: Completitud de una POVM">$$\sum_m E_m=I$$</button></div>
+<div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="conditional-pure-measurement-state"
+        aria-label="Abrir explicación: Estado puro condicional después de una medición">$$|\psi_m\rangle=\frac{M_m|\psi\rangle}{\sqrt{P(m)}}$$</button></div>
     <p>
       La medición más general se describe con un <strong>POVM (medida con valores de operadores positivos) (positive operator-valued measure, medida de operador positivo)</strong>, un conjunto de operadores positivos. Las
       mediciones proyectivas son un caso particular en el que cada \(E_m\) es un proyector. Este formalismo es lo que
@@ -322,15 +309,12 @@
       entorno y pierde coherencia. Un canal cuántico general puede escribirse en la <strong>representación de
         Kraus</strong>:
     </p>
-    <div class="equation-link-wrap">
-      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
-        data-branch-id="quantum-information-equations" data-item-id="quantum-channel-kraus-representation"
-        aria-label="Abrir explicación para la representación de Kraus de un canal cuántico">
-        $$
-        \mathcal{E}(\rho) = \sum_k K_k \rho K_k^\dagger,\qquad \sum_k K_k^\dagger K_k = I
-        $$
-      </button>
-    </div>
+    <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="kraus-operator-sum"
+        aria-label="Abrir explicación: Representación como suma de operadores de Kraus">$$\mathcal E(\rho)=\sum_k K_k\rho K_k^\dagger$$</button></div>
+<div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="kraus-trace-preservation"
+        aria-label="Abrir explicación: Condición de Kraus para preservar la traza">$$\sum_k K_k^\dagger K_k=I$$</button></div>
     <p>
       Este es el lenguaje usado para describir ruido, pérdida, decoherencia y operaciones controladas. Permite hablar de
       la realidad imperfecta sin fingir que el sistema está aislado del mundo. La condición de completitud conserva la
@@ -530,19 +514,12 @@
       posibilidades pueden convertirse realmente en información utilizable.
     </p>
     <p>El <strong>teorema de Holevo-Schumacher-Westmoreland (HSW)</strong> da la capacidad clásica asintótica de un canal cuántico sin memoria cuando las palabras de código usan estados de entrada producto y se permiten mediciones colectivas de las salidas. La cantidad de una sola letra que aparece abajo se denota \(C^{(1)}\); la capacidad clásica sin esa restricción requiere regularizar sobre múltiples usos del canal y puede ser mayor.</p>
-    <div class="equation-link-wrap">
-      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
-        data-branch-id="quantum-information-equations" data-item-id="hsw-capacity-and-coherent-information"
-        aria-label="Abrir explicación para la capacidad HSW, Holevo-Schumacher-Westmoreland, y la información coherente">
-        $$
-        C^{(1)}(\mathcal{E}) = \max_{\{p_x, \rho_x\}} \chi(\{p_x,\mathcal{E}(\rho_x)\})
-        $$
-        $$
-        I_c(\rho, \mathcal{E}) =
-        S(\mathcal{E}(\rho)) - S((\mathcal{E} \otimes \mathrm{id})(|\psi\rangle\langle\psi|))
-        $$
-      </button>
-    </div>
+    <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="optimized-holevo-information"
+        aria-label="Abrir explicación: Información de Holevo optimizada para un uso">$$C^{(1)}(\mathcal{E})=\max_{\{p_x,\rho_x\}}\chi(\{p_x,\mathcal{E}(\rho_x)\})$$</button></div>
+<div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="coherent-information"
+        aria-label="Abrir explicación: Información coherente">$$I_c(\rho,\mathcal{E})=S(\mathcal{E}(\rho))-S((\mathcal{E}\otimes\mathrm{id})(|\psi\rangle\langle\psi|))$$</button></div>
     <p>
       Esto da el análogo cuántico del teorema de codificación de canal ruidoso de Shannon. Enviar información cuántica
       como tal está regido en cambio por la <strong>capacidad cuántica</strong> \(Q(\mathcal{E})\), expresada mediante

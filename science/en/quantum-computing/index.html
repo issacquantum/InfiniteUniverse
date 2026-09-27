@@ -294,14 +294,8 @@
       proportional to \(\|A_{i,*}\|_2^2\), then sample a column \(j\) inside that row with probability proportional to
       \(|A_{ij}|^2\). It can also query selected entries and row norms. In compact form:
     </p>
-    <div class="equation-link-wrap">
-      <a class="equation-link" href="science/en/equations/l2-norm-matrix-sampling.html">
-        $$
-        \Pr[i]=\frac{\|A_{i,*}\|_2^2}{\|A\|_F^2},\qquad
-        \Pr[j\mid i]=\frac{|A_{ij}|^2}{\|A_{i,*}\|_2^2}
-        $$
-      </a>
-    </div>
+    <div class="equation-link-wrap"><a class="equation-link" href="science/en/equations/length-square-row-sampling.html">$$\Pr[i]=\frac{\|A_{i,*}\|_2^2}{\|A\|_F^2}$$</a></div>
+<div class="equation-link-wrap"><a class="equation-link" href="science/en/equations/conditional-column-sampling.html">$$\Pr[j\mid i]=\frac{|A_{ij}|^2}{\|A_{i,*}\|_2^2}$$</a></div>
     <p>
       <strong>Equation explanation:</strong> \(A_{i,*}\) is row \(i\), \(\|A\|_F\) is the Frobenius norm of the full matrix, and
       \(\Pr[j\mid i]\) is the probability of choosing column \(j\) after row \(i\) has already been selected. This lets
@@ -448,13 +442,9 @@
     <p>
       The equilibrium object is the <strong>Gibbs state</strong>
     </p>
-    <div class="equation-link-wrap">
-      <a class="equation-link" href="science/en/equations/gibbs-state-density-matrix.html">
-        $$
-        \rho_\beta=\frac{e^{-\beta H}}{Z},\qquad Z=\mathrm{Tr}(e^{-\beta H}),\qquad \beta=\frac{1}{k_BT}
-        $$
-      </a>
-    </div>
+    <div class="equation-link-wrap"><a class="equation-link" href="science/en/equations/canonical-gibbs-state.html">$$\rho_\beta=\frac{e^{-\beta H}}{Z}$$</a></div>
+<div class="equation-link-wrap"><a class="equation-link" href="science/en/equations/canonical-partition-function.html">$$Z=\operatorname{Tr}(e^{-\beta H})$$</a></div>
+<div class="equation-link-wrap"><a class="equation-link" href="science/en/equations/inverse-thermal-energy.html">$$\beta=\frac{1}{k_B T}$$</a></div>
     <p>
       <strong>Equation explanation:</strong> \(\rho_\beta\) is the thermal density matrix, \(Z\) is the partition function that normalizes it,
       \(\mathrm{Tr}\) means trace, \(T\) is temperature, \(k_B\) is Boltzmann's constant, and \(\beta\) is inverse

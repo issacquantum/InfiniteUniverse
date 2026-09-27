@@ -1,14 +1,3 @@
-<div class="structured-content equation-detail-page" data-structured-content>
-  <section class="content-block"><h3>Muestreo Matricial con Norma L2 (norma euclidiana)</h3></section>
-  <section class="content-block"><h3>Ecuación</h3><div class="equation-link-wrap"><div class="glass-window equation-display">$$ \Pr[i]=\frac{\|A_{i,*}\|_2^2}{\|A\|_F^2},\qquad \Pr[j\mid i]=\frac{|A_{ij}|^2}{\|A_{i,*}\|_2^2} $$</div></div></section>
-  <section class="content-block"><h3>Lectura Literal</h3><p>La probabilidad de i es la norma euclidiana al cuadrado de la fila i de A dividida entre la norma de Frobenius al cuadrado de A. La probabilidad de j dado i es el módulo al cuadrado de A subíndice i j dividido entre la norma euclidiana al cuadrado de esa fila.</p></section>
-  <section class="content-block"><h3>Lectura Común</h3><p>Es la versión matricial del muestreo proporcional al cuadrado de la norma: primero se elige una fila según su norma al cuadrado y después una entrada de esa fila según su magnitud al cuadrado.</p></section>
-  <section class="content-block"><h3>Símbolos</h3><p><strong>\(A\)</strong>: matriz que se está muestreando.</p>
-    <p><strong>\(A_{i,*}\)</strong>: fila \(i\) de la matriz.</p>
-    <p><strong>\(A_{ij}\)</strong>: entrada en la fila \(i\), columna \(j\).</p>
-    <p><strong>\(\|A_{i,*}\|_2\)</strong>: norma \(\ell^2\) de la fila \(i\).</p>
-    <p><strong>\(\|A\|_F\)</strong>: norma de Frobenius de toda la matriz.</p>
-    <p><strong>\(\Pr[j\mid i]\)</strong>: probabilidad de elegir \(j\) después de que \(i\) ya fue elegido.</p></section>
-  <section class="content-block"><h3>Significado de la Ecuación</h3><p>Muestrear filas y entradas de norma alta permite que algoritmos inspeccionen partes importantes de una matriz sin leerla completa. Por eso el modelo de acceso a datos forma parte de la afirmación.</p></section>
-<section class="content-block"><h3>Condiciones y unidades</h3><p>La matriz es distinta de cero y tiene norma de Frobenius finita, \(\|A\|_F^2=\sum_{i,j}|A_{ij}|^2\). Las filas nulas tienen probabilidad cero y la fórmula condicional se usa solo para una fila elegida no nula. Las unidades comunes de las entradas se cancelan y dejan probabilidades adimensionales. Un muestreo eficiente presupone acceso adecuado a los datos o preprocesamiento; esta identidad no hace barata por sí sola la lectura de una matriz arbitraria.</p></section>
+<div class="structured-content equation-detail-page" data-equation-index data-structured-content>
+  <section class="content-block"><h3>Muestreo Matricial con Norma L2 (norma euclidiana)</h3><p>Cada ecuación tiene su propia explicación.</p><ul><li><button class="platform-link" type="button" data-action="select-legacy-item" data-branch-id="quantum-computing-equations" data-item-id="length-square-row-sampling">Muestreo de filas por norma al cuadrado</button></li><li><button class="platform-link" type="button" data-action="select-legacy-item" data-branch-id="quantum-computing-equations" data-item-id="conditional-column-sampling">Muestreo condicional de columnas por norma al cuadrado</button></li></ul></section>
 </div>

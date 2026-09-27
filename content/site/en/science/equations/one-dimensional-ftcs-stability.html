@@ -1,0 +1,12 @@
+<div class="structured-content equation-detail-page" data-structured-content>
+  <section class="content-block"><h3>One-Dimensional FTCS Heat Stability</h3></section>
+  <section class="content-block"><h3>Equation</h3><div class="equation-link-wrap"><div class="glass-window equation-display">$$\lambda=\alpha\frac{\Delta t}{\Delta x^2}\le\frac12$$</div></div></section>
+  <section class="content-block"><h3>Literal reading</h3><p>Lambda equals alpha times delta t divided by delta x squared, and is less than or equal to one half.</p></section>
+  <section class="content-block"><h3>Conceptual reading</h3><p>The explicit heat update is stable only when the time step is small enough relative to the squared spatial spacing.</p></section>
+  <section class="content-block"><h3>Symbols</h3><p>\(\lambda\) is the diffusion number, \(\alpha\) constant diffusivity, \(\Delta t\) time step and \(\Delta x\) uniform grid spacing. Delta labels finite increments; the square applies to the entire spacing. \(\le\) is an inclusive upper bound. FTCS means forward time, centred space.</p></section>
+  <section class="content-block"><h3>Values, units and domains</h3><p>Alpha is positive in m²/s, time step positive in s and spacing positive in m. Lambda and one half are dimensionless.</p></section>
+  <section class="content-block"><h3>Meaning</h3><p>The diffusion number controls the weights in the three-point update. Exceeding one half lets high-frequency grid errors grow instead of decay.</p></section>
+  <section class="content-block"><h3>Assumptions and limits</h3><p>Forward Euler time stepping with centred second differences on a uniform one-dimensional infinite or periodic grid. Boundary treatment must also be stable. This bound is not a rule for implicit solvers, and stability alone does not ensure accuracy.</p></section>
+  <section class="content-block"><h3>Example</h3><p>For alpha = 10⁻⁴ m²/s and spacing 0.01 m, lambda equals the numerical time step in seconds. A 0.4 s step gives lambda = 0.4 and satisfies the bound; 0.6 s does not.</p></section>
+  <section class="content-block"><h3>Source</h3><p><a class="platform-link" href="https://math.tifrbng.res.in/~praveen/notes/cm2013/heat_1d.pdf">Praveen Chandrashekar, Numerical solution of the heat equation</a>.</p></section>
+</div>

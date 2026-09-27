@@ -1,9 +1,9 @@
-import { enhanceScienceReader, restoreHeading } from "./science-reader.js?v=20260926-mobile-stability-v1";
+import { enhanceScienceReader, restoreHeading } from "./science-reader.js?v=20260927-reader-equations-v3";
 import { guardReaderRestoration, restoreReaderPosition, restoreReaderScroll } from "./reader-position.js?v=20260926-equation-audit-v1";
 import { bigBangLegacyContent } from "../data/legacy-big-bang.js?v=20260913-social-dock-v1";
 import { decorateModelBadges, decoratePhotonOutlines, syncReadingConstellation } from "./creative-effects.js?v=20260926-mobile-stability-v1";
-import { clearReaderMath, renderReaderMath as renderMath } from "./reader-math.js?v=20260926-mobile-stability-v1";
-import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260926-equation-audit-v1";
+import { clearReaderMath, reportReaderMathError, renderReaderMath as renderMath } from "./reader-math.js?v=20260927-reader-equations-v3";
+import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260927-reader-equations-v3";
 import { pick } from "./i18n.js?v=20260913-social-dock-v1";
 
 let activeRequestToken = 0;
@@ -505,7 +505,9 @@ function commitLegacyDocument({
 
     enhanceScienceReader(host, state);
     decoratePhotonOutlines(host);
-    void renderMath(host).catch(() => null).then(() => {
+    void renderMath(host).catch(error => {
+      if (requestToken === activeRequestToken && host.isConnected) reportReaderMathError(host, state.language, error);
+    }).then(() => {
       if (requestToken !== activeRequestToken || !host.isConnected) {
         return;
       }

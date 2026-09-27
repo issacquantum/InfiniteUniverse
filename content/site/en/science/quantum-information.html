@@ -117,17 +117,16 @@
       perfectly known pure state, but real information tasks need something more general: a way to describe uncertainty,
       noise, discarded subsystems, and entanglement with an environment.
     </p>
-    <div class="equation-link-wrap">
-      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
-        data-branch-id="quantum-information-equations" data-item-id="density-matrix-state"
-        aria-label="Open explanation for the density matrix state">
-        $$
-        \rho = |\psi\rangle\langle\psi|,\qquad
-        \rho = \sum_i p_i|\psi_i\rangle\langle\psi_i|,\qquad
-        \operatorname{Tr}(\rho)=1
-        $$
-      </button>
-    </div>
+    <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item" data-branch-id="quantum-information-equations" data-item-id="born-rule-effect-probability" aria-label="Open explanation: Born probability">$$P(m)=\langle\psi|M_m^\dagger M_m|\psi\rangle$$</button></div>
+    <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="pure-state-density-operator"
+        aria-label="Open explanation: Pure-State Density Operator">$$\rho=|\psi\rangle\langle\psi|$$</button></div>
+<div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="ensemble-density-operator"
+        aria-label="Open explanation: Density Operator of an Ensemble">$$\rho=\sum_i p_i|\psi_i\rangle\langle\psi_i|$$</button></div>
+<div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="density-operator-trace-normalization"
+        aria-label="Open explanation: Trace Normalization of a Density Operator">$$\operatorname{Tr}(\rho)=1$$</button></div>
     <p>
       The diagonal entries of \(\rho\) are <strong>populations</strong>: the probabilities for basis outcomes. The
       off-diagonal entries are <strong>coherences</strong>: they store phase relationships that can create interference.
@@ -184,15 +183,9 @@
     <p>
       For a pure bipartite state \(|\psi\rangle_{AB}\), the <strong>entanglement entropy</strong> is exactly:
     </p>
-    <div class="equation-link-wrap">
-      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
-        data-branch-id="quantum-information-equations" data-item-id="entanglement-entropy"
-        aria-label="Open explanation for entanglement entropy">
-        $$
-        S(\rho_A) = S(\rho_B)
-        $$
-      </button>
-    </div>
+    <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="pure-bipartite-entropy-equality"
+        aria-label="Open explanation: Equal Subsystem Entropies of a Pure Bipartite State">$$S(\rho_A)=S(\rho_B)$$</button></div>
     <p>
       Each reduced state comes from tracing out the other subsystem. This single number quantifies how strongly the two
       parts are entangled, and it is obtained directly from the <strong>Schmidt decomposition</strong> of
@@ -282,18 +275,12 @@
     <p>
       The probability of outcome \(m\) is given by the <strong>Born rule</strong>,
     </p>
-    <div class="equation-link-wrap">
-      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
-        data-branch-id="quantum-information-equations" data-item-id="born-rule-povm-measurement"
-        aria-label="Open explanation for the Born rule and POVM, positive operator-valued measure, measurement">
-        $$
-        P(m) = \langle \psi | M_m^\dagger M_m | \psi \rangle
-        $$
-        $$
-        |\psi_m\rangle = \frac{M_m|\psi\rangle}{\sqrt{P(m)}},\qquad \sum_m E_m = I
-        $$
-      </button>
-    </div>
+    <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="povm-completeness"
+        aria-label="Open explanation: POVM Completeness">$$\sum_m E_m=I$$</button></div>
+<div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="conditional-pure-measurement-state"
+        aria-label="Open explanation: Conditional Pure State after a Measurement">$$|\psi_m\rangle=\frac{M_m|\psi\rangle}{\sqrt{P(m)}}$$</button></div>
     <p>
       The most general measurement is described by a <strong>POVM (positive operator-valued measure)</strong>, a set of positive operators. Projective
       measurements are a special case where each \(E_m\) is a projector. This formalism is what makes quantum
@@ -309,15 +296,12 @@
       environment, and loses coherence. A general quantum channel can be written in the <strong>Kraus
         representation</strong>:
     </p>
-    <div class="equation-link-wrap">
-      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
-        data-branch-id="quantum-information-equations" data-item-id="quantum-channel-kraus-representation"
-        aria-label="Open explanation for the Kraus representation of a quantum channel">
-        $$
-        \mathcal{E}(\rho) = \sum_k K_k \rho K_k^\dagger,\qquad \sum_k K_k^\dagger K_k = I
-        $$
-      </button>
-    </div>
+    <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="kraus-operator-sum"
+        aria-label="Open explanation: Kraus Operator-Sum Representation">$$\mathcal E(\rho)=\sum_k K_k\rho K_k^\dagger$$</button></div>
+<div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="kraus-trace-preservation"
+        aria-label="Open explanation: Kraus Trace-Preservation Condition">$$\sum_k K_k^\dagger K_k=I$$</button></div>
     <p>
       This is the language used to describe noise, loss, decoherence, and controlled operations. It lets physicists
       talk about imperfect reality without pretending the system is isolated from the world. The completeness condition
@@ -518,19 +502,12 @@
       actually become usable information.
     </p>
     <p>The <strong>Holevo-Schumacher-Westmoreland (HSW) theorem</strong> gives the asymptotic classical capacity of a memoryless quantum channel when codewords use product input states, with collective output measurements allowed. The single-letter quantity below is denoted \(C^{(1)}\); unrestricted classical capacity requires regularization over multiple channel uses and can be larger.</p>
-    <div class="equation-link-wrap">
-      <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
-        data-branch-id="quantum-information-equations" data-item-id="hsw-capacity-and-coherent-information"
-        aria-label="Open explanation for HSW, Holevo-Schumacher-Westmoreland, capacity and coherent information">
-        $$
-        C^{(1)}(\mathcal{E}) = \max_{\{p_x, \rho_x\}} \chi(\{p_x,\mathcal{E}(\rho_x)\})
-        $$
-        $$
-        I_c(\rho, \mathcal{E}) =
-        S(\mathcal{E}(\rho)) - S((\mathcal{E} \otimes \mathrm{id})(|\psi\rangle\langle\psi|))
-        $$
-      </button>
-    </div>
+    <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="optimized-holevo-information"
+        aria-label="Open explanation: Optimized Single-Use Holevo Information">$$C^{(1)}(\mathcal{E})=\max_{\{p_x,\rho_x\}}\chi(\{p_x,\mathcal{E}(\rho_x)\})$$</button></div>
+<div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item"
+        data-branch-id="quantum-information-equations" data-item-id="coherent-information"
+        aria-label="Open explanation: Coherent Information">$$I_c(\rho,\mathcal{E})=S(\mathcal{E}(\rho))-S((\mathcal{E}\otimes\mathrm{id})(|\psi\rangle\langle\psi|))$$</button></div>
     <p>
       This gives the quantum analog of Shannon's noisy-channel coding theorem. Sending quantum information itself is
       governed instead by the <strong>quantum capacity</strong> \(Q(\mathcal{E})\), expressed through the regularized

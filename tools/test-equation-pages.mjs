@@ -32,10 +32,19 @@ for (const language of ['en', 'es']) {
   assert.equal(restored.activeDetail, item.id);
   assert.equal(restored.activeSection, personal.id);
   const article = readFileSync(personal.contentFile[language], 'utf8');
-  assert.equal((article.match(/data-item-id="mode-indexed-ontology"/g) ?? []).length, 6);
-  const detail = readFileSync(item.contentFile[language], 'utf8');
-  for (const equation of [...detail.matchAll(/\$\$([\s\S]*?)\$\$/g)].map(m => m[1])) {
-    assert.ok(article.includes(equation), 'Ontology expressions must remain unchanged');
+  assert(!article.includes('data-item-id="mode-indexed-ontology"'), 'Article formulas must link directly to individual definitions');
+  const index = readFileSync(item.contentFile[language], 'utf8');
+  assert(index.includes('data-equation-index'));
+  for (const id of ['ultimate-totality-union', 'mode-indexed-content', 'law-compatible-physical-reality']) {
+    assert.equal(article.split(`data-item-id="${id}"`).length - 1, 2);
+    assert(index.includes(`data-item-id="${id}"`));
+    const definition = branch.items.find(entry => entry.id === id);
+    assert(definition);
+    const detail = readFileSync(definition.contentFile[language], 'utf8');
+    const displays = [...detail.matchAll(/\$\$([\s\S]*?)\$\$/g)];
+    assert.equal(displays.length, 1);
+    assert(article.includes(displays[0][1]), 'Ontology expressions must remain unchanged');
+    assert.equal(parseRoute(routeFor({...state, activeDetail:id})).activeDetail,id);
   }
 }
 const hbar = 6.62607015e-34 / (2 * Math.PI);

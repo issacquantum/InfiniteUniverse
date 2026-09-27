@@ -1,0 +1,20 @@
+<div class="structured-content equation-detail-page" data-structured-content>
+  <section class="content-block"><h3>Cutoff Gaussian Field Sample</h3></section>
+  <section class="content-block"><h3>Equation</h3><div class="equation-link-wrap"><div class="glass-window equation-display">$$\phi_\Lambda(\mathbf r,t)\propto
+        \sum_{\mathbf{k}}
+        \frac{e^{-(|\mathbf{k}|/\Lambda)^4}}{\sqrt{2\omega_{\mathbf{k}}}}
+        \Big[
+        (Q_{\mathbf{k}}\cos(\mathbf{k}\cdot\mathbf r)+\widetilde Q_{\mathbf{k}}\sin(\mathbf{k}\cdot\mathbf r))
+        \cos(\omega_{\mathbf{k}}t)
+        +(P_{\mathbf{k}}\cos(\mathbf{k}\cdot\mathbf r)+\widetilde P_{\mathbf{k}}\sin(\mathbf{k}\cdot\mathbf r))
+        \sin(\omega_{\mathbf{k}}t)
+        \Big]$$</div></div></section>
+  <section class="content-block"><h3>Literal reading</h3><p>Phi subscript capital lambda at vector r and t is proportional to a sum over wave vectors k. The weight is exponential of minus the fourth power of the ratio of the magnitude of k to capital lambda, divided by the square root of twice omega subscript k. It multiplies a bracket with two terms: the Q cosine plus Q-tilde sine spatial combination times cosine of omega t; plus the P cosine plus P-tilde sine spatial combination times sine of omega t.</p></section>
+  <section class="content-block"><h3>Conceptual reading</h3><p>A finite collection of weighted random oscillations produces a real field image.</p></section>
+  <section class="content-block"><h3>Symbols</h3><p>\(\phi_\Lambda\) is the rendered scalar amplitude, \(\mathbf r=(x,z)\) a position and \(t\) time. \(\mathbf k\) labels the retained wave vectors; \(\sum_{\mathbf k}\) sums them. \(\Lambda&gt;0\) is a cutoff wave number and \(\omega_{\mathbf k}&gt;0\) each mode’s angular frequency. \(Q_{\mathbf k},\widetilde Q_{\mathbf k},P_{\mathbf k},\widetilde P_{\mathbf k}\) are independent standard normal random coefficients; tildes label distinct coefficients. Bars take vector magnitude, the dot is a Euclidean inner product, e is the exponential base, and sine and cosine act on the parenthesized phases. \(\propto\) omits an overall normalization.</p></section>
+  <section class="content-block"><h3>Values, units and domains</h3><p>The visualization uses normalized coordinates, time and amplitude. In physical length units with c=1, k, Lambda and omega have inverse-length units and t has length units. Every trigonometric or exponential argument is dimensionless. The omitted mode measure and normalization determine the physical field amplitude; no SI amplitude is specified by proportionality.</p></section>
+  <section class="content-block"><h3>Meaning</h3><p>The cutoff suppresses short wavelengths. The finite mode set and random coefficients choose a sample, rather than representing an infinite continuum or a measured quantum-field history.</p></section>
+  <section class="content-block"><h3>Assumptions and limits</h3><p>This classical Gaussian model illustrates symmetrized free-field fluctuations. It does not reproduce noncommuting quantum operators. Frequencies and normalization must follow the chosen model; a massless zero mode needs separate treatment because the displayed weight would divide by zero.</p></section>
+  <section class="content-block"><h3>Example</h3><p>At t=0, the terms multiplied by sine of omega t vanish. The Q and Q-tilde coefficients then specify the initial spatial sample. At wave-number magnitude Lambda, the ultraviolet damping factor is e⁻¹ ≈ 0.368; at twice Lambda it is e⁻¹⁶ ≈ 1.13 × 10⁻⁷.</p></section>
+  <section class="content-block"><h3>Source</h3><p>The finite Gaussian rendering is this site’s visualization model. Free-field background: <a class="platform-link" href="https://www.damtp.cam.ac.uk/user/tong/qft.htm">David Tong, Quantum Field Theory, free fields</a>.</p></section>
+</div>
