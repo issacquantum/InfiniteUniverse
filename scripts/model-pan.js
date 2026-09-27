@@ -2,7 +2,7 @@ export function isModelPanGesture(event) {
   return event.button === 1 || event.button === 2 || event.shiftKey || event.altKey;
 }
 
-export function bindPinchZoom(canvas, { getValue, setValue, min, max, inverted = false, onStart, onChange }) {
+export function bindPinchZoom(canvas, { onStart }) {
   // A trackpad pinch arrives as Ctrl+wheel. Leave its browser default intact.
   canvas.addEventListener("wheel", event => {
     if (event.ctrlKey) event.stopImmediatePropagation();
@@ -24,68 +24,6 @@ export function bindPinchZoom(canvas, { getValue, setValue, min, max, inverted =
   canvas.addEventListener("touchstart", event => {
     if (event.touches.length > 1) onStart?.();
   }, { passive: true });
-  if (window.matchMedia("(any-pointer: coarse)").matches) return;
-
-  let startDistance = null;
-  let startValue = null;
-
-  const clampValue = (value) => Math.min(max, Math.max(min, value));
-  const distanceFromTouchEvent = (event) => {
-    const dx = event.touches[0].clientX - event.touches[1].clientX;
-    const dy = event.touches[0].clientY - event.touches[1].clientY;
-    return Math.hypot(dx, dy);
-  };
-
-  canvas.addEventListener("pointerdown", (event) => {
-    if (canvas.dataset.modelPinchZoom !== "active") {
-      return;
-    }
-
-    event.preventDefault();
-    event.stopImmediatePropagation();
-  }, { capture: true });
-
-  canvas.addEventListener("pointermove", (event) => {
-    if (canvas.dataset.modelPinchZoom !== "active") {
-      return;
-    }
-
-    event.preventDefault();
-    event.stopImmediatePropagation();
-  }, { capture: true });
-
-  canvas.addEventListener("touchstart", (event) => {
-    if (event.touches.length !== 2) {
-      return;
-    }
-
-    event.preventDefault();
-    canvas.dataset.modelPinchZoom = "active";
-    startDistance = distanceFromTouchEvent(event);
-    startValue = getValue();
-    onStart?.();
-  }, { passive: false });
-
-  canvas.addEventListener("touchmove", (event) => {
-    if (event.touches.length !== 2 || startDistance === null || startValue === null) {
-      return;
-    }
-
-    event.preventDefault();
-    const ratio = distanceFromTouchEvent(event) / startDistance;
-    const nextValue = inverted ? startValue / ratio : startValue * ratio;
-    setValue(clampValue(nextValue));
-    onChange?.();
-  }, { passive: false });
-
-  const clearPinch = () => {
-    startDistance = null;
-    startValue = null;
-    delete canvas.dataset.modelPinchZoom;
-  };
-
-  canvas.addEventListener("touchend", clearPinch, { passive: true });
-  canvas.addEventListener("touchcancel", clearPinch, { passive: true });
 }
 
 export function panObjectFromPointer({ THREE, camera, object, startPosition, startX, startY, event, distance, scale = 0.0016 }) {

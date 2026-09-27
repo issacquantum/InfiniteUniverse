@@ -34,6 +34,15 @@ try {
   restoreReaderPosition(en, saved, "en", trigger);
   assert.equal(en.scrollTop, 420, "A different pinch pan preserves the content point");
 
+  // Returning after a model or image above the equation changes height.
+  en.scrollTop = 0;
+  const shiftedTrigger = {
+    getBoundingClientRect: () => ({ top: 80 + 950 - en.scrollTop }),
+    focus: () => {}
+  };
+  restoreReaderPosition(en, saved, "en", shiftedTrigger);
+  assert.equal(en.scrollTop, 620, "Same-width layout changes retain the equation's visible offset at the current zoom pan");
+
   for (const [from, to] of [["en", "es"], ["es", "en"]]) {
     en.scrollTop = 500;
     window.visualViewport = { scale: 2, offsetTop: 200 };
@@ -95,6 +104,16 @@ try {
     wheel(false);
     assert.equal(prevented, true);
     assert.equal(modelChanges, 1, "Ordinary model wheel controls still work");
+    let touchPrevented = false;
+    for (const type of ["touchstart", "touchmove"]) {
+      for (const listener of handlers.filter(h => h.type === type)) {
+        listener.handler({
+          touches: [{ clientX: 0, clientY: 0 }, { clientX: 100, clientY: 100 }],
+          preventDefault() { touchPrevented = true; }
+        });
+      }
+    }
+    assert.equal(touchPrevented, false, "Native pinch is never canceled, including when coarse-pointer detection is unavailable");
     if (coarse) assert.ok(handlers.filter(h => h.type.startsWith("touch")).every(h => h.options?.passive), "Phone touch handlers leave native gestures available");
   }
 } finally {

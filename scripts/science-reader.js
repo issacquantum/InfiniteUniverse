@@ -1,6 +1,6 @@
-import { siteContent } from '../data/site-content.js?v=20260927-reader-equations-v3';
+import { siteContent } from '../data/site-content.js?v=20260927-stellar-reader-v1';
 import { topicMetadata } from '../data/topic-metadata.js';
-import { routeFor } from './routes.js?v=20260927-reader-equations-v3';
+import { routeFor } from './routes.js?v=20260927-stellar-reader-v1';
 const topics = siteContent.knowledgeWorlds.flatMap(d => d.topics.map(t => ({ ...t, domain: d.id })));
 export function enhanceScienceReader(host, state) {
   if (!state.activeTopic || host.querySelector('[data-science-tools]')) return;

@@ -1,5 +1,5 @@
 import { deferModelInitialization, modelPixelRatio, requestModelFrame, stopModelAnimation } from "./performance-profile.js?v=20260913-mobile-power-v1";
-import { bindPinchZoom } from "./model-pan.js?v=20260927-zoom-bibliography-v1";
+import { bindPinchZoom } from "./model-pan.js?v=20260927-stellar-reader-v1";
 
 const mountedModels = new WeakSet();
 

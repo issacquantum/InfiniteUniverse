@@ -58,14 +58,14 @@ export function restoreReaderPosition(reader, position, language, trigger = null
   let top = (position.scrollTop ?? maxScrollTop * (position.scrollRatio ?? 0))
     + (position.visualInset ?? 0) - visualInset;
 
-  if (changedLanguage || resized) {
+  if (trigger && Number.isFinite(position.triggerOffset)) {
+    top = trigger.getBoundingClientRect().top - reader.getBoundingClientRect().top
+      + reader.scrollTop - visualInset - position.triggerOffset;
+  } else if (changedLanguage || resized) {
     top = maxScrollTop * (position.scrollRatio ?? 0);
     const headings = headingPositions(reader);
     const anchor = position.anchor;
-    if (trigger && Number.isFinite(position.triggerOffset)) {
-      top = trigger.getBoundingClientRect().top - reader.getBoundingClientRect().top
-        + reader.scrollTop - visualInset - position.triggerOffset;
-    } else if (position.scrollRatio === 0 && !position.visualInset) {
+    if (position.scrollRatio === 0 && !position.visualInset) {
       top = 0;
     } else if (position.scrollRatio === 1) {
       top = maxScrollTop;

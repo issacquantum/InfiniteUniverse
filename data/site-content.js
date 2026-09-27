@@ -384,6 +384,7 @@ const classicalMechanicsEquationBranch = {
     createStructuredItem("science/equations", "mechanics-gravitation", "Newtonian Gravitation and Circular Orbits", "Gravitación newtoniana y órbitas circulares"),
     createStructuredItem("science/equations", "newtonian-gravity-vector", "Newtonian Gravitational Force Vector", "Vector de fuerza gravitatoria newtoniana"),
     createStructuredItem("science/equations", "gravitational-potential-energy", "Newtonian Gravitational Potential Energy", "Energía potencial gravitatoria newtoniana"),
+    createStructuredItem("science/equations", "stellar-hydrostatic-equilibrium", "Stellar Hydrostatic Equilibrium", "Equilibrio hidrostático estelar"),
     createStructuredItem("science/equations", "circular-orbit-speed", "Circular Orbit Speed", "Rapidez en una órbita circular"),
     createStructuredItem("science/equations", "mechanics-circular-motion", "Uniform Circular Motion", "Movimiento circular uniforme"),
     createStructuredItem("science/equations", "circular-trajectory", "Uniform Circular Trajectory", "Trayectoria circular uniforme"),
