@@ -128,4 +128,3 @@ export function installRoutes(store, beforeRestore = () => {}, capturePosition =
     saveTimer = setTimeout(persist, Math.max(200, 2000 - (Date.now() - lastSave)));
   };
 }
-
