@@ -22,7 +22,7 @@
   aspect-ratio: 16 / 10;
   border-radius: 0.95rem;
   cursor: grab;
-  touch-action: none;
+  touch-action: pan-y pinch-zoom;
   background: #050008;
   box-shadow:
     0 12px 24px rgba(var(--shadow-rgb), 0.34),

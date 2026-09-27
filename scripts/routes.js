@@ -106,7 +106,8 @@ export function installRoutes(store, beforeRestore = () => {}, capturePosition =
     }
   };
   const initial = parseRoute(location.hash);
-  if (initial) store.setState(initial);
+  if (initial) store.setState({ ...initial, equationReturnTarget: history.state?.route === location.hash
+    ? history.state.returnTarget ?? initial.equationReturnTarget : initial.equationReturnTarget });
   currentState = store.getState();
   if (history.state?.reader) beforeRestore(history.state.reader, currentState);
   history.replaceState({ ...history.state, readerEntryId: entryId, route: routeFor(currentState) }, '', initial ? location.hash : routeFor(currentState));
@@ -123,9 +124,12 @@ export function installRoutes(store, beforeRestore = () => {}, capturePosition =
   window.addEventListener('popstate', restore);
   window.addEventListener('hashchange', () => { if (history.state?.route !== location.hash) restore(); });
   window.addEventListener('pagehide', persist);
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') persist();
+  });
   return () => {
-    clearTimeout(saveTimer);
-    // One settled-scroll snapshot at most every two seconds, never per frame.
+    if (saveTimer !== null) return;
+    // Continuous scrolling still gets a snapshot at most every two seconds.
     saveTimer = setTimeout(persist, Math.max(200, 2000 - (Date.now() - lastSave)));
   };
 }

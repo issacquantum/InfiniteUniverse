@@ -75,7 +75,7 @@
   height: 100%;
   outline: none;
   cursor: grab;
-  touch-action: none;
+  touch-action: pan-y pinch-zoom;
 }
 
 .algorithm-visualizer__canvas:active {

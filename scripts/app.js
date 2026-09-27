@@ -1,4 +1,6 @@
-import { installRoutes } from "./routes.js?v=20260926-equation-audit-v1";
+import { clearReaderMath } from "./reader-math.js?v=20260926-mobile-stability-v1";
+import { installTouchActivationGuard } from "./touch-activation.js?v=20260926-mobile-stability-v1";
+import { installRoutes } from "./routes.js?v=20260926-mobile-stability-v1";
 import { scheduleContentPrewarm } from "./content-cache.js?v=20260926-equation-audit-v1";
 import { isMobilePerformance, onPerformanceProfileChange, observeMobileMedia } from "./performance-profile.js?v=20260913-mobile-power-v1";
 import { captureReaderPosition, matchesReaderState } from "./reader-position.js?v=20260926-equation-audit-v1";
@@ -8,13 +10,15 @@ import { createReadingSettingsController } from "./reading-settings.js?v=2026091
 import { initBackground } from "./background.js?v=20260913-mobile-power-v1";
 import { refreshIcons } from "./icons.js?v=20260913-social-dock-v1";
 import { pick } from "./i18n.js?v=20260913-social-dock-v1";
-import { decoratePhotonOutlines } from "./creative-effects.js?v=20260921-classical-mechanics-v2";
-import { syncLegacyContent } from "./legacy-content.js?v=20260926-equation-audit-v1";
+import { decoratePhotonOutlines } from "./creative-effects.js?v=20260926-mobile-stability-v1";
+import { syncLegacyContent } from "./legacy-content.js?v=20260926-mobile-stability-v1";
 import { createMusicController, syncMusicUi } from "./music.js?v=20260913-bilingual-release-v1";
 import { renderSite } from "./render.js?v=20260926-equation-audit-v1";
 import { createState } from "./state.js?v=20260926-equation-audit-v1";
-import { syncStructuredContent } from "./structured-content.js?v=20260926-equation-audit-v1";
+import { syncStructuredContent } from "./structured-content.js?v=20260926-mobile-stability-v1";
 import { markWebGLAvailability } from "./webgl-support.js?v=20260913-social-dock-v1";
+
+installTouchActivationGuard(document);
 
 const refs = {
   siteShell: document.querySelector(".site-shell"),
@@ -492,6 +496,7 @@ function syncGalleryControls() {
 }
 
 function syncUi(state = store.getState()) {
+  clearReaderMath(refs.stage);
   refs.stage.querySelector(".content-window")?._creativeProgressCleanup?.();
   document.querySelectorAll(".content-progress-constellation").forEach((node) => {
     node.remove();
@@ -1086,7 +1091,7 @@ function renderGalleryImage() {
   }
 }
 
-function applyGalleryZoom(resetScroll = false) {
+function applyGalleryZoom(resetScroll = false, preserveScroll = false) {
   if (!refs.galleryLightboxImage || !refs.galleryLightboxViewport) {
     syncGalleryControls();
     return;
@@ -1123,7 +1128,7 @@ function applyGalleryZoom(resetScroll = false) {
     ? "zoom-out"
     : "zoom-in";
 
-  if (resetScroll || refs.galleryLightboxViewport.scrollWidth > refs.galleryLightboxViewport.clientWidth) {
+  if (resetScroll || (!preserveScroll && refs.galleryLightboxViewport.scrollWidth > refs.galleryLightboxViewport.clientWidth)) {
     requestAnimationFrame(() => {
       const centeredLeft = Math.max(
         (refs.galleryLightboxViewport.scrollWidth - refs.galleryLightboxViewport.clientWidth) / 2,
@@ -1545,6 +1550,7 @@ refs.galleryLightbox?.addEventListener("touchend", (event) => {
 }, { passive: true });
 
 refs.galleryLightbox?.addEventListener("wheel", (event) => {
+  if (event.ctrlKey) return;
   if (refs.galleryLightbox?.hidden !== false) {
     return;
   }
@@ -1586,7 +1592,7 @@ refs.galleryLightboxImage?.addEventListener("load", () => {
 
 window.addEventListener("resize", () => {
   if (refs.galleryLightbox?.hidden === false) {
-    applyGalleryZoom();
+    applyGalleryZoom(false, true);
   }
 
   scheduleKnowledgeTabOverlapSync();

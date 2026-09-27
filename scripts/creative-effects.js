@@ -245,7 +245,9 @@ export function syncReadingConstellation(root, language) {
     progress.style.setProperty("--progress-dot-gap", headings.length > 10 ? "0.22rem" : "0.36rem");
   };
 
+  let progressFrame = null;
   const updateProgress = () => {
+    progressFrame = null;
     const activeIndex = findActiveHeadingIndex(contentWindow, headings);
 
     dots.forEach((dot, index) => {
@@ -254,13 +256,17 @@ export function syncReadingConstellation(root, language) {
     });
   };
 
+  const scheduleProgress = () => {
+    if (progressFrame === null) progressFrame = requestAnimationFrame(updateProgress);
+  };
+
   const syncAndUpdateProgress = () => {
     syncProgressPosition();
-    updateProgress();
+    scheduleProgress();
   };
 
   document.body.appendChild(progress);
-  contentWindow.addEventListener("scroll", updateProgress, { passive: true });
+  contentWindow.addEventListener("scroll", scheduleProgress, { passive: true });
   window.addEventListener("resize", syncAndUpdateProgress, { passive: true });
 
   const resizeObserver = typeof ResizeObserver === "function"
@@ -271,8 +277,9 @@ export function syncReadingConstellation(root, language) {
   syncAndUpdateProgress();
 
   contentWindow._creativeProgressCleanup = () => {
-    contentWindow.removeEventListener("scroll", updateProgress);
+    contentWindow.removeEventListener("scroll", scheduleProgress);
     window.removeEventListener("resize", syncAndUpdateProgress);
+    if (progressFrame !== null) cancelAnimationFrame(progressFrame);
     resizeObserver?.disconnect();
     progress.remove();
   };

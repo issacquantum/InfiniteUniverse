@@ -65,7 +65,7 @@
   height: 100%;
   outline: none;
   cursor: grab;
-  touch-action: none;
+  touch-action: pan-y pinch-zoom;
 }
 
 .information-theory-model__canvas:active {

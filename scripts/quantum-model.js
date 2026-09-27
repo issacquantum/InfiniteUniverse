@@ -1,7 +1,7 @@
 import { deferModelInitialization, isMobilePerformance, modelPixelRatio, modelRendererOptions, requestModelFrame, stopModelAnimation } from "./performance-profile.js?v=20260913-mobile-power-v1";
 import { buildDensityCloud, buildCurrentCloud, advanceCurrentCloud, SCALE } from "./orbital-math.js?v=20260913-social-dock-v1";
 import { OrbitalRenderer } from "./orbital-renderer.js?v=20260913-social-dock-v1";
-import { OrbitalCamera } from "./orbital-camera.js?v=20260913-social-dock-v1";
+import { OrbitalCamera } from "./orbital-camera.js?v=20260926-mobile-stability-v1";
 
 const MOUNTED = new WeakSet();
 

@@ -41,7 +41,7 @@
   height: 100%;
   cursor: grab;
   outline: none;
-  touch-action: none;
+  touch-action: pan-y pinch-zoom;
 }
 
 .quantum-fluctuation__canvas:active {

@@ -1,26 +1,26 @@
-import { enhanceScienceReader, restoreHeading } from "./science-reader.js?v=20260926-equation-audit-v1";
+import { enhanceScienceReader, restoreHeading } from "./science-reader.js?v=20260926-mobile-stability-v1";
 import { observeMobileMedia } from "./performance-profile.js?v=20260913-mobile-power-v1";
 import { guardReaderRestoration, restoreReaderPosition, restoreReaderScroll } from "./reader-position.js?v=20260926-equation-audit-v1";
 import { pick } from "./i18n.js?v=20260913-social-dock-v1";
-import { initDoubleSlitSimulators } from "./double-slit-simulator.js?v=20260913-mobile-power-v1";
-import { initGravityFabricModels } from "./gravity-fabric-model.js?v=20260913-mobile-power-v1";
-import { initGravityLensingModels } from "./gravity-lensing-model.js?v=20260913-mobile-power-v1";
-import { initQuantumEntanglementModels } from "./quantum-entanglement-model.js?v=20260913-mobile-power-v1";
-import { initQuantumChannelModels } from "./quantum-channel-model.js?v=20260913-mobile-power-v1";
-import { initQuantumModels } from "./quantum-model.js?v=20260913-mobile-power-v1";
-import { initOrbitalSelectorModels } from "./orbital-selector-model.js?v=20260913-mobile-power-v1";
-import { initWormholeModels } from "./wormhole-model.js?v=20260913-mobile-power-v1";
-import { initNumericalMethodsModels } from "./numerical-methods-model.js?v=20260913-mobile-power-v1";
-import { initNeuralArchitectModels } from "./neural-architect-model.js?v=20260913-mobile-power-v1";
-import { initInformationTheoryModels } from "./information-theory-model.js?v=20260913-mobile-power-v1";
-import { initAlgorithmVisualizerModels } from "./algorithm-visualizer-model.js?v=20260913-mobile-power-v1";
-import { initQuantumFluctuationModels } from "./quantum-fluctuation-model.js?v=20260913-mobile-power-v1";
-import { initBlackHoleModels } from "./black-hole-model.js?v=20260913-mobile-power-v1";
-import { initFoundationModels } from "./foundation-models.js?v=20260921-classical-mechanics-v2";
+import { initDoubleSlitSimulators } from "./double-slit-simulator.js?v=20260926-mobile-stability-v1";
+import { initGravityFabricModels } from "./gravity-fabric-model.js?v=20260926-mobile-stability-v1";
+import { initGravityLensingModels } from "./gravity-lensing-model.js?v=20260926-mobile-stability-v1";
+import { initQuantumEntanglementModels } from "./quantum-entanglement-model.js?v=20260926-mobile-stability-v1";
+import { initQuantumChannelModels } from "./quantum-channel-model.js?v=20260926-mobile-stability-v1";
+import { initQuantumModels } from "./quantum-model.js?v=20260926-mobile-stability-v1";
+import { initOrbitalSelectorModels } from "./orbital-selector-model.js?v=20260926-mobile-stability-v1";
+import { initWormholeModels } from "./wormhole-model.js?v=20260926-mobile-stability-v1";
+import { initNumericalMethodsModels } from "./numerical-methods-model.js?v=20260926-mobile-stability-v1";
+import { initNeuralArchitectModels } from "./neural-architect-model.js?v=20260926-mobile-stability-v1";
+import { initInformationTheoryModels } from "./information-theory-model.js?v=20260926-mobile-stability-v1";
+import { initAlgorithmVisualizerModels } from "./algorithm-visualizer-model.js?v=20260926-mobile-stability-v1";
+import { initQuantumFluctuationModels } from "./quantum-fluctuation-model.js?v=20260926-mobile-stability-v1";
+import { initBlackHoleModels } from "./black-hole-model.js?v=20260926-mobile-stability-v1";
+import { initFoundationModels } from "./foundation-models.js?v=20260926-mobile-stability-v1";
 import { enhanceModelAccessibility } from "./model-accessibility.js?v=20260920-model-controls-v1";
-import { fitEquationBlocks } from "./equation-fit.js?v=20260926-equation-audit-v1";
+import { clearReaderMath, renderReaderMath as renderMath } from "./reader-math.js?v=20260926-mobile-stability-v1";
 import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260926-equation-audit-v1";
-import { decorateModelBadges, decoratePhotonOutlines, syncReadingConstellation } from "./creative-effects.js?v=20260921-classical-mechanics-v2";
+import { decorateModelBadges, decoratePhotonOutlines, syncReadingConstellation } from "./creative-effects.js?v=20260926-mobile-stability-v1";
 
 let activeRequestToken = 0;
 
@@ -209,20 +209,6 @@ function makeGlossariesCollapsible(root, state) {
   });
 }
 
-async function renderMath(host) {
-  if (!window.MathJax?.typesetPromise) {
-    return;
-  }
-
-  if (typeof window.MathJax.typesetClear === "function") {
-    window.MathJax.typesetClear([host]);
-  }
-
-  await window.MathJax.typesetPromise([host]);
-  await fitEquationBlocks(host);
-  await document.fonts?.ready;
-}
-
 function afterContentPaint(callback) {
   requestAnimationFrame(() => {
     requestAnimationFrame(callback);
@@ -357,6 +343,7 @@ function commitStructuredDocument({
   imported.lang = state.language;
   makeGlossariesCollapsible(imported, state);
 
+  clearReaderMath(host);
   host.replaceChildren(imported);
   const canRestore = guardReaderRestoration(host.closest(".content-window"));
   decorateModelBadges(host, state.language);

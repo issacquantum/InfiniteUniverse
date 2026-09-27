@@ -72,7 +72,7 @@
   height: 100%;
   outline: none;
   cursor: crosshair;
-  touch-action: none;
+  touch-action: pan-y pinch-zoom;
 }
 
 .gravity-lensing__canvas:focus-visible {

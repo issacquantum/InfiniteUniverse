@@ -85,7 +85,6 @@ export class OrbitalCamera {
     this.panning = false;
     this.lastX = 0;
     this.lastY = 0;
-    this.lastPinchDistance = null;
     this.idle = true;
     this.idleTimer = null;
 
@@ -100,7 +99,8 @@ export class OrbitalCamera {
     this.canvas.addEventListener("contextmenu", (event) => event.preventDefault());
     this.canvas.addEventListener("wheel", this.#onWheel.bind(this), { passive: false });
     this.canvas.addEventListener("touchstart", this.#onTouchStart.bind(this), { passive: true });
-    this.canvas.addEventListener("touchmove", this.#onTouchMove.bind(this), { passive: false });
+    this.canvas.addEventListener("touchmove", this.#onTouchMove.bind(this), { passive: true });
+    this.canvas.addEventListener("touchcancel", this.#onTouchEnd.bind(this), { passive: true });
     this.canvas.addEventListener("touchend", this.#onTouchEnd.bind(this), { passive: true });
   }
 
@@ -149,6 +149,7 @@ export class OrbitalCamera {
   }
 
   #onWheel(event) {
+    if (event.ctrlKey) return;
     event.preventDefault();
     const delta = event.deltaY > 0 ? -0.08 : 0.08;
     this.zoom = Math.max(this.minZoom, Math.min(this.maxZoom, this.zoom + delta));
@@ -160,20 +161,18 @@ export class OrbitalCamera {
       this.dragging = true;
       this.lastX = event.touches[0].clientX;
       this.lastY = event.touches[0].clientY;
-      this.lastPinchDistance = null;
-      this.#wakeFromIdle();
+        this.#wakeFromIdle();
       return;
     }
 
-    if (event.touches.length === 2) {
-      this.dragging = false;
-      this.lastPinchDistance = this.#pinchDistance(event);
-      this.#wakeFromIdle();
-    }
+    this.#onTouchEnd();
   }
 
   #onTouchMove(event) {
-    event.preventDefault();
+    if (event.touches.length !== 1) {
+      this.#onTouchEnd();
+      return;
+    }
 
     if (event.touches.length === 1 && this.dragging) {
       const deltaX = event.touches[0].clientX - this.lastX;
@@ -184,31 +183,11 @@ export class OrbitalCamera {
       this.rotationY += deltaX * 0.009;
       this.rotationX += deltaY * 0.009;
       this.rotationX = Math.max(-Math.PI / 2.0, Math.min(Math.PI / 2.0, this.rotationX));
-      return;
-    }
-
-    if (event.touches.length === 2) {
-      const distance = this.#pinchDistance(event);
-
-      if (this.lastPinchDistance !== null) {
-        const ratio = distance / this.lastPinchDistance;
-        this.zoom = Math.max(this.minZoom, Math.min(this.maxZoom, this.zoom * ratio));
-      }
-
-      this.lastPinchDistance = distance;
-      this.#wakeFromIdle();
     }
   }
 
   #onTouchEnd() {
     this.dragging = false;
-    this.lastPinchDistance = null;
-  }
-
-  #pinchDistance(event) {
-    const deltaX = event.touches[0].clientX - event.touches[1].clientX;
-    const deltaY = event.touches[0].clientY - event.touches[1].clientY;
-    return Math.sqrt(deltaX * deltaX + deltaY * deltaY);
   }
 
   nudgeRotation(deltaX, deltaY) {

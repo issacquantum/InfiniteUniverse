@@ -1,5 +1,5 @@
 import { deferModelInitialization, modelPixelRatio, requestModelFrame, stopModelAnimation } from "./performance-profile.js?v=20260913-mobile-power-v1";
-import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260913-social-dock-v1";
+import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260926-mobile-stability-v1";
 
 const mountedSimulators = new WeakSet();
 const TWO_PI = Math.PI * 2;

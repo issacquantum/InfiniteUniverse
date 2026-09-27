@@ -31,6 +31,7 @@ for (const type of ['wheel', 'touchstart', 'pointerdown', 'keydown']) {
 
 const events = new Map();
 globalThis.window = {addEventListener(type, fn) { events.set(type, fn); }};
+globalThis.document = { visibilityState: 'visible', addEventListener(type, fn) { events.set(type, fn); } };
 globalThis.location = {hash: '#/en/personal/origins-interests?chapter=origins'};
 globalThis.crypto ??= {randomUUID};
 let writes = 0, index = 0;
@@ -56,6 +57,7 @@ for (let i = 0; i < 10000; i++) {
 }
 assert.equal(writes, initialWrites, 'Scroll events never synchronously mutate history');
 assert.equal(timers.size,1,'A scroll burst has only one pending snapshot');
+assert.equal(timerId, 1, 'Continuous scrolling does not postpone the pending snapshot');
 const settled = [...timers.values()][0];
 settled.fn();
 assert.equal(writes,initialWrites+1,'A settled burst writes once');
@@ -71,6 +73,10 @@ top = 9999;
 index = 1; location.hash = entries[index].hash; events.get('popstate')();
 assert.equal(restored.scrollTop,420, 'Forward retains the outgoing Back position in memory');
 assert.equal(store.getState().activeChapter,'music');
+top = 431;
+document.visibilityState = 'hidden';
+events.get('visibilitychange')();
+assert.equal(history.state.reader.scrollTop,431, 'Backgrounding saves the latest reading position');
 events.get('pagehide')();
 assert.equal(history.state.reader.activeChapter,'music');
 globalThis.setTimeout = realSetTimeout;
@@ -115,3 +121,13 @@ for (const language of ['en', 'es']) {
   assert.equal(library.activeSection, 'library-influences');
   assert.equal(library.activeChapter, null);
 }
+
+const equationRoute = '#/en/personal/personal-cosmology?branch=my-work-influences-equations&detail=general-spacetime-interval';
+const equationState = parseRoute(equationRoute);
+assert.ok(equationState?.activeDetail);
+const returnTarget = {...equationState.equationReturnTarget, scrollTop:731, scrollRatio:0.43};
+history.replaceState({route:equationRoute, returnTarget}, '', equationRoute);
+const reloadedStore=createState({language:'en'});
+installRoutes(reloadedStore);
+assert.deepEqual(reloadedStore.getState().equationReturnTarget, returnTarget, 'Reload preserves the saved equation parent position');
+console.log('Equation parent position survives route initialization after reload.');

@@ -50,7 +50,7 @@
   height: 100%;
   outline: none;
   cursor: grab;
-  touch-action: none;
+  touch-action: pan-y pinch-zoom;
 }
 
 .foundation-model__canvas:active {

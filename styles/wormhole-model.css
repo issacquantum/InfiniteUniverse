@@ -42,7 +42,7 @@
   width: 100%;
   height: 100%;
   cursor: grab;
-  touch-action: none;
+  touch-action: pan-y pinch-zoom;
 }
 
 .wormhole-model__canvas:active {

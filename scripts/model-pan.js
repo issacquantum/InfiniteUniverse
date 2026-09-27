@@ -3,6 +3,24 @@ export function isModelPanGesture(event) {
 }
 
 export function bindPinchZoom(canvas, { getValue, setValue, min, max, inverted = false, onStart, onChange }) {
+  // Touchscreen zoom belongs to the browser; model controls provide model zoom.
+  let touchStarted = null;
+  canvas.addEventListener("pointerdown", event => {
+    if (event.pointerType === "touch") touchStarted = performance.now();
+  }, { capture: true, passive: true });
+  canvas.addEventListener("pointerup", event => {
+    if (event.pointerType === "touch" && touchStarted !== null && performance.now() - touchStarted >= 500) onStart?.();
+    touchStarted = null;
+  }, { capture: true, passive: true });
+  canvas.addEventListener("pointercancel", () => {
+    touchStarted = null;
+    onStart?.();
+  }, { capture: true, passive: true });
+  canvas.addEventListener("touchstart", event => {
+    if (event.touches.length > 1) onStart?.();
+  }, { passive: true });
+  if (window.matchMedia("(any-pointer: coarse)").matches) return;
+
   let startDistance = null;
   let startValue = null;
 
