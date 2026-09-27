@@ -10,8 +10,8 @@
     </p>
     <p>
       Esta sección no trata de decir que las computadoras cuánticas son "rápidas" de forma vaga. Trata de afirmaciones
-      exactas: qué problemas se vuelven más fáciles, cuáles siguen siendo difíciles, qué ventajas dependen del modelo
-      de entrada y dónde la mecánica cuántica cambia la frontera entre cómputo factible e infactible.
+      exactas: qué problemas se vuelven más fáciles, cuáles siguen siendo difíciles, qué ventajas dependen del <strong>modelo
+      de entrada</strong> y dónde la <a class="platform-link" href="index.html#/es/science/quantum-mechanics">mecánica cuántica</a> cambia la frontera entre cómputo factible e infactible.
     </p>
     <p class="source-language-note">Las fuentes se presentan en el idioma de la versión consultada.</p>
     <p class="source-language-note">
@@ -24,7 +24,7 @@
   <section class="content-block">
     <h3 id="section-2">El recurso que se mide</h3>
     <p>
-      Una computadora cuántica con \(n\) qubits tiene un vector de estado en un espacio de Hilbert cuya dimensión crece
+      Una computadora cuántica con \(n\) qubits tiene un vector de estado en un <a class="platform-link" href="index.html#/es/science/mathematical-analysis">espacio de Hilbert</a> cuya dimensión crece
       exponencialmente:
     </p>
     <div class="equation-link-wrap">
@@ -37,7 +37,7 @@
       </button>
     </div>
     <p>
-      Este espacio de estados exponencial es importante, pero por sí solo no es una aceleración. Un dispositivo físico
+      Este espacio de estados exponencial es importante, pero <strong>por sí solo no es una aceleración</strong>. Un dispositivo físico
       no puede imprimir simplemente todas las \(2^n\) amplitudes. Un algoritmo cuántico útil debe preparar el estado
       correcto de forma eficiente, transformarlo con un circuito de tamaño polinomial y hacer que la medición tenga alta
       probabilidad de revelar información clásica útil.
@@ -45,7 +45,7 @@
     <p>
       Por eso la teoría de complejidad cuenta recursos operacionales: número de compuertas, profundidad del circuito,
       número de consultas al oráculo, número de qubits, precisión, probabilidad de error, costo de preparación del
-      estado y costo de leer la respuesta. Una ventaja cuántica es seria solo cuando todos esos costos se incluyen.
+      estado y costo de leer la respuesta. Una ventaja cuántica es seria solo cuando <strong>todos esos costos se incluyen</strong>.
     </p>
   </section>
 
@@ -70,8 +70,8 @@
       </button>
     </div>
     <p>
-      Estas son contenciones, no igualdades. No prueban que las computadoras cuánticas resuelvan todo problema difícil.
-      Dicen dónde se ubica el cómputo cuántico con error limitado dentro del mapa mayor de límites matemáticos conocidos.
+      Estas son <strong>contenciones, no igualdades</strong>. No prueban que las computadoras cuánticas resuelvan todo problema difícil.
+      Dicen dónde se ubica el <a class="platform-link" href="index.html#/es/science/quantum-computing">cómputo cuántico</a> con error limitado dentro del mapa mayor de límites matemáticos conocidos.
     </p>
   </section>
 
@@ -95,11 +95,11 @@
     </div>
     <p>
       Las constantes \(2/3\) y \(1/3\) no son sagradas. Repetir el cómputo y tomar mayoría puede reducir la
-      probabilidad de error. El punto real es que el circuito debe generarse eficientemente y usar solo un número
-      polinomial de compuertas.
+      probabilidad de error. El punto real es que el circuito debe generarse eficientemente y usar solo un <strong>número
+      polinomial de compuertas</strong>.
     </p>
     <p>
-      El algoritmo de Shor para factorización y la estimación de fase cuántica viven dentro de este marco. No muestran
+      El <a class="platform-link" href="index.html#/es/science/quantum-computing?branch=quantum-computing-equations&amp;detail=shor-algorithm-polynomial-runtime">algoritmo de Shor</a> para factorización y la estimación de fase cuántica viven dentro de este marco. No muestran
       que las computadoras cuánticas resuelvan eficientemente problemas \(NP\)-completos. Muestran que algunos problemas
       algebraicos y con estructura de Fourier entran en otro régimen de complejidad cuando la interferencia cuántica
       está disponible.
@@ -123,10 +123,10 @@
       </button>
     </div>
     <p>
-      Esto funciona como límite superior y como límite inferior. La mecánica cuántica da una mejora cuadrática sobre
+      Esto funciona como <strong>límite superior y como límite inferior</strong>. La <a class="platform-link" href="index.html#/es/science/quantum-mechanics">mecánica cuántica</a> da una mejora cuadrática sobre
       revisar \(N\) posibilidades una por una, pero no convierte la búsqueda sin estructura en tiempo logarítmico o
       constante. El límite inferior es tan importante como el algoritmo porque muestra que la aceleración cuadrática es la
-      mejor posible en ese modelo de caja negra.
+      <strong>mejor posible en ese modelo de caja negra</strong>.
     </p>
   </section>
 
@@ -180,7 +180,7 @@
     </div>
     <p>
       La tarea es decidir si la energía mínima posible está por debajo de \(a\) o por encima de \(b\), con la promesa de
-      que uno de esos casos es verdadero. Este problema es QMA-completo para interacciones locales adecuadas, lo que
+      que uno de esos casos es verdadero. Este problema es <strong>QMA-completo para interacciones locales adecuadas</strong>, lo que
       significa que es un problema difícil central para la verificación de pruebas cuánticas.
     </p>
     <p>
@@ -206,13 +206,13 @@
       </button>
     </div>
     <p>
-      Esto es distinto de la dimensión del espacio de Hilbert. Un estado o una unitaria puede vivir en un espacio enorme
-      y aun así ser fácil si tiene una descripción corta mediante circuitos. Por el contrario, una unitaria genérica de
+      Esto es distinto de la dimensión del <a class="platform-link" href="index.html#/es/science/mathematical-analysis">espacio de Hilbert</a>. Un estado o una unitaria puede vivir en un espacio enorme
+      y aun así ser fácil si tiene una <strong>descripción corta mediante circuitos</strong>. Por el contrario, una unitaria genérica de
       muchos qubits normalmente requiere una cantidad enorme de compuertas para describirse o implementarse.
     </p>
     <p>
-      La complejidad de circuitos también aparece en discusiones modernas sobre agujeros negros, holografía y
-      mezclado cuántico, pero esos usos son interpretativos y dependen del modelo. En esta sección, el significado
+      La complejidad de circuitos también aparece en discusiones modernas sobre <a class="platform-link" href="index.html#/es/science/black-holes">agujeros negros</a>, holografía y
+      mezclado cuántico, pero esos usos son <strong>interpretativos y dependen del modelo</strong>. En esta sección, el significado
       estricto es computacional: número de compuertas necesarias para sintetizar una transformación con precisión
       \(\epsilon\).
     </p>
@@ -221,7 +221,7 @@
   <section class="content-block">
     <h3 id="section-9">Cuándo un sistema cuántico se puede simular clásicamente</h3>
     <p>
-      No todo proceso que parece cuántico es computacionalmente difícil. Los circuitos estabilizadores construidos con
+      No todo proceso que parece cuántico es computacionalmente difícil. Los <strong>circuitos estabilizadores</strong> construidos con
       operaciones de Clifford se pueden simular eficientemente en una computadora clásica. Sistemas unidimensionales con
       bajo entrelazamiento a menudo pueden describirse con redes tensoriales. Hamiltonianos estoquásticos y ciertos
       modelos de partículas libres también pueden ser más fáciles que la dinámica cuántica general.
@@ -240,8 +240,8 @@
       </button>
     </div>
     <p>
-      Esto dice que la entropía de entrelazamiento de una región escala como su frontera y no como su volumen. Las leyes
-      de área no vuelven fácil todo sistema, pero explican por qué algunos sistemas cuánticos físicamente importantes
+      Esto dice que la entropía de entrelazamiento de una región escala como su frontera y no como su volumen. <strong>Las leyes
+      de área no vuelven fácil todo sistema</strong>, pero explican por qué algunos sistemas cuánticos físicamente importantes
       tienen descripciones comprimidas.
     </p>
   </section>
@@ -251,19 +251,19 @@
     <p>
       <strong>Ventaja cuántica</strong> significa que un dispositivo cuántico resuelve una tarea bien definida con menor
       costo de recursos que el mejor método clásico disponible. Una afirmación fuerte debe especificar la tarea, el
-      modelo de entrada, el tipo de salida, la tolerancia de error, los supuestos de hardware y el punto de comparación
+      <strong>modelo de entrada</strong>, el tipo de salida, la tolerancia de error, los supuestos de hardware y el punto de comparación
       clásico.
     </p>
     <p>
       Los experimentos de muestreo son importantes porque pueden mostrar una separación antes de que existan
-      computadoras cuánticas tolerantes a fallas. Pero ventaja de muestreo no es lo mismo que cómputo útil general. Un
+      computadoras cuánticas tolerantes a fallas. Pero <strong>ventaja de muestreo no es lo mismo que cómputo útil general</strong>. Un
       dispositivo puede ser difícil de simular y aun así no resolver un problema práctico. La complejidad cuántica
       mantiene esas afirmaciones separadas.
     </p>
     <p>
       Los resultados de decuantización también pertenecen aquí. Si una aceleración cuántica depende de acceso especial a
       datos clásicos, un algoritmo clásico comparado bajo supuestos equivalentes puede recuperar gran parte de la
-      ventaja. Eso no vuelve irrelevante a la computación cuántica. Obliga a contar los mismos recursos en ambos lados.
+      ventaja. Eso no vuelve irrelevante a la <a class="platform-link" href="index.html#/es/science/quantum-computing">computación cuántica</a>. Obliga a contar <strong>los mismos recursos en ambos lados</strong>.
     </p>
   </section>
 
@@ -277,8 +277,8 @@
       indecidibilidad.
     </p>
     <p>
-      Estos resultados no son instrucciones para construir una laptop. Son afirmaciones matemáticas sobre lo que puede
-      certificarse cuando se permiten información cuántica, interacción y entrelazamiento. Muestran que la teoría
+      Estos resultados no son instrucciones para construir una laptop. Son <strong>afirmaciones matemáticas</strong> sobre lo que puede
+      certificarse cuando se permiten <a class="platform-link" href="index.html#/es/science/quantum-information">información cuántica</a>, interacción y entrelazamiento. Muestran que la teoría
       cuántica no solo cambia algoritmos; cambia la estructura de la prueba y la verificación.
     </p>
   </section>
@@ -287,13 +287,13 @@
     <h3 id="section-12">Lo que la complejidad cuántica no dice</h3>
     <p>
       La complejidad cuántica no dice que las computadoras cuánticas resuelvan todo problema difícil. No prueba que
-      \(P\neq NP\). No vuelve legible directamente el espacio de Hilbert exponencial. No elimina el costo de preparar
+      \(P\neq NP\). No vuelve legible directamente el <a class="platform-link" href="index.html#/es/science/mathematical-analysis">espacio de Hilbert</a> exponencial. No elimina el costo de preparar
       estados, corregir errores, controlar precisión o medir resultados.
     </p>
     <p>
-      La afirmación disciplinada es más precisa: la mecánica cuántica crea nuevos recursos computacionales, y la teoría
-      de complejidad nos dice dónde esos recursos ayudan de forma demostrable, dónde probablemente no ayudan y dónde la
-      respuesta sigue abierta.
+      La afirmación disciplinada es más precisa: la <a class="platform-link" href="index.html#/es/science/quantum-mechanics">mecánica cuántica</a> crea nuevos recursos computacionales, y la teoría
+      de complejidad nos dice dónde esos recursos ayudan de forma demostrable, dónde probablemente no ayudan y dónde <strong>la
+      respuesta sigue abierta</strong>.
     </p>
   </section>
 

@@ -10,12 +10,12 @@
   <section class="content-block"><h3>Recurrencia Algorítmica</h3></section>
   <section class="content-block"><h3>Ecuación</h3><div class="equation-link-wrap"><div class="glass-window equation-display">$$ T(n)=aT(n/b)+f(n) $$</div></div></section>
   <section class="content-block"><h3>Lectura Literal</h3><p>T de n es igual a a por T evaluada en n dividido entre b, más f de n.</p></section>
-  <section class="content-block"><h3>Lectura Común</h3><p>Describe algoritmos de divide y vencerás, donde un problema se divide en piezas más pequeñas y luego se combina.</p></section>
+  <section class="content-block"><h3>Lectura Común</h3><p>Describe <strong>algoritmos de divide y vencerás</strong>, donde un problema se divide en piezas más pequeñas y luego se combina.</p></section>
   <section class="content-block"><h3>Símbolos</h3><p><strong>\(T(n)\)</strong>: tiempo de ejecución para tamaño \(n\).</p>
     <p><strong>\(a\)</strong>: número de subproblemas.</p>
     <p><strong>\(n/b\)</strong>: tamaño de cada subproblema.</p>
     <p><strong>\(f(n)\)</strong>: trabajo fuera de las llamadas recursivas.</p></section>
-  <section class="content-block"><h3>Significado de la Ecuación</h3><p>La ecuación convierte un procedimiento recursivo en un cálculo de crecimiento. Al seguir cuántos subproblemas menores aparecen y cuánto trabajo adicional se agrega, predice el tiempo total de ejecución.</p></section>
+  <section class="content-block"><h3>Significado de la Ecuación</h3><p>La ecuación convierte un procedimiento recursivo en un cálculo de crecimiento. Al seguir cuántos subproblemas menores aparecen y cuánto trabajo adicional se agrega, predice el <strong>tiempo total de ejecución</strong>.</p></section>
 <section class="content-block"><h3>Condiciones y unidades</h3><p>\(n\) es el tamaño adimensional de la entrada, \(a\ge1\) el número entero de llamadas recursivas y \(b&gt;1\) el factor adimensional de reducción del tamaño. \(T\) y \(f\) deben usar las mismas unidades de costo, como número de operaciones. Se necesita un caso base y una regla de redondeo si \(n/b\) no es entero. Esta recurrencia modela subproblemas del mismo tamaño; no describe cualquier algoritmo recursivo.</p></section>
   <section class="content-block" data-equation-example><h3>Ejemplo o interpretación</h3><p>Para dos llamadas recursivas de la mitad del tamaño, una unidad de combinación por elemento y costo base T(1)=1, tómense a=2, b=2 y f(n)=n. Entonces T(2)=4, T(4)=12 y T(8)=32 unidades de costo. Para potencias de dos se obtiene T(n)=n log₂ n+n.</p></section>
   <section class="content-block"><h3>Fuente</h3><p>La fuente se presenta en su idioma original. <a class="platform-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/" target="_blank" rel="noopener noreferrer">MIT 6.006, Introduction to Algorithms</a>.</p></section>

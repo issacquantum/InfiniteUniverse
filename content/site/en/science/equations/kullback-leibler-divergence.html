@@ -6,7 +6,7 @@
   <section class="content-block"><h3>Symbols</h3><p><strong>\(P(x)\)</strong>: the reference or true distribution.</p>
     <p><strong>\(Q(x)\)</strong>: the comparison distribution or model.</p>
     <p><strong>\(\log_2\)</strong>: base two logarithm, giving the result in bits.</p></section>
-  <section class="content-block"><h3>Meaning of the Equation</h3><p>KL divergence is not symmetric and is not a metric.</p></section>
+  <section class="content-block"><h3>Meaning of the Equation</h3><p>KL divergence is <strong>not symmetric and is not a metric</strong>.</p></section>
 <section class="content-block"><h3>Conditions and units</h3><p>Here \(x\) ranges over a common discrete outcome space; \(P,Q\) are normalized probability distributions. Terms with \(P(x)=0\) contribute zero by continuity. If \(P(x)&gt;0\) but \(Q(x)=0\), the divergence is infinite. The result is nonnegative and measured in bits, not a physical energy or length.</p></section>
   <section class="content-block" data-equation-example><h3>Worked example or interpretation</h3><p>For P=(1,0) and Q=(1/2,1/2), the only nonzero weighted term is log₂(2)=1 bit. Reversing the arguments gives infinity because Q assigns positive probability to an outcome with zero probability under P. This demonstrates the asymmetry.</p></section>
   <section class="content-block"><h3>Notation details</h3><p>The double bar separates the reference and comparison distributions, not a norm. The summation covers the common outcome alphabet, and the entire probability ratio is inside the logarithm.</p></section>

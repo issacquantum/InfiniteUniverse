@@ -10,13 +10,13 @@
   <section class="content-block"><h3>Tiempo de Recomendación de Tang</h3></section>
   <section class="content-block"><h3>Ecuación</h3><div class="equation-link-wrap"><div class="glass-window equation-display">$$ \mathcal{O}(\mathrm{poly}(k)\log(mn)) $$</div></div></section>
   <section class="content-block"><h3>Lectura Literal</h3><p>O grande de un polinomio en k multiplicado por el logaritmo del producto m n.</p></section>
-  <section class="content-block"><h3>Lectura Común</h3><p>Big O de un polinomio en \(k\) multiplicado por el logaritmo de \(mn\).</p></section>
+  <section class="content-block"><h3>Lectura Común</h3><p><a class="platform-link" href="index.html#/es/science/programming-algorithms">Big O</a> de un polinomio en \(k\) multiplicado por el logaritmo de \(mn\).</p></section>
   <section class="content-block"><h3>Símbolos</h3><p><strong>\(\mathcal{O}\)</strong>: notación de escalamiento asintótico.</p>
     <p><strong>\(\mathrm{poly}(k)\)</strong>: alguna función polinómica del rango objetivo \(k\).</p>
     <p><strong>\(k\)</strong>: dimensión de bajo rango objetivo.</p>
     <p><strong>\(m,n\)</strong>: dimensiones de la matriz de datos.</p>
     <p><strong>\(\log(mn)\)</strong>: dependencia logarítmica del tamaño total de la matriz.</p></section>
-  <section class="content-block"><h3>Significado de la Ecuación</h3><p>Esto ocurre bajo supuestos de acceso de muestreo y consulta o norma \(\ell_2\), no bajo acceso ordinario a datos crudos.</p></section>
+  <section class="content-block"><h3>Significado de la Ecuación</h3><p>Esto ocurre <strong>bajo supuestos de acceso de muestreo y consulta</strong> o norma \(\ell_2\), <strong>no bajo acceso ordinario a datos crudos</strong>.</p></section>
 <section class="content-block"><h3>Condiciones y unidades</h3><p>Es una dependencia esquemática respecto a las dimensiones de la matriz y al rango objetivo, manteniendo fijas la precisión, la probabilidad de éxito y las condiciones cuantitativas de la matriz exigidas por el teorema. La cota completa también depende de esos parámetros; omitirlos no implica costo logarítmico para datos arbitrarios de recomendación. Construir la estructura de muestreo y leer un vector de salida completo son costos separados. El tiempo se expresa como una cota del número de operaciones bajo el modelo de acceso indicado.</p></section>
 <section class="content-block"><h3>Referencia</h3><p><a href="https://arxiv.org/abs/1807.04271">E. Tang, A quantum-inspired classical algorithm for recommendation systems</a>. La fuente se presenta en su idioma original.</p></section>
   <section class="content-block" data-equation-example><h3>Ejemplo o interpretación</h3><p>Con rango y todos los parámetros omitidos fijos, duplicar ambas dimensiones de la matriz cambia log(mn) a log(4mn), un incremento logarítmico aditivo. Esto corresponde al algoritmo de muestreo una vez disponible el acceso adecuado; leer las mn entradas sigue siendo una tarea aparte, lineal en el tamaño de la entrada.</p></section>

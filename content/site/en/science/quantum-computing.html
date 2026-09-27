@@ -2,11 +2,11 @@
   <section class="content-block">
     <h3 id="section-1">Etymology</h3>
     <p>The word <strong>quantum</strong> derives from the Latin <strong>quantus</strong>, meaning "how great" or "how
-      much." It entered scientific vocabulary in 1900 when physicist <strong>Max Planck</strong> used the term to
+      much." It entered scientific vocabulary in 1900 when physicist <strong><a class="platform-link" href="https://mathshistory.st-andrews.ac.uk/Biographies/Planck/" target="_blank" rel="noopener noreferrer">Max Planck</a></strong> used the term to
       describe the smallest discrete unit of energy that could be emitted or absorbed, a fundamental "packet" of energy
       he called a <strong>Energieelement</strong>, later formalized as a <strong>quantum</strong>. The plural,
       <strong>quanta</strong>, became central to the theoretical framework that would eventually be known as
-      <strong>quantum mechanics</strong>.
+      <strong><a class="platform-link" href="index.html#/en/science/quantum-mechanics">quantum mechanics</a></strong>.
     </p>
     <p>The word <strong>computing</strong> traces back to the Latin verb <strong>computare</strong>, formed from
       <strong>com-</strong> ("together") and <strong>putare</strong> ("to reckon, to settle, to prune"). In its original
@@ -14,8 +14,8 @@
       Middle English, and by the mid-20th century, <strong>computing</strong> had become synonymous with the operation
       of electronic machines capable of executing algorithmic instructions.
     </p>
-    <p>The compound term <strong>quantum computing</strong> emerged in the early 1980s, when physicists <strong>Richard
-        Feynman</strong> and <strong>Yuri Manin</strong> independently proposed that computational systems governed by
+    <p>The compound term <strong>quantum computing</strong> emerged in the early 1980s, when physicists <strong><a class="platform-link" href="https://mathshistory.st-andrews.ac.uk/Biographies/Feynman/" target="_blank" rel="noopener noreferrer">Richard
+        Feynman</a></strong> and <strong>Yuri Manin</strong> independently proposed that computational systems governed by
       quantum mechanical principles, <strong>superposition</strong>, <strong>entanglement</strong>, and
       <strong>interference</strong>, could represent physical phenomena that classical computers could not efficiently
       handle. The pairing of the two words thus describes a paradigm of computation built not on classical binary logic,
@@ -35,7 +35,7 @@
 
 <section class="content-block">
     <h2 id="section-2">Qubits and Superposition</h2>
-    <p>Quantum computing is a computational paradigm that harnesses the principles of <strong>quantum mechanics</strong>
+    <p>Quantum computing is a computational paradigm that harnesses the principles of <strong><a class="platform-link" href="index.html#/en/science/quantum-mechanics">quantum mechanics</a></strong>
       to process information in ways inaccessible to classical machines. Its fundamental unit is the
       <strong>qubit</strong>, a two-level quantum system whose general state is described by the vector
     </p>
@@ -61,7 +61,7 @@
     <p>Unlike a classical bit, which can only hold the value 0 or 1, a qubit is a <strong>complex linear
         combination</strong> of basis states relative to a chosen basis, and its measurement probabilities come from
       squared amplitudes. This amplitude structure is the first source of quantum computational power. When several qubits are combined, the state
-      space grows exponentially: <strong>\(n\) qubits occupy a Hilbert space of dimension \(2^n\)</strong>, giving the
+      space grows exponentially: <strong>\(n\) qubits occupy a <a class="platform-link" href="index.html#/en/science/mathematical-analysis">Hilbert space</a> of dimension \(2^n\)</strong>, giving the
       state vector \(2^n\) complex amplitudes, although those amplitudes are not directly readable as \(2^n\) classical
       data. The essential point is not a picture of the qubit, but its amplitudes, relative phase, and measurement
       basis.
@@ -92,7 +92,7 @@
 
     <h3 id="section-4">Quantum Gates and Circuits</h3>
     <p>Qubit manipulation is performed through <strong>quantum gates</strong>, which are unitary operations represented
-      by matrices. The <strong>Hadamard gate</strong>
+      by matrices. The <strong><a class="platform-link" href="index.html#/en/science/quantum-computing?branch=quantum-computing-equations&amp;detail=hadamard-gate-matrix">Hadamard gate</a></strong>
     </p>
     <div class="equation-link-wrap">
       <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
@@ -154,7 +154,7 @@
 
     <h3 id="section-6">Key Quantum Algorithms</h3>
     <p>On this architecture, algorithms have been built that surpass their classical counterparts in complexity.
-      <strong>Shor's algorithm</strong>, published in 1994, factors integers in polynomial time
+      <strong><a class="platform-link" href="index.html#/en/science/quantum-computing?branch=quantum-computing-equations&amp;detail=shor-algorithm-polynomial-runtime">Shor's algorithm</a></strong>, published in 1994, factors integers in polynomial time
     </p>
     <div class="equation-link-wrap">
       <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
@@ -167,7 +167,7 @@
     </div>
     <p>while the best known classical methods require subexponential time; this difference directly threatens public-key
       cryptography based on <strong>RSA (Rivest-Shamir-Adleman)</strong> and <strong>elliptic curves</strong>, and is the primary driver of the
-      global transition toward <strong>post-quantum cryptography</strong>. <strong>Grover's algorithm</strong>, in turn,
+      global transition toward <strong>post-quantum cryptography</strong>. <strong><a class="platform-link" href="index.html#/en/science/quantum-computing?branch=quantum-computing-equations&amp;detail=grover-algorithm-quadratic-runtime">Grover's algorithm</a></strong>, in turn,
       searches for a marked element in an unstructured list of \(N\) entries in
     </p>
     <div class="equation-link-wrap">
@@ -183,15 +183,15 @@
       of search and optimization problems. To these are added quantum algorithms for chemistry and materials,
       variational methods such as <strong>VQE (variational quantum eigensolver)</strong> and <strong>QAOA (quantum approximate optimization algorithm)</strong> designed for
       current-era hardware, and phase estimation and linear-system solvers like <strong>HHL (Harrow-Hassidim-Lloyd)</strong>, which promise
-      advantages in machine learning and data science.
+      advantages in <a class="platform-link" href="index.html#/en/science/artificial-intelligence">machine learning</a> and data science.
     </p>
     <p>Two mechanisms are especially important inside those algorithms. <strong>Phase estimation</strong> extracts hidden
       periodic structure and is the engine behind Shor's factoring speedup. <strong>Amplitude amplification</strong>,
       the core of Grover's algorithm, repeatedly reflects amplitudes so the marked answer grows while unmarked answers
       shrink. In both cases, the computer is not reading every branch; it is engineering interference so the final
       measurement is biased toward useful information.</p>
-    <p>This is also the point at which the public conversation often becomes misleading. Quantum advantage is not a
-      universal speedup applied to every problem. It appears only when a problem can be encoded so that interference,
+    <p>This is also the point at which the public conversation often becomes misleading. Quantum advantage is <strong>not a
+      universal speedup</strong> applied to every problem. It appears only when a problem can be encoded so that interference,
       entanglement, and measurement structure the search space more efficiently than a classical method can. That is why
       a handful of algorithm families matter so much: they reveal where quantum computation changes complexity and where
       it does not.</p>
@@ -205,7 +205,7 @@
           rel="noopener noreferrer">Ewin Tang</a></strong>, recipient of the
       <strong>2025 Maryam Mirzakhani New Frontiers Prize</strong>, helped force a more disciplined standard for claims
       of quantum advantage. The Breakthrough Prize citation credits her with developing classical analogs of quantum
-      algorithms for machine learning and linear algebra, and with advances in quantum machine learning on quantum data.
+      algorithms for <a class="platform-link" href="index.html#/en/science/artificial-intelligence">machine learning</a> and <a class="platform-link" href="index.html#/en/science/mathematical-foundations">linear algebra</a>, and with advances in quantum machine learning on quantum data.
       Her work corrected a common methodological weakness: treating a speedup as purely quantum before checking whether
       the input model, data access, or classical baseline already contains most of the power.
     </p>
@@ -218,7 +218,7 @@
       low-rank matrix problem presented as an exponential quantum machine-learning speedup. The original technical
       target was a classical lower bound for that specific problem. Tang instead constructed a quantum-inspired
       classical algorithm under comparable sampling and query-access assumptions, forcing the comparison to track the
-      actual resources: state preparation, access model, runtime, output format, and the strongest available classical
+      actual resources: state preparation, <strong>access model</strong>, runtime, output format, and the strongest available classical
       baseline.
     </p>
     <p>
@@ -437,7 +437,7 @@
         $$
       </button>
     </div>
-    <p>This exponential assumes a time-independent Hamiltonian. General time-dependent evolution requires time ordering.</p>
+    <p>This exponential assumes a <strong>time-independent Hamiltonian</strong>. General time-dependent evolution <strong>requires time ordering</strong>.</p>
     <p>
       and it also determines the system's thermal equilibrium state. <strong>Equation explanation:</strong> \(U(t)\) is the time-evolution
       operator, \(H\) is the Hamiltonian, \(t\) is elapsed time, and \(\hbar\) is the reduced Planck constant setting the
@@ -508,13 +508,13 @@
       The conceptual lesson is sharp: a Hamiltonian is the law of interaction, while a Gibbs state is the thermal
       fingerprint left by that law. Tang's Hamiltonian-learning work asks how much of the law can be reconstructed from
       the fingerprint. It also keeps the same disciplined theme as her dequantization work: quantum structure is real,
-      but claims about quantum power must track temperature, access model, locality, sample complexity, and classical
-      baselines with precision.
+      but claims about quantum power must track <strong>temperature, access model, locality, sample complexity, and classical
+      baselines</strong> with precision.
     </p>
 
     <h3 id="section-14">Hilbert-Space States, Product States, and Tomography</h3>
     <p>
-      Tang's newer papers also connect to the basic language of <strong>Hilbert spaces</strong>. A pure quantum state is
+      Tang's newer papers also connect to the basic language of <strong><a class="platform-link" href="index.html#/en/science/mathematical-analysis">Hilbert spaces</a></strong>. A pure quantum state is
       a unit vector
     </p>
     <div class="equation-link-wrap">
@@ -527,8 +527,8 @@
       </button>
     </div>
     <p>
-      <strong>Equation explanation:</strong> \(|\psi\rangle\) is a pure quantum state, \(\mathcal{H}\) is the Hilbert
-      space containing possible states, and the inner-product condition says the vector is normalized.
+      <strong>Equation explanation:</strong> \(|\psi\rangle\) is a pure quantum state, \(\mathcal{H}\) is the <a class="platform-link" href="index.html#/en/science/mathematical-analysis">Hilbert
+      space</a> containing possible states, and the inner-product condition says the vector is normalized.
       while a general mixed state is a density matrix
     </p>
     <div class="equation-link-wrap">
@@ -577,7 +577,7 @@
 
     <h3 id="section-15">Scientific Scope of the Result</h3>
     <p>
-      Tang's work does <strong>not</strong> refute quantum advantage in general. Shor's algorithm, quantum simulation,
+      Tang's work does <strong>not</strong> refute quantum advantage in general. <a class="platform-link" href="index.html#/en/science/quantum-computing?branch=quantum-computing-equations&amp;detail=shor-algorithm-polynomial-runtime">Shor's algorithm</a>, quantum simulation,
       quantum chemistry, cryptographic complexity, and algorithms on genuinely quantum data remain serious. Her work
       also does not prove that quantum machine learning can never produce a major advantage. It shows something more
       precise: some claimed exponential speedups disappear when the classical baseline is strengthened to match the
@@ -586,7 +586,7 @@
     <p>
       The scientific value is methodological. The comparison must separate genuine quantum resources from access-model
       artifacts. A claimed advantage must survive the strongest classical challenge available. If a quantum algorithm
-      only wins because it hides the cost of loading classical data, then the result is not a reliable claim about
+      only wins because it hides the <strong>cost of loading classical data</strong>, then the result is not a reliable claim about
       practical superiority. If it still wins after Tang-style scrutiny, the claim becomes stronger.
     </p>
     <p>
@@ -660,7 +660,7 @@
         correction</strong> protects the entire scaffolding against the inevitable noise of the physical world. Each
       generation of hardware brings us closer to the threshold at which this combination will cease to be a theoretical
       promise and become a tool of everyday impact in <strong>cryptography, chemistry, materials, optimization, and
-        artificial intelligence</strong>, redefining in the process what we understand as the limits of computation.
+        <a class="platform-link" href="index.html#/en/science/artificial-intelligence">artificial intelligence</a></strong>, redefining in the process what we understand as the limits of computation.
     </p>
   </section>
   <section class="content-block glossary-section abbreviation-glossary" data-abbreviation-glossary>
@@ -684,7 +684,7 @@
     <h3 id="section-20">Modern Frontier</h3>
     <p>
       The modern quantum-computing frontier is error correction, not just building more physical qubits. Physical qubits
-      are noisy; useful large-scale quantum computation requires logical qubits protected by codes, fault-tolerant gates,
+      are noisy; useful large-scale quantum computation requires <strong>logical qubits protected by codes</strong>, fault-tolerant gates,
       calibration, decoding, and massive engineering discipline. Recent results have shown real progress in reducing
       logical error rates, but this is still not the same as a general-purpose fault-tolerant quantum computer.
     </p>
@@ -693,14 +693,14 @@
       algorithms can dequantize an apparent speedup. Chemistry, materials, optimization, cryptography, and simulation are
       major motivations, but every claim depends on noise, data loading, access assumptions, and total resource cost.
     </p>
-    <p>Experiments now test whether increasing code distance suppresses logical errors, rather than merely adding physical qubits. <a class="paper-link" href="https://www.nature.com/articles/s41586-024-08449-y" target="_blank" rel="noopener noreferrer">Quantum error correction below the surface code threshold</a> (published online in 2024) demonstrated below-threshold surface-code memory. <a class="paper-link" href="https://www.nature.com/articles/s41586-025-09848-5" target="_blank" rel="noopener noreferrer">A fault-tolerant neutral-atom architecture for universal quantum computation</a> (published online in 2025) reported elements of a scalable neutral-atom architecture, including error correction and logical operations. These are experimental milestones toward fault tolerance, not evidence that arbitrary large computations can already run reliably.</p>
+    <p>Experiments now test whether increasing code distance suppresses logical errors, rather than merely adding physical qubits. <a class="paper-link" href="https://www.nature.com/articles/s41586-024-08449-y" target="_blank" rel="noopener noreferrer">Quantum error correction below the surface code threshold</a> (published online in 2024) demonstrated below-threshold surface-code memory. <a class="paper-link" href="https://www.nature.com/articles/s41586-025-09848-5" target="_blank" rel="noopener noreferrer">A fault-tolerant neutral-atom architecture for universal quantum computation</a> (published online in 2025) reported elements of a scalable neutral-atom architecture, including error correction and logical operations. These are experimental milestones toward fault tolerance, <strong>not evidence that arbitrary large computations can already run reliably</strong>.</p>
   </section>
 
 <section class="content-block source-papers">
     <h3 id="section-21">Foundational and Modern Paper URLs</h3>
     <ul class="paper-list">
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.math.cmu.edu/~af1p/Texfiles/SVD.pdf" target="_blank" rel="noopener noreferrer">Frieze, Kannan, and Vempala, 2004. <em>Fast Monte-Carlo Algorithms for Finding Low-Rank Approximations.</em></a> <span class="paper-note">Foundational randomized linear-algebra paper behind low-rank approximation with squared-length sampling.</span></span></li>
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.cambridge.org/core/journals/acta-numerica/article/abs/randomized-algorithms-in-numerical-linear-algebra/41CF2151FADE7757AA95C7FC15E43630" target="_blank" rel="noopener noreferrer">Kannan and Vempala, 2017. <em>Randomized Algorithms in Numerical Linear Algebra.</em></a> <span class="paper-note">Survey explaining squared-length row and column sampling as a central idea in fast randomized linear algebra.</span></span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.cambridge.org/core/journals/acta-numerica/article/abs/randomized-algorithms-in-numerical-linear-algebra/41CF2151FADE7757AA95C7FC15E43630" target="_blank" rel="noopener noreferrer">Kannan and Vempala, 2017. <em>Randomized Algorithms in Numerical Linear Algebra.</em></a> <span class="paper-note">Survey explaining squared-length row and column sampling as a central idea in fast randomized <a class="platform-link" href="index.html#/en/science/mathematical-foundations">linear algebra</a>.</span></span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://s2.smu.edu/~mitch/class/5395/papers/feynman-quantum-1981.pdf" target="_blank" rel="noopener noreferrer">Richard Feynman, 1982. <em>Simulating Physics with Computers.</em></a> <span class="paper-note">Free PDF hosted by Southern Methodist University course materials.</span></span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://www.cs.princeton.edu/courses/archive/fall04/cos576/papers/deutsch85.pdf" target="_blank" rel="noopener noreferrer">David Deutsch, 1985. <em>Quantum Theory, the Church-Turing Principle and the Universal Quantum Computer.</em></a> <span class="paper-note">PDF hosted by Princeton University computer science course materials.</span></span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><a class="paper-link" href="https://arxiv.org/pdf/0811.3171" target="_blank" rel="noopener noreferrer">Harrow, Hassidim, and Lloyd, 2009. <em>Quantum Algorithm for Linear Systems of Equations.</em></a> <span class="paper-note">The HHL algorithm is central background for quantum linear algebra and later quantum machine-learning claims.</span></span></li>

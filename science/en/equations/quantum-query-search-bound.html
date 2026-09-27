@@ -16,11 +16,11 @@
       </div>
     </div></section>
   <section class="content-block"><h3>Literal Reading</h3><p>Q subscript search of N equals big Theta of the square root of N.</p></section>
-  <section class="content-block"><h3>Common Reading</h3><p>Grover search gives a quadratic speedup, and that speedup is optimal for black-box search.</p></section>
+  <section class="content-block"><h3>Common Reading</h3><p>Grover search gives a <strong>quadratic speedup</strong>, and that speedup is optimal for black-box search.</p></section>
   <section class="content-block"><h3>Symbols</h3><p><strong>\(Q_{\mathrm{search}}(N)\)</strong>: number of oracle queries needed by a quantum search algorithm.</p>
     <p><strong>\(N\)</strong>: number of possible items.</p>
     <p><strong>\(\Theta(\sqrt{N})\)</strong>: both upper and lower bounds scale like \(\sqrt{N}\), up to constant factors.</p></section>
-  <section class="content-block"><h3>Meaning of the Equation</h3><p>The bound proves Grover's scaling is optimal in the black-box query model. No generic quantum search can do much better without extra structure.</p></section>
+  <section class="content-block"><h3>Meaning of the Equation</h3><p>The bound proves Grover's scaling is <strong>optimal in the black-box query model</strong>. No generic quantum search can do much better without extra structure.</p></section>
 <section class="content-block"><h3>Conditions and units</h3><p>The problem has an unstructured N-item domain with a coherent membership oracle and fixed bounded error, including the worst case of a single marked item. The count is dimensionless and measures oracle calls, not total circuit time, data loading, or oracle implementation cost. More marked items or additional structure can change the relevant bound.</p></section>
   <section class="content-block" data-equation-example><h3>Worked example or interpretation</h3><p>Increasing an unstructured search domain from N to 100N multiplies the reference √N query scale by 10, not 100. Theta notation bounds the optimum above and below up to constants; it does not prescribe exactly √N queries for every finite instance.</p></section>
   <section class="content-block"><h3>Source</h3><p><a class="platform-link" href="https://arxiv.org/abs/quant-ph/9701001" target="_blank" rel="noopener noreferrer">Bennett, Bernstein, Brassard and Vazirani, Strengths and Weaknesses of Quantum Computing</a>.</p></section>

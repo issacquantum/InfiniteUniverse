@@ -2,12 +2,12 @@
   <section class="content-block"><h3>Relajación de Dijkstra</h3></section>
   <section class="content-block"><h3>Ecuación</h3><div class="equation-link-wrap"><div class="glass-window equation-display">$$ \text{si }d[v]>d[u]+w(u,v),\quad d[v]\leftarrow d[u]+w(u,v) $$</div></div></section>
   <section class="content-block"><h3>Lectura Literal</h3><p>si d de v es mayor que d de u más w de u coma v, entonces d de v se actualiza a d de u más w de u coma v.</p></section>
-  <section class="content-block"><h3>Lectura Común</h3><p>Si pasar por \(u\) da una ruta más corta hacia \(v\), el algoritmo actualiza la mejor distancia conocida.</p></section>
-  <section class="content-block"><h3>Símbolos</h3><p><strong>\(d[v]\)</strong>: mejor distancia conocida hacia el nodo \(v\).</p>
+  <section class="content-block"><h3>Lectura Común</h3><p>Si pasar por \(u\) da una ruta más corta hacia \(v\), el algoritmo actualiza la <strong>mejor distancia conocida</strong>.</p></section>
+  <section class="content-block"><h3>Símbolos</h3><p><strong>\(d[v]\)</strong>: <strong>mejor distancia conocida</strong> hacia el nodo \(v\).</p>
     <p><strong>\(d[u]\)</strong>: mejor distancia conocida hacia el nodo \(u\).</p>
     <p><strong>\(w(u,v)\)</strong>: peso de la arista de \(u\) a \(v\).</p></section>
-  <section class="content-block"><h3>Significado de la Ecuación</h3><p>El algoritmo de Dijkstra supone pesos de arista no negativos.</p></section>
-<section class="content-block"><h3>Condiciones y unidades</h3><p>Las etiquetas u y v denotan vértices. Las distancias parten de una fuente elegida; distancias y pesos comparten unidades de costo, como metros o segundos. La flecha es asignación, no igualdad. La relajación puede usarse en otros algoritmos con pesos negativos; la fijación voraz de distancias de Dijkstra es el paso que requiere pesos no negativos.</p></section>
+  <section class="content-block"><h3>Significado de la Ecuación</h3><p>El algoritmo de <a class="platform-link" href="index.html#/es/science/programming-algorithms">Dijkstra</a> supone <strong>pesos de arista no negativos</strong>.</p></section>
+<section class="content-block"><h3>Condiciones y unidades</h3><p>Las etiquetas u y v denotan vértices. Las distancias parten de una fuente elegida; distancias y pesos comparten unidades de costo, como metros o segundos. La flecha es asignación, no igualdad. La relajación puede usarse en otros algoritmos con pesos negativos; la fijación voraz de distancias de <a class="platform-link" href="index.html#/es/science/programming-algorithms">Dijkstra</a> es el paso que requiere pesos no negativos.</p></section>
   <section class="content-block" data-equation-example><h3>Ejemplo o interpretación</h3><p>Si la ruta actual a v cuesta 12 s, la ruta a u cuesta 5 s y la arista (u,v) cuesta 3 s, la candidata que pasa por u cuesta 8 s. Como 12&gt;8, se sustituye d[v] por 8 s. Si la candidata costara 14 s, se conservaría el valor existente.</p></section>
   <section class="content-block"><h3>Fuente</h3><p>La fuente se presenta en su idioma original. <a class="platform-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/" target="_blank" rel="noopener noreferrer">MIT 6.006, Introduction to Algorithms</a>.</p></section>
 </div>

@@ -45,11 +45,11 @@
     <p>
       Modelar es más antiguo que las computadoras, pero la simulación computacional moderna se volvió poderosa en el
       siglo XX cuando métodos numéricos, computadoras electrónicas y muestreo estadístico empezaron a trabajar juntos.
-      Física, clima, investigación nuclear, ingeniería, biología, economía y aprendizaje automático necesitaban estudiar
+      Física, clima, investigación nuclear, ingeniería, biología, economía y <a class="platform-link" href="index.html#/es/science/artificial-intelligence">aprendizaje automático</a> necesitaban estudiar
       sistemas que se resistían a soluciones exactas.
     </p>
     <p>
-      El <strong>método de Monte Carlo</strong> se volvió una de las herramientas clave porque usa muestreo aleatorio
+      El <strong>método de <a class="platform-link" href="index.html#/es/science/quantum-mechanics?branch=quantum-mechanics-equations&amp;detail=monte-carlo-sample-average">Monte Carlo</a></strong> se volvió una de las herramientas clave porque usa muestreo aleatorio
       para estimar cantidades difíciles de calcular directamente:
     </p>
     <div class="equation-link-wrap"><a class="equation-link" href="science/es/equations/monte-carlo-sample-average.html">$$\hat\mu_N=\frac1N\sum_{k=1}^N f(X_k)$$</a></div>
@@ -80,7 +80,7 @@
       </a>
     </div>
     <p>
-      Euler es transparente, pero su error global es de primer orden:
+      Euler es transparente, pero su <strong>error global es de primer orden</strong>:
     </p>
     <div class="equation-link-wrap">
       <a class="equation-link" href="science/es/equations/euler-global-error-order.html">
@@ -94,7 +94,7 @@
   <section class="content-block">
     <h3 id="section-5">Corrección de orden mayor</h3>
     <p>
-      <strong>Runge Kutta de cuarto orden</strong> mejora el paso calculando la pendiente varias veces dentro del mismo
+      <strong><a class="platform-link" href="index.html#/es/science/simulation-models?branch=simulation-models-equations&amp;detail=runge-kutta-four">Runge Kutta</a> de cuarto orden</strong> mejora el paso calculando la pendiente varias veces dentro del mismo
       intervalo:
     </p>
     <div class="equation-link-wrap">
@@ -105,7 +105,7 @@
       </a>
     </div>
     <p>
-      RK4 (Runge-Kutta de cuarto orden) sigue siendo una aproximación, pero para problemas suaves su error global cae mucho más rápido:
+      RK4 (<a class="platform-link" href="index.html#/es/science/simulation-models?branch=simulation-models-equations&amp;detail=runge-kutta-four">Runge-Kutta</a> de cuarto orden) sigue siendo una aproximación, pero <strong>para problemas suaves</strong> su error global cae mucho más rápido:
     </p>
     <div class="equation-link-wrap">
       <a class="equation-link" href="science/es/equations/rk4-global-error-order.html">
@@ -162,7 +162,7 @@
     <h3 id="section-8">Banco de pruebas de métodos numéricos</h3>
     <p>
       Este modelo mantiene la lección práctica: <strong>Euler</strong> muestra el error de avanzar localmente,
-      <strong>Runge Kutta</strong> muestra corrección de orden mayor, <strong>Monte Carlo</strong> muestra estimación por
+      <strong><a class="platform-link" href="index.html#/es/science/simulation-models?branch=simulation-models-equations&amp;detail=runge-kutta-four">Runge Kutta</a></strong> muestra corrección de orden mayor, <strong><a class="platform-link" href="index.html#/es/science/quantum-mechanics?branch=quantum-mechanics-equations&amp;detail=monte-carlo-sample-average">Monte Carlo</a></strong> muestra estimación por
       muestreo, y la <strong>red de calor</strong> muestra difusión por <strong>diferencias finitas</strong>.
     </p>
     <p>
@@ -174,10 +174,10 @@
       <p><strong>Qué muestra:</strong> Cómo el tamaño de paso, el muestreo y la estabilidad afectan un cálculo aproximado.</p>
       <p><strong>Qué no muestra:</strong> Un solucionador completo de ingeniería, una simulación exacta de clima o fluidos, ni una garantía de que toda simulación atractiva sea correcta.</p>
       <p><strong>Ecuación / principio:</strong> Pasos temporales de Euler y RK4, error de Monte Carlo que baja con más muestras y límite de estabilidad de la ecuación de calor.</p>
-      <p><strong>Qué representa:</strong> Una lección compacta de ciencia computacional sobre aproximación, error y estabilidad.</p>
+      <p><strong>Qué representa:</strong> Una lección compacta de ciencia computacional sobre <strong>aproximación, error y estabilidad</strong>.</p>
       <p><strong>Qué probar:</strong> Aumenta el paso en Euler vs RK4, aumenta las muestras de Monte Carlo y prueba la difusión de calor cerca del límite de estabilidad.</p>
     </div>
-    <p>La cuadrícula térmica también multiplica cada valor actualizado por 0.996, lo que añade un enfriamiento uniforme. Incluso con fronteras aisladas, por tanto, no representa un sistema de difusión aislado que conserve la energía.</p>
+    <p>La cuadrícula térmica también multiplica cada valor actualizado por 0.996, lo que añade un enfriamiento uniforme. Incluso con fronteras aisladas, por tanto, <strong>no representa un sistema de difusión aislado que conserve la energía</strong>.</p>
 
     <figure class="numerical-methods glass-window" data-numerical-methods-model data-model-target="numerical-methods" data-language="es">
       <div class="numerical-methods__frame" data-nm-frame></div>
@@ -344,7 +344,7 @@
     <h3 id="section-10">Supuestos y límites</h3>
     <p>
       <strong>Todo modelo tiene una frontera</strong>. Nubes de probabilidad orbital, redes de difusión, atractores caóticos, autómatas
-      celulares, movimiento de agentes, dinámica molecular y muestreo de Monte Carlo enseñan cosas distintas porque
+      celulares, movimiento de agentes, dinámica molecular y muestreo de <a class="platform-link" href="index.html#/es/science/quantum-mechanics?branch=quantum-mechanics-equations&amp;detail=monte-carlo-sample-average">Monte Carlo</a> enseñan cosas distintas porque
       simplifican la realidad de formas distintas.
     </p>
     <p>
@@ -358,16 +358,16 @@
     <h3 id="section-11">Frontera Moderna</h3>
     <p>
       La simulación moderna incluye cuantificación de incertidumbre, modelos sustitutos, simulación diferenciable,
-      gemelos digitales, cómputo de alto rendimiento, métodos Monte Carlo, modelado por elementos finitos, conjuntos
-      climáticos y aprendizaje automático informado por física. La frontera no es solo hacer que una simulación parezca
+      gemelos digitales, cómputo de alto rendimiento, métodos <a class="platform-link" href="index.html#/es/science/quantum-mechanics?branch=quantum-mechanics-equations&amp;detail=monte-carlo-sample-average">Monte Carlo</a>, modelado por elementos finitos, conjuntos
+      climáticos y <a class="platform-link" href="index.html#/es/science/artificial-intelligence">aprendizaje automático</a> informado por física. La frontera no es solo hacer que una simulación parezca
       realista; es saber cuándo el resultado es confiable.
     </p>
     <p>
-      Una simulación seria reporta supuestos, condiciones de frontera, discretización, convergencia, estabilidad,
-      validación y error. Sin eso, una visualización hermosa puede engañar. Con eso, la simulación se vuelve compañera
+      Una simulación seria reporta <strong>supuestos, condiciones de frontera, discretización, convergencia, estabilidad,
+      validación y error</strong>. Sin eso, una visualización hermosa puede engañar. Con eso, la simulación se vuelve compañera
       experimental, no solo animación.
     </p>
-    <p><a class="paper-link" href="https://arxiv.org/abs/2405.19101" target="_blank" rel="noopener noreferrer">Poseidon: Efficient Foundation Models for PDEs (2024)</a> estudia el entrenamiento previo y la transferencia entre tareas de ecuaciones diferenciales parciales. Los operadores aprendidos pueden reducir el costo de resolver problemas repetidos en los regímenes evaluados, pero la extrapolación a geometrías, condiciones de frontera o regímenes físicos nuevos requiere validación frente a solvers confiables y leyes de conservación.</p>
+    <p><a class="paper-link" href="https://arxiv.org/abs/2405.19101" target="_blank" rel="noopener noreferrer">Poseidon: Efficient Foundation Models for PDEs (2024)</a> estudia el entrenamiento previo y la transferencia entre tareas de ecuaciones diferenciales parciales. Los operadores aprendidos pueden reducir el costo de resolver problemas repetidos en los regímenes evaluados, pero la extrapolación a geometrías, condiciones de frontera o regímenes físicos nuevos <strong>requiere validación frente a solvers confiables y leyes de conservación</strong>.</p>
   </section>
 
   <section class="content-block glossary-section">
@@ -384,7 +384,7 @@
     <h3 id="section-13">Glosario de Abreviaturas</h3>
     <p class="abbreviation-glossary__note">Este glosario expande las abreviaturas usadas en esta sección. La primera aparición en el texto incluye el significado completo entre paréntesis; las repeticiones quedan abreviadas para mantener la lectura limpia.</p>
     <ul class="paper-list glossary-list">
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>RK4:</strong> Runge-Kutta de cuarto orden.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>RK4:</strong> <a class="platform-link" href="index.html#/es/science/simulation-models?branch=simulation-models-equations&amp;detail=runge-kutta-four">Runge-Kutta</a> de cuarto orden.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>ODE:</strong> ecuación diferencial ordinaria.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>OSTI:</strong> Office of Scientific and Technical Information, Oficina de Información Científica y Técnica.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>DOI:</strong> identificador digital de objeto.</span></li>

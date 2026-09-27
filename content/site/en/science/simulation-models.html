@@ -36,11 +36,11 @@
     <p>
       Modeling is older than computers, but modern computational simulation became powerful in the twentieth century when
       numerical methods, electronic computers, and statistical sampling began working together. Physics, weather, nuclear
-      research, engineering, biology, economics, and machine learning all needed ways to study systems that resisted exact
+      research, engineering, biology, economics, and <a class="platform-link" href="index.html#/en/science/artificial-intelligence">machine learning</a> all needed ways to study systems that resisted exact
       solutions.
     </p>
     <p>
-      The <strong>Monte Carlo method</strong> became one of the defining tools because it uses random sampling to
+      The <strong><a class="platform-link" href="index.html#/en/science/quantum-mechanics?branch=quantum-mechanics-equations&amp;detail=monte-carlo-sample-average">Monte Carlo</a> method</strong> became one of the defining tools because it uses random sampling to
       estimate quantities that are difficult to compute directly:
     </p>
     <div class="equation-link-wrap"><button class="glass-window equation-link" type="button" data-action="select-legacy-item"
@@ -77,7 +77,7 @@
       </button>
     </div>
     <p>
-      Euler is transparent, but its global error is first order:
+      Euler is transparent, but its <strong>global error is first order</strong>:
     </p>
     <div class="equation-link-wrap">
       <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
@@ -93,7 +93,7 @@
   <section class="content-block">
     <h3 id="section-5">Higher Order Correction</h3>
     <p>
-      <strong>Fourth-order Runge Kutta</strong> improves the step by sampling the slope several times inside the same
+      <strong>Fourth-order <a class="platform-link" href="index.html#/en/science/simulation-models?branch=simulation-models-equations&amp;detail=runge-kutta-four">Runge Kutta</a></strong> improves the step by sampling the slope several times inside the same
       interval:
     </p>
     <div class="equation-link-wrap">
@@ -106,7 +106,7 @@
       </button>
     </div>
     <p>
-      RK4 (fourth-order Runge-Kutta) (Runge-Kutta fourth-order method) is still an approximation, but for smooth problems its global error falls much faster:
+      RK4 (fourth-order <a class="platform-link" href="index.html#/en/science/simulation-models?branch=simulation-models-equations&amp;detail=runge-kutta-four">Runge-Kutta</a>) (Runge-Kutta fourth-order method) is still an approximation, but <strong>for smooth problems</strong> its global error falls much faster:
     </p>
     <div class="equation-link-wrap">
       <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
@@ -171,7 +171,7 @@
     <h3 id="section-8">Numerical Methods Sandbox</h3>
     <p>
       This model keeps the lesson practical: <strong>Euler</strong> shows local stepping error,
-      <strong>Runge Kutta</strong> shows higher-order correction, <strong>Monte Carlo</strong> shows estimation by
+      <strong><a class="platform-link" href="index.html#/en/science/simulation-models?branch=simulation-models-equations&amp;detail=runge-kutta-four">Runge Kutta</a></strong> shows higher-order correction, <strong><a class="platform-link" href="index.html#/en/science/quantum-mechanics?branch=quantum-mechanics-equations&amp;detail=monte-carlo-sample-average">Monte Carlo</a></strong> shows estimation by
       sampling, and the <strong>heat grid</strong> shows finite-difference diffusion.
     </p>
     <p>
@@ -183,10 +183,10 @@
       <p><strong>What this shows:</strong> How numerical step size, sampling, and stability affect an approximate calculation.</p>
       <p><strong>What it does not show:</strong> A full engineering solver, exact climate or fluid simulation, or a guarantee that every attractive simulation is accurate.</p>
       <p><strong>Equation / principle:</strong> Euler and RK4 time stepping, Monte Carlo error shrinking with samples, and the heat-equation stability limit.</p>
-      <p><strong>What it represents:</strong> A compact computational-science lesson about approximation, error, and stability.</p>
+      <p><strong>What it represents:</strong> A compact computational-science lesson about <strong>approximation, error, and stability</strong>.</p>
       <p><strong>Try changing:</strong> Increase step size in Euler vs RK4, increase Monte Carlo samples, then test heat diffusion near the stability limit.</p>
     </div>
-    <p>The heat grid also multiplies each updated value by 0.996, adding uniform cooling. Even with insulated boundaries it therefore does not represent an isolated, energy-conserving diffusion system.</p>
+    <p>The heat grid also multiplies each updated value by 0.996, adding uniform cooling. Even with insulated boundaries it therefore <strong>does not represent an isolated, energy-conserving diffusion system</strong>.</p>
     <figure class="numerical-methods glass-window" data-numerical-methods-model data-model-target="numerical-methods" data-language="en">
       <div class="numerical-methods__frame" data-nm-frame></div>
       <div class="numerical-methods__panel">
@@ -354,7 +354,7 @@
     <h3 id="section-10">Assumptions and Limits</h3>
     <p>
       <strong>Every model has a boundary</strong>. Orbital probability clouds, diffusion grids, chaotic attractors, cellular automata,
-      agent motion, molecular dynamics, and Monte Carlo sampling teach different lessons because they simplify reality in
+      agent motion, molecular dynamics, and <a class="platform-link" href="index.html#/en/science/quantum-mechanics?branch=quantum-mechanics-equations&amp;detail=monte-carlo-sample-average">Monte Carlo</a> sampling teach different lessons because they simplify reality in
       different ways.
     </p>
     <p>
@@ -367,16 +367,16 @@
     <h3 id="section-11">Modern Frontier</h3>
     <p>
       Modern simulation now includes uncertainty quantification, surrogate models, differentiable simulation, digital
-      twins, high-performance computing, Monte Carlo methods, finite-element modeling, climate ensembles, and
-      physics-informed machine learning. The frontier is not only making simulations look realistic; it is knowing when
+      twins, high-performance computing, <a class="platform-link" href="index.html#/en/science/quantum-mechanics?branch=quantum-mechanics-equations&amp;detail=monte-carlo-sample-average">Monte Carlo</a> methods, finite-element modeling, climate ensembles, and
+      physics-informed <a class="platform-link" href="index.html#/en/science/artificial-intelligence">machine learning</a>. The frontier is not only making simulations look realistic; it is knowing when
       the result is reliable.
     </p>
     <p>
-      A serious simulation reports assumptions, boundary conditions, discretization, convergence, stability, validation,
-      and error. Without those, a beautiful visualization can become misleading. With them, simulation becomes an
+      A serious simulation reports <strong>assumptions, boundary conditions, discretization, convergence, stability, validation,
+      and error</strong>. Without those, a beautiful visualization can become misleading. With them, simulation becomes an
       experimental partner rather than just an animation.
     </p>
-    <p><a class="paper-link" href="https://arxiv.org/abs/2405.19101" target="_blank" rel="noopener noreferrer">Poseidon: Efficient Foundation Models for PDEs (2024)</a> studies pretraining and transfer across partial differential equation tasks. Learned operators can reduce repeated solution costs in tested regimes, but extrapolation to unfamiliar geometries, boundary conditions, or physical regimes requires validation against trusted solvers and conservation laws.</p>
+    <p><a class="paper-link" href="https://arxiv.org/abs/2405.19101" target="_blank" rel="noopener noreferrer">Poseidon: Efficient Foundation Models for PDEs (2024)</a> studies pretraining and transfer across partial differential equation tasks. Learned operators can reduce repeated solution costs in tested regimes, but extrapolation to unfamiliar geometries, boundary conditions, or physical regimes <strong>requires validation against trusted solvers and conservation laws</strong>.</p>
   </section>
 
   <section class="content-block glossary-section">
@@ -393,7 +393,7 @@
     <h3 id="section-13">Abbreviation Glossary</h3>
     <p class="abbreviation-glossary__note">This glossary expands the abbreviations used in this section. The first appearance in the text includes the full wording in parentheses; later uses stay abbreviated so the section stays readable.</p>
     <ul class="paper-list glossary-list">
-      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>RK4:</strong> fourth-order Runge-Kutta.</span></li>
+      <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>RK4:</strong> fourth-order <a class="platform-link" href="index.html#/en/science/simulation-models?branch=simulation-models-equations&amp;detail=runge-kutta-four">Runge-Kutta</a>.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>ODE:</strong> ordinary differential equation.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>OSTI:</strong> Office of Scientific and Technical Information.</span></li>
       <li><span class="paper-icon" aria-hidden="true">&#9635;</span><span><strong>DOI:</strong> digital object identifier.</span></li>

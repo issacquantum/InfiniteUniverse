@@ -21,8 +21,8 @@
     </p>
     <p>
       In this section I treat AI as computation, representation, optimization, and engineering. That is separate from the
-      question of conscious interiority: a system can produce intelligent-looking behavior without that proving first-person
-      experience.
+      question of conscious interiority: a system can produce intelligent-looking behavior <strong>without that proving first-person
+      experience</strong>.
     </p>
     <p>
       <strong>Status date:</strong> September 15, 2026. AI systems, benchmark results, product behavior, and deployment practices
@@ -39,14 +39,14 @@
   <section class="content-block">
     <h3 id="section-2">Early Artificial Intelligence</h3>
     <p>
-      A few years before the field had its name, <strong>Alan Turing</strong> reframed the question of machine
+      A few years before the field had its name, <strong><a class="platform-link" href="https://mathshistory.st-andrews.ac.uk/Biographies/Turing/" target="_blank" rel="noopener noreferrer">Alan Turing</a></strong> reframed the question of machine
       intelligence. Instead of asking for a perfect definition of thought, he asked whether a machine could produce
       behavior that forces us to reconsider the boundary between computation and intelligence.
     </p>
     <p>
       The phrase became formal through the <strong>1956 Dartmouth workshop</strong>, organized by
       <strong>John McCarthy</strong>, <strong>Marvin Minsky</strong>, <strong>Nathaniel Rochester</strong>, and
-      <strong>Claude Shannon</strong>. Their proposal treated intelligence as something that might be described so
+      <strong><a class="platform-link" href="https://mathshistory.st-andrews.ac.uk/Biographies/Shannon/" target="_blank" rel="noopener noreferrer">Claude Shannon</a></strong>. Their proposal treated intelligence as something that might be described so
       precisely that a machine could simulate parts of it.
     </p>
   </section>
@@ -63,7 +63,7 @@
       Modern AI does not erase those older ideas. It combines them. A game-playing system may use neural networks plus
       tree search. A language model may use a transformer trained by self-supervision, then instruction tuning, then
       retrieval or tools. The important shift is that many behaviors are no longer written directly as rules. They are
-      learned from examples and optimized objectives.
+      <strong>learned from examples and optimized objectives</strong>.
     </p>
   </section>
 
@@ -85,7 +85,7 @@
       </a>
     </div>
     <p>
-      Inputs are transformed by learned weights, shifted by a bias, and passed through a nonlinear function. Stacking
+      Inputs are transformed by <strong>learned weights</strong>, shifted by a bias, and passed through a <strong>nonlinear function</strong>. Stacking
       these layers lets a model build progressively more useful internal representations.
     </p>
   </section>
@@ -122,8 +122,8 @@
   <section class="content-block">
     <h3 id="section-6">Data, Labels and Loss</h3>
     <p>
-      Supervised models learn from examples paired with labels. Self-supervised models learn from structure already
-      present in data. Reinforcement learning uses rewards and actions. These are not just implementation details; they
+      Supervised models learn from <strong>examples paired with labels</strong>. Self-supervised models learn from <strong>structure already
+      present in data</strong>. Reinforcement learning uses <strong>rewards and actions</strong>. These are not just implementation details; they
       define what kind of behavior the system is pressured to acquire.
     </p>
     <p>
@@ -158,8 +158,8 @@
       become stale.
     </p>
     <p>
-      This matters because model behavior is partly a result of architecture and optimization, but also a result of data
-      provenance, labeling choices, preprocessing, evaluation design, and deployment context. A model without documentation
+      This matters because model behavior is partly a result of architecture and optimization, but also a result of <strong>data
+      provenance</strong>, labeling choices, preprocessing, evaluation design, and deployment context. A model without documentation
       is harder to audit, reproduce, compare, or trust.
     </p>
   </section>
@@ -262,7 +262,7 @@
       separates what the model memorized during training from what it can look up at run time.
     </p>
     <p>
-      Retrieval can make answers more grounded, but it does not guarantee truth. A system can retrieve the wrong document,
+      Retrieval can make answers more grounded, but it <strong>does not guarantee truth</strong>. A system can retrieve the wrong document,
       miss the best source, use stale material, quote a source incorrectly, or draw an overconfident conclusion from weak
       evidence. Retrieval improves the evidence path only when the sources, ranking, citations, and final reasoning are
       checked.
@@ -349,7 +349,7 @@
       tool incorrectly, or <strong>overconfident inference</strong> where weak evidence is presented as settled fact.
     </p>
     <p>
-      The practical response is not blind distrust and not blind trust. It is task-specific verification: check sources,
+      The practical response is not blind distrust and not blind trust. It is <strong>task-specific verification</strong>: check sources,
       inspect uncertainty, compare against known constraints, test edge cases, and treat high-stakes output as a draft that
       must be reviewed by competent humans or validated systems.
     </p>
@@ -385,10 +385,10 @@
     </p>
     <div class="model-teaching-card" aria-label="Neural architecture model teaching notes">
       <p><strong>Model type:</strong> Conceptual model.</p>
-      <p><strong>What this shows:</strong> Three separate lessons: network activations, attention weights, and gradient-based optimization.</p>
+      <p><strong>What this shows:</strong> Three separate lessons: network activations, <strong>attention weights</strong>, and <strong>gradient-based optimization</strong>.</p>
       <p><strong>What it does not show:</strong> A real language model, real training data, production inference, or actual model weights.</p>
       <p><strong>Equation / principle:</strong> Layers transform vectors, attention weights relationships, and gradient descent moves parameters downhill on a loss surface.</p>
-      <p><strong>What it represents:</strong> A guided map of AI mechanisms, split into lessons so attention, activations, and optimization are not confused.</p>
+      <p><strong>What it represents:</strong> A guided map of AI mechanisms, split into lessons so attention, activations, and optimization are <strong>not confused</strong>.</p>
       <p><strong>Try changing:</strong> Use one mode at a time: Network Flow for activations, Attention Map for token relationships, and Gradient Landscape for optimization.</p>
     </div>
     <figure class="neural-architect glass-window" data-neural-architect-model data-model-target="neural-architecture" data-language="en">
@@ -529,7 +529,7 @@
     <h3 id="section-18">Modern Frontier</h3>
     <p>
       The modern frontier is no longer just whether a model can generate text, images, code, or audio. The serious
-      questions are reliability, evaluation, interpretability, data provenance, energy cost, tool use, multimodal
+      questions are reliability, evaluation, interpretability, <strong>data provenance</strong>, energy cost, tool use, multimodal
       grounding, and whether a system can be constrained well enough for high-risk domains. Large models can be
       impressive without being trustworthy in every context. A scientific treatment has to separate demonstration,
       benchmark score, deployment behavior, and verified competence.
@@ -537,10 +537,10 @@
     <p>
       Current work includes mechanistic interpretability, retrieval-augmented systems, calibrated uncertainty, synthetic
       data risks, formal verification for AI-assisted code, and safety evaluations for autonomous agents. This section
-      treats AI as a mathematical and engineering field, not as magic intelligence and not as proof of consciousness.
+      treats AI as a mathematical and engineering field, not as magic intelligence and <strong>not as proof of consciousness</strong>.
     </p>
-    <p>Post-training with verifiable rewards and additional inference-time search have materially improved performance on some mathematical and programming tasks. <a class="paper-link" href="https://www.nature.com/articles/s41586-025-09422-z" target="_blank" rel="noopener noreferrer">DeepSeek-R1 incentivizes reasoning in LLMs through reinforcement learning (2025)</a> documents one such approach. <a class="paper-link" href="https://www.nature.com/articles/s41586-025-09833-y" target="_blank" rel="noopener noreferrer">Olympiad-level formal mathematical reasoning with reinforcement learning (2025)</a> shows the value of coupling learned proof search to a formal checker. The learned system proposes steps; the checker establishes validity relative to the formal statement and its assumptions. Neither result establishes unrestricted reasoning reliability.</p>
-    <p>A tool-using agent is a system that combines a model with tools, stored state, feedback, and an execution loop. Its performance depends on that entire setup, permissions, and time or compute budgets. Long context windows do not guarantee effective use of all supplied information. Evaluations should separate partial progress from completed tasks, report contamination controls and resource budgets, and test new tasks when a benchmark saturates. <a class="paper-link" href="https://arxiv.org/abs/2606.29537" target="_blank" rel="noopener noreferrer">OSWorld 2 (June 2026 preprint)</a> examines long-horizon computer use; its results are benchmark-specific. Interpretability and alignment evaluations provide evidence about tested behavior, not a general safety or correctness certificate.</p>
+    <p>Post-training with verifiable rewards and additional inference-time search have materially improved performance on some mathematical and programming tasks. <a class="paper-link" href="https://www.nature.com/articles/s41586-025-09422-z" target="_blank" rel="noopener noreferrer">DeepSeek-R1 incentivizes reasoning in LLMs through reinforcement learning (2025)</a> documents one such approach. <a class="paper-link" href="https://www.nature.com/articles/s41586-025-09833-y" target="_blank" rel="noopener noreferrer">Olympiad-level formal mathematical reasoning with reinforcement learning (2025)</a> shows the value of coupling learned proof search to a formal checker. The learned system proposes steps; the checker establishes <strong>validity relative to the formal statement and its assumptions</strong>. <strong>Neither result establishes unrestricted reasoning reliability</strong>.</p>
+    <p>A tool-using agent is a system that combines a model with tools, stored state, feedback, and an execution loop. Its performance depends on that entire setup, permissions, and time or compute budgets. Long context windows do not guarantee effective use of all supplied information. Evaluations should separate partial progress from completed tasks, report contamination controls and resource budgets, and test new tasks when a benchmark saturates. <a class="paper-link" href="https://arxiv.org/abs/2606.29537" target="_blank" rel="noopener noreferrer">OSWorld 2 (June 2026 preprint)</a> examines long-horizon computer use; its results are <strong>benchmark-specific</strong>. Interpretability and alignment evaluations provide evidence about tested behavior, <strong>not a general safety or correctness certificate</strong>.</p>
   </section>
 
   <section class="content-block glossary-section">

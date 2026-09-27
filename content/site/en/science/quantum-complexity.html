@@ -9,8 +9,8 @@
     </p>
     <p>
       This section is not about whether quantum computers are "fast" in a vague sense. It is about exact claims:
-      which problems become easier, which remain hard, which advantages depend on input assumptions, and where quantum
-      mechanics changes the boundary between feasible and infeasible computation.
+      which problems become easier, which remain hard, which advantages depend on <strong>input assumptions</strong>, and where <a class="platform-link" href="index.html#/en/science/quantum-mechanics">quantum
+      mechanics</a> changes the boundary between feasible and infeasible computation.
     </p>
     <p class="source-language-note">
       <strong>Source of etymological origin:</strong>
@@ -22,7 +22,7 @@
   <section class="content-block">
     <h3 id="section-2">The Resource Being Measured</h3>
     <p>
-      A quantum computer with \(n\) qubits has a state vector in a Hilbert space whose dimension grows exponentially:
+      A quantum computer with \(n\) qubits has a state vector in a <a class="platform-link" href="index.html#/en/science/mathematical-analysis">Hilbert space</a> whose dimension grows exponentially:
     </p>
     <div class="equation-link-wrap">
       <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
@@ -34,14 +34,14 @@
       </button>
     </div>
     <p>
-      This exponential state space is important, but it is not by itself a speedup. A physical device cannot simply
+      This exponential state space is important, but it is <strong>not by itself a speedup</strong>. A physical device cannot simply
       print all \(2^n\) amplitudes. A useful quantum algorithm must prepare the right state efficiently, transform it
       with a polynomial-size circuit, and make measurement likely to reveal useful classical information.
     </p>
     <p>
       That is why complexity theory counts operational resources: number of gates, circuit depth, number of oracle
       queries, number of qubits, precision, error probability, state-preparation cost, and the cost of reading the
-      answer. A claimed quantum advantage is serious only when all of those costs are included.
+      answer. A claimed quantum advantage is serious only when <strong>all of those costs are included</strong>.
     </p>
   </section>
 
@@ -65,7 +65,7 @@
       </button>
     </div>
     <p>
-      These are containments, not equalities. They do not prove that quantum computers solve every hard problem. They
+      These are <strong>containments, not equalities</strong>. They do not prove that quantum computers solve every hard problem. They
       say where bounded-error quantum computation sits inside the larger map of known mathematical limits.
     </p>
   </section>
@@ -90,7 +90,7 @@
     <p>
       The constants \(2/3\) and \(1/3\) are not sacred. Repeating the computation and taking a majority vote can reduce
       the error probability. The real point is that the circuit must be generated efficiently and must use only
-      polynomially many gates.
+      <strong>polynomially many gates</strong>.
     </p>
     <p>
       Shor's factoring algorithm and quantum phase estimation are inside this framework. They do not show that quantum
@@ -116,10 +116,10 @@
       </button>
     </div>
     <p>
-      This is both an upper and lower bound. Quantum mechanics gives a quadratic improvement over checking \(N\)
+      This is both an <strong>upper and lower bound</strong>. Quantum mechanics gives a quadratic improvement over checking \(N\)
       possibilities one by one, but it does not turn unstructured search into logarithmic or constant time. The lower
-      bound is as important as the algorithm because it shows that the quadratic speedup is the best possible for that
-      black-box model.
+      bound is as important as the algorithm because it shows that the quadratic speedup is the <strong>best possible for that
+      black-box model</strong>.
     </p>
   </section>
 
@@ -173,7 +173,7 @@
     </div>
     <p>
       The task is to decide whether the lowest possible energy is below \(a\) or above \(b\), promised that one of those
-      cases is true. This problem is QMA-complete for suitable local interactions, which means it is a central hard
+      cases is true. This problem is <strong>QMA-complete for suitable local interactions</strong>, which means it is a central hard
       problem for quantum proof verification.
     </p>
     <p>
@@ -197,13 +197,13 @@
       </button>
     </div>
     <p>
-      This is different from the dimension of the Hilbert space. A state or unitary may live in an enormous space but
-      still be easy if it has a short circuit description. Conversely, a generic unitary on many qubits usually requires
+      This is different from the dimension of the <a class="platform-link" href="index.html#/en/science/mathematical-analysis">Hilbert space</a>. A state or unitary may live in an enormous space but
+      still be easy if it has a <strong>short circuit description</strong>. Conversely, a generic unitary on many qubits usually requires
       an enormous number of gates to describe or implement.
     </p>
     <p>
-      Circuit complexity is also important in modern physics discussions of black holes, holography, and scrambling,
-      but those uses are interpretive and model-dependent. In this section, the strict meaning is computational: gate
+      Circuit complexity is also important in modern physics discussions of <a class="platform-link" href="index.html#/en/science/black-holes">black holes</a>, holography, and scrambling,
+      but those uses are <strong>interpretive and model-dependent</strong>. In this section, the strict meaning is computational: gate
       count needed to synthesize a transformation to accuracy \(\epsilon\).
     </p>
   </section>
@@ -211,7 +211,7 @@
   <section class="content-block">
     <h3 id="section-9">When Quantum Systems Are Classically Simulable</h3>
     <p>
-      Not every quantum-looking process is computationally hard. Stabilizer circuits built from Clifford operations can
+      Not every quantum-looking process is computationally hard. <strong>Stabilizer circuits</strong> built from Clifford operations can
       be simulated efficiently on a classical computer. Low-entanglement one-dimensional systems can often be described
       by tensor networks. Stoquastic Hamiltonians and special free-particle models can also be easier than fully general
       quantum dynamics.
@@ -230,8 +230,8 @@
       </button>
     </div>
     <p>
-      This says the entanglement entropy of a region scales like its boundary rather than its volume. Area laws do not
-      make every system easy, but they explain why some physically important quantum systems have compressed
+      This says the entanglement entropy of a region scales like its boundary rather than its volume. <strong>Area laws do not
+      make every system easy</strong>, but they explain why some physically important quantum systems have compressed
       descriptions.
     </p>
   </section>
@@ -245,13 +245,13 @@
     </p>
     <p>
       Sampling experiments are important because they can show a separation before fault-tolerant quantum computers
-      exist. But sampling advantage is not the same as general useful computation. A device can be hard to simulate and
+      exist. But <strong>sampling advantage is not the same as general useful computation</strong>. A device can be hard to simulate and
       still not solve a practical problem. Quantum complexity keeps those claims separate.
     </p>
     <p>
       Dequantization results also belong here. If a quantum speedup depends on special access to classical data, a
-      matched classical algorithm may recover much of the speedup. That does not make quantum computing irrelevant. It
-      forces every advantage claim to count the same resources on both sides.
+      matched classical algorithm may recover much of the speedup. That does not make <a class="platform-link" href="index.html#/en/science/quantum-computing">quantum computing</a> irrelevant. It
+      forces every advantage claim to count the <strong>same resources on both sides</strong>.
     </p>
   </section>
 
@@ -264,8 +264,8 @@
       far stranger landscape connected to undecidability.
     </p>
     <p>
-      These results are not instructions for building a laptop. They are mathematical statements about what can be
-      certified when quantum information, interaction, and entanglement are allowed. They show that quantum theory does
+      These results are not instructions for building a laptop. They are <strong>mathematical statements</strong> about what can be
+      certified when <a class="platform-link" href="index.html#/en/science/quantum-information">quantum information</a>, interaction, and entanglement are allowed. They show that quantum theory does
       not merely change algorithms; it changes the structure of proof and verification.
     </p>
   </section>
@@ -274,12 +274,12 @@
     <h3 id="section-12">What Quantum Complexity Does Not Say</h3>
     <p>
       Quantum complexity does not say quantum computers solve every hard problem. It does not prove \(P\neq NP\). It
-      does not make exponential Hilbert space directly readable. It does not remove the cost of state preparation,
+      does not make exponential <a class="platform-link" href="index.html#/en/science/mathematical-analysis">Hilbert space</a> directly readable. It does not remove the cost of state preparation,
       error correction, precision, or measurement.
     </p>
     <p>
-      The disciplined claim is sharper: quantum mechanics creates new computational resources, and complexity theory
-      tells us where those resources provably help, where they probably do not, and where the answer is still unknown.
+      The disciplined claim is sharper: <a class="platform-link" href="index.html#/en/science/quantum-mechanics">quantum mechanics</a> creates new computational resources, and complexity theory
+      tells us where those resources provably help, where they probably do not, and where the <strong>answer is still unknown</strong>.
     </p>
   </section>
 

@@ -20,13 +20,13 @@
       </div>
     </div></section>
   <section class="content-block"><h3>Literal Reading</h3><p>If x belongs to L, there is a witness state psi that verifier V subscript x accepts with probability at least a. If x does not belong to L, every witness state is accepted with probability at most b. The gap a minus b is at least the inverse of a polynomial in n.</p></section>
-  <section class="content-block"><h3>Common Reading</h3><p>QMA is efficient quantum proof checking with a guaranteed acceptance gap.</p></section>
+  <section class="content-block"><h3>Common Reading</h3><p>QMA is efficient quantum proof checking with a <strong>guaranteed acceptance gap</strong>.</p></section>
   <section class="content-block"><h3>Symbols</h3><p><strong>\(|\psi\rangle\)</strong>: the quantum witness or proof state.</p>
     <p><strong>\(V_x\)</strong>: the verifier circuit for input \(x\).</p>
     <p><strong>\(a\)</strong>: completeness threshold for accepting true statements.</p>
     <p><strong>\(b\)</strong>: soundness threshold limiting false statements.</p>
     <p><strong>\(\mathrm{poly}(n)\)</strong>: a polynomial in the input size.</p></section>
-  <section class="content-block"><h3>Meaning of the Equation</h3><p>A quantum witness can help verify hard quantum statements efficiently. The verifier still has bounded error, so the acceptance gap matters.</p></section>
+  <section class="content-block"><h3>Meaning of the Equation</h3><p>A quantum witness can help verify hard quantum statements efficiently. The verifier still has <strong>bounded error</strong>, so the acceptance gap matters.</p></section>
 <section class="content-block"><h3>Conditions and units</h3><p>\(x\) is an n-bit classical input and \(L\) the language of yes instances. The verifier belongs to a uniformly generated polynomial-size circuit family, and the normalized witness contains polynomially many qubits. The dimensionless thresholds obey \(0\le b&lt;a\le1\). For a promise problem the second condition applies to promised no instances; inputs in the promise gap need not be classified. The definition does not assert that finding a witness is efficient.</p></section>
   <section class="content-block" data-equation-example><h3>Worked example or interpretation</h3><p>With completeness a=2/3 and soundness b=1/3, a yes instance needs at least one acceptable witness reaching 2/3. A no instance must keep every witness at or below 1/3. Exhibiting one poor witness for a yes instance does not violate completeness; finding one successful witness for a no instance violates soundness.</p></section>
   <section class="content-block"><h3>Notation details</h3><p>The existential quantifier means at least one witness, while the universal quantifier means every witness. The colon introduces the acceptance condition, output 1 means accept, and poly(n) denotes a positive polynomial bound, not one prescribed numerical polynomial.</p></section>

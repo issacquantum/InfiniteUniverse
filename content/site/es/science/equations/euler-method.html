@@ -2,12 +2,12 @@
   <section class="content-block"><h3>Método de Euler</h3></section>
   <section class="content-block"><h3>Ecuación</h3><div class="equation-link-wrap"><div class="glass-window equation-display">$$ y_{n+1}=y_n+h f(t_n,y_n) $$</div></div></section>
   <section class="content-block"><h3>Lectura Literal</h3><p>y sub n más 1 es igual a y sub n más h f de t sub n coma y sub n.</p></section>
-  <section class="content-block"><h3>Lectura Común</h3><p>Hace avanzar un sistema usando una derivada local como aproximación del siguiente estado.</p></section>
+  <section class="content-block"><h3>Lectura Común</h3><p>Hace avanzar un sistema usando una <strong>derivada local como aproximación</strong> del siguiente estado.</p></section>
   <section class="content-block"><h3>Símbolos</h3><p><strong>\(y_n\)</strong>: estado actual.</p>
     <p><strong>\(y_{n+1}\)</strong>: estado siguiente.</p>
     <p><strong>\(h\)</strong>: tamaño de paso.</p>
     <p><strong>\(f(t_n,y_n)\)</strong>: derivada o pendiente en el punto actual.</p></section>
-  <section class="content-block"><h3>Significado de la Ecuación</h3><p>Euler supone que la derivada permanece casi constante durante un paso pequeño. La precisión depende de que el paso sea lo bastante corto para que la curva real no se doble demasiado.</p></section>
+  <section class="content-block"><h3>Significado de la Ecuación</h3><p>Euler supone que la derivada permanece casi constante durante <strong>un paso pequeño</strong>. La precisión depende de que el paso sea lo bastante corto para que la curva real no se doble demasiado.</p></section>
 <section class="content-block"><h3>Condiciones y unidades</h3><p>\(n\) es el índice de paso, \(t_n=t_0+nh\) y \(f\) es el lado derecho de \(dy/dt=f(t,y)\). El producto \(hf\) tiene las mismas unidades que \(y\). Este método explícito tiene precisión global de primer orden bajo condiciones apropiadas de regularidad y estabilidad; las ecuaciones rígidas pueden exigir pasos muy pequeños por estabilidad aunque la solución parezca suave.</p></section>
   <section class="content-block" data-equation-example><h3>Ejemplo o interpretación</h3><p>Para y′=−y en unidades normalizadas, valor actual y=2 y paso h=0.1, el siguiente valor es 2+0.1×(−2)=1.8. El valor exacto después del paso es 2 exp(−0.1)≈1.80967, lo que muestra que la actualización numérica es aproximada.</p></section>
   <section class="content-block"><h3>Fuente</h3><p>La fuente se presenta en su idioma original. <a class="platform-link" href="https://fncbook.com/" target="_blank" rel="noopener noreferrer">Driscoll and Braun, Fundamentals of Numerical Computation, initial-value problems</a>.</p></section>

@@ -7,12 +7,12 @@
         $$
       </div>
     </div></section>
-  <section class="content-block"><h3>Literal Reading</h3><p>Big O of the cube of the logarithm of N.</p></section>
+  <section class="content-block"><h3>Literal Reading</h3><p><a class="platform-link" href="index.html#/en/science/programming-algorithms">Big O</a> of the cube of the logarithm of N.</p></section>
   <section class="content-block"><h3>Common Reading</h3><p>The asymptotic runtime scaling for Shor-type factoring in terms of the size of the integer being factored.</p></section>
   <section class="content-block"><h3>Symbols</h3><p><strong>\(\mathcal{O}\)</strong>: big-O notation, which describes scaling behavior rather than exact runtime.</p>
     <p><strong>\(\log N\)</strong>: the bit-length scale associated with the integer \(N\).</p>
     <p><strong>\((\log N)^3\)</strong>: cubic growth in the logarithm of the problem size, which is polynomial in input length.</p></section>
-  <section class="content-block"><h3>Meaning of the Equation</h3><p>Gate complexity depends on implementation and arithmetic model; \(O((\log N)^3)\) is a simplified common scaling, not a hardware runtime guarantee.</p></section>
+  <section class="content-block"><h3>Meaning of the Equation</h3><p>Gate complexity <strong>depends on implementation and arithmetic model</strong>; \(O((\log N)^3)\) is a simplified common scaling, <strong>not a hardware runtime guarantee</strong>.</p></section>
 <section class="content-block"><h3>Conditions and units</h3><p>N is the positive integer to be factored, not the input bit count; that count is approximately \(\log_2N\). The expression describes a common elementary-arithmetic gate-count scaling for the quantum order-finding procedure and associated factoring algorithm, suppressing success-probability and implementation details. It is not a proof that no polynomial-time classical factoring algorithm exists.</p></section>
   <section class="content-block" data-equation-example><h3>Worked example or interpretation</h3><p>If input bit length doubles from n to 2n, the reference cubic gate-count scale increases by a factor of eight. Doubling the integer N itself instead adds roughly one input bit. Confusing N with its bit length would turn a polynomial statement into a different claim.</p></section>
   <section class="content-block"><h3>Source</h3><p><a class="platform-link" href="https://arxiv.org/abs/quant-ph/9508027" target="_blank" rel="noopener noreferrer">Peter W. Shor, Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms on a Quantum Computer</a>.</p></section>

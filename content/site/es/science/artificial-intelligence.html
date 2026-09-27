@@ -13,8 +13,8 @@
     </p>
     <p>
       En esta sección trato la IA como computación, representación, optimización e ingeniería. Eso está separado de la
-      pregunta por la interioridad consciente: un sistema puede producir conducta que parece inteligente sin que eso pruebe
-      experiencia de primera persona.
+      pregunta por la interioridad consciente: un sistema puede producir conducta que parece inteligente <strong>sin que eso pruebe
+      experiencia de primera persona</strong>.
     </p>
     <p>
       <strong>Fecha de estado:</strong> 15 de septiembre de 2026. Los sistemas de IA, los resultados de pruebas, el
@@ -33,14 +33,14 @@
   <section class="content-block">
     <h3 id="section-2">La inteligencia artificial temprana</h3>
     <p>
-      Antes de que el campo tuviera nombre, <strong>Alan Turing</strong> reformuló la pregunta sobre la inteligencia de
+      Antes de que el campo tuviera nombre, <strong><a class="platform-link" href="https://mathshistory.st-andrews.ac.uk/Biographies/Turing/" target="_blank" rel="noopener noreferrer">Alan Turing</a></strong> reformuló la pregunta sobre la inteligencia de
       las máquinas. En lugar de exigir una definición perfecta del pensamiento, preguntó si una máquina podía producir
       una conducta capaz de obligarnos a reconsiderar la frontera entre computación e inteligencia.
     </p>
     <p>
       La frase se formalizó con el <strong>taller de Dartmouth de 1956</strong>, organizado por
       <strong>John McCarthy</strong>, <strong>Marvin Minsky</strong>, <strong>Nathaniel Rochester</strong> y
-      <strong>Claude Shannon</strong>. Su propuesta trataba la inteligencia como algo que quizá podía describirse con
+      <strong><a class="platform-link" href="https://mathshistory.st-andrews.ac.uk/Biographies/Shannon/" target="_blank" rel="noopener noreferrer">Claude Shannon</a></strong>. Su propuesta trataba la inteligencia como algo que quizá podía describirse con
       tanta precisión que una máquina pudiera simular partes de ella.
     </p>
   </section>
@@ -57,7 +57,7 @@
       La IA moderna no elimina esas ideas. Las combina. Un sistema de juego puede usar redes neuronales más búsqueda en
       árbol. Un modelo de lenguaje puede usar un transformador entrenado por autosupervisión, después ajuste por
       instrucciones, y después recuperación o herramientas. El cambio importante es que muchas conductas ya no se
-      escriben directamente como reglas. Se aprenden desde ejemplos y objetivos optimizados.
+      escriben directamente como reglas. <strong>Se aprenden desde ejemplos y objetivos optimizados</strong>.
     </p>
   </section>
 
@@ -81,7 +81,7 @@
       </button>
     </div>
     <p>
-      Las entradas se transforman mediante pesos aprendidos, se desplazan con un sesgo y pasan por una función no lineal.
+      Las entradas se transforman mediante <strong>pesos aprendidos</strong>, se desplazan con un sesgo y pasan por una <strong>función no lineal</strong>.
       Al apilar capas, el modelo construye representaciones internas progresivamente más útiles.
     </p>
   </section>
@@ -122,8 +122,8 @@
   <section class="content-block">
     <h3 id="section-6">Datos, etiquetas y pérdida</h3>
     <p>
-      Los modelos supervisados aprenden de ejemplos con etiquetas. Los modelos autosupervisados aprenden de estructura
-      ya presente en los datos. El aprendizaje por refuerzo usa recompensas y acciones. No son detalles menores: definen
+      Los modelos supervisados aprenden de <strong>ejemplos con etiquetas</strong>. Los modelos autosupervisados aprenden de <strong>estructura
+      ya presente en los datos</strong>. El aprendizaje por refuerzo usa <strong>recompensas y acciones</strong>. No son detalles menores: definen
       qué tipo de conducta el sistema tiene presión de adquirir.
     </p>
     <p>
@@ -163,7 +163,7 @@
     </p>
     <p>
       Esto importa porque la conducta de un modelo depende de la arquitectura y la optimización, pero también de la
-      procedencia de datos, las decisiones de etiquetado, el preprocesamiento, el diseño de evaluación y el contexto de
+      <strong>procedencia de datos</strong>, las decisiones de etiquetado, el preprocesamiento, el diseño de evaluación y el contexto de
       despliegue. Un modelo sin documentación es más difícil de auditar, reproducir, comparar o confiar.
     </p>
   </section>
@@ -276,7 +276,7 @@
       durante el uso.
     </p>
     <p>
-      La recuperación puede hacer que las respuestas estén mejor ancladas, pero no garantiza verdad. Un sistema puede
+      La recuperación puede hacer que las respuestas estén mejor ancladas, pero <strong>no garantiza verdad</strong>. Un sistema puede
       recuperar el documento equivocado, no encontrar la mejor fuente, usar material obsoleto, citar mal una fuente o sacar
       una conclusión demasiado segura desde evidencia débil. La recuperación solo mejora la ruta de evidencia cuando se
       revisan las fuentes, el ordenamiento, las citas y el razonamiento final.
@@ -372,7 +372,7 @@
       hecho establecido.
     </p>
     <p>
-      La respuesta práctica no es desconfianza ciega ni confianza ciega. Es verificación según la tarea: revisar fuentes,
+      La respuesta práctica no es desconfianza ciega ni confianza ciega. Es <strong>verificación según la tarea</strong>: revisar fuentes,
       inspeccionar incertidumbre, comparar contra restricciones conocidas, probar casos límite y tratar la salida de alto
       riesgo como un borrador que debe ser revisado por personas competentes o sistemas validados.
     </p>
@@ -413,7 +413,7 @@
       <p><strong>Qué muestra:</strong> Tres lecciones separadas: flujo de activaciones, relaciones de atención y optimización sobre una superficie de pérdida.</p>
       <p><strong>Qué no muestra:</strong> Un modelo de lenguaje real, entrenamiento real a gran escala o comprensión humana.</p>
       <p><strong>Ecuación / principio:</strong> Atención escalada \(\operatorname{softmax}(QK^T/\sqrt{d_k})V\) y descenso de gradiente.</p>
-      <p><strong>Qué representa:</strong> Un mapa guiado de mecanismos de IA, separado en lecciones para no confundir atención, activaciones y optimización.</p>
+      <p><strong>Qué representa:</strong> Un mapa guiado de mecanismos de IA, separado en lecciones para <strong>no confundir</strong> atención, activaciones y optimización.</p>
       <p><strong>Qué probar:</strong> Cambia de modo primero; entiende una lección antes de pasar a la siguiente.</p>
     </div>
     <figure class="neural-architect glass-window" data-neural-architect-model data-model-target="neural-architecture" data-language="es">
@@ -548,7 +548,7 @@
         </div>
       </div>
       <figcaption>
-        Arte + computación: capas neuronales, pesos de atención y descenso de gradiente. Nota de diseño: la paleta
+        Arte + computación: capas neuronales, <strong>pesos de atención</strong> y descenso de gradiente. Nota de diseño: la paleta
         recurrente de tonos violeta, índigo y lavanda refleja mis colores favoritos.
       </figcaption>
     </figure>
@@ -558,7 +558,7 @@
     <h3 id="section-18">Frontera Moderna</h3>
     <p>
       La frontera moderna ya no es solo si un modelo puede generar texto, imágenes, código o audio. Las preguntas serias
-      son confiabilidad, evaluación, interpretabilidad, procedencia de datos, costo energético, uso de herramientas,
+      son confiabilidad, evaluación, interpretabilidad, <strong>procedencia de datos</strong>, costo energético, uso de herramientas,
       anclaje multimodal y si un sistema puede restringirse lo suficiente para dominios de alto riesgo. Un modelo puede
       ser impresionante sin ser confiable en todo contexto. Un tratamiento científico debe separar demostración, puntaje
       de benchmark, comportamiento en despliegue y competencia verificada.
@@ -567,10 +567,10 @@
       El trabajo actual incluye interpretabilidad mecanicista, sistemas con recuperación de información, incertidumbre
       calibrada, riesgos de datos sintéticos, verificación formal para código asistido por IA y evaluaciones de seguridad
       para agentes autónomos. Esta sección trata la IA como campo matemático y de ingeniería, no como magia inteligente
-      ni como prueba de conciencia.
+      <strong>ni como prueba de conciencia</strong>.
     </p>
-    <p>El entrenamiento posterior con recompensas verificables y la búsqueda adicional durante la inferencia han mejorado de forma importante el desempeño en algunas tareas matemáticas y de programación. <a class="paper-link" href="https://www.nature.com/articles/s41586-025-09422-z" target="_blank" rel="noopener noreferrer">DeepSeek-R1 incentivizes reasoning in LLMs through reinforcement learning (2025)</a> documenta uno de estos enfoques. <a class="paper-link" href="https://www.nature.com/articles/s41586-025-09833-y" target="_blank" rel="noopener noreferrer">Olympiad-level formal mathematical reasoning with reinforcement learning (2025)</a> muestra el valor de combinar la búsqueda aprendida de demostraciones con un verificador formal. El sistema aprendido propone pasos; el verificador establece su validez respecto del enunciado formal y sus hipótesis. Ninguno de estos resultados establece una capacidad de razonamiento confiable sin restricciones.</p>
-    <p>Un sistema autónomo que usa herramientas combina un modelo con herramientas, estado almacenado, retroalimentación y un ciclo de ejecución. Su desempeño depende de toda esa configuración, de los permisos y del tiempo o cómputo disponible. Una ventana de contexto extensa no garantiza el aprovechamiento de toda la información suministrada. Las evaluaciones deben distinguir el avance parcial de las tareas concluidas, informar los controles de contaminación y los recursos utilizados, y usar tareas nuevas cuando una prueba se satura. <a class="paper-link" href="https://arxiv.org/abs/2606.29537" target="_blank" rel="noopener noreferrer">OSWorld 2 (prepublicación de junio de 2026)</a> estudia el uso de computadoras en tareas prolongadas; sus resultados se limitan al entorno evaluado. Las evaluaciones de interpretabilidad y alineación aportan evidencia sobre el comportamiento examinado, no una certificación general de seguridad o corrección.</p>
+    <p>El entrenamiento posterior con recompensas verificables y la búsqueda adicional durante la inferencia han mejorado de forma importante el desempeño en algunas tareas matemáticas y de programación. <a class="paper-link" href="https://www.nature.com/articles/s41586-025-09422-z" target="_blank" rel="noopener noreferrer">DeepSeek-R1 incentivizes reasoning in LLMs through reinforcement learning (2025)</a> documenta uno de estos enfoques. <a class="paper-link" href="https://www.nature.com/articles/s41586-025-09833-y" target="_blank" rel="noopener noreferrer">Olympiad-level formal mathematical reasoning with reinforcement learning (2025)</a> muestra el valor de combinar la búsqueda aprendida de demostraciones con un verificador formal. El sistema aprendido propone pasos; el verificador establece su <strong>validez respecto del enunciado formal y sus hipótesis</strong>. <strong>Ninguno de estos resultados establece una capacidad de razonamiento confiable sin restricciones</strong>.</p>
+    <p>Un sistema autónomo que usa herramientas combina un modelo con herramientas, estado almacenado, retroalimentación y un ciclo de ejecución. Su desempeño depende de toda esa configuración, de los permisos y del tiempo o cómputo disponible. Una ventana de contexto extensa no garantiza el aprovechamiento de toda la información suministrada. Las evaluaciones deben distinguir el avance parcial de las tareas concluidas, informar los controles de contaminación y los recursos utilizados, y usar tareas nuevas cuando una prueba se satura. <a class="paper-link" href="https://arxiv.org/abs/2606.29537" target="_blank" rel="noopener noreferrer">OSWorld 2 (prepublicación de junio de 2026)</a> estudia el uso de computadoras en tareas prolongadas; <strong>sus resultados se limitan al entorno evaluado</strong>. Las evaluaciones de interpretabilidad y alineación aportan evidencia sobre el comportamiento examinado, <strong>no una certificación general de seguridad o corrección</strong>.</p>
   </section>
 
   <section class="content-block glossary-section">

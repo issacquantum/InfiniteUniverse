@@ -19,7 +19,7 @@
   <section class="content-block">
     <h3 id="section-2">La teoría de comunicación de Shannon</h3>
     <p>
-      El campo moderno comienza con <strong>Claude Shannon</strong> y su trabajo de 1948, <em>A Mathematical Theory of
+      El campo moderno comienza con <strong><a class="platform-link" href="https://mathshistory.st-andrews.ac.uk/Biographies/Shannon/" target="_blank" rel="noopener noreferrer">Claude Shannon</a></strong> y su trabajo de 1948, <em>A Mathematical Theory of
         Communication</em>. Shannon separó el problema técnico de comunicar del significado del mensaje. El mensaje
       podía ser poesía, telemetría, una contraseña, un archivo o una orden. La primera pregunta matemática es la misma:
       cuánta incertidumbre desaparece cuando el mensaje llega.
@@ -35,7 +35,7 @@
     <h3 id="section-3">Bits e incertidumbre</h3>
     <p>
       La palabra <strong>bit</strong>, abreviatura de <strong>binary digit</strong>, fue propuesta por
-      <strong>John Tukey</strong> y adoptada por Shannon como unidad natural de información binaria. Un bit resuelve
+      <strong><a class="platform-link" href="https://mathshistory.st-andrews.ac.uk/Biographies/Tukey/" target="_blank" rel="noopener noreferrer">John Tukey</a></strong> y adoptada por Shannon como unidad natural de información binaria. Un bit resuelve
       una elección entre dos alternativas igualmente probables.
     </p>
     <p class="source-language-note">
@@ -44,7 +44,7 @@
       <a class="platform-link" href="https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf" target="_blank" rel="noopener noreferrer">Shannon, <em>A Mathematical Theory of Communication</em></a>.
     </p>
     <p>
-      La cantidad central es la <strong>entropía de Shannon</strong>:
+      La cantidad central es la <strong><a class="platform-link" href="index.html#/es/science/quantum-information?branch=quantum-information-equations&amp;detail=shannon-entropy">entropía de Shannon</a></strong>:
     </p>
     <div class="equation-link-wrap">
       <button class="glass-window equation-link" type="button" data-action="select-legacy-item"
@@ -57,7 +57,7 @@
     </div>
     <p>
       Una fuente predecible tiene baja entropía. Una fuente uniforme tiene alta entropía. La entropía no es desorden
-      como idea vaga; es el número promedio de bits necesarios para especificar resultados de una distribución.
+      como idea vaga; es el <strong>número promedio de bits</strong> necesarios para especificar resultados de una distribución.
     </p>
   </section>
 
@@ -131,8 +131,8 @@
     <h3 id="section-6">Corrección de errores</h3>
     <p>
       El teorema de canal ruidoso de Shannon es uno de los resultados más profundos de la ingeniería: la comunicación
-      confiable es posible a través del ruido si la tasa se mantiene por debajo de la capacidad y el código es
-      suficientemente largo. La corrección de errores no elimina la física. Usa <strong>redundancia</strong> para que el receptor pueda
+      confiable es posible a través del ruido si la <strong>tasa se mantiene por debajo de la capacidad</strong> y el <strong>código es
+      suficientemente largo</strong>. La corrección de errores no elimina la física. Usa <strong>redundancia</strong> para que el receptor pueda
       inferir el mensaje original más probable.
     </p>
     <p>
@@ -158,7 +158,7 @@
       </button>
     </div>
     <p>
-      La <strong>divergencia de Kullback-Leibler</strong> mide el costo informacional de usar el modelo probabilístico
+      La <strong><a class="platform-link" href="index.html#/es/science/information-theory?branch=information-theory-equations&amp;detail=kullback-leibler-divergence">divergencia de Kullback-Leibler</a></strong> mide el costo informacional de usar el modelo probabilístico
       equivocado:
     </p>
     <div class="equation-link-wrap">
@@ -171,7 +171,7 @@
       </button>
     </div>
     <p>
-      La teoría de la información vive debajo de la estadística y la inteligencia artificial. Predicción, compresión,
+      La teoría de la información vive debajo de la estadística y la <a class="platform-link" href="index.html#/es/science/artificial-intelligence">inteligencia artificial</a>. Predicción, compresión,
       entropía cruzada y ajuste de modelos preguntan si un sistema capturó la distribución correcta.
     </p>
   </section>
@@ -200,8 +200,8 @@
   <section class="content-block">
     <h3 id="section-9">La información es física</h3>
     <p>
-      La teoría de la información también toca la termodinámica. Un bit puede ser abstracto, pero almacenarlo, copiarlo,
-      transmitirlo y borrarlo requiere sistemas físicos. El <strong>principio de Landauer</strong> da el límite inferior
+      La teoría de la información también toca la <a class="platform-link" href="index.html#/es/science/thermodynamics-statistical-mechanics">termodinámica</a>. Un bit puede ser abstracto, pero almacenarlo, copiarlo,
+      transmitirlo y borrarlo requiere sistemas físicos. El <strong><a class="platform-link" href="index.html#/es/science/quantum-information?branch=quantum-information-equations&amp;detail=landauer-principle">principio de Landauer</a></strong> da el límite inferior
       ideal de calor disipado por un borrado lógicamente irreversible:
     </p>
     <div class="equation-link-wrap">
@@ -213,7 +213,7 @@
         $$
       </button>
     </div>
-    <p>\(k_BT\ln2\) es el costo ideal de restablecer un bit inicialmente equiprobable y sin correlaciones en contacto con un depósito térmico. El sesgo, la información auxiliar y los cambios físicos de energía libre requieren un balance más general; no es un costo obligatorio de toda operación lógica.</p>
+    <p>\(k_BT\ln2\) es el costo ideal de restablecer un bit inicialmente equiprobable y sin correlaciones en contacto con un depósito térmico. El sesgo, la información auxiliar y los cambios físicos de energía libre requieren un balance más general; <strong>no es un costo obligatorio de toda operación lógica</strong>.</p>
   </section>
 
   <section class="content-block">
@@ -231,7 +231,7 @@
       <p><strong>Qué representa:</strong> Un sistema pequeño de comunicación donde se comparan incertidumbre, ruido y redundancia.</p>
       <p><strong>Qué probar:</strong> Usa primero las configuraciones predefinidas; luego cambia ruido y redundancia para ver cómo sobrevive la información.</p>
     </div>
-    <p>El control de redundancia reduce de manera heurística una probabilidad efectiva de error. No implementa un codificador y un decodificador ni contabiliza la reducción de tasa debida a la codificación. La capacidad mostrada corresponde a ese canal efectivo; la redundancia no aumenta la capacidad de un canal físico fijo.</p>
+    <p>El control de redundancia reduce de manera heurística una probabilidad efectiva de error. No implementa un codificador y un decodificador ni contabiliza la reducción de tasa debida a la codificación. La capacidad mostrada corresponde a ese canal efectivo; la redundancia <strong>no aumenta la capacidad de un canal físico fijo</strong>.</p>
 
     <figure class="information-theory-model glass-window" data-information-theory-model data-model-target="entropy-channel" data-language="es">
       <div class="information-theory-model__frame" data-it-frame></div>
@@ -328,7 +328,7 @@
     <h3 id="section-12">Frontera Moderna</h3>
     <p>
       La teoría de la información ahora va mucho más allá de canales telefónicos. Da forma a compresión, criptografía,
-      aprendizaje automático, corrección de errores, señalización biológica, termodinámica, comunicación cuántica y
+      <a class="platform-link" href="index.html#/es/science/artificial-intelligence">aprendizaje automático</a>, corrección de errores, señalización biológica, <a class="platform-link" href="index.html#/es/science/thermodynamics-statistical-mechanics">termodinámica</a>, comunicación cuántica y
       privacidad. El trabajo moderno estudia límites de bloque finito, codificación de redes, cuellos de botella de
       información, privacidad diferencial y capacidades cuánticas donde las fórmulas asintóticas limpias no bastan.
     </p>

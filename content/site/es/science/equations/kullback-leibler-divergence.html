@@ -6,7 +6,7 @@
   <section class="content-block"><h3>Símbolos</h3><p><strong>\(P(x)\)</strong>: distribución de referencia o verdadera.</p>
     <p><strong>\(Q(x)\)</strong>: distribución comparada o modelo.</p>
     <p><strong>\(\log_2\)</strong>: logaritmo base dos, por lo que el resultado se mide en bits.</p></section>
-  <section class="content-block"><h3>Significado de la Ecuación</h3><p>La divergencia KL no es simétrica y no es una métrica.</p></section>
+  <section class="content-block"><h3>Significado de la Ecuación</h3><p>La divergencia KL <strong>no es simétrica y no es una métrica</strong>.</p></section>
 <section class="content-block"><h3>Condiciones y unidades</h3><p>Aquí \(x\) recorre un espacio discreto común de resultados; \(P,Q\) son distribuciones de probabilidad normalizadas. Los términos con \(P(x)=0\) aportan cero por continuidad. Si \(P(x)&gt;0\) pero \(Q(x)=0\), la divergencia es infinita. El resultado es no negativo y se mide en bits, no en unidades de energía o longitud.</p></section>
   <section class="content-block" data-equation-example><h3>Ejemplo o interpretación</h3><p>Para P=(1,0) y Q=(1/2,1/2), el único término de peso no nulo es log₂(2)=1 bit. Invertir los argumentos da infinito porque Q asigna probabilidad positiva a un resultado de probabilidad cero bajo P. Esto muestra la asimetría.</p></section>
   <section class="content-block"><h3>Detalles de la notación</h3><p>La barra doble separa las distribuciones de referencia y comparación, no una norma. La suma recorre el alfabeto común de resultados y todo el cociente de probabilidades está dentro del logaritmo.</p></section>

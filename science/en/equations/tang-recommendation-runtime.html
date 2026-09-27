@@ -9,14 +9,14 @@
 </head><body><a href="science/en/equations/tang-recommendation-runtime.html#main">Skip to content</a><nav><a href="index.html#/en/science/quantum-computing?branch=quantum-computing-equations&detail=tang-recommendation-runtime">Open in the interactive site</a> · <a href="science/es/equations/tang-recommendation-runtime.html" lang="es">Español</a> · <a href="science/en/index.html">All topics</a></nav><main id="main"><h1>Tang Recommendation Runtime</h1><div class="structured-content equation-detail-page" data-structured-content>
   <section class="content-block"><h3>Tang Recommendation Runtime</h3></section>
   <section class="content-block"><h3>Equation</h3><div class="equation-link-wrap"><div class="glass-window equation-display">$$ \mathcal{O}(\mathrm{poly}(k)\log(mn)) $$</div></div></section>
-  <section class="content-block"><h3>Literal Reading</h3><p>Big O of a polynomial in k times the logarithm of the product m n.</p></section>
-  <section class="content-block"><h3>Common Reading</h3><p>Big O of a polynomial in \(k\) times the logarithm of \(mn\).</p></section>
+  <section class="content-block"><h3>Literal Reading</h3><p><a class="platform-link" href="index.html#/en/science/programming-algorithms">Big O</a> of a polynomial in k times the logarithm of the product m n.</p></section>
+  <section class="content-block"><h3>Common Reading</h3><p><a class="platform-link" href="index.html#/en/science/programming-algorithms">Big O</a> of a polynomial in \(k\) times the logarithm of \(mn\).</p></section>
   <section class="content-block"><h3>Symbols</h3><p><strong>\(\mathcal{O}\)</strong>: asymptotic scaling notation.</p>
     <p><strong>\(\mathrm{poly}(k)\)</strong>: some polynomial function of the target rank \(k\).</p>
     <p><strong>\(k\)</strong>: target low-rank dimension.</p>
     <p><strong>\(m,n\)</strong>: dimensions of the data matrix.</p>
     <p><strong>\(\log(mn)\)</strong>: logarithmic dependence on total matrix size.</p></section>
-  <section class="content-block"><h3>Meaning of the Equation</h3><p>This is under sample-and-query or \(\ell_2\)-norm access assumptions, not ordinary raw data access.</p></section>
+  <section class="content-block"><h3>Meaning of the Equation</h3><p>This is <strong>under sample-and-query</strong> or \(\ell_2\)-norm access assumptions, <strong>not ordinary raw data access</strong>.</p></section>
 <section class="content-block"><h3>Conditions and units</h3><p>This is a schematic dependence on matrix dimensions and target rank with accuracy, success probability, and the theorem’s matrix-quality parameters held fixed. The full bound also depends on those parameters; hiding them is not a claim of logarithmic cost for arbitrary recommendation data. Building the sampling data structure and reading an entire output vector are separate costs. The runtime is an operation-count bound under the stated access model.</p></section>
 <section class="content-block"><h3>Reference</h3><p><a href="https://arxiv.org/abs/1807.04271">E. Tang, A quantum-inspired classical algorithm for recommendation systems</a>.</p></section>
   <section class="content-block" data-equation-example><h3>Worked example or interpretation</h3><p>With rank and all suppressed parameters fixed, doubling both matrix dimensions changes log(mn) to log(4mn), an additive logarithmic increment. This observation concerns the sampling algorithm after suitable access is available; reading all mn entries would still be a separate linear-in-input-size task.</p></section>
