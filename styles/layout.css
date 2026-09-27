@@ -882,7 +882,7 @@
   .site-stage {
     flex: 1 1 auto;
     min-height: 0;
-    overflow: hidden;
+    overflow: visible;
   }
 
   .stage-column {
@@ -1012,4 +1012,28 @@
   .site-bottom {
     display: none;
   }
+}
+
+/* Navigation needs paint space above a raised tab; the reader owns scrolling. */
+:is(.personal-chapters, .section-grid, .knowledge-worlds-row, .topic-grid, .focused-path-row) {
+  position: relative;
+  padding-block: 0.75rem 0.35rem;
+  overflow: visible;
+}
+
+:is(.personal-chapters, .section-grid, .knowledge-worlds-row, .topic-grid, .focused-path-row, .mobile-knowledge-nav__panel) button:is(.is-active, :hover, :focus-visible) {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 768px), (orientation: landscape) and (max-height: 620px) and (max-width: 1024px) {
+  .mobile-knowledge-nav__panel.glass-window {
+    padding: 1.5rem;
+    overflow: auto;
+  }
+}
+
+:is(.personal-chapters, .section-grid, .knowledge-worlds-row, .topic-grid, .focused-path-row, .mobile-knowledge-nav__panel) button:focus-visible {
+  outline: 2px solid rgba(var(--outline-rgb), 0.92);
+  outline-offset: 0.22rem;
 }

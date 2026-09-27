@@ -3324,6 +3324,10 @@ body[data-link-visibility="enhanced"] :where(.structured-content, .legacy-conten
   .stage-column,
   .content-window {
     width: 100%;
+  }
+
+  .site-shell,
+  .content-window {
     overflow-x: hidden;
   }
 
