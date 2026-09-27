@@ -5,7 +5,8 @@ const EQUATION_BLOCK_SELECTOR = [
   ".legacy-content .equation-display"
 ].join(",");
 
-const MIN_EQUATION_SCALE = 0.32;
+// Keep long expressions readable; the math container scrolls beyond this limit.
+const MIN_EQUATION_SCALE = 0.85;
 const FIT_PADDING = 6;
 
 function measureEquationWidth(mathContainer) {
@@ -30,6 +31,18 @@ function applyEquationFit(block, mathContainer) {
   return true;
 }
 
+function updateEquationScrollAccess(block, mathContainer) {
+  if (block.tagName === "BUTTON") return;
+  const scrollable = mathContainer.scrollWidth > mathContainer.clientWidth + 1;
+  if (scrollable && !mathContainer.hasAttribute("tabindex")) {
+    mathContainer.tabIndex = 0;
+    mathContainer.dataset.equationScroll = "";
+  } else if (!scrollable && mathContainer.hasAttribute("data-equation-scroll")) {
+    mathContainer.removeAttribute("tabindex");
+    mathContainer.removeAttribute("data-equation-scroll");
+  }
+}
+
 function fitEquationBlock(block) {
   const mathContainer = block.querySelector("mjx-container");
 
@@ -43,13 +56,17 @@ function fitEquationBlock(block) {
   return new Promise((resolve) => {
     requestAnimationFrame(() => {
       if (!applyEquationFit(block, mathContainer)) {
+        updateEquationScrollAccess(block, mathContainer);
         resolve();
         return;
       }
 
       requestAnimationFrame(() => {
         applyEquationFit(block, mathContainer);
-        resolve();
+        requestAnimationFrame(() => {
+          updateEquationScrollAccess(block, mathContainer);
+          resolve();
+        });
       });
     });
   });

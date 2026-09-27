@@ -1,6 +1,6 @@
-import { siteContent } from '../data/site-content.js?v=20260926-library-v1';
+import { siteContent } from '../data/site-content.js?v=20260926-life-equations-v1';
 import { topicMetadata } from '../data/topic-metadata.js';
-import { routeFor } from './routes.js?v=20260926-library-v1';
+import { routeFor } from './routes.js?v=20260926-life-equations-v1';
 const topics = siteContent.knowledgeWorlds.flatMap(d => d.topics.map(t => ({ ...t, domain: d.id })));
 export function enhanceScienceReader(host, state) {
   if (!state.activeTopic || host.querySelector('[data-science-tools]')) return;

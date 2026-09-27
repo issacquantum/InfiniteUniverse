@@ -454,7 +454,8 @@ const personalCosmologyEquationBranch = {
     createStructuredItem("science/equations", "bekenstein-hawking-entropy", "Bekenstein Hawking Entropy", "Entropía de Bekenstein Hawking"),
     createStructuredItem("science/equations", "hilbert-dimension-entropy-bound", "Hilbert Dimension Entropy Bound", "Límite entrópico de la dimensión de Hilbert"),
     createStructuredItem("science/equations", "von-neumann-entropy", "Von Neumann Entropy", "Entropía de von Neumann"),
-    createStructuredItem("science/equations", "quantum-mutual-information", "Quantum Mutual Information", "Información Mutua Cuántica")
+    createStructuredItem("science/equations", "quantum-mutual-information", "Quantum Mutual Information", "Información Mutua Cuántica"),
+    createStructuredItem("science/equations", "mode-indexed-ontology", "Mode-Indexed Ontology", "Ontología indexada por modo")
   ]
 };
 
@@ -519,26 +520,22 @@ export const siteContent = {
   },
   sitePurposeSection: createSection("site-purpose-notices-privacy", "Site Purpose, Notices & Privacy", "Propósito del sitio, avisos y privacidad"),
   personalSections: [
-    createSection("origins-interests", "Origins and Interests", "Orígenes e intereses", {
+    createSection("origins-interests", "My Life", "Mi vida", {
       contentId: "origins",
       chapters: [
         createStructuredItem("personal", "origins", "Origins", "Orígenes"),
-        createStructuredItem("personal", "music", "Music", "Música"),
-        createStructuredItem("personal", "practice-worlds", "Video Games", "Videojuegos")
-      ]
-    }),
-    createSection("learning-path", "Learning Path", "Camino de aprendizaje", {
-      chapters: [
         createStructuredItem("personal", "learning-path", "Learning Path", "Camino de aprendizaje"),
-        createStructuredItem("personal", "library-influences", "Library and Influences", "Biblioteca e influencias")
+        createStructuredItem("personal", "music", "Music", "Música"),
+        createStructuredItem("personal", "practice-worlds", "Favorite Video Games", "Videojuegos favoritos")
       ]
     }),
-    createSection("systems-work", "Professional Career", "Trayectoria Profesional"),
-    createSection("personal-cosmology", "My Theory", "Mi Teoría", {
+    createSection("systems-work", "Professional Career", "Trayectoria profesional"),
+    createSection("personal-cosmology", "My Theory", "Mi teoría", {
       branches: [personalCosmologyEquationBranch],
       hideBranchNavigation: true,
       hideDetailNavigation: true
-    })
+    }),
+    createSection("library-influences", "Library and Influences", "Biblioteca e influencias")
   ],
   knowledgeWorlds: [
     {

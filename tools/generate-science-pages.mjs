@@ -4,6 +4,7 @@ import { documents, topics, plain, escape } from './site-inventory.mjs';
 import { routeFor } from '../scripts/routes.js';
 import { bigBangLegacyContent } from '../data/legacy-big-bang.js';
 import { topicMetadata } from '../data/topic-metadata.js';
+import { linkLegacyEquations } from './legacy-equation-links.mjs';
 export const siteRoot = 'https://issacquantum.github.io/InfiniteUniverse/';
 export function publicPath(doc, language) {
   if (!doc.branch) return `science/${language}/${doc.id}/index.html`;
@@ -55,6 +56,12 @@ for (const language of ['en','es']) {
       const target = all.find(d => d.id === mapped?.itemId && d.branch === mapped?.branchId) ?? all.find(d => d.source?.file?.endsWith('/' + file) && (!anchor || d.source.sectionId === anchor));
       return target ? `href="${publicPath(target, language)}"` : '';
     });
+    if (doc.source) {
+      body = linkLegacyEquations(body, doc.id, id => {
+        const target = all.find(d => d.id === id && d.branch === 'history-of-the-universe-equations');
+        return target ? publicPath(target, language) : null;
+      });
+    }
     body = body.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '').replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, '').replace(/\son[a-z]+="[^"]*"/gi, '');
     if (doc.source) body = body.replace(/<img\b[^>]*src="([^"]+)"[^>]*>/g, (tag, src) => {
       const asset = 'Assets2/' + src.split('/').pop();

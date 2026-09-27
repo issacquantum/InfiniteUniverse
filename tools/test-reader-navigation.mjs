@@ -7,7 +7,7 @@ import { guardReaderRestoration, matchesReaderState } from '../scripts/reader-po
 import { siteContent } from '../data/site-content.js';
 
 const section = siteContent.personalSections.find(s => s.id === 'origins-interests');
-assert.deepEqual(section.chapters.map(c => c.id), ['origins', 'music', 'practice-worlds']);
+assert.deepEqual(section.chapters.map(c => c.id), ['origins', 'learning-path', 'music', 'practice-worlds']);
 for (const language of ['en', 'es']) {
   for (const chapter of section.chapters) {
     const state = parseRoute(`#/${language}/personal/${chapter.id}`);
@@ -105,3 +105,13 @@ assert.equal(steps,1,'Single-finger swipe still works');
 viewport.scale=2;start([finger(100)]);end(250);
 assert.equal(steps,1,'Panning a browser-zoomed image cannot change images');
 console.log('Gallery pinch, cancellation, stationary touch, swipe and browser-zoom guards passed.');
+
+assert.deepEqual(siteContent.personalSections.map(s => s.id), ['origins-interests', 'systems-work', 'personal-cosmology', 'library-influences']);
+for (const language of ['en', 'es']) {
+  const learning = parseRoute(`#/${language}/personal/learning-path`);
+  assert.equal(learning.activeSection, 'origins-interests');
+  assert.equal(learning.activeChapter, 'learning-path');
+  const library = parseRoute(`#/${language}/personal/learning-path?chapter=library-influences`);
+  assert.equal(library.activeSection, 'library-influences');
+  assert.equal(library.activeChapter, null);
+}

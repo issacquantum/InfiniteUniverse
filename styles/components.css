@@ -1996,14 +1996,15 @@ body[data-media-notes="on"] .media-note {
 .legacy-content .equation-link mjx-container,
 .legacy-content .equation-display mjx-container {
   display: block;
+  text-align: left !important;
   width: auto;
   margin: 0;
   padding-block: 0.04em;
   max-width: 100%;
   line-height: 1.35;
-  overflow-x: visible;
-  overflow-y: visible !important;
-  font-size: calc(70% * var(--equation-font-scale, 1) * var(--equation-fit-scale, 1)) !important;
+  overflow-x: auto;
+  overflow-y: hidden;
+  font-size: calc(100% * var(--equation-font-scale, 1) * var(--equation-fit-scale, 1)) !important;
 }
 
 .structured-content .equation-link mjx-container :is(mjx-math, mjx-mrow, mjx-frac, mjx-sqrt, mjx-script),
@@ -3419,8 +3420,8 @@ body[data-link-visibility="enhanced"] :where(.structured-content, .legacy-conten
   .legacy-content .equation-link mjx-container,
   .legacy-content .equation-display mjx-container {
     max-width: 100% !important;
-    overflow-x: visible !important;
-    font-size: calc(64% * var(--equation-font-scale, 1) * var(--equation-fit-scale, 1)) !important;
+    overflow-x: auto !important;
+    font-size: calc(100% * var(--equation-font-scale, 1) * var(--equation-fit-scale, 1)) !important;
   }
 
   .glass-window {

@@ -1,4 +1,4 @@
-import { siteContent } from '../data/site-content.js?v=20260926-library-v1';
+import { siteContent } from '../data/site-content.js?v=20260926-life-equations-v1';
 const topics = siteContent.knowledgeWorlds.flatMap(d => d.topics.map(t => ({ ...t, domain: d.id })));
 const sections = [...siteContent.personalSections, siteContent.sitePurposeSection];
 export function routeFor(state) {
@@ -27,8 +27,9 @@ export function parseRoute(hash) {
     if (!owner) return null;
     state.activeTopic = owner.id; state.activeDomain = owner.domain;
   } else if (parts[1] === 'personal') {
-    const oldChapter = ['origins', 'music', 'practice-worlds'].includes(parts[2]) ? parts[2] : null;
-    owner = sections.find(s => s.id === (oldChapter ? 'origins-interests' : parts[2]));
+    const oldLibrary = parts[2] === 'learning-path' && params.get('chapter') === 'library-influences';
+    const oldChapter = !oldLibrary && ['origins', 'learning-path', 'music', 'practice-worlds'].includes(parts[2]) ? parts[2] : null;
+    owner = sections.find(s => s.id === (oldLibrary ? 'library-influences' : oldChapter ? 'origins-interests' : parts[2]));
     if (!owner) return null;
     state.activeSection = owner.id;
     if (owner.chapters) {

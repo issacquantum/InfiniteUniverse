@@ -1,4 +1,4 @@
-import { siteContent } from "../data/site-content.js?v=20260926-library-v1";
+import { siteContent } from "../data/site-content.js?v=20260926-life-equations-v1";
 
 const documentCache = new Map();
 const requestCache = new Map();
