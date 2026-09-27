@@ -1,11 +1,12 @@
 <div class="structured-content equation-detail-page" data-structured-content>
   <section class="content-block"><h3>Objetivo de Eliminación de Ruido en Difusión</h3></section>
   <section class="content-block"><h3>Ecuación</h3><div class="equation-link-wrap"><div class="glass-window equation-display">$$ L_{\rm simple}=\mathbb{E}_{t,x_0,\epsilon}\!\left[\|\epsilon-\epsilon_\theta(x_t,t)\|^2\right] $$</div></div></section>
-  <section class="content-block"><h3>Lectura Literal</h3><p>L subíndice simple es igual al valor esperado, sobre t, x subíndice cero y épsilon, de la norma al cuadrado de la diferencia entre épsilon y épsilon subíndice theta evaluada en x subíndice t y t.</p></section>
+  <section class="content-block"><h3>Lectura Literal</h3><p>L subíndice simple es igual a la esperanza sobre t, x subíndice cero y épsilon de la norma al cuadrado de épsilon menos épsilon subíndice theta evaluada en x subíndice t y t.</p></section>
   <section class="content-block"><h3>Lectura Común</h3><p>Un modelo de difusión aprende a revertir un proceso gradual de ruido prediciendo cómo limpiar cada estado intermedio.</p></section>
   <section class="content-block"><h3>Símbolos</h3><p><strong>\(x_0\)</strong>: dato limpio original.</p>
     <p><strong>\(x_t\)</strong>: dato con ruido en el paso \(t\).</p>
     <p><strong>\(\epsilon\)</strong>: ruido muestreado.</p>
     <p><strong>\(\epsilon_\theta\)</strong>: predicción de ese ruido por la red neuronal.</p></section>
   <section class="content-block"><h3>Significado de la Ecuación</h3><p>El entrenamiento enseña al modelo qué dirección lleva una muestra ruidosa de regreso hacia la distribución de datos. El proceso es gradual: cada paso elimina parte de la corrupción.</p></section>
+<section class="content-block"><h3>Condiciones y unidades</h3><p>\(\theta\) denota los parámetros de la red, \(t\) un paso de difusión muestreado y \(\mathbb E\) el promedio sobre las distribuciones especificadas de pasos, datos y ruido. La norma es euclidiana. Los datos estandarizados y el ruido gaussiano son adimensionales, por lo que la pérdida cuadrática media también lo es. El programa de ruido directo define \(x_t\); la pérdida no es por sí sola un algoritmo de muestreo ni garantiza inversión exacta o reducción monótona del ruido en cada trayectoria estocástica.</p></section>
 </div>

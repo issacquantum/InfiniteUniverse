@@ -14,4 +14,5 @@
     <p><strong>\(p\)</strong>: probabilidad total de error de símbolo, es decir, la probabilidad de que el símbolo recibido no sea el enviado.</p>
     <p><strong>\(\log_2\)</strong>: logaritmo base 2, por eso el resultado se mide en bits.</p></section>
   <section class="content-block"><h3>Significado de la Ecuación</h3><p>Para \(q\ge2\) y \(0\le p\le1\), con \(0\log 0=0\), la capacidad disminuye hasta cero en \(p=(q-1)/q\), donde la salida es independiente de la entrada. Vuelve a aumentar por encima de ese punto porque la exclusión sistemática del símbolo enviado aporta información. Por tanto, no disminuye en todo el intervalo de probabilidad.</p></section>
+<section class="content-block"><h3>Condiciones y unidades</h3><p>El canal es discreto y sin memoria: el símbolo enviado se conserva con probabilidad \(1-p\), y cada uno de los otros \(q-1\) aparece con probabilidad \(p/(q-1)\), de manera independiente entre usos. La entrada uniforme alcanza la capacidad indicada. La tasa es un límite asintótico de codificación con error de decodificación arbitrariamente pequeño, no comunicación sin errores en cada uso individual.</p></section>
 </div>

@@ -31,7 +31,7 @@
       <p><strong>Tipo de modelo:</strong> Modelo físico simplificado.</p>
       <p><strong>Qué muestra:</strong> Un campo escalar fluctuante dibujado como una red móvil de amplitudes de campo.</p>
       <p><strong>Qué no muestra:</strong> Creación real de partículas, eventos de detector, amplitudes de dispersión renormalizadas o una simulación numérica de teoría cuántica de campos.</p>
-      <p><strong>Ecuación / principio:</strong> \(\mathcal{L}=\frac{1}{2}\partial_\mu\phi\,\partial^\mu\phi-\frac{1}{2}m^2\phi^2\) es el punto de partida de un campo escalar libre.</p>
+      <p><strong>Ecuación / principio:</strong> \(\mathcal{L}=-\frac{1}{2}\partial_\mu\phi\,\partial^\mu\phi-\frac{1}{2}m^2\phi^2\) es el punto de partida de un campo escalar libre.</p>
       <p><strong>Qué representa el modelo:</strong> Un valor de campo en muchas ubicaciones, no partículas pequeñas apareciendo de la nada.</p>
     </div>
     <figure class="foundation-model glass-window" data-foundation-model="qft" data-model-target="scalar-field-lattice" data-language="es">
@@ -48,12 +48,12 @@
       excitación estable del campo.
     </p>
     <p>
-      Un campo escalar simple puede describirse con una densidad lagrangiana como
+      Con signatura métrica \((-+++)\) y unidades naturales \(c=\hbar=1\), un campo escalar simple tiene la densidad lagrangiana
     </p>
     <div class="equation-link-wrap">
       <a class="equation-link" href="science/es/equations/scalar-field-lagrangian.html">
         $$
-        \mathcal{L}=\frac{1}{2}\partial_\mu\phi\,\partial^\mu\phi-\frac{1}{2}m^2\phi^2
+        \mathcal{L}=-\frac{1}{2}\partial_\mu\phi\,\partial^\mu\phi-\frac{1}{2}m^2\phi^2
         $$
       </a>
     </div>
@@ -108,7 +108,7 @@
   <section class="content-block">
     <h3 id="section-6">Localidad, Causalidad y Operadores</h3>
     <p>La teoría cuántica de campos está construida para respetar la relatividad especial. Mediciones u operaciones separadas espacialmente no pueden usarse para enviar mensajes controlables más rápidos que la luz. La formulación compacta usual es la microcausalidad:</p>
-    <div class="equation-link-wrap"><a class="equation-link" href="science/es/equations/qft-microcausality.html">$$[\phi(x),\phi(y)]=0\quad\text{para separación de tipo espacio }(x-y)$$</a></div>
+    <div class="equation-link-wrap"><a class="equation-link" href="science/es/equations/qft-microcausality.html">$$[\phi(x),\phi(y)] = 0\qquad \text{separación espacial}$$</a></div>
     <p>Esta es una razón por la que la teoría de campos no es solo mecánica cuántica con más partículas. Es un marco donde localidad, causalidad, campos y amplitudes cuánticas quedan unidos.</p>
   </section>
 
@@ -116,6 +116,7 @@
     <h3 id="section-7">Propagadores y Dispersión</h3>
     <p>Un propagador no es una fotografía literal de una partícula moviéndose por un camino. Es un objeto que ayuda a calcular amplitudes de cómo perturbaciones e interacciones conectan puntos del espaciotiempo. El propagador de Feynman se escribe como</p>
     <div class="equation-link-wrap"><a class="equation-link" href="science/es/equations/feynman-propagator.html">$$D_F(x-y)=\int \frac{d^4p}{(2\pi)^4}\frac{i e^{-ip\cdot(x-y)}}{p^2-m^2+i\epsilon}$$</a></div>
+    <p>El propagador en el espacio de momentos usa aquí la convención \((+---)\), de modo que \(p^2=(p^0)^2-|\mathbf p|^2\). Describe la misma teoría escalar libre que el lagrangiano anterior con \((-+++)\), tras convertir la convención métrica.</p>
     <p>La teoría de dispersión conecta después las amplitudes calculadas con probabilidades medibles en experimentos de partículas.</p>
   </section>
 

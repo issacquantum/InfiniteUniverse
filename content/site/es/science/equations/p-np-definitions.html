@@ -1,10 +1,11 @@
 <div class="structured-content equation-detail-page" data-structured-content>
   <section class="content-block"><h3>Definiciones de P y NP (tiempo polinomial no determinista)</h3></section>
   <section class="content-block"><h3>Ecuación</h3><div class="equation-link-wrap"><div class="glass-window equation-display">$$ P=\bigcup_{k\ge1}\mathrm{TIME}(n^k),\qquad NP=\bigcup_{k\ge1}\mathrm{NTIME}(n^k) $$</div></div></section>
-  <section class="content-block"><h3>Lectura Literal</h3><p>P es igual a problemas resolubles en tiempo polinómico; NP es igual a problemas verificables en tiempo polinómico.</p></section>
+  <section class="content-block"><h3>Lectura Literal</h3><p>P es igual a la unión, sobre enteros k mayores o iguales que uno, de TIME de n elevada a k. N P es igual a la unión correspondiente de NTIME de n elevada a k.</p></section>
   <section class="content-block"><h3>Lectura Común</h3><p>Esto separa encontrar una solución de comprobar una.</p></section>
   <section class="content-block"><h3>Símbolos</h3><p><strong>\(\mathrm{TIME}(n^k)\)</strong>: cómputo determinista limitado por un polinomio.</p>
     <p><strong>\(\mathrm{NTIME}(n^k)\)</strong>: cómputo no determinista en tiempo polinomial.</p>
     <p><strong>\(\bigcup_{k\ge1}\)</strong>: unión sobre todos los grados polinomiales.</p></section>
   <section class="content-block"><h3>Significado de la Ecuación</h3><p>\(P\subseteq NP\), pero si \(P=NP\) sigue sin resolverse.</p></section>
+<section class="content-block"><h3>Condiciones y unidades</h3><p>\(n\) es la longitud de entrada en bits y \(k\) un grado polinómico fijo para cada algoritmo. TIME y NTIME clasifican problemas de decisión por cotas temporales deterministas y no deterministas en el peor caso, con las constantes asintóticas habituales. NP también admite una definición equivalente mediante verificación de certificados en tiempo polinómico para las instancias afirmativas. Son números adimensionales de operaciones bajo un modelo de cómputo, no tiempos físicos; la notación no resuelve P frente a NP.</p></section>
 </div>

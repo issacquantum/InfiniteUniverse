@@ -10,10 +10,11 @@
   <section class="content-block"><h3>Runge Kutta Four</h3></section>
   <section class="content-block"><h3>Equation</h3><div class="equation-link-wrap"><div class="glass-window equation-display">$$ y_{n+1}=y_n+\frac{h}{6}(k_1+2k_2+2k_3+k_4) $$</div></div></section>
   <section class="content-block"><h3>Literal Reading</h3><p>y sub n plus 1 equals y sub n plus h over 6 the quantity k1 plus 2k2 plus 2k3 plus k4.</p></section>
-  <section class="content-block"><h3>Common Reading</h3><p>RK4 (fourth-order Runge-Kutta) (Runge-Kutta fourth-order method) samples the derivative within a step to get a more accurate update than Euler's method.</p></section>
+  <section class="content-block"><h3>Common Reading</h3><p>RK4 (fourth-order Runge-Kutta) samples the derivative within a step to get a more accurate update than Euler's method.</p></section>
   <section class="content-block"><h3>Symbols</h3><p><strong>\(h\)</strong>: step size.</p>
     <p><strong>\(k_1,k_2,k_3,k_4\)</strong>: slope estimates inside the current step.</p>
     <p><strong>\(y_n\)</strong> and <strong>\(y_{n+1}\)</strong>: current and next states.</p></section>
   <section class="content-block"><h3>Meaning of the Equation</h3><p>RK4 estimates several slopes within one time step and combines them. That gives a better approximation to the curved solution path than a single Euler slope.</p></section>
+<section class="content-block"><h3>Conditions and units</h3><p>For \(dy/dt=f(t,y)\), the stages are \(k_1=f(t_n,y_n)\), \(k_2=f(t_n+h/2,y_n+hk_1/2)\), \(k_3=f(t_n+h/2,y_n+hk_2/2)\), and \(k_4=f(t_n+h,y_n+hk_3)\). The index n counts steps, \(t_{n+1}=t_n+h\), and each slope has state-units per time, so h times a slope is a state increment. These stage definitions, not the weighted sum alone, give classical explicit RK4. Fourth-order convergence needs a sufficiently smooth problem and a stable step choice; this is not unconditionally stable.</p></section>
 </div>
 <nav aria-label="Related topics"><ul><li><a href="science/en/mathematical-analysis/index.html">Mathematical Analysis &amp; Differential Equations</a></li><li><a href="science/en/programming-algorithms/index.html">Programming &amp; Algorithms</a></li><li><a href="science/en/probability-statistics/index.html">Probability &amp; Statistics</a></li><li><a href="science/en/fluid-mechanics-navier-stokes/index.html">Fluid Mechanics and Navier-Stokes</a></li><li><a href="science/en/model-lab/index.html">Interactive Models</a></li></ul></nav></main></body></html>

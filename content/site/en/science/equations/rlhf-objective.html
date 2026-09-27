@@ -8,4 +8,5 @@
     <p><strong>\(\pi_{\rm ref}\)</strong>: reference model.</p>
     <p><strong>\(\beta\)</strong>: strength of the KL penalty.</p></section>
   <section class="content-block"><h3>Meaning of the Equation</h3><p>The KL term constrains the optimized policy to stay close to the reference policy; reward is learned or estimated, not ground truth.</p></section>
+<section class="content-block"><h3>Conditions and units</h3><p>This compact form is conditional on a fixed input x: the expectation is over \(y\sim\pi_\theta(\cdot\mid x)\), and the KL divergence compares the full conditional distributions over y. Training over a prompt dataset averages the entire expression over its input distribution. \(\theta\) are policy parameters, \(\phi\) fixed reward-model parameters, and \(\beta\ge0\) converts dimensionless KL into reward units. The penalty encourages proximity but does not impose a hard KL constraint or guarantee truthful outputs.</p></section>
 </div>

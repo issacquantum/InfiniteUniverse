@@ -8,4 +8,5 @@
     <p><strong>\(\eta\)</strong>: tasa de aprendizaje.</p>
     <p><strong>\(\epsilon\)</strong>: constante pequeña que evita división entre cero.</p></section>
   <section class="content-block"><h3>Significado de la Ecuación</h3><p>Adam cambia cada parámetro con un paso que refleja tanto la dirección reciente del gradiente como su volatilidad. Por eso puede moverse de forma distinta en distintos parámetros en lugar de usar una sola tasa de aprendizaje idéntica.</p></section>
+<section class="content-block"><h3>Condiciones y unidades</h3><p>\(\theta_t\) es el vector de parámetros en la iteración \(t\); \(t\) es un entero, no tiempo físico. Las operaciones, incluida la raíz y la división, se realizan por componente. Si los parámetros y la pérdida son adimensionales, todas las cantidades lo son. En general, \(\epsilon\) tiene unidades del gradiente y \(\eta\) fija las unidades del paso de los parámetros. Los hiperparámetros y las estimaciones dependen del algoritmo; la actualización por sí sola no garantiza convergencia.</p></section>
 </div>

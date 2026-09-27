@@ -1,10 +1,11 @@
 <div class="structured-content equation-detail-page" data-structured-content>
   <section class="content-block"><h3>Shannon Channel Capacity</h3></section>
   <section class="content-block"><h3>Equation</h3><div class="equation-link-wrap"><div class="glass-window equation-display">$$ C=\max_{p(x)} I(X;Y) $$</div></div></section>
-  <section class="content-block"><h3>Literal Reading</h3><p>C equals max sub p of x I of X;Y.</p></section>
+  <section class="content-block"><h3>Literal Reading</h3><p>C equals the maximum, over input distributions p of x, of the mutual information I between X and Y.</p></section>
   <section class="content-block"><h3>Common Reading</h3><p>Channel capacity is the maximum reliable information rate.</p></section>
   <section class="content-block"><h3>Symbols</h3><p><strong>\(C\)</strong>: channel capacity, usually measured in bits per channel use.</p>
     <p><strong>\(p(x)\)</strong>: probability distribution chosen for the channel input.</p>
     <p><strong>\(I(X;Y)\)</strong>: mutual information between sent and received variables.</p></section>
   <section class="content-block"><h3>Meaning of the Equation</h3><p>If written as \(C=\max_{p(x)}I(X;Y)\), this is the capacity of a general discrete memoryless channel. The formula \(B\log_2(1+\mathrm{SNR})\) is for an AWGN channel.</p></section>
+<section class="content-block"><h3>Conditions and units</h3><p>For a finite-alphabet discrete memoryless channel, the conditional law \(p(y\mid x)\) is fixed while \(p(x)\) is optimized. X is the input and Y the output. Base-two logarithms give bits per channel use, achievable asymptotically with arbitrarily small error at rates below capacity, not necessarily in one use. In the separate bandwidth formula, B is bandwidth in Hz, SNR a dimensionless signal-to-noise power ratio, and capacity is in bits/s under additive white Gaussian noise and a power constraint.</p></section>
 </div>

@@ -1,6 +1,6 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import path from 'node:path';
-import { documents, topics, plain, escape } from './site-inventory.mjs';
+import { publicDocuments, topics, plain, escape } from './site-inventory.mjs';
 import { routeFor } from '../scripts/routes.js';
 import { bigBangLegacyContent } from '../data/legacy-big-bang.js';
 import { topicMetadata } from '../data/topic-metadata.js';
@@ -10,7 +10,7 @@ export function publicPath(doc, language) {
   if (!doc.branch) return `science/${language}/${doc.id}/index.html`;
   return `science/${language}/${doc.file.includes('/equations/') ? 'equations' : doc.topic.id}/${doc.id}.html`;
 }
-export function route(doc, language) { return routeFor({ language, activeTopic:doc.topic.id, activeBranch:doc.branch, activeDetail:doc.branch ? doc.id : null }); }
+export function route(doc, language) { return routeFor({ language, activeTopic:doc.topic?.id, activeSection:doc.section?.id, activeBranch:doc.branch, activeDetail:doc.branch ? doc.id : null }); }
 function sourceBody(doc) {
   const html = readFileSync(doc.file, 'utf8');
   if (!doc.source) return html;
@@ -40,7 +40,7 @@ function sourceBody(doc) {
 }
 const urls = new Set([siteRoot]);
 for (const language of ['en','es']) {
-  const all = documents(language); const written = new Set();
+  const all = publicDocuments(language); const written = new Set();
   for (const doc of all) {
     const html = sourceBody(doc);
     const out = publicPath(doc,language); if (written.has(out)) continue; written.add(out);
@@ -76,7 +76,7 @@ for (const language of ['en','es']) {
     }
     // Static documents carry text and equations; model controls belong to the interactive reader.
     body = body.replace(/<button\b[^>]*>([\s\S]*?)<\/button>/g,'<span>$1</span>');
-    const related = [...new Set([...(topicMetadata[doc.topic.id]?.prerequisites ?? []),...(topicMetadata[doc.topic.id]?.related ?? [])])].map(id=>topics.find(t=>t.id===id)).filter(Boolean);
+    const related = [...new Set([...(topicMetadata[doc.topic?.id]?.prerequisites ?? []),...(topicMetadata[doc.topic?.id]?.related ?? [])])].map(id=>topics.find(t=>t.id===id)).filter(Boolean);
     const links = related.map(t=>`<li><a href="science/${language}/${t.id}/index.html">${escape(t.title[language])}</a></li>`).join('');
     mkdirSync(path.dirname(out),{recursive:true});
     const base = path.relative(path.dirname(out),'.').split(path.sep).join('/')+'/';
@@ -94,7 +94,7 @@ for (const language of ['en','es']) {
   // Cosmology has no topic fragment: expose its existing branch documents without migrating their renderer.
   for (const topic of topics.filter(t=>!t.contentFile)) {
     const out=`science/${language}/${topic.id}/index.html`;mkdirSync(path.dirname(out),{recursive:true});urls.add(siteRoot+out);
-    const entries=all.filter(d=>d.topic.id===topic.id);
+    const entries=all.filter(d=>d.topic?.id===topic.id);
     writeFileSync(out,`<!doctype html><html lang="${language}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><base href="../../../"><title>${escape(topic.title[language])} | Infinite Universe</title><meta name="description" content="${escape(topic.title[language])}"><meta property="og:title" content="${escape(topic.title[language])}"><meta property="og:description" content="${escape(topic.title[language])}"><link rel="canonical" href="${siteRoot+out}"><link rel="alternate" hreflang="${language==='en'?'es':'en'}" href="${siteRoot}science/${language==='en'?'es':'en'}/${topic.id}/index.html"><link rel="stylesheet" href="styles/static-science.css"></head><body><main><h1>${escape(topic.title[language])}</h1><a href="index.html${routeFor({language,activeTopic:topic.id})}">${language==='es'?'Abrir en el sitio interactivo':'Open in the interactive site'}</a><ul>${entries.map(d=>`<li><a href="${publicPath(d,language)}">${escape(d.title)}</a></li>`).join('')}</ul></main></body></html>\n`);
   }
   const listPath=`science/${language}/index.html`;urls.add(siteRoot+listPath);

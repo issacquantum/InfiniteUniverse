@@ -1,11 +1,12 @@
 <div class="structured-content equation-detail-page" data-structured-content>
   <section class="content-block"><h3>Algorithmic Recurrence</h3></section>
   <section class="content-block"><h3>Equation</h3><div class="equation-link-wrap"><div class="glass-window equation-display">$$ T(n)=aT(n/b)+f(n) $$</div></div></section>
-  <section class="content-block"><h3>Literal Reading</h3><p>T of n equals aT of n over b plus f of n.</p></section>
+  <section class="content-block"><h3>Literal Reading</h3><p>T of n equals a times T evaluated at n divided by b, plus f of n.</p></section>
   <section class="content-block"><h3>Common Reading</h3><p>This describes divide and conquer algorithms, where a problem is split into smaller pieces and then combined.</p></section>
   <section class="content-block"><h3>Symbols</h3><p><strong>\(T(n)\)</strong>: running time for size \(n\).</p>
     <p><strong>\(a\)</strong>: number of subproblems.</p>
     <p><strong>\(n/b\)</strong>: size of each subproblem.</p>
     <p><strong>\(f(n)\)</strong>: work outside the recursive calls.</p></section>
   <section class="content-block"><h3>Meaning of the Equation</h3><p>The equation turns a recursive procedure into a growth calculation. By tracking how many smaller subproblems are created and how much extra work is added, it predicts the total running time.</p></section>
+<section class="content-block"><h3>Conditions and units</h3><p>\(n\) is a dimensionless input size, \(a\ge1\) an integer number of recursive calls, and \(b&gt;1\) the dimensionless size-reduction factor. \(T\) and \(f\) must use the same cost units, such as operation counts. A base case and rounding rule are needed when \(n/b\) is not integral. This recurrence models equal-sized subproblems; it is not a formula for every recursive algorithm.</p></section>
 </div>

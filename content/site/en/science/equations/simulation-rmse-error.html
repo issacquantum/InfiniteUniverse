@@ -7,10 +7,11 @@
         $$
       </div>
     </div></section>
-  <section class="content-block"><h3>Literal Reading</h3><p>RMSE equals the square root of one over N times the sum over i of y hat sub i minus y sub i squared.</p></section>
+  <section class="content-block"><h3>Literal Reading</h3><p>R M S E equals the square root of one over N times the sum over i of the square of the entire difference y-hat subscript i minus y subscript i.</p></section>
   <section class="content-block"><h3>Common Reading</h3><p>RMSE is the square root of the mean squared prediction error.</p></section>
   <section class="content-block"><h3>Symbols</h3><p><strong>\(y_i\)</strong>: reference or measured value.</p>
     <p><strong>\(\hat{y}_i\)</strong>: simulated value.</p>
     <p><strong>\(N\)</strong>: number of compared points.</p></section>
   <section class="content-block"><h3>Meaning of the Equation</h3><p>Squaring makes large misses count more strongly. Taking the square root returns the error to the same units as the simulated quantity.</p></section>
+<section class="content-block"><h3>Conditions and units</h3><p>The sum includes the N paired real scalar values, with \(N&gt;0\), all in matching units. The square root is nonnegative. RMSE includes bias and dispersion relative to the reference; it is not automatically a statistical standard error or a confidence bound. Complex data require modulus squared, and quantities with incompatible physical units cannot be combined directly in this scalar sum.</p></section>
 </div>

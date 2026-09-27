@@ -1,10 +1,11 @@
 <div class="structured-content equation-detail-page" data-structured-content>
   <section class="content-block"><h3>RK4 (Fourth-Order Runge-Kutta) Global Error Order</h3></section>
   <section class="content-block"><h3>Equation</h3><div class="equation-link-wrap"><div class="glass-window equation-display">$$ \|e_N\|=O(h^4) $$</div></div></section>
-  <section class="content-block"><h3>Literal Reading</h3><p>global error equals O of h to the power of 4.</p></section>
+  <section class="content-block"><h3>Literal Reading</h3><p>The norm of e subscript N is big O of h to the fourth power.</p></section>
   <section class="content-block"><h3>Common Reading</h3><p>For smooth problems, RK4 gains much more accuracy from a smaller step than Euler does.</p></section>
   <section class="content-block"><h3>Symbols</h3><p><strong>\(\|e_N\|\)</strong>: final accumulated error.</p>
     <p><strong>\(O(h^4)\)</strong>: fourth-order global scaling.</p>
     <p><strong>\(h\)</strong>: numerical time step.</p></section>
   <section class="content-block"><h3>Meaning of the Equation</h3><p>The global error order applies for smooth problems with sufficiently regular solutions.</p></section>
+<section class="content-block"><h3>Conditions and units</h3><p>\(e_N=y_N-y(T)\) is numerical minus exact state at a fixed final time \(T=Nh\), with positive step \(h\) and integer N. The bound concerns \(h\to0\) over that fixed interval under smoothness and stability assumptions. The hidden constant supplies the units needed to turn time to the fourth power into state units. Halving a sufficiently small step typically reduces the leading global error by about sixteen, not exactly for every problem. Stiffness, discontinuities, or roundoff can invalidate that observed scaling.</p></section>
 </div>

@@ -125,7 +125,7 @@ const quantumComputingEquationBranch = {
     createStructuredItem("science/equations", "hadamard-gate-matrix", "Hadamard Gate Matrix", "Matriz de la Compuerta de Hadamard"),
     createStructuredItem("science/equations", "unitary-gate-condition", "Unitary Gate Condition", "Condición de Compuerta Unitaria"),
     createStructuredItem("science/equations", "shor-algorithm-polynomial-runtime", "Shor Algorithm Polynomial Runtime", "Tiempo Polinómico del Algoritmo de Shor"),
-    createStructuredItem("science/equations", "grover-algorithm-quadratic-runtime", "Grover Algorithm Quadratic Runtime", "Tiempo Cuadrático del Algoritmo de Grover"),
+    createStructuredItem("science/equations", "grover-algorithm-quadratic-runtime", "Grover Search Query Complexity", "Complejidad de consultas de Grover"),
     createStructuredItem("science/equations", "amplitude-encoded-classical-vector", "Amplitude-Encoded Classical Vector", "Vector Clásico Codificado en Amplitudes"),
     createStructuredItem("science/equations", "l2-norm-vector-sampling", "L2-Norm (Euclidean norm) Vector Sampling", "Muestreo Vectorial de Norma L2 (norma euclidiana)"),
     createStructuredItem("science/equations", "l2-norm-matrix-sampling", "L2-Norm (Euclidean norm) Matrix Sampling", "Muestreo Matricial de Norma L2 (norma euclidiana)"),
@@ -211,7 +211,7 @@ const wormholesEquationBranch = {
     createStructuredItem("science/equations", "morris-thorne-wormhole-metric", "Morris Thorne Wormhole Metric", "Métrica de Agujero de Gusano de Morris Thorne"),
     createStructuredItem("science/equations", "wormhole-flare-out-condition", "Wormhole Flare-Out Condition", "Condición de Apertura de Agujero de Gusano"),
     createStructuredItem("science/equations", "wormhole-redshift-finite", "Finite Redshift Condition", "Condición de Corrimiento Finito"),
-    createStructuredItem("science/equations", "null-energy-condition-wormhole", "Null Energy Condition", "Condición de Energía Nula"),
+    createStructuredItem("science/equations", "null-energy-condition-wormhole", "Null Energy Condition Violation", "Violación de la condición de energía nula"),
     createStructuredItem("science/equations", "quantum-inequality-bound", "Quantum Inequality Bound", "Límite impuesto por una desigualdad cuántica"),
     createStructuredItem("science/equations", "wormhole-tidal-constraint", "Traversability Tidal Constraint", "Restricción de Marea para Transitabilidad"),
     createStructuredItem("science/equations", "closed-timelike-curve-condition", "Closed Timelike Curve Condition", "Condición de Curva Temporal Cerrada")

@@ -42,6 +42,7 @@
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/cosmology-early-universe/what-is-the-universe.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/electromagnetism/index.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/adam-optimizer-update.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/adm-line-element.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/algorithmic-recurrence.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/amplitude-encoded-classical-vector.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/amplitude-measurement-distribution.html</loc></url>
@@ -70,9 +71,11 @@
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/comparison-sort-lower-bound.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/conditional-bayes.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/continuity-equation.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/cosmological-horizons.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/coulomb-potential.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/cross-entropy-loss.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/data-processing-inequality.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/decohered-record-state.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/definite-integral.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/density-matrix-conditions.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/density-matrix-state.html</loc></url>
@@ -92,6 +95,7 @@
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/electron-positron-pair-production.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/entangled-state-nonseparability.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/entanglement-entropy.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/environment-reduced-state.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/escape-velocity.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/euler-global-error-order.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/euler-lagrange-equation.html</loc></url>
@@ -100,8 +104,11 @@
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/explicit-stationary-schrodinger-equation.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/feynman-propagator.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/finite-difference-heat-equation.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/finite-observer-reduced-state.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/first-friedmann-equation.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/first-law-thermodynamics.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/flrw-comoving-proper-time.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/flrw-metric.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/fluctuation-field-sample.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/fluid-blowup-conditions.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/fluid-blowup-scales.html</loc></url>
@@ -139,6 +146,7 @@
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/heisenberg-uncertainty-principle.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/helstrom-state-discrimination.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/higgs-vacuum-expectation-value.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/hilbert-dimension-entropy-bound.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/hoare-triple.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/holevo-information.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/hsw-capacity-and-coherent-information.html</loc></url>
@@ -188,6 +196,7 @@
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/mechanics-small-oscillations.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/mechanics-velocity-verlet.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/mechanics-work-energy.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/mode-indexed-ontology.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/molecular-formation.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/monte-carlo-probability-measure.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/monte-carlo-standard-error.html</loc></url>
@@ -203,6 +212,8 @@
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/observable-variance.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/p-np-definitions.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/page-curve-unitarity.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/page-wootters-stationary-state.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/path-integral-kernel.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/penrose-process-efficiency.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/perfect-secrecy-condition.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/phase-damping-coherence-decay.html</loc></url>
@@ -243,6 +254,7 @@
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/recurrent-state-update.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/reduced-density-matrix.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/relativistic-energy-momentum.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/relativistic-particle-action.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/relativistic-time-dilation.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/renormalization-group-equation.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/rk4-global-error-order.html</loc></url>
@@ -254,6 +266,7 @@
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/schwarzschild-metric.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/schwarzschild-radius.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/second-law-entropy-inequality.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/semiclassical-wkb-time-emergence.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/shannon-channel-capacity.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/shannon-entropy.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/shannon-source-coding-bound.html</loc></url>
@@ -278,6 +291,7 @@
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/vacuum-two-point-correlation.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/von-neumann-entropy.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/weak-derivative.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/wheeler-dewitt-equation.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/wormhole-flare-out-condition.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/wormhole-redshift-finite.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/wormhole-tidal-constraint.html</loc></url>
@@ -343,6 +357,7 @@
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/cosmology-early-universe/what-is-the-universe.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/electromagnetism/index.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/adam-optimizer-update.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/adm-line-element.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/algorithmic-recurrence.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/amplitude-encoded-classical-vector.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/amplitude-measurement-distribution.html</loc></url>
@@ -371,9 +386,11 @@
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/comparison-sort-lower-bound.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/conditional-bayes.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/continuity-equation.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/cosmological-horizons.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/coulomb-potential.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/cross-entropy-loss.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/data-processing-inequality.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/decohered-record-state.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/definite-integral.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/density-matrix-conditions.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/density-matrix-state.html</loc></url>
@@ -393,6 +410,7 @@
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/electron-positron-pair-production.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/entangled-state-nonseparability.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/entanglement-entropy.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/environment-reduced-state.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/escape-velocity.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/euler-global-error-order.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/euler-lagrange-equation.html</loc></url>
@@ -401,8 +419,11 @@
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/explicit-stationary-schrodinger-equation.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/feynman-propagator.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/finite-difference-heat-equation.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/finite-observer-reduced-state.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/first-friedmann-equation.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/first-law-thermodynamics.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/flrw-comoving-proper-time.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/flrw-metric.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/fluctuation-field-sample.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/fluid-blowup-conditions.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/fluid-blowup-scales.html</loc></url>
@@ -440,6 +461,7 @@
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/heisenberg-uncertainty-principle.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/helstrom-state-discrimination.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/higgs-vacuum-expectation-value.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/hilbert-dimension-entropy-bound.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/hoare-triple.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/holevo-information.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/hsw-capacity-and-coherent-information.html</loc></url>
@@ -489,6 +511,7 @@
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/mechanics-small-oscillations.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/mechanics-velocity-verlet.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/mechanics-work-energy.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/mode-indexed-ontology.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/molecular-formation.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/monte-carlo-probability-measure.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/monte-carlo-standard-error.html</loc></url>
@@ -504,6 +527,8 @@
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/observable-variance.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/p-np-definitions.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/page-curve-unitarity.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/page-wootters-stationary-state.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/path-integral-kernel.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/penrose-process-efficiency.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/perfect-secrecy-condition.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/phase-damping-coherence-decay.html</loc></url>
@@ -544,6 +569,7 @@
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/recurrent-state-update.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/reduced-density-matrix.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/relativistic-energy-momentum.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/relativistic-particle-action.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/relativistic-time-dilation.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/renormalization-group-equation.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/rk4-global-error-order.html</loc></url>
@@ -555,6 +581,7 @@
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/schwarzschild-metric.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/schwarzschild-radius.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/second-law-entropy-inequality.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/semiclassical-wkb-time-emergence.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/shannon-channel-capacity.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/shannon-entropy.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/shannon-source-coding-bound.html</loc></url>
@@ -579,6 +606,7 @@
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/vacuum-two-point-correlation.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/von-neumann-entropy.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/weak-derivative.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/wheeler-dewitt-equation.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/wormhole-flare-out-condition.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/wormhole-redshift-finite.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/wormhole-tidal-constraint.html</loc></url>

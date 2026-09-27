@@ -7,4 +7,5 @@
     <p><strong>\(x_{1:t-1}\)</strong>: unidades léxicas de contexto anteriores.</p>
     <p><strong>\(p_\theta\)</strong>: distribución de probabilidad producida por los parámetros \(\theta\).</p></section>
   <section class="content-block"><h3>Significado de la Ecuación</h3><p>El objetivo premia distribuciones de probabilidad que anticipan continuaciones de texto. Una predicción fluida del siguiente token todavía puede ser falsa, sin base o sin respaldo.</p></section>
+<section class="content-block"><h3>Condiciones y unidades</h3><p>\(L_{\rm LM}\) es la log-verosimilitud negativa de la secuencia observada de tokens, sumada sobre sus posiciones \(t\). La primera posición usa el contexto vacío o el token de inicio del modelo. Los logaritmos naturales dan una pérdida adimensional en nats; al promediar sobre las posiciones se obtiene una pérdida por token. Los tokens pueden ser palabras, fragmentos de palabras, signos de puntuación u otras unidades codificadas. Las probabilidades deben estar normalizadas sobre el vocabulario; una probabilidad cero para un token observado produce pérdida infinita.</p></section>
 </div>

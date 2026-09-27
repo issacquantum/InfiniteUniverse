@@ -7,4 +7,5 @@
     <p><strong>\(y_i\)</strong>: indicador de etiqueta verdadera o probabilidad objetivo.</p>
     <p><strong>\(\hat{y}_i\)</strong>: probabilidad predicha para la clase \(i\).</p></section>
   <section class="content-block"><h3>Significado de la Ecuación</h3><p>Penaliza al modelo cuando asigna baja probabilidad al objetivo correcto, en lugar de ser entropía termodinámica genérica.</p></section>
+<section class="content-block"><h3>Condiciones y unidades</h3><p>\(i\) identifica clases; ambos vectores de probabilidad están normalizados y son adimensionales. Aquí log es el logaritmo natural y la pérdida se expresa en nats. Por convención, los términos con \(y_i=0\) aportan cero; una predicción nula con \(y_i&gt;0\) produce pérdida infinita. Para etiquetas de una sola clase es una log-verosimilitud negativa; para objetivos probabilísticos es su esperanza bajo la distribución objetivo.</p></section>
 </div>

@@ -9,4 +9,5 @@
     <p><strong>\(\sigma\)</strong>: nonlinear activation function.</p>
     <p><strong>\(h\)</strong>: output representation of the layer.</p></section>
   <section class="content-block"><h3>Meaning of the Equation</h3><p>The layer first mixes inputs with learned weights, then bends the result through a nonlinear function. That nonlinearity is what lets stacked layers represent patterns that a single linear formula cannot.</p></section>
+<section class="content-block"><h3>Conditions and units</h3><p>For \(n\) inputs and \(m\) outputs, \(W\) is an \(m\)-by-\(n\) matrix and \(b,h\) have \(m\) components. The usual pointwise activation applies \(\sigma\) to each component of \(Wx+b\). Model inputs are often nondimensionalized; otherwise weights and bias must make each sum dimensionally compatible. The equation specifies the forward map, not the training algorithm or an accuracy guarantee.</p></section>
 </div>

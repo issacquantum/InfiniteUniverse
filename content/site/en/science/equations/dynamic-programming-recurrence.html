@@ -7,4 +7,5 @@
     <p><strong>\(c(i,j)\)</strong>: cost of moving from state \(i\) to state \(j\).</p>
     <p><strong>\(\min_j\)</strong>: choose the best next option.</p></section>
   <section class="content-block"><h3>Meaning of the Equation</h3><p>The method is powerful when many recursive branches ask the same subquestions. Storing those answers turns overlapping work into a table of reusable results.</p></section>
+<section class="content-block"><h3>Conditions and units</h3><p>Indices i and j label states; the minimum ranges only over allowed successors. OPT and c share problem-specific cost units. The recurrence requires optimal substructure, terminal costs and a well-defined solution; cycles or negative-cost loops need additional treatment. It is a Bellman-type relation, not a universal solution method for arbitrary optimization.</p></section>
 </div>

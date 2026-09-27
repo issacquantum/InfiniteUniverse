@@ -1,11 +1,12 @@
 <div class="structured-content equation-detail-page" data-structured-content>
   <section class="content-block"><h3>Gradient Descent Update</h3></section>
   <section class="content-block"><h3>Equation</h3><div class="equation-link-wrap"><div class="glass-window equation-display">$$ \theta_{t+1}=\theta_t-\eta\nabla_\theta L(\theta_t) $$</div></div></section>
-  <section class="content-block"><h3>Literal Reading</h3><p>theta sub t plus 1 equals theta sub t minus eta nabla L of theta sub t.</p></section>
+  <section class="content-block"><h3>Literal Reading</h3><p>Theta subscript t plus one equals theta subscript t minus eta times the gradient with respect to theta of L, evaluated at theta subscript t.</p></section>
   <section class="content-block"><h3>Common Reading</h3><p>Parameters are updated by moving opposite the gradient of the loss.</p></section>
   <section class="content-block"><h3>Symbols</h3><p><strong>\(\theta_t\)</strong>: parameters at training step \(t\).</p>
     <p><strong>\(\eta\)</strong>: learning rate.</p>
     <p><strong>\(L\)</strong>: loss function being minimized.</p>
     <p><strong>\(\nabla_\theta L\)</strong>: gradient of the loss with respect to the parameters.</p></section>
   <section class="content-block"><h3>Meaning of the Equation</h3><p>The update changes parameters in the direction that most quickly lowers the loss locally. It is an optimization rule, not a guarantee that the model understands the data.</p></section>
+<section class="content-block"><h3>Conditions and units</h3><p>The index \(t\) counts iterations, not physical time, and \(\eta&gt;0\). Steepest descent refers to the Euclidean parameter norm and a differentiable loss. A finite step can increase the loss if the learning rate is too large; nonconvex problems need not reach a global minimum. With dimensionless parameters and loss, \(\eta\) is dimensionless; otherwise its units must convert a gradient into a parameter increment.</p></section>
 </div>

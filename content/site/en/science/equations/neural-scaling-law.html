@@ -9,4 +9,5 @@
     <p><strong>\(a,b\)</strong>: empirical coefficients that set the size of each scaling term.</p>
     <p><strong>\(\alpha,\beta\)</strong>: empirical scaling exponents.</p></section>
   <section class="content-block"><h3>Meaning of the Equation</h3><p>This is an empirical scaling ansatz, not a fundamental law; constants depend on architecture, data, compute, and training regime.</p></section>
+<section class="content-block"><h3>Conditions and units</h3><p>\(L\) is the specified evaluation loss, often cross-entropy in nats per token; \(N\) counts parameters and \(D\) training tokens in the chosen convention. Positive fitted exponents describe diminishing error contributions over the studied regime. Coefficients \(a,b,L_\infty\) use compatible loss units. The extrapolated floor is a fit parameter, not a demonstrated universal limit. Compute does not appear independently in this formula, and extrapolation outside the training and data regime requires validation.</p></section>
 </div>

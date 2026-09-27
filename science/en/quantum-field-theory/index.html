@@ -29,7 +29,7 @@
       <p><strong>Model type:</strong> Toy physical model.</p>
       <p><strong>What this shows:</strong> A fluctuating scalar field drawn as a moving lattice of field amplitudes.</p>
       <p><strong>What this does not show:</strong> Real particle creation, detector events, renormalized scattering amplitudes, or a numerical quantum-field simulation.</p>
-      <p><strong>Equation / principle:</strong> \(\mathcal{L}=\frac{1}{2}\partial_\mu\phi\,\partial^\mu\phi-\frac{1}{2}m^2\phi^2\) is the free scalar-field starting point.</p>
+      <p><strong>Equation / principle:</strong> \(\mathcal{L}=-\frac{1}{2}\partial_\mu\phi\,\partial^\mu\phi-\frac{1}{2}m^2\phi^2\) is the free scalar-field starting point.</p>
       <p><strong>What the model represents:</strong> A field value at many locations, not little particles popping out of nothing.</p>
     </div>
     <figure class="foundation-model glass-window" data-foundation-model="qft" data-model-target="scalar-field-lattice" data-language="en">
@@ -45,12 +45,12 @@
       is a field spread across spacetime. A particle is not a tiny classical bead; it is a stable excitation of the field.
     </p>
     <p>
-      A simple scalar field is described by a Lagrangian density such as
+      With metric signature \((-+++)\) and natural units \(c=\hbar=1\), a simple scalar field has Lagrangian density
     </p>
     <div class="equation-link-wrap">
       <a class="equation-link" href="science/en/equations/scalar-field-lagrangian.html">
         $$
-        \mathcal{L}=\frac{1}{2}\partial_\mu\phi\,\partial^\mu\phi-\frac{1}{2}m^2\phi^2
+        \mathcal{L}=-\frac{1}{2}\partial_\mu\phi\,\partial^\mu\phi-\frac{1}{2}m^2\phi^2
         $$
       </a>
     </div>
@@ -106,7 +106,7 @@
       Quantum field theory is built to respect special relativity. Measurements or operations at spacelike separation
       cannot be used to send controllable faster-than-light messages. The usual compact statement is microcausality:
     </p>
-    <div class="equation-link-wrap"><a class="equation-link" href="science/en/equations/qft-microcausality.html">$$[\phi(x),\phi(y)]=0\quad\text{for spacelike }(x-y)$$</a></div>
+    <div class="equation-link-wrap"><a class="equation-link" href="science/en/equations/qft-microcausality.html">$$[\phi(x),\phi(y)] = 0\qquad \text{for spacelike separation}$$</a></div>
     <p>
       This is one reason field theory is not merely quantum mechanics with more particles. It is a framework where
       locality, causality, fields, and quantum amplitudes are tied together.
@@ -120,6 +120,7 @@
       amplitudes for how disturbances and interactions connect spacetime points. The Feynman propagator is written as
     </p>
     <div class="equation-link-wrap"><a class="equation-link" href="science/en/equations/feynman-propagator.html">$$D_F(x-y)=\int \frac{d^4p}{(2\pi)^4}\frac{i e^{-ip\cdot(x-y)}}{p^2-m^2+i\epsilon}$$</a></div>
+    <p>The momentum-space propagator here uses the convention \((+---)\), so \(p^2=(p^0)^2-|\mathbf p|^2\). It is the same free scalar theory as the \((-+++)\) Lagrangian above after converting the metric convention.</p>
     <p>
       Scattering theory then connects calculated amplitudes to measurable probabilities in particle experiments.
     </p>
