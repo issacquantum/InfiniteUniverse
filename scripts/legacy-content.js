@@ -3,7 +3,7 @@ import { guardReaderRestoration, restoreReaderPosition, restoreReaderScroll } fr
 import { bigBangLegacyContent } from "../data/legacy-big-bang.js?v=20260913-social-dock-v1";
 import { decorateModelBadges, decoratePhotonOutlines, syncReadingConstellation } from "./creative-effects.js?v=20260926-mobile-stability-v1";
 import { clearReaderMath, reportReaderMathError, renderReaderMath as renderMath } from "./reader-math.js?v=20260927-reader-equations-v3";
-import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260927-stellar-reader-v1";
+import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260927-music-memory-v1";
 import { pick } from "./i18n.js?v=20260913-social-dock-v1";
 
 let activeRequestToken = 0;
