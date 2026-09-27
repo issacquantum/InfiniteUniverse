@@ -3,6 +3,11 @@ export function isModelPanGesture(event) {
 }
 
 export function bindPinchZoom(canvas, { getValue, setValue, min, max, inverted = false, onStart, onChange }) {
+  // A trackpad pinch arrives as Ctrl+wheel. Leave its browser default intact.
+  canvas.addEventListener("wheel", event => {
+    if (event.ctrlKey) event.stopImmediatePropagation();
+  }, { capture: true, passive: true });
+
   // Touchscreen zoom belongs to the browser; model controls provide model zoom.
   let touchStarted = null;
   canvas.addEventListener("pointerdown", event => {

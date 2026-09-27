@@ -1,9 +1,9 @@
 import { clearReaderMath } from "./reader-math.js?v=20260927-reader-equations-v3";
 import { installTouchActivationGuard } from "./touch-activation.js?v=20260926-mobile-stability-v1";
-import { installRoutes } from "./routes.js?v=20260927-reader-equations-v3";
-import { scheduleContentPrewarm } from "./content-cache.js?v=20260927-reader-equations-v3";
+import { installRoutes, parseRoute } from "./routes.js?v=20260927-reader-equations-v3";
+import { scheduleContentPrewarm } from "./content-cache.js?v=20260927-zoom-bibliography-v1";
 import { isMobilePerformance, onPerformanceProfileChange, observeMobileMedia } from "./performance-profile.js?v=20260913-mobile-power-v1";
-import { captureReaderPosition, matchesReaderState } from "./reader-position.js?v=20260926-equation-audit-v1";
+import { captureReaderPosition, matchesReaderState } from "./reader-position.js?v=20260927-zoom-bibliography-v1";
 import { siteAssets } from "../data/site-assets.js?v=20260913-social-dock-v1";
 import { siteContent } from "../data/site-content.js?v=20260927-reader-equations-v3";
 import { createReadingSettingsController } from "./reading-settings.js?v=20260913-social-dock-v1";
@@ -11,11 +11,11 @@ import { initBackground } from "./background.js?v=20260913-mobile-power-v1";
 import { refreshIcons } from "./icons.js?v=20260913-social-dock-v1";
 import { pick } from "./i18n.js?v=20260913-social-dock-v1";
 import { decoratePhotonOutlines } from "./creative-effects.js?v=20260926-mobile-stability-v1";
-import { syncLegacyContent } from "./legacy-content.js?v=20260927-reader-equations-v3";
+import { syncLegacyContent } from "./legacy-content.js?v=20260927-zoom-bibliography-v1";
 import { createMusicController, syncMusicUi } from "./music.js?v=20260913-bilingual-release-v1";
 import { renderSite } from "./render.js?v=20260926-equation-audit-v1";
 import { createState } from "./state.js?v=20260926-equation-audit-v1";
-import { syncStructuredContent } from "./structured-content.js?v=20260927-reader-equations-v3";
+import { syncStructuredContent } from "./structured-content.js?v=20260927-zoom-bibliography-v1";
 import { markWebGLAvailability } from "./webgl-support.js?v=20260913-social-dock-v1";
 
 installTouchActivationGuard(document);
@@ -289,7 +289,10 @@ function restoreEquationReturnTarget() {
       return state;
     }
 
-    if (target.returnType === "legacy") {
+    if (target.returnType === "reader") {
+      clearPendingReturnNavigation();
+      pendingReaderScrollRestoration = target.position;
+    } else if (target.returnType === "legacy") {
       pendingLegacyReturn = {
         domainId: target.domainId,
         topicId: target.topicId,
@@ -322,6 +325,7 @@ function restoreEquationReturnTarget() {
       ...state,
       titleOpen: false,
       activeSection: target.sectionId,
+      activeChapter: target.chapterId ?? null,
       showPersonalSectionList: false,
       activeDomain: target.domainId,
       activeTopic: target.topicId,
@@ -330,6 +334,31 @@ function restoreEquationReturnTarget() {
       equationReturnTarget: null
     };
   });
+}
+
+function openReaderEquationLink(event) {
+  if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return false;
+  const link = event.target.closest("a[href]");
+  const reader = link?.closest(".content-window");
+  if (!reader || link.hasAttribute("download") || (link.target && link.target !== "_self") || link.closest("[data-action]")) return false;
+  const url = new URL(link.href, window.location.href);
+  if (url.origin !== window.location.origin || url.pathname !== window.location.pathname) return false;
+  const next = parseRoute(url.hash);
+  if (!next?.activeDetail || next.activeBranch?.endsWith("-equations") !== true) return false;
+  const state = store.getState();
+  const position = { ...state, ...captureReaderPosition(reader, state.language, link) };
+  // Return snapshots contain reading context, not a chain of earlier return targets.
+  delete position.equationReturnTarget;
+  const target = {
+    returnType: "reader", sectionId: state.activeSection, chapterId: state.activeChapter,
+    domainId: state.activeDomain, topicId: state.activeTopic, branchId: state.activeBranch,
+    detailId: state.activeDetail, position
+  };
+  target.label = getReturnTargetLabel(target, next.language);
+  event.preventDefault();
+  clearPendingReturnNavigation();
+  store.setState({ ...next, equationReturnTarget: target });
+  return true;
 }
 
 function getStructuredReturnTargets(root) {
@@ -1307,6 +1336,7 @@ function openGalleryFromTrigger(galleryTrigger) {
 }
 
 document.addEventListener("click", (event) => {
+  if (openReaderEquationLink(event)) return;
   const galleryTrigger = event.target.closest("[data-gallery-trigger]");
 
   if (galleryTrigger) {
@@ -1605,6 +1635,9 @@ const scheduleReaderSave = installRoutes(store, (position) => {
   const reader = refs.stage.querySelector(".content-window");
   return reader ? { ...state, ...captureReaderPosition(reader, state.language) } : null;
 });
+// Pinch panning changes the visual viewport without scrolling the reader element.
+window.visualViewport?.addEventListener("scroll", scheduleReaderSave, { passive: true });
+window.visualViewport?.addEventListener("resize", scheduleReaderSave, { passive: true });
 refs.stage.addEventListener("scroll", (event) => {
   if (event.target.matches?.(".content-window")) scheduleReaderSave();
 }, { capture: true, passive: true });

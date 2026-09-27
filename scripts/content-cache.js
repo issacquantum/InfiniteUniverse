@@ -2,7 +2,7 @@ import { siteContent } from "../data/site-content.js?v=20260927-reader-equations
 
 const documentCache = new Map();
 const requestCache = new Map();
-const CONTENT_CACHE_VERSION = "20260927-reader-equations-v3";
+const CONTENT_CACHE_VERSION = "20260927-zoom-bibliography-v1";
 
 function normalizePath(filePath) {
   if (typeof filePath !== "string") {
