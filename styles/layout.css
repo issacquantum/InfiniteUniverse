@@ -113,12 +113,23 @@
 
 .section-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.7rem;
 }
 
-.section-grid .section-button:last-child {
-  grid-column: 3 / 4;
+.personal-chapters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-shrink: 0;
+  gap: 0.7rem;
+}
+
+.personal-chapters .section-button {
+  flex: 1 1 6rem;
+  min-width: 0;
+  max-width: 16rem;
+  white-space: normal;
 }
 
 .knowledge-worlds-row,
@@ -593,11 +604,6 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .section-grid .section-button:nth-child(5),
-  .section-grid .section-button:last-child {
-    grid-column: 1 / -1;
-  }
-
   .knowledge-worlds-row {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -772,7 +778,11 @@
   }
 }
 
-@media (orientation: landscape) and (max-height: 620px) and (max-width: 1024px) and (hover: none) and (pointer: coarse) {
+@media (orientation: landscape) and (max-height: 620px) and (max-width: 1024px) {
+  .desktop-reader-nav {
+    display: none;
+  }
+
   .site-shell {
     height: 100dvh;
     min-height: 100dvh;

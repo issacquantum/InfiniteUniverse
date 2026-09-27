@@ -1,6 +1,6 @@
-import { enhanceScienceReader, restoreHeading } from "./science-reader.js?v=20260921-classical-mechanics-v2";
+import { enhanceScienceReader, restoreHeading } from "./science-reader.js?v=20260926-reader-chapters-v1";
 import { observeMobileMedia } from "./performance-profile.js?v=20260913-mobile-power-v1";
-import { restoreReaderPosition, restoreReaderScroll } from "./reader-position.js?v=20260913-language-context-v1";
+import { guardReaderRestoration, restoreReaderPosition, restoreReaderScroll } from "./reader-position.js?v=20260926-reader-chapters-v1";
 import { pick } from "./i18n.js?v=20260913-social-dock-v1";
 import { initDoubleSlitSimulators } from "./double-slit-simulator.js?v=20260913-mobile-power-v1";
 import { initGravityFabricModels } from "./gravity-fabric-model.js?v=20260913-mobile-power-v1";
@@ -19,7 +19,7 @@ import { initBlackHoleModels } from "./black-hole-model.js?v=20260913-mobile-pow
 import { initFoundationModels } from "./foundation-models.js?v=20260921-classical-mechanics-v2";
 import { enhanceModelAccessibility } from "./model-accessibility.js?v=20260920-model-controls-v1";
 import { fitEquationBlocks } from "./equation-fit.js?v=20260920-reader-alignment-v1";
-import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260921-classical-mechanics-v2";
+import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260926-reader-chapters-v1";
 import { decorateModelBadges, decoratePhotonOutlines, syncReadingConstellation } from "./creative-effects.js?v=20260921-classical-mechanics-v2";
 
 let activeRequestToken = 0;
@@ -51,7 +51,7 @@ function getActiveStructuredSource(content, state) {
   }
 
   if (activeSection?.contentFile) {
-    return activeSection.contentFile;
+    return (activeSection.chapters?.find(chapter => chapter.id === state.activeChapter) ?? activeSection.chapters?.[0])?.contentFile ?? activeSection.contentFile;
   }
 
   if (activeTopic?.contentFile) {
@@ -358,6 +358,7 @@ function commitStructuredDocument({
   makeGlossariesCollapsible(imported, state);
 
   host.replaceChildren(imported);
+  const canRestore = guardReaderRestoration(host.closest(".content-window"));
   decorateModelBadges(host, state.language);
   decoratePhotonOutlines(host);
   syncReadingConstellation(host, state.language);
@@ -397,6 +398,12 @@ function commitStructuredDocument({
         return;
       }
 
+      if (!canRestore()) {
+        onScrollRestorationApplied?.();
+        onReturnNavigationApplied?.();
+        onModelScrollApplied?.();
+        return;
+      }
       restoreHeading(host);
       if (!shouldApplyModelScroll && restoreReaderScroll(host, state, scrollRestoration)) {
         onScrollRestorationApplied?.();

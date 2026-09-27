@@ -1,9 +1,9 @@
-import { enhanceScienceReader, restoreHeading } from "./science-reader.js?v=20260921-classical-mechanics-v2";
-import { restoreReaderPosition, restoreReaderScroll } from "./reader-position.js?v=20260913-language-context-v1";
+import { enhanceScienceReader, restoreHeading } from "./science-reader.js?v=20260926-reader-chapters-v1";
+import { guardReaderRestoration, restoreReaderPosition, restoreReaderScroll } from "./reader-position.js?v=20260926-reader-chapters-v1";
 import { bigBangLegacyContent } from "../data/legacy-big-bang.js?v=20260913-social-dock-v1";
 import { decorateModelBadges, decoratePhotonOutlines, syncReadingConstellation } from "./creative-effects.js?v=20260921-classical-mechanics-v2";
 import { fitEquationBlocks } from "./equation-fit.js?v=20260920-reader-alignment-v1";
-import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260921-classical-mechanics-v2";
+import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260926-reader-chapters-v1";
 import { pick } from "./i18n.js?v=20260913-social-dock-v1";
 
 let activeRequestToken = 0;
@@ -505,6 +505,7 @@ function commitLegacyDocument({
   wrapper.appendChild(sanitizeImportedContent(extracted, legacyItem.id, state.activeBranch, state.language));
 
   host.replaceChildren(wrapper);
+  const canRestore = guardReaderRestoration(host.closest(".content-window"));
   decorateModelBadges(host, state.language);
   decoratePhotonOutlines(host);
   syncReadingConstellation(host, state.language);
@@ -519,6 +520,11 @@ function commitLegacyDocument({
     decoratePhotonOutlines(host);
     void renderMath(host).catch(() => null).then(() => {
       if (requestToken !== activeRequestToken || !host.isConnected) {
+        return;
+      }
+      if (!canRestore()) {
+        onScrollRestorationApplied?.();
+        onReturnNavigationApplied?.();
         return;
       }
       restoreHeading(host);

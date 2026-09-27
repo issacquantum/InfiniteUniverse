@@ -1,4 +1,4 @@
-const READER_STATE_KEYS = ["activeSection", "activeDomain", "activeTopic", "activeBranch", "activeDetail"];
+const READER_STATE_KEYS = ["activeSection", "activeChapter", "activeDomain", "activeTopic", "activeBranch", "activeDetail"];
 
 export function matchesReaderState(state, position) {
   return Boolean(position) && READER_STATE_KEYS.every((key) => (
@@ -69,4 +69,18 @@ export function restoreReaderScroll(host, state, position) {
   }
   restoreReaderPosition(reader, position, state.language);
   return true;
+}
+
+// A delayed typeset must not override a reader who has already started interacting.
+export function guardReaderRestoration(reader) {
+  const controller = new AbortController();
+  let interacted = false;
+  const cancel = () => { interacted = true; };
+  for (const type of ["wheel", "touchstart", "pointerdown", "keydown"]) {
+    reader?.addEventListener(type, cancel, { passive: true, signal: controller.signal });
+  }
+  return () => {
+    controller.abort();
+    return !interacted;
+  };
 }

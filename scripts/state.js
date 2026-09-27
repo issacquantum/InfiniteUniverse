@@ -8,6 +8,7 @@ export function createState(initialState) {
     },
     setState(updater) {
       state = typeof updater === "function" ? updater(state) : { ...state, ...updater };
+      if (!state.activeSection) state.activeChapter = null;
       listeners.forEach((listener) => listener(state));
     },
     subscribe(listener) {

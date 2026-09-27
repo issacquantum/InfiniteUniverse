@@ -1,19 +1,19 @@
-import { installRoutes } from "./routes.js?v=20260921-classical-mechanics-v2";
-import { scheduleContentPrewarm } from "./content-cache.js?v=20260921-classical-mechanics-v2";
-import { isMobilePerformance, onPerformanceProfileChange } from "./performance-profile.js?v=20260913-mobile-power-v1";
-import { captureReaderPosition, matchesReaderState } from "./reader-position.js?v=20260913-language-context-v1";
+import { installRoutes } from "./routes.js?v=20260926-reader-chapters-v1";
+import { scheduleContentPrewarm } from "./content-cache.js?v=20260926-reader-chapters-v1";
+import { isMobilePerformance, onPerformanceProfileChange, observeMobileMedia } from "./performance-profile.js?v=20260913-mobile-power-v1";
+import { captureReaderPosition, matchesReaderState } from "./reader-position.js?v=20260926-reader-chapters-v1";
 import { siteAssets } from "../data/site-assets.js?v=20260913-social-dock-v1";
-import { siteContent } from "../data/site-content.js?v=20260921-classical-mechanics-v2";
+import { siteContent } from "../data/site-content.js?v=20260926-reader-chapters-v1";
 import { createReadingSettingsController } from "./reading-settings.js?v=20260913-social-dock-v1";
 import { initBackground } from "./background.js?v=20260913-mobile-power-v1";
 import { refreshIcons } from "./icons.js?v=20260913-social-dock-v1";
 import { pick } from "./i18n.js?v=20260913-social-dock-v1";
 import { decoratePhotonOutlines } from "./creative-effects.js?v=20260921-classical-mechanics-v2";
-import { syncLegacyContent } from "./legacy-content.js?v=20260921-classical-mechanics-v2";
+import { syncLegacyContent } from "./legacy-content.js?v=20260926-reader-chapters-v1";
 import { createMusicController, syncMusicUi } from "./music.js?v=20260913-bilingual-release-v1";
-import { renderSite } from "./render.js?v=20260916-science-overhaul-v1";
-import { createState } from "./state.js?v=20260913-social-dock-v1";
-import { syncStructuredContent } from "./structured-content.js?v=20260921-classical-mechanics-v2";
+import { renderSite } from "./render.js?v=20260926-reader-chapters-v1";
+import { createState } from "./state.js?v=20260926-reader-chapters-v1";
+import { syncStructuredContent } from "./structured-content.js?v=20260926-reader-chapters-v1";
 import { markWebGLAvailability } from "./webgl-support.js?v=20260913-social-dock-v1";
 
 const refs = {
@@ -47,6 +47,7 @@ const store = createState({
   language: "en",
   titleOpen: false,
   activeSection: null,
+  activeChapter: null,
   showPersonalSectionList: false,
   activeDomain: null,
   activeTopic: null,
@@ -58,7 +59,7 @@ const store = createState({
 });
 
 function resolveMusicContext(state) {
-  if (state.activeSection === "tekken" || state.activeSection === "practice-worlds") {
+  if (state.activeSection === "tekken" || state.activeSection === "practice-worlds" || (state.activeSection === "origins-interests" && state.activeChapter === "practice-worlds")) {
     return "tekken";
   }
 
@@ -219,6 +220,7 @@ function captureReaderScrollRestoration() {
 
   pendingReaderScrollRestoration = {
     activeSection: state.activeSection ?? null,
+    activeChapter: state.activeChapter ?? null,
     activeDomain: state.activeDomain ?? null,
     activeTopic: state.activeTopic ?? null,
     activeBranch: state.activeBranch ?? null,
@@ -490,6 +492,7 @@ function syncGalleryControls() {
 }
 
 function syncUi(state = store.getState()) {
+  refs.stage.querySelector(".content-window")?._creativeProgressCleanup?.();
   document.querySelectorAll(".content-progress-constellation").forEach((node) => {
     node.remove();
   });
@@ -562,7 +565,8 @@ function getActiveLabel(state) {
   const activeDetail = activeBranch?.items?.find((item) => item.id === state.activeDetail);
 
   return (
-    pick(activeDetail?.title ?? { en: "", es: "" }, state.language)
+    pick(activeSection?.chapters?.find(chapter => chapter.id === state.activeChapter)?.title ?? { en: "", es: "" }, state.language)
+    || pick(activeDetail?.title ?? { en: "", es: "" }, state.language)
     || pick(activeBranch?.title ?? { en: "", es: "" }, state.language)
     || pick(activeSection?.title ?? { en: "", es: "" }, state.language)
     || pick(activeTopic?.title ?? { en: "", es: "" }, state.language)
@@ -672,6 +676,7 @@ function selectSection(sectionId) {
       ...state,
       titleOpen: true,
       activeSection: sectionId,
+      activeChapter: siteContent.personalSections.find(section => section.id === sectionId)?.chapters?.[0]?.id ?? null,
       showPersonalSectionList: false,
       activeDomain: null,
       activeTopic: null,
@@ -682,6 +687,14 @@ function selectSection(sectionId) {
       mobileKnowledgeNavDomain: null
     };
   });
+}
+
+function selectChapter(chapterId) {
+  const section = siteContent.personalSections.find(item => item.id === store.getState().activeSection);
+  if (!section?.chapters?.some(chapter => chapter.id === chapterId) || store.getState().activeChapter === chapterId) return;
+  clearPendingReturnNavigation();
+  clearPendingReaderScrollRestoration();
+  store.setState({ activeChapter: chapterId });
 }
 
 function selectDomain(domainId) {
@@ -1266,7 +1279,7 @@ function closeGalleryImage() {
   }
   syncGalleryControls();
   if (lastGalleryTrigger && document.contains(lastGalleryTrigger)) {
-    lastGalleryTrigger.focus();
+    lastGalleryTrigger.focus({ preventScroll: true });
   }
   lastGalleryTrigger = null;
 }
@@ -1346,6 +1359,11 @@ document.addEventListener("click", (event) => {
 
   if (actionTarget) {
     const { action } = actionTarget.dataset;
+
+    if (action === "select-chapter") {
+      selectChapter(actionTarget.dataset.chapterId);
+      return;
+    }
 
     if (action === "select-section") {
       const nextSectionId = actionTarget.dataset.sectionId;
@@ -1481,12 +1499,19 @@ document.addEventListener("keydown", (event) => {
 refs.galleryLightbox?.addEventListener("touchstart", (event) => {
   const touch = event.touches[0];
 
-  if (!touch) {
+  if (!touch || event.touches.length !== 1 || window.visualViewport?.scale > 1) {
+    galleryTouchStartX = null;
+    galleryTouchStartY = null;
     return;
   }
 
   galleryTouchStartX = touch.clientX;
   galleryTouchStartY = touch.clientY;
+}, { passive: true });
+
+refs.galleryLightbox?.addEventListener("touchcancel", () => {
+  galleryTouchStartX = null;
+  galleryTouchStartY = null;
 }, { passive: true });
 
 refs.galleryLightbox?.addEventListener("touchend", (event) => {
@@ -1508,7 +1533,7 @@ refs.galleryLightbox?.addEventListener("touchend", (event) => {
   galleryTouchStartX = null;
   galleryTouchStartY = null;
 
-  if (isGalleryZoomed()) {
+  if (isGalleryZoomed() || event.touches.length || window.visualViewport?.scale > 1) {
     return;
   }
 
@@ -1567,18 +1592,16 @@ window.addEventListener("resize", () => {
   scheduleKnowledgeTabOverlapSync();
 });
 
-installRoutes(store, (position) => {
+const scheduleReaderSave = installRoutes(store, (position) => {
   clearPendingReturnNavigation();
   pendingReaderScrollRestoration = position;
-});
-
-// Save the current reader position on its own history entry before navigation.
-refs.stage.addEventListener("scroll", () => {
+}, (state) => {
   const reader = refs.stage.querySelector(".content-window");
-  if (!reader) return;
-  const state = store.getState();
-  history.replaceState({ ...history.state, reader: { ...state, ...captureReaderPosition(reader, state.language) } }, "");
-}, true);
+  return reader ? { ...state, ...captureReaderPosition(reader, state.language) } : null;
+});
+refs.stage.addEventListener("scroll", (event) => {
+  if (event.target.matches?.(".content-window")) scheduleReaderSave();
+}, { capture: true, passive: true });
 
 store.subscribe((state) => {
   scheduleContentPrewarm(state);
@@ -1627,10 +1650,8 @@ async function syncBackground() {
 }
 void syncBackground();
 onPerformanceProfileChange(() => {
-  if (!pendingStructuredReturn && !pendingLegacyReturn && !pendingModelScrollTarget) {
-    captureReaderScrollRestoration();
-  }
-  syncUi();
+  // Resizing or browser zoom changes the performance profile, not the article.
+  observeMobileMedia(refs.stage);
   void syncBackground();
 });
 

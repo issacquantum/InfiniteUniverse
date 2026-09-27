@@ -519,11 +519,16 @@ export const siteContent = {
   },
   sitePurposeSection: createSection("site-purpose-notices-privacy", "Site Purpose, Notices & Privacy", "Propósito del sitio, avisos y privacidad"),
   personalSections: [
-    createSection("origins", "Origins", "Orígenes"),
+    createSection("origins-interests", "Origins and Interests", "Orígenes e intereses", {
+      contentId: "origins",
+      chapters: [
+        createStructuredItem("personal", "origins", "Origins", "Orígenes"),
+        createStructuredItem("personal", "music", "Music", "Música"),
+        createStructuredItem("personal", "practice-worlds", "Video Games", "Videojuegos")
+      ]
+    }),
     createSection("learning-path", "Learning Path", "Camino de aprendizaje"),
-    createSection("music", "Music", "Música"),
     createSection("systems-work", "Professional Career", "Trayectoria Profesional"),
-    createSection("practice-worlds", "Favorite Video Games", "Videojuegos Favoritos"),
     createSection("personal-cosmology", "My Theory", "Mi Teoría", {
       branches: [personalCosmologyEquationBranch],
       hideBranchNavigation: true,

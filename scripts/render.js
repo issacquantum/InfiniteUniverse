@@ -16,6 +16,7 @@ function classNames(...values) {
 
 const sectionIconNames = {
   "origins": "home",
+  "origins-interests": "home",
   "learning-path": "book-open",
   "music": "music",
   "systems-work": "briefcase",
@@ -37,6 +38,7 @@ const topicIconNames = Object.fromEntries(Object.entries(topicMetadata).map(([id
 
 const sectionSignatureIconNames = {
   "origins": "home",
+  "origins-interests": "home",
   "learning-path": "book-open",
   "music": "music",
   "systems-work": "briefcase",
@@ -59,6 +61,7 @@ const topicSignatureIconNames = Object.fromEntries(Object.entries(topicMetadata)
 
 const sectionMoodNames = {
   "origins": "personal-origins",
+  "origins-interests": "personal-origins",
   "learning-path": "personal-learning",
   "music": "personal-music",
   "systems-work": "personal-systems",
@@ -317,6 +320,25 @@ function renderBranchButtons(branches, state, language, ui) {
         </button>
       `).join("")}
     </div>
+  `;
+}
+
+function renderChapterNavigation(section, activeChapter, language) {
+  if (!activeChapter) return "";
+  return `
+    <nav class="personal-chapters" aria-label="${language === "es" ? "Capítulos" : "Chapters"}">
+      ${section.chapters.map(chapter => `
+        <button
+          type="button"
+          class="${classNames("glass-tab", "section-button", chapter.id === activeChapter.id && "is-active")}"
+          data-action="select-chapter"
+          data-chapter-id="${escapeHtml(chapter.id)}"
+          aria-pressed="${chapter.id === activeChapter.id}"
+        >
+          ${renderNavigationLabel(pick(chapter.title, language), sectionIconNames[chapter.id])}
+        </button>
+      `).join("")}
+    </nav>
   `;
 }
 
@@ -692,6 +714,7 @@ export function renderSite({ state, refs, content, assets }) {
     ...content.personalSections,
     sitePurposeSection
   ].find((section) => section?.id === state.activeSection) ?? null;
+  const activeChapter = activeSection?.chapters?.find(chapter => chapter.id === state.activeChapter) ?? activeSection?.chapters?.[0];
   const isSitePurposeOpen = Boolean(sitePurposeSection && activeSection?.id === sitePurposeSection.id);
   const activeDomain = content.knowledgeWorlds.find((domain) => domain.id === state.activeDomain) ?? null;
   const topics = activeDomain?.topics ?? [];
@@ -720,7 +743,7 @@ export function renderSite({ state, refs, content, assets }) {
 
   document.documentElement.lang = language;
   document.body.dataset.language = language;
-  const activeMoodName = resolveSectionMood({ activeSection, activeDomain, activeTopic });
+  const activeMoodName = resolveSectionMood({ activeSection: activeChapter ?? activeSection, activeDomain, activeTopic });
   if (activeMoodName) {
     document.body.dataset.sectionMood = activeMoodName;
   } else {
@@ -770,7 +793,7 @@ export function renderSite({ state, refs, content, assets }) {
   let activePanel = "";
   let readerNavigation = null;
   const activeSignatureIconName = resolveSignatureIcon({
-    activeSection,
+    activeSection: activeChapter ?? activeSection,
     activeDomain,
     activeTopic,
     activeBranch,
@@ -780,7 +803,9 @@ export function renderSite({ state, refs, content, assets }) {
     ? { signatureIconName: activeSignatureIconName }
     : {};
 
-  if (activeDetail) {
+  if (activeChapter) {
+    readerNavigation = createReaderNavigation(activeSection.chapters, activeChapter.id, "select-chapter", "data-chapter-id", language);
+  } else if (activeDetail) {
     readerNavigation = createReaderNavigation(
       legacyItems,
       activeDetail.id,
@@ -828,7 +853,7 @@ export function renderSite({ state, refs, content, assets }) {
   } else if (activeTopic?.contentFile) {
     activePanel = renderStructuredPanel(activeTopic.contentFile, language, content.ui, readerNavigation, activePanelOptions);
   } else if (activeSection?.contentFile) {
-    activePanel = renderStructuredPanel(activeSection.contentFile, language, content.ui, readerNavigation, {
+    activePanel = renderStructuredPanel(activeChapter?.contentFile ?? activeSection.contentFile, language, content.ui, readerNavigation, {
       ...activePanelOptions,
       closeButton: isSitePurposeOpen
         ? {
@@ -923,6 +948,7 @@ export function renderSite({ state, refs, content, assets }) {
       ${topicNavigation}
       ${branchNavigation}
       ${legacyItemNavigation}`}
+      ${renderChapterNavigation(activeSection, activeChapter, language)}
       ${activePanel}
     </div>
   `;
