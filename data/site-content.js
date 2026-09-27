@@ -527,7 +527,12 @@ export const siteContent = {
         createStructuredItem("personal", "practice-worlds", "Video Games", "Videojuegos")
       ]
     }),
-    createSection("learning-path", "Learning Path", "Camino de aprendizaje"),
+    createSection("learning-path", "Learning Path", "Camino de aprendizaje", {
+      chapters: [
+        createStructuredItem("personal", "learning-path", "Learning Path", "Camino de aprendizaje"),
+        createStructuredItem("personal", "library-influences", "Library and Influences", "Biblioteca e influencias")
+      ]
+    }),
     createSection("systems-work", "Professional Career", "Trayectoria Profesional"),
     createSection("personal-cosmology", "My Theory", "Mi Teoría", {
       branches: [personalCosmologyEquationBranch],

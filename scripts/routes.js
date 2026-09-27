@@ -1,4 +1,4 @@
-import { siteContent } from '../data/site-content.js?v=20260926-reader-chapters-v1';
+import { siteContent } from '../data/site-content.js?v=20260926-library-v1';
 const topics = siteContent.knowledgeWorlds.flatMap(d => d.topics.map(t => ({ ...t, domain: d.id })));
 const sections = [...siteContent.personalSections, siteContent.sitePurposeSection];
 export function routeFor(state) {
@@ -8,7 +8,7 @@ export function routeFor(state) {
   else if (state.activeTopic) path += `/science/${encodeURIComponent(state.activeTopic)}`;
   else if (state.activeDomain) path += `/domain/${encodeURIComponent(state.activeDomain)}`;
   const params = new URLSearchParams();
-  if (state.activeSection === 'origins-interests' && state.activeChapter) params.set('chapter', state.activeChapter);
+  if (state.activeSection && state.activeChapter) params.set('chapter', state.activeChapter);
   if (state.activeBranch) params.set('branch', state.activeBranch);
   if (state.activeDetail) params.set('detail', state.activeDetail);
   const target = state.equationReturnTarget;

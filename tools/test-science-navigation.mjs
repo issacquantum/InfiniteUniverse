@@ -13,7 +13,15 @@ for (const language of ['en','es']) {
       assert.equal(restored.language,language);assert.equal(restored.equationReturnTarget.topicId,topic.id);
     }
   }
-  for (const section of [...siteContent.personalSections,siteContent.sitePurposeSection]) assert.equal(parseRoute(routeFor({language,activeSection:section.id})).activeSection,section.id);
+  for (const section of [...siteContent.personalSections,siteContent.sitePurposeSection]) {
+    assert.equal(parseRoute(routeFor({language,activeSection:section.id})).activeSection,section.id);
+    for (const chapter of section.chapters ?? []) {
+      const restored = parseRoute(routeFor({language,activeSection:section.id,activeChapter:chapter.id}));
+      assert.equal(restored.activeSection, section.id);
+      assert.equal(restored.activeChapter, chapter.id);
+      assert.equal(restored.language, language);
+    }
+  }
 }
 for (const hash of ['#/fr/science/quantum-mechanics','#/en/science/missing','#/en/science/quantum-mechanics?detail=missing','#/en/science/quantum-mechanics?branch=missing','#/en/personal/missing']) assert.equal(parseRoute(hash),null);
 assert.equal(parseRoute('#/en').activeTopic,null);
