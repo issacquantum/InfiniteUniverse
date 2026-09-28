@@ -80,3 +80,41 @@ for (const fraction of [0.1, 0.5, 0.9]) {
 }
 assert(Math.abs(pressureAt(0) / 1e14 - 1.3979) < 0.0001);
 console.log('Pressure units, canonical entry, proportional timeline, accessible figures and coupled stellar model passed.');
+
+// Check plotted coordinates against the coupled model, including both boundaries.
+for (const lang of ['en', 'es']) {
+  const svg = readFileSync(`Assets2/diagrams/stellar-uniform-profiles-${lang}.svg`, 'utf8');
+  for (const [id, bottom, range, scale, fn] of [
+    ['mass', 270, 4.5, 1e30, massAt], ['pressure', 521, 1.5, 1e14, pressureAt]
+  ]) {
+    const points = svg.match(new RegExp(`id="${id}-curve" points="([^"]+)"`))[1].split(' ').map(p => p.split(',').map(Number));
+    assert.equal(points.length, 101);
+    points.forEach(([x, y], i) => {
+      assert(Math.abs(x - (64 + 266 * i / 100)) < 0.001);
+      const expected = bottom - 168 * fn(radius * i / 100) / scale / range;
+      assert(Math.abs(y - expected) < 0.001, `${id}: plot differs from model at sample ${i}`);
+    });
+  }
+  for (const chapter of ['stellar-formation', 'stellar-structure', 'stellar-evolution', 'stellar-observation', 'stellar-asteroseismology', 'dinosaurs']) {
+    const source = readFileSync(`content/site/${lang}/science/${chapter}.html`, 'utf8');
+    const output = readFileSync(`science/${lang}/${chapter === 'dinosaurs' ? 'dinosaurs/index' : 'stars/' + chapter}.html`, 'utf8');
+    const figures = html => [...html.matchAll(/<figure class="lesson-figure">[\s\S]*?<\/figure>/g)].map(m => m[0]);
+    assert.deepEqual(figures(output), figures(source), `${chapter}: static/interactive figure mismatch`);
+    for (const figure of figures(source)) {
+      const image = figure.match(/<img\b[^>]+>/)[0];
+      assert(/width="\d+" height="\d+"/.test(image), 'Reserve intrinsic image dimensions');
+      assert(/alt="[^"]+"/.test(image), 'Meaningful alternative text');
+      const src = image.match(/src="([^"]+)"/)[1];
+      assert(src.startsWith('Assets2/'), 'Lesson figures must be hosted locally');
+      const file = readFileSync(src);
+      if (src.endsWith('.svg')) {
+        const dimensions = file.toString().match(/viewBox="0 0 (\d+) (\d+)"/);
+        assert(image.includes(`width="${dimensions[1]}" height="${dimensions[2]}"`));
+      } else {
+        assert.equal(file.readUInt16BE(0), 0xffd8, 'Photo must be a JPEG, not an error response');
+        assert(/creativecommons.org\/licenses\//.test(figure), 'Photo license must accompany the image');
+      }
+    }
+  }
+}
+console.log('Inline figure parity, intrinsic dimensions, photo licenses and plotted model coordinates passed.');
