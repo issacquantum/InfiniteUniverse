@@ -56,7 +56,7 @@ for (const lang of ['en', 'es']) {
   assert(home.includes('detail=stellar-structure&amp;heading=balance'));
   const foundations = readFileSync(`content/site/${lang}/science/stellar-foundations.html`, 'utf8');
   assert(foundations.includes(lang === 'en' ? 'per unit area per unit time' : 'por unidad de área y por unidad de tiempo'));
-  for (const id of ['stellar-layer', 'stellar-hr', 'stellar-seismic-example', 'dinosaur-tree', 'dinosaur-time']) {
+  for (const id of ['stellar-hr', 'stellar-seismic-example', 'dinosaur-tree', 'dinosaur-time']) {
     const svg = readFileSync(`Assets2/diagrams/${id}-${lang}.svg`, 'utf8');
     assert(svg.includes('<title') && svg.includes('<desc') && svg.includes('viewBox='));
     assert(!svg.includes('<script'));

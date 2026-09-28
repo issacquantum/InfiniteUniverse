@@ -1,6 +1,6 @@
-import { siteContent } from '../data/site-content.js?v=20260927-stellar-visuals-v3';
-import { topicMetadata } from '../data/topic-metadata.js?v=20260927-stellar-visuals-v3';
-import { routeFor } from './routes.js?v=20260927-stellar-visuals-v3';
+import { siteContent } from '../data/site-content.js?v=20260927-stellar-visuals-v4';
+import { topicMetadata } from '../data/topic-metadata.js?v=20260927-stellar-visuals-v4';
+import { routeFor } from './routes.js?v=20260927-stellar-visuals-v4';
 const topics = siteContent.knowledgeWorlds.flatMap(d => d.topics.map(t => ({ ...t, domain: d.id })));
 export function enhanceScienceReader(host, state) {
   if (!state.activeTopic || host.querySelector('[data-science-tools]')) return;
