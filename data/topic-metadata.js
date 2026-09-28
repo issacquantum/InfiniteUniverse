@@ -205,6 +205,11 @@ export const topicMetadata = {
       "wormholes"
     ]
   },
+  "stars": {
+    "icon": "sun", "signature": "sun", "mood": "cosmos",
+    "prerequisites": ["classical-mechanics", "thermodynamics-statistical-mechanics", "electromagnetism"],
+    "related": ["cosmology-early-universe", "black-holes"]
+  },
   "black-holes": {
     "icon": "circle-dot-dashed",
     "signature": "circle-dot-dashed",

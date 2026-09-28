@@ -40,6 +40,38 @@ function createTopic(id, enTitle, esTitle, extra = {}) {
   return topic;
 }
 
+const starsChapterBranch = {
+  id: "stars-chapters", title: { en: "Chapters", es: "Capítulos" },
+  items: [
+    createStructuredItem("science", "stellar-foundations", "Foundations and Physical Quantities", "Fundamentos y magnitudes físicas"),
+    createStructuredItem("science", "stellar-formation", "From Clouds to Stars", "De las nubes a las estrellas"),
+    createStructuredItem("science", "stellar-structure", "Stellar Structure and Hydrostatic Equilibrium", "Estructura estelar y equilibrio hidrostático"),
+    createStructuredItem("science", "stellar-observation", "Observing and Classifying Stars", "Observación y clasificación de estrellas"),
+    createStructuredItem("science", "stellar-evolution", "Energy, Evolution, and Stellar Endings", "Energía, evolución y destinos estelares"),
+    createStructuredItem("science", "stellar-asteroseismology", "Asteroseismology", "Astrosismología"),
+    createStructuredItem("science", "stellar-open-questions", "Open Questions and Model Tests", "Preguntas abiertas y pruebas de modelos")
+  ]
+};
+const starsEquationBranch = {
+  id: "stars-equations", title: { en: "Equations", es: "Ecuaciones" },
+  items: [
+    createStructuredItem("science/equations", "stellar-hydrostatic-equilibrium", "Stellar Hydrostatic Equilibrium", "Equilibrio hidrostático estelar"),
+    createStructuredItem("science/equations", "stellar-mass-continuity", "Enclosed Stellar Mass", "Masa estelar encerrada"),
+    createStructuredItem("science/equations", "stellar-ideal-gas-pressure", "Ideal Stellar Gas Pressure", "Presión del gas estelar ideal"),
+    createStructuredItem("science/equations", "stellar-radiation-pressure", "Equilibrium Radiation Pressure", "Presión de radiación en equilibrio"),
+    createStructuredItem("science/equations", "stellar-energy-conservation", "Energy Balance of a Stellar Mass Shell", "Balance energético de una capa de masa estelar"),
+    createStructuredItem("science/equations", "stellar-radiative-gradient", "Radiative Temperature Gradient", "Gradiente radiativo de temperatura"),
+    createStructuredItem("science/equations", "stellar-virial-theorem", "Ideal-Gas Stellar Virial Relation", "Relación virial estelar de gas ideal"),
+    createStructuredItem("science/equations", "stellar-dynamical-time", "Stellar Dynamical Timescale", "Escala dinámica estelar"),
+    createStructuredItem("science/equations", "stellar-kelvin-helmholtz-time", "Kelvin-Helmholtz Timescale", "Escala de Kelvin-Helmholtz"),
+    createStructuredItem("science/equations", "stellar-nuclear-time", "Nuclear Fuel Timescale", "Escala del combustible nuclear"),
+    createStructuredItem("science/equations", "stellar-tov-equilibrium", "Relativistic Stellar Equilibrium", "Equilibrio estelar relativista"),
+    createStructuredItem("science/equations", "stellar-flux-distance", "Luminosity and Observed Flux", "Luminosidad y flujo observado"),
+    createStructuredItem("science/equations", "stellar-effective-temperature", "Luminosity, Radius, and Effective Temperature", "Luminosidad, radio y temperatura efectiva"),
+    createStructuredItem("science/equations", "stellar-acoustic-separation", "Large Acoustic Frequency Separation", "Gran separación acústica de frecuencias")
+  ]
+};
+
 const quantumMechanicsEquationBranch = {
   id: "quantum-mechanics-equations",
   title: { en: "Equations", es: "Ecuaciones" },
@@ -771,6 +803,12 @@ export const siteContent = {
         createTopic("relativity-spacetime", "Relativity & Spacetime", "Relatividad y espaciotiempo", {
           contentFile: htmlSource("science", "relativity-spacetime"),
           branches: [relativitySpacetimeEquationBranch],
+          hideBranchNavigation: true,
+          hideDetailNavigation: true
+        }),
+        createTopic("stars", "Stars", "Estrellas", {
+          contentFile: htmlSource("science", "stars"),
+          branches: [starsChapterBranch, starsEquationBranch],
           hideBranchNavigation: true,
           hideDetailNavigation: true
         }),

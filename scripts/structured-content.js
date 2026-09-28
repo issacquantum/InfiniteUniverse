@@ -1,4 +1,4 @@
-import { enhanceScienceReader, restoreHeading } from "./science-reader.js?v=20260927-dinosaurs-v1";
+import { enhanceScienceReader, restoreHeading } from "./science-reader.js?v=20260927-stars-v1";
 import { observeMobileMedia } from "./performance-profile.js?v=20260913-mobile-power-v1";
 import { guardReaderRestoration, restoreReaderPosition, restoreReaderScroll } from "./reader-position.js?v=20260927-stellar-reader-v1";
 import { pick } from "./i18n.js?v=20260913-social-dock-v1";
@@ -19,7 +19,7 @@ import { initBlackHoleModels } from "./black-hole-model.js?v=20260927-stellar-re
 import { initFoundationModels } from "./foundation-models.js?v=20260927-stellar-reader-v1";
 import { enhanceModelAccessibility } from "./model-accessibility.js?v=20260920-model-controls-v1";
 import { clearReaderMath, reportReaderMathError, renderReaderMath as renderMath } from "./reader-math.js?v=20260927-reader-equations-v3";
-import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260927-dinosaurs-v1";
+import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260927-stars-v1";
 import { decorateModelBadges, decoratePhotonOutlines, syncReadingConstellation } from "./creative-effects.js?v=20260926-mobile-stability-v1";
 
 let activeRequestToken = 0;

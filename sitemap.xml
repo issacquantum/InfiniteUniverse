@@ -364,7 +364,20 @@
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/spring-natural-frequency.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/static-friction-bound.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/stationary-action-condition.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/stellar-acoustic-separation.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/stellar-dynamical-time.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/stellar-effective-temperature.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/stellar-energy-conservation.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/stellar-flux-distance.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/stellar-hydrostatic-equilibrium.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/stellar-ideal-gas-pressure.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/stellar-kelvin-helmholtz-time.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/stellar-mass-continuity.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/stellar-nuclear-time.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/stellar-radiation-pressure.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/stellar-radiative-gradient.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/stellar-tov-equilibrium.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/stellar-virial-theorem.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/strong-subadditivity.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/structure-formation-sequence.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/equations/subsystem-von-neumann-entropy.html</loc></url>
@@ -416,6 +429,14 @@
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/quantum-mechanics/index.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/relativity-spacetime/index.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/simulation-models/index.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/stars/index.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/stars/stellar-asteroseismology.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/stars/stellar-evolution.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/stars/stellar-formation.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/stars/stellar-foundations.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/stars/stellar-observation.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/stars/stellar-open-questions.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/stars/stellar-structure.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/thermodynamics-statistical-mechanics/index.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/en/wormholes/index.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/artificial-intelligence/index.html</loc></url>
@@ -781,7 +802,20 @@
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/spring-natural-frequency.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/static-friction-bound.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/stationary-action-condition.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/stellar-acoustic-separation.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/stellar-dynamical-time.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/stellar-effective-temperature.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/stellar-energy-conservation.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/stellar-flux-distance.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/stellar-hydrostatic-equilibrium.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/stellar-ideal-gas-pressure.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/stellar-kelvin-helmholtz-time.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/stellar-mass-continuity.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/stellar-nuclear-time.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/stellar-radiation-pressure.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/stellar-radiative-gradient.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/stellar-tov-equilibrium.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/stellar-virial-theorem.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/strong-subadditivity.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/structure-formation-sequence.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/equations/subsystem-von-neumann-entropy.html</loc></url>
@@ -833,6 +867,14 @@
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/quantum-mechanics/index.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/relativity-spacetime/index.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/simulation-models/index.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/stars/index.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/stars/stellar-asteroseismology.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/stars/stellar-evolution.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/stars/stellar-formation.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/stars/stellar-foundations.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/stars/stellar-observation.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/stars/stellar-open-questions.html</loc></url>
+  <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/stars/stellar-structure.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/thermodynamics-statistical-mechanics/index.html</loc></url>
   <url><loc>https://issacquantum.github.io/InfiniteUniverse/science/es/wormholes/index.html</loc></url>
 </urlset>

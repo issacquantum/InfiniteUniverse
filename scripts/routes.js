@@ -1,4 +1,4 @@
-import { siteContent } from '../data/site-content.js?v=20260927-dinosaurs-v1';
+import { siteContent } from '../data/site-content.js?v=20260927-stars-v1';
 const topics = siteContent.knowledgeWorlds.flatMap(d => d.topics.map(t => ({ ...t, domain: d.id })));
 const sections = [...siteContent.personalSections, siteContent.sitePurposeSection];
 export function routeFor(state) {
