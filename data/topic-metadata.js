@@ -166,9 +166,17 @@ export const topicMetadata = {
       "probability-statistics"
     ],
     "related": [
+      "dinosaurs",
       "neuroscience-consciousness",
       "complex-systems-emergence"
     ]
+  },
+  "dinosaurs": {
+    "icon": "bone",
+    "signature": "bone",
+    "mood": "life",
+    "prerequisites": ["biology-life-systems"],
+    "related": ["cosmology-early-universe", "complex-systems-emergence"]
   },
   "neuroscience-consciousness": {
     "icon": "brain",

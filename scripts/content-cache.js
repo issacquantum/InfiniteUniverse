@@ -1,8 +1,8 @@
-import { siteContent } from "../data/site-content.js?v=20260927-stellar-reader-v1";
+import { siteContent } from "../data/site-content.js?v=20260927-dinosaurs-v1";
 
 const documentCache = new Map();
 const requestCache = new Map();
-const CONTENT_CACHE_VERSION = "20260927-variation-xviii-v1";
+const CONTENT_CACHE_VERSION = "20260927-dinosaurs-v1";
 
 function normalizePath(filePath) {
   if (typeof filePath !== "string") {

@@ -755,6 +755,7 @@ export const siteContent = {
           hideBranchNavigation: true,
           hideDetailNavigation: true
         }),
+        createTopic("dinosaurs", "Dinosaurs & Prehistoric Life", "Dinosaurios y vida prehistórica"),
         createTopic("neuroscience-consciousness", "Neuroscience of Consciousness", "Neurociencia de la conciencia", {
           contentFile: htmlSource("science", "neuroscience-consciousness"),
           branches: [neuroscienceConsciousnessEquationBranch],

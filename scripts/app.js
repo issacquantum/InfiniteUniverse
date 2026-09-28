@@ -1,21 +1,21 @@
 import { clearReaderMath } from "./reader-math.js?v=20260927-reader-equations-v3";
 import { installTouchActivationGuard } from "./touch-activation.js?v=20260926-mobile-stability-v1";
-import { installRoutes, parseRoute } from "./routes.js?v=20260927-stellar-reader-v1";
-import { scheduleContentPrewarm } from "./content-cache.js?v=20260927-variation-xviii-v1";
+import { installRoutes, parseRoute } from "./routes.js?v=20260927-dinosaurs-v1";
+import { scheduleContentPrewarm } from "./content-cache.js?v=20260927-dinosaurs-v1";
 import { isMobilePerformance, onPerformanceProfileChange, observeMobileMedia } from "./performance-profile.js?v=20260913-mobile-power-v1";
 import { captureReaderPosition, matchesReaderState } from "./reader-position.js?v=20260927-stellar-reader-v1";
 import { siteAssets } from "../data/site-assets.js?v=20260913-social-dock-v1";
-import { siteContent } from "../data/site-content.js?v=20260927-stellar-reader-v1";
+import { siteContent } from "../data/site-content.js?v=20260927-dinosaurs-v1";
 import { createReadingSettingsController } from "./reading-settings.js?v=20260913-social-dock-v1";
 import { initBackground } from "./background.js?v=20260913-mobile-power-v1";
 import { refreshIcons } from "./icons.js?v=20260913-social-dock-v1";
 import { pick } from "./i18n.js?v=20260913-social-dock-v1";
 import { decoratePhotonOutlines } from "./creative-effects.js?v=20260926-mobile-stability-v1";
-import { syncLegacyContent } from "./legacy-content.js?v=20260927-variation-xviii-v1";
+import { syncLegacyContent } from "./legacy-content.js?v=20260927-dinosaurs-v1";
 import { createMusicController, syncMusicUi } from "./music.js?v=20260913-bilingual-release-v1";
-import { renderSite } from "./render.js?v=20260926-equation-audit-v1";
+import { renderSite } from "./render.js?v=20260927-dinosaurs-v1";
 import { createState } from "./state.js?v=20260926-equation-audit-v1";
-import { syncStructuredContent } from "./structured-content.js?v=20260927-variation-xviii-v1";
+import { syncStructuredContent } from "./structured-content.js?v=20260927-dinosaurs-v1";
 import { markWebGLAvailability } from "./webgl-support.js?v=20260913-social-dock-v1";
 
 installTouchActivationGuard(document);
