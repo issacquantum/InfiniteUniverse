@@ -75,6 +75,14 @@ const starsEquationBranch = {
   ]
 };
 
+const quantumMechanicsChapterBranch = {
+  id: "quantum-mechanics-chapters", title: { en: "Chapters", es: "Capítulos" },
+  items: [
+    createStructuredItem("science", "quantum-applications", "Quantum Mechanics in Nature, Technology, and the Cosmos", "Mecánica cuántica en la naturaleza, la tecnología y el cosmos"),
+    createStructuredItem("science", "quantum-biology", "Quantum Biology", "Biología cuántica")
+  ]
+};
+
 const quantumMechanicsEquationBranch = {
   id: "quantum-mechanics-equations",
   title: { en: "Equations", es: "Ecuaciones" },
@@ -738,7 +746,7 @@ export const siteContent = {
       topics: [
         createTopic("quantum-mechanics", "Quantum Mechanics", "Mecánica cuántica", {
           contentFile: htmlSource("science", "quantum-mechanics"),
-          branches: [quantumMechanicsEquationBranch],
+          branches: [quantumMechanicsChapterBranch, quantumMechanicsEquationBranch],
           hideBranchNavigation: true,
           hideDetailNavigation: true
         }),

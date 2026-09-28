@@ -3565,3 +3565,20 @@ body[data-performance="mobile"] .equation-display {
 /* Static teaching figures share the article width without clipping labels. */
 .structured-content .lesson-figure img { width: 100%; max-width: 32rem; height: auto; }
 .stellar-path-guide dd { margin-inline: 0; margin-bottom: 1.5rem; }
+
+/* Compact static Stars plots retain readable proportions at every viewport. */
+.stellar-diagram { margin-inline: auto; }
+.stellar-diagram img,
+.structured-content .stellar-diagram img {
+  display: block;
+  width: min(100%, 22.5rem);
+  max-width: 100%;
+  height: auto;
+  margin-inline: auto;
+  border-radius: 1rem;
+  box-shadow: 0 0 18px rgba(119, 0, 255, 0.12);
+}
+@media (max-width: 768px) {
+  .stellar-diagram img,
+  .structured-content .stellar-diagram img { width: min(100%, 18rem); }
+}

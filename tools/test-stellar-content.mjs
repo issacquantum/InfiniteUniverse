@@ -85,26 +85,26 @@ console.log('Pressure units, canonical entry, proportional timeline, accessible 
 for (const lang of ['en', 'es']) {
   const svg = readFileSync(`Assets2/diagrams/stellar-uniform-profiles-${lang}.svg`, 'utf8');
   for (const [id, bottom, range, scale, fn] of [
-    ['mass', 270, 4.5, 1e30, massAt], ['pressure', 521, 1.5, 1e14, pressureAt]
+    ['mass', 245, 1, massAt(radius), massAt], ['pressure', 245, 1, pressureAt(0), pressureAt]
   ]) {
     const points = svg.match(new RegExp(`id="${id}-curve" points="([^"]+)"`))[1].split(' ').map(p => p.split(',').map(Number));
     assert.equal(points.length, 101);
     points.forEach(([x, y], i) => {
       assert(Math.abs(x - (64 + 266 * i / 100)) < 0.001);
-      const expected = bottom - 168 * fn(radius * i / 100) / scale / range;
+      const expected = bottom - 150 * fn(radius * i / 100) / scale / range;
       assert(Math.abs(y - expected) < 0.001, `${id}: plot differs from model at sample ${i}`);
     });
   }
   for (const chapter of ['stellar-formation', 'stellar-structure', 'stellar-evolution', 'stellar-observation', 'stellar-asteroseismology', 'dinosaurs']) {
     const source = readFileSync(`content/site/${lang}/science/${chapter}.html`, 'utf8');
     const output = readFileSync(`science/${lang}/${chapter === 'dinosaurs' ? 'dinosaurs/index' : 'stars/' + chapter}.html`, 'utf8');
-    const figures = html => [...html.matchAll(/<figure class="lesson-figure">[\s\S]*?<\/figure>/g)].map(m => m[0]);
+    const figures = html => [...html.matchAll(/<figure class="lesson-figure[^"]*">[\s\S]*?<\/figure>/g)].map(m => m[0]);
     assert.deepEqual(figures(output), figures(source), `${chapter}: static/interactive figure mismatch`);
     for (const figure of figures(source)) {
       const image = figure.match(/<img\b[^>]+>/)[0];
       assert(/width="\d+" height="\d+"/.test(image), 'Reserve intrinsic image dimensions');
       assert(/alt="[^"]+"/.test(image), 'Meaningful alternative text');
-      const src = image.match(/src="([^"]+)"/)[1];
+      const src = image.match(/src="([^"]+)"/)[1].split('?')[0];
       assert(src.startsWith('Assets2/'), 'Lesson figures must be hosted locally');
       const file = readFileSync(src);
       if (src.endsWith('.svg')) {
@@ -118,3 +118,27 @@ for (const lang of ['en', 'es']) {
   }
 }
 console.log('Inline figure parity, intrinsic dimensions, photo licenses and plotted model coordinates passed.');
+
+for (const lang of ['en', 'es']) {
+  const svg = readFileSync(`Assets2/diagrams/stellar-seismic-example-${lang}.svg`, 'utf8');
+  const samples = svg.match(/<polyline points="([^"]+)"/)[1].split(' ').map(pair => {
+    const [, y] = pair.split(',').map(Number);
+    return (128 - y) / 0.306;
+  });
+  assert.equal(samples.length, 120);
+  const mean = samples.reduce((sum, value) => sum + value, 0) / samples.length;
+  const bars = [...svg.matchAll(/<path d="M([\d.]+),348 V([\d.]+)"/g)];
+  assert.equal(bars.length, 29, 'Only frequencies through 2 mHz');
+  bars.forEach(([, x, y], k) => {
+    let re = 0, im = 0;
+    samples.forEach((value, i) => {
+      const phase = 2 * Math.PI * k * i / samples.length;
+      re += (value - mean) * Math.cos(phase);
+      im -= (value - mean) * Math.sin(phase);
+    });
+    const amplitude = 2 * Math.hypot(re, im) / samples.length;
+    assert(Math.abs((348 - Number(y)) / 0.7 - amplitude) < 0.06, 'Spectrum matches displayed time samples');
+    assert(Math.abs(Number(x) - (52 + 278 * (k / 14.4) / 2)) < 0.01);
+  });
+}
+console.log('Compact seismic spectrum matches its time samples and frequency range.');

@@ -87,6 +87,7 @@ for (const language of ['en','es']) {
     mkdirSync(path.dirname(out),{recursive:true});
     const base = path.relative(path.dirname(out),'.').split(path.sep).join('/')+'/';
     const counterpart = publicPath(doc,language==='en'?'es':'en');
+    const staticStyle = ['stellar-structure', 'stellar-observation', 'stellar-asteroseismology'].includes(doc.id) ? 'styles/static-science.css?v=20260927-stellar-quantum-v5' : 'styles/static-science.css';
     writeFileSync(out,`<!doctype html>
 <html lang="${language}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <base href="${base}"><title>${escape(doc.title)} | Infinite Universe</title>
@@ -94,7 +95,7 @@ for (const language of ['en','es']) {
 <link rel="alternate" hreflang="${language==='en'?'es':'en'}" href="${siteRoot+counterpart}"><link rel="alternate" hreflang="${language}" href="${url}">
 <meta property="og:title" content="${escape(doc.title)}"><meta property="og:description" content="${escape(description)}"><meta property="og:url" content="${url}"><meta property="og:type" content="article">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self' https://cdn.jsdelivr.net; connect-src 'self'; frame-src https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'">
-<link rel="stylesheet" href="styles/static-science.css"><script src="scripts/mathjax-config.js"></script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="${staticStyle}"><script src="scripts/mathjax-config.js"></script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
 </head><body><a href="${out}#main">${language==='es'?'Saltar al contenido':'Skip to content'}</a><nav><a href="index.html${route(doc,language)}">${language==='es'?'Abrir en el sitio interactivo':'Open in the interactive site'}</a> · <a href="${counterpart}" lang="${language==='en'?'es':'en'}">${language==='en'?'Español':'English'}</a> · <a href="science/${language}/index.html">${language==='es'?'Todos los temas':'All topics'}</a></nav><main id="main"><h1>${escape(doc.title)}</h1>${body}<nav aria-label="${language==='es'?'Temas relacionados':'Related topics'}"><ul>${links}</ul></nav></main></body></html>\n`);
   }
   // Cosmology has no topic fragment: expose its existing branch documents without migrating their renderer.
