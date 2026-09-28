@@ -7,7 +7,7 @@ const topic = siteContent.knowledgeWorlds.flatMap(d => d.topics).find(t => t.id 
 const chapters = topic.branches.find(b => b.id === 'stars-chapters');
 const equations = topic.branches.find(b => b.id === 'stars-equations');
 assert.equal(chapters.items.length, 7);
-assert.equal(equations.items.length, 14);
+assert.equal(equations.items.length, 17);
 const displays = html => [...html.matchAll(/\$\$([\s\S]*?)\$\$/g)].map(m => m[1]);
 for (const chapter of chapters.items) {
   const texts = ['en', 'es'].map(lang => readFileSync(chapter.contentFile[lang], 'utf8'));
@@ -45,4 +45,38 @@ for (const lang of ['en', 'es']) {
   const origins = readFileSync(`content/site/${lang}/personal/origins.html`, 'utf8');
   assert(origins.includes(lang === 'en' ? 'I was not bullied there' : 'pero no sufrí acoso'));
 }
-console.log('Seven bilingual Stars chapters, fourteen individual equations, parent routes, solar estimates and the TOV limit passed.');
+console.log('Seven bilingual Stars chapters, seventeen individual equations, parent routes, solar estimates and the TOV limit passed.');
+
+for (const lang of ['en', 'es']) {
+  for (const equation of equations.items) {
+    const page = readFileSync(`science/${lang}/equations/${equation.id}.html`, 'utf8');
+    assert(page.includes(`index.html#/${lang}/science/stars?branch=stars-equations&detail=${equation.id}`), `${equation.id}: canonical Stars entry`);
+  }
+  const home = readFileSync(`content/site/${lang}/science/stars.html`, 'utf8');
+  assert(home.includes('detail=stellar-structure&amp;heading=balance'));
+  const foundations = readFileSync(`content/site/${lang}/science/stellar-foundations.html`, 'utf8');
+  assert(foundations.includes(lang === 'en' ? 'per unit area per unit time' : 'por unidad de área y por unidad de tiempo'));
+  for (const id of ['stellar-layer', 'stellar-hr', 'stellar-seismic-example', 'dinosaur-tree', 'dinosaur-time']) {
+    const svg = readFileSync(`Assets2/diagrams/${id}-${lang}.svg`, 'utf8');
+    assert(svg.includes('<title') && svg.includes('<desc') && svg.includes('viewBox='));
+    assert(!svg.includes('<script'));
+  }
+  const timeline = readFileSync(`Assets2/diagrams/dinosaur-time-${lang}.svg`, 'utf8');
+  const lengths = [...timeline.matchAll(/width="40" height="([\d.]+)"/g)].map(m => Number(m[1]));
+  const boundaries = [251.902, 201.4, 143.1, 66];
+  assert.equal(lengths.length, 3);
+  lengths.forEach((height, i) => assert(Math.abs(height / 2 - (boundaries[i] - boundaries[i + 1])) < 0.001));
+}
+const density = 1000, radius = 1e9;
+const massAt = r => 4 * Math.PI * density * r ** 3 / 3;
+const pressureAt = r => 2 * Math.PI * G * density ** 2 * (radius ** 2 - r ** 2) / 3;
+assert.equal(pressureAt(radius), 0);
+assert(Math.abs(massAt(radius / 2) / massAt(radius) - 0.125) < 1e-14);
+for (const fraction of [0.1, 0.5, 0.9]) {
+  const r = fraction * radius, h = radius * 1e-6;
+  const slope = (pressureAt(r + h) - pressureAt(r - h)) / (2 * h);
+  const balance = -G * massAt(r) * density / r ** 2;
+  assert(Math.abs(slope / balance - 1) < 1e-8, 'Integrated model satisfies local hydrostatic balance');
+}
+assert(Math.abs(pressureAt(0) / 1e14 - 1.3979) < 0.0001);
+console.log('Pressure units, canonical entry, proportional timeline, accessible figures and coupled stellar model passed.');

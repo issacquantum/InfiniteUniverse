@@ -1,4 +1,4 @@
-import { topicMetadata } from "../data/topic-metadata.js?v=20260927-stars-v1";
+import { topicMetadata } from "../data/topic-metadata.js?v=20260927-stellar-lessons-v2";
 import { pick } from "./i18n.js?v=20260913-social-dock-v1";
 
 function escapeHtml(value) {

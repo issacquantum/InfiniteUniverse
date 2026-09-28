@@ -5,3 +5,7 @@ nav { margin-block:1rem; } h1,h2,h3 { line-height:1.25; } section { margin-block
 img,video,iframe { max-width:100%; height:auto; } table { display:block; overflow:auto; }
 .equation-link { display:block; overflow:auto; padding:.7rem; }
 mjx-container[display] { overflow-x:auto; overflow-y:hidden; }
+
+/* Static teaching figures share the article width without clipping labels. */
+.structured-content .lesson-figure img { width: 100%; max-width: 32rem; height: auto; }
+.stellar-path-guide dd { margin-inline: 0; margin-bottom: 1.5rem; }

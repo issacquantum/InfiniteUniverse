@@ -3561,3 +3561,7 @@ body[data-performance="mobile"] .equation-link,
 body[data-performance="mobile"] .equation-display {
   animation: none !important;
 }
+
+/* Static teaching figures share the article width without clipping labels. */
+.structured-content .lesson-figure img { width: 100%; max-width: 32rem; height: auto; }
+.stellar-path-guide dd { margin-inline: 0; margin-bottom: 1.5rem; }

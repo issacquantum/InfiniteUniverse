@@ -56,6 +56,9 @@ const starsEquationBranch = {
   id: "stars-equations", title: { en: "Equations", es: "Ecuaciones" },
   items: [
     createStructuredItem("science/equations", "stellar-hydrostatic-equilibrium", "Stellar Hydrostatic Equilibrium", "Equilibrio hidrostático estelar"),
+    createStructuredItem("science/equations", "stellar-uniform-mass", "Mass in a Uniform-Density Sphere", "Masa en una esfera de densidad uniforme"),
+    createStructuredItem("science/equations", "stellar-uniform-gradient", "Pressure Gradient in a Uniform-Density Sphere", "Gradiente de presión en una esfera de densidad uniforme"),
+    createStructuredItem("science/equations", "stellar-uniform-pressure", "Pressure Profile in a Uniform-Density Sphere", "Perfil de presión en una esfera de densidad uniforme"),
     createStructuredItem("science/equations", "stellar-mass-continuity", "Enclosed Stellar Mass", "Masa estelar encerrada"),
     createStructuredItem("science/equations", "stellar-ideal-gas-pressure", "Ideal Stellar Gas Pressure", "Presión del gas estelar ideal"),
     createStructuredItem("science/equations", "stellar-radiation-pressure", "Equilibrium Radiation Pressure", "Presión de radiación en equilibrio"),

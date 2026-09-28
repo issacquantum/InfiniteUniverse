@@ -10,7 +10,13 @@ export function publicPath(doc, language) {
   if (!doc.branch) return `science/${language}/${doc.id}/index.html`;
   return `science/${language}/${doc.file.includes('/equations/') ? 'equations' : doc.topic.id}/${doc.id}.html`;
 }
-export function route(doc, language) { return routeFor({ language, activeTopic:doc.topic?.id, activeSection:doc.section?.id, activeBranch:doc.branch, activeDetail:doc.branch ? doc.id : null }); }
+export function route(doc, language) {
+  // The shared hydrostatic page belongs canonically to the Stars learning sequence.
+  if (doc.id === 'stellar-hydrostatic-equilibrium') {
+    return routeFor({ language, activeTopic: 'stars', activeBranch: 'stars-equations', activeDetail: doc.id });
+  }
+  return routeFor({ language, activeTopic:doc.topic?.id, activeSection:doc.section?.id, activeBranch:doc.branch, activeDetail:doc.branch ? doc.id : null });
+}
 function sourceBody(doc) {
   const html = readFileSync(doc.file, 'utf8');
   if (!doc.source) return html;
