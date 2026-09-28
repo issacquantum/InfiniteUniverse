@@ -121,6 +121,8 @@ console.log('Inline figure parity, intrinsic dimensions, photo licenses and plot
 
 for (const lang of ['en', 'es']) {
   const svg = readFileSync(`Assets2/diagrams/stellar-seismic-example-${lang}.svg`, 'utf8');
+  const labels = [...svg.matchAll(/<text\b[^>]*>[\s\S]*?<\/text>/g)].map(match => match[0]);
+  assert.equal(new Set(labels).size, labels.length, 'Seismic labels must not be drawn twice at identical coordinates');
   const samples = svg.match(/<polyline points="([^"]+)"/)[1].split(' ').map(pair => {
     const [, y] = pair.split(',').map(Number);
     return (128 - y) / 0.306;

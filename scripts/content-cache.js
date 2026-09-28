@@ -1,8 +1,8 @@
-import { siteContent } from "../data/site-content.js?v=20260927-stellar-quantum-v5";
+import { siteContent } from "../data/site-content.js?v=20260927-paper-links-v1";
 
 const documentCache = new Map();
 const requestCache = new Map();
-const CONTENT_CACHE_VERSION = "20260927-stellar-quantum-v5";
+const CONTENT_CACHE_VERSION = "20260927-paper-links-v1";
 
 function normalizePath(filePath) {
   if (typeof filePath !== "string") {
