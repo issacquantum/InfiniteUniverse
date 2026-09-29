@@ -141,6 +141,10 @@ function getLabelText(control) {
     return normalizeText(wrappingLabel.textContent).replace(/\s+[+-]?\d+(\.\d+)?\s*$/, "");
   }
 
+  if (control.tagName === "BUTTON" && normalizeText(control.textContent)) {
+    return normalizeText(control.textContent);
+  }
+
   const nearbyLabel = control.previousElementSibling;
 
   if (nearbyLabel) {

@@ -18,9 +18,9 @@ import { initAlgorithmVisualizerModels } from "./algorithm-visualizer-model.js?v
 import { initQuantumFluctuationModels } from "./quantum-fluctuation-model.js?v=20260928-reader-repair-v1";
 import { initBlackHoleModels } from "./black-hole-model.js?v=20260928-reader-repair-v1";
 import { initFoundationModels } from "./foundation-models.js?v=20260928-reader-repair-v1";
-import { enhanceModelAccessibility } from "./model-accessibility.js?v=20260920-model-controls-v1";
+import { enhanceModelAccessibility } from "./model-accessibility.js?v=20260928-stabilization-v1";
 import { clearReaderMath, reportReaderMathError, renderReaderMath as renderMath } from "./reader-math.js?v=20260927-reader-equations-v3";
-import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260928-reader-repair-v1";
+import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260928-stabilization-v1";
 import { decorateModelBadges, decoratePhotonOutlines, syncReadingConstellation } from "./creative-effects.js?v=20260926-mobile-stability-v1";
 
 let activeRequestToken = 0;
