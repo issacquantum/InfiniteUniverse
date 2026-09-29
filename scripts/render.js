@@ -1,3 +1,4 @@
+import { visibleScienceCategories } from "./science-menu.js?v=20260928-reader-repair-v1";
 import { topicMetadata } from "../data/topic-metadata.js?v=20260927-stellar-quantum-v5";
 import { pick } from "./i18n.js?v=20260913-social-dock-v1";
 
@@ -546,7 +547,7 @@ function renderMobileKnowledgeNavigation(domains, state, language) {
           </button>
         </div>
         <div class="mobile-knowledge-nav__domains">
-          ${domains.map((domain) => {
+          ${visibleScienceCategories(domains, expandedDomainId).map((domain) => {
             const isExpanded = expandedDomainId === domain.id;
             const topics = domain.topics ?? [];
 
@@ -556,18 +557,19 @@ function renderMobileKnowledgeNavigation(domains, state, language) {
                 data-domain-id="${escapeHtml(domain.id)}"
               >
                 <button
-                  class="${classNames("glass-tab", "mobile-knowledge-nav__domain-button", state.activeDomain === domain.id && "is-active")}"
+                  class="${classNames("glass-tab", "mobile-knowledge-nav__domain-button", isExpanded && "is-active")}"
                   type="button"
                   data-action="toggle-mobile-knowledge-domain"
                   data-domain-id="${escapeHtml(domain.id)}"
                   aria-expanded="${String(isExpanded)}"
+                  aria-controls="science-menu-topics-${escapeHtml(domain.id)}"
                 >
                   <span class="mobile-knowledge-nav__domain-label">
                     ${renderNavigationLabel(pick(domain.title, language), domainIconNames[domain.id])}
                   </span>
                   <i data-lucide="${isExpanded ? "chevron-up" : "chevron-down"}"></i>
                 </button>
-                <div class="mobile-knowledge-nav__topics" ${isExpanded ? "" : "hidden"} aria-label="${escapeHtml(labels.topics)}">
+                <div id="science-menu-topics-${escapeHtml(domain.id)}" class="mobile-knowledge-nav__topics" ${isExpanded ? "" : "hidden"} aria-label="${escapeHtml(labels.topics)}">
                   ${topics.map((topic) => `
                     <button
                       class="${classNames("glass-tab", "mobile-knowledge-nav__topic-button", isExpanded && "mobile-knowledge-nav__topic-button--domain-member", state.activeTopic === topic.id && "is-active")}"
@@ -941,17 +943,17 @@ export function renderSite({ state, refs, content, assets }) {
   }
 
   refs.stage.innerHTML = `
-    <div class="${classNames("stage-column", hasActivePanel && "stage-column--reader-active")}">
+    <div class="${classNames("stage-column", !mobileKnowledgeMenuOpen && hasActivePanel && "stage-column--reader-active", mobileKnowledgeMenuOpen && "stage-column--menu-active")}">
       ${mobileKnowledgeNavigation}
-      ${useFocusedRows
+      ${mobileKnowledgeMenuOpen ? "" : useFocusedRows
         ? focusedRows.join("")
         : `${personalNavigation}
       ${knowledgeNavigation}
       ${topicNavigation}
       ${branchNavigation}
       ${legacyItemNavigation}`}
-      ${renderChapterNavigation(activeSection, activeChapter, language)}
-      ${activePanel}
+      ${mobileKnowledgeMenuOpen ? "" : renderChapterNavigation(activeSection, activeChapter, language)}
+      ${mobileKnowledgeMenuOpen ? "" : activePanel}
     </div>
   `;
 }

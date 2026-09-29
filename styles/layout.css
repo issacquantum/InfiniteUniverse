@@ -189,7 +189,9 @@
 }
 
 .mobile-knowledge-nav.is-open {
-  display: block;
+  display: flex;
+  flex: 1;
+  min-height: 0;
   height: auto;
   margin: 0 0 0.85rem;
 }
@@ -265,7 +267,8 @@
   position: relative;
   width: 100%;
   max-width: 100%;
-  max-height: min(68dvh, 38rem);
+  max-height: 100%;
+  min-height: 0;
   box-sizing: border-box;
   padding: 0.78rem;
   overflow: auto;
@@ -313,15 +316,19 @@
   gap: 0.54rem;
 }
 
+.mobile-knowledge-nav--has-expanded-domain .mobile-knowledge-nav__domains {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.stage-column--menu-active {
+  overflow: hidden;
+}
+
 .mobile-knowledge-nav__domains {
   width: 100%;
   margin-inline: 0;
 }
 
-.mobile-knowledge-nav--has-expanded-domain .mobile-knowledge-nav__domain--hidden-by-expanded {
-  visibility: hidden;
-  pointer-events: none;
-}
 
 .mobile-knowledge-nav__domain-button,
 .mobile-knowledge-nav__topic-button {
@@ -432,8 +439,8 @@
 
   .mobile-knowledge-nav__panel,
   .mobile-knowledge-nav__panel.glass-window {
-    max-height: none;
-    overflow: visible;
+    max-height: 100%;
+    overflow: auto;
     border: 0 !important;
     border-radius: 0;
     background: transparent !important;
@@ -456,6 +463,10 @@
     justify-content: center;
     align-items: flex-start;
     gap: 0.7rem;
+  }
+
+  .mobile-knowledge-nav--has-expanded-domain .mobile-knowledge-nav__domains {
+    grid-template-columns: minmax(0, 24rem);
   }
 
   .mobile-knowledge-nav__domain {
@@ -492,9 +503,7 @@
   }
 
   .mobile-knowledge-nav__topics {
-    position: absolute;
-    top: calc(100% + 0.7rem);
-    left: 0;
+    position: static;
     width: 100%;
     justify-items: center;
     gap: 0.58rem;
@@ -575,12 +584,9 @@
   }
 
   .mobile-knowledge-nav__panel {
-    max-height: calc(100dvh - 5.8rem);
+    max-height: 100%;
   }
 
-  .mobile-knowledge-nav--has-expanded-domain .mobile-knowledge-nav__domain--hidden-by-expanded {
-    display: none;
-  }
 
   .header-actions {
     gap: 0.24rem;
@@ -834,7 +840,7 @@
   }
 
   .mobile-knowledge-nav__panel {
-    max-height: calc(100dvh - 3.4rem);
+    max-height: 100%;
     padding: 0.68rem;
     border-radius: 1rem;
     box-shadow:
@@ -842,9 +848,6 @@
       0 14px 30px rgba(0, 0, 0, 0.32);
   }
 
-  .mobile-knowledge-nav--has-expanded-domain .mobile-knowledge-nav__domain--hidden-by-expanded {
-    display: none;
-  }
 
   .mobile-knowledge-nav__heading {
     justify-content: flex-end;

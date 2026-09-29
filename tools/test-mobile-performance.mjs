@@ -1,8 +1,9 @@
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import vm from "node:vm";
+import { runOptionalEnhancement } from "../scripts/reader-recovery.js";
 
-const source = fs.readFileSync(new URL("../scripts/performance-profile.js", import.meta.url), "utf8").replace(/export /g, "");
+const source = fs.readFileSync(new URL("../scripts/performance-profile.js", import.meta.url), "utf8").replace(/^import .*;\n/gm, "").replace(/export /g, "");
 function environment(width, touch = false) {
   const rafs = new Map(), timers = new Map(), intersections = [], mutations = [], resizes = [];
   let now = 0, sequence = 0;
@@ -11,7 +12,7 @@ function environment(width, touch = false) {
   const reduced = { ...events(), matches: false };
   const body = { dataset: {}, ...events() };
   const document = { body, hidden: false, ...events() };
-  const context = vm.createContext({ document,
+  const context = vm.createContext({ document, runOptionalEnhancement,
     window: { devicePixelRatio: 3, matchMedia: (query) => query.includes("prefers-reduced") ? reduced : profile },
     performance: { now: () => now },
     requestAnimationFrame: (fn) => { rafs.set(++sequence, fn); return sequence; },

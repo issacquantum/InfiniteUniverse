@@ -2,7 +2,7 @@ import { siteContent } from "../data/site-content.js?v=20260927-quantum-depth-v1
 
 const documentCache = new Map();
 const requestCache = new Map();
-const CONTENT_CACHE_VERSION = "20260927-quantum-depth-v1";
+const CONTENT_CACHE_VERSION = "20260928-reader-repair-v1";
 
 function normalizePath(filePath) {
   if (typeof filePath !== "string") {
@@ -31,6 +31,10 @@ function getVersionedPath(filePath) {
   } catch (_) {
     return filePath;
   }
+}
+
+export function invalidateDocument(filePath) {
+  documentCache.delete(normalizePath(filePath));
 }
 
 export function hasCachedDocument(filePath) {

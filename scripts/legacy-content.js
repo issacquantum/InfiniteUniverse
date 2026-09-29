@@ -1,9 +1,10 @@
-import { enhanceScienceReader, restoreHeading } from "./science-reader.js?v=20260927-quantum-depth-v1";
+import { showReaderRecovery } from "./reader-recovery.js?v=20260928-reader-repair-v1";
+import { enhanceScienceReader, restoreHeading } from "./science-reader.js?v=20260928-reader-repair-v1";
 import { guardReaderRestoration, restoreReaderPosition, restoreReaderScroll } from "./reader-position.js?v=20260927-stellar-reader-v1";
 import { bigBangLegacyContent } from "../data/legacy-big-bang.js?v=20260913-social-dock-v1";
 import { decorateModelBadges, decoratePhotonOutlines, syncReadingConstellation } from "./creative-effects.js?v=20260926-mobile-stability-v1";
 import { clearReaderMath, reportReaderMathError, renderReaderMath as renderMath } from "./reader-math.js?v=20260927-reader-equations-v3";
-import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260927-quantum-depth-v1";
+import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260928-reader-repair-v1";
 import { pick } from "./i18n.js?v=20260913-social-dock-v1";
 
 let activeRequestToken = 0;
@@ -482,8 +483,7 @@ function commitLegacyDocument({
   const extracted = extractLegacyFragment(documentNode, legacyItem.source);
 
   if (!extracted) {
-    host.setAttribute("aria-busy", "false");
-    host.innerHTML = `<p class="content-placeholder" role="status">${escapeHtml(pick(content.ui.legacyUnavailable, state.language))}</p>`;
+    showReaderRecovery(host, state.language);
     return true;
   }
 
@@ -554,6 +554,7 @@ export async function syncLegacyContent({
 
   const requestToken = ++activeRequestToken;
   const candidateFiles = resolveLegacyFileCandidates(legacyItem.source, state.language);
+  host.dataset.source = candidateFiles[0];
   const cachedDocument = getCachedDocumentNow(candidateFiles[0]);
 
   if (cachedDocument) {
@@ -627,9 +628,6 @@ export async function syncLegacyContent({
       window.clearTimeout(loadingPlaceholderTimer);
     }
 
-    host.setAttribute("aria-busy", "false");
-    if (!hasVisibleContent) {
-      host.innerHTML = `<p class="content-placeholder" role="status">${escapeHtml(pick(content.ui.legacyUnavailable, state.language))}</p>`;
-    }
+    showReaderRecovery(host, state.language);
   }
 }

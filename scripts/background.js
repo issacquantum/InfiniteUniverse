@@ -1,4 +1,4 @@
-import { isMobilePerformance } from "./performance-profile.js?v=20260913-mobile-power-v1";
+import { isMobilePerformance } from "./performance-profile.js?v=20260928-reader-repair-v1";
 async function loadShaderSource(url) {
   const response = await fetch(url);
 

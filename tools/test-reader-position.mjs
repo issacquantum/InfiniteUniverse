@@ -96,7 +96,7 @@ const legacyContext = vm.createContext({
 vm.runInContext(legacySource.slice(legacySource.indexOf("export async function syncLegacyContent")).replace("export ", ""), legacyContext);
 legacyContext.options = {
   state: { language: "es" }, content: {},
-  refs: { stage: { querySelector: () => ({ isConnected: true, childElementCount: 1, setAttribute() {} }) } }
+  refs: { stage: { querySelector: () => ({ isConnected: true, dataset: {}, childElementCount: 1, setAttribute() {} }) } }
 };
 await vm.runInContext("syncLegacyContent(options)", legacyContext);
 assert.deepEqual(requestedFiles, ["spanish.html", "english.html"]);

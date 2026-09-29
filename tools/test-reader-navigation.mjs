@@ -42,14 +42,28 @@ globalThis.history = {
   pushState(state, _, url) { writes++; entries.splice(++index, entries.length, {state, hash:url}); location.hash = url; }
 };
 const store = createState({language:'en'});
-let top = 0, restored;
+let top = 0, restored, readerMounted = true;
 const timers = new Map();
 let timerId = 0;
 const realSetTimeout = globalThis.setTimeout;
 const realClearTimeout = globalThis.clearTimeout;
 globalThis.setTimeout = (fn, delay) => { timers.set(++timerId, {fn,delay}); return timerId; };
 globalThis.clearTimeout = id => timers.delete(id);
-const scheduleSave = installRoutes(store, position => { restored = position; }, state => ({...state,scrollTop:top}));
+const scheduleSave = installRoutes(store, position => { restored = position; }, state => readerMounted ? ({...state,scrollTop:top}) : null);
+// Opening the menu saves the outgoing article before the reader is unmounted.
+top = 287;
+store.setState({mobileKnowledgeNavOpen:true});
+assert.equal(history.state.reader.scrollTop,287);
+assert.equal(entries.length,1,'Opening a menu does not create an article history entry');
+readerMounted = false;
+events.get('pagehide')();
+assert.equal(history.state.reader.scrollTop,287,'Saving while the menu covers the reader retains its position');
+const menuHash = location.hash;
+store.setState({mobileKnowledgeNavDomain:'quantum-foundations'});
+assert.equal(location.hash,menuHash);
+assert.equal(entries.length,1,'Category selection is not an article route');
+readerMounted = true;
+store.setState({mobileKnowledgeNavOpen:false});
 const initialWrites = writes;
 for (let i = 0; i < 10000; i++) {
   top = i;

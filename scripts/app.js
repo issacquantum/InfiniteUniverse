@@ -1,21 +1,22 @@
+import { toggleScienceMenu, toggleScienceCategory, selectScienceMenuTopic } from "./science-menu.js?v=20260928-reader-repair-v1";
 import { clearReaderMath } from "./reader-math.js?v=20260927-reader-equations-v3";
 import { installTouchActivationGuard } from "./touch-activation.js?v=20260926-mobile-stability-v1";
-import { installRoutes, parseRoute } from "./routes.js?v=20260927-quantum-depth-v1";
-import { scheduleContentPrewarm } from "./content-cache.js?v=20260927-quantum-depth-v1";
-import { isMobilePerformance, onPerformanceProfileChange, observeMobileMedia } from "./performance-profile.js?v=20260913-mobile-power-v1";
+import { installRoutes, parseRoute } from "./routes.js?v=20260928-reader-repair-v1";
+import { invalidateDocument, scheduleContentPrewarm } from "./content-cache.js?v=20260928-reader-repair-v1";
+import { isMobilePerformance, onPerformanceProfileChange, observeMobileMedia } from "./performance-profile.js?v=20260928-reader-repair-v1";
 import { captureReaderPosition, matchesReaderState } from "./reader-position.js?v=20260927-stellar-reader-v1";
 import { siteAssets } from "../data/site-assets.js?v=20260913-social-dock-v1";
 import { siteContent } from "../data/site-content.js?v=20260927-quantum-depth-v1";
 import { createReadingSettingsController } from "./reading-settings.js?v=20260913-social-dock-v1";
-import { initBackground } from "./background.js?v=20260913-mobile-power-v1";
+import { initBackground } from "./background.js?v=20260928-reader-repair-v1";
 import { refreshIcons } from "./icons.js?v=20260913-social-dock-v1";
 import { pick } from "./i18n.js?v=20260913-social-dock-v1";
 import { decoratePhotonOutlines } from "./creative-effects.js?v=20260926-mobile-stability-v1";
-import { syncLegacyContent } from "./legacy-content.js?v=20260927-quantum-depth-v1";
+import { syncLegacyContent } from "./legacy-content.js?v=20260928-reader-repair-v1";
 import { createMusicController, syncMusicUi } from "./music.js?v=20260913-bilingual-release-v1";
-import { renderSite } from "./render.js?v=20260927-quantum-depth-v1";
+import { renderSite } from "./render.js?v=20260928-reader-repair-v1";
 import { createState } from "./state.js?v=20260926-equation-audit-v1";
-import { syncStructuredContent } from "./structured-content.js?v=20260927-quantum-depth-v1";
+import { syncStructuredContent } from "./structured-content.js?v=20260928-reader-repair-v1";
 import { markWebGLAvailability } from "./webgl-support.js?v=20260913-social-dock-v1";
 
 installTouchActivationGuard(document);
@@ -121,7 +122,7 @@ let pendingStructuredReturn = null;
 let pendingLegacyReturn = null;
 let pendingReaderScrollRestoration = null;
 let pendingModelScrollTarget = null;
-let pendingKnowledgeTabOverlapSync = 0;
+let menuListScrollTop = 0;
 const GALLERY_MAX_ZOOM_LEVEL = 7;
 const GALLERY_FALLBACK_ALT = "Selected image in the gallery viewer";
 
@@ -140,78 +141,11 @@ function clearPendingModelScrollTarget() {
   pendingModelScrollTarget = null;
 }
 
-function clearCoveredKnowledgeTabs() {
-  refs.stage
-    .querySelectorAll(".mobile-knowledge-nav__domain--hidden-by-expanded")
-    .forEach((domain) => {
-      domain.classList.remove("mobile-knowledge-nav__domain--hidden-by-expanded");
-      domain.removeAttribute("aria-hidden");
-      if ("inert" in domain) {
-        domain.inert = false;
-      } else {
-        domain.removeAttribute("inert");
-      }
-    });
-}
-
-function doRectsOverlap(firstRect, secondRect) {
-  const overlapWidth = Math.min(firstRect.right, secondRect.right) - Math.max(firstRect.left, secondRect.left);
-  const overlapHeight = Math.min(firstRect.bottom, secondRect.bottom) - Math.max(firstRect.top, secondRect.top);
-
-  return overlapWidth > 4 && overlapHeight > 4;
-}
-
-function syncCoveredKnowledgeTabs() {
-  pendingKnowledgeTabOverlapSync = 0;
-  const nav = refs.stage.querySelector(".mobile-knowledge-nav--has-expanded-domain");
-
-  clearCoveredKnowledgeTabs();
-
-  if (!nav) {
-    return;
-  }
-
-  const expandedTopics = nav.querySelector(".mobile-knowledge-nav__domain--expanded .mobile-knowledge-nav__topics:not([hidden])");
-
-  if (!expandedTopics) {
-    return;
-  }
-
-  const topicsRect = expandedTopics.getBoundingClientRect();
-
-  if (topicsRect.width <= 0 || topicsRect.height <= 0) {
-    return;
-  }
-
-  nav.querySelectorAll(".mobile-knowledge-nav__domain:not(.mobile-knowledge-nav__domain--expanded)").forEach((domain) => {
-    const button = domain.querySelector(".mobile-knowledge-nav__domain-button");
-
-    if (!button || !doRectsOverlap(button.getBoundingClientRect(), topicsRect)) {
-      return;
-    }
-
-    domain.classList.add("mobile-knowledge-nav__domain--hidden-by-expanded");
-    domain.setAttribute("aria-hidden", "true");
-    if ("inert" in domain) {
-      domain.inert = true;
-    } else {
-      domain.setAttribute("inert", "");
-    }
-  });
-}
-
-function scheduleKnowledgeTabOverlapSync() {
-  if (pendingKnowledgeTabOverlapSync) {
-    cancelAnimationFrame(pendingKnowledgeTabOverlapSync);
-  }
-
-  pendingKnowledgeTabOverlapSync = requestAnimationFrame(syncCoveredKnowledgeTabs);
-}
-
 function captureReaderScrollRestoration() {
   const contentWindow = refs.stage.querySelector(".content-window");
 
   if (!contentWindow) {
+    if (store.getState().mobileKnowledgeNavOpen) return;
     pendingReaderScrollRestoration = null;
     return;
   }
@@ -581,7 +515,6 @@ function syncUi(state = store.getState()) {
   readingSettingsController?.syncLanguage(state.language);
   refreshIcons();
   decoratePhotonOutlines(document);
-  scheduleKnowledgeTabOverlapSync();
 }
 
 function getActiveLabel(state) {
@@ -609,6 +542,7 @@ function getActiveLabel(state) {
 }
 
 function announceNavigation(state) {
+  if (state.mobileKnowledgeNavOpen) return;
   if (!refs.statusAnnouncer) {
     return;
   }
@@ -642,7 +576,6 @@ function toggleTitle() {
         activeSection: null,
         showPersonalSectionList: false,
         mobileKnowledgeNavOpen: false,
-        mobileKnowledgeNavDomain: null
       };
     }
 
@@ -657,7 +590,6 @@ function toggleTitle() {
       activeDetail: null,
       equationReturnTarget: null,
       mobileKnowledgeNavOpen: false,
-      mobileKnowledgeNavDomain: null
     };
   });
 }
@@ -702,7 +634,6 @@ function selectSection(sectionId) {
         activeDetail: null,
         equationReturnTarget: null,
         mobileKnowledgeNavOpen: false,
-        mobileKnowledgeNavDomain: null
       };
     }
 
@@ -718,7 +649,6 @@ function selectSection(sectionId) {
       activeDetail: null,
       equationReturnTarget: null,
       mobileKnowledgeNavOpen: false,
-      mobileKnowledgeNavDomain: null
     };
   });
 }
@@ -751,7 +681,6 @@ function selectDomain(domainId) {
       activeDetail: null,
       equationReturnTarget: null,
       mobileKnowledgeNavOpen: false,
-      mobileKnowledgeNavDomain: null
     };
   });
 }
@@ -818,7 +747,6 @@ function selectTopic(topicId, modelTarget = null) {
       activeDetail: null,
       equationReturnTarget: null,
       mobileKnowledgeNavOpen: false,
-      mobileKnowledgeNavDomain: null
     };
   });
 }
@@ -836,7 +764,6 @@ function selectBranch(branchId) {
           activeDetail: null,
           equationReturnTarget: null,
           mobileKnowledgeNavOpen: false,
-          mobileKnowledgeNavDomain: null
         };
       }
 
@@ -849,7 +776,6 @@ function selectBranch(branchId) {
         activeDetail: null,
         equationReturnTarget: null,
         mobileKnowledgeNavOpen: false,
-        mobileKnowledgeNavDomain: null
       };
     }
 
@@ -862,7 +788,6 @@ function selectBranch(branchId) {
       activeDetail: null,
       equationReturnTarget: null,
       mobileKnowledgeNavOpen: false,
-      mobileKnowledgeNavDomain: null
     };
   });
 }
@@ -881,7 +806,6 @@ function selectDetail(itemId) {
         activeDetail: pendingStructuredReturn.detailId,
         equationReturnTarget: null,
         mobileKnowledgeNavOpen: false,
-        mobileKnowledgeNavDomain: null
       };
     }
 
@@ -900,7 +824,6 @@ function selectDetail(itemId) {
         activeDetail: pendingLegacyReturn.itemId,
         equationReturnTarget: null,
         mobileKnowledgeNavOpen: false,
-        mobileKnowledgeNavDomain: null
       };
     }
 
@@ -912,7 +835,6 @@ function selectDetail(itemId) {
       activeDetail: state.activeDetail === itemId ? null : itemId,
       equationReturnTarget: state.activeDetail === itemId ? null : state.equationReturnTarget,
       mobileKnowledgeNavOpen: false,
-      mobileKnowledgeNavDomain: null
     };
   });
 }
@@ -936,7 +858,6 @@ function selectLegacyItem(branchId, itemId) {
       activeDetail: itemId,
       equationReturnTarget,
       mobileKnowledgeNavOpen: false,
-      mobileKnowledgeNavDomain: null
     };
   });
 }
@@ -959,7 +880,6 @@ function showMobileSections() {
         activeDetail: null,
         equationReturnTarget: null,
         mobileKnowledgeNavOpen: false,
-        mobileKnowledgeNavDomain: null
       };
     }
 
@@ -967,69 +887,42 @@ function showMobileSections() {
   });
 }
 
+function focusScienceCategory(domainId) {
+  const panel = refs.stage.querySelector(".mobile-knowledge-nav__panel");
+  const button = [...refs.stage.querySelectorAll(".mobile-knowledge-nav__domain-button")]
+    .find(node => node.dataset.domainId === domainId);
+  if (panel) panel.scrollTop = store.getState().mobileKnowledgeNavDomain ? 0 : menuListScrollTop;
+  button?.focus({ preventScroll: true });
+  button?.scrollIntoView({ block: "nearest" });
+}
+
 function toggleMobileKnowledgeNav() {
-  store.setState((state) => {
-    const opening = !state.mobileKnowledgeNavOpen;
-    const activeScienceDomainId = state.activeDomain
-      ?? findDomainIdForTopic(state.activeTopic)
-      ?? state.mobileKnowledgeNavDomain
-      ?? null;
-
-    if (!opening) {
-      return {
-        ...state,
-        mobileKnowledgeNavOpen: false,
-        mobileKnowledgeNavDomain: null
-      };
+  if (!store.getState().mobileKnowledgeNavOpen) captureReaderScrollRestoration();
+  store.setState(toggleScienceMenu);
+  if (store.getState().mobileKnowledgeNavOpen) {
+    focusScienceCategory(store.getState().mobileKnowledgeNavDomain);
+    if (!store.getState().mobileKnowledgeNavDomain) {
+      refs.stage.querySelector(".mobile-knowledge-nav__domain-button")?.focus({ preventScroll: true });
     }
-
-    return {
-      ...state,
-      titleOpen: false,
-      activeSection: null,
-      showPersonalSectionList: false,
-      activeDomain: activeScienceDomainId,
-      activeTopic: null,
-      activeBranch: null,
-      activeDetail: null,
-      equationReturnTarget: null,
-      mobileKnowledgeNavOpen: true,
-      mobileKnowledgeNavDomain: null
-    };
-  });
+  } else {
+    refs.mobileKnowledgeToggle?.focus({ preventScroll: true });
+  }
 }
 
 function toggleMobileKnowledgeDomain(domainId) {
-  store.setState((state) => ({
-    ...state,
-    mobileKnowledgeNavOpen: true,
-    mobileKnowledgeNavDomain: state.mobileKnowledgeNavDomain === domainId ? null : domainId
-  }));
+  if (!siteContent.knowledgeWorlds.some(domain => domain.id === domainId)) return;
+  if (!store.getState().mobileKnowledgeNavDomain) {
+    menuListScrollTop = refs.stage.querySelector(".mobile-knowledge-nav__panel")?.scrollTop ?? 0;
+  }
+  store.setState(state => toggleScienceCategory(state, domainId));
+  focusScienceCategory(domainId);
 }
 
 function selectMobileKnowledgeTopic(domainId, topicId) {
+  if (!siteContent.knowledgeWorlds.find(domain => domain.id === domainId)?.topics.some(topic => topic.id === topicId)) return;
   clearPendingReturnNavigation();
-  store.setState((state) => {
-    if (state.activeDomain === domainId && state.activeTopic === topicId) {
-      return returnToKnowledgeDomain(state, domainId, {
-        openMobileMenu: true
-      });
-    }
-
-    return {
-      ...state,
-      titleOpen: false,
-      activeSection: null,
-      showPersonalSectionList: false,
-      activeDomain: domainId,
-      activeTopic: topicId,
-      activeBranch: null,
-      activeDetail: null,
-      equationReturnTarget: null,
-      mobileKnowledgeNavOpen: false,
-      mobileKnowledgeNavDomain: null
-    };
-  });
+  store.setState(state => selectScienceMenuTopic(state, domainId, topicId));
+  refs.stage.querySelector(".content-window")?.focus({ preventScroll: true });
 }
 
 function toggleLanguage() {
@@ -1395,6 +1288,14 @@ document.addEventListener("click", (event) => {
   if (actionTarget) {
     const { action } = actionTarget.dataset;
 
+    if (action === "retry-content") {
+      invalidateDocument(actionTarget.closest("[data-source]")?.dataset.source);
+      captureReaderScrollRestoration();
+      syncUi();
+      refs.stage.querySelector(".content-window")?.focus({ preventScroll: true });
+      return;
+    }
+
     if (action === "select-chapter") {
       selectChapter(actionTarget.dataset.chapterId);
       return;
@@ -1625,7 +1526,6 @@ window.addEventListener("resize", () => {
     applyGalleryZoom(false, true);
   }
 
-  scheduleKnowledgeTabOverlapSync();
 });
 
 const scheduleReaderSave = installRoutes(store, (position) => {

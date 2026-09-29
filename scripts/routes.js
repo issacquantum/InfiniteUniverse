@@ -25,7 +25,7 @@ export function parseRoute(hash) {
   if (parts[1] === 'science') {
     owner = topics.find(t => t.id === parts[2]);
     if (!owner) return null;
-    state.activeTopic = owner.id; state.activeDomain = owner.domain;
+    state.activeTopic = owner.id; state.activeDomain = owner.domain; state.mobileKnowledgeNavDomain = owner.domain;
   } else if (parts[1] === 'personal') {
     const oldLibrary = parts[2] === 'learning-path' && params.get('chapter') === 'library-influences';
     const oldChapter = !oldLibrary && ['origins', 'learning-path', 'music', 'practice-worlds'].includes(parts[2]) ? parts[2] : null;
@@ -78,7 +78,7 @@ export function installRoutes(store, beforeRestore = () => {}, capturePosition =
     clearTimeout(saveTimer);
     saveTimer = null;
     lastSave = Date.now();
-    const reader = remember();
+    const reader = remember() ?? positions.get(entryId) ?? history.state?.reader ?? null;
     try {
       history.replaceState({ ...history.state, readerEntryId: entryId, reader }, "");
     } catch (error) {
@@ -114,7 +114,8 @@ export function installRoutes(store, beforeRestore = () => {}, capturePosition =
   store.subscribe(state => {
     if (restoring) return;
     const next = routeFor(state);
-    if (next !== location.hash) {
+    if (state.mobileKnowledgeNavOpen && !currentState.mobileKnowledgeNavOpen) persist();
+    if (next !== routeFor(currentState) && next !== location.hash) {
       persist();
       entryId = crypto.randomUUID();
       history.pushState({ route: next, readerEntryId: entryId, returnTarget: state.equationReturnTarget }, '', next);

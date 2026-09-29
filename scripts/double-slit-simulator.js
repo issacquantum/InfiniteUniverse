@@ -1,4 +1,4 @@
-import { deferModelInitialization, modelPixelRatio, requestModelFrame, stopModelAnimation } from "./performance-profile.js?v=20260913-mobile-power-v1";
+import { deferModelInitialization, modelPixelRatio, requestModelFrame, stopModelAnimation } from "./performance-profile.js?v=20260928-reader-repair-v1";
 import { bindPinchZoom, isModelPanGesture } from "./model-pan.js?v=20260927-stellar-reader-v1";
 
 const mountedSimulators = new WeakSet();

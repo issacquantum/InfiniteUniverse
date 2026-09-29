@@ -1,25 +1,26 @@
-import { enhanceScienceReader, restoreHeading } from "./science-reader.js?v=20260927-quantum-depth-v1";
-import { observeMobileMedia } from "./performance-profile.js?v=20260913-mobile-power-v1";
+import { showReaderRecovery, runOptionalEnhancement } from "./reader-recovery.js?v=20260928-reader-repair-v1";
+import { enhanceScienceReader, restoreHeading } from "./science-reader.js?v=20260928-reader-repair-v1";
+import { observeMobileMedia } from "./performance-profile.js?v=20260928-reader-repair-v1";
 import { guardReaderRestoration, restoreReaderPosition, restoreReaderScroll } from "./reader-position.js?v=20260927-stellar-reader-v1";
 import { pick } from "./i18n.js?v=20260913-social-dock-v1";
-import { initDoubleSlitSimulators } from "./double-slit-simulator.js?v=20260927-stellar-reader-v1";
-import { initGravityFabricModels } from "./gravity-fabric-model.js?v=20260927-stellar-reader-v1";
-import { initGravityLensingModels } from "./gravity-lensing-model.js?v=20260927-stellar-reader-v1";
-import { initQuantumEntanglementModels } from "./quantum-entanglement-model.js?v=20260927-stellar-reader-v1";
-import { initQuantumChannelModels } from "./quantum-channel-model.js?v=20260927-stellar-reader-v1";
-import { initQuantumModels } from "./quantum-model.js?v=20260926-mobile-stability-v1";
-import { initOrbitalSelectorModels } from "./orbital-selector-model.js?v=20260927-stellar-reader-v1";
-import { initWormholeModels } from "./wormhole-model.js?v=20260927-stellar-reader-v1";
-import { initNumericalMethodsModels } from "./numerical-methods-model.js?v=20260927-stellar-reader-v1";
-import { initNeuralArchitectModels } from "./neural-architect-model.js?v=20260927-stellar-reader-v1";
-import { initInformationTheoryModels } from "./information-theory-model.js?v=20260927-stellar-reader-v1";
-import { initAlgorithmVisualizerModels } from "./algorithm-visualizer-model.js?v=20260927-stellar-reader-v1";
-import { initQuantumFluctuationModels } from "./quantum-fluctuation-model.js?v=20260927-stellar-reader-v1";
-import { initBlackHoleModels } from "./black-hole-model.js?v=20260927-stellar-reader-v1";
-import { initFoundationModels } from "./foundation-models.js?v=20260927-stellar-reader-v1";
+import { initDoubleSlitSimulators } from "./double-slit-simulator.js?v=20260928-reader-repair-v1";
+import { initGravityFabricModels } from "./gravity-fabric-model.js?v=20260928-reader-repair-v1";
+import { initGravityLensingModels } from "./gravity-lensing-model.js?v=20260928-reader-repair-v1";
+import { initQuantumEntanglementModels } from "./quantum-entanglement-model.js?v=20260928-reader-repair-v1";
+import { initQuantumChannelModels } from "./quantum-channel-model.js?v=20260928-reader-repair-v1";
+import { initQuantumModels } from "./quantum-model.js?v=20260928-reader-repair-v1";
+import { initOrbitalSelectorModels } from "./orbital-selector-model.js?v=20260928-reader-repair-v1";
+import { initWormholeModels } from "./wormhole-model.js?v=20260928-reader-repair-v1";
+import { initNumericalMethodsModels } from "./numerical-methods-model.js?v=20260928-reader-repair-v1";
+import { initNeuralArchitectModels } from "./neural-architect-model.js?v=20260928-reader-repair-v1";
+import { initInformationTheoryModels } from "./information-theory-model.js?v=20260928-reader-repair-v1";
+import { initAlgorithmVisualizerModels } from "./algorithm-visualizer-model.js?v=20260928-reader-repair-v1";
+import { initQuantumFluctuationModels } from "./quantum-fluctuation-model.js?v=20260928-reader-repair-v1";
+import { initBlackHoleModels } from "./black-hole-model.js?v=20260928-reader-repair-v1";
+import { initFoundationModels } from "./foundation-models.js?v=20260928-reader-repair-v1";
 import { enhanceModelAccessibility } from "./model-accessibility.js?v=20260920-model-controls-v1";
 import { clearReaderMath, reportReaderMathError, renderReaderMath as renderMath } from "./reader-math.js?v=20260927-reader-equations-v3";
-import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260927-quantum-depth-v1";
+import { getCachedDocument, getCachedDocumentNow, hasCachedDocument } from "./content-cache.js?v=20260928-reader-repair-v1";
 import { decorateModelBadges, decoratePhotonOutlines, syncReadingConstellation } from "./creative-effects.js?v=20260926-mobile-stability-v1";
 
 let activeRequestToken = 0;
@@ -334,8 +335,7 @@ function commitStructuredDocument({
   const extracted = extractStructuredFragment(documentNode);
 
   if (!extracted) {
-    host.setAttribute("aria-busy", "false");
-    host.innerHTML = `<p class="content-placeholder" role="status">${escapeHtml(pick(content.ui.contentUnavailable, state.language))}</p>`;
+    showReaderRecovery(host, state.language);
     return true;
   }
 
@@ -364,21 +364,21 @@ function commitStructuredDocument({
 
     enhanceScienceReader(host, state);
     observeMobileMedia(host);
-    initDoubleSlitSimulators(host);
-    initGravityFabricModels(host);
-    initGravityLensingModels(host);
-    initWormholeModels(host);
-    initQuantumEntanglementModels(host);
-    initQuantumChannelModels(host);
-    initOrbitalSelectorModels(host);
-    initNumericalMethodsModels(host);
-    initNeuralArchitectModels(host);
-    initInformationTheoryModels(host);
-    initAlgorithmVisualizerModels(host);
-    initQuantumFluctuationModels(host);
-    initBlackHoleModels(host);
-    initQuantumModels(host);
-    initFoundationModels(host);
+    runOptionalEnhancement(host, state.language, initDoubleSlitSimulators);
+    runOptionalEnhancement(host, state.language, initGravityFabricModels);
+    runOptionalEnhancement(host, state.language, initGravityLensingModels);
+    runOptionalEnhancement(host, state.language, initWormholeModels);
+    runOptionalEnhancement(host, state.language, initQuantumEntanglementModels);
+    runOptionalEnhancement(host, state.language, initQuantumChannelModels);
+    runOptionalEnhancement(host, state.language, initOrbitalSelectorModels);
+    runOptionalEnhancement(host, state.language, initNumericalMethodsModels);
+    runOptionalEnhancement(host, state.language, initNeuralArchitectModels);
+    runOptionalEnhancement(host, state.language, initInformationTheoryModels);
+    runOptionalEnhancement(host, state.language, initAlgorithmVisualizerModels);
+    runOptionalEnhancement(host, state.language, initQuantumFluctuationModels);
+    runOptionalEnhancement(host, state.language, initBlackHoleModels);
+    runOptionalEnhancement(host, state.language, initQuantumModels);
+    runOptionalEnhancement(host, state.language, initFoundationModels);
     enhanceModelAccessibility(host, state);
     decoratePhotonOutlines(host);
     const mathReady = renderMath(host).catch(error => {
@@ -444,6 +444,7 @@ export async function syncStructuredContent({
 
   const requestToken = ++activeRequestToken;
   const filePath = pick(source, state.language);
+  host.dataset.source = filePath;
   const cachedDocument = getCachedDocumentNow(filePath);
 
   if (cachedDocument) {
@@ -519,9 +520,6 @@ export async function syncStructuredContent({
       window.clearTimeout(loadingPlaceholderTimer);
     }
 
-    host.setAttribute("aria-busy", "false");
-    if (!hasVisibleContent) {
-      host.innerHTML = `<p class="content-placeholder" role="status">${escapeHtml(pick(content.ui.contentUnavailable, state.language))}</p>`;
-    }
+    showReaderRecovery(host, state.language);
   }
 }

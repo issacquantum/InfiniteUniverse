@@ -1,3 +1,4 @@
+import { runOptionalEnhancement } from "./reader-recovery.js?v=20260928-reader-repair-v1";
 // Match the site's tablet boundary; touch-primary tablets also qualify in landscape.
 export const MOBILE_PERFORMANCE_QUERY = "(max-width: 1024px), (hover: none) and (pointer: coarse)";
 const profile = window.matchMedia(MOBILE_PERFORMANCE_QUERY);
@@ -49,8 +50,9 @@ function watchRemovals() {
 
 // Constructors (including their Three.js imports) wait until the model is nearby.
 export function deferModelInitialization(element, initialize) {
+  const start = () => runOptionalEnhancement(element, element.ownerDocument?.documentElement?.lang ?? "en", initialize);
   if (!isMobilePerformance()) {
-    initialize();
+    start();
     return;
   }
   if (!element.isConnected || pending.has(element)) return;
@@ -66,7 +68,7 @@ export function deferModelInitialization(element, initialize) {
       }
     }, { rootMargin: "200px 0px" });
   }
-  pending.set(element, initialize);
+  pending.set(element, start);
   approachObserver.observe(element);
 }
 
